@@ -60,7 +60,7 @@ def collage(image_paths):
     single_height = hero_imgs[0].height
     single_width = hero_imgs[0].width
     divider = 35
-    out = Image.new('RGB', (single_width*cols+divider, single_height*rows))
+    out = Image.new('RGB', (single_width*cols+divider, single_height*rows),color=(47,49,54,0))
     i = 0
     x = 0
     y = 0
