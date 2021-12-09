@@ -103,6 +103,8 @@ async def on_message(message):
         images = []
         for i in range(0,6):
             pick = random.choice(heroes)
+            if pick['localized_name'] == "Lifestealer":
+                pick['localized_name'] = "Weird Dog"
             heroes.remove(pick)
             chosen.append(pick)
             images.append(get_hero_img(pick))
