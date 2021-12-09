@@ -42,12 +42,13 @@ def pick_heroes(user_list):
                   ]
     chosen = random.sample(heroes, 6)
     for pick in chosen:
-        user_pick = random.choice(user_list)
         if pick['localized_name'] == "Lifestealer":
             pick['localized_name'] = "Weird Dog"
         pick['image'] = get_hero_img(pick)
-        pick['user'] = user_pick
-        user_list.remove(user_pick)
+        if user_list and len(user_list) > 0:
+            user_pick = random.choice(user_list)
+            pick['user'] = user_pick
+            user_list.remove(user_pick)
     return chosen
 
 
