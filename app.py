@@ -67,7 +67,7 @@ async def on_message(message):
         embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}\n{chosen[4]['localized_name']}\n{chosen[5]['localized_name']}", inline=True)
         embedVar.set_footer(text="Game started by: {}".format(message.author))
         msg = await message.channel.send(embed=embedVar)
-        msg.add_reaction("<:morphGive:908107050163249272>")
+        await msg.add_reaction("<:morphGive:908107050163249272>")
 
 
 get_hero_info()
