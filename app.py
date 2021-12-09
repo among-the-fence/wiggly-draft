@@ -74,7 +74,9 @@ def collage(image_paths):
             y += single_height
         x += single_width+divider
         y = 0
-    out.paste(versus,(180,136), versus)
+    w, h = versus.size
+    W, H = out.size
+    out.paste(versus,(int((W-w)/2),int((H-h)/2)), versus)
     out.save("Collage.jpg")
 
 
@@ -144,15 +146,14 @@ async def on_message(message):
                         images.append(get_hero_img(pick))
                     collage(images)
                     embedVar=discord.Embed(
-                        title="Let's Get Ready to Street Dota!",
+                        title="FIGHT!",
                         color=0xaf0101)
                     file = discord.File("Collage.jpg", filename="image.jpg")
                     embedVar.set_image(url="attachment://image.jpg")
                     embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']}\n{chosen[1]['localized_name']}\n{chosen[2]['localized_name']}", inline=True)
                     embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}\n{chosen[4]['localized_name']}\n{chosen[5]['localized_name']}", inline=True)
                     embedVar.set_footer(text="Game started by: {}".format(message.author))
-                    msg = await message.channel.send(file=file, embed=embedVar)
-                    await msg.add_reaction("<:morphGive:908107050163249272>")
+                    await message.channel.send(file=file, embed=embedVar)
                     break
             
             except asyncio.TimeoutError:
