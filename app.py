@@ -111,7 +111,7 @@ async def on_message(message):
                             user_list = [user async for user in reactions.users() if user != client.user]
                             for user in user_list:
                                 users = users + user.mention + "\n"
-                currentPlayers = len(user_list)
+                                currentPlayers = len(user_list)
                 slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
                 new_embed = discord.Embed(
                     title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
