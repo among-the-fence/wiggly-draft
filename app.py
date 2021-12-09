@@ -127,11 +127,7 @@ async def on_message(message):
         while True:
             users = ""
             try:
-<<<<<<< HEAD
                 reaction, user= await client.wait_for("reaction_add", timeout=60)
-=======
-                reaction, user = await client.wait_for("reaction_add", timeout=60)
->>>>>>> 51f5447d71cd4f6d79c9fca0232f84104c5ad8d4
                 if str(reaction) == "<:io:908114245806329886>":
                     msg = await message.channel.fetch_message(msg.id)
                     for reactions in msg.reactions:
