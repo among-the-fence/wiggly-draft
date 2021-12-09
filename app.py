@@ -20,7 +20,7 @@ logger.addHandler(handler)
 load_dotenv()
 
 config = configparser.ConfigParser()
-config.read("tokens")
+config.read("config")
 tokens = config['DEFAULT']
 bot_token = tokens['discord'] if 'discord' in tokens and tokens['discord'] else os.environ.get("BOT_TOKEN")
 dota_token = tokens['dota'] if 'dota' in tokens and tokens['dota'] else os.environ.get("DOTA_TOKEN")
