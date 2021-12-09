@@ -164,8 +164,8 @@ async def on_message(message):
                         color=0x0faff4)
                     file = discord.File("Collage.jpg", filename="image.jpg")
                     embedVar.set_image(url="attachment://image.jpg")
-                    embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']} {chosen[0]['user']}\n{chosen[1]['localized_name']}  {chosen[1]['user']}\n{chosen[2]['localized_name']}  {chosen[2]['user']}", inline=True)
-                    embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}  {chosen[3]['user']}\n{chosen[4]['localized_name']}  {chosen[4]['user']} \n{chosen[5]['localized_name']}  {chosen[5]['user']}", inline=True)
+                    embedVar.add_field(name="Radiant Players", value=f"{chosen[0]['user']}\n{chosen[1]['user']}\n{chosen[2]['user']}", inline=True)
+                    embedVar.add_field(name="Dire Players", value=f"{chosen[3]['user']}\n{chosen[4]['user']} \n{chosen[5]['user']}", inline=True)
                     embedVar.set_footer(text="Game started by: {}".format(message.author))
                     await message.channel.send(file=file, embed=embedVar)
                     break
