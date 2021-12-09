@@ -57,15 +57,16 @@ async def on_message(message):
                       {'localized_name': "hero6"},
                       ]
         chosen = []
-        for i in range(0,):
+        for i in range(0,6):
             pick = random.choice(heroes)
-            chosen.append(pick['localized_name'])
-            heroes.remove(pick)
+            chosen.append(pick)
+        img_url = "http://cdn.dota2.com/apps/dota2/images/heroes/" + chosen[1]['name'].replace('npc_dota_hero_', '') + "_sb.png"
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!",
             color=0xaf0101)
-        embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]}\n{chosen[1]}\n{chosen[2]}", inline=True)
-        embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]}\n{chosen[4]}\n{chosen[5]}", inline=True)
+        embedVar.set_image(url=img_url)
+        embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']}\n{chosen[1]['localized_name']}\n{chosen[2]['localized_name']}", inline=True)
+        embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}\n{chosen[4]['localized_name']}\n{chosen[5]['localized_name']}", inline=True)
         embedVar.set_footer(text="Game started by: {}".format(message.author))
         await message.channel.send(embed=embedVar)
 
