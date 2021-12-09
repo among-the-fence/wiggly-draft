@@ -8,6 +8,7 @@ import logging
 import requests
 import random
 from PIL import Image
+import asyncio
 
 
 logger = logging.getLogger('discord')
@@ -88,38 +89,75 @@ async def on_message(message):
         return
 
     if message.content.startswith('!wiggle'):
-        if exists("heroData.json"):
-            heroesjson = json.loads(open("heroData.json", 'r').read())
-            heroes = heroesjson['heroes']
-        else:
-            heroes = [{'localized_name': "hero1"},
-                      {'localized_name': "hero2"},
-                      {'localized_name': "hero3"},
-                      {'localized_name': "hero4"},
-                      {'localized_name': "hero5"},
-                      {'localized_name': "hero6"},
-                      ]
-        chosen = []
-        images = []
-        for i in range(0,6):
-            pick = random.choice(heroes)
-            if pick['localized_name'] == "Lifestealer":
-                pick['localized_name'] = "Weird Dog"
-            heroes.remove(pick)
-            chosen.append(pick)
-            images.append(get_hero_img(pick))
-        collage(images)
+        currentPlayers = 0
+        maxPlayers = 2
+        slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
         embedVar=discord.Embed(
-            title="Let's Get Ready to Street Dota!",
+            title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
             color=0xaf0101)
-        file = discord.File("Collage.jpg", filename="image.jpg")
-        embedVar.set_image(url="attachment://image.jpg")
-        embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']}\n{chosen[1]['localized_name']}\n{chosen[2]['localized_name']}", inline=True)
-        embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}\n{chosen[4]['localized_name']}\n{chosen[5]['localized_name']}", inline=True)
         embedVar.set_footer(text="Game started by: {}".format(message.author))
-        msg = await message.channel.send(file=file, embed=embedVar)
-        await msg.add_reaction("<:morphGive:908107050163249272>")
-
+        embedVar.add_field(name='Signed up: ', value=slotString, inline=False)
+        msg = await message.channel.send(embed=embedVar)
+        await msg.add_reaction("<:io:908114245806329886>")
+        while True:
+            users = ""
+            try:
+                reaction, user= await client.wait_for("reaction_add", timeout=60)
+                if str(reaction) == "<:io:908114245806329886>":
+                    msg = await message.channel.fetch_message(msg.id)
+                    reaction_list = msg.reactions
+                    for reactions in msg.reactions:
+                        if str(reactions) == "<:io:908114245806329886>":
+                            user_list = [user async for user in reactions.users() if user != client.user]
+                            for user in user_list:
+                                users = users + user.mention + "\n"
+                                currentPlayers = len(user_list)
+                slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
+                new_embed = discord.Embed(
+                    title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
+                    color=0xaf0101)
+                new_embed.set_footer(text="Game started by: {}".format(message.author))
+                new_embed.add_field(name='Signed up: ', value= slotString + users, inline=False)
+                
+                await msg.edit(embed = new_embed)
+            
+                if currentPlayers == maxPlayers:
+                    if exists("heroData.json"):
+                        heroesjson = json.loads(open("heroData.json", 'r').read())
+                        heroes = heroesjson['heroes']
+                    else:
+                        heroes = [{'localized_name': "hero1"},
+                                {'localized_name': "hero2"},
+                                {'localized_name': "hero3"},
+                                {'localized_name': "hero4"},
+                                {'localized_name': "hero5"},
+                                {'localized_name': "hero6"},
+                                ]
+                    chosen = []
+                    images = []
+                    for i in range(0,6):
+                        pick = random.choice(heroes)
+                        if pick['localized_name'] == "Lifestealer":
+                            pick['localized_name'] = "Weird Dog"
+                        heroes.remove(pick)
+                        chosen.append(pick)
+                        images.append(get_hero_img(pick))
+                    collage(images)
+                    embedVar=discord.Embed(
+                        title="Let's Get Ready to Street Dota!",
+                        color=0xaf0101)
+                    file = discord.File("Collage.jpg", filename="image.jpg")
+                    embedVar.set_image(url="attachment://image.jpg")
+                    embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']}\n{chosen[1]['localized_name']}\n{chosen[2]['localized_name']}", inline=True)
+                    embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}\n{chosen[4]['localized_name']}\n{chosen[5]['localized_name']}", inline=True)
+                    embedVar.set_footer(text="Game started by: {}".format(message.author))
+                    msg = await message.channel.send(file=file, embed=embedVar)
+                    await msg.add_reaction("<:morphGive:908107050163249272>")
+                    break
+            
+            except asyncio.TimeoutError:
+                break
+            
 if __name__ == "__main__":
     get_hero_info()
     client.run(bot_token)
