@@ -92,7 +92,7 @@ async def on_message(message):
 
     if message.content.startswith('!wiggle'):
         currentPlayers = 0
-        maxPlayers = 4
+        maxPlayers = 3
         slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
@@ -105,7 +105,7 @@ async def on_message(message):
         while True:
             users = ""
             try:
-                reaction, user= await client.wait_for("reaction_add", timeout=10)
+                reaction, user= await client.wait_for("reaction_add", timeout=60)
                 if str(reaction) == "<:io:908114245806329886>":
                     msg = await message.channel.fetch_message(msg.id)
                     reaction_list = msg.reactions
@@ -148,7 +148,7 @@ async def on_message(message):
                     collage(images)
                     embedVar=discord.Embed(
                         title="FIGHT!",
-                        color=0xb5d807)
+                        color=0x0faff4)
                     file = discord.File("Collage.jpg", filename="image.jpg")
                     embedVar.set_image(url="attachment://image.jpg")
                     embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']}\n{chosen[1]['localized_name']}\n{chosen[2]['localized_name']}", inline=True)
