@@ -14,7 +14,7 @@ load_dotenv()
 # .env
 # BOT_TOKEN="<token>"
 
-bot_token = os.environ.get("BOT_TOKEN")
+token = os.environ.get("BOT_TOKEN")
 
 client = discord.Client()
 
@@ -28,6 +28,12 @@ async def on_message(message):
         return
 
     if message.content.startswith('!wiggle'):
-        await message.channel.send('Do the wiggle!')
+        embedVar=discord.Embed(
+            title="Let's Get Ready to Street Dota!",
+            color=0xaf0101)
+        embedVar.add_field(name="Radiant Heroes", value="{hero1}\n{hero2}\n{hero3}", inline=True)
+        embedVar.add_field(name="Dire Heroes", value="{hero4}\n{hero5}\n{hero6}", inline=True)
+        embedVar.set_footer(text="Game started by: {}".format(message.author))
+        await message.channel.send(embed=embedVar)
 
-client.run(bot_token)
+client.run(token)
