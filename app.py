@@ -59,7 +59,8 @@ def collage(image_paths):
     rows = 3
     single_height = hero_imgs[0].height
     single_width = hero_imgs[0].width
-    out = Image.new('RGB', (single_width*cols+5, single_height*rows))
+    divider = 35
+    out = Image.new('RGB', (single_width*cols+divider, single_height*rows))
     i = 0
     x = 0
     y = 0
@@ -69,7 +70,7 @@ def collage(image_paths):
             out.paste(hero_imgs[i], (x, y))
             i += 1
             y += single_height
-        x += single_width+5
+        x += single_width+divider
         y = 0
     out.save("Collage.jpg")
 
