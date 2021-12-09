@@ -120,7 +120,7 @@ async def on_message(message):
                     title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
                     color=0xaf0101)
                 new_embed.set_footer(text="Game started by: {}".format(message.author))
-                new_embed.add_field(name='Signed up: ', value= slotString + users, inline=False)
+                new_embed.add_field(name='Signed up:', value= slotString + users, inline=False)
                 
                 await msg.edit(embed = new_embed)
             
@@ -148,7 +148,7 @@ async def on_message(message):
                     collage(images)
                     embedVar=discord.Embed(
                         title="FIGHT!",
-                        color=0xaf0101)
+                        color=0xb5d807)
                     file = discord.File("Collage.jpg", filename="image.jpg")
                     embedVar.set_image(url="attachment://image.jpg")
                     embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']}\n{chosen[1]['localized_name']}\n{chosen[2]['localized_name']}", inline=True)
@@ -160,7 +160,7 @@ async def on_message(message):
             except asyncio.TimeoutError:
                 break_embed = discord.Embed(
                     title="Don't do a hit!", description="The draft was aborted due to timeout.",
-                    color=0xaf0101)
+                    color=0x000000)
                 await msg.edit(embed = break_embed)
                 break
             
