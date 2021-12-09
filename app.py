@@ -118,6 +118,6 @@ async def on_message(message):
         msg = await message.channel.send(file=file, embed=embedVar)
         await msg.add_reaction("<:morphGive:908107050163249272>")
 
-
-get_hero_info()
-client.run(bot_token)
+if __name__ == "__main__":
+    get_hero_info()
+    client.run(bot_token)
