@@ -20,11 +20,12 @@ logger.addHandler(handler)
 load_dotenv()
 
 config = configparser.ConfigParser()
-config.read("tokens")
-tokens = config['DEFAULT']
-bot_token = tokens['discord'] if 'discord' in tokens and tokens['discord'] else os.environ.get("BOT_TOKEN")
-dota_token = tokens['dota'] if 'dota' in tokens and tokens['dota'] else os.environ.get("DOTA_TOKEN")
-
+config.read("config")
+env_config = config['DEFAULT']
+bot_token = env_config['discord'] if 'discord' in env_config and env_config['discord'] else os.environ.get("BOT_TOKEN")
+dota_token = env_config['dota'] if 'dota' in env_config and env_config['dota'] else os.environ.get("DOTA_TOKEN")
+max_players = int(env_config['player_count'])
+listen_timeout = int(env_config['timeout'])
 client = discord.Client()
 
 
@@ -42,12 +43,13 @@ def pick_heroes(user_list):
                   ]
     chosen = random.sample(heroes, 6)
     for pick in chosen:
-        user_pick = random.choice(user_list)
         if pick['localized_name'] == "Lifestealer":
             pick['localized_name'] = "Weird Dog"
         pick['image'] = get_hero_img(pick)
-        pick['user'] = user_pick
-        user_list.remove(user_pick)
+        if user_list and len(user_list) > 0:
+            user_pick = random.choice(user_list)
+            pick['user'] = user_pick
+            user_list.remove(user_pick)
     return chosen
 
 
@@ -121,8 +123,7 @@ async def on_message(message):
 
     if message.content.startswith('!wiggle'):
         currentPlayers = 0
-        maxPlayers = 1
-        slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
+        slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
             color=0xaf0101)
@@ -135,7 +136,7 @@ async def on_message(message):
         while True:
             users = ""
             try:
-                reaction, user = await client.wait_for("reaction_add", timeout=60)
+                reaction, user= await client.wait_for("reaction_add", timeout=listen_timeout)
                 if str(reaction) == "<:io:908114245806329886>":
                     msg = await message.channel.fetch_message(msg.id)
                     for reactions in msg.reactions:
@@ -144,7 +145,7 @@ async def on_message(message):
                             for user in user_list:
                                 users = users + user.mention + "\n"
                                 currentPlayers = len(user_list)
-                slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
+                slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
                 new_embed = discord.Embed(
                     title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
                     color=0xaf0101)
@@ -153,7 +154,7 @@ async def on_message(message):
                 
                 await msg.edit(embed=new_embed)
             
-                if currentPlayers == maxPlayers:
+                if len(user_list) == max_players:
                     chosen = pick_heroes(user_list)
                     collage(chosen)
                     embedVar=discord.Embed(
