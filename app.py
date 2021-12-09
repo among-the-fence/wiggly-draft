@@ -32,6 +32,22 @@ def get_hero_info():
         open("heroData.json", 'w').write(json.dumps(heroes['result']))
 
 
+def get_hero_img(hero_data):
+    img_name = hero_data['name'].replace('npc_dota_hero_', '') + "_sb.png"
+    save_location = f"imagecache/{img_name}"
+    if exists(save_location):
+        print("Found")
+    else:
+        with open(save_location, 'wb') as handle:
+            response = requests.get("http://cdn.dota2.com/apps/dota2/images/heroes/" + img_name, stream=True)
+            if not response.ok:
+                print(response)
+            for block in response.iter_content(1024):
+                if not block:
+                    break
+                handle.write(block)
+
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
@@ -58,7 +74,7 @@ async def on_message(message):
         for i in range(0,6):
             pick = random.choice(heroes)
             chosen.append(pick)
-        # img_url = "http://cdn.dota2.com/apps/dota2/images/heroes/" + chosen[1]['name'].replace('npc_dota_hero_', '') + "_sb.png"
+            get_hero_img(pick)
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!",
             color=0xaf0101)
