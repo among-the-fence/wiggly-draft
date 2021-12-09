@@ -25,9 +25,9 @@ client = discord.Client()
 
 
 def get_hero_info():
-    if not exists("heroData"):
+    if not exists("heroData.json") and 'dota' in tokens and tokens['dota']:
         heros = requests.get(f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={tokens['dota']}&language=en-US").content
-        open("heroData", 'w').write(json.dumps(str(heros), indent=2))
+        open("heroData.json", 'w').write(json.dumps(str(heros), indent=2))
 
 
 @client.event
