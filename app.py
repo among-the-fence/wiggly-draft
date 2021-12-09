@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import logging
 import requests
 import random
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 import asyncio
 
 
@@ -63,6 +63,7 @@ def get_hero_info():
 def get_hero_img(hero_data):
     img_name = hero_data['name'].replace('npc_dota_hero_', '') + "_lg.png"
     save_location = f"imagecache/{img_name}"
+    hero_name = hero_data['localized_name']
     if not exists(save_location):
         with open(save_location, 'wb') as handle:
             response = requests.get("http://cdn.dota2.com/apps/dota2/images/heroes/" + img_name, stream=True)
@@ -72,6 +73,13 @@ def get_hero_img(hero_data):
                 if not block:
                     break
                 handle.write(block)
+    portrait = Image.open(save_location)
+    W, H = portrait.size
+    padding = 4
+    draw = ImageDraw.Draw(portrait)
+    myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 20)
+    draw.text((padding,H-20), hero_name, (255,255,255), font = myFont)
+    portrait.save(save_location)
     return save_location
 
 
@@ -113,7 +121,7 @@ async def on_message(message):
 
     if message.content.startswith('!wiggle'):
         currentPlayers = 0
-        maxPlayers = 3
+        maxPlayers = 1
         slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
@@ -127,11 +135,7 @@ async def on_message(message):
         while True:
             users = ""
             try:
-<<<<<<< HEAD
-                reaction, user= await client.wait_for("reaction_add", timeout=60)
-=======
                 reaction, user = await client.wait_for("reaction_add", timeout=60)
->>>>>>> 51f5447d71cd4f6d79c9fca0232f84104c5ad8d4
                 if str(reaction) == "<:io:908114245806329886>":
                     msg = await message.channel.fetch_message(msg.id)
                     for reactions in msg.reactions:
