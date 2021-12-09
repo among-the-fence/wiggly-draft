@@ -100,6 +100,7 @@ async def on_message(message):
         images = []
         for i in range(0,6):
             pick = random.choice(heroes)
+            heroes.remove(pick)
             chosen.append(pick)
             images.append(get_hero_img(pick))
         collage(images)
