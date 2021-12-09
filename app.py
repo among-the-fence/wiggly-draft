@@ -1,7 +1,12 @@
+import configparser
+import json
+from os.path import exists
+
 import discord
 import os
 from dotenv import load_dotenv
 import logging
+import requests
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -11,12 +16,19 @@ logger.addHandler(handler)
 
 load_dotenv()
 
-# .env
-# BOT_TOKEN="<token>"
-
-bot_token = os.environ.get("BOT_TOKEN")
+config = configparser.ConfigParser()
+config.read("tokens")
+tokens = config['DEFAULT']
+bot_token = tokens['discord'] if 'discord' in tokens and tokens['discord'] else os.environ.get("BOT_TOKEN")
 
 client = discord.Client()
+
+
+def get_hero_info():
+    if not exists("heroData"):
+        heros = requests.get(f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={tokens['dota']}&language=en-US").content
+        open("heroData", 'w').write(json.dumps(str(heros), indent=2))
+
 
 @client.event
 async def on_ready():
@@ -30,4 +42,5 @@ async def on_message(message):
     if message.content.startswith('!wiggle'):
         await message.channel.send('Do the wiggle!')
 
+get_hero_info()
 client.run(bot_token)
