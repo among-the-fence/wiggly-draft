@@ -56,7 +56,7 @@ async def on_message(message):
                       {'localized_name': "hero6"},
                       ]
         chosen = []
-        for i in range(0,6):
+        for i in range(0,):
             pick = random.choice(heroes)
             chosen.append(pick['localized_name'])
             heroes.remove(pick)
