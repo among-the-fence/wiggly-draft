@@ -92,7 +92,7 @@ async def on_message(message):
 
     if message.content.startswith('!wiggle'):
         currentPlayers = 0
-        maxPlayers = 2
+        maxPlayers = 6
         slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
