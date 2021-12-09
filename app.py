@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 import logging
 import requests
+import random
 
 
 logger = logging.getLogger('discord')
@@ -26,8 +27,8 @@ client = discord.Client()
 
 def get_hero_info():
     if not exists("heroData.json") and 'dota' in tokens and tokens['dota']:
-        heros = json.loads(requests.get(f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={tokens['dota']}&language=en-US").content)
-        open("heroData.json", 'w').write(json.dumps(str(heros), indent=2))
+        heroes = json.loads(requests.get(f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={tokens['dota']}&language=en-US").content)
+        open("heroData.json", 'w').write(json.dumps(heroes['result']))
 
 
 @client.event
@@ -43,11 +44,27 @@ async def on_message(message):
     if message.content.startswith('!wiggle'):
         await message.channel.send('Do the wiggle!')
 
+        if exists("heroData.json"):
+            heroesjson = json.loads(open("heroData.json", 'r').read())
+            heroes = heroesjson['heroes']
+        else:
+            heroes = [{'localized_name': "hero1"},
+                      {'localized_name': "hero2"},
+                      {'localized_name': "hero3"},
+                      {'localized_name': "hero4"},
+                      {'localized_name': "hero5"},
+                      {'localized_name': "hero6"},
+                      ]
+        chosen = []
+        for i in range(0,6):
+            pick = random.choice(heroes)
+            chosen.append(pick['localized_name'])
+            heroes.remove(pick)
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!",
             color=0xaf0101)
-        embedVar.add_field(name="Radiant Heroes", value="{hero1}\n{hero2}\n{hero3}", inline=True)
-        embedVar.add_field(name="Dire Heroes", value="{hero4}\n{hero5}\n{hero6}", inline=True)
+        embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]}\n{chosen[1]}\n{chosen[2]}", inline=True)
+        embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]}\n{chosen[4]}\n{chosen[5]}", inline=True)
         embedVar.set_footer(text="Game started by: {}".format(message.author))
         await message.channel.send(embed=embedVar)
 
