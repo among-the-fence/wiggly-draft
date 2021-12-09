@@ -28,6 +28,29 @@ dota_token = tokens['dota'] if 'dota' in tokens and tokens['dota'] else os.envir
 client = discord.Client()
 
 
+def pick_heroes(user_list):
+    if exists("heroData.json"):
+        heroesjson = json.loads(open("heroData.json", 'r').read())
+        heroes = heroesjson['heroes']
+    else:
+        heroes = [{'localized_name': "hero1"},
+                  {'localized_name': "hero2"},
+                  {'localized_name': "hero3"},
+                  {'localized_name': "hero4"},
+                  {'localized_name': "hero5"},
+                  {'localized_name': "hero6"},
+                  ]
+    chosen = random.sample(heroes, 6)
+    for pick in chosen:
+        user_pick = random.choice(user_list)
+        if pick['localized_name'] == "Lifestealer":
+            pick['localized_name'] = "Weird Dog"
+        pick['image'] = get_hero_img(pick)
+        pick['user'] = user_pick
+        user_list.remove(user_pick)
+    return chosen
+
+
 def get_hero_info():
     if not exists("heroData.json"):
         heroes = json.loads(requests.get(f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={dota_token}&language=en-US").content)
@@ -40,9 +63,7 @@ def get_hero_info():
 def get_hero_img(hero_data):
     img_name = hero_data['name'].replace('npc_dota_hero_', '') + "_lg.png"
     save_location = f"imagecache/{img_name}"
-    if exists(save_location):
-        print("Found")
-    else:
+    if not exists(save_location):
         with open(save_location, 'wb') as handle:
             response = requests.get("http://cdn.dota2.com/apps/dota2/images/heroes/" + img_name, stream=True)
             if not response.ok:
@@ -54,8 +75,8 @@ def get_hero_img(hero_data):
     return save_location
 
 
-def collage(image_paths):
-    hero_imgs = [Image.open(x) for x in image_paths]
+def collage(hero_picks):
+    hero_imgs = [Image.open(x['image']) for x in hero_picks]
     versus = Image.open("imagecache/versus.png")
     cols = 2
     rows = 3
@@ -100,15 +121,19 @@ async def on_message(message):
         embedVar.set_footer(text="Game started by: {}".format(message.author))
         embedVar.add_field(name='Signed up: ', value=slotString, inline=False)
         msg = await message.channel.send(embed=embedVar)
+        user_list = []
         await msg.add_reaction("<:io:908114245806329886>")
         await msg.add_reaction("<:pudge:908107144254087169>")
         while True:
             users = ""
             try:
+<<<<<<< HEAD
                 reaction, user= await client.wait_for("reaction_add", timeout=60)
+=======
+                reaction, user = await client.wait_for("reaction_add", timeout=60)
+>>>>>>> 51f5447d71cd4f6d79c9fca0232f84104c5ad8d4
                 if str(reaction) == "<:io:908114245806329886>":
                     msg = await message.channel.fetch_message(msg.id)
-                    reaction_list = msg.reactions
                     for reactions in msg.reactions:
                         if str(reactions) == "<:io:908114245806329886>":
                             user_list = [user async for user in reactions.users() if user != client.user]
@@ -122,30 +147,11 @@ async def on_message(message):
                 new_embed.set_footer(text="Game started by: {}".format(message.author))
                 new_embed.add_field(name='Signed up:', value= slotString + users, inline=False)
                 
-                await msg.edit(embed = new_embed)
+                await msg.edit(embed=new_embed)
             
                 if currentPlayers == maxPlayers:
-                    if exists("heroData.json"):
-                        heroesjson = json.loads(open("heroData.json", 'r').read())
-                        heroes = heroesjson['heroes']
-                    else:
-                        heroes = [{'localized_name': "hero1"},
-                                {'localized_name': "hero2"},
-                                {'localized_name': "hero3"},
-                                {'localized_name': "hero4"},
-                                {'localized_name': "hero5"},
-                                {'localized_name': "hero6"},
-                                ]
-                    chosen = []
-                    images = []
-                    for i in range(0,6):
-                        pick = random.choice(heroes)
-                        if pick['localized_name'] == "Lifestealer":
-                            pick['localized_name'] = "Weird Dog"
-                        heroes.remove(pick)
-                        chosen.append(pick)
-                        images.append(get_hero_img(pick))
-                    collage(images)
+                    chosen = pick_heroes(user_list)
+                    collage(chosen)
                     embedVar=discord.Embed(
                         title="FIGHT!",
                         color=0x0faff4)
