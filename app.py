@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 import logging
 import requests
 import random
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 import asyncio
 
 
@@ -66,7 +66,8 @@ def get_hero_info():
 
 def get_hero_img(hero_data):
     img_name = hero_data['name'].replace('npc_dota_hero_', '') + "_lg.png"
-    save_location = f"imagecache/{img_name}"
+    save_location = f"imagecache/heroes/{img_name}"
+    hero_name = hero_data['localized_name']
     if not exists(save_location):
         with open(save_location, 'wb') as handle:
             response = requests.get("http://cdn.dota2.com/apps/dota2/images/heroes/" + img_name, stream=True)
@@ -76,6 +77,13 @@ def get_hero_img(hero_data):
                 if not block:
                     break
                 handle.write(block)
+    portrait = Image.open(save_location)
+    W, H = portrait.size
+    padding = 6
+    draw = ImageDraw.Draw(portrait)
+    myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 15)
+    draw.text((padding,H-20), hero_name, fill=(255,255,255), font = myFont, stroke_width=2, stroke_fill=(0,0,0))
+    portrait.save(save_location)
     return save_location
 
 
@@ -156,8 +164,8 @@ async def on_message(message):
                         color=0x0faff4)
                     file = discord.File("Collage.jpg", filename="image.jpg")
                     embedVar.set_image(url="attachment://image.jpg")
-                    embedVar.add_field(name="Radiant Heroes", value=f"{chosen[0]['localized_name']} {chosen[0]['user']}\n{chosen[1]['localized_name']}  {chosen[1]['user']}\n{chosen[2]['localized_name']}  {chosen[2]['user']}", inline=True)
-                    embedVar.add_field(name="Dire Heroes", value=f"{chosen[3]['localized_name']}  {chosen[3]['user']}\n{chosen[4]['localized_name']}  {chosen[4]['user']} \n{chosen[5]['localized_name']}  {chosen[5]['user']}", inline=True)
+                    embedVar.add_field(name="Radiant Players", value=f"{chosen[0]['user']}\n{chosen[1]['user']}\n{chosen[2]['user']}", inline=True)
+                    embedVar.add_field(name="Dire Players", value=f"{chosen[3]['user']}\n{chosen[4]['user']} \n{chosen[5]['user']}", inline=True)
                     embedVar.set_footer(text="Game started by: {}".format(message.author))
                     await message.channel.send(file=file, embed=embedVar)
                     break
