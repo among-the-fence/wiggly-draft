@@ -1,12 +1,12 @@
 import configparser
 import json
 from os.path import exists
-
 import discord
 import os
 from dotenv import load_dotenv
 import logging
 import requests
+
 
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
@@ -34,6 +34,7 @@ def get_hero_info():
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
 
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -41,6 +42,15 @@ async def on_message(message):
 
     if message.content.startswith('!wiggle'):
         await message.channel.send('Do the wiggle!')
+
+        embedVar=discord.Embed(
+            title="Let's Get Ready to Street Dota!",
+            color=0xaf0101)
+        embedVar.add_field(name="Radiant Heroes", value="{hero1}\n{hero2}\n{hero3}", inline=True)
+        embedVar.add_field(name="Dire Heroes", value="{hero4}\n{hero5}\n{hero6}", inline=True)
+        embedVar.set_footer(text="Game started by: {}".format(message.author))
+        await message.channel.send(embed=embedVar)
+
 
 get_hero_info()
 client.run(bot_token)
