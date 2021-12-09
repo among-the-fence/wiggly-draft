@@ -73,7 +73,7 @@ def collage(image_paths):
             y += single_height
         x += single_width+divider
         y = 0
-    out.paste(versus,(int((single_width*cols+divider)-88/2), int((single_height*rows)-75/2)), versus)
+    out.paste(versus,(180,136), versus)
     out.save("Collage.jpg")
 
 
