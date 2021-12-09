@@ -64,7 +64,7 @@ def get_hero_info():
 
 def get_hero_img(hero_data):
     img_name = hero_data['name'].replace('npc_dota_hero_', '') + "_lg.png"
-    save_location = f"imagecache/{img_name}"
+    save_location = f"imagecache/heroes/{img_name}"
     hero_name = hero_data['localized_name']
     if not exists(save_location):
         with open(save_location, 'wb') as handle:
@@ -77,10 +77,10 @@ def get_hero_img(hero_data):
                 handle.write(block)
     portrait = Image.open(save_location)
     W, H = portrait.size
-    padding = 4
+    padding = 6
     draw = ImageDraw.Draw(portrait)
-    myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 20)
-    draw.text((padding,H-20), hero_name, (255,255,255), font = myFont)
+    myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 15)
+    draw.text((padding,H-20), hero_name, fill=(255,255,255), font = myFont, stroke_width=2, stroke_fill=(0,0,0))
     portrait.save(save_location)
     return save_location
 
