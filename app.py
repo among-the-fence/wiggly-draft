@@ -92,7 +92,7 @@ async def on_message(message):
 
     if message.content.startswith('!wiggle'):
         currentPlayers = 0
-        maxPlayers = 6
+        maxPlayers = 4
         slotString = "Current Signups: " + str(currentPlayers) + "/" + str(maxPlayers) + "\n"
         embedVar=discord.Embed(
             title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
@@ -101,10 +101,11 @@ async def on_message(message):
         embedVar.add_field(name='Signed up: ', value=slotString, inline=False)
         msg = await message.channel.send(embed=embedVar)
         await msg.add_reaction("<:io:908114245806329886>")
+        await msg.add_reaction("<:pudge:908107144254087169>")
         while True:
             users = ""
             try:
-                reaction, user= await client.wait_for("reaction_add", timeout=60)
+                reaction, user= await client.wait_for("reaction_add", timeout=10)
                 if str(reaction) == "<:io:908114245806329886>":
                     msg = await message.channel.fetch_message(msg.id)
                     reaction_list = msg.reactions
@@ -157,6 +158,10 @@ async def on_message(message):
                     break
             
             except asyncio.TimeoutError:
+                break_embed = discord.Embed(
+                    title="Don't do a hit!", description="The draft was aborted due to timeout.",
+                    color=0xaf0101)
+                await msg.edit(embed = break_embed)
                 break
             
 if __name__ == "__main__":
