@@ -55,6 +55,7 @@ def get_hero_img(hero_data):
 
 def collage(image_paths):
     hero_imgs = [Image.open(x) for x in image_paths]
+    versus = Image.open("imagecache/versus.png")
     cols = 2
     rows = 3
     single_height = hero_imgs[0].height
@@ -72,6 +73,7 @@ def collage(image_paths):
             y += single_height
         x += single_width+divider
         y = 0
+    out.paste(versus,((single_width*cols+divider)-88/2, (single_height*rows)-75/2), versus)
     out.save("Collage.jpg")
 
 
