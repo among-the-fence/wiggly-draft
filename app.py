@@ -31,6 +31,9 @@ def get_hero_info():
     if not exists("heroData.json"):
         heroes = json.loads(requests.get(f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={dota_token}&language=en-US").content)
         open("heroData.json", 'w').write(json.dumps(heroes['result']))
+        for h in heroes['result']['heroes']:
+            print(h)
+            get_hero_img(h)
 
 
 def get_hero_img(hero_data):
