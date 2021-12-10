@@ -48,7 +48,7 @@ def pick_heroes(user_list):
         pick['image'] = get_hero_img(pick)
         if user_list and len(user_list) > 0:
             user_pick = random.choice(user_list)
-            pick['user'] = user_pick.mention
+            pick['user'] = user_pick if type(user_pick) == str else user_pick.mention
             user_list.remove(user_pick)
         else:
             pick['user'] = "unassigned"
@@ -147,6 +147,12 @@ async def on_message(message):
                             for user in user_list:
                                 users = users + user.mention + "\n"
                                 currentPlayers = len(user_list)
+                elif str(reaction) == "<:magChamp:908107371891548170>":
+                    msg = await message.channel.fetch_message(msg.id)
+                    user_list = ["1", "2", "3", "4", "5", "6"]
+                    users = "\n".join(user_list)
+                elif reaction:
+                    logger.trace(reaction)
                 slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
                 new_embed = discord.Embed(
                     title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
