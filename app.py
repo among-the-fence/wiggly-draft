@@ -2,6 +2,7 @@ import configparser
 import json
 from os.path import exists
 import discord
+from discord.ext import commands
 import os
 from dotenv import load_dotenv
 import logging
@@ -26,7 +27,9 @@ bot_token = env_config['discord'] if 'discord' in env_config and env_config['dis
 dota_token = env_config['dota'] if 'dota' in env_config and env_config['dota'] else os.environ.get("DOTA_TOKEN")
 max_players = int(env_config['player_count'])
 listen_timeout = int(env_config['timeout'])
-client = discord.Client()
+
+
+bot = commands.Bot(command_prefix='!')
 
 
 def pick_heroes(user_list):
@@ -113,70 +116,81 @@ def collage(hero_picks):
     out.save("Collage.jpg")
 
 
-@client.event
+@bot.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('We have logged in as {0.user}'.format(bot))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="Wiggly Woods 3v3"))
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content.startswith('!wiggle'):
-        currentPlayers = 0
-        slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
-        embedVar=discord.Embed(
-            title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
-            color=0xaf0101)
-        embedVar.set_footer(text="Game started by: {}".format(message.author))
-        embedVar.add_field(name='Signed up: ', value=slotString, inline=False)
-        msg = await message.channel.send(embed=embedVar)
-        user_list = []
-        await msg.add_reaction("<:io:908114245806329886>")
-        await msg.add_reaction("<:pudge:908107144254087169>")
-        while True:
-            users = ""
-            try:
-                reaction, user= await client.wait_for("reaction_add", timeout=listen_timeout)
-                if str(reaction) == "<:io:908114245806329886>":
-                    msg = await message.channel.fetch_message(msg.id)
-                    for reactions in msg.reactions:
-                        if str(reactions) == "<:io:908114245806329886>":
-                            user_list = [user async for user in reactions.users() if user != client.user]
-                            for user in user_list:
-                                users = users + user.mention + "\n"
-                                currentPlayers = len(user_list)
-                slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
-                new_embed = discord.Embed(
-                    title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
-                    color=0xaf0101)
-                new_embed.set_footer(text="Game started by: {}".format(message.author))
-                new_embed.add_field(name='Signed up:', value= slotString + users, inline=False)
-                
-                await msg.edit(embed=new_embed)
+@bot.command()
+async def wiggle(ctx):
+    currentPlayers = 0
+    slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
+    embedVar=discord.Embed(
+        title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
+        color=0xaf0101)
+    embedVar.set_footer(text="Game started by: {}".format(ctx.author))
+    embedVar.add_field(name='Signed up: ', value=slotString, inline=False)
+    msg = await ctx.channel.send(embed=embedVar)
+    user_list = []
+    await msg.add_reaction("<:io:908114245806329886>")
+    await msg.add_reaction("<:pudge:908107144254087169>")
+    while True:
+        users = ""
+        try:
+            reaction, user= await bot.wait_for("reaction_add", timeout=listen_timeout)
+            if str(reaction) == "<:io:908114245806329886>":
+                msg = await ctx.channel.fetch_message(msg.id)
+                for reactions in msg.reactions:
+                    if str(reactions) == "<:io:908114245806329886>":
+                        user_list = [user async for user in reactions.users() if user != bot.user]
+                        for user in user_list:
+                            users = users + user.mention + "\n"
+                            currentPlayers = len(user_list)
+            slotString = f"Current Signups: {currentPlayers}/{max_players}\n"
+            new_embed = discord.Embed(
+                title="Let's Get Ready to Street Dota!", description="Click the <:io:908114245806329886> to signup!",
+                color=0xaf0101)
+            new_embed.set_footer(text="Game started by: {}".format(ctx.author))
+            new_embed.add_field(name='Signed up:', value= slotString + users, inline=False)
             
-                if len(user_list) == max_players:
-                    chosen = pick_heroes(user_list)
-                    collage(chosen)
-                    embedVar=discord.Embed(
-                        title="FIGHT!",
-                        color=0x0faff4)
-                    file = discord.File("Collage.jpg", filename="image.jpg")
-                    embedVar.set_image(url="attachment://image.jpg")
-                    embedVar.add_field(name="Radiant Players", value=f"{chosen[0]['user']}\n{chosen[1]['user']}\n{chosen[2]['user']}", inline=True)
-                    embedVar.add_field(name="Dire Players", value=f"{chosen[3]['user']}\n{chosen[4]['user']} \n{chosen[5]['user']}", inline=True)
-                    embedVar.set_footer(text="Game started by: {}".format(message.author))
-                    await message.channel.send(file=file, embed=embedVar)
-                    break
-            
-            except asyncio.TimeoutError:
-                break_embed = discord.Embed(
-                    title="Don't do a hit!", description="The draft was aborted due to timeout.",
-                    color=0x000000)
-                await msg.edit(embed = break_embed)
+            await msg.edit(embed=new_embed)
+        
+            if len(user_list) == max_players:
+                chosen = pick_heroes(user_list)
+                collage(chosen)
+                embedVar=discord.Embed(
+                    title="FIGHT!",
+                    color=0x0faff4)
+                file = discord.File("Collage.jpg", filename="image.jpg")
+                embedVar.set_image(url="attachment://image.jpg")
+                embedVar.add_field(name="Radiant Players", value=f"{chosen[0]['user']}\n{chosen[1]['user']}\n{chosen[2]['user']}", inline=True)
+                embedVar.add_field(name="Dire Players", value=f"{chosen[3]['user']}\n{chosen[4]['user']} \n{chosen[5]['user']}", inline=True)
+                embedVar.set_footer(text="Game started by: {}".format(ctx.author))
+                await ctx.channel.send(file=file, embed=embedVar)
                 break
-            
+        
+        except asyncio.TimeoutError:
+            break_embed = discord.Embed(
+                title="Don't do a hit!", description="The draft was aborted due to timeout.",
+                color=0x000000)
+            await msg.edit(embed = break_embed)
+            break
+
+
+# @bot.command()
+# async def random(ctx,arg=6):
+#     chosen = pick_heroes(arg)
+#     collage(chosen)
+#     embedVar=discord.Embed(
+#         title="FIGHT!",
+#         color=0x0faff4)
+#     file = discord.File("Collage.jpg", filename="image.jpg")
+#     embedVar.set_image(url="attachment://image.jpg")
+#     embedVar.set_footer(text="Generated started by: {}".format(ctx.author))
+#     await ctx.channel.send(file=file, embed=embedVar)
+
+
 if __name__ == "__main__":
     get_hero_info()
-    client.run(bot_token)
+    bot.run(bot_token)
