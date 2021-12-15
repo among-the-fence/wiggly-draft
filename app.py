@@ -27,9 +27,10 @@ bot_token = env_config['discord'] if 'discord' in env_config and env_config['dis
 dota_token = env_config['dota'] if 'dota' in env_config and env_config['dota'] else os.environ.get("DOTA_TOKEN")
 max_players = int(env_config['player_count'])
 listen_timeout = int(env_config['timeout'])
+command_prefix = str(env_config['prefix'])
 
 
-bot = commands.Bot(command_prefix='!')
+bot = commands.Bot(command_prefix=command_prefix)
 
 
 def pick_heroes(user_list):
