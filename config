@@ -3,3 +3,4 @@ discord =
 dota =
 player_count = 6
 timeout = 120
+prefix = $
