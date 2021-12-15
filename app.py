@@ -12,6 +12,10 @@ from PIL import Image, ImageDraw, ImageFont
 import asyncio
 
 
+def get_env_or_default(cfg, name, env_name):
+    return cfg[name] if name in cfg and cfg[name] else os.environ.get(env_name)
+
+
 logger = logging.getLogger('discord')
 logger.setLevel(logging.DEBUG)
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
@@ -23,11 +27,11 @@ load_dotenv()
 config = configparser.ConfigParser()
 config.read("config")
 env_config = config['DEFAULT']
-bot_token = env_config['discord'] if 'discord' in env_config and env_config['discord'] else os.environ.get("BOT_TOKEN")
-dota_token = env_config['dota'] if 'dota' in env_config and env_config['dota'] else os.environ.get("DOTA_TOKEN")
+bot_token = get_env_or_default(env_config, 'discord', "BOT_TOKEN")
+dota_token = get_env_or_default(env_config, 'dota', "DOTA_TOKEN")
 max_players = int(env_config['player_count'])
 listen_timeout = int(env_config['timeout'])
-command_prefix = str(env_config['prefix'])
+command_prefix = str(get_env_or_default(env_config, 'prefix', "BOT_PREFIX"))
 
 
 bot = commands.Bot(command_prefix=command_prefix)
