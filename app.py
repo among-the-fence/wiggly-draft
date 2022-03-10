@@ -100,8 +100,8 @@ def collage(hero_picks):
     versus = Image.open("imagecache/versus.png")
     cols = 2
     rows = 3
-    single_height = hero_imgs[0].height
-    single_width = hero_imgs[0].width
+    single_height = max(x.height for x in hero_imgs)
+    single_width = max(x.width for x in hero_imgs)
     divider = 35
     out = Image.new('RGB', (single_width*cols+divider, single_height*rows),color=(47,49,54,0))
     i = 0
