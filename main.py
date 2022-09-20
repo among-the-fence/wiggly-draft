@@ -133,10 +133,16 @@ class MyView(discord.ui.View):
 async def wiggle(ctx):
     await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
 
+
 @bot.slash_command(name="refresh", description="Data gone stale?")
 async def refresh(ctx):
-    hero_list.refresh(os.getenv("DOTA_TOKEN"))
-    await ctx.respond("Doing a refresh")
+    dota_toekn = os.getenv("DOTA_TOKEN")
+    if dota_toekn and dota_toekn != "":
+        hero_list.refresh(dota_toekn)
+        await ctx.respond("Doing a refresh")
+    else:
+        await ctx.respond("Can't refresh without a token")
+
 
 
 def get_env_attribute(attribute):

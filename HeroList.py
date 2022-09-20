@@ -10,6 +10,7 @@ class HeroList:
     def __init__(self, dota_token: str = None):
         if exists("heroData.json"):
             heroesjson = json.loads(open("heroData.json", 'r').read())
+            self._raw = heroesjson
             heroes = heroesjson['heroes']
         elif dota_token:
             heroes = self.fetch(dota_token)
@@ -24,16 +25,16 @@ class HeroList:
         self.hero_list = []
         self.list_to_objects(heroes)
 
-    @staticmethod
-    def fetch(dota_token):
+
+    def fetch(self, dota_token):
         raw_content = requests.get(
                 f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={dota_token}&language=en-US").content
-        print(raw_content)
+        self._raw = raw_content
         heroesjson = json.loads(raw_content)
         open("heroData.json", 'w').write(json.dumps(heroesjson['result']))
         for h in heroesjson['result']['heroes']:
             print(h)
-        return heroesjson['heroes']
+        return heroesjson['result']['heroes']
 
     def refresh(self, dota_token):
         self.list_to_objects(self.fetch(dota_token))
@@ -52,7 +53,8 @@ class Hero:
     def __init__(self, hero_json):
         self.name = hero_json['name']
         self.id = hero_json['id']
-        self.localized_name = Hero.rename(hero_json["localized_name"])
+        self.localized_name = hero_json["localized_name"]
+        self.display_name = Hero.rename(hero_json["localized_name"])
         self._raw_json = hero_json
         self.image = None
 
@@ -77,7 +79,7 @@ class Hero:
             padding = 6
             draw = ImageDraw.Draw(portrait)
             myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 15)
-            draw.text((padding, H - 20), self.localized_name, fill=(255, 255, 255), font=myFont, stroke_width=2, stroke_fill=(0, 0, 0))
+            draw.text((padding, H - 20), self.display_name, fill=(255, 255, 255), font=myFont, stroke_width=2, stroke_fill=(0, 0, 0))
             portrait.save(save_location)
         self.image = Image.open(save_location)
         return save_location
