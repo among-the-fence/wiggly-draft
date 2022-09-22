@@ -65,6 +65,8 @@ class Hero:
         self.localized_name = hero_json["localized_name"]
         self.display_name = Hero.rename(hero_json["localized_name"], name_map)
         self._raw_json = hero_json
+        self.img_name = self.name.replace('npc_dota_hero_', '') + "_lg.png"
+        self.image_path = f"imagecache/heroes/{self.img_name}"
         self.image = None
 
     @staticmethod
@@ -72,24 +74,22 @@ class Hero:
         return name_map[name] if name_map and name in name_map else name
 
     def preload_image(self):
-        img_name = self.name.replace('npc_dota_hero_', '') + "_lg.png"
-        save_location = f"imagecache/heroes/{img_name}"
-        if not exists(save_location):
-            with open(save_location, 'wb') as handle:
-                response = requests.get("http://cdn.dota2.com/apps/dota2/images/heroes/" + img_name, stream=True)
+        if not exists(self.image_path):
+            with open(self.image_path, 'wb') as handle:
+                response = requests.get("http://cdn.dota2.com/apps/dota2/images/heroes/" + self.img_name, stream=True)
                 if not response.ok:
                     print(response)
                 for block in response.iter_content(1024):
                     if not block:
                         break
                     handle.write(block)
-            portrait = Image.open(save_location)
+            portrait = Image.open(self.image_path)
             W, H = portrait.size
             padding = 6
             draw = ImageDraw.Draw(portrait)
             myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 15)
             draw.text((padding, H - 20), self.display_name, fill=(255, 255, 255), font=myFont, stroke_width=2, stroke_fill=(0, 0, 0))
-            portrait.save(save_location)
-        self.image = Image.open(save_location)
-        return save_location
+            portrait.save(self.image_path)
+        self.image = Image.open(self.image_path)
+        return self.image_path
 

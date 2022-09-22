@@ -23,11 +23,13 @@ env = {
         "timeout": 10,
         "io_emoji": "<:io:1021872443788370072>",
         "pudge": "<:pudge:1021872278360825906>",
+        "hacky_one_click": True,
     },
     "PROD": {
         "timeout": 300,
         "io_emoji": "<:io:908114245806329886>",
         "pudge": "<:pudge:908107144254087169>",
+        "hacky_one_click": False,
     }
 }
 
@@ -110,7 +112,7 @@ class MyView(discord.ui.View):
         if messageid not in bunches:
             bunches[messageid] = set(())
         user = interaction.user.display_name
-        if os.getenv('ENV') == 'DEV':
+        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
             bunches[messageid].add(user + "1")
             bunches[messageid].add(user + "2")
             bunches[messageid].add(user + "3")
@@ -137,6 +139,7 @@ class MyView(discord.ui.View):
             await interaction.response.send_message(f"{','.join(bunches[messageid])} pressed me!", file=discord.File('Collage.jpg'))
             bunches.clear()
 
+        await interaction.response.defer()
         print("done")
 
     @discord.ui.button(label="No", row=0, emoji=get_env_attribute("pudge"), style=discord.ButtonStyle.danger)
@@ -170,6 +173,11 @@ async def wiggle(ctx):
         await ctx.response.send_message(f"{','.join(latest_users)} again!",
                                                 file=discord.File('Collage.jpg'))
 
+
+@bot.slash_command(name="random", description="I need a hero")
+async def get_one(ctx):
+    await ctx.response.send_message("",
+                                    file=discord.File(random.choice(hero_list.hero_list).image_path))
 
 @bot.slash_command(name="refresh", description="Data gone stale?")
 async def refresh(ctx):
