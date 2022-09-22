@@ -16,6 +16,7 @@ load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
 
 bunches = {}
+latest_users = None
 
 env = {
     "DEV": {
@@ -129,6 +130,8 @@ class MyView(discord.ui.View):
         await self.message.edit(content=new_message, view=self)
 
         if len(bunches[messageid]) == 6:
+            global latest_users
+            latest_users = bunches[messageid]
             chosen = pick_heroes(list(bunches[messageid]))
             collage(chosen)
             await interaction.response.send_message(f"{','.join(bunches[messageid])} pressed me!", file=discord.File('Collage.jpg'))
@@ -154,6 +157,18 @@ async def wiggle(ctx):
     print(pudge)
     x = await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
     print(x)
+
+
+@bot.slash_command(name="again", description="Time for street DOTA AGAIN")
+async def wiggle(ctx):
+    global latest_users
+    if not latest_users:
+        await ctx.respond("No last match data to use")
+    else:
+        chosen = pick_heroes(list(latest_users))
+        collage(chosen)
+        await ctx.response.send_message(f"{','.join(latest_users)} again!",
+                                                file=discord.File('Collage.jpg'))
 
 
 @bot.slash_command(name="refresh", description="Data gone stale?")
