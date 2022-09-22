@@ -36,6 +36,7 @@ env = {
 hero_list = HeroList(os.getenv('DOTA_TOKEN'))
 pudge = None
 io_moji = None
+activation_owner = None
 
 
 def get_env_attribute(attribute):
@@ -144,14 +145,18 @@ class MyView(discord.ui.View):
 
     @discord.ui.button(label="No", row=0, emoji=get_env_attribute("pudge"), style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
-        for child in self.children:
-            child.disabled = True
-        self.children = []
-        messageid = self.message.id
-        if messageid in bunches:
-            bunches[messageid] = None
-        user = interaction.user.display_name
-        await self.message.edit(content=f"{user} put a stop to it.", view=self)
+        global activation_owner
+        if not interaction.user == activation_owner:
+            await interaction.response.send_message(f"{interaction.user.display_name} broke the law!")
+        else:
+            for child in self.children:
+                child.disabled = True
+            self.children = []
+            messageid = self.message.id
+            if messageid in bunches:
+                bunches[messageid] = None
+            user = interaction.user.display_name
+            await self.message.edit(content=f"{user} put a stop to it.", view=self)
 
 
 @bot.slash_command(name="wiggle", description="Time for street DOTA")
@@ -159,6 +164,8 @@ async def wiggle(ctx):
     print(io_moji)
     print(pudge)
     x = await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
+    global activation_owner
+    activation_owner = ctx.user
     print(x)
 
 
