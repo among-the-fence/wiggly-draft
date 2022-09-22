@@ -7,6 +7,7 @@ import os
 from os.path import exists
 import requests as requests
 from PIL import Image, ImageDraw, ImageFont
+from discord import PartialEmoji, Emoji
 from dotenv import load_dotenv
 from HeroList import HeroList, Hero
 from Pick import Pick
@@ -18,19 +19,39 @@ bunches = {}
 
 env = {
     "DEV": {
-        "timeout": 10
+        "timeout": 10,
+        "io_emoji": "<:io:1021872443788370072>",
+        "pudge": "<:pudge:1021872278360825906>",
     },
     "PROD": {
-        "timeout": 300
+        "timeout": 300,
+        "io_emoji": "<:io:908114245806329886>",
+        "pudge": "<:pudge:908107144254087169>",
     }
 }
 
 hero_list = HeroList(os.getenv('DOTA_TOKEN'))
+pudge = None
+io_moji = None
+
+
+def get_env_attribute(attribute):
+    return env.get(os.getenv('ENV'))[attribute]
 
 
 @bot.event
 async def on_ready():
     print(f"{bot.user} is ready and online!")
+    emoji_list = list(bot.guilds[0].emojis)
+    global io_moji
+    io_moji_list = [x for x in emoji_list if x.name == "io"]
+    io_moji = io_moji_list[0] if len(io_moji_list) >= 1 else None
+    global pudge
+    pudge_moji_list = [x for x in emoji_list if x.name == "pudge"]
+    pudge = pudge_moji_list[0] if len(pudge_moji_list) >= 1 else None
+
+    print(pudge)
+    print(io_moji)
 
 
 def pick_heroes(user_list):
@@ -75,7 +96,6 @@ def collage(hero_picks: List[Pick]):
     out.save("Collage.jpg")
 
 
-
 class MyView(discord.ui.View):
     async def on_timeout(self):
         for child in self.children:
@@ -83,7 +103,7 @@ class MyView(discord.ui.View):
         self.children = []
         await self.message.edit(content="Don't do a hit!", view=self)
 
-    @discord.ui.button(label="Do", row=0, style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Do", row=0, emoji=get_env_attribute("io_emoji"), style=discord.ButtonStyle.primary)
     async def first_button_callback(self, button, interaction):
         messageid = self.message.id
         if messageid not in bunches:
@@ -116,8 +136,7 @@ class MyView(discord.ui.View):
 
         print("done")
 
-
-    @discord.ui.button(label="No", row=0, style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="No", row=0, emoji=get_env_attribute("pudge"), style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
         for child in self.children:
             child.disabled = True
@@ -131,7 +150,10 @@ class MyView(discord.ui.View):
 
 @bot.slash_command(name="wiggle", description="Time for street DOTA")
 async def wiggle(ctx):
-    await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
+    print(io_moji)
+    print(pudge)
+    x = await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
+    print(x)
 
 
 @bot.slash_command(name="refresh", description="Data gone stale?")
@@ -144,10 +166,5 @@ async def refresh(ctx):
         await ctx.respond("Can't refresh without a token")
 
 
-
-def get_env_attribute(attribute):
-    return env.get(os.getenv('ENV'))[attribute]
-
-
 if __name__ == "__main__":
-    bot.run(os.getenv('TOKEN')) # run the bot with the token
+    bot.run(os.getenv('TOKEN'))
