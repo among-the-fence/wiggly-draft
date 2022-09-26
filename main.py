@@ -9,6 +9,8 @@ import requests as requests
 from PIL import Image, ImageDraw, ImageFont
 from discord import PartialEmoji, Emoji
 from dotenv import load_dotenv
+
+from GameList import GameList
 from HeroList import HeroList, Hero
 from Pick import Pick
 
@@ -186,6 +188,7 @@ async def get_one(ctx):
     await ctx.response.send_message("",
                                     file=discord.File(random.choice(hero_list.hero_list).image_path))
 
+
 @bot.slash_command(name="refresh", description="Data gone stale?")
 async def refresh(ctx):
     dota_toekn = os.getenv("DOTA_TOKEN")
@@ -194,6 +197,11 @@ async def refresh(ctx):
         await ctx.respond("Doing a refresh")
     else:
         await ctx.respond("Can't refresh without a token")
+
+
+@bot.slash_command(name="game", description="Can't pick a game")
+async def refresh(ctx):
+    await ctx.respond(GameList().get_all())
 
 
 if __name__ == "__main__":
