@@ -2,3 +2,5 @@ venv/
 .env
 discord.log
 collage.jpg
+.idea
+/.stagingenv

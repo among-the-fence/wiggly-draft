@@ -157,9 +157,9 @@ async def wiggle(ctx):
                 color=0xaf0101)
             new_embed.set_footer(text="Game started by: {}".format(ctx.author))
             new_embed.add_field(name='Signed up:', value= slotString + users, inline=False)
-            
+
             await msg.edit(embed=new_embed)
-        
+
             if len(user_list) == max_players:
                 chosen = pick_heroes(user_list)
                 collage(chosen)
@@ -173,7 +173,7 @@ async def wiggle(ctx):
                 embedVar.set_footer(text="Game started by: {}".format(ctx.author))
                 await ctx.channel.send(file=file, embed=embedVar)
                 break
-        
+
         except asyncio.TimeoutError:
             break_embed = discord.Embed(
                 title="Don't do a hit!", description="The draft was aborted due to timeout.",
