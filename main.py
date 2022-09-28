@@ -114,17 +114,15 @@ class MyView(discord.ui.View):
         if messageid not in bunches:
             bunches[messageid] = set(())
         user = interaction.user.display_name
-        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
-            bunches[messageid].add(user + "1")
-            bunches[messageid].add(user + "2")
-            bunches[messageid].add(user + "3")
-            bunches[messageid].add(user + "4")
-            bunches[messageid].add(user + '5')
 
         if user in bunches[messageid]:
             bunches[messageid].remove(user)
         else:
             bunches[messageid].add(user)
+
+        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
+            bunches[messageid] = set((user, f"{user}2", f"{user} squawk squawk", f"{user} hooooooooooooooooooooooo",
+                                          f"{user} I'm a little fat boy", f"{user}5"))
         new_message = "Who's in?\n" + ', '.join(bunches[messageid])
 
         if len(bunches[messageid]) >= 6:

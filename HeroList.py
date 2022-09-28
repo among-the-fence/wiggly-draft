@@ -78,7 +78,7 @@ class Hero:
     @staticmethod
     def scale_font(size, text, starting_size):
         font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
-        while font.getsize(text)[0] > size:
+        while font.getsize(text)[0] > size > 10:
             starting_size = starting_size - 1
             font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
         return font
