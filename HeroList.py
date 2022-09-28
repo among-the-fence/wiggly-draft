@@ -108,6 +108,6 @@ class Hero:
         textual = ImageDraw.Draw(out)
 
         font = Hero.scale_font(out.size[0] - 10, name, 25)
-        textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0), embedded_color=True)
+        textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
         out.save(name + ".png")
         return out
