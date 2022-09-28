@@ -1,6 +1,5 @@
 import json
 from os.path import exists
-import os
 import random
 from typing import Dict
 
