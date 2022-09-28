@@ -42,7 +42,9 @@ activation_owner = None
 
 
 def get_env_attribute(attribute):
-    return env.get(os.getenv('ENV'))[attribute]
+    e = os.getenv('ENV')
+    e = e if e else 'PROD'
+    return env.get(e)[attribute]
 
 
 @bot.event
