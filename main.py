@@ -25,7 +25,7 @@ env = {
         "timeout": 10,
         "io_emoji": "<:io:1021872443788370072>",
         "pudge": "<:pudge:1021872278360825906>",
-        "hacky_one_click": True,
+        "hacky_one_click": False,
     },
     "PROD": {
         "timeout": 300,
@@ -122,7 +122,10 @@ class MyView(discord.ui.View):
             bunches[messageid].add(user + "4")
             bunches[messageid].add(user + '5')
 
-        bunches[messageid].add(user)
+        if user in bunches[messageid]:
+            bunches[messageid].remove(user)
+        else:
+            bunches[messageid].add(user)
         new_message = "Who's in?\n" + ', '.join(bunches[messageid])
 
         if len(bunches[messageid]) >= 6:
