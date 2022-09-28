@@ -19,12 +19,13 @@ class GameList:
             self.game_map[x].extend(self.any_size)
 
     def get_rand(self, player_count: int = 4):
+        player_count = 4 if player_count < 2 or player_count > 10 else player_count
         return random.choice(self.game_map[player_count])
 
     def get_all(self):
         out = ""
         for idx in range(2, 11):
-            out = f"{out}: {idx} {self.get_rand(idx)}\n"
+            out = f"{out}{idx}: {self.get_rand(idx)}\n"
         return out
 
 

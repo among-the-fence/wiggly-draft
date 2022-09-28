@@ -25,7 +25,7 @@ env = {
         "timeout": 10,
         "io_emoji": "<:io:1021872443788370072>",
         "pudge": "<:pudge:1021872278360825906>",
-        "hacky_one_click": False,
+        "hacky_one_click": True,
     },
     "PROD": {
         "timeout": 300,
@@ -87,13 +87,10 @@ def collage(hero_picks: List[Pick]):
     i = 0
     x = 0
     y = 0
-    myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 15)
     for col in range(cols):
         for row in range(rows):
             print(i, x, y)
-            out.paste(hero_imgs[i], (x, y))
-            textual = ImageDraw.Draw(out)
-            textual.text((x + 5, y + 5), hero_picks[i].user, fill=(255, 255, 255), font=myFont, stroke_width=2, stroke_fill=(0, 0, 0))
+            out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user), (x, y))
             i += 1
             y += single_height
         x += single_width+divider
@@ -146,9 +143,8 @@ class MyView(discord.ui.View):
             collage(chosen)
             await interaction.response.send_message(f"{','.join(bunches[messageid])} pressed me!", file=discord.File('Collage.jpg'))
             bunches.clear()
-
-        await interaction.response.defer()
-        print("done")
+        else:
+            await interaction.response.defer()
 
     @discord.ui.button(label="No", row=0, emoji=get_env_attribute("pudge"), style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
@@ -168,12 +164,9 @@ class MyView(discord.ui.View):
 
 @bot.slash_command(name="wiggle", description="Time for street DOTA")
 async def wiggle(ctx):
-    print(io_moji)
-    print(pudge)
     x = await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
     global activation_owner
     activation_owner = ctx.user
-    print(x)
 
 
 @bot.slash_command(name="again", description="Time for street DOTA AGAIN")
@@ -190,8 +183,10 @@ async def wiggle(ctx):
 
 @bot.slash_command(name="random", description="I need a hero")
 async def get_one(ctx):
+    name = ctx.user.display_name
+    random.choice(hero_list.hero_list).image_with_name(name)
     await ctx.response.send_message("",
-                                    file=discord.File(random.choice(hero_list.hero_list).image_path))
+                                    file=discord.File(name + ".png"))
 
 
 @bot.slash_command(name="refresh", description="Data gone stale?")

@@ -1,5 +1,6 @@
 import json
 from os.path import exists
+import os
 import random
 from typing import Dict
 
@@ -23,6 +24,7 @@ class HeroList:
                       {'localized_name': "hero5", 'id': 5, 'name': 'hero5'},
                       {'localized_name': "hero6", 'id': 6, 'name': 'hero6'},
                       ]
+
         if exists("namemap.json"):
             name_map = json.loads(open("namemap.json", "r").read())
         else:
@@ -71,7 +73,16 @@ class Hero:
 
     @staticmethod
     def rename(name, name_map=None):
-        return name_map[name] if name_map and name in name_map else name
+        outname = name_map[name] if name_map and name in name_map else name
+        return outname
+
+    @staticmethod
+    def scale_font(size, text, starting_size):
+        font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
+        while font.getsize(text)[0] > size:
+            starting_size = starting_size - 1
+            font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
+        return font
 
     def preload_image(self):
         if not exists(self.image_path):
@@ -83,13 +94,21 @@ class Hero:
                     if not block:
                         break
                     handle.write(block)
-            portrait = Image.open(self.image_path)
-            W, H = portrait.size
-            padding = 6
-            draw = ImageDraw.Draw(portrait)
-            myFont = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 15)
-            draw.text((padding, H - 20), self.display_name, fill=(255, 255, 255), font=myFont, stroke_width=2, stroke_fill=(0, 0, 0))
-            portrait.save(self.image_path)
-        self.image = Image.open(self.image_path)
+        portrait = Image.open(self.image_path)
+        W, H = portrait.size
+        padding = 6
+        draw = ImageDraw.Draw(portrait)
+        font = Hero.scale_font(W - 10, self.display_name, 20)
+        draw.text((padding, H - 20), self.display_name, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+        self.image = portrait
         return self.image_path
 
+    def image_with_name(self, name):
+        out = Image.new('RGB', (self.image.width, self.image.height), color=(255, 255, 255, 0))
+        out.paste(self.image, (0, 0))
+        textual = ImageDraw.Draw(out)
+
+        font = Hero.scale_font(out.size[0] - 10, name, 25)
+        textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0), embedded_color=True)
+        out.save(name + ".png")
+        return out
