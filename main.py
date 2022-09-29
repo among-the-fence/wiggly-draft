@@ -1,17 +1,14 @@
-import json
+import os
 import random
 from typing import List
 
 import discord
-import os
-from os.path import exists
-import requests as requests
-from PIL import Image, ImageDraw, ImageFont
-from discord import PartialEmoji, Emoji
+from PIL import Image
+from discord import option
 from dotenv import load_dotenv
 
 from GameList import GameList
-from HeroList import HeroList, Hero
+from HeroList import HeroList
 from Pick import Pick
 
 load_dotenv()
@@ -198,8 +195,17 @@ async def refresh(ctx):
 
 
 @bot.slash_command(name="game", description="Can't pick a game")
-async def refresh(ctx):
-    await ctx.respond(GameList().get_all())
+@option("player_count", description="How many people?", required=False)
+async def random_game(ctx, player_count: int):
+    print(player_count)
+    if not player_count:
+        await ctx.respond(GameList().get_all())
+    elif player_count == 1:
+        await ctx.respond("Whatever you want")
+    elif 1 < player_count <= 10:
+        await ctx.respond(f"{player_count}: {GameList().get_rand(player_count)}")
+    else:
+        await ctx.respond("very funny.\n" + GameList().get_all())
 
 
 if __name__ == "__main__":
