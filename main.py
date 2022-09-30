@@ -104,8 +104,10 @@ class MyView(discord.ui.View):
             child.disabled = True
         self.children = []
         global wiggle_poll
+        display_embed = discord.Embed(title=f"Don't do a hit!",
+                                      color=0x900000)
         wiggle_poll.end()
-        await self.message.edit(content="Don't do a hit!", view=self)
+        await self.message.edit(embed=display_embed, view=self)
 
     @discord.ui.button(label="Do", row=0, emoji=get_env_attribute("io_emoji"), style=discord.ButtonStyle.primary)
     async def first_button_callback(self, button, interaction):
@@ -153,7 +155,10 @@ class MyView(discord.ui.View):
                 child.disabled = True
             self.children = []
             user = interaction.user.display_name
-            await self.message.edit(content=f"{user} put a stop to it.", view=self)
+            display_embed = discord.Embed(title=f"{user} put a stop to it.",
+                                          color=0xC00000)
+            wiggle_poll.end()
+            await self.message.edit(embed=display_embed, view=self)
 
 
 @bot.slash_command(name="wiggle", description="Time for street DOTA")
