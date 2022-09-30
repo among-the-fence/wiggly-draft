@@ -1,6 +1,6 @@
 import os
 import random
-from typing import List
+from typing import List, Optional
 
 import discord
 from PIL import Image
@@ -10,12 +10,11 @@ from dotenv import load_dotenv
 from GameList import GameList
 from HeroList import HeroList
 from Pick import Pick
+from WigglePoll import WigglePoll
 
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
 
-bunches = {}
-latest_users = None
 
 env = {
     "DEV": {
@@ -36,6 +35,7 @@ hero_list = HeroList(os.getenv('DOTA_TOKEN'))
 pudge = None
 io_moji = None
 activation_owner = None
+wiggle_poll = WigglePoll()
 
 
 def get_env_attribute(attribute):
@@ -103,78 +103,85 @@ class MyView(discord.ui.View):
         for child in self.children:
             child.disabled = True
         self.children = []
+        global wiggle_poll
+        wiggle_poll.end()
         await self.message.edit(content="Don't do a hit!", view=self)
 
     @discord.ui.button(label="Do", row=0, emoji=get_env_attribute("io_emoji"), style=discord.ButtonStyle.primary)
     async def first_button_callback(self, button, interaction):
-        messageid = self.message.id
-        if messageid not in bunches:
-            bunches[messageid] = set(())
+        global wiggle_poll
         user = interaction.user.display_name
 
-        if user in bunches[messageid]:
-            bunches[messageid].remove(user)
-        else:
-            bunches[messageid].add(user)
-
         if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
-            bunches[messageid] = set((user, f"{user}2", f"{user} squawk squawk", f"{user} hooooooooooooooooooooooo",
-                                          f"{user} I'm a little fat boy", f"{user}5"))
-        new_message = "Who's in?\n" + ', '.join(bunches[messageid])
+            wiggle_poll.user_reacted(user_name=f"{user}2")
+            wiggle_poll.user_reacted(user_name=f"{user} squawk squawk")
+            wiggle_poll.user_reacted(user_name=f"{user} hooooooooooooooooooooooo")
+            wiggle_poll.user_reacted(user_name=f"{user} I'm a little fat boy")
+            wiggle_poll.user_reacted(user_name=f"{user}5")
 
-        if len(bunches[messageid]) >= 6:
+        await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
+
+        if wiggle_poll.invalid():
             self.timeout = None
             for child in self.children:
                 child.disabled = True
             self.children = {}
-            if len(bunches[messageid]) > 6:
-                new_message = "Too many presses. \n" + ', '.join(bunches[messageid])
-        await self.message.edit(content=new_message, view=self)
+            new_message = f"Too many presses. \n{wiggle_poll.display_user_str()}"
+            await self.message.edit(content=new_message, view=self)
 
-        if len(bunches[messageid]) == 6:
-            global latest_users
-            latest_users = bunches[messageid]
-            chosen = pick_heroes(list(bunches[messageid]))
+        if wiggle_poll.ready():
+            self.timeout = None
+            for child in self.children:
+                child.disabled = True
+            self.children = {}
+            chosen = pick_heroes(list(wiggle_poll.users))
             collage(chosen)
-            await interaction.response.send_message(f"{','.join(bunches[messageid])} pressed me!", file=discord.File('Collage.jpg'))
-            bunches.clear()
+            embedVar = wiggle_poll.build_embed()
+            embedVar.set_image(url="attachment://image.jpg")
+            await self.message.edit(embed=embedVar, view=self, file=discord.File("Collage.jpg", filename="image.jpg"))
+            wiggle_poll.end()
         else:
             await interaction.response.defer()
 
     @discord.ui.button(label="No", row=0, emoji=get_env_attribute("pudge"), style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
-        global activation_owner
-        if not interaction.user == activation_owner:
+        global wiggle_poll
+        if not wiggle_poll.owner == activation_owner:
             await interaction.response.send_message(f"{interaction.user.display_name} broke the law!")
         else:
             for child in self.children:
                 child.disabled = True
             self.children = []
-            messageid = self.message.id
-            if messageid in bunches:
-                bunches[messageid] = None
             user = interaction.user.display_name
             await self.message.edit(content=f"{user} put a stop to it.", view=self)
 
 
 @bot.slash_command(name="wiggle", description="Time for street DOTA")
 async def wiggle(ctx):
-    x = await ctx.respond("Who's in?", view=MyView(timeout=get_env_attribute('timeout')))
-    global activation_owner
-    activation_owner = ctx.user
+    global wiggle_poll
+    if not wiggle_poll.active:
+        wiggle_poll.start(ctx.user)
+        await ctx.respond(embed=wiggle_poll.build_embed(), view=MyView(timeout=get_env_attribute('timeout')))
+        global activation_owner
+        activation_owner = ctx.user
+    else:
+        await ctx.respond("Too slow", ephemeral=True)
 
 
 @bot.slash_command(name="again", description="Time for street DOTA AGAIN")
-async def wiggle(ctx):
-    global latest_users
-    if not latest_users:
+async def again(ctx):
+    global wiggle_poll
+    if not wiggle_poll.previous_success:
         await ctx.respond("No last match data to use")
     else:
-        chosen = pick_heroes(list(latest_users))
-        collage(chosen)
-        await ctx.response.send_message(f"{','.join(latest_users)} again!",
-                                                file=discord.File('Collage.jpg'))
+        wiggle_poll.rerun()
 
+        chosen = pick_heroes(list(wiggle_poll.previous_success))
+        collage(chosen)
+        embedVar = wiggle_poll.build_embed()
+        embedVar.set_image(url="attachment://image.jpg")
+        await ctx.response.send_message(embed=embedVar, file=discord.File("Collage.jpg", filename="image.jpg"))
+        wiggle_poll.end()
 
 @bot.slash_command(name="random", description="I need a hero")
 async def get_one(ctx):
@@ -197,7 +204,6 @@ async def refresh(ctx):
 @bot.slash_command(name="game", description="Can't pick a game")
 @option("player_count", description="How many people?", required=False)
 async def random_game(ctx, player_count: int):
-    print(player_count)
     if not player_count:
         await ctx.respond(GameList().get_all())
     elif player_count == 1:
