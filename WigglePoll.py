@@ -43,12 +43,12 @@ class WigglePoll:
         self.users = self.previous_success
 
     def build_embed(self):
+        display_embed = discord.Embed(title="Commence the wigglin`",
+                                      color=self.embed_color())
         if self.ready():
             self.previous_success = self.users
-
-        display_embed = discord.Embed(title="Commence the wigglin`",
-                                      description=f"Who is in?\n{self.display_user_str()}",
-                                      color=self.embed_color())
+        else:
+            display_embed.description = f"Who is in?\n{self.display_user_str()}"
         return display_embed
 
     def invalid(self):

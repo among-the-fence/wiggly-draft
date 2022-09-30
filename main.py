@@ -1,6 +1,6 @@
 import os
 import random
-from typing import List, Optional
+from typing import List
 
 import discord
 from PIL import Image
@@ -138,9 +138,14 @@ class MyView(discord.ui.View):
             self.children = {}
             chosen = pick_heroes(list(wiggle_poll.users))
             collage(chosen)
-            embedVar = wiggle_poll.build_embed()
-            embedVar.set_image(url="attachment://image.jpg")
-            await self.message.edit(embed=embedVar, view=self, file=discord.File("Collage.jpg", filename="image.jpg"))
+            display_embed = wiggle_poll.build_embed()
+            display_embed.add_field(name="Radiant Players",
+                                    value=f"{chosen[0].user}\n{chosen[1].user}\n{chosen[2].user}", inline=True)
+            display_embed.add_field(name="Dire Players",
+                                    value=f"{chosen[3].user}\n{chosen[4].user} \n{chosen[5].user}", inline=True)
+            display_embed.set_image(url="attachment://image.jpg")
+            display_embed.set_image(url="attachment://image.jpg")
+            await self.message.edit(embed=display_embed, view=self, file=discord.File("Collage.jpg", filename="image.jpg"))
             wiggle_poll.end()
         else:
             await interaction.response.defer()
@@ -183,9 +188,13 @@ async def again(ctx):
 
         chosen = pick_heroes(list(wiggle_poll.previous_success))
         collage(chosen)
-        embedVar = wiggle_poll.build_embed()
-        embedVar.set_image(url="attachment://image.jpg")
-        await ctx.response.send_message(embed=embedVar, file=discord.File("Collage.jpg", filename="image.jpg"))
+        display_embed = wiggle_poll.build_embed()
+        display_embed.add_field(name="Radiant Players",
+                           value=f"{chosen[0]}\n{chosen[1]}\n{chosen[2]}", inline=True)
+        display_embed.add_field(name="Dire Players",
+                           value=f"{chosen[3]}\n{chosen[4]} \n{chosen[5]}", inline=True)
+        display_embed.set_image(url="attachment://image.jpg")
+        await ctx.response.send_message(embed=display_embed, file=discord.File("Collage.jpg", filename="image.jpg"))
         wiggle_poll.end()
 
 @bot.slash_command(name="random", description="I need a hero")
@@ -198,6 +207,8 @@ async def get_one(ctx):
 
 @bot.slash_command(name="refresh", description="Data gone stale?")
 async def refresh(ctx):
+    global wiggle_poll
+    wiggle_poll = WigglePoll()
     dota_toekn = os.getenv("DOTA_TOKEN")
     if dota_toekn and dota_toekn != "":
         hero_list.refresh(dota_toekn)
