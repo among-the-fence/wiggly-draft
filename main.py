@@ -15,7 +15,6 @@ from WigglePoll import WigglePoll
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
 
-
 env = {
     "DEV": {
         "timeout": 10,
@@ -25,8 +24,6 @@ env = {
     },
     "PROD": {
         "timeout": 300,
-        "io_emoji": "<:io:908114245806329886>",
-        "pudge": "<:pudge:908107144254087169>",
         "hacky_one_click": False,
     }
 }
@@ -80,7 +77,7 @@ def collage(hero_picks: List[Pick]):
     single_height = max(x.height for x in hero_imgs)
     single_width = max(x.width for x in hero_imgs)
     divider = 35
-    out = Image.new('RGB', (single_width*cols+divider, single_height*rows),color=(47,49,54,0))
+    out = Image.new('RGB', (single_width * cols + divider, single_height * rows), color=(47, 49, 54, 0))
     i = 0
     x = 0
     y = 0
@@ -90,11 +87,11 @@ def collage(hero_picks: List[Pick]):
             out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user), (x, y))
             i += 1
             y += single_height
-        x += single_width+divider
+        x += single_width + divider
         y = 0
     w, h = versus.size
     W, H = out.size
-    out.paste(versus,(int((W-w)/2),int((H-h)/2)), versus)
+    out.paste(versus, (int((W - w) / 2), int((H - h) / 2)), versus)
     out.save("Collage.jpg")
 
 
@@ -109,28 +106,8 @@ class MyView(discord.ui.View):
         wiggle_poll.end()
         await self.message.edit(embed=display_embed, view=self)
 
-    @discord.ui.button(label="Do", row=0, emoji=get_env_attribute("io_emoji"), style=discord.ButtonStyle.primary)
-    async def first_button_callback(self, button, interaction):
+    async def update_embed(self):
         global wiggle_poll
-        user = interaction.user.display_name
-
-        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
-            wiggle_poll.user_reacted(user_name=f"{user}2")
-            wiggle_poll.user_reacted(user_name=f"{user} squawk squawk")
-            wiggle_poll.user_reacted(user_name=f"{user} hooooooooooooooooooooooo")
-            wiggle_poll.user_reacted(user_name=f"{user} I'm a little fat boy")
-            wiggle_poll.user_reacted(user_name=f"{user}5")
-
-        await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
-
-        if wiggle_poll.invalid():
-            self.timeout = None
-            for child in self.children:
-                child.disabled = True
-            self.children = {}
-            new_message = f"Too many presses. \n{wiggle_poll.display_user_str()}"
-            await self.message.edit(content=new_message, view=self)
-
         if wiggle_poll.ready():
             self.timeout = None
             for child in self.children:
@@ -145,12 +122,33 @@ class MyView(discord.ui.View):
                                     value=f"{chosen[3].user}\n{chosen[4].user} \n{chosen[5].user}", inline=True)
             display_embed.set_image(url="attachment://image.jpg")
             display_embed.set_image(url="attachment://image.jpg")
-            await self.message.edit(embed=display_embed, view=self, file=discord.File("Collage.jpg", filename="image.jpg"))
+            await self.message.edit(embed=display_embed, view=self,
+                                    file=discord.File("Collage.jpg", filename="image.jpg"))
             wiggle_poll.end()
         else:
+            await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
+
+    @discord.ui.button(label="Do", row=0, style=discord.ButtonStyle.primary)
+    async def first_button_callback(self, button, interaction):
+        global wiggle_poll
+        wiggle_poll.user_reacted(interaction.user)
+
+        if wiggle_poll.invalid():
+            self.timeout = None
+            for child in self.children:
+                child.disabled = True
+            self.children = {}
+            new_message = f"Too many presses. \n{wiggle_poll.display_user_str()}"
+            await self.message.edit(content=new_message, view=self)
+
+        elif wiggle_poll.ready():
+            await self.update_embed()
+
+        else:
+            await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
             await interaction.response.defer()
 
-    @discord.ui.button(label="No", row=0, emoji=get_env_attribute("pudge"), style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="No", row=0, style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
         global wiggle_poll
         if not wiggle_poll.owner == activation_owner:
@@ -165,13 +163,49 @@ class MyView(discord.ui.View):
             wiggle_poll.end()
             await self.message.edit(embed=display_embed, view=self)
 
+    @staticmethod
+    def get_test_name(user):
+        test_names = [f"{user}", f"{user} 2", f"{user} squawk squawk", f"{user} hooooooooooooooooooooooo", f"{user[:2]}",
+                      f"{user} I'm a little fat boy", f"{user}5", f"{user} get it",
+                      f"{user} {user[::-1]}", f"{user} B{user[1:]}", f"{user} sfddfsd", ]
+        return random.choice(test_names)
+
+    @discord.ui.button(label="TEST One user", row=0, style=discord.ButtonStyle.secondary)
+    async def secret_last_button_callback(self, button, interaction):
+        global wiggle_poll
+        user = interaction.user.display_name
+
+        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
+            wiggle_poll.user_reacted(user_name=self.get_test_name(user))
+            await self.update_embed()
+
+        await interaction.response.defer()
+
+    @discord.ui.button(label="TEST manyuser", row=0, style=discord.ButtonStyle.secondary)
+    async def secret_more_button_callback(self, button, interaction):
+        global wiggle_poll
+        user = interaction.user.display_name
+
+        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
+            while not wiggle_poll.ready():
+                wiggle_poll.user_reacted(user_name=self.get_test_name(user))
+            await self.update_embed()
+
+        await interaction.response.defer()
+
 
 @bot.slash_command(name="wiggle", description="Time for street DOTA")
 async def wiggle(ctx):
     global wiggle_poll
     if not wiggle_poll.active:
         wiggle_poll.start(ctx.user)
-        await ctx.respond(embed=wiggle_poll.build_embed(), view=MyView(timeout=get_env_attribute('timeout')))
+        view = MyView(timeout=get_env_attribute('timeout'))
+        view.children[0].emoji = io_moji
+        view.children[1].emoji = pudge
+        if not (os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click')):
+            view.children = [x for x in view.children if "TEST" not in x.label]
+
+        await ctx.respond(embed=wiggle_poll.build_embed(), view=view)
         global activation_owner
         activation_owner = ctx.user
     else:
@@ -190,12 +224,13 @@ async def again(ctx):
         collage(chosen)
         display_embed = wiggle_poll.build_embed()
         display_embed.add_field(name="Radiant Players",
-                           value=f"{chosen[0]}\n{chosen[1]}\n{chosen[2]}", inline=True)
+                                value=f"{chosen[0].user}\n{chosen[1].user}\n{chosen[2].user}", inline=True)
         display_embed.add_field(name="Dire Players",
-                           value=f"{chosen[3]}\n{chosen[4]} \n{chosen[5]}", inline=True)
+                                value=f"{chosen[3].user}\n{chosen[4].user} \n{chosen[5].user}", inline=True)
         display_embed.set_image(url="attachment://image.jpg")
         await ctx.response.send_message(embed=display_embed, file=discord.File("Collage.jpg", filename="image.jpg"))
         wiggle_poll.end()
+
 
 @bot.slash_command(name="random", description="I need a hero")
 async def get_one(ctx):
