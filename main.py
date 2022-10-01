@@ -1,3 +1,4 @@
+import math
 import os
 import random
 from typing import List
@@ -230,6 +231,28 @@ async def again(ctx):
         display_embed.set_image(url="attachment://image.jpg")
         await ctx.response.send_message(embed=display_embed, file=discord.File("Collage.jpg", filename="image.jpg"))
         wiggle_poll.end()
+
+
+@bot.slash_command(name="bigcollage", description="All the pictures")
+async def big_collage(ctx):
+    hero_imgs = [x.image for x in hero_list.hero_list]
+    cols = math.ceil(math.sqrt(len(hero_list.hero_list)*.7))
+    rows = math.ceil(len(hero_list.hero_list) / cols)
+    single_height = max(x.height for x in hero_imgs)
+    single_width = max(x.width for x in hero_imgs)
+    out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54, 0))
+    x = 0
+    y = 0
+    random.shuffle(hero_list.hero_list)
+    for h in hero_list.hero_list:
+        out.paste(h.image_with_name(h.localized_name), (x*single_width, y*single_height))
+        y += 1
+        if y == rows:
+            x += 1
+            y = 0
+    out.save("Collage.jpg")
+    await ctx.response.send_message(file=discord.File("Collage.jpg", filename="image.jpg"))
+
 
 
 @bot.slash_command(name="random", description="I need a hero")
