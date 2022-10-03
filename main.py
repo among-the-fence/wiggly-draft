@@ -1,6 +1,7 @@
 import math
 import os
 import random
+import shutil
 from typing import List
 
 import discord
@@ -93,7 +94,7 @@ def collage(hero_picks: List[Pick]):
     w, h = versus.size
     W, H = out.size
     out.paste(versus, (int((W - w) / 2), int((H - h) / 2)), versus)
-    out.save("Collage.jpg")
+    out.save("processed/Collage.jpg")
 
 
 class MyView(discord.ui.View):
@@ -124,8 +125,9 @@ class MyView(discord.ui.View):
             display_embed.set_image(url="attachment://image.jpg")
             display_embed.set_image(url="attachment://image.jpg")
             await self.message.edit(embed=display_embed, view=self,
-                                    file=discord.File("Collage.jpg", filename="image.jpg"))
+                                    file=discord.File("processed/Collage.jpg", filename="image.jpg"))
             wiggle_poll.end()
+            shutil.rmtree("processed/")
         else:
             await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
 
@@ -229,8 +231,9 @@ async def again(ctx):
         display_embed.add_field(name="Dire Players",
                                 value=f"{chosen[3].user}\n{chosen[4].user} \n{chosen[5].user}", inline=True)
         display_embed.set_image(url="attachment://image.jpg")
-        await ctx.response.send_message(embed=display_embed, file=discord.File("Collage.jpg", filename="image.jpg"))
+        await ctx.response.send_message(embed=display_embed, file=discord.File("processed/Collage.jpg", filename="image.jpg"))
         wiggle_poll.end()
+        shutil.rmtree("processed/")
 
 
 @bot.slash_command(name="bigcollage", description="All the pictures")
@@ -243,15 +246,16 @@ async def big_collage(ctx):
     out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54, 0))
     x = 0
     y = 0
-    random.shuffle(hero_list.hero_list)
+    hero_list.hero_list.sort(key=lambda hs: hs.display_name)
     for h in hero_list.hero_list:
         out.paste(h.image_with_name(h.localized_name), (x*single_width, y*single_height))
         y += 1
         if y == rows:
             x += 1
             y = 0
-    out.save("Collage.jpg")
-    await ctx.response.send_message(file=discord.File("Collage.jpg", filename="image.jpg"))
+    out.save("processed/Collage.jpg")
+    await ctx.response.send_message(file=discord.File("processed/Collage.jpg", filename="image.jpg"))
+    shutil.rmtree("processed/")
 
 
 
@@ -260,7 +264,7 @@ async def get_one(ctx):
     name = ctx.user.display_name
     random.choice(hero_list.hero_list).image_with_name(name)
     await ctx.response.send_message("",
-                                    file=discord.File(name + ".png"))
+                                    file=discord.File(f"processed/{name}.png"))
 
 
 @bot.slash_command(name="refresh", description="Data gone stale?")
@@ -289,4 +293,10 @@ async def random_game(ctx, player_count: int):
 
 
 if __name__ == "__main__":
+    if not(os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click')):
+        big_collage = None
+        del big_collage
+        for i in [x for x in bot.commands if x.name == 'bigcollage']:
+            bot.remove_application_command(i)
+
     bot.run(os.getenv('TOKEN'))

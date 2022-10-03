@@ -1,4 +1,5 @@
 import json
+import os
 from os.path import exists
 import random
 from typing import Dict
@@ -109,5 +110,7 @@ class Hero:
 
         font = Hero.scale_font(out.size[0] - 10, name, 25)
         textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
-        out.save(name + ".png")
+        if not (os.path.exists("processed") and os.path.isdir("processed")):
+            os.mkdir("processed")
+        out.save("processed/" + name + ".png")
         return out
