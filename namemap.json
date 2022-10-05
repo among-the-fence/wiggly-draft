@@ -1,11 +1,13 @@
 {
   "Bounty Hunter": "Booty Hunter",
+  "Chaos Knight": "Casino Knight",
   "Io":  "Wierd Ball",
   "Lifestealer": "Weird Dog",
+  "Lycan": "Actual Dog",
+  "Lich": "Lick",
   "Outworld Destroyer": ["Outhouse Decorator", "OD", "Outer Diameter", "Outhouse Destroyer"],
-  "Silencer": ["Silencer", ""],
   "Primal Beast": ["Peebles", "Peanut Butter", "The Business", "DIE OOMFIE"],
-  "Chaos Knight": "Casino Knight",
   "Queen of Pain": "QoP of Pain",
-  "Lycan": "Actual Dog"
+  "Silencer": ["Silencer", ""],
+  "Treant Protector": "Trent"
 }
