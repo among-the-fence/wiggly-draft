@@ -269,6 +269,7 @@ async def big_collage(ctx):
     y = 0
     hero_list.hero_list.sort(key=lambda hs: hs.localized_name)
     for h in hero_list.hero_list:
+        h.get_display_name()
         out.paste(h.image_with_name(h.localized_name), (x*single_width, y*single_height))
         y += 1
         if y == rows:

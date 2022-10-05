@@ -86,6 +86,7 @@ class Hero:
         else:
             names = [self.localized_name]
         return names
+
     def get_display_name(self):
         if isinstance(self.name_list, str):
             naem = self.name_list
@@ -95,6 +96,7 @@ class Hero:
             naem = self.localized_name
         self.hilarious_display_name = naem
         return naem
+
     @staticmethod
     def rename(name, name_map=None):
         outname = name_map[name] if name_map and name in name_map else name
