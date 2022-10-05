@@ -57,7 +57,11 @@ class HeroList:
             self.hero_list.append(i)
 
     def choose(self):
-        return random.sample(self.hero_list, 6)
+        sampled = []
+        sampled.extend(random.sample(self.hero_list, 6))
+        for h in sampled:
+            h.hilarious_display_name = h.get_display_name()
+        return sampled
 
 
 class Hero:
@@ -65,22 +69,32 @@ class Hero:
         self.name = hero_json['name']
         self.id = hero_json['id']
         self.localized_name = hero_json["localized_name"]
-        if self.localized_name in name_map:
-            self.name_list = name_map[self.localized_name]
-        else:
-            self.name_list = self.localized_name
+        self.name_list = self.build_name_list(name_map)
         self._raw_json = hero_json
         self.img_name = self.name.replace('npc_dota_hero_', '') + "_lg.png"
         self.image_path = f"imagecache/heroes/{self.img_name}"
         self.image = None
+        self.hilarious_display_name = None
 
+    def build_name_list(self, name_map):
+        if self.localized_name in name_map:
+            names = name_map[self.localized_name]
+            if isinstance(names, str):
+                names = [names, self.localized_name]
+            else:
+                names.append(self.localized_name)
+        else:
+            names = [self.localized_name]
+        return names
     def get_display_name(self):
         if isinstance(self.name_list, str):
-            return self.name_list
+            naem = self.name_list
         elif type(self.name_list) is list:
-            return random.choice(self.name_list)
+            naem = random.choice(self.name_list)
         else:
-            return self.localized_name
+            naem = self.localized_name
+        self.hilarious_display_name = naem
+        return naem
     @staticmethod
     def rename(name, name_map=None):
         outname = name_map[name] if name_map and name in name_map else name
@@ -108,15 +122,17 @@ class Hero:
         self.image = portrait
         return self.image_path
 
+    def name_or_default(self):
+        return self.hilarious_display_name if self.hilarious_display_name else self.localized_name
+
     def image_with_name(self, name):
         out = Image.new('RGB', (self.image.width, self.image.height), color=(255, 255, 255, 0))
         out.paste(self.image, (0, 0))
         width, height = out.size
         padding = 6
         textual = ImageDraw.Draw(out)
-        hilarious_hero_display_name = self.get_display_name()
-        font = Hero.scale_font(width - 10, hilarious_hero_display_name, 20)
-        textual.text((padding, height - 20), hilarious_hero_display_name, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+        font = Hero.scale_font(width - 10, self.name_or_default(), 20)
+        textual.text((padding, height - 20), self.name_or_default(), fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
         font = Hero.scale_font(width - 10, name, 25)
         textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
         if not (os.path.exists("processed") and os.path.isdir("processed")):

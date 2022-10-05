@@ -83,10 +83,18 @@ def collage(hero_picks: List[Pick]):
     i = 0
     x = 0
     y = 0
+
+    for h in hero_picks:
+        if h.hero.localized_name == 'Silencer':
+            if random.randint(1, 10) < 5:
+                for j in hero_picks:
+                    j.user_display_name = 'Silencer'
+                    j.hero.hilarious_display_name = 'Silencer'
+
     for col in range(cols):
         for row in range(rows):
             print(i, x, y)
-            out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user.display_name), (x, y))
+            out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user_display_name), (x, y))
             i += 1
             y += single_height
         x += single_width + divider
