@@ -86,7 +86,7 @@ def collage(hero_picks: List[Pick]):
 
     for h in hero_picks:
         if h.hero.localized_name == 'Silencer':
-            if random.randint(1, 10) < 5:
+            if random.randint(0, 9) < 5:
                 for j in hero_picks:
                     j.user_display_name = 'Silencer'
                     j.hero.hilarious_display_name = 'Silencer'
