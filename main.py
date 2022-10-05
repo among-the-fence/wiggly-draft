@@ -67,7 +67,7 @@ def pick_heroes(user_list):
             user_list.remove(user_pick)
             matchup.append(Pick(pick, user_pick))
         else:
-            matchup.append(Pick(pick, "unassinged"))
+            matchup.append(Pick(pick, "Unassigned"))
     return matchup
 
 
@@ -119,14 +119,14 @@ class MyView(discord.ui.View):
             collage(chosen)
             display_embed = wiggle_poll.build_embed()
             display_embed.add_field(name="Radiant Team",
-                                    value=f"{chosen[0].user.mention} {chosen[0].hero.localized_name}\n"
-                                          f"{chosen[1].user.mention} {chosen[1].hero.localized_name}\n"
-                                          f"{chosen[2].user.mention} {chosen[2].hero.localized_name}",
+                                    value=f"{chosen[0].user.mention} ({chosen[0].hero.localized_name})\n"
+                                          f"{chosen[1].user.mention} ({chosen[1].hero.localized_name})\n"
+                                          f"{chosen[2].user.mention} ({chosen[2].hero.localized_name})",
                                     inline=True)
             display_embed.add_field(name="Dire Team",
-                                    value=f"{chosen[3].user.mention} {chosen[3].hero.localized_name}\n"
-                                          f"{chosen[4].user.mention} {chosen[4].hero.localized_name}\n"
-                                          f"{chosen[5].user.mention} {chosen[5].hero.localized_name}",
+                                    value=f"{chosen[3].user.mention} ({chosen[3].hero.localized_name})\n"
+                                          f"{chosen[4].user.mention} ({chosen[4].hero.localized_name})\n"
+                                          f"{chosen[5].user.mention} ({chosen[5].hero.localized_name})",
                                     inline=True)
             display_embed.set_image(url="attachment://image.jpg")
             await self.message.edit(embed=display_embed, view=self,
