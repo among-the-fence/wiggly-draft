@@ -119,9 +119,9 @@ class MyView(discord.ui.View):
             collage(chosen)
             display_embed = wiggle_poll.build_embed()
             display_embed.add_field(name="Radiant Players",
-                                    value=f"{chosen[0].user}\n{chosen[1].user}\n{chosen[2].user}", inline=True)
+                                    value=f"{chosen[0].user} {chosen[0].hero.localized_name}\n{chosen[1].user} {chosen[1].hero.localized_name}\n{chosen[2].user} {chosen[2].hero.localized_name}", inline=True)
             display_embed.add_field(name="Dire Players",
-                                    value=f"{chosen[3].user}\n{chosen[4].user} \n{chosen[5].user}", inline=True)
+                                    value=f"{chosen[3].user} {chosen[3].hero.localized_name}\n{chosen[4].user} {chosen[4].hero.localized_name}\n{chosen[5].user} {chosen[5].hero.localized_name}", inline=True)
             display_embed.set_image(url="attachment://image.jpg")
             display_embed.set_image(url="attachment://image.jpg")
             await self.message.edit(embed=display_embed, view=self,
@@ -246,7 +246,7 @@ async def big_collage(ctx):
     out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54, 0))
     x = 0
     y = 0
-    hero_list.hero_list.sort(key=lambda hs: hs.display_name)
+    hero_list.hero_list.sort(key=lambda hs: hs.localized_name)
     for h in hero_list.hero_list:
         out.paste(h.image_with_name(h.localized_name), (x*single_width, y*single_height))
         y += 1
@@ -256,7 +256,6 @@ async def big_collage(ctx):
     out.save("processed/Collage.jpg")
     await ctx.response.send_message(file=discord.File("processed/Collage.jpg", filename="image.jpg"))
     shutil.rmtree("processed/")
-
 
 
 @bot.slash_command(name="random", description="I need a hero")

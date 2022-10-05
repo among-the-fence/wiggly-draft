@@ -1,3 +1,6 @@
-{"Lifestealer": "Weird Dog",
-"Bounty Hunter": "Booty Hunter",
-"Io":  "Balls"}
+{
+  "Bounty Hunter": "Booty Hunter",
+  "Io":  "Balls",
+  "Lifestealer": "Weird Dog",
+  "Outworld Destroyer": ["Outhouse Decorator", "OD", "Outer Diameter", "Outhouse Destroyer"]
+}

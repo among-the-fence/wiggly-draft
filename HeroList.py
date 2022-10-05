@@ -65,12 +65,22 @@ class Hero:
         self.name = hero_json['name']
         self.id = hero_json['id']
         self.localized_name = hero_json["localized_name"]
-        self.display_name = Hero.rename(hero_json["localized_name"], name_map)
+        if self.localized_name in name_map:
+            self.name_list = name_map[self.localized_name]
+        else:
+            self.name_list = self.localized_name
         self._raw_json = hero_json
         self.img_name = self.name.replace('npc_dota_hero_', '') + "_lg.png"
         self.image_path = f"imagecache/heroes/{self.img_name}"
         self.image = None
 
+    def get_display_name(self):
+        if isinstance(self.name_list, str):
+            return self.name_list
+        elif type(self.name_list) is list:
+            return random.choice(self.name_list)
+        else:
+            return self.localized_name
     @staticmethod
     def rename(name, name_map=None):
         outname = name_map[name] if name_map and name in name_map else name
@@ -95,20 +105,19 @@ class Hero:
                         break
                     handle.write(block)
         portrait = Image.open(self.image_path)
-        W, H = portrait.size
-        padding = 6
-        draw = ImageDraw.Draw(portrait)
-        font = Hero.scale_font(W - 10, self.display_name, 20)
-        draw.text((padding, H - 20), self.display_name, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
         self.image = portrait
         return self.image_path
 
     def image_with_name(self, name):
         out = Image.new('RGB', (self.image.width, self.image.height), color=(255, 255, 255, 0))
         out.paste(self.image, (0, 0))
+        width, height = out.size
+        padding = 6
         textual = ImageDraw.Draw(out)
-
-        font = Hero.scale_font(out.size[0] - 10, name, 25)
+        hilarious_hero_display_name = self.get_display_name()
+        font = Hero.scale_font(width - 10, hilarious_hero_display_name, 20)
+        textual.text((padding, height - 20), hilarious_hero_display_name, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+        font = Hero.scale_font(width - 10, name, 25)
         textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
         if not (os.path.exists("processed") and os.path.isdir("processed")):
             os.mkdir("processed")
