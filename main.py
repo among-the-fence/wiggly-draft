@@ -86,7 +86,7 @@ def collage(hero_picks: List[Pick]):
     for col in range(cols):
         for row in range(rows):
             print(i, x, y)
-            out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user), (x, y))
+            out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user.display_name), (x, y))
             i += 1
             y += single_height
         x += single_width + divider
@@ -119,10 +119,15 @@ class MyView(discord.ui.View):
             collage(chosen)
             display_embed = wiggle_poll.build_embed()
             display_embed.add_field(name="Radiant Players",
-                                    value=f"{chosen[0].user} {chosen[0].hero.localized_name}\n{chosen[1].user} {chosen[1].hero.localized_name}\n{chosen[2].user} {chosen[2].hero.localized_name}", inline=True)
+                                    value=f"{chosen[0].user.mention} {chosen[0].hero.localized_name}\n"
+                                          f"{chosen[1].user.mention} {chosen[1].hero.localized_name}\n"
+                                          f"{chosen[2].user.mention} {chosen[2].hero.localized_name}",
+                                    inline=True)
             display_embed.add_field(name="Dire Players",
-                                    value=f"{chosen[3].user} {chosen[3].hero.localized_name}\n{chosen[4].user} {chosen[4].hero.localized_name}\n{chosen[5].user} {chosen[5].hero.localized_name}", inline=True)
-            display_embed.set_image(url="attachment://image.jpg")
+                                    value=f"{chosen[3].user.mention} {chosen[3].hero.localized_name}\n"
+                                          f"{chosen[4].user.mention} {chosen[4].hero.localized_name}\n"
+                                          f"{chosen[5].user.mention} {chosen[5].hero.localized_name}",
+                                    inline=True)
             display_embed.set_image(url="attachment://image.jpg")
             await self.message.edit(embed=display_embed, view=self,
                                     file=discord.File("processed/Collage.jpg", filename="image.jpg"))
@@ -167,19 +172,21 @@ class MyView(discord.ui.View):
             await self.message.edit(embed=display_embed, view=self)
 
     @staticmethod
-    def get_test_name(user):
+    def get_test_name(usermember):
+        user = usermember.display_name
         test_names = [f"{user}", f"{user} 2", f"{user} squawk squawk", f"{user} hooooooooooooooooooooooo", f"{user[:2]}",
                       f"{user} I'm a little fat boy", f"{user}5", f"{user} get it",
                       f"{user} {user[::-1]}", f"{user} B{user[1:]}", f"{user} sfddfsd", ]
-        return random.choice(test_names)
+        usermember.display_name = random.choice(test_names)
+        return usermember
 
     @discord.ui.button(label="TEST One user", row=0, style=discord.ButtonStyle.secondary)
     async def secret_last_button_callback(self, button, interaction):
         global wiggle_poll
-        user = interaction.user.display_name
+        user = interaction.user
 
         if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
-            wiggle_poll.user_reacted(user_name=self.get_test_name(user))
+            wiggle_poll.user_reacted(user, True)
             await self.update_embed()
 
         await interaction.response.defer()
@@ -187,11 +194,11 @@ class MyView(discord.ui.View):
     @discord.ui.button(label="TEST manyuser", row=0, style=discord.ButtonStyle.secondary)
     async def secret_more_button_callback(self, button, interaction):
         global wiggle_poll
-        user = interaction.user.display_name
+        user = interaction.user
 
         if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
             while not wiggle_poll.ready():
-                wiggle_poll.user_reacted(user_name=self.get_test_name(user))
+                wiggle_poll.user_reacted(user, True)
             await self.update_embed()
 
         await interaction.response.defer()
@@ -227,9 +234,15 @@ async def again(ctx):
         collage(chosen)
         display_embed = wiggle_poll.build_embed()
         display_embed.add_field(name="Radiant Players",
-                                value=f"{chosen[0].user}\n{chosen[1].user}\n{chosen[2].user}", inline=True)
+                                value=f"{chosen[0].user.mention} {chosen[0].hero.localized_name}\n"
+                                      f"{chosen[1].user.mention} {chosen[1].hero.localized_name}\n"
+                                      f"{chosen[2].user.mention} {chosen[2].hero.localized_name}",
+                                inline=True)
         display_embed.add_field(name="Dire Players",
-                                value=f"{chosen[3].user}\n{chosen[4].user} \n{chosen[5].user}", inline=True)
+                                value=f"{chosen[3].user.mention} {chosen[3].hero.localized_name}\n"
+                                      f"{chosen[4].user.mention} {chosen[4].hero.localized_name}\n"
+                                      f"{chosen[5].user.mention} {chosen[5].hero.localized_name}",
+                                inline=True)
         display_embed.set_image(url="attachment://image.jpg")
         await ctx.response.send_message(embed=display_embed, file=discord.File("processed/Collage.jpg", filename="image.jpg"))
         wiggle_poll.end()

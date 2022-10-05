@@ -13,31 +13,29 @@ class WigglePoll:
         0xD00000]
 
     def __init__(self):
-        self.users = set(())
-        self.previous_success = set(())
+        self.users = []
+        self.previous_success = []
         self.owner = None
         self.active = False
 
     def start(self, init_user):
-        self.users.add(init_user.display_name)
+        self.users.append(init_user)
         self.owner = init_user
         self.active = True
 
     def end(self):
-        self.users = set(())
+        self.users = []
         self.owner = None
         self.active = False
 
-    def user_reacted(self, user=None, user_name: str = None):
-        if user:
-            user_name = user.display_name
-        if user_name in self.users:
-            self.users.remove(user_name)
+    def user_reacted(self, user, allow_weird_shit=False):
+        if user in self.users and not allow_weird_shit:
+            self.users.remove(user)
         else:
-            self.users.add(user_name)
+            self.users.append(user)
 
     def display_user_str(self):
-        return ", ".join(self.users)
+        return ", ".join([x.mention for x in self.users])
 
     def rerun(self):
         self.users = self.previous_success
