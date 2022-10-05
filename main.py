@@ -118,12 +118,12 @@ class MyView(discord.ui.View):
             chosen = pick_heroes(list(wiggle_poll.users))
             collage(chosen)
             display_embed = wiggle_poll.build_embed()
-            display_embed.add_field(name="Radiant Players",
+            display_embed.add_field(name="Radiant Team",
                                     value=f"{chosen[0].user.mention} {chosen[0].hero.localized_name}\n"
                                           f"{chosen[1].user.mention} {chosen[1].hero.localized_name}\n"
                                           f"{chosen[2].user.mention} {chosen[2].hero.localized_name}",
                                     inline=True)
-            display_embed.add_field(name="Dire Players",
+            display_embed.add_field(name="Dire Team",
                                     value=f"{chosen[3].user.mention} {chosen[3].hero.localized_name}\n"
                                           f"{chosen[4].user.mention} {chosen[4].hero.localized_name}\n"
                                           f"{chosen[5].user.mention} {chosen[5].hero.localized_name}",
@@ -136,7 +136,7 @@ class MyView(discord.ui.View):
         else:
             await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
 
-    @discord.ui.button(label="Do", row=0, style=discord.ButtonStyle.primary)
+    @discord.ui.button(row=0, style=discord.ButtonStyle.primary)
     async def first_button_callback(self, button, interaction):
         global wiggle_poll
         wiggle_poll.user_reacted(interaction.user)
@@ -156,7 +156,7 @@ class MyView(discord.ui.View):
             await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
             await interaction.response.defer()
 
-    @discord.ui.button(label="No", row=0, style=discord.ButtonStyle.danger)
+    @discord.ui.button(row=0, style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
         global wiggle_poll
         if not wiggle_poll.owner == activation_owner:
@@ -204,7 +204,7 @@ class MyView(discord.ui.View):
         await interaction.response.defer()
 
 
-@bot.slash_command(name="wiggle", description="Time for street DOTA")
+@bot.slash_command(name="wiggle", description="Let's get ready to WIGGLE!")
 async def wiggle(ctx):
     global wiggle_poll
     if not wiggle_poll.active:
@@ -222,11 +222,11 @@ async def wiggle(ctx):
         await ctx.respond("Too slow", ephemeral=True)
 
 
-@bot.slash_command(name="again", description="Time for street DOTA AGAIN")
+@bot.slash_command(name="again", description="Another round!")
 async def again(ctx):
     global wiggle_poll
     if not wiggle_poll.previous_success:
-        await ctx.respond("No last match data to use")
+        await ctx.respond("Can't do a hit if there was no prior hit!")
     else:
         wiggle_poll.rerun()
 
@@ -234,14 +234,14 @@ async def again(ctx):
         collage(chosen)
         display_embed = wiggle_poll.build_embed()
         display_embed.add_field(name="Radiant Players",
-                                value=f"{chosen[0].user.mention} {chosen[0].hero.localized_name}\n"
-                                      f"{chosen[1].user.mention} {chosen[1].hero.localized_name}\n"
-                                      f"{chosen[2].user.mention} {chosen[2].hero.localized_name}",
+                                value=f"{chosen[0].user.mention} ({chosen[0].hero.localized_name})\n"
+                                      f"{chosen[1].user.mention} ({chosen[1].hero.localized_name})\n"
+                                      f"{chosen[2].user.mention} ({chosen[2].hero.localized_name})",
                                 inline=True)
         display_embed.add_field(name="Dire Players",
-                                value=f"{chosen[3].user.mention} {chosen[3].hero.localized_name}\n"
-                                      f"{chosen[4].user.mention} {chosen[4].hero.localized_name}\n"
-                                      f"{chosen[5].user.mention} {chosen[5].hero.localized_name}",
+                                value=f"{chosen[3].user.mention} ({chosen[3].hero.localized_name})\n"
+                                      f"{chosen[4].user.mention} ({chosen[4].hero.localized_name})\n"
+                                      f"{chosen[5].user.mention} ({chosen[5].hero.localized_name})",
                                 inline=True)
         display_embed.set_image(url="attachment://image.jpg")
         await ctx.response.send_message(embed=display_embed, file=discord.File("processed/Collage.jpg", filename="image.jpg"))
