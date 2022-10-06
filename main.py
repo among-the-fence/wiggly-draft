@@ -144,7 +144,7 @@ class MyView(discord.ui.View):
         else:
             await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
 
-    @discord.ui.button(row=0, style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="", row=0, style=discord.ButtonStyle.primary)
     async def first_button_callback(self, button, interaction):
         global wiggle_poll
         wiggle_poll.user_reacted(interaction.user)
@@ -164,7 +164,7 @@ class MyView(discord.ui.View):
             await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
             await interaction.response.defer()
 
-    @discord.ui.button(row=0, style=discord.ButtonStyle.danger)
+    @discord.ui.button(label="", row=0, style=discord.ButtonStyle.danger)
     async def second_button_callback(self, button, interaction):
         global wiggle_poll
         if not wiggle_poll.owner == activation_owner:
