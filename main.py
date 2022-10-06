@@ -22,7 +22,7 @@ env = {
         "timeout": 10,
         "io_emoji": "<:io:1021872443788370072>",
         "pudge": "<:pudge:1021872278360825906>",
-        "hacky_one_click": True,
+        "hacky_one_click": False,
     },
     "PROD": {
         "timeout": 300,
@@ -314,10 +314,4 @@ async def random_game(ctx, player_count: int):
 
 
 if __name__ == "__main__":
-    if not(os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click')):
-        big_collage = None
-        del big_collage
-        for i in [x for x in bot.commands if x.name == 'bigcollage']:
-            bot.remove_application_command(i)
-
     bot.run(os.getenv('TOKEN'))
