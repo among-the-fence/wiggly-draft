@@ -64,8 +64,18 @@ class HeroList:
         return sampled
 
 
+def safe_make_dir(full_directory):
+    split_dirs = full_directory.split("/")
+    to_make = ""
+    for d in split_dirs:
+        to_make = to_make + d + "/"
+        if not (os.path.exists(to_make) and os.path.isdir(to_make)):
+            os.mkdir(to_make)
+
+
 class Hero:
     def __init__(self, hero_json, name_map):
+        safe_make_dir("imagecache/heroes")
         self.name = hero_json['name']
         self.id = hero_json['id']
         self.localized_name = hero_json["localized_name"]

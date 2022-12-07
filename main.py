@@ -3,6 +3,7 @@ import os
 import random
 import shutil
 from typing import List
+import openai
 
 import discord
 from PIL import Image
@@ -16,6 +17,8 @@ from WigglePoll import WigglePoll
 
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
+if os.getenv("OPENAI_API_KEY"):
+    openai.api_key = os.getenv("OPENAI_API_KEY")
 
 env = {
     "DEV": {
@@ -312,6 +315,49 @@ async def random_game(ctx, player_count: int):
     else:
         await ctx.respond("very funny.\n" + GameList().get_all())
 
+@bot.slash_command(name="aitext", description="Write a story")
+@option("prompt", description="Prompt?", required=False)
+@option("randomness", description="0-1", required=False)
+@option("max_length", description="how long?", required=False)
+async def open_api_generate(ctx, prompt:str, randomness: float, max_length:int):
+    await ctx.defer()
+    try:
+        prompt = prompt or "Story about a butterfly princess"
+        randomness = randomness or .7
+        if randomness <= 0: randomness = .01
+        if randomness >= 1: randomness = .99
+        max_length = max_length or 250
+        if max_length < 1: max_length = 1
+        if max_length > 2000: max_length = 2000
 
+        print(prompt)
+        print(randomness)
+        print(max_length)
+
+        response = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=prompt,
+            temperature=randomness,
+            max_tokens=max_length
+        )
+        print(response['choices'][0]['text'])
+        await ctx.followup.send(">" + prompt + "\n" + response['choices'][0]['text'])
+    except Exception as e:
+        await ctx.followup.send(f"Error: {e}")
+
+@bot.slash_command(name="aiimage", description="Make image")
+@option("prompt", description="What to make?", required=False)
+async def open_api_generate(ctx, prompt:str):
+    await ctx.defer()
+    prompt = prompt or "butterfly princess"
+    try:
+        image_resp = openai.Image.create(prompt=prompt)
+        embed = discord.Embed()
+        embed.set_image(
+            url=image_resp['data'][0]['url'])
+
+        await ctx.followup.send(">" + prompt,  embed=embed)
+    except Exception as e:
+        await ctx.followup.send(f"Error: {e}")
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
