@@ -346,7 +346,7 @@ async def open_api_generate(ctx, prompt:str, randomness: float, max_length:int):
         await ctx.followup.send(f"Error: {e}")
 
 @bot.slash_command(name="aiimage", description="Make image")
-@option("prompt", description="What to make?", required=False)
+@option("prompt", description="What to make?")
 async def open_api_generate(ctx, prompt:str):
     await ctx.defer()
     prompt = prompt or "butterfly princess"
