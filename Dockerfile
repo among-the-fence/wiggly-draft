@@ -1,4 +1,4 @@
-FROM gorialis/discord.py:alpine-master-minimal
+FROM gorialis/discord.py:slim-buster-master-minimal
 
 WORKDIR /
 
