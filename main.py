@@ -316,7 +316,7 @@ async def random_game(ctx, player_count: int):
         await ctx.respond("very funny.\n" + GameList().get_all())
 
 @bot.slash_command(name="aitext", description="Write a story")
-@option("prompt", description="Prompt?", required=False)
+@option("prompt", description="Prompt?")
 @option("randomness", description="0-1", required=False)
 @option("max_length", description="how long?", required=False)
 async def open_api_generate(ctx, prompt:str, randomness: float, max_length:int):
