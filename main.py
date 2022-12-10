@@ -1,3 +1,5 @@
+import base64
+import io
 import math
 import os
 import random
@@ -343,6 +345,13 @@ async def open_api_generate(ctx, prompt:str, randomness: int, max_length:int):
     except Exception as e:
         await ctx.followup.send(f"Error: {e}")
 
+def decode_img(msg):
+    msg = base64.b64decode(msg)
+    buf = io.BytesIO(msg)
+    img = Image.open(buf)
+    return img
+
+
 @bot.slash_command(name="aiimage", description="Make image")
 @option("prompt", description="What to make?")
 @option("count", description="Generatead count, 1-10", required=False)
@@ -351,15 +360,29 @@ async def open_api_generate(ctx, prompt:str, count: int):
     prompt = prompt or "butterfly princess"
     try:
         count = sorted([1, count or 1, 10])[1]
-        image_resp = openai.Image.create(prompt=prompt, n=count)
+        image_resp = openai.Image.create(prompt=prompt, n=count, response_format='b64_json')
         # https://beta.openai.com/docs/guides/images
-        embeds = []
+        # print(image_resp['data'][0])
+        images = []
         for i in image_resp['data']:
-            e = discord.Embed()
-            e.set_image(url=i['url'])
-            embeds.append(e)
+            images.append(decode_img(i['b64_json']))
 
-        await ctx.followup.send("> " + prompt, embeds=embeds)
+        cols = math.ceil(math.sqrt(count))
+        rows = math.ceil(count/cols)
+        out = Image.new('RGB', (images[0].width * cols, images[0].height * rows), color=(47, 49, 54, 0))
+        x = 0
+        y = 0
+        for i in images:
+            out.paste(i, (x * i.width, y * i.height))
+            x += 1
+            if x == cols:
+                y += 1
+                x = 0
+        if count > 4:
+            out = out.resize((int(out.width*.5), int(out.height*.5)))
+        out.save("images.png")
+
+        await ctx.followup.send(f"> {prompt}", file=discord.File("images.png", filename="images.png"))
 
     except Exception as e:
         await ctx.followup.send(f"Error: {e}")
