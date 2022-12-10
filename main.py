@@ -317,15 +317,13 @@ async def random_game(ctx, player_count: int):
 
 @bot.slash_command(name="aitext", description="Write a story")
 @option("prompt", description="Prompt?")
-@option("randomness", description="0-1", required=False)
+@option("randomness", description="0-10", required=False)
 @option("max_length", description="how long?", required=False)
-async def open_api_generate(ctx, prompt:str, randomness: float, max_length:int):
+async def open_api_generate(ctx, prompt:str, randomness: int, max_length:int):
     await ctx.defer()
     try:
         prompt = prompt or "Story about a butterfly princess"
-        randomness = randomness or .7
-        if randomness <= 0: randomness = .01
-        if randomness >= 1: randomness = .99
+        randomness = sorted([1, randomness or 7, 10])[1]/10
         max_length = max_length or 250
         if max_length < 1: max_length = 1
         if max_length > 2000: max_length = 2000
@@ -347,11 +345,13 @@ async def open_api_generate(ctx, prompt:str, randomness: float, max_length:int):
 
 @bot.slash_command(name="aiimage", description="Make image")
 @option("prompt", description="What to make?")
-async def open_api_generate(ctx, prompt:str):
+@option("count", description="Generatead count, 1-10", required=False)
+async def open_api_generate(ctx, prompt:str, count: int):
     await ctx.defer()
     prompt = prompt or "butterfly princess"
     try:
-        image_resp = openai.Image.create(prompt=prompt, n=4)
+        count = sorted([1, count or 1, 10])[1]
+        image_resp = openai.Image.create(prompt=prompt, n=count)
         # https://beta.openai.com/docs/guides/images
         embeds = []
         for i in image_resp['data']:
