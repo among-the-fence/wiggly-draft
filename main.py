@@ -7,7 +7,7 @@ import openai
 
 import discord
 from PIL import Image
-from discord import option
+from discord import option, TextChannel
 from dotenv import load_dotenv
 
 from GameList import GameList
@@ -351,13 +351,25 @@ async def open_api_generate(ctx, prompt:str):
     await ctx.defer()
     prompt = prompt or "butterfly princess"
     try:
-        image_resp = openai.Image.create(prompt=prompt)
-        embed = discord.Embed()
-        embed.set_image(
-            url=image_resp['data'][0]['url'])
+        image_resp = openai.Image.create(prompt=prompt, n=4)
+        # https://beta.openai.com/docs/guides/images
+        big_e = discord.Embed()
+        embeds=[]
+        for i in image_resp['data']:
+            e = discord.Embed()
+            e.set_image(url=i['url'])
+            embeds.append(e)
+        print(len(embeds))
+        if isinstance(ctx.channel, TextChannel):
+            trd = await ctx.channel.create_thread(name=prompt, auto_archive_duration=60)
+            print(f"creating {trd}")
+            await trd.send(embeds=embeds)
+        else:
+            await ctx.followup.send("> " + prompt,  embeds=embeds)
 
-        await ctx.followup.send(">" + prompt,  embed=embed)
     except Exception as e:
         await ctx.followup.send(f"Error: {e}")
+
+
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
