@@ -351,12 +351,16 @@ async def open_api_generate(ctx, prompt:str):
     await ctx.defer()
     prompt = prompt or "butterfly princess"
     try:
-        image_resp = openai.Image.create(prompt=prompt)
-        embed = discord.Embed()
-        embed.set_image(
-            url=image_resp['data'][0]['url'])
+        image_resp = openai.Image.create(prompt=prompt, n=4)
+        # https://beta.openai.com/docs/guides/images
+        embeds = []
+        for i in image_resp['data']:
+            e = discord.Embed()
+            e.set_image(url=i['url'])
+            embeds.append(e)
 
-        await ctx.followup.send(">" + prompt,  embed=embed)
+        await ctx.followup.send("> " + prompt, embeds=embeds)
+
     except Exception as e:
         await ctx.followup.send(f"Error: {e}")
 if __name__ == "__main__":
