@@ -326,7 +326,7 @@ async def open_api_generate(ctx, prompt:str, randomness: int, max_length:int):
     try:
         prompt = prompt or "Story about a butterfly princess"
         randomness = sorted([1, randomness or 7, 10])[1]/10
-        max_length = max_length or 250
+        max_length = sorted([1, max_length or 250, 2000])[1]
         if max_length < 1: max_length = 1
         if max_length > 2000: max_length = 2000
 
