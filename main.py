@@ -327,12 +327,6 @@ async def open_api_generate(ctx, prompt:str, randomness: int, max_length:int):
         prompt = prompt or "Story about a butterfly princess"
         randomness = sorted([1, randomness or 7, 10])[1]/10
         max_length = sorted([1, max_length or 250, 2000])[1]
-        if max_length < 1: max_length = 1
-        if max_length > 2000: max_length = 2000
-
-        print(prompt)
-        print(randomness)
-        print(max_length)
 
         response = openai.Completion.create(
             model="text-davinci-003",
@@ -340,10 +334,9 @@ async def open_api_generate(ctx, prompt:str, randomness: int, max_length:int):
             temperature=randomness,
             max_tokens=max_length
         )
-        print(response['choices'][0]['text'])
         await ctx.followup.send(">" + prompt + "\n" + response['choices'][0]['text'])
     except Exception as e:
-        await ctx.followup.send(f"Error: {e}")
+        await ctx.followup.send(f"> {prompt}\nError: {e}")
 
 def decode_img(msg):
     msg = base64.b64decode(msg)
@@ -381,10 +374,10 @@ async def open_api_generate(ctx, prompt:str, count: int):
         if count > 4:
             out = out.resize((int(out.width*.5), int(out.height*.5)))
         out.save("images.png")
-
         await ctx.followup.send(f"> {prompt}", file=discord.File("images.png", filename="images.png"))
-
     except Exception as e:
-        await ctx.followup.send(f"Error: {e}")
+        await ctx.followup.send(f"> {prompt}\nError: {e}")
+
+
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
