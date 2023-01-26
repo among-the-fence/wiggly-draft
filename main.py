@@ -27,7 +27,7 @@ env = {
         "timeout": 10,
         "io_emoji": "<:io:1021872443788370072>",
         "pudge": "<:pudge:1021872278360825906>",
-        "hacky_one_click": False,
+        "hacky_one_click": True,
     },
     "PROD": {
         "timeout": 300,
@@ -62,8 +62,18 @@ async def on_ready():
     print(pudge)
     print(io_moji)
 
+def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
+    team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
+    team2_names = set([x.user.display_name.lower() for x in matchup[3:]])
+    return {"chu", "mrc48b"}.issubset(team1_names) or {"chu", "mrc48b"}.issubset(team2_names)
 
 def pick_heroes(user_list):
+    matchup = build_picks(user_list)
+    while bill_and_ben_are_on_the_same_team(matchup):
+        matchup = build_picks(user_list)
+    return matchup
+
+def build_picks(user_list):
     chosen = hero_list.choose()
     matchup = []
     for pick in chosen:
