@@ -113,18 +113,30 @@ class Hero:
         return outname
 
     @staticmethod
-    def find_whitespace(text, count):
-        spacing = int(len(text)/count)
-        for i in range(1, count):
-            check_pos = spacing*i + 3
-            while 0 < check_pos < len(text) and text[check_pos] != "\n" and text[check_pos] != ' ' :
-                check_pos = check_pos - 1
-            if 0 < check_pos < len(text) and text[check_pos] == ' ':
-                text = text[:check_pos] + '\n' + text[check_pos + 1:]
-        return text
+    def break_text(text, font, max_width, max_height = 99999999999):
+        chunks = []
+        split = text.split()
+        if len(split) == 1:
+            return split
+        current_chunk = split[0]
+        split = split[1:]
+        bbox = font.getbbox(current_chunk)
+        # use bbox[3] to approximate height and shortcircuit really long strings. They'll never be shown anyway
+        while len(split) > 0 and bbox[3]*(len(chunks)-1) < max_height:
+            while bbox[2] < max_width  and len(split) > 0:
+                current_chunk = current_chunk.lstrip() + " " + split[0]
+                split = split[1:]
+                bbox = font.getbbox(current_chunk)
+            x = current_chunk.split(" ")
+            if bbox[2] > max_width:
+                current_chunk = " ".join(x[:-1])
+            chunks.append(current_chunk)
+            current_chunk = x[-1]
+            bbox = (0,0,0,bbox[3])
+        return "\n".join(chunks)
 
     @staticmethod
-    def scale_font(box_max_width, text, starting_size, box_max_height=None):
+    def scale_font(box_max_width, text, starting_size, box_max_height=99999999):
         font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
         rows = 1
         bbox = font.getbbox(text)
@@ -134,18 +146,19 @@ class Hero:
             while bbox[2] > box_max_width and font_size > 10:
                 font_size = font_size - 1
                 font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", font_size)
+                text = Hero.break_text(text, font, box_max_width, box_max_height)
                 bbox = font.getbbox(text)
             if bbox[2] >= box_max_width and ((not box_max_height) or box_max_height > bbox[3]):
                 font_size = starting_size
                 rows = rows + 1
-                text = Hero.find_whitespace(original_text, rows)
+                text = Hero.break_text(original_text, font, box_max_width, box_max_height)
                 # print(text)
                 bbox = font.getbbox(text)
-                if rows > 5:
+                if rows > 10:
                     break
             else:
                 break
-        print(bbox)
+        # print(bbox)
         return font, text, bbox[3], rows
 
     def preload_image(self):
@@ -174,8 +187,8 @@ class Hero:
         font, hero_name_text, top_name_box_height, rows = Hero.scale_font(width - 10, name, 25)
         textual.text((padding, padding), hero_name_text, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
         font, text, box_height, rows = Hero.scale_font(width - 10, self.name_or_default(), 20, height-top_name_box_height)
-        print(f"{hero_name_text}  {top_name_box_height}")
-        print(f"h:{height}  bh:{box_height} t:{text}")
+        # print(f"{hero_name_text}  {top_name_box_height}")
+        # print(f"h:{height}  bh:{box_height} t:{text}")
         textual.text((padding, max((top_name_box_height + 2*padding), height-(box_height*rows*1.5)-padding)), text, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
         if not (os.path.exists("processed") and os.path.isdir("processed")):
             os.mkdir("processed")
@@ -187,6 +200,10 @@ if __name__ == "__main__":
     name_map = json.loads(open("namemap.json", "r").read())
     skywrath = Hero(skywrathJson, name_map)
     skywrath.preload_image()
-    skywrath.hilarious_display_name = name_map["Skywrath Mage"][0]
+    skywrath.hilarious_display_name = skywrath.name_list[1]
 
-    skywrath.image_with_name("Skywrath Mage")
+    skywrath.image_with_name(skywrathJson["localized_name"])
+
+    Hero.break_text("From the Ghastly Eyrie I can see to the ends of the world, and from this vantage point I declare with utter certainty that this one is in the bag!",
+                    ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 12),
+                    187)
