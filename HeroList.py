@@ -120,46 +120,37 @@ class Hero:
             return split
         current_chunk = split[0]
         split = split[1:]
+        prev_iteration = ""
         bbox = font.getbbox(current_chunk)
         # use bbox[3] to approximate height and shortcircuit really long strings. They'll never be shown anyway
-        while len(split) > 0 and bbox[3]*(len(chunks)-1) < max_height:
+        while len(split) > 0 and bbox[3]*(len(chunks)-3) < max_height:
             while bbox[2] < max_width  and len(split) > 0:
                 current_chunk = current_chunk.lstrip() + " " + split[0]
                 split = split[1:]
                 bbox = font.getbbox(current_chunk)
-            x = current_chunk.split(" ")
-            if bbox[2] > max_width:
-                current_chunk = " ".join(x[:-1])
-            chunks.append(current_chunk)
-            current_chunk = x[-1]
+                prev_iteration = current_chunk
+            chunks.append(prev_iteration)
+            if prev_iteration != current_chunk:
+                split.insert(0, current_chunk.split(" ")[-1])
+            prev_iteration = ""
+            current_chunk = ""
             bbox = (0,0,0,bbox[3])
-        return "\n".join(chunks)
+        return chunks
 
     @staticmethod
     def scale_font(box_max_width, text, starting_size, box_max_height=99999999):
         font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
-        rows = 1
         bbox = font.getbbox(text)
         original_text = text
         font_size = starting_size
-        while ((not box_max_height) or (box_max_height > bbox[3])) and (bbox[2] > box_max_width):
-            while bbox[2] > box_max_width and font_size > 10:
-                font_size = font_size - 1
-                font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", font_size)
-                text = Hero.break_text(text, font, box_max_width, box_max_height)
-                bbox = font.getbbox(text)
-            if bbox[2] >= box_max_width and ((not box_max_height) or box_max_height > bbox[3]):
-                font_size = starting_size
-                rows = rows + 1
-                text = Hero.break_text(original_text, font, box_max_width, box_max_height)
-                # print(text)
-                bbox = font.getbbox(text)
-                if rows > 10:
-                    break
-            else:
-                break
-        # print(bbox)
-        return font, text, bbox[3], rows
+        chunk_text = [text]
+        while bbox[2] > box_max_width*.9 and font_size > 10:
+            font_size = font_size - 1
+            font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", font_size)
+            chunk_text = Hero.break_text(original_text, font, box_max_width, box_max_height)
+            text = "\n".join(chunk_text)
+            bbox = font.getbbox(text)
+        return font, chunk_text, bbox[3]
 
     def preload_image(self):
         if not exists(self.image_path):
@@ -176,6 +167,7 @@ class Hero:
         return self.image_path
 
     def name_or_default(self):
+        print(self.localized_name + " " + self.hilarious_display_name)
         return self.hilarious_display_name if self.hilarious_display_name else self.localized_name
 
     def image_with_name(self, name):
@@ -184,12 +176,15 @@ class Hero:
         width, height = out.size
         padding = 5
         textual = ImageDraw.Draw(out)
-        font, hero_name_text, top_name_box_height, rows = Hero.scale_font(width - 10, name, 25)
-        textual.text((padding, padding), hero_name_text, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
-        font, text, box_height, rows = Hero.scale_font(width - 10, self.name_or_default(), 20, height-top_name_box_height)
+        font, player_name_chunks, top_name_box_height = Hero.scale_font(width - 10, name, 25)
+        textual.text((padding, padding), player_name_chunks[0], fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
+        font, text, box_height = Hero.scale_font(width - 10, self.name_or_default(), 20, height-top_name_box_height)
         # print(f"{hero_name_text}  {top_name_box_height}")
-        # print(f"h:{height}  bh:{box_height} t:{text}")
-        textual.text((padding, max((top_name_box_height + 2*padding), height-(box_height*rows*1.5)-padding)), text, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+        print(f"h:{height}  bh:{box_height} t:{text}")
+        start_y = height - (box_height * 1.3 * min(len(text), 6))
+        for t in text:
+            textual.text((padding, start_y), t, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+            start_y = start_y + box_height * 1.3
         if not (os.path.exists("processed") and os.path.isdir("processed")):
             os.mkdir("processed")
         out.save("processed/" + name + ".png")
