@@ -144,7 +144,7 @@ class Hero:
         original_text = text
         font_size = starting_size
         chunk_text = [text]
-        while bbox[2] > box_max_width*.9 and font_size > 10:
+        while bbox[2] > box_max_width and font_size > 10:
             font_size = font_size - 1
             font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", font_size)
             chunk_text = Hero.break_text(original_text, font, box_max_width, box_max_height)
