@@ -113,12 +113,44 @@ class Hero:
         return outname
 
     @staticmethod
-    def scale_font(size, text, starting_size):
+    def break_text(text, font, max_width, max_height = 99999999999):
+        chunks = []
+        split = text.split()
+        if len(split) == 1:
+            return split
+        current_chunk = split[0]
+        split = split[1:]
+        prev_iteration = ""
+        bbox = font.getbbox(current_chunk)
+        # use bbox[3] to approximate height and shortcircuit really long strings. They'll never be shown anyway
+        while len(split) > 0 and bbox[3]*(len(chunks)-3) < max_height:
+            while bbox[2] < max_width  and len(split) > 0:
+                current_chunk = current_chunk.lstrip() + " " + split[0]
+                split = split[1:]
+                bbox = font.getbbox(current_chunk)
+                prev_iteration = current_chunk
+            chunks.append(prev_iteration)
+            if prev_iteration != current_chunk:
+                split.insert(0, current_chunk.split(" ")[-1])
+            prev_iteration = ""
+            current_chunk = ""
+            bbox = (0,0,0,bbox[3])
+        return chunks
+
+    @staticmethod
+    def scale_font(box_max_width, text, starting_size, box_max_height=99999999):
         font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
-        while font.getsize(text)[0] > size > 10:
-            starting_size = starting_size - 1
-            font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", starting_size)
-        return font
+        bbox = font.getbbox(text)
+        original_text = text
+        font_size = starting_size
+        chunk_text = [text]
+        while bbox[2] > box_max_width and font_size > 10:
+            font_size = font_size - 1
+            font = ImageFont.truetype("fonts/Trajan Pro Bold.ttf", font_size)
+            chunk_text = Hero.break_text(original_text, font, box_max_width, box_max_height)
+            text = "\n".join(chunk_text)
+            bbox = font.getbbox(text)
+        return font, chunk_text, bbox[3]
 
     def preload_image(self):
         if not exists(self.image_path):
@@ -135,19 +167,38 @@ class Hero:
         return self.image_path
 
     def name_or_default(self):
+        print(self.localized_name + " " + self.hilarious_display_name)
         return self.hilarious_display_name if self.hilarious_display_name else self.localized_name
 
     def image_with_name(self, name):
         out = Image.new('RGB', (self.image.width, self.image.height), color=(255, 255, 255, 0))
         out.paste(self.image, (0, 0))
         width, height = out.size
-        padding = 6
+        padding = 5
         textual = ImageDraw.Draw(out)
-        font = Hero.scale_font(width - 10, self.name_or_default(), 20)
-        textual.text((padding, height - 20), self.name_or_default(), fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
-        font = Hero.scale_font(width - 10, name, 25)
-        textual.text((5, 5), name, fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
+        font, player_name_chunks, top_name_box_height = Hero.scale_font(width - 10, name, 25)
+        textual.text((padding, padding), player_name_chunks[0], fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
+        font, text, box_height = Hero.scale_font(width - 10, self.name_or_default(), 20, height-top_name_box_height)
+        # print(f"{hero_name_text}  {top_name_box_height}")
+        print(f"h:{height}  bh:{box_height} t:{text}")
+        start_y = height - (box_height * 1.3 * min(len(text), 6))
+        for t in text:
+            textual.text((padding, start_y), t, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+            start_y = start_y + box_height * 1.3
         if not (os.path.exists("processed") and os.path.isdir("processed")):
             os.mkdir("processed")
         out.save("processed/" + name + ".png")
         return out
+
+if __name__ == "__main__":
+    skywrathJson = json.loads('{"name": "npc_dota_hero_skywrath_mage", "id": 101, "localized_name": "Skywrath Mage"}')
+    name_map = json.loads(open("namemap.json", "r").read())
+    skywrath = Hero(skywrathJson, name_map)
+    skywrath.preload_image()
+    skywrath.hilarious_display_name = skywrath.name_list[1]
+
+    skywrath.image_with_name(skywrathJson["localized_name"])
+
+    Hero.break_text("From the Ghastly Eyrie I can see to the ends of the world, and from this vantage point I declare with utter certainty that this one is in the bag!",
+                    ImageFont.truetype("fonts/Trajan Pro Bold.ttf", 12),
+                    187)
