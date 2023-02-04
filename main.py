@@ -1,5 +1,6 @@
 import base64
 import io
+import json
 import math
 import os
 import random
@@ -227,12 +228,142 @@ class MyView(discord.ui.View):
         await interaction.response.defer()
 
 
+class TeamBuildView(discord.ui.View):
+    async def on_timeout(self):
+        for child in self.children:
+            child.disabled = True
+        self.children = []
+        global wiggle_poll
+        display_embed = discord.Embed(title=f"Don't do a hit!",
+                                      color=0x900000)
+        wiggle_poll.end()
+        await self.message.edit(embed=display_embed, view=self)
+
+    async def update_embed(self):
+        global wiggle_poll
+        if wiggle_poll.ready():
+            self.timeout = None
+            for child in self.children:
+                child.disabled = True
+            self.children = {}
+            chosen = pick_heroes(list(wiggle_poll.users))
+            collage(chosen)
+            display_embed = wiggle_poll.build_embed()
+            display_embed.add_field(name="Radiant Team",
+                                    value=f"{chosen[0].user.mention} ({chosen[0].hero.localized_name})\n"
+                                          f"{chosen[1].user.mention} ({chosen[1].hero.localized_name})\n"
+                                          f"{chosen[2].user.mention} ({chosen[2].hero.localized_name})",
+                                    inline=True)
+            display_embed.add_field(name="Dire Team",
+                                    value=f"{chosen[3].user.mention} ({chosen[3].hero.localized_name})\n"
+                                          f"{chosen[4].user.mention} ({chosen[4].hero.localized_name})\n"
+                                          f"{chosen[5].user.mention} ({chosen[5].hero.localized_name})",
+                                    inline=True)
+            display_embed.set_image(url="attachment://image.jpg")
+            await self.message.edit(embed=display_embed, view=self,
+                                    file=discord.File("processed/Collage.jpg", filename="image.jpg"))
+            wiggle_poll.end()
+            shutil.rmtree("processed/")
+        else:
+            await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
+
+    @discord.ui.button(label="", row=0, style=discord.ButtonStyle.primary)
+    async def first_button_callback(self, button, interaction):
+        global wiggle_poll
+        wiggle_poll.user_reacted(interaction.user)
+
+        await self.message.edit(embed=wiggle_poll.build_embed(), view=self)
+        await interaction.response.defer()
+
+    @discord.ui.button(label="", row=0, style=discord.ButtonStyle.danger)
+    async def second_button_callback(self, button, interaction):
+        global wiggle_poll
+        if not wiggle_poll.owner == activation_owner:
+            await interaction.response.send_message(f"{interaction.user.display_name} broke the law!")
+        else:
+            for child in self.children:
+                child.disabled = True
+            self.children = []
+            user = interaction.user.display_name
+            display_embed = discord.Embed(title=f"{user} put a stop to it.",
+                                          color=0xC00000)
+            wiggle_poll.end()
+            await self.message.edit(embed=display_embed, view=self)
+
+    @staticmethod
+    def get_test_name(usermember):
+        user = usermember.display_name
+        test_names = [f"{user}", f"{user} 2", f"{user} squawk squawk", f"{user} hooooooooooooooooooooooo", f"{user[:2]}",
+                      f"{user} I'm a little fat boy", f"{user}5", f"{user} get it",
+                      f"{user} {user[::-1]}", f"{user} B{user[1:]}", f"{user} sfddfsd", ]
+        usermember.display_name = random.choice(test_names)
+        return usermember
+
+    @discord.ui.button(label="TEST One user", row=0, style=discord.ButtonStyle.secondary)
+    async def secret_last_button_callback(self, button, interaction):
+        global wiggle_poll
+        user = interaction.user
+
+        if os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click'):
+            wiggle_poll.user_reacted(user, True)
+            await self.update_embed()
+
+        await interaction.response.defer()
+
+    @discord.ui.button(label="done", row=0, style=discord.ButtonStyle.secondary)
+    async def secret_more_button_callback(self, button, interaction):
+        global wiggle_poll
+        user = interaction.user
+
+        team_size = int(len(wiggle_poll.users) / 2)
+        team_name_list = json.loads(open("data/teamnames.json", 'r').read())
+        teams = []
+        users = wiggle_poll.users
+        random.shuffle(users)
+        i = 0
+        for c in range(0,2):
+            teams.append({'name': "", 'team': []})
+            for t in range(0, team_size):
+                teams[c]['team'].append(users[i])
+                i = i + 1
+            teams[c]['name'] = random.choice(team_name_list["solo"])
+
+
+        display_embed = discord.Embed(title="Commence the teamin`",
+                                      color=0x00F000)
+        # print(json.dumps(teams))
+        for x in teams:
+            names = [y.name for y in x['team']]
+            display_embed.add_field(name=x['name'], value=f"{names}")
+
+
+        await self.message.edit(embed=display_embed, view=self)
+
+
 @bot.slash_command(name="wiggle", description="Let's get ready to WIGGLE!")
 async def wiggle(ctx):
     global wiggle_poll
     if not wiggle_poll.active:
         wiggle_poll.start(ctx.user)
         view = MyView(timeout=get_env_attribute('timeout'))
+        view.children[0].emoji = io_moji
+        view.children[1].emoji = pudge
+        if not (os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click')):
+            view.children = [x for x in view.children if "TEST" not in x.label]
+
+        await ctx.respond(embed=wiggle_poll.build_embed(), view=view)
+        global activation_owner
+        activation_owner = ctx.user
+    else:
+        await ctx.respond("Too slow", ephemeral=True)
+
+
+@bot.slash_command(name="team", description="Team up!")
+async def wiggle(ctx):
+    global wiggle_poll
+    if not wiggle_poll.active:
+        wiggle_poll.start(ctx.user)
+        view = TeamBuildView(timeout=get_env_attribute('timeout'))
         view.children[0].emoji = io_moji
         view.children[1].emoji = pudge
         if not (os.getenv('ENV') == 'DEV' and get_env_attribute('hacky_one_click')):
