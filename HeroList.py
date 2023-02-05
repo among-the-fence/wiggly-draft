@@ -25,8 +25,8 @@ class HeroList:
                       {'localized_name': "hero6", 'id': 6, 'name': 'hero6'},
                       ]
 
-        if exists("namemap.json"):
-            name_map = json.loads(open("namemap.json", "r").read())
+        if exists("data/namemap.json"):
+            name_map = json.loads(open("data/namemap.json", "r").read())
         else:
             name_map = {"Lifestealer": "Weird Dog"}
         self.hero_list = []
@@ -43,8 +43,8 @@ class HeroList:
         return heroesjson['result']['heroes']
 
     def refresh(self, dota_token):
-        if exists("namemap.json"):
-            name_map = json.loads(open("namemap.json", "r").read())
+        if exists("data/namemap.json"):
+            name_map = json.loads(open("data/namemap.json", "r").read())
         else:
             name_map = {"Lifestealer": "Weird Dog"}
         self.list_to_objects(self.fetch(dota_token), name_map)
@@ -193,7 +193,7 @@ class Hero:
 
 if __name__ == "__main__":
     skywrathJson = json.loads('{"name": "npc_dota_hero_skywrath_mage", "id": 101, "localized_name": "Skywrath Mage"}')
-    name_map = json.loads(open("namemap.json", "r").read())
+    name_map = json.loads(open("data/namemap.json", "r").read())
     skywrath = Hero(skywrathJson, name_map)
     skywrath.preload_image()
     skywrath.hilarious_display_name = skywrath.name_list[1]
