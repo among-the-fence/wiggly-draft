@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from app import collage, pick_heroes
+from main import collage
 
 
 class MyTestCase(unittest.TestCase):
