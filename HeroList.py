@@ -10,8 +10,8 @@ import requests
 
 class HeroList:
     def __init__(self, dota_token: str = None):
-        if exists("heroData.json"):
-            heroesjson = json.loads(open("heroData.json", 'r').read())
+        if exists("data/heroData.json"):
+            heroesjson = json.loads(open("data/heroData.json", 'r').read())
             self._raw = heroesjson
             heroes = heroesjson['heroes']
         elif dota_token:
@@ -37,7 +37,7 @@ class HeroList:
                 f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={dota_token}&language=en-US").content
         self._raw = raw_content
         heroesjson = json.loads(raw_content)
-        open("heroData.json", 'w').write(json.dumps(heroesjson['result']))
+        open("data/heroData.json", 'w').write(json.dumps(heroesjson['result']))
         for h in heroesjson['result']['heroes']:
             print(h)
         return heroesjson['result']['heroes']

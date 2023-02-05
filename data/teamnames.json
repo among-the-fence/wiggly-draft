@@ -1,0 +1,42 @@
+{
+  "teams": [
+    "The Blazers","The Warriors","The Lightning","The Firebirds","The Thunderbolts","The Hurricanes","The Tornadoes","The Cyclones","The Tornadoes","The Squalls",
+    "The Twisters","The Whirlwinds","The Monsoons","The Wildfires","The Blaze","The Heat","The Inferno","The Flames","The Conflagrations","The Incendiaries",
+    "The Flashes","The Bolts","The Charges","The Sparks","The Volts","The Amperes","The Watts","The Joules","The Electrons","The Protons",
+    "The Neutrons","The Photons","The Positrons","The Electromagnets","The Radiations","The Particles","The Waves","The Frequencies","The Harmonics","The Resonances",
+    "The Bounces","The Echoes","The Reverberations","The Reflections","The Refractions","The Shadows","The Silhouettes","The Outlines","The Contours","The Shapes",
+    "The Forms","The Figures","The Designs","The Patterns","The Decors","The Ornaments","The Embellishments","The Adornments","The Beautifications","The Enhancements",
+    "The Magnifications","The Amplifications","The Augmentations","The Elevations","The Elevations","The Raisings","The Boosts","The Upliftings","The Enhancements","The Upgrades",
+    "The Upgradings","The Upward Trajectories","The Improvents","The Betterments","The Advances","The Progressions","The Developments","The Evolutions","The Transitions","The Transformations",
+    "The Metamorphoses","The Innovations","The Creativities","The Inventions","The Discoveries","The Breakthroughs","The Pioneering Efforts","The Trailblazing Ventures","The Pathfinding Expeditions","The Groundbreaking Ventures",
+    "The Trendsetting Initiatives","The Forward-thinking Strategies","The Visionary Concepts","The Pioneering Visions","The Groundbreaking Dreams","The Trailblazing Ambitions","The Pathfinding Goals","The Groundbreaking Objectives","The Trailblazing Missions","The Pathfinding Purposes",
+    "Red Storm", "Black Panthers", "White Wolves", "Blue Bolts", "Green Gazelles", "Yellow Yaks", "Orange Outlaws", "Purple Panthers", "Pink Powerhouses", "Grey Giants", "Thunderbolts", "Firebirds", "Hurricane Force",
+    "Lightning Strikes", "Blaze Warriors", "Wildfire Wolves", "Thunderclap Titans", "Blaze Blazers", "Storm Troopers", "Inferno Incendiaries", "Iron Stallions", "Steel Sharks", "Copper Cobras", "Silver Serpents",
+    "Bronze Bulls", "Gold Griffins", "Diamond Dragons", "Platinum Pythons", "Emerald Eagles", "Sapphire Stallions", "Ruby Rhinos", "Topaz Tigers", "Obsidian Orcas", "Garnet Gorillas", "Aquamarine Alligators", "Amethyst Antelopes", "Opal Ocelots", "Coral Cougars",
+    "Diamondback Dragons", "Arctic Foxes", "Arctic Wolves", "Desert Scorpions", "Forest Falcons", "Mountain Lions", "Ocean Orcas", "Jungle Jaguars", "River Raptors", "Prairie Wolves", "Sky Hawks", "Space Spiders", "Lightning Lizards", "Electric Eagles", "Thunder Turtles", "Firebirds",
+    "Inferno Impalas", "Blaze Bears", "Wildfire Wolves", "Hurricane Hawks", "Typhoon Turtles", "Cyclone Coyotes", "Twister Tiger", "Thundering Thoroughbreds", "Fiery Foxes", "Ignited Ibexes", "Scorching Scorpions", "Searing Stallions", "Scorched Serpent"
+  ],
+  "solo": [
+    "Solo Shark", "Lone Wolf", "One Man Army", "The Champion", "The Maverick", "The Unstoppable", "The Undefeated", "The Unbeatable", "The Unrivaled", "The Dominant", "The Supreme", "The Elite", "The Ultimate", "The King", "The Queen", "The Prodigy", "The Genius", "The Legend",
+    "The Icon", "The Warrior", "The Gladiator", "The Champion", "The Hunter", "The Slayer", "The Avenger", "The Victor", "The Crusader", "The Paladin", "The Avenger", "The Raconteur", "The Philosopher", "The Poet", "The Artist", "The Musician", "The Writer", "The Philosopher",
+    "The Scientist", "The Engineer", "The Mathematician", "The Architect", "The Innovator", "The Entrepreneur", "The Visionary", "The Strategist", "The Planner", "The Leader", "The Mentor", "The Coach", "The Teacher", "The Healer", "The Advocate", "The Guardian", "The Protector",
+    "The Defender", "The Negotiator", "The Mediator", "The Diplomat", "The Advisor", "The Consultant", "The Counselor", "The Therapist", "The Coach", "The Mentor", "The Trainer", "The Guide", "The Teacher", "The Sage", "The Oracle", "The Prodigy", "The Master", "The Guru",
+    "The Expert", "The Authority", "The Legend", "The Icon", "The Inspiration", "The Role Model", "The Pioneer", "The Trailblazer", "The Innovator", "The Creator", "The Visionary", "The Dreamer", "The Philosopher", "The Teacher", "The Healer", "The Advocate"
+  ],
+  "duo": [
+    "Dynamic Duo", "The Twins", "The Power Couple", "The Dream Team", "The A-Team", "The Winning Pair", "The Perfect Match", "The Unstoppable Pair",
+    "The Terrific Two", "The Dynamic Duo", "The King & Queen", "The Prince & Princess", "The Romeo & Juliet", "The Bonnie & Clyde",
+    "The Batman & Robin", "The Abbott & Costello", "The Laurel & Hardy", "The Martin & Lewis", "The Hope & Crosby",
+    "The Cagney & Lacey", "The Simon & Garfunkel", "The Hall & Oates", "The Lennon & McCartney", "The Ichabod & Crane",
+    "The Scooby & Shaggy", "The Mulder & Scully", "The Holmes & Watson", "The Riggs & Murtaugh", "The Turner & Hooch",
+    "The Bodhi & Johnny", "The Bill & Ted", "The Mickey & Minnie", "The Bugs & Daffy", "The Ren & Stimpy", "The Beavis & Butt-head",
+    "The Pinky & Brain", "The Tom & Jerry", "The Tweety & Sylvester", "The Garfield & Odie", "The Sonic & Knuckles",
+    "The Mario & Luigi", "The Donkey Kong & Diddy Kong", "The Link & Zelda", "The Kirby & Meta Knight", "The Cloud & Sephiroth",
+    "The Ryu & Ken", "The Scorpion & Sub-Zero", "The Taz & Bugs", "The Road Runner & Wile E. Coyote", "The Starsky & Hutch",
+    "The R2-D2 & C-3PO", "The E.T. & Elliott", "The Muttley & Dastardly", "The Yogi & Boo-Boo", "The Fred & Barney", "The George & Jerry",
+    "The Kramer & Newman", "The Chandler & Joey", "The Ross & Rachel", "The Monica & Phoebe", "The J.R. & Bobby", "The Bobby & Whitney",
+    "The Eric & Donna", "The David & Maddie", "The C.J. & Jimmy", "The Michael & K.I.T.T", "The Keats & Shelley", "The Wilde & Bosie",
+    "The Eliot & Pound", "The Poe & Lovecraft", "The Hemingway & Fitzgerald", "The Steinbeck & Kerouac", "The Bukowski & Brautigan",
+    "The Rowling & Meyer", "The King & King"
+  ]
+}
