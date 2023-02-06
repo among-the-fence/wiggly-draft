@@ -34,6 +34,9 @@ class WigglePoll:
         else:
             self.users.append(user)
 
+    def is_owner_user(self, user):
+        return self.owner and self.owner == user
+
     def display_user_str(self):
         return ", ".join([x.mention for x in self.users])
 

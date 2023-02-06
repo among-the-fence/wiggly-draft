@@ -1,4 +1,4 @@
-from HeroList import Hero
+from models.HeroList import Hero
 
 
 class Pick:

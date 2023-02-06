@@ -1,8 +1,8 @@
 import unittest
 
 import main
-from HeroList import HeroList
-from Pick import Pick
+from models.HeroList import HeroList
+from models import Pick
 
 
 class testUser:
