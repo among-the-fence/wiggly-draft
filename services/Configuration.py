@@ -17,11 +17,9 @@ env = {
 
 load_dotenv()
 
-class Configuration:
-    @staticmethod
-    def get_config(attribute):
-        e = os.getenv('ENV')
-        e = e if e else 'PROD'
-        if attribute in env.get(e):
-            return env.get(e)[attribute]
-        return os.getenv(attribute)
+def get_config(attribute):
+    e = os.getenv('ENV')
+    e = e if e else 'PROD'
+    if attribute in env.get(e):
+        return env.get(e)[attribute]
+    return os.getenv(attribute)
