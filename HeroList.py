@@ -124,7 +124,7 @@ class Hero:
         bbox = font.getbbox(current_chunk)
         # use bbox[3] to approximate height and shortcircuit really long strings. They'll never be shown anyway
         while len(split) > 0 and bbox[3]*(len(chunks)-3) < max_height:
-            while bbox[2] < max_width  and len(split) > 0:
+            while (bbox[2] + current_chunk.count(' ') * 3) < max_width  and len(split) > 0:
                 current_chunk = current_chunk.lstrip() + " " + split[0]
                 split = split[1:]
                 bbox = font.getbbox(current_chunk)
