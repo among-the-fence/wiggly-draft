@@ -1,5 +1,6 @@
 import base64
 import io
+import json
 import math
 import os
 import random
@@ -272,8 +273,18 @@ async def again(ctx):
         shutil.rmtree("processed/")
 
 
+@bot.slash_command(name="debug", description="All the pictures")
+@option("hero", description="Hero Name", required=False)
+async def slash_debug(ctx, hero: str):
+    hero_map = {x.localized_name: x for x in hero_list.hero_list}
+    if hero and hero in hero_map:
+        await ctx.response.send_message(json.dumps(sorted(hero_map[hero])))
+    else:
+        await ctx.response.send_message((hero if hero else "") + json.dumps(sorted(hero_map.keys())))
+
 @bot.slash_command(name="bigcollage", description="All the pictures")
 async def big_collage(ctx):
+    await ctx.defer()
     hero_imgs = [x.image for x in hero_list.hero_list]
     cols = math.ceil(math.sqrt(len(hero_list.hero_list)*.7))
     rows = math.ceil(len(hero_list.hero_list) / cols)
@@ -291,7 +302,7 @@ async def big_collage(ctx):
             x += 1
             y = 0
     out.save("processed/Collage.jpg")
-    await ctx.response.send_message(file=discord.File("processed/Collage.jpg", filename="image.jpg"))
+    await ctx.followup.send(file=discord.File("processed/Collage.jpg", filename="image.jpg"))
     shutil.rmtree("processed/")
 
 
@@ -305,14 +316,17 @@ async def get_one(ctx):
 
 @bot.slash_command(name="refresh", description="Data gone stale?")
 async def refresh(ctx):
+    await ctx.defer()
     global wiggle_poll
     wiggle_poll = WigglePoll()
     dota_toekn = os.getenv("DOTA_TOKEN")
     if dota_toekn and dota_toekn != "":
+        await ctx.followup.send("Doing a refresh")
         hero_list.refresh(dota_toekn)
-        await ctx.respond("Doing a refresh")
+        await ctx.followup.send("Refresh did")
+
     else:
-        await ctx.respond("Can't refresh without a token")
+        await ctx.followup.send("Can't refresh without a token")
 
 
 @bot.slash_command(name="game", description="Can't pick a game")
