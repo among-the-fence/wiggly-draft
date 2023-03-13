@@ -276,17 +276,35 @@ async def again(ctx):
 @bot.slash_command(name="debug", description="Info")
 @option("hero", description="Hero Name", required=False)
 async def slash_debug(ctx, hero: str):
+    await ctx.defer()
     hero_map = {x.localized_name.lower(): x for x in hero_list.hero_list}
     hero = hero.lower() if hero else None
     if hero and hero in hero_map:
-        await ctx.response.send_message("```" +
+        h = hero_map[hero]
+        cols = math.ceil(math.sqrt(len(h.name_list) * .7))
+        rows = math.ceil(len(h.name_list) / cols)
+        single_height = h.image.height
+        single_width = h.image.width
+        out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54, 0))
+        x = 0
+        y = 0
+        for n in h.name_list:
+            h.hilarious_display_name = n
+            out.paste(h.image_with_name(h.localized_name), (x * single_width, y * single_height))
+            y += 1
+            if y == rows:
+                x += 1
+                y = 0
+        out.save("processed/Collage.jpg")
+        await ctx.followup.send("```" +
             json.dumps({
                 'name': hero_map[hero].name,
                 'name_list': hero_map[hero].name_list,
                 'image_path': hero_map[hero].image_path
-            }) + "```")
+            }) + "```",
+                                file=discord.File("processed/Collage.jpg", filename="image.jpg"))
     else:
-        await ctx.response.send_message((hero if hero else "") + json.dumps(sorted(hero_map.keys())))
+        await ctx.followup.send((hero if hero else "") + json.dumps(sorted(hero_map.keys())))
 
 @bot.slash_command(name="bigcollage", description="All the pictures")
 async def big_collage(ctx):
