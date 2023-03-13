@@ -273,12 +273,17 @@ async def again(ctx):
         shutil.rmtree("processed/")
 
 
-@bot.slash_command(name="debug", description="All the pictures")
+@bot.slash_command(name="debug", description="Info")
 @option("hero", description="Hero Name", required=False)
 async def slash_debug(ctx, hero: str):
     hero_map = {x.localized_name: x for x in hero_list.hero_list}
     if hero and hero in hero_map:
-        await ctx.response.send_message(json.dumps(sorted(hero_map[hero])))
+        await ctx.response.send_message("```" +
+            json.dumps({
+                'name': hero_map[hero].name,
+                'name_list': hero_map[hero].name_list,
+                'image_path': hero_map[hero].image_path
+            }) + "```")
     else:
         await ctx.response.send_message((hero if hero else "") + json.dumps(sorted(hero_map.keys())))
 
