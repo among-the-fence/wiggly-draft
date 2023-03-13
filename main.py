@@ -276,7 +276,8 @@ async def again(ctx):
 @bot.slash_command(name="debug", description="Info")
 @option("hero", description="Hero Name", required=False)
 async def slash_debug(ctx, hero: str):
-    hero_map = {x.localized_name: x for x in hero_list.hero_list}
+    hero_map = {x.localized_name.lower(): x for x in hero_list.hero_list}
+    hero = hero.lower() if hero else None
     if hero and hero in hero_map:
         await ctx.response.send_message("```" +
             json.dumps({
