@@ -86,6 +86,26 @@ def build_picks(user_list):
             matchup.append(Pick(pick, "Unassigned"))
     return matchup
 
+def extra_fun_names(hero_picks: List[Pick]):
+    swipswappin = 0
+    for h in hero_picks:
+        if h.hero.localized_name == 'Bloodseeker':
+            print("Find a blood haver")
+            enemy_idx = random.randint(0,3)
+            print(enemy_idx)
+            if swipswappin < 3:
+                enemy_idx += 3
+            print(enemy_idx)
+            hero_picks[enemy_idx].hero.hilarious_display_name = 'Bloodhaver'
+
+        if h.hero.localized_name == 'Silencer':
+            if random.randint(0, 9) < 5:
+                for j in hero_picks:
+                    j.user_display_name = 'Silencer'
+                    j.hero.hilarious_display_name = 'Silencer'
+        swipswappin += 1
+
+    return hero_picks
 
 def collage(hero_picks: List[Pick]):
     hero_imgs = [x.hero.image for x in hero_picks]
@@ -100,12 +120,7 @@ def collage(hero_picks: List[Pick]):
     x = 0
     y = 0
 
-    for h in hero_picks:
-        if h.hero.localized_name == 'Silencer':
-            if random.randint(0, 9) < 5:
-                for j in hero_picks:
-                    j.user_display_name = 'Silencer'
-                    j.hero.hilarious_display_name = 'Silencer'
+    hero_picks = extra_fun_names(hero_picks)
 
     for col in range(cols):
         for row in range(rows):
