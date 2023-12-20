@@ -1,0 +1,368 @@
+{
+    "Abaddon": {
+        "descriptors": []
+    },
+    "Alchemist": {
+        "descriptors": []
+    },
+    "Ancient Apparition": {
+        "descriptors": ["ice"]
+    },
+    "Anti-Mage": {
+        "descriptors": []
+    },
+    "Arc Warden": {
+        "descriptors": ["lightning"]
+    },
+    "Axe": {
+        "descriptors": []
+    },
+    "Bane": {
+        "descriptors": []
+    },
+    "Batrider": {
+        "descriptors": []
+    },
+    "Beastmaster": {
+        "descriptors": ["friends"]
+    },
+    "Bloodseeker": {
+        "descriptors": []
+    },
+    "Bounty Hunter": {
+        "descriptors": []
+    },
+    "Brewmaster": {
+        "descriptors": ["friends"]
+    },
+    "Bristleback": {
+        "descriptors": ["pokey"]
+    },
+    "Broodmother": {
+        "descriptors": ["legs", "mommy"]
+    },
+    "Centaur Warrunner": {
+        "descriptors": ["horse"]
+    },
+    "Chaos Knight": {
+        "descriptors": ["horse"]
+    },
+    "Chen": {
+        "descriptors": []
+    },
+    "Clinkz": {
+        "descriptors": []
+    },
+    "Clockwerk": {
+        "descriptors": ["tech"]
+    },
+    "Crystal Maiden": {
+        "descriptors": []
+    },
+    "Dark Seer": {
+        "descriptors": []
+    },
+    "Dark Willow": {
+        "descriptors": ["mommy"]
+    },
+    "Dawnbreaker": {
+        "descriptors": []
+    },
+    "Dazzle": {
+        "descriptors": []
+    },
+    "Death Prophet": {
+        "descriptors": ["suc", "mommy"]
+    },
+    "Disruptor": {
+        "descriptors": []
+    },
+    "Doom": {
+        "descriptors": []
+    },
+    "Dragon Knight": {
+        "descriptors": ["basic"]
+    },
+    "Drow Ranger": {
+        "descriptors": []
+    },
+    "Earth Spirit": {
+        "descriptors": ["spirit"]
+    },
+    "Earthshaker": {
+        "descriptors": []
+    },
+    "Elder Titan": {
+        "descriptors": []
+    },
+    "Ember Spirit": {
+        "descriptors": ["spirit"]
+    },
+    "Enchantress": {
+        "descriptors": []
+    },
+    "Enigma": {
+        "descriptors": []
+    },
+    "Faceless Void": {
+        "descriptors": []
+    },
+    "Grimstroke": {
+        "descriptors": []
+    },
+    "Gyrocopter": {
+        "descriptors": ["tech"]
+    },
+    "Hoodwink": {
+        "descriptors": ["tree"]
+    },
+    "Huskar": {
+        "descriptors": []
+    },
+    "Invoker": {
+        "descriptors": []
+    },
+    "Io": {
+        "descriptors": ["weird"]
+    },
+    "Jakiro": {
+        "descriptors": []
+    },
+    "Juggernaut": {
+        "descriptors": []
+    },
+    "Keeper of the Light": {
+        "descriptors": []
+    },
+    "Kunkka": {
+        "descriptors": []
+    },
+    "Legion Commander": {
+        "descriptors": []
+    },
+    "Leshrac": {
+        "descriptors": []
+    },
+    "Lich": {
+        "descriptors": []
+    },
+    "Lifestealer": {
+        "descriptors": ["weird"]
+    },
+    "Lina": {
+        "descriptors": []
+    },
+    "Lion": {
+        "descriptors": []
+    },
+    "Lone Druid": {
+        "descriptors": []
+    },
+    "Luna": {
+        "descriptors": []
+    },
+    "Lycan": {
+        "descriptors": []
+    },
+    "Magnus": {
+        "descriptors": []
+    },
+    "Marci": {
+        "descriptors": ["basic"]
+    },
+    "Mars": {
+        "descriptors": ["pokey"]
+    },
+    "Medusa": {
+        "descriptors": ["no legs"]
+    },
+    "Meepo": {
+        "descriptors": []
+    },
+    "Mirana": {
+        "descriptors": []
+    },
+    "Monkey King": {
+        "descriptors": []
+    },
+    "Morphling": {
+        "descriptors": ["no legs"]
+    },
+    "Naga Siren": {
+        "descriptors": ["no legs", "friends"]
+    },
+    "Nature's Prophet": {
+        "descriptors": ["trees", "friends"]
+    },
+    "Necrophos": {
+        "descriptors": []
+    },
+    "Night Stalker": {
+        "descriptors": []
+    },
+    "Nyx Assassin": {
+        "descriptors": []
+    },
+    "Ogre Magi": {
+        "descriptors": []
+    },
+    "Omniknight": {
+        "descriptors": []
+    },
+    "Oracle": {
+        "descriptors": []
+    },
+    "Outworld Destroyer": {
+        "descriptors": []
+    },
+    "Pangolier": {
+        "descriptors": ["pokey"]
+    },
+    "Phantom Assassin": {
+        "descriptors": []
+    },
+    "Phantom Lancer": {
+        "descriptors": []
+    },
+    "Phoenix": {
+        "descriptors": []
+    },
+    "Puck": {
+        "descriptors": []
+    },
+    "Pudge": {
+        "descriptors": []
+    },
+    "Pugna": {
+        "descriptors": ["succ"]
+    },
+    "Queen of Pain": {
+        "descriptors": ["mommy"]
+    },
+    "Razor": {
+        "descriptors": []
+    },
+    "Riki": {
+        "descriptors": []
+    },
+    "Rubick": {
+        "descriptors": []
+    },
+    "Sand King": {
+        "descriptors": []
+    },
+    "Shadow Demon": {
+        "descriptors": []
+    },
+    "Shadow Fiend": {
+        "descriptors": ["basic", "friends"]
+    },
+    "Shadow Shaman": {
+        "descriptors": []
+    },
+    "Silencer": {
+        "descriptors": []
+    },
+    "Skywrath Mage": {
+        "descriptors": []
+    },
+    "Slardar": {
+        "descriptors": ["no legs"]
+    },
+    "Slark": {
+        "descriptors": []
+    },
+    "Snapfire": {
+        "descriptors": ["horse"]
+    },
+    "Sniper": {
+        "descriptors": []
+    },
+    "Spectre": {
+        "descriptors": []
+    },
+    "Spirit Breaker": {
+        "descriptors": []
+    },
+    "Storm Spirit": {
+        "descriptors": ["spirit"]
+    },
+    "Sven": {
+        "descriptors": []
+    },
+    "Techies": {
+        "descriptors": ["tech"]
+    },
+    "Templar Assassin": {
+        "descriptors": []
+    },
+    "Terrorblade": {
+        "descriptors": []
+    },
+    "Tidehunter": {
+        "descriptors": []
+    },
+    "Timbersaw": {
+        "descriptors": ["anti-tree"]
+    },
+    "Tinker": {
+        "descriptors": []
+    },
+    "Tiny": {
+        "descriptors": ["tree", "anti-tree"]
+    },
+    "Treant Protector": {
+        "descriptors": ["tree"]
+    },
+    "Troll Warlord": {
+        "descriptors": []
+    },
+    "Tusk": {
+        "descriptors": []
+    },
+    "Underlord": {
+        "descriptors": []
+    },
+    "Undying": {
+        "descriptors": []
+    },
+    "Ursa": {
+        "descriptors": []
+    },
+    "Vengeful Spirit": {
+        "descriptors": ["spirit"]
+    },
+    "Venomancer": {
+        "descriptors": []
+    },
+    "Viper": {
+        "descriptors": []
+    },
+    "Visage": {
+        "descriptors": []
+    },
+    "Void Spirit": {
+        "descriptors": ["spirit"]
+    },
+    "Warlock": {
+        "descriptors": []
+    },
+    "Weaver": {
+        "descriptors": ["weird"]
+    },
+    "Windranger": {
+        "descriptors": []
+    },
+    "Winter Wyvern": {
+        "descriptors": ["ice"]
+    },
+    "Witch Doctor": {
+        "descriptors": []
+    },
+    "Wraith King": {
+        "descriptors": []
+    },
+    "Zeus": {
+        "descriptors": ["lightning"]
+    }
+}
