@@ -90,12 +90,9 @@ def extra_fun_names(hero_picks: List[Pick]):
     swipswappin = 0
     for h in hero_picks:
         if h.hero.localized_name == 'Bloodseeker':
-            print("Find a blood haver")
             enemy_idx = random.randint(0,3)
-            print(enemy_idx)
             if swipswappin < 3:
                 enemy_idx += 3
-            print(enemy_idx)
             hero_picks[enemy_idx].hero.hilarious_display_name = 'Bloodhaver'
 
         if h.hero.localized_name == 'Silencer':
