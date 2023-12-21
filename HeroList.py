@@ -41,8 +41,8 @@ class HeroList:
         self._raw = raw_content
         heroesjson = json.loads(raw_content)
         open("heroData.json", 'w').write(json.dumps(heroesjson['result']))
-        for h in heroesjson['result']['heroes']:
-            print(h)
+        # for h in heroesjson['result']['heroes']:
+        #     print(h)
         return heroesjson['result']['heroes']
 
     def refresh(self, dota_token):
@@ -61,10 +61,10 @@ class HeroList:
             self.hero_list.append(i)
 
     def fix_team_name(self, name: str):
-        if not name == name.lower():
-            return name
-        else:
+        if name.islower():
             return f"Team {name.capitalize()}"
+        else:
+            return name
 
     def build_silly_teams(self):
         with open("funheroinfo.json", "r") as file:
@@ -88,7 +88,7 @@ class HeroList:
                 t1 = random.sample(possible_teams[teams[0]], 3)
                 t2 = random.sample(possible_teams[teams[1]], 3)
         t1.extend(t2)
-        return t1, teams[0], teams[1]
+        return t1, self.fix_team_name(teams[0]), self.fix_team_name(teams[1])
 
     def choose(self):
         sampled = []
@@ -205,7 +205,7 @@ class Hero:
         return self.image_path
 
     def name_or_default(self):
-        print(self.localized_name + " " + self.hilarious_display_name)
+        # print(self.localized_name + " " + self.hilarious_display_name)
         return self.hilarious_display_name if self.hilarious_display_name else self.localized_name
 
     def image_with_name(self, name):
@@ -219,7 +219,7 @@ class Hero:
         textual.text((padding, padding), player_name_chunks[0], fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
         font, text, box_height = Hero.scale_font(width - 10, self.name_or_default(), 20, height-top_name_box_height)
         # print(f"{hero_name_text}  {top_name_box_height}")
-        print(f"h:{height}  bh:{box_height} t:{text}")
+        # print(f"h:{height}  bh:{box_height} t:{text}")
         start_y = height - (box_height * 1.3 * min(len(text), 6))
         for t in text:
             textual.text((padding, start_y), t, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))

@@ -91,10 +91,8 @@ def extra_fun_names(hero_picks: List[Pick]):
     for h in hero_picks:
         if h.hero.localized_name == 'Bloodseeker':
             enemy_idx = random.randint(0,2) # It's inclusive
-            print(enemy_idx)
             if swipswappin < 3:
                 enemy_idx += 3
-            print(hero_picks, enemy_idx)
             hero_picks[enemy_idx].hero.hilarious_display_name = 'Bloodhaver'
 
         if h.hero.localized_name == 'Silencer':
@@ -123,7 +121,6 @@ def collage(hero_picks: List[Pick]):
 
     for col in range(cols):
         for row in range(rows):
-            print(i, x, y)
             out.paste(hero_picks[i].hero.image_with_name(hero_picks[i].user_display_name), (x, y))
             i += 1
             y += single_height
@@ -268,15 +265,15 @@ async def again(ctx):
     else:
         wiggle_poll.rerun()
 
-        chosen = pick_heroes(list(wiggle_poll.previous_success))
+        chosen, team1, team2 = pick_heroes(list(wiggle_poll.previous_success))
         collage(chosen)
         display_embed = wiggle_poll.build_embed()
-        display_embed.add_field(name="Radiant Players",
+        display_embed.add_field(name=team1 if team1 else "Radiant Team",
                                 value=f"{chosen[0].user.mention} ({chosen[0].hero.localized_name})\n"
                                       f"{chosen[1].user.mention} ({chosen[1].hero.localized_name})\n"
                                       f"{chosen[2].user.mention} ({chosen[2].hero.localized_name})",
                                 inline=True)
-        display_embed.add_field(name="Dire Players",
+        display_embed.add_field(name=team2 if team2 else "Dire Team",
                                 value=f"{chosen[3].user.mention} ({chosen[3].hero.localized_name})\n"
                                       f"{chosen[4].user.mention} ({chosen[4].hero.localized_name})\n"
                                       f"{chosen[5].user.mention} ({chosen[5].hero.localized_name})",
@@ -323,7 +320,7 @@ async def slash_debug(ctx, hero: str):
 @bot.slash_command(name="bigcollage", description="All the pictures")
 async def big_collage(ctx):
     await ctx.defer()
-    hero_imgs = [x.image for x in hero_list.hero_list]
+    hero_imgs = [Image.open(x.image_path) for x in hero_list.hero_list]
     cols = math.ceil(math.sqrt(len(hero_list.hero_list)*.7))
     rows = math.ceil(len(hero_list.hero_list) / cols)
     single_height = max(x.height for x in hero_imgs)
