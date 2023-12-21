@@ -189,7 +189,7 @@
         "descriptors": ["no legs"]
     },
     "Naga Siren": {
-        "descriptors": ["no legs", "friends"]
+        "descriptors": ["no legs", "friends", "trees", "basic", "legs", "pokey"]
     },
     "Nature's Prophet": {
         "descriptors": ["trees", "friends"]

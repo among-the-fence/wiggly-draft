@@ -11,12 +11,14 @@ import requests
 class HeroList:
     def __init__(self, dota_token: str = None):
         if exists("heroData.json"):
-            heroesjson = json.loads(open("heroData.json", 'r').read())
-            self._raw = heroesjson
-            heroes = heroesjson['heroes']
+            with open("heroData.json", 'r') as herodatafile:
+                heroesjson = json.loads(herodatafile.read())
+                self._raw = heroesjson
+                heroes = heroesjson['heroes']
         elif dota_token:
             heroes = self.fetch(dota_token)
         else:
+            print("super fail fallback hero list")
             heroes = [{'localized_name': "hero1", 'id': 1, 'name': 'hero1'},
                       {'localized_name': "hero2", 'id': 2, 'name': 'hero2'},
                       {'localized_name': "hero3", 'id': 3, 'name': 'hero3'},
@@ -26,7 +28,8 @@ class HeroList:
                       ]
 
         if exists("namemap.json"):
-            name_map = json.loads(open("namemap.json", "r").read())
+            with open("namemap.json", "r") as namemapfile:
+                name_map = json.loads(namemapfile.read())
         else:
             name_map = {"Lifestealer": "Weird Dog"}
         self.hero_list = []
@@ -44,7 +47,8 @@ class HeroList:
 
     def refresh(self, dota_token):
         if exists("namemap.json"):
-            name_map = json.loads(open("namemap.json", "r").read())
+            with open("namemap.json", "r") as namemapfile:
+                name_map = json.loads(namemapfile.read())
         else:
             name_map = {"Lifestealer": "Weird Dog"}
         self.list_to_objects(self.fetch(dota_token), name_map)
@@ -56,13 +60,44 @@ class HeroList:
             i.preload_image()
             self.hero_list.append(i)
 
+    def build_silly_teams(self):
+        with open("funheroinfo.json", "r") as file:
+            team_shit = json.loads(file.read())
+            possible_teams = {}
+            for h in team_shit:
+                fun_info = team_shit[h]
+                if 'descriptors' in fun_info:
+                    for d in fun_info['descriptors']:
+                        if d not in possible_teams:
+                            possible_teams[d] = []
+                        possible_teams[d].append(h)
+            possible_teams = {t: possible_teams[t] for t in possible_teams if len(possible_teams[t]) > 2}
+            teams = random.sample(possible_teams.keys(), 2)
+            t1 = random.sample(possible_teams[teams[0]], 3)
+            t2 = random.sample(possible_teams[teams[1]], 3)
+
+            # Ensure no dupes across teams
+            while any(t in t1 for t in t2):
+                teams = random.sample(possible_teams.keys(), 2)
+                t1 = random.sample(possible_teams[teams[0]], 3)
+                t2 = random.sample(possible_teams[teams[1]], 3)
+        t1.extend(t2)
+        return t1, teams[0], teams[1]
+
     def choose(self):
         sampled = []
+        if random.randint(0, 20) < 5:
+            names, team1, team2 = self.build_silly_teams()
+            hero_list_map = {h.localized_name: h for h in self.hero_list}
+            sampled = [hero_list_map[n] for n in names]
+            for h in sampled:
+                h.hilarious_display_name = h.get_display_name()
+            print(", ".join(n.hilarious_display_name for n in sampled), team1, team2)
+            return sampled, team1, team2
         sampled.extend(random.sample(self.hero_list, 6))
         for h in sampled:
             h.hilarious_display_name = h.get_display_name()
-        return sampled
-
+        return sampled, None, None
 
 def safe_make_dir(full_directory):
     split_dirs = full_directory.split("/")
@@ -83,7 +118,6 @@ class Hero:
         self._raw_json = hero_json
         self.img_name = self.name.replace('npc_dota_hero_', '') + "_lg.png"
         self.image_path = f"imagecache/heroes/{self.img_name}"
-        self.image = None
         self.hilarious_display_name = None
 
     def build_name_list(self, name_map):
@@ -162,8 +196,6 @@ class Hero:
                     if not block:
                         break
                     handle.write(block)
-        portrait = Image.open(self.image_path)
-        self.image = portrait
         return self.image_path
 
     def name_or_default(self):
@@ -171,8 +203,9 @@ class Hero:
         return self.hilarious_display_name if self.hilarious_display_name else self.localized_name
 
     def image_with_name(self, name):
-        out = Image.new('RGB', (self.image.width, self.image.height), color=(255, 255, 255, 0))
-        out.paste(self.image, (0, 0))
+        portrait = Image.open(self.image_path)
+        out = Image.new('RGB', (portrait.width, portrait.height), color=(255, 255, 255, 0))
+        out.paste(portrait, (0, 0))
         width, height = out.size
         padding = 5
         textual = ImageDraw.Draw(out)

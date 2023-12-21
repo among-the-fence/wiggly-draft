@@ -69,13 +69,13 @@ def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     return {"chu", "mrc48b"}.issubset(team1_names) or {"chu", "mrc48b"}.issubset(team2_names)
 
 def pick_heroes(user_list):
-    matchup = build_picks(user_list)
+    matchup, team1, team2 = build_picks(user_list)
     while bill_and_ben_are_on_the_same_team(matchup):
-        matchup = build_picks(user_list)
-    return matchup
+        matchup, team1, team2 = build_picks(user_list)
+    return matchup, team1, team2
 
 def build_picks(user_list):
-    chosen = hero_list.choose()
+    chosen, team1, team2 = hero_list.choose()
     matchup = []
     for pick in chosen:
         if user_list and len(user_list) > 0:
@@ -84,15 +84,17 @@ def build_picks(user_list):
             matchup.append(Pick(pick, user_pick))
         else:
             matchup.append(Pick(pick, "Unassigned"))
-    return matchup
+    return matchup, team1, team2
 
 def extra_fun_names(hero_picks: List[Pick]):
     swipswappin = 0
     for h in hero_picks:
         if h.hero.localized_name == 'Bloodseeker':
-            enemy_idx = random.randint(0,3)
+            enemy_idx = random.randint(0,2) # It's inclusive
+            print(enemy_idx)
             if swipswappin < 3:
                 enemy_idx += 3
+            print(hero_picks, enemy_idx)
             hero_picks[enemy_idx].hero.hilarious_display_name = 'Bloodhaver'
 
         if h.hero.localized_name == 'Silencer':
@@ -105,7 +107,7 @@ def extra_fun_names(hero_picks: List[Pick]):
     return hero_picks
 
 def collage(hero_picks: List[Pick]):
-    hero_imgs = [x.hero.image for x in hero_picks]
+    hero_imgs = [Image.open(x.hero.image_path) for x in hero_picks]
     versus = Image.open("imagecache/versus.png")
     cols = 2
     rows = 3
@@ -151,15 +153,15 @@ class MyView(discord.ui.View):
             for child in self.children:
                 child.disabled = True
             self.children = {}
-            chosen = pick_heroes(list(wiggle_poll.users))
+            chosen, team1, team2 = pick_heroes(list(wiggle_poll.users))
             collage(chosen)
             display_embed = wiggle_poll.build_embed()
-            display_embed.add_field(name="Radiant Team",
+            display_embed.add_field(name=team1 if team1 else "Radiant Team",
                                     value=f"{chosen[0].user.mention} ({chosen[0].hero.localized_name})\n"
                                           f"{chosen[1].user.mention} ({chosen[1].hero.localized_name})\n"
                                           f"{chosen[2].user.mention} ({chosen[2].hero.localized_name})",
                                     inline=True)
-            display_embed.add_field(name="Dire Team",
+            display_embed.add_field(name=team2 if team2 else "Dire Team",
                                     value=f"{chosen[3].user.mention} ({chosen[3].hero.localized_name})\n"
                                           f"{chosen[4].user.mention} ({chosen[4].hero.localized_name})\n"
                                           f"{chosen[5].user.mention} ({chosen[5].hero.localized_name})",
