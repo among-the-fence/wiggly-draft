@@ -60,7 +60,7 @@ class HeroList:
             i.preload_image()
             self.hero_list.append(i)
 
-    def fix_tean_name(self, name: str):
+    def fix_team_name(self, name: str):
         if not name == name.lower():
             return name
         else:
