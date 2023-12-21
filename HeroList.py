@@ -60,6 +60,12 @@ class HeroList:
             i.preload_image()
             self.hero_list.append(i)
 
+    def fix_tean_name(self, name: str):
+        if not name == name.lower():
+            return name
+        else:
+            return f"Team {name.capitalize()}"
+
     def build_silly_teams(self):
         with open("funheroinfo.json", "r") as file:
             team_shit = json.loads(file.read())

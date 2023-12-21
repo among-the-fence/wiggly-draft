@@ -39,7 +39,7 @@
         "descriptors": ["pokey"]
     },
     "Broodmother": {
-        "descriptors": ["legs", "mommy"]
+        "descriptors": ["legs", "Mommy Squad"]
     },
     "Centaur Warrunner": {
         "descriptors": ["horse"]
@@ -48,7 +48,7 @@
         "descriptors": ["horse"]
     },
     "Chen": {
-        "descriptors": []
+        "descriptors": ["friends"]
     },
     "Clinkz": {
         "descriptors": []
@@ -63,7 +63,7 @@
         "descriptors": []
     },
     "Dark Willow": {
-        "descriptors": ["mommy"]
+        "descriptors": ["Mommy Squad"]
     },
     "Dawnbreaker": {
         "descriptors": []
@@ -72,7 +72,7 @@
         "descriptors": []
     },
     "Death Prophet": {
-        "descriptors": ["suc", "mommy"]
+        "descriptors": ["suc", "Mommy Squad"]
     },
     "Disruptor": {
         "descriptors": []
@@ -177,7 +177,7 @@
         "descriptors": ["no legs"]
     },
     "Meepo": {
-        "descriptors": []
+        "descriptors": ["friends"]
     },
     "Mirana": {
         "descriptors": []
@@ -189,7 +189,7 @@
         "descriptors": ["no legs"]
     },
     "Naga Siren": {
-        "descriptors": ["no legs", "friends", "trees", "basic", "legs", "pokey"]
+        "descriptors": ["no legs", "friends"]
     },
     "Nature's Prophet": {
         "descriptors": ["trees", "friends"]
@@ -237,7 +237,7 @@
         "descriptors": ["succ"]
     },
     "Queen of Pain": {
-        "descriptors": ["mommy"]
+        "descriptors": ["Mommy Squad"]
     },
     "Razor": {
         "descriptors": []
