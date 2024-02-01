@@ -92,7 +92,7 @@ class HeroList:
 
     def choose(self):
         sampled = []
-        if random.randint(0, 20) < 5:
+        if random.randint(0, 20) == -1:
             names, team1, team2 = self.build_silly_teams()
             hero_list_map = {h.localized_name: h for h in self.hero_list}
             sampled = [hero_list_map[n] for n in names]
