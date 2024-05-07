@@ -440,7 +440,7 @@ async def open_api_generate(ctx, prompt:str, count: int):
 
 
 dataroot = "data/datasources/10th/json/"
-@bot.slash_command(name="datacard", description="Data gone stale?")
+@bot.slash_command(name="datacard", description="Find a datacard")
 @option("unitname", description="Unit Name", required=False)
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
