@@ -33,10 +33,16 @@ def find(unitname, faction_name):
                     if unitname in k or k in unitname:
                         return v
         else:
+            if unitname:
+                faction = faction_as_map(faction_name)
+                for k, v in faction.items():
+                    if unitname in k or k in unitname:
+                        return v
             # Faction and no unit
             return ", ".join(faction_as_map(faction_name).keys())
+
     except Exception as e:
-        out += "Welp" + str(e)
+        out += "Welp" + str(e) + type(e).__name__
     return out
 
 
