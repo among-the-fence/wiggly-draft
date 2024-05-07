@@ -3,6 +3,13 @@ import json
 
 dataroot = "data/datasources/10th/json/"
 
+faction_nickname_map = {
+    "aeldari": ["elves", "eldar"],
+    "adeptasororitas": ["mommy"],
+    "votann": ["dwarves"],
+    "worldeaters": ["we"],
+}
+
 
 def find(unitname, faction_name):
     out = ""
@@ -10,6 +17,9 @@ def find(unitname, faction_name):
         unitname = unitname.lower()
     if faction_name:
         faction_name = faction_name.lower().replace(" ", "")
+    for y,x in faction_nickname_map.items():
+        if faction_name in x:
+            faction_name = y
     try:
         if not faction_name:
             if not unitname:
@@ -21,9 +31,7 @@ def find(unitname, faction_name):
                 faction = faction_as_map(faction_name)
                 for k,v in faction.items():
                     if unitname in k or k in unitname:
-                        v["fluff"] = ""
-                        max_length = 1998 - len(k)
-                        return k + " " + json.dumps(v)[:max_length]
+                        return v
         else:
             # Faction and no unit
             return ", ".join(faction_as_map(faction_name).keys())

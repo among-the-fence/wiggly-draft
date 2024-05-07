@@ -445,7 +445,35 @@ dataroot = "data/datasources/10th/json/"
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
     out = Warhammer.find(unitname, faction)
-    await ctx.respond(out)
+    if type(out) is str:
+        await ctx.respond(out)
+    else:
+        e = discord.Embed(title=out["name"], color=0x0a353a)
+        e.add_field(name="Stats",
+                    value=json.dumps(out['stats']),
+                    inline=False)
+        e.add_field(name="Abilities",
+                    value=json.dumps(out['abilities']),
+                    inline=False)
+        await ctx.respond(embed=e)
+
+        for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee")]:
+            if len(json.dumps(out[x])) > 1000:
+                await ctx.channel.send(json.dumps(out[x]))
+            else:
+                e2 = discord.Embed(title=out["name"], color=0x0a353a)
+                e2.add_field(name=y,
+                             value=json.dumps(out[x]),
+                             inline=False)
+                await ctx.channel.send(embed=e2)
+
+        out["name"] = ""
+        out["meleeWeapons"] = ""
+        out["rangedWeapons"] = ""
+        out["stats"] = ""
+        out["abilities"] = ""
+
+        await ctx.channel.send(json.dumps(out))
 
 
 if __name__ == "__main__":
