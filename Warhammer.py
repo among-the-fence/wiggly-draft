@@ -25,27 +25,36 @@ def find(unitname, faction_name):
             if not unitname:
                 return "Either faction or unit name required"
             for f in os.listdir(dataroot):
-                print(f)
-                out += f
+                out += f",{f}"
                 faction_name = f.split('.')[0]
-                faction = faction_as_map(faction_name)
-                for k,v in faction.items():
-                    if unitname in k or k in unitname:
-                        return v
+                found = check_faction_for_unit(faction_name, unitname)
+                if found:
+                    return found
         else:
             if unitname:
-                faction = faction_as_map(faction_name)
-                for k, v in faction.items():
-                    if unitname in k or k in unitname:
-                        return v
+                found = check_faction_for_unit(faction_name, unitname)
+                if found:
+                    return found
+                return f"{faction_name} {unitname} Not found"
             # Faction and no unit
             return ", ".join(faction_as_map(faction_name).keys())
 
     except Exception as e:
         print(e)
-        out += "Welp" + str(e) + type(e).__name__
+        out += f"Welp {e}"
     return out
 
+
+def check_faction_for_unit(normalized_faction_name, normalized_unit_name):
+    faction = faction_as_map(normalized_faction_name)
+    # This is slow
+    for k, v in faction.items():
+        if normalized_unit_name == k:
+            return v
+    for k, v in faction.items():
+        if normalized_unit_name in k or k in normalized_unit_name:
+            return v
+    return None
 
 def get_faction(name):
     lname = name.lower()

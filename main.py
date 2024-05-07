@@ -464,7 +464,10 @@ async def datacard(ctx, unitname:str, faction:str):
     if type(out) is str:
         await ctx.respond(out)
     else:
-        out = remove_empty_fields(out)
+        try:
+            out = remove_empty_fields(out)
+        except Exception as e:
+            print(e)
         e = discord.Embed(title=out["name"], color=0x0a353a)
         e.add_field(name="Stats",
                     value=json.dumps(out['stats']),
