@@ -13,6 +13,7 @@ from PIL import Image
 from discord import option
 from dotenv import load_dotenv
 
+import Warhammer
 from GameList import GameList
 from HeroList import HeroList
 from Pick import Pick
@@ -436,6 +437,15 @@ async def open_api_generate(ctx, prompt:str, count: int):
         await ctx.followup.send(f"> {prompt}", file=discord.File("images.png", filename="images.png"))
     except Exception as e:
         await ctx.followup.send(f"> {prompt}\nError: {e}")
+
+
+dataroot = "data/datasources/10th/json/"
+@bot.slash_command(name="datacard", description="Data gone stale?")
+@option("unitname", description="Unit Name", required=False)
+@option("faction", description="Faction Name", required=False)
+async def datacard(ctx, unitname:str, faction:str):
+    out = Warhammer.find(unitname, faction)
+    await ctx.respond(out)
 
 
 if __name__ == "__main__":
