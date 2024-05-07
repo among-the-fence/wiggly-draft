@@ -448,6 +448,8 @@ async def open_api_generate(ctx, prompt:str, count: int):
 
 def remove_empty_fields(map):
     if type(map) is str:
+        if map == "None":
+            return None
         return map
     if type(map) is list:
         return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
@@ -466,24 +468,32 @@ async def datacard(ctx, unitname:str, faction:str):
         e = discord.Embed(title=out["name"], color=0x0a353a)
         e.add_field(name="Stats",
                     value=json.dumps(out['stats']),
+                    inline=True)
+        e.add_field(name="Keywords",
+                    value=json.dumps(out['keywords']),
+                    inline=True)
+        e.add_field(name="Points",
+                    value=json.dumps(out['points']),
                     inline=False)
-        e.add_field(name="Abilities",
-                    value=json.dumps(out['abilities']),
+        e.add_field(name="Composition",
+                    value=json.dumps(out['composition']),
+                    inline=False)
+        e.add_field(name="Factions",
+                    value=json.dumps(out['factions']),
                     inline=False)
         await ctx.respond(embed=e)
 
-        for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee")]:
-            if len(json.dumps(out[x])) > 2000:
-                await ctx.channel.send(json.dumps(out[x]))
-            else:
-                e2 = discord.Embed(title=y, color=0x0a353a, description=json.dumps(out[x]))
-                await ctx.channel.send(embed=e2)
+        for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee"), ('abilities', "Abilities"), ("fluff", "Fluff")]:
+            if x in out:
+                if len(json.dumps(out[x])) > 2000:
+                    await ctx.channel.send(json.dumps(out[x]))
+                else:
+                    e2 = discord.Embed(title=y, color=0x0a353a, description=json.dumps(out[x]))
+                    await ctx.channel.send(embed=e2)
 
-        out["name"] = ""
-        out["meleeWeapons"] = ""
-        out["rangedWeapons"] = ""
-        out["stats"] = ""
-        out["abilities"] = ""
+        for x in ["name", "meleeWeapons", "rangedWeapons", "stats", "abilities", "points",
+                  "composition", "fluff", "factions", "faction_id", "id", "keywords", "source"]:
+            out[x] = ""
 
         out = remove_empty_fields(out)
 

@@ -42,6 +42,7 @@ def find(unitname, faction_name):
             return ", ".join(faction_as_map(faction_name).keys())
 
     except Exception as e:
+        print(e)
         out += "Welp" + str(e) + type(e).__name__
     return out
 
