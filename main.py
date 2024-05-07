@@ -7,6 +7,7 @@ import random
 import shutil
 from typing import List
 import openai
+import subprocess
 
 import discord
 from PIL import Image
@@ -63,6 +64,13 @@ async def on_ready():
 
     print(pudge)
     print(io_moji)
+
+    for s in bot.guilds:
+        for x in s.channels:
+            if x.name == "bot":
+                process = subprocess.Popen(['git', 'rev-parse', 'HEAD'], shell=False, stdout=subprocess.PIPE)
+                hash = str(process.communicate()[0].strip())
+                await bot.get_channel(x.id).send(f"Hello world. Running {hash}")
 
 def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
@@ -438,6 +446,12 @@ async def open_api_generate(ctx, prompt:str, count: int):
     except Exception as e:
         await ctx.followup.send(f"> {prompt}\nError: {e}")
 
+def remove_empty_fields(map):
+    if type(map) is str:
+        return map
+    if type(map) is list:
+        return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
+    return {k: remove_empty_fields(v) for k, v in map.items() if remove_empty_fields(v)}
 
 dataroot = "data/datasources/10th/json/"
 @bot.slash_command(name="datacard", description="Find a datacard")
@@ -448,6 +462,7 @@ async def datacard(ctx, unitname:str, faction:str):
     if type(out) is str:
         await ctx.respond(out)
     else:
+        out = remove_empty_fields(out)
         e = discord.Embed(title=out["name"], color=0x0a353a)
         e.add_field(name="Stats",
                     value=json.dumps(out['stats']),
@@ -458,13 +473,10 @@ async def datacard(ctx, unitname:str, faction:str):
         await ctx.respond(embed=e)
 
         for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee")]:
-            if len(json.dumps(out[x])) > 1000:
+            if len(json.dumps(out[x])) > 2000:
                 await ctx.channel.send(json.dumps(out[x]))
             else:
-                e2 = discord.Embed(title=out["name"], color=0x0a353a)
-                e2.add_field(name=y,
-                             value=json.dumps(out[x]),
-                             inline=False)
+                e2 = discord.Embed(title=y, color=0x0a353a, description=json.dumps(out[x]))
                 await ctx.channel.send(embed=e2)
 
         out["name"] = ""
@@ -472,6 +484,8 @@ async def datacard(ctx, unitname:str, faction:str):
         out["rangedWeapons"] = ""
         out["stats"] = ""
         out["abilities"] = ""
+
+        out = remove_empty_fields(out)
 
         await ctx.channel.send(json.dumps(out))
 
