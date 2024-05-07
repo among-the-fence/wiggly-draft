@@ -460,7 +460,7 @@ dataroot = "data/datasources/10th/json/"
 @option("unitname", description="Unit Name", required=False)
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
-    out = Warhammer.find(unitname, faction)
+    out, color = Warhammer.find(unitname, faction)
     if type(out) is str:
         await ctx.respond(out)
     else:
@@ -468,7 +468,13 @@ async def datacard(ctx, unitname:str, faction:str):
             out = remove_empty_fields(out)
         except Exception as e:
             print(e)
-        e = discord.Embed(title=out["name"], color=0x0a353a)
+        if not color:
+            color = "#ffffff"
+        if "#" in color:
+            color = color.replace("#", "")
+        col = discord.Color(value=int(color, 16))
+        print(color)
+        e = discord.Embed(title=out["name"], color=col)
         e.add_field(name="Stats",
                     value=json.dumps(out['stats']),
                     inline=True)
@@ -491,7 +497,7 @@ async def datacard(ctx, unitname:str, faction:str):
                 if len(json.dumps(out[x])) > 2000:
                     await ctx.channel.send(json.dumps(out[x]))
                 else:
-                    e2 = discord.Embed(title=y, color=0x0a353a, description=json.dumps(out[x]))
+                    e2 = discord.Embed(title=y, color=col, description=json.dumps(out[x]))
                     await ctx.channel.send(embed=e2)
 
         for x in ["name", "meleeWeapons", "rangedWeapons", "stats", "abilities", "points",
