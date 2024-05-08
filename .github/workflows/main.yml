@@ -48,4 +48,4 @@ jobs:
         with:
           portainerUrl: 'https://portainer.mattyflix.com'
           accessToken: ${{ secrets.PORTAINER_KEY }}
-          stackName: 'wigglybot'
+          stackName: 'irobot'
