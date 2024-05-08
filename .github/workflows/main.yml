@@ -41,6 +41,7 @@ jobs:
   redeploy-container:
     name: Redeploy Portainer Stack
     runs-on: ubuntu-latest
+    needs: push_to_registry
     steps:
       - name: Update Stack via AccessToken
         uses: manicmade/portainer-git-stack-redeploy-action@v1.5.3

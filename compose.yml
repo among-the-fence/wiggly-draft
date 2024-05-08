@@ -1,5 +1,5 @@
 services:
   bot:
-    build: .
+    image: "poddo/wiggly-draft:development"
     env_file:
       - stack.env
