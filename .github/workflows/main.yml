@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Update Stack via AccessToken
-        uses: wirgen/portainer-stack-redeploy-action@v1.1
+        uses: manicmade/portainer-git-stack-redeploy-action@v1.5.3
         with:
           portainerUrl: 'https://portainer.mattyflix.com'
           accessToken: ${{ secrets.PORTAINER_KEY }}
-          stackId: 15
+          stackName: 'wigglybot'
+          branch: 'refs/heads/development'
