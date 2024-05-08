@@ -11,12 +11,17 @@ faction_nickname_map = {
 }
 
 
+def normalize_name(name):
+    x = name.lower().translate(",\'-ôûâ").replace(" ", "") if name else None
+    # if not x == name:
+    #     print(name + " " + x)
+    return x
+
+
 def find(unitname, faction_name):
     out = ""
-    if unitname:
-        unitname = unitname.lower()
-    if faction_name:
-        faction_name = faction_name.lower().replace(" ", "")
+    unitname = normalize_name(unitname)
+    faction_name = normalize_name(faction_name)
     for y,x in faction_nickname_map.items():
         if faction_name in x:
             faction_name = y
@@ -69,6 +74,6 @@ def faction_as_map(name):
     datasheets = all_info['datasheets']
     datasheetmap = {}
     for d in datasheets:
-        datasheetmap[d['name'].lower()] = d
+        datasheetmap[normalize_name(d['name'])] = d
 
     return datasheetmap, all_info["colours"]['banner']
