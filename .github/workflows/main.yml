@@ -1,0 +1,5 @@
+steps:
+  - name: Update Service via Webhook
+    uses: newarifrh/portainer-service-webhook@v1
+    with:
+      webhook_url: ${{ secrets.WEBHOOK_URL }}
