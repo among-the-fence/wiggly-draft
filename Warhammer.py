@@ -49,7 +49,7 @@ def find(unitname, faction_name):
         print(type(e))
         print(e)
         out += f"Welp {e}"
-    return out
+    return out, None
 
 
 def check_faction_for_unit(normalized_faction_name, normalized_unit_name):
