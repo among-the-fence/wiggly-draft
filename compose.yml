@@ -1,3 +1,5 @@
 services:
   bot:
     build: .
+    env_file:
+      - stack.env
