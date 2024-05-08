@@ -15,4 +15,3 @@ jobs:
           portainerUrl: 'https://portainer.mattyflix.com'
           accessToken: ${{ secrets.PORTAINER_KEY }}
           stackName: 'wigglybot'
-          branch: 'refs/heads/development'
