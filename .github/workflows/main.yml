@@ -1,8 +1,8 @@
 name: Redeploy Portainer Stack
 
-#on:
-#  push:
-#  workflow_dispatch:
+on:
+ push:
+ workflow_dispatch:
 
 jobs:
   redeploy-container:
