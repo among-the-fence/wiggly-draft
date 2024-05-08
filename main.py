@@ -453,6 +453,18 @@ def remove_empty_fields(map):
         return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
     return {k: remove_empty_fields(v) for k, v in map.items() if remove_empty_fields(v)}
 
+def simple_format(field):
+    if type(field) is list:
+        if type(field[0]) is str:
+            return ", ".join(field)
+        return "\n".join(simple_format(x) for x in field)
+    elif type(field) is map:
+        if len(field.keys()) == 1:
+            return simple_format(field[field.keys()[0]])
+        return json.dumps(field).strip("\"")
+    else:
+        return json.dumps(field).strip("\"")
+
 dataroot = "data/datasources/10th/json/"
 @bot.slash_command(name="datacard", description="Find a datacard")
 @option("unitname", description="Unit Name")
@@ -474,28 +486,33 @@ async def datacard(ctx, unitname:str, faction:str):
         print(color)
         e = discord.Embed(title=out["name"], color=col)
         e.add_field(name="Stats",
-                    value=json.dumps(out['stats']),
+                    value=simple_format(out['stats']),
                     inline=True)
-        e.add_field(name="Keywords",
-                    value=json.dumps(out['keywords']),
+        e.add_field(name="Factions",
+                    value=simple_format(out['factions']),
                     inline=True)
         e.add_field(name="Points",
-                    value=json.dumps(out['points']),
+                    value=simple_format(out['points']),
                     inline=False)
         e.add_field(name="Composition",
-                    value=json.dumps(out['composition']),
+                    value=simple_format(out['composition']),
                     inline=False)
-        e.add_field(name="Factions",
-                    value=json.dumps(out['factions']),
+        e.add_field(name="Keywords",
+                    value=simple_format(out['keywords']),
                     inline=False)
         await ctx.respond(embed=e)
 
         for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee"), ('abilities', "Abilities"), ("fluff", "Fluff")]:
             if x in out:
-                if len(json.dumps(out[x])) > 2000:
-                    await ctx.channel.send(json.dumps(out[x]))
+                t = simple_format(out[x])
+                if len(t) > 2000:
+                    chunk_count = (len(t) // 2000) + 1
+                    chunk_size = len(t) // chunk_count
+                    print(f"chunking message {chunk_size} {chunk_count}")
+                    for i in range(0, len(t), chunk_size):
+                        await ctx.channel.send(t[i: i + chunk_size])
                 else:
-                    e2 = discord.Embed(title=y, color=col, description=json.dumps(out[x]))
+                    e2 = discord.Embed(title=y, color=col, description=t)
                     await ctx.channel.send(embed=e2)
 
         for x in ["name", "meleeWeapons", "rangedWeapons", "stats", "abilities", "points",
@@ -504,7 +521,7 @@ async def datacard(ctx, unitname:str, faction:str):
 
         out = remove_empty_fields(out)
 
-        await ctx.channel.send(json.dumps(out))
+        await ctx.channel.send(simple_format(out))
 
 
 if __name__ == "__main__":
