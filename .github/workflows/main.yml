@@ -1,6 +1,7 @@
 name: Redeploy Container
 
 on: [push]
+  workflow_dispatch:
 
 jobs:
   redeploy-container:
