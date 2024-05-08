@@ -455,7 +455,7 @@ def remove_empty_fields(map):
 
 dataroot = "data/datasources/10th/json/"
 @bot.slash_command(name="datacard", description="Find a datacard")
-@option("unitname", description="Unit Name", required=False)
+@option("unitname", description="Unit Name")
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
     out, color = Warhammer.find(unitname, faction)
