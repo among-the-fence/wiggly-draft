@@ -1,4 +1,4 @@
-name: Redeploy Container
+name: Redeploy Portainer Stack
 
 on:
   push:
@@ -6,10 +6,12 @@ on:
 
 jobs:
   redeploy-container:
-    name: Redeploy Portainer Container
+    name: Redeploy Portainer Stack
     runs-on: ubuntu-latest
     steps:
-      - name: Update Service via Webhook
-        uses: newarifrh/portainer-service-webhook@v1
+      - name: Update Stack via AccessToken
+        uses: wirgen/portainer-stack-redeploy-action@v1.1
         with:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          portainerUrl: 'https://portainer.mattyflix.com'
+          accessToken: ${{ secrets.PORTAINER_KEY }}
+          stackId: 15
