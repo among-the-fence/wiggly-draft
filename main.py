@@ -68,12 +68,7 @@ async def on_ready():
     for s in bot.guilds:
         for x in s.channels:
             if x.name == "bot":
-                try:
-                    process = subprocess.Popen(['git', 'rev-parse', 'HEAD'], shell=False, stdout=subprocess.PIPE)
-                    hash = str(process.communicate()[0].strip())
-                    await bot.get_channel(x.id).send(f"Hello world. Running {hash}")
-                except:
-                    print("Git failed. Whatever.")
+                await bot.get_channel(x.id).send(f"Hello world")
 
 def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
