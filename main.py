@@ -18,6 +18,7 @@ from GameList import GameList
 from HeroList import HeroList
 from Pick import Pick
 from WigglePoll import WigglePoll
+from services.warhammer.models.unit import WHUnit
 
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
@@ -42,7 +43,7 @@ pudge = None
 io_moji = None
 activation_owner = None
 wiggle_poll = WigglePoll()
-
+wh_data = Warhammer.Warhammer()
 
 def get_env_attribute(attribute):
     e = os.getenv('ENV')
@@ -67,7 +68,7 @@ async def on_ready():
     for s in bot.guilds:
         for x in s.channels:
             if x.name == "bot":
-                await bot.get_channel(x.id).send(f"Pocket Sand shashasha!")
+                await bot.get_channel(x.id).send(f"I'm just a rubbin")
 
 def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
@@ -469,41 +470,37 @@ dataroot = "data/datasources/10th/json/"
 @option("unitname", description="Unit Name")
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
-    out, color = Warhammer.find(unitname, faction)
-    if type(out) is str:
-        await ctx.respond(out)
-    else:
-        try:
-            out = remove_empty_fields(out)
-        except Exception as e:
-            print(e)
-        if not color:
-            color = "#ffffff"
-        if "#" in color:
-            color = color.replace("#", "")
-        col = discord.Color(value=int(color, 16))
-        print(color)
-        e = discord.Embed(title=out["name"], color=col)
+    err, unit, color = wh_data.find(unitname, faction)
+
+    if err and type(err) is str:
+        e = discord.Embed(title="Nope", color=color)
+        e.add_field(
+                    value=err,
+                    inline=True)
+        await ctx.respond(embed=e)
+    elif unit and type(unit) is WHUnit:
+        e = discord.Embed(title=unit.name, color=color)
         e.add_field(name="Stats",
-                    value=simple_format(out['stats']),
+                    value=simple_format(unit.stats),
                     inline=True)
         e.add_field(name="Factions",
-                    value=simple_format(out['factions']),
+                    value=simple_format(unit.factions),
                     inline=True)
         e.add_field(name="Points",
-                    value=simple_format(out['points']),
+                    value=simple_format(unit.points),
                     inline=False)
         e.add_field(name="Composition",
-                    value=simple_format(out['composition']),
+                    value=simple_format(unit.composition),
                     inline=False)
         e.add_field(name="Keywords",
-                    value=simple_format(out['keywords']),
+                    value=simple_format(unit.keywords),
                     inline=False)
         await ctx.respond(embed=e)
 
         for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee"), ('abilities', "Abilities"), ("fluff", "Fluff")]:
-            if x in out:
-                t = simple_format(out[x])
+            val = getattr(unit, x)
+            if val:
+                t = simple_format(val)
                 if len(t) > 2000:
                     chunk_count = (len(t) // 2000) + 1
                     chunk_size = len(t) // chunk_count
@@ -511,16 +508,9 @@ async def datacard(ctx, unitname:str, faction:str):
                     for i in range(0, len(t), chunk_size):
                         await ctx.channel.send(t[i: i + chunk_size])
                 else:
-                    e2 = discord.Embed(title=y, color=col, description=t)
+                    e2 = discord.Embed(title=y, color=color, description=t)
                     await ctx.channel.send(embed=e2)
 
-        for x in ["name", "meleeWeapons", "rangedWeapons", "stats", "abilities", "points",
-                  "composition", "fluff", "factions", "faction_id", "id", "keywords", "source"]:
-            out[x] = ""
-
-        out = remove_empty_fields(out)
-
-        await ctx.channel.send(simple_format(out))
 
 
 if __name__ == "__main__":
