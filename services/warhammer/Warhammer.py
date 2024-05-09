@@ -69,6 +69,7 @@ def get_faction(name):
         return json.load(file)
 
 
+
 def faction_as_map(name):
     all_info = get_faction(name)
     datasheets = all_info['datasheets']

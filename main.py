@@ -7,14 +7,13 @@ import random
 import shutil
 from typing import List
 import openai
-import subprocess
 
 import discord
 from PIL import Image
 from discord import option
 from dotenv import load_dotenv
 
-import Warhammer
+from services.warhammer import Warhammer
 from GameList import GameList
 from HeroList import HeroList
 from Pick import Pick
@@ -68,7 +67,7 @@ async def on_ready():
     for s in bot.guilds:
         for x in s.channels:
             if x.name == "bot":
-                await bot.get_channel(x.id).send(f"I floop the pig!")
+                await bot.get_channel(x.id).send(f"Pocket Sand shashasha!")
 
 def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
