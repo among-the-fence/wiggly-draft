@@ -10,7 +10,7 @@ import openai
 
 import discord
 from PIL import Image
-from discord import option
+from discord import option, Color
 from dotenv import load_dotenv
 
 from services.warhammer import Warhammer
@@ -473,8 +473,10 @@ async def datacard(ctx, unitname:str, faction:str):
     err, unit, color = wh_data.find(unitname, faction)
 
     if err and type(err) is str:
+        if not color:
+            color = Color.red()
         e = discord.Embed(title="Nope", color=color)
-        e.add_field(
+        e.add_field(name="Error",
                     value=err,
                     inline=True)
         await ctx.respond(embed=e)
@@ -510,7 +512,6 @@ async def datacard(ctx, unitname:str, faction:str):
                 else:
                     e2 = discord.Embed(title=y, color=color, description=t)
                     await ctx.channel.send(embed=e2)
-
 
 
 if __name__ == "__main__":

@@ -2,7 +2,8 @@ import os
 import json
 
 import discord
-
+from discord import Colour
+from difflib import SequenceMatcher
 from services.warhammer.models.unit import WHUnit
 from util.utils import extract_and_clear, normalize_name
 import random
@@ -10,8 +11,7 @@ import random
 
 class WHFaction:
     def __init__(self, json_faction):
-
-        self.colors = [WHFaction.extract_color(json_faction["colours"][x]) for x in json_faction["colours"]] if "colours" in json_faction else WHFaction.extract_color("#ffffff")
+        self.colors = [WHFaction.extract_color(json_faction["colours"][x]) for x in json_faction["colours"]] if "colours" in json_faction else [WHFaction.extract_color("#ffffff")]
         extract_and_clear(json_faction, "colours")
         datasheets = {}
         unit_list = []
@@ -32,13 +32,21 @@ class WHFaction:
         print(json.dumps(self.__the_rest))
 
     def get_unit(self, normalized_unitname):
+        closest_match = 0
+        closest_match_unit = None
         for k, v in self.units.items():
-            if normalized_unitname in k or k in normalized_unitname:
-                return v, self.get_color()
-        return None, self.get_color()
+            s = SequenceMatcher(None, k, normalized_unitname)
+            if s.ratio() > closest_match:
+                closest_match = s.ratio()
+                closest_match_unit = v
+        return closest_match_unit, self.get_color(), closest_match
 
     def get_color(self):
-        return random.choice(self.colors)
+        if type(self.colors) is list:
+            return random.choice(self.colors)
+        elif type(self.colors) is Colour:
+            return self.colors
+        return Colour.random()
 
     @staticmethod
     def extract_color(colorstr):

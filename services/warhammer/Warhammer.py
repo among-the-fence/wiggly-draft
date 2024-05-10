@@ -30,16 +30,23 @@ class Warhammer:
             if faction_name in x:
                 faction_name = y
         unitname = normalize_name(unitname)
-
+        closest_match_ratio = 0
+        closest_match_unit = None
+        cloest_match_color = None
         if faction_name and unitname:
             return None, self.factions[faction_name].get_unit(unitname), self.factions[faction_name].get_color()
         elif unitname:
             for i in self.factions.keys():
-                unit, color = self.factions[i].get_unit(unitname)
-                if unit:
+                unit, color, match = self.factions[i].get_unit(unitname)
+                if match >= .99:
                     return None, unit, color
+                elif match > closest_match_ratio:
+                    closest_match_unit = unit
+                    closest_match_ratio = match
+                    cloest_match_color = color
         elif faction_name:
             return None, self.factions[faction_name].unit_names, self.factions[faction_name].get_color()
         else:
             return "WTF", None, None
-        return "OH NO", None, None
+        print(f"{closest_match_unit.name} - {unitname} - {cloest_match_color} {closest_match_ratio}")
+        return None, closest_match_unit, cloest_match_color
