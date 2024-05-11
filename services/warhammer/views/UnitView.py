@@ -46,13 +46,17 @@ class UnitView(discord.ui.View):
                 {"key": "keywords", "display": "K"}
             ]
             for x in unit.rangedWeapons:
-                for p in x["profilesdfs"]:
+                for p in x["profiles"]:
                     pn = p["name"]
                     extract_and_clear(p, "name")
                     out = ""
                     for x in prop_order:
                         if x["key"] in p:
-                            out += f"{x['display']}:**{p[x['key']]}** "
+                            if x["key"] == "keywords":
+                                if len(p[x['key']]) > 0:
+                                    out += f"{x['display']}:**{', '.join(p[x['key']])}** "
+                            else:
+                                out += f"{x['display']}:**{p[x['key']]}** "
 
                     e.add_field(name=pn, value=out, inline=False)
             await interaction.respond(embed=e)
@@ -80,7 +84,11 @@ class UnitView(discord.ui.View):
                     out = ""
                     for x in prop_order:
                         if x["key"] in p:
-                            out += f"{x['display']}:**{p[x['key']]}** "
+                            if x["key"] == "keywords":
+                                if len(p[x['key']]) > 0:
+                                    out += f"{x['display']}:**{', '.join(p[x['key']])}** "
+                            else:
+                                out += f"{x['display']}:**{p[x['key']]}** "
 
                     e.add_field(name=pn, value=out, inline=False)
             await interaction.respond(embed=e)
