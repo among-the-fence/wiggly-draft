@@ -71,7 +71,7 @@ async def on_ready():
     for s in bot.guilds:
         for x in s.channels:
             if x.name == "bot":
-                await bot.get_channel(x.id).send(f"I'm just a rubbin")
+                await bot.get_channel(x.id).send(f"Pee on a turd. What was that about>")
 
 def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
