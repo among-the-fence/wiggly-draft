@@ -1,3 +1,4 @@
+import collections
 import json
 import re
 
@@ -17,7 +18,7 @@ def extract_and_clear(jsondata, key, default=None):
 
 
 def simple_format(field):
-    if type(field) is list:
+    if type(field) is list or type(field):
         if type(field[0]) is str:
             return ", ".join(field)
         return "\n".join(simple_format(x) for x in field)

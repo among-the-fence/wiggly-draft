@@ -31,69 +31,56 @@ class UnitView(discord.ui.View):
         e2 = discord.Embed(title="Error", description=f"{type(e)}  {e}")
         await interaction.respond(embed=e2, ephemeral=True)
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🔫")
-    async def gun_button_callback(self, button, interaction):
+    async def send_weapon_profiles(self, interaction, name, display_name, prop_order):
         try:
             err, unit, color = self.get_unit()
-            e = discord.Embed(title="Ranged", color=color)
-            prop_order = [
-                {"key": "range", "display": "Ra"},
-                {"key": "attacks", "display": "At"},
-                {"key": "skill", "display": "Sk"},
-                {"key": "strength", "display": "St"},
-                {"key": "ap", "display": "AP"},
-                {"key": "damage", "display": "D"},
-                {"key": "keywords", "display": "K"}
-            ]
-            for x in unit.rangedWeapons:
-                for p in x["profiles"]:
-                    pn = p["name"]
-                    extract_and_clear(p, "name")
-                    out = ""
-                    for x in prop_order:
-                        if x["key"] in p:
-                            if x["key"] == "keywords":
-                                if len(p[x['key']]) > 0:
-                                    out += f"{x['display']}:**{', '.join(p[x['key']])}** "
-                            else:
-                                out += f"{x['display']}:**{p[x['key']]}** "
+            e = discord.Embed(title=display_name, color=color)
 
-                    e.add_field(name=pn, value=out, inline=False)
-            await interaction.respond(embed=e)
+            val = getattr(unit, name)
+            if val:
+                for x in val:
+                    for p in x["profiles"]:
+                        pn = p["name"]
+                        extract_and_clear(p, "name")
+                        out = ""
+                        for x in prop_order:
+                            if x["key"] in p:
+                                if x["key"] == "keywords":
+                                    if len(p[x['key']]) > 0:
+                                        out += f"{x['display']}:**{', '.join(p[x['key']])}** "
+                                else:
+                                    out += f"{x['display']}:**{p[x['key']]}** "
+
+                        e.add_field(name=pn, value=out, inline=False)
+                await interaction.respond(embed=e)
         except Exception as e:
             await self.handle_error(interaction, e)
+
+    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🔫")
+    async def gun_button_callback(self, button, interaction):
+        prop_order = [
+            {"key": "range", "display": "Ra"},
+            {"key": "attacks", "display": "At"},
+            {"key": "skill", "display": "BS"},
+            {"key": "strength", "display": "St"},
+            {"key": "ap", "display": "AP"},
+            {"key": "damage", "display": "D"},
+            {"key": "keywords", "display": "K"}
+        ]
+        await self.send_weapon_profiles(interaction,"rangedWeapons", "Ranged", prop_order)
 
     @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="⚔️")
     async def melee_button_callback(self, button, interaction):
-        try:
-            err, unit, color = self.get_unit()
-            e = discord.Embed(title="Melee", color=color)
-            prop_order = [
-                {"key": "range", "display": "Ra"},
-                {"key": "attacks", "display": "At"},
-                {"key": "skill", "display": "Sk"},
-                {"key": "strength", "display": "St"},
-                {"key": "ap", "display": "AP"},
-                {"key": "damage", "display": "D"},
-                {"key": "keywords", "display": "K"}
-            ]
-            for x in unit.meleeWeapons:
-                for p in x["profiles"]:
-                    pn = p["name"]
-                    extract_and_clear(p, "name")
-                    out = ""
-                    for x in prop_order:
-                        if x["key"] in p:
-                            if x["key"] == "keywords":
-                                if len(p[x['key']]) > 0:
-                                    out += f"{x['display']}:**{', '.join(p[x['key']])}** "
-                            else:
-                                out += f"{x['display']}:**{p[x['key']]}** "
-
-                    e.add_field(name=pn, value=out, inline=False)
-            await interaction.respond(embed=e)
-        except Exception as e:
-            await self.handle_error(interaction, e)
+        prop_order = [
+            {"key": "range", "display": "Ra"},
+            {"key": "attacks", "display": "At"},
+            {"key": "skill", "display": "WS"},
+            {"key": "strength", "display": "St"},
+            {"key": "ap", "display": "AP"},
+            {"key": "damage", "display": "D"},
+            {"key": "keywords", "display": "K"}
+        ]
+        await self.send_weapon_profiles(interaction,"meleeWeapons", "Melee", prop_order)
 
     @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🗿")
     async def ability_button_callback(self, button, interaction):

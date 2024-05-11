@@ -57,6 +57,6 @@ class Warhammer:
             if faction_name in x:
                 faction_name = y
         if faction_name in self.factions:
-            return None, self.factions[faction_name]
+            return None, None, self.factions[faction_name]
         else:
-            return self.factions.keys(), None, None
+            return None, self.factions.keys(), None

@@ -467,20 +467,20 @@ warhammer = bot.create_group("warhammer", "Command=War Hammer=Hammer")
 @bot.slash_command(name="faction", description="Get faction info")
 @option("faction", description="Faction Name")
 async def find_faction(ctx, faction: str):
-    err, faction = wh_data.get_faction(faction)
+    err, names, faction = wh_data.get_faction(faction)
 
     if err and type(err) is str:
-        color = Color.red()
+        color = Color.dark_blue()
         e = discord.Embed(title="Not Found", color=color)
         e.add_field(name="Error",
                     value=err,
                     inline=True)
         await ctx.respond(embed=e, ephemeral=True)
-    elif err and type(err) is list:
+    elif names:
         color = Color.red()
         e = discord.Embed(title="Not Found", color=color)
         e.add_field(name="",
-                    value=simple_format(err),
+                    value=str(names),
                     inline=True)
         await ctx.respond(embed=e, ephemeral=True)
     elif faction and type(faction) is WHFaction:
