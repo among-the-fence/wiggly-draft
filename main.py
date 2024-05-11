@@ -448,16 +448,6 @@ async def open_api_generate(ctx, prompt:str, count: int):
         await ctx.followup.send(f"> {prompt}\nError: {e}")
 
 
-def remove_empty_fields(map):
-    if type(map) is str:
-        if map == "None":
-            return None
-        return map
-    if type(map) is list:
-        return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
-    return {k: remove_empty_fields(v) for k, v in map.items() if remove_empty_fields(v)}
-
-
 def simple_format(field):
     if type(field) is list:
         if type(field[0]) is str:

@@ -36,3 +36,12 @@ async def send_in_chunks(ctx, t, size=2000, e=False):
     for i in range(0, len(t), chunk_size):
         await ctx.response.send_message(t[i: i + chunk_size], ephemeral=e)
 
+
+def remove_empty_fields(map):
+    if type(map) is str:
+        if map == "None":
+            return None
+        return map
+    if type(map) is list:
+        return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
+    return {k: remove_empty_fields(v) for k, v in map.items() if remove_empty_fields(v)}
