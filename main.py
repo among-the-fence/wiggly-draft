@@ -531,16 +531,6 @@ async def datacard(ctx, unitname:str, faction:str):
                     inline=False)
         await ctx.respond(embed=e, view=UnitView())
 
-        for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee"), ('abilities', "Abilities"), ("fluff", "Fluff")]:
-            val = getattr(unit, x)
-            if val:
-                t = simple_format(val)
-                if len(t) > 2000:
-                    await send_in_chunks(ctx, t)
-                else:
-                    e2 = discord.Embed(title=y, color=color, description=t)
-                    await ctx.channel.send(embed=e2)
-
 
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
