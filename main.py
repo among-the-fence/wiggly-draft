@@ -18,7 +18,10 @@ from GameList import GameList
 from HeroList import HeroList
 from Pick import Pick
 from WigglePoll import WigglePoll
+from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.unit import WHUnit
+from services.warhammer.views.UnitView import UnitView
+from util.utils import send_in_chunks
 
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
@@ -444,6 +447,7 @@ async def open_api_generate(ctx, prompt:str, count: int):
     except Exception as e:
         await ctx.followup.send(f"> {prompt}\nError: {e}")
 
+
 def remove_empty_fields(map):
     if type(map) is str:
         if map == "None":
@@ -452,6 +456,7 @@ def remove_empty_fields(map):
     if type(map) is list:
         return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
     return {k: remove_empty_fields(v) for k, v in map.items() if remove_empty_fields(v)}
+
 
 def simple_format(field):
     if type(field) is list:
@@ -465,7 +470,34 @@ def simple_format(field):
     else:
         return json.dumps(field).strip("\"")
 
-dataroot = "data/datasources/10th/json/"
+
+warhammer = bot.create_group("warhammer", "Command=War Hammer=Hammer")
+
+
+@bot.slash_command(name="faction", description="Get faction info")
+@option("faction", description="Faction Name")
+async def find_faction(ctx, faction: str):
+    err, faction = wh_data.get_faction(faction)
+
+    if err and type(err) is str:
+        color = Color.red()
+        e = discord.Embed(title="Not Found", color=color)
+        e.add_field(name="Error",
+                    value=err,
+                    inline=True)
+        await ctx.respond(embed=e, ephemeral=True)
+    elif err and type(err) is list:
+        color = Color.red()
+        e = discord.Embed(title="Not Found", color=color)
+        e.add_field(name="",
+                    value=simple_format(err),
+                    inline=True)
+        await ctx.respond(embed=e, ephemeral=True)
+    elif faction and type(faction) is WHFaction:
+        t = ", ".join(faction.unit_names)
+        await send_in_chunks(ctx, t, e=True)
+
+
 @bot.slash_command(name="datacard", description="Find a datacard")
 @option("unitname", description="Unit Name")
 @option("faction", description="Faction Name", required=False)
@@ -497,18 +529,14 @@ async def datacard(ctx, unitname:str, faction:str):
         e.add_field(name="Keywords",
                     value=simple_format(unit.keywords),
                     inline=False)
-        await ctx.respond(embed=e)
+        await ctx.respond(embed=e, view=UnitView())
 
         for x, y in [("rangedWeapons", "Ranged"), ("meleeWeapons", "Melee"), ('abilities', "Abilities"), ("fluff", "Fluff")]:
             val = getattr(unit, x)
             if val:
                 t = simple_format(val)
                 if len(t) > 2000:
-                    chunk_count = (len(t) // 2000) + 1
-                    chunk_size = len(t) // chunk_count
-                    print(f"chunking message {chunk_size} {chunk_count}")
-                    for i in range(0, len(t), chunk_size):
-                        await ctx.channel.send(t[i: i + chunk_size])
+                    await send_in_chunks(ctx, t)
                 else:
                     e2 = discord.Embed(title=y, color=color, description=t)
                     await ctx.channel.send(embed=e2)

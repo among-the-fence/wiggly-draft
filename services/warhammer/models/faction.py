@@ -21,7 +21,7 @@ class WHFaction:
                 datasheets[converted.normalized_name] = converted
                 unit_list.append(converted.name)
         self.units = datasheets
-        self.unit_names = unit_list
+        self.unit_names = sorted(unit_list)
         extract_and_clear(json_faction, "datasheets")
         self.strategems = extract_and_clear(json_faction, "stratagems")
         self.enhancements = extract_and_clear(json_faction, "enhancements")

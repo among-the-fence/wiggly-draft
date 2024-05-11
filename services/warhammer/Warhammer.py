@@ -50,3 +50,13 @@ class Warhammer:
             return "WTF", None, None
         print(f"{closest_match_unit.name} - {unitname} - {cloest_match_color} {closest_match_ratio}")
         return None, closest_match_unit, cloest_match_color
+
+    def get_faction(self, faction_name):
+        faction_name = normalize_name(faction_name)
+        for y, x in faction_nickname_map.items():
+            if faction_name in x:
+                faction_name = y
+        if faction_name in self.factions:
+            return None, self.factions[faction_name]
+        else:
+            return self.factions.keys(), None, None
