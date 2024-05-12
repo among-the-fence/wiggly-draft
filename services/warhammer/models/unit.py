@@ -31,6 +31,34 @@ class WHUnit:
         self.legends = extract_and_clear(jsonunit, "legends", False)
         self.the_rest = jsonunit
 
+    def formatted_stats(self, parent):
+        out = ""
+        ordered_props = [
+            {"key": "m", "display": "M"},
+            {"key": "t", "display": "T"},
+            {"key": "sv", "display": "SV"},
+            {"key": "w", "display": "W"},
+            {"key": "oc", "display": "OC"},
+            {"key": "ld", "display": "M"}]
+
+        for s in self.stats:
+            for p in ordered_props:
+                out += f"{p['key']}:**{s[p['key']]}** "
+            if len(self.stats) > 1:
+                parent.add_field(name=s["name"],
+                             value=out,
+                             inline=False)
+                out = ""
+            else:
+                parent.description = out
+
+    def formatted_cost(self):
+        out = []
+        for p in self.points:
+            out.append(f"**{p['models']}** models: **{p['cost']}** points")
+        return "\n".join(out)
+
+
 
 if __name__ == "__main__":
     with open("../../../data/datasources/10th/json/aeldari.json", "r") as file:

@@ -471,17 +471,11 @@ async def find_faction(ctx, faction: str):
 
     if err and type(err) is str:
         color = Color.dark_blue()
-        e = discord.Embed(title="Not Found", color=color)
-        e.add_field(name="Error",
-                    value=err,
-                    inline=True)
+        e = discord.Embed(title="Not Found", color=color, description=err)
         await ctx.respond(embed=e, ephemeral=True)
     elif names:
         color = Color.red()
-        e = discord.Embed(title="Not Found", color=color)
-        e.add_field(name="",
-                    value=str(names),
-                    inline=True)
+        e = discord.Embed(title="Not Found", color=color, description=names)
         await ctx.respond(embed=e, ephemeral=True)
     elif faction and type(faction) is WHFaction:
         t = ", ".join(faction.unit_names)
@@ -504,21 +498,20 @@ async def datacard(ctx, unitname:str, faction:str):
         await ctx.respond(embed=e)
     elif unit and type(unit) is WHUnit:
         e = discord.Embed(title=unit.name, color=color)
-        e.add_field(name="Stats",
-                    value=simple_format(unit.stats),
-                    inline=True)
-        e.add_field(name="Factions",
-                    value=simple_format(unit.factions),
-                    inline=True)
+        unit.formatted_stats(e)
         e.add_field(name="Points",
-                    value=simple_format(unit.points),
-                    inline=False)
-        e.add_field(name="Composition",
-                    value=simple_format(unit.composition),
+                    value=unit.formatted_cost(),
                     inline=False)
         e.add_field(name="Keywords",
                     value=simple_format(unit.keywords),
                     inline=False)
+        e.add_field(name="Factions",
+                    value=simple_format(unit.factions),
+                    inline=True)
+        e.add_field(name=chr(173), value=chr(173), inline=True)  # Line break
+        e.add_field(name="Composition",
+                    value=simple_format(unit.composition),
+                    inline=True)
         await ctx.respond(embed=e, view=UnitView())
 
 

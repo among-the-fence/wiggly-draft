@@ -21,7 +21,8 @@ class Warhammer:
             with open(dataroot + f, "r") as file:
                 wf = WHFaction(json.load(file))
                 self.factions[wf.normalized_name] = wf
-                self.faction_names.append(wf.name)
+                if wf.name:
+                    self.faction_names.append(wf.name)
         print(self.faction_names)
 
     def find(self, unitname, faction_name):
@@ -59,4 +60,4 @@ class Warhammer:
         if faction_name in self.factions:
             return None, None, self.factions[faction_name]
         else:
-            return None, self.factions.keys(), None
+            return None, ", ".join(self.faction_names), None
