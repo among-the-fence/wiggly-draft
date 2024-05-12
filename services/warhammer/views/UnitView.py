@@ -52,7 +52,7 @@ class UnitView(discord.ui.View):
                                     out += f"{x['display']}:**{p[x['key']]}** "
 
                         e.add_field(name=pn, value=out, inline=False)
-                await interaction.respond(embed=e)
+            await interaction.respond(embed=e)
         except Exception as e:
             await self.handle_error(interaction, e)
 
