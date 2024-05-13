@@ -25,16 +25,16 @@ class UnitView(discord.ui.View):
             await send_in_chunks(interaction, t)
         else:
             e2 = discord.Embed(title=display, color=color, description=t)
-            await interaction.respond(embed=e2)
+            await interaction.edit(embed=e2)
 
     async def handle_error(self, interaction, e):
         e2 = discord.Embed(title="Error", description=f"{type(e)}  {e}")
-        await interaction.respond(embed=e2, ephemeral=True)
+        await interaction.edit(embed=e2, ephemeral=True)
 
     async def send_weapon_profiles(self, interaction, name, display_name, prop_order):
         try:
             err, unit, color = self.get_unit()
-            e = discord.Embed(title=display_name, color=color)
+            e = discord.Embed(title=unit.name, description=display_name, color=color)
 
             val = getattr(unit, name)
             if val:
@@ -52,7 +52,7 @@ class UnitView(discord.ui.View):
                                     out += f"{x['display']}:**{p[x['key']]}** "
 
                         e.add_field(name=pn, value=out, inline=False)
-            await interaction.respond(embed=e)
+            await interaction.edit(embed=e)
         except Exception as e:
             await self.handle_error(interaction, e)
 
