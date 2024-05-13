@@ -71,7 +71,8 @@ async def on_ready():
     for s in bot.guilds:
         for x in s.channels:
             if x.name == "bot":
-                await bot.get_channel(x.id).send(f"You are fuckin me in my life")
+                with open("message.txt", mode="r") as messagefile:
+                    await bot.get_channel(x.id).send(messagefile.readline())
 
 def bill_and_ben_are_on_the_same_team(matchup: List[Pick]):
     team1_names = set([x.user.display_name.lower() for x in matchup[:3]])
