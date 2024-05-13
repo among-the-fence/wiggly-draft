@@ -1,17 +1,18 @@
 import os
 import json
-from util.utils import normalize_name, extract_and_clear
+import re
 
+from util.utils import normalize_name, extract_and_clear, remove_empty_fields
 
-
+fnp_reg = re.compile("Feel No Pain \d\+")
 class WHUnit:
 
     def __init__(self, jsonunit):
         self._raw_json = jsonunit
         self.name = extract_and_clear(jsonunit, "name")
         self.normalized_name = normalize_name(self.name)
+        self.abilities = remove_empty_fields(extract_and_clear(jsonunit, "abilities"))
         self.stats = extract_and_clear(jsonunit, "stats")
-        self.abilities = extract_and_clear(jsonunit, "abilities")
         self.composition = extract_and_clear(jsonunit, "composition")
         self.rangedWeapons = extract_and_clear(jsonunit, "rangedWeapons")
         self.meleeWeapons = extract_and_clear(jsonunit, "meleeWeapons")
@@ -37,13 +38,23 @@ class WHUnit:
             {"key": "m", "display": "M"},
             {"key": "t", "display": "T"},
             {"key": "sv", "display": "SV"},
+
+            {"key": "feelnopain", "display": "FNP"},
             {"key": "w", "display": "W"},
             {"key": "oc", "display": "OC"},
-            {"key": "ld", "display": "M"}]
+            {"key": "ld", "display": "Ld"}]
 
         for s in self.stats:
             for p in ordered_props:
-                out += f"{p['display']}:**{s[p['key']]}** "
+                if p['key'] in s:
+                    out += f"{p['display']}:**{s[p['key']]}** "
+
+            if self.abilities and 'invul' in self.abilities and 'value' in self.abilities['invul']:
+                out += f"Inv: **{self.abilities['invul']['value']}** "
+            if self.abilities and 'core' in self.abilities:
+                fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
+                if fnp_list and len(fnp_list) > 0:
+                    out += f"FNP: **{','.join(fnp_list).replace('Feel No Pain ', '')}** "
             if len(self.stats) > 1:
                 parent.add_field(name=s["name"],
                              value=out,

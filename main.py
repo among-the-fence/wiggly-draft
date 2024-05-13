@@ -46,7 +46,7 @@ pudge = None
 io_moji = None
 activation_owner = None
 wiggle_poll = WigglePoll()
-wh_data = Warhammer.Warhammer()
+wh_data = Warhammer.get_wh_data()
 
 def get_env_attribute(attribute):
     e = os.getenv('ENV')

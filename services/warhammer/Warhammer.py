@@ -61,3 +61,11 @@ class Warhammer:
             return None, None, self.factions[faction_name]
         else:
             return None, ", ".join(self.faction_names), None
+
+
+warhammer_40k_data = Warhammer()
+
+
+def get_wh_data():
+    return warhammer_40k_data
+

@@ -6,7 +6,8 @@ from discord import Color
 from services.warhammer import Warhammer
 from util.utils import simple_format, send_in_chunks, extract_and_clear
 
-wh_data = Warhammer.Warhammer()
+wh_data = Warhammer.get_wh_data()
+
 
 class UnitView(discord.ui.View):
 
@@ -88,7 +89,31 @@ class UnitView(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🗿")
     async def ability_button_callback(self, button, interaction):
         try:
-            await self.respond_with(interaction, "Abilities", "abilities")
+            err, unit, color = self.get_unit()
+            e = discord.Embed(title=unit.name, color=color, description="Abilities")
+
+            e.add_field(name="Core",
+                        value=simple_format(unit.abilities['core']),
+                        inline=True)
+            e.add_field(name="Faction",
+                        value=simple_format(unit.abilities['faction']),
+                        inline=True)
+            if 'invul' in unit.abilities and 'value' in unit.abilities['invul']:
+                e.add_field(name="Invuln",
+                            value=unit.abilities['invul']['value'],
+                            inline=True)
+            if 'wargear' in unit.abilities:
+                out = []
+                for x in unit.abilities['wargear']:
+                    out.append(f"**{x['name']}**: {x['description']}")
+                e.add_field(name="Wargear",
+                        value="\n".join(out),
+                        inline=True)
+            e.add_field(name="Other",
+                        value=simple_format(unit.abilities['other']),
+                        inline=True)
+            unit.formatted_stats(e)
+            await interaction.edit(embed=e)
         except Exception as e:
             await self.handle_error(interaction, e)
 
