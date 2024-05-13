@@ -24,17 +24,20 @@ class UnitView(discord.ui.View):
         if len(t) > 2000:
             await send_in_chunks(interaction, t)
         else:
-            e2 = discord.Embed(title=display, color=color, description=t)
-            await interaction.edit(embed=e2)
+            e = discord.Embed(title=unit.name, color=color, description=t)
+            unit.formatted_stats(e)
+            e.add_field(name=display, value=t, inline=False)
+            await interaction.edit(embed=e)
 
     async def handle_error(self, interaction, e):
         e2 = discord.Embed(title="Error", description=f"{type(e)}  {e}")
-        await interaction.edit(embed=e2, ephemeral=True)
+        await interaction.respond(embed=e2, ephemeral=True)
 
     async def send_weapon_profiles(self, interaction, name, display_name, prop_order):
         try:
             err, unit, color = self.get_unit()
             e = discord.Embed(title=unit.name, description=display_name, color=color)
+            unit.formatted_stats(e)
 
             val = getattr(unit, name)
             if val:
@@ -89,10 +92,73 @@ class UnitView(discord.ui.View):
         except Exception as e:
             await self.handle_error(interaction, e)
 
+
+    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🧀")
+    async def composition_button_callback(self, button, interaction):
+        try:
+            err, unit, color = self.get_unit()
+            t = simple_format(unit.fluff)
+            if len(t) > 2000:
+                await send_in_chunks(interaction, t)
+            else:
+                e = discord.Embed(title=unit.name, color=color, description=t)
+                unit.formatted_stats(e)
+                e.add_field(name="Points",
+                            value=unit.formatted_cost(),
+                            inline=False)
+                e.add_field(name="Keywords",
+                            value=simple_format(unit.keywords),
+                            inline=False)
+                e.add_field(name="Factions",
+                            value=simple_format(unit.factions),
+                            inline=True)
+                e.add_field(name=chr(173), value=chr(173), inline=True)  # Line break
+                e.add_field(name="Composition",
+                            value=simple_format(unit.composition),
+                            inline=True)
+                if unit.leader:
+                    e.add_field(name="Leader",
+                                value=simple_format(unit.leader),
+                                inline=False)
+                if unit.leads:
+                    if "extra" in unit.leads and unit.leads["extra"]:
+                        e.add_field(name="Leads",
+                                    value=simple_format(unit.leads["extra"]),
+                                    inline=False)
+
+                    if "units" in unit.leads and unit.leads["units"]:
+                        e.add_field(name="Leads",
+                                value=simple_format(unit.leads["units"]),
+                                inline=False)
+                if unit.wargear:
+                    warout = simple_format(unit.wargear)
+                    if warout and warout != "None":
+                        e.add_field(name="Wargear",
+                                    value=warout,
+                                    inline=False)
+                if unit.transport:
+                    e.add_field(name="Transport",
+                                value=simple_format(unit.transport),
+                                inline=False)
+
+                await interaction.edit(embed=e)
+        except Exception as e:
+            await self.handle_error(interaction, e)
+
     @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="☁️")
     async def fluff_button_callback(self, button, interaction):
         try:
-            await self.respond_with(interaction, "Fluff", "fluff")
+            err, unit, color = self.get_unit()
+            t = simple_format(unit.fluff)
+            if len(t) > 2000:
+                await send_in_chunks(interaction, t)
+            else:
+                e = discord.Embed(title=unit.name, color=color, description=t)
+                unit.formatted_stats(e)
+                e.add_field(name="Fluff", value=t, inline=False)
+                if unit.the_rest:
+                    e.add_field(name="The Rest", value=simple_format(unit.the_rest), inline=False)
+                await interaction.edit(embed=e)
         except Exception as e:
             await self.handle_error(interaction, e)
 

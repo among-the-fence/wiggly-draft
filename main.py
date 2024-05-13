@@ -499,19 +499,6 @@ async def datacard(ctx, unitname:str, faction:str):
     elif unit and type(unit) is WHUnit:
         e = discord.Embed(title=unit.name, color=color)
         unit.formatted_stats(e)
-        e.add_field(name="Points",
-                    value=unit.formatted_cost(),
-                    inline=False)
-        e.add_field(name="Keywords",
-                    value=simple_format(unit.keywords),
-                    inline=False)
-        e.add_field(name="Factions",
-                    value=simple_format(unit.factions),
-                    inline=True)
-        e.add_field(name=chr(173), value=chr(173), inline=True)  # Line break
-        e.add_field(name="Composition",
-                    value=simple_format(unit.composition),
-                    inline=True)
         await ctx.respond(embed=e, view=UnitView())
 
 

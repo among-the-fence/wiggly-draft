@@ -43,7 +43,7 @@ class WHUnit:
 
         for s in self.stats:
             for p in ordered_props:
-                out += f"{p['key']}:**{s[p['key']]}** "
+                out += f"{p['display']}:**{s[p['key']]}** "
             if len(self.stats) > 1:
                 parent.add_field(name=s["name"],
                              value=out,
