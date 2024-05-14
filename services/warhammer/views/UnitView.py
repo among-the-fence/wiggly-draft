@@ -92,26 +92,35 @@ class UnitView(discord.ui.View):
             err, unit, color = self.get_unit()
             e = discord.Embed(title=unit.name, color=color, description="Abilities")
 
-            e.add_field(name="Core",
-                        value=simple_format(unit.abilities['core']),
-                        inline=True)
-            e.add_field(name="Faction",
-                        value=simple_format(unit.abilities['faction']),
-                        inline=True)
+            if "core" in unit.abilities:
+                e.add_field(name="Core",
+                            value=simple_format(unit.abilities['core']),
+                            inline=False)
+            if "faction" in unit.abilities:
+                e.add_field(name="Faction",
+                            value=simple_format(unit.abilities['faction']),
+                            inline=False)
             if 'invul' in unit.abilities and 'value' in unit.abilities['invul']:
                 e.add_field(name="Invuln",
                             value=unit.abilities['invul']['value'],
-                            inline=True)
+                            inline=False)
             if 'wargear' in unit.abilities:
                 out = []
                 for x in unit.abilities['wargear']:
                     out.append(f"**{x['name']}**: {x['description']}")
                 e.add_field(name="Wargear",
                         value="\n".join(out),
-                        inline=True)
-            e.add_field(name="Other",
-                        value=simple_format(unit.abilities['other']),
-                        inline=True)
+                        inline=False)
+            if 'other' in unit.abilities:
+                out = []
+                for x in unit.abilities['other']:
+                    if "name" in x and "description" in x:
+                        out.append(f"__{x['name']}__: {x['description']}")
+                    else:
+                        out.append(x)
+                e.add_field(name="Other",
+                            value=simple_format(out),
+                            inline=False)
             unit.formatted_stats(e)
             await interaction.edit(embed=e)
         except Exception as e:
