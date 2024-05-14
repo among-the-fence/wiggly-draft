@@ -6,12 +6,34 @@ from util.utils import normalize_name
 dataroot = "data/datasources/10th/json/"
 
 faction_nickname_map = {
-    "aeldari": ["elves", "eldar"],
-    "adeptasororitas": ["mommy"],
-    "votann": ["dwarves"],
-    "worldeaters": ["we"],
+    "astramilitarum": ["am", "ig", "guard", "imperialguard"],
+    "adeptasororitas": ["mommy", "sororitas", "senoritas", "sisters", "sob"],
+    "bloodangels": ["ba", "angels", "bloodangles"],
+    "darkangels": ["da", "angles", "darkangles"],
+    "chaosknights": ["ck"],
+    "chaosdeamons": ["daemons", "demons"],
+    "chaosspacemarines": ["csm", "chaosmarines"],
+    "deathguard": ["dg"],
+    "deathwatch": ["dw"],
+    "drukhari": ["darkelves", "darkeldar"],
+    "blacktemplars": ["bt"],
+    "adeptacustodes": ["custodes"],
+    "adeptamechanicus": ["admech"],
+    "aeldari": ["elves", "eldar", "aeldar", "eldari", "aeldar","legalosandfriends"],
+    "greyknights": ["gk"],
+    "genestealercults": ["gsc", "genestealer", "genestealers"],
+    "imperialagents": ["ia"],
+    "imperialknights": ["ik"],
+    "spacemarines": ["sm", "marines"],
+    "spacewolves": ["wolves", "sw"],
+    "votann": ["dwarves", "votan", "votann", "lov"],
+    "worldeaters": ["we", "eaters"],
+    "orks": ["orcs", "ork", "orc"],
+    "tyranids": ["nids", "bugs"],
+    "tauempire": ["tau", "fish"],
+    "thousandsons": ["tsons", "ksons", "1ksons", "dustyboiz", "dustyboys"],
+    "necrons": ["necrons", "crons", "zombies"]
 }
-
 
 class Warhammer:
     def __init__(self):
@@ -60,7 +82,7 @@ class Warhammer:
         if faction_name in self.factions:
             return None, None, self.factions[faction_name]
         else:
-            return None, ", ".join(self.faction_names), None
+            return None, ", ".join(sorted(self.faction_names)), None
 
 
 warhammer_40k_data = Warhammer()

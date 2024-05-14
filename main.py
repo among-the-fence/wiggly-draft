@@ -479,7 +479,7 @@ async def find_faction(ctx, faction: str):
         e = discord.Embed(title="Not Found", color=color, description=names)
         await ctx.respond(embed=e, ephemeral=True)
     elif faction and type(faction) is WHFaction:
-        t = ", ".join(faction.unit_names)
+        t = ", ".join(sorted(faction.unit_names))
         await send_in_chunks(ctx, t, e=True)
 
 
