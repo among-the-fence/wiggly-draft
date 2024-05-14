@@ -196,3 +196,10 @@ class UnitView(discord.ui.View):
         except Exception as e:
             await self.handle_error(interaction, e)
 
+    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="➡️")
+    async def send_button_callback(self, button, interaction):
+        try:
+            await interaction.response.defer()
+            await interaction.channel.send(embed=self.message.embeds[0])
+        except Exception as e:
+            await self.handle_error(interaction, e)
