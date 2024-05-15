@@ -167,10 +167,9 @@ class UnitView(discord.ui.View):
                                 value=simple_format(unit.leads["units"]),
                                 inline=False)
                 if unit.wargear:
-                    warout = simple_format(unit.wargear)
-                    if warout and warout != "None":
+                    if len(unit.wargear) > 0 and unit.wargear[0] != "None":
                         e.add_field(name="Wargear",
-                                    value=warout,
+                                    value="\n".join(unit.wargear),
                                     inline=False)
                 if unit.transport:
                     e.add_field(name="Transport",
@@ -201,8 +200,9 @@ class UnitView(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="➡️")
     async def send_button_callback(self, button, interaction):
         try:
-            await interaction.channel.send(view=UnitView(self.unit, self.color, True), embed=self.message.embeds[0])
             button.disabled = True
+            self.children.remove(button)
+            x = await interaction.channel.send(view=self, embed=self.message.embeds[0])
             await interaction.response.edit_message(view=self)  # edit the message's view
         except Exception as e:
             await self.handle_error(interaction, e)
