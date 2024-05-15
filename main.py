@@ -500,7 +500,7 @@ async def datacard(ctx, unitname:str, faction:str):
     elif unit and type(unit) is WHUnit:
         e = discord.Embed(title=unit.name, color=color)
         unit.formatted_stats(e)
-        await ctx.respond(embed=e, view=UnitView(), ephemeral=True)
+        await ctx.respond(embed=e, view=UnitView(unit, color), ephemeral=True)
 
 
 if __name__ == "__main__":

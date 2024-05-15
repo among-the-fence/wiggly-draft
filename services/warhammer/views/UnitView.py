@@ -4,6 +4,8 @@ import discord
 from discord import Color
 
 from services.warhammer import Warhammer
+from services.warhammer.models.faction import WHFaction
+from services.warhammer.models.unit import WHUnit
 from util.utils import simple_format, send_in_chunks, extract_and_clear
 
 wh_data = Warhammer.get_wh_data()
@@ -11,12 +13,14 @@ wh_data = Warhammer.get_wh_data()
 
 class UnitView(discord.ui.View):
 
+    def __init__(self, unit: WHUnit, color, disable_forward_button=False):
+        self.unit = unit
+        self.color = color
+        self.disable_forward_button = disable_forward_button
+        super().__init__(timeout=180)
+
     def get_unit(self):
-        options = self.parent.data['options']
-        unitname = next((x['value'] for x in options if x['name'] == 'unitname'), None)
-        faction = next((x['value'] for x in options if x['name'] == 'faction'), None)
-        x,y,z = wh_data.find(unitname, faction)
-        return x, copy.deepcopy(y), z
+        return None, self.unit, self.color
 
     async def respond_with(self, interaction, display, propname):
         err, unit, color = self.get_unit()
@@ -44,8 +48,6 @@ class UnitView(discord.ui.View):
             if val:
                 for x in val:
                     for p in x["profiles"]:
-                        pn = p["name"]
-                        extract_and_clear(p, "name")
                         out = ""
                         for x in prop_order:
                             if x["key"] in p:
@@ -55,7 +57,7 @@ class UnitView(discord.ui.View):
                                 else:
                                     out += f"{x['display']}:**{p[x['key']]}** "
 
-                        e.add_field(name=pn, value=out, inline=False)
+                        e.add_field(name=p["name"], value=out, inline=False)
             await interaction.edit(embed=e)
         except Exception as e:
             await self.handle_error(interaction, e)
@@ -200,6 +202,7 @@ class UnitView(discord.ui.View):
     async def send_button_callback(self, button, interaction):
         try:
             await interaction.response.defer()
-            await interaction.channel.send(embed=self.message.embeds[0])
+            await interaction.channel.send(view=UnitView(self.unit, self.color, True), embed=self.message.embeds[0])
+            button.disabled = True
         except Exception as e:
             await self.handle_error(interaction, e)
