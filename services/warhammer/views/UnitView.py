@@ -201,8 +201,8 @@ class UnitView(discord.ui.View):
     @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="➡️")
     async def send_button_callback(self, button, interaction):
         try:
-            await interaction.response.defer()
             await interaction.channel.send(view=UnitView(self.unit, self.color, True), embed=self.message.embeds[0])
             button.disabled = True
+            await interaction.response.edit_message(view=self)  # edit the message's view
         except Exception as e:
             await self.handle_error(interaction, e)
