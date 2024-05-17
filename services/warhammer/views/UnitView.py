@@ -35,6 +35,7 @@ class UnitView(discord.ui.View):
             await interaction.edit(embed=e)
 
     async def handle_error(self, interaction, e):
+        print(f"{type(e)}  {e}")
         e2 = discord.Embed(title="Error", description=f"{type(e)}  {e}")
         await interaction.respond(embed=e2, ephemeral=True)
 
@@ -152,6 +153,10 @@ class UnitView(discord.ui.View):
                 e.add_field(name="Composition",
                             value=simple_format(unit.composition),
                             inline=True)
+                if unit.leadBy:
+                    e.add_field(name="Lead By",
+                                value=simple_format(unit.leadBy),
+                                inline=False)
                 if unit.leader:
                     e.add_field(name="Leader",
                                 value=simple_format(unit.leader),
