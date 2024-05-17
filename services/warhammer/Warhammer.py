@@ -1,5 +1,8 @@
 import os
 import json
+
+from thefuzz import fuzz
+
 from services.warhammer.models.faction import WHFaction
 from util.utils import normalize_name
 
@@ -35,6 +38,7 @@ faction_nickname_map = {
     "necrons": ["necrons", "crons", "zombies"]
 }
 
+
 class Warhammer:
     def __init__(self):
         self.factions = {}
@@ -48,10 +52,9 @@ class Warhammer:
         print(self.faction_names)
 
     def find(self, unitname, faction_name):
-        faction_name = normalize_name(faction_name)
-        for y, x in faction_nickname_map.items():
-            if faction_name in x:
-                faction_name = y
+        if faction_name:
+            faction_name = self.find_closest_faction_name(faction_name)
+
         unitname = normalize_name(unitname)
         closest_match_ratio = 0
         closest_match_unit = None
@@ -80,13 +83,31 @@ class Warhammer:
         print(f"{closest_match_unit.name} - {unitname} - {closest_match_color} {closest_match_ratio}")
         return None, closest_match_unit, closest_match_color
 
-    def get_faction(self, faction_name):
+    def find_closest_faction_name(self, faction_name):
         faction_name = normalize_name(faction_name)
+
+        closest_match_name = None
+        closest_match_ratio = 50
+
+        for i in self.faction_names:
+            r = fuzz.token_sort_ratio(faction_name, i)
+            if r > closest_match_ratio:
+                closest_match_name = i
+                closest_match_ratio = r
         for y, x in faction_nickname_map.items():
-            if faction_name in x:
-                faction_name = y
-        if faction_name in self.factions:
-            return None, None, self.factions[faction_name]
+            for i in x:
+                r = fuzz.token_sort_ratio(faction_name, i)
+                if r > closest_match_ratio:
+                    closest_match_name = y
+                    closest_match_ratio = r
+        print(f"{faction_name} {closest_match_name} {closest_match_ratio}")
+        return closest_match_name
+
+    def get_faction(self, faction_name):
+        closest_match_name = self.find_closest_faction_name(faction_name)
+
+        if closest_match_name:
+            return None, None, self.factions[closest_match_name]
         else:
             return None, ", ".join(sorted(self.faction_names)), None
 

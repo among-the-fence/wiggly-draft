@@ -8,6 +8,8 @@ from services.warhammer.models.unit import WHUnit
 from util.utils import extract_and_clear, normalize_name
 import random
 
+from thefuzz import fuzz
+
 
 class WHFaction:
     def __init__(self, json_faction):
@@ -35,10 +37,11 @@ class WHFaction:
         closest_match = 0
         closest_match_unit = None
         for k, v in self.units.items():
-            s = SequenceMatcher(None, k, normalized_unitname)
-            if s.ratio() > closest_match:
-                closest_match = s.ratio()
+            s = fuzz.token_sort_ratio(normalized_unitname, k)
+            if s > closest_match:
+                closest_match = s
                 closest_match_unit = v
+        print(f"{normalized_unitname} {closest_match_unit.name} {closest_match}")
         return closest_match_unit, self.get_color(), closest_match
 
     def get_color(self):
