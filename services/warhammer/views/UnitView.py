@@ -59,7 +59,7 @@ class UnitView(discord.ui.View):
                                     out += f"{x['display']}:**{p[x['key']]}** "
 
                         e.add_field(name=p["name"], value=out, inline=False)
-            await interaction.edit(embed=e)
+            await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
 
@@ -125,7 +125,7 @@ class UnitView(discord.ui.View):
                             value=simple_format(out),
                             inline=False)
             unit.formatted_stats(e)
-            await interaction.edit(embed=e)
+            await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
 
@@ -181,7 +181,7 @@ class UnitView(discord.ui.View):
                                 value=simple_format(unit.transport),
                                 inline=False)
 
-                await interaction.edit(embed=e)
+                await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
 
@@ -198,7 +198,7 @@ class UnitView(discord.ui.View):
                 e.add_field(name="Fluff", value=t, inline=False)
                 if unit.the_rest:
                     e.add_field(name="The Rest", value=simple_format(unit.the_rest), inline=False)
-                await interaction.edit(embed=e)
+                await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
 
@@ -207,7 +207,7 @@ class UnitView(discord.ui.View):
         try:
             button.disabled = True
             self.children.remove(button)
-            x = await interaction.channel.send(view=self, embed=self.message.embeds[0])
+            await interaction.channel.send(view=self, embed=self.message.embeds[0])
             await interaction.response.edit_message(view=self)  # edit the message's view
         except Exception as e:
             await self.handle_error(interaction, e)
