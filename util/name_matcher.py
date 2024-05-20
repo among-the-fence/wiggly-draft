@@ -1,12 +1,18 @@
 import re
-from difflib import SequenceMatcher
 from thefuzz import fuzz
 
 normalize_regex = re.compile('[^a-z ]')
 
 
+def name_match_function(a, b):
+    # print(f"{fuzz.token_sort_ratio(a, b)} {a} {b}")
+    return fuzz.token_sort_ratio(a, b)
+
+
 def normalize_name(name):
-    return normalize_regex.sub('', name.lower()) if name else None
+    out = normalize_regex.sub('', name.lower()) if name else None
+    print(out)
+    return out
 
 
 def closest_match(name, compare_list):
@@ -15,11 +21,10 @@ def closest_match(name, compare_list):
     closest_match_name = None
     closest_match_ratio = -1
     for i in compare_list:
-        current_r = 0
         unmodified_match_name = i
         i = normalize_name(i)
 
-        current_r += fuzz.token_sort_ratio(i, name)
+        current_r = name_match_function(i, name)
         if current_r > closest_match_ratio:
             closest_match_ratio = current_r
             closest_match_name = unmodified_match_name

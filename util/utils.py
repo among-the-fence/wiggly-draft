@@ -2,11 +2,7 @@ import collections
 import json
 import re
 
-normalize_regex = re.compile('[^a-z]')
-
-
-def normalize_name(name):
-    return normalize_regex.sub('', name.lower()) if name else None
+normalize_regex = re.compile('[^a-z ]')
 
 
 def extract_and_clear(jsondata, key, default=None):

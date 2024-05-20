@@ -1,14 +1,11 @@
-import os
 import json
 
 import discord
 from discord import Colour
-from difflib import SequenceMatcher
 from services.warhammer.models.unit import WHUnit
-from util.utils import extract_and_clear, normalize_name
+from util.name_matcher import name_match_function, normalize_name
+from util.utils import extract_and_clear
 import random
-
-from thefuzz import fuzz
 
 
 class WHFaction:
@@ -37,11 +34,10 @@ class WHFaction:
         closest_match = 0
         closest_match_unit = None
         for k, v in self.units.items():
-            s = fuzz.token_sort_ratio(normalized_unitname, k)
+            s = name_match_function(normalized_unitname, k)
             if s > closest_match:
                 closest_match = s
                 closest_match_unit = v
-        print(f"{normalized_unitname} {closest_match_unit.name} {closest_match}")
         return closest_match_unit, self.get_color(), closest_match
 
     def get_color(self):

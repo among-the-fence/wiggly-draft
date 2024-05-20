@@ -2,7 +2,8 @@ import os
 import json
 import re
 
-from util.utils import normalize_name, extract_and_clear, remove_empty_fields
+from util.name_matcher import normalize_name
+from util.utils import extract_and_clear, remove_empty_fields
 
 fnp_reg = re.compile("Feel No Pain \d\+")
 class WHUnit:
@@ -68,7 +69,6 @@ class WHUnit:
         for p in self.points:
             out.append(f"**{p['models']}** models: **{p['cost']}** points")
         return "\n".join(out)
-
 
 
 if __name__ == "__main__":

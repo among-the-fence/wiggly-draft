@@ -4,7 +4,7 @@ import json
 from thefuzz import fuzz
 
 from services.warhammer.models.faction import WHFaction
-from util.utils import normalize_name
+from util.name_matcher import name_match_function, normalize_name
 
 dataroot = "data/datasources/10th/json/"
 
@@ -60,17 +60,18 @@ class Warhammer:
         closest_match_unit = None
         closest_match_color = None
         if faction_name and unitname:
-                unit, color, match = self.factions[faction_name].get_unit(unitname)
-                if match >= .99:
-                    return None, unit, color
-                elif match > closest_match_ratio:
-                    closest_match_unit = unit
-                    closest_match_ratio = match
-                    closest_match_color = color
+            unit, color, match = self.factions[faction_name].get_unit(unitname)
+            if match >= 99:
+                return None, unit, color
+            elif match > closest_match_ratio:
+                closest_match_unit = unit
+                closest_match_ratio = match
+                closest_match_color = color
         elif unitname:
             for i in self.factions.keys():
                 unit, color, match = self.factions[i].get_unit(unitname)
-                if match >= .99:
+                # print(f"{unitname} {unit.name} {match}")
+                if match >= 99:
                     return None, unit, color
                 elif match > closest_match_ratio:
                     closest_match_unit = unit
@@ -96,7 +97,7 @@ class Warhammer:
                 closest_match_ratio = r
         for y, x in faction_nickname_map.items():
             for i in x:
-                r = fuzz.token_sort_ratio(faction_name, i)
+                r = name_match_function(faction_name, i)
                 if r > closest_match_ratio:
                     closest_match_name = y
                     closest_match_ratio = r
