@@ -28,7 +28,7 @@ class WHFaction:
         self.name = extract_and_clear(json_faction,"name")
         self.normalized_name = normalize_name(self.name)
         self.__the_rest = json_faction
-        print(json.dumps(self.__the_rest))
+        # print(json.dumps(self.__the_rest))
 
     def get_unit(self, normalized_unitname):
         closest_match = 0

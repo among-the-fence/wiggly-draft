@@ -11,7 +11,6 @@ def name_match_function(a, b):
 
 def normalize_name(name):
     out = normalize_regex.sub('', name.lower()) if name else None
-    print(out)
     return out
 
 

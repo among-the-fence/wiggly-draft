@@ -49,11 +49,10 @@ class Warhammer:
                 self.factions[wf.normalized_name] = wf
                 if wf.name:
                     self.faction_names.append(wf.name)
-        print(self.faction_names)
 
     def find(self, unitname, faction_name):
         if faction_name:
-            faction_name = self.find_closest_faction_name(faction_name)
+            faction_name = normalize_name(self.find_closest_faction_name(faction_name))
 
         unitname = normalize_name(unitname)
         closest_match_ratio = 0
@@ -81,14 +80,14 @@ class Warhammer:
             return None, self.factions[faction_name].unit_names, self.factions[faction_name].get_color()
         else:
             return "WTF", None, None
-        print(f"{closest_match_unit.name} - {unitname} - {closest_match_color} {closest_match_ratio}")
+        # print(f"{closest_match_unit.name} - {unitname} - {closest_match_color} {closest_match_ratio}")
         return None, closest_match_unit, closest_match_color
 
     def find_closest_faction_name(self, faction_name):
         faction_name = normalize_name(faction_name)
 
         closest_match_name = None
-        closest_match_ratio = 50
+        closest_match_ratio = 30
 
         for i in self.faction_names:
             r = fuzz.token_sort_ratio(faction_name, i)
@@ -101,7 +100,7 @@ class Warhammer:
                 if r > closest_match_ratio:
                     closest_match_name = y
                     closest_match_ratio = r
-        print(f"{faction_name} {closest_match_name} {closest_match_ratio}")
+        # print(f"{faction_name} {closest_match_name} {closest_match_ratio}")
         return closest_match_name
 
     def get_faction(self, faction_name):
