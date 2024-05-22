@@ -90,7 +90,7 @@ class Warhammer:
             if i.units:
                 for uk, u in i.units.items():
                     if params.apply(u):
-                        units.append(u)
+                        units.append({"color": i.get_color(), "unit": u})
         return units
 
     def find_closest_faction_name(self, faction_name):

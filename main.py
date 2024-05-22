@@ -511,10 +511,22 @@ async def datacard(ctx, unitname:str, faction:str):
 @option("faction", description="Faction Name", required=False)
 async def search(ctx, t: str, w: str, sv: str, faction: str):
     sp = SearchParams({"faction": faction, "toughness": t, "wounds": w, "save": sv})
-    # await ctx.defer()
-    x = wh_data.search(sp)
-    out = [u.name for u in x]
-    await ctx.respond(", ".join(out)[:1999])
+    if sp.empty():
+        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`")
+    else:
+        # await ctx.defer()
+        x = wh_data.search(sp)
+        if len(x) == 0:
+            await ctx.respond("No results", ephemeral=True)
+        elif len(x) == 1:
+            unit = x[0]["unit"]
+            color = x[0]["color"]
+            e = discord.Embed(title=unit.name, color=color)
+            unit.formatted_stats(e)
+            await ctx.respond(embed=e, view=UnitView(unit, color))
+        else:
+            out = [u["unit"].name for u in x]
+            await ctx.respond(", ".join(out)[:1999])
 
 
 if __name__ == "__main__":

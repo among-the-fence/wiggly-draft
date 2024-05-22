@@ -15,6 +15,9 @@ class SearchParams:
         self.filters.extend([SearchItem("sv", x) for x in s.split(",")]) if s else None
         self.filters.extend([SearchItem("w", x) for x in w.split(",")]) if w else None
 
+    def empty(self):
+        return len(self.filters) == 0 and self.faction == None
+
     def apply(self, unit: WHUnit):
         match = True
         for f in self.filters:

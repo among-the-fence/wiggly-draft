@@ -6,6 +6,7 @@ from util.name_matcher import normalize_name
 from util.utils import extract_and_clear, remove_empty_fields
 
 fnp_reg = re.compile("Feel No Pain \d\+")
+save_reg = re.compile("(\d)+")
 class WHUnit:
 
     def __init__(self, jsonunit):
@@ -79,7 +80,9 @@ class WHUnit:
         elif propname == "w":
             return [int(p["w"]) for p in self.stats]
         elif propname == "sv":
-            return [int(p["sv"]) for p in self.stats]
+            return [int(p["sv"].replace("+", "")) for p in self.stats]
+        elif propname == "m":
+            return [int(p["m"].replace("\"", "")) for p in self.stats]
         return None
 
 
