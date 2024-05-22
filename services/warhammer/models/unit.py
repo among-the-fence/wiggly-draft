@@ -74,6 +74,14 @@ class WHUnit:
             out.append(f"**{p['models']}** models: **{p['cost']}** points")
         return "\n".join(out)
 
+    @staticmethod
+    def extract_numeric(property, stats):
+        out = []
+        for s in stats:
+            matches = save_reg.search(s[property])
+            out.append(matches.group())
+        return out
+
     def get_prop(self, propname):
         if propname == "t":
             return [int(p["t"]) for p in self.stats]
@@ -82,7 +90,10 @@ class WHUnit:
         elif propname == "sv":
             return [int(p["sv"].replace("+", "")) for p in self.stats]
         elif propname == "m":
-            return [int(p["m"].replace("\"", "")) for p in self.stats]
+            try:
+                return [int(p["m"].replace("\"", "").replace("+", "").replace("-", "")) for p in self.stats]
+            except:
+                return [0]
         return None
 
 
