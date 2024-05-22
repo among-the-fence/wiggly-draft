@@ -10,11 +10,10 @@ class SearchParams:
         t = get_or_default(params, 'toughness')
         w = get_or_default(params, 'wounds')
         s = get_or_default(params, 'save')
-        self.filters = [
-           SearchItem("t", t) if t else None,
-           SearchItem("sv", s) if s else None,
-           SearchItem("w", w) if w else None,
-        ]
+        self.filters = []
+        self.filters.extend([SearchItem("t", x) for x in t.split(",")]) if t else None
+        self.filters.extend([SearchItem("sv", x) for x in s.split(",")]) if s else None
+        self.filters.extend([SearchItem("w", x) for x in w.split(",")]) if w else None
 
     def apply(self, unit: WHUnit):
         match = True

@@ -84,7 +84,7 @@ class Warhammer:
 
     def search(self, params: SearchParams):
         faction_name = self.find_closest_faction_name(params.faction) if params.faction else None
-        factions = [self.factions[faction_name]] if faction_name else self.factions
+        factions = {faction_name: self.factions[faction_name]} if faction_name else self.factions
         units = []
         for k,i in factions.items():
             if i.units:
@@ -92,7 +92,6 @@ class Warhammer:
                     if params.apply(u):
                         units.append(u)
         return units
-
 
     def find_closest_faction_name(self, faction_name):
         faction_name = normalize_name(faction_name)

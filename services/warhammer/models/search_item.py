@@ -21,9 +21,20 @@ class SearchItem:
             elif "max" in item_str:
                 self.max_filter = prop_name
             else:
-                type = search_type_re.search(item_str)
+                operator = search_type_re.search(item_str).group()
                 va = int(number_re.search(item_str).group())
-                self.search_type = lambda unit: any([va < x for x in unit.get_prop(prop_name)])
+                self.search_type = None
+                match operator:
+                    case ">":
+                        self.search_type = lambda unit: any([x > va for x in unit.get_prop(prop_name)])
+                    case ">=":
+                        self.search_type = lambda unit: any([x >= va for x in unit.get_prop(prop_name)])
+                    case "<":
+                        self.search_type = lambda unit: any([x < va for x in unit.get_prop(prop_name)])
+                    case "<=":
+                        self.search_type = lambda unit: any([x <= va for x in unit.get_prop(prop_name)])
+                    case _:
+                        self.search_type = lambda unit: any([va == x for x in unit.get_prop(prop_name)])
 
     def __str__(self):
         return self.__raw
