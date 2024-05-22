@@ -4,9 +4,8 @@ import json
 from thefuzz import fuzz
 
 from services.warhammer.models.faction import WHFaction
+from services.warhammer.models.search_params import SearchParams
 from util.name_matcher import name_match_function, normalize_name
-
-dataroot = "data/datasources/10th/json/"
 
 faction_nickname_map = {
     "astramilitarum": ["am", "ig", "guard", "imperialguard"],
@@ -40,7 +39,7 @@ faction_nickname_map = {
 
 
 class Warhammer:
-    def __init__(self):
+    def __init__(self, dataroot="data/datasources/10th/json/"):
         self.factions = {}
         self.faction_names = []
         for f in os.listdir(dataroot):
@@ -52,7 +51,7 @@ class Warhammer:
 
     def find(self, unitname, faction_name):
         if faction_name:
-            faction_name = normalize_name(self.find_closest_faction_name(faction_name))
+            faction_name = self.find_closest_faction_name(faction_name)
 
         unitname = normalize_name(unitname)
         closest_match_ratio = 0
@@ -83,6 +82,18 @@ class Warhammer:
         # print(f"{closest_match_unit.name} - {unitname} - {closest_match_color} {closest_match_ratio}")
         return None, closest_match_unit, closest_match_color
 
+    def search(self, params: SearchParams):
+        faction_name = self.find_closest_faction_name(params.faction) if params.faction else None
+        factions = [self.factions[faction_name]] if faction_name else self.factions
+        units = []
+        for k,i in factions.items():
+            if i.units:
+                for uk, u in i.units.items():
+                    if params.apply(u):
+                        units.append(u)
+        return units
+
+
     def find_closest_faction_name(self, faction_name):
         faction_name = normalize_name(faction_name)
 
@@ -101,7 +112,7 @@ class Warhammer:
                     closest_match_name = y
                     closest_match_ratio = r
         # print(f"{faction_name} {closest_match_name} {closest_match_ratio}")
-        return closest_match_name
+        return normalize_name(closest_match_name)
 
     def get_faction(self, faction_name):
         closest_match_name = self.find_closest_faction_name(faction_name)
@@ -112,7 +123,11 @@ class Warhammer:
             return None, ", ".join(sorted(self.faction_names)), None
 
 
-warhammer_40k_data = Warhammer()
+warhammer_40k_data = None
+try:
+    warhammer_40k_data = Warhammer()
+except:
+    pass
 
 
 def get_wh_data():

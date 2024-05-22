@@ -44,3 +44,7 @@ def remove_empty_fields(map):
             return [remove_empty_fields(i) for i in map if remove_empty_fields(i)] if len(map) > 0 else None
         return {k: remove_empty_fields(v) for k, v in map.items() if remove_empty_fields(v)}
     else: return None
+
+
+def get_or_default(m, p, d=None):
+    return m[p] if p in m else d

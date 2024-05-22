@@ -33,6 +33,9 @@ class WHUnit:
         self.legends = extract_and_clear(jsonunit, "legends", False)
         self.the_rest = jsonunit
 
+    def __str__(self):
+        return self._raw_json
+
     def formatted_stats(self, parent):
         out = ""
         ordered_props = [
@@ -69,6 +72,15 @@ class WHUnit:
         for p in self.points:
             out.append(f"**{p['models']}** models: **{p['cost']}** points")
         return "\n".join(out)
+
+    def get_prop(self, propname):
+        if propname == "t":
+            return [int(p["t"]) for p in self.stats]
+        elif propname == "w":
+            return [int(p["w"]) for p in self.stats]
+        elif propname == "sv":
+            return [int(p["sv"]) for p in self.stats]
+        return None
 
 
 if __name__ == "__main__":

@@ -19,6 +19,7 @@ from HeroList import HeroList
 from Pick import Pick
 from WigglePoll import WigglePoll
 from services.warhammer.models.faction import WHFaction
+from services.warhammer.models.search_params import SearchParams
 from services.warhammer.models.unit import WHUnit
 from services.warhammer.views.UnitView import UnitView
 from util.utils import send_in_chunks
@@ -501,6 +502,19 @@ async def datacard(ctx, unitname:str, faction:str):
         e = discord.Embed(title=unit.name, color=color)
         unit.formatted_stats(e)
         await ctx.respond(embed=e, view=UnitView(unit, color), ephemeral=True)
+
+
+@bot.slash_command(name="search", description="Find a datacard t>12")
+@option("t", description="Toughness", required=False)
+@option("w", description="Wounds", required=False)
+@option("sv", description="Save", required=False)
+@option("faction", description="Faction Name", required=False)
+async def search(ctx, t: str, w: str, sv: str, faction: str):
+    sp = SearchParams({"faction": faction, "toughness": t, "wounds": w, "save": sv})
+    # await ctx.defer()
+    x = wh_data.search(sp)
+    out = [u.name for u in x]
+    await ctx.respond(", ".join(out)[:1999])
 
 
 if __name__ == "__main__":
