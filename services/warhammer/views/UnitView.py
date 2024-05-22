@@ -17,7 +17,7 @@ class UnitView(discord.ui.View):
         self.unit = unit
         self.color = color
         self.disable_forward_button = disable_forward_button
-        super().__init__(timeout=180)
+        super().__init__(timeout=None)
 
     def get_unit(self):
         return None, self.unit, self.color
@@ -63,7 +63,7 @@ class UnitView(discord.ui.View):
         except Exception as e:
             await self.handle_error(interaction, e)
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🔫")
+    @discord.ui.button(label="", custom_id="rangedbuttonid",style=discord.ButtonStyle.primary, emoji="🔫")
     async def gun_button_callback(self, button, interaction):
         prop_order = [
             {"key": "range", "display": "Ra"},
@@ -76,7 +76,7 @@ class UnitView(discord.ui.View):
         ]
         await self.send_weapon_profiles(interaction,"rangedWeapons", "Ranged", prop_order)
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="⚔️")
+    @discord.ui.button(label="", custom_id="meleebuttonid", style=discord.ButtonStyle.primary, emoji="⚔️")
     async def melee_button_callback(self, button, interaction):
         prop_order = [
             {"key": "range", "display": "Ra"},
@@ -89,7 +89,7 @@ class UnitView(discord.ui.View):
         ]
         await self.send_weapon_profiles(interaction,"meleeWeapons", "Melee", prop_order)
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🗿")
+    @discord.ui.button(label="", custom_id="abilittybutton", style=discord.ButtonStyle.primary, emoji="🗿")
     async def ability_button_callback(self, button, interaction):
         try:
             err, unit, color = self.get_unit()
@@ -98,15 +98,15 @@ class UnitView(discord.ui.View):
             if "core" in unit.abilities:
                 e.add_field(name="Core",
                             value=simple_format(unit.abilities['core']),
-                            inline=False)
+                            inline=True)
             if "faction" in unit.abilities:
                 e.add_field(name="Faction",
                             value=simple_format(unit.abilities['faction']),
-                            inline=False)
+                            inline=True)
             if 'invul' in unit.abilities and 'value' in unit.abilities['invul']:
                 e.add_field(name="Invuln",
                             value=unit.abilities['invul']['value'],
-                            inline=False)
+                            inline=True)
             if 'wargear' in unit.abilities:
                 out = []
                 for x in unit.abilities['wargear']:
@@ -124,13 +124,27 @@ class UnitView(discord.ui.View):
                 e.add_field(name="Other",
                             value=simple_format(out),
                             inline=False)
+
+            if "primarch" in unit.abilities:
+                out = []
+                for y in unit.abilities['primarch']:
+                    current = []
+                    for x in y['abilities']:
+                        if "name" in x and "description" in x:
+                            current.append(f"__{x['name']}__: {x['description']}")
+                        else:
+                            current.append(x)
+                    out.append(f"**{y['name']}**: {' '.join(current)}")
+                e.add_field(name="Primarch",
+                            value=simple_format(out),
+                            inline=False)
             unit.formatted_stats(e)
             await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
 
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="🧀")
+    @discord.ui.button(label="", custom_id="buttoncomptbutton", style=discord.ButtonStyle.primary, emoji="🧀")
     async def composition_button_callback(self, button, interaction):
         try:
             err, unit, color = self.get_unit()
@@ -185,7 +199,7 @@ class UnitView(discord.ui.View):
         except Exception as e:
             await self.handle_error(interaction, e)
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="☁️")
+    @discord.ui.button(label="", custom_id="fluffbutton", style=discord.ButtonStyle.primary, emoji="☁️")
     async def fluff_button_callback(self, button, interaction):
         try:
             err, unit, color = self.get_unit()
@@ -202,12 +216,12 @@ class UnitView(discord.ui.View):
         except Exception as e:
             await self.handle_error(interaction, e)
 
-    @discord.ui.button(label="", style=discord.ButtonStyle.primary, emoji="➡️")
+    @discord.ui.button(label="", custom_id="forwardbutton", style=discord.ButtonStyle.primary, emoji="➡️")
     async def send_button_callback(self, button, interaction):
         try:
             button.disabled = True
             self.children.remove(button)
             await interaction.channel.send(view=self, embed=self.message.embeds[0])
-            await interaction.response.edit_message(view=self)  # edit the message's view
+            await interaction.response.edit_message(view=self, embed=None)  # edit the message's view
         except Exception as e:
             await self.handle_error(interaction, e)
