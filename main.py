@@ -505,12 +505,12 @@ async def datacard(ctx, unitname:str, faction:str):
 
 
 @bot.slash_command(name="search", description="Find a datacard t>12")
+@option("f", description="Faction Name", required=False)
 @option("t", description="Toughness", required=False)
 @option("w", description="Wounds", required=False)
 @option("sv", description="Save", required=False)
 @option("m", description="Movement", required=False)
-@option("f", description="Faction Name", required=False)
-async def search(ctx, t: str, w: str, sv: str, m:str, f: str):
+async def search(ctx, f: str, t: str, w: str, sv: str, m:str):
     sp = SearchParams({"faction": f , "toughness": t, "wounds": w, "save": sv, "movement": m})
     if sp.empty():
         await ctx.respond("`t:>3,<8 w:=10 sv:<=3`")
