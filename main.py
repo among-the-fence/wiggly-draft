@@ -509,9 +509,9 @@ async def datacard(ctx, unitname:str, faction:str):
 @option("w", description="Wounds", required=False)
 @option("sv", description="Save", required=False)
 @option("m", description="Movement", required=False)
-@option("faction", description="Faction Name", required=False)
-async def search(ctx, t: str, w: str, sv: str, m:str, faction: str):
-    sp = SearchParams({"faction": faction, "toughness": t, "wounds": w, "save": sv, "movement": m})
+@option("f", description="Faction Name", required=False)
+async def search(ctx, t: str, w: str, sv: str, m:str, f: str):
+    sp = SearchParams({"faction": f , "toughness": t, "wounds": w, "save": sv, "movement": m})
     if sp.empty():
         await ctx.respond("`t:>3,<8 w:=10 sv:<=3`")
     else:
