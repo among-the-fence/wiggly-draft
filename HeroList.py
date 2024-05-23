@@ -1,11 +1,11 @@
 import json
 import os
-from os.path import exists
 import random
+from os.path import exists
 from typing import Dict
 
-from PIL import Image, ImageDraw, ImageFont
 import requests
+from PIL import Image, ImageDraw, ImageFont
 
 
 class HeroList:

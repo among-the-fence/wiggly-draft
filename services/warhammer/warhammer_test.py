@@ -1,9 +1,7 @@
 import unittest
 
 from services.warhammer.Warhammer import Warhammer
-from services.warhammer.models.search_item import SearchItem
 from services.warhammer.models.search_params import SearchParams
-from services.warhammer.models.unit import WHUnit
 
 
 class TestSeachItem(unittest.TestCase):

@@ -2,7 +2,6 @@ import re
 
 from services.warhammer.models.unit import WHUnit
 
-
 search_type_re = re.compile("(\\<|\\>|=|!)+")
 number_re = re.compile("(\d+)")
 

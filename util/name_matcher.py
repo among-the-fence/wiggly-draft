@@ -1,4 +1,5 @@
 import re
+
 from thefuzz import fuzz
 
 normalize_regex = re.compile('[^a-z ]')

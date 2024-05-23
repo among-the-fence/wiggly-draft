@@ -6,18 +6,18 @@ import os
 import random
 import shutil
 from typing import List
-import openai
 
 import discord
+import openai
 from PIL import Image
 from discord import option, Color
 from dotenv import load_dotenv
 
-from services.warhammer import Warhammer
 from GameList import GameList
 from HeroList import HeroList
 from Pick import Pick
 from WigglePoll import WigglePoll
+from services.warhammer import Warhammer
 from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.search_params import SearchParams
 from services.warhammer.models.unit import WHUnit

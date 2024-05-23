@@ -1,12 +1,8 @@
-import copy
-
 import discord
-from discord import Color
 
 from services.warhammer import Warhammer
-from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.unit import WHUnit
-from util.utils import simple_format, send_in_chunks, extract_and_clear
+from util.utils import simple_format, send_in_chunks
 
 wh_data = Warhammer.get_wh_data()
 

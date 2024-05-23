@@ -1,11 +1,12 @@
 import json
+import random
 
 import discord
 from discord import Colour
+
 from services.warhammer.models.unit import WHUnit
 from util.name_matcher import name_match_function, normalize_name
 from util.utils import extract_and_clear
-import random
 
 
 class WHFaction:
