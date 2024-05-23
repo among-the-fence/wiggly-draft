@@ -108,9 +108,10 @@ class Warhammer:
                     closest_match_name = y
                     closest_match_ratio = r
         for x in self.factions.keys():
-            if x.replace(" ", "") == closest_match_name:
-                closest_match_name = x
-                break
+            if x:
+                if x.replace(" ", "") == closest_match_name:
+                    closest_match_name = x
+                    break
         # print(f"{faction_name} {closest_match_name} {closest_match_ratio}")
         return closest_match_name
 
