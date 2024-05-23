@@ -13,17 +13,16 @@ wh_data = Warhammer.get_wh_data()
 
 class UnitView(discord.ui.View):
 
-    def __init__(self, unit: WHUnit, color, disable_forward_button=False):
+    def __init__(self, unit: WHUnit, disable_forward_button=False):
         self.unit = unit
-        self.color = color
         self.disable_forward_button = disable_forward_button
         super().__init__(timeout=None)
 
     def get_unit(self):
-        return None, self.unit, self.color
+        return None, self.unit
 
     async def respond_with(self, interaction, display, propname):
-        err, unit, color = self.get_unit()
+        err, unit = self.get_unit()
         val = getattr(unit, propname)
         t = simple_format(val)
         if len(t) > 2000:
@@ -41,8 +40,8 @@ class UnitView(discord.ui.View):
 
     async def send_weapon_profiles(self, interaction, name, display_name, prop_order):
         try:
-            err, unit, color = self.get_unit()
-            e = discord.Embed(title=unit.name, description=display_name, color=color)
+            err, unit = self.get_unit()
+            e = discord.Embed(title=unit.name, description=display_name, color=unit.get_color())
             unit.formatted_stats(e)
 
             val = getattr(unit, name)
@@ -92,8 +91,8 @@ class UnitView(discord.ui.View):
     @discord.ui.button(label="", custom_id="abilittybutton", style=discord.ButtonStyle.primary, emoji="🗿")
     async def ability_button_callback(self, button, interaction):
         try:
-            err, unit, color = self.get_unit()
-            e = discord.Embed(title=unit.name, color=color, description="Abilities")
+            err, unit = self.get_unit()
+            e = discord.Embed(title=unit.name, color=unit.get_color(), description="Abilities")
 
             if "core" in unit.abilities:
                 e.add_field(name="Core",
@@ -147,12 +146,12 @@ class UnitView(discord.ui.View):
     @discord.ui.button(label="", custom_id="buttoncomptbutton", style=discord.ButtonStyle.primary, emoji="🧀")
     async def composition_button_callback(self, button, interaction):
         try:
-            err, unit, color = self.get_unit()
+            err, unit = self.get_unit()
             t = simple_format(unit.fluff)
             if len(t) > 2000:
                 await send_in_chunks(interaction, t)
             else:
-                e = discord.Embed(title=unit.name, color=color, description=t)
+                e = discord.Embed(title=unit.name, color=unit.get_color(), description=t)
                 unit.formatted_stats(e)
                 e.add_field(name="Points",
                             value=unit.formatted_cost(),
@@ -202,12 +201,12 @@ class UnitView(discord.ui.View):
     @discord.ui.button(label="", custom_id="fluffbutton", style=discord.ButtonStyle.primary, emoji="☁️")
     async def fluff_button_callback(self, button, interaction):
         try:
-            err, unit, color = self.get_unit()
+            err, unit = self.get_unit()
             t = simple_format(unit.fluff)
             if len(t) > 2000:
                 await send_in_chunks(interaction, t)
             else:
-                e = discord.Embed(title=unit.name, color=color, description=t)
+                e = discord.Embed(title=unit.name, color=unit.get_color(), description=t)
                 unit.formatted_stats(e)
                 e.add_field(name="Fluff", value=t, inline=False)
                 if unit.the_rest:

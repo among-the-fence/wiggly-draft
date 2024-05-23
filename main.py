@@ -488,20 +488,19 @@ async def find_faction(ctx, faction: str):
 @option("unitname", description="Unit Name")
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
-    err, unit, color = wh_data.find(unitname, faction)
+    err, unit = wh_data.find(unitname, faction)
 
     if err and type(err) is str:
-        if not color:
-            color = Color.red()
+        color = Color.red()
         e = discord.Embed(title="Nope", color=color)
         e.add_field(name="Error",
                     value=err,
                     inline=True)
         await ctx.respond(embed=e)
     elif unit and type(unit) is WHUnit:
-        e = discord.Embed(title=unit.name, color=color)
+        e = discord.Embed(title=unit.name, color=unit.get_color())
         unit.formatted_stats(e)
-        await ctx.respond(embed=e, view=UnitView(unit, color), ephemeral=True)
+        await ctx.respond(embed=e, view=UnitView(unit), ephemeral=True)
 
 
 @bot.slash_command(name="search", description="Find a datacard t>12")
@@ -521,10 +520,9 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m:str):
             await ctx.respond("No results", ephemeral=True)
         elif len(x) == 1:
             unit = x[0]["unit"]
-            color = x[0]["color"]
-            e = discord.Embed(title=unit.name, color=color)
+            e = discord.Embed(title=unit.name, color=unit.get_color())
             unit.formatted_stats(e)
-            await ctx.respond(embed=e, view=UnitView(unit, color))
+            await ctx.respond(embed=e, view=UnitView(unit))
         else:
             out = [u["unit"].name for u in x]
             await ctx.respond(", ".join(out)[:1999])

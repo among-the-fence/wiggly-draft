@@ -56,31 +56,28 @@ class Warhammer:
         unitname = normalize_name(unitname)
         closest_match_ratio = 0
         closest_match_unit = None
-        closest_match_color = None
         if faction_name and unitname:
-            unit, color, match = self.factions[faction_name].get_unit(unitname)
+            unit, match = self.factions[faction_name].get_unit(unitname)
             if match >= 99:
-                return None, unit, color
+                return None, unit
             elif match > closest_match_ratio:
                 closest_match_unit = unit
                 closest_match_ratio = match
-                closest_match_color = color
         elif unitname:
             for i in self.factions.keys():
-                unit, color, match = self.factions[i].get_unit(unitname)
+                unit, match = self.factions[i].get_unit(unitname)
                 # print(f"{unitname} {unit.name} {match}")
                 if match >= 99:
-                    return None, unit, color
+                    return None, unit
                 elif match > closest_match_ratio:
                     closest_match_unit = unit
                     closest_match_ratio = match
-                    closest_match_color = color
         elif faction_name:
-            return None, self.factions[faction_name].unit_names, self.factions[faction_name].get_color()
+            return None, self.factions[faction_name]
         else:
-            return "WTF", None, None
+            return "WTF", None
         # print(f"{closest_match_unit.name} - {unitname} - {closest_match_color} {closest_match_ratio}")
-        return None, closest_match_unit, closest_match_color
+        return None, closest_match_unit
 
     def search(self, params: SearchParams):
         faction_name = self.find_closest_faction_name(params.faction) if params.faction else None
@@ -126,11 +123,7 @@ class Warhammer:
             return None, ", ".join(sorted(self.faction_names)), None
 
 
-warhammer_40k_data = None
-try:
-    warhammer_40k_data = Warhammer()
-except:
-    pass
+warhammer_40k_data = Warhammer()
 
 
 def get_wh_data():

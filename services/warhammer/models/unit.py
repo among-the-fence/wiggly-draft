@@ -1,6 +1,9 @@
 import os
 import json
+import random
 import re
+
+from discord import Colour
 
 from util.name_matcher import normalize_name
 from util.utils import extract_and_clear, remove_empty_fields
@@ -9,7 +12,7 @@ fnp_reg = re.compile("Feel No Pain \d\+")
 save_reg = re.compile("(\d)+")
 class WHUnit:
 
-    def __init__(self, jsonunit):
+    def __init__(self, jsonunit, colors):
         self._raw_json = jsonunit
         self.name = extract_and_clear(jsonunit, "name")
         self.normalized_name = normalize_name(self.name)
@@ -32,10 +35,20 @@ class WHUnit:
         self.faction_id = extract_and_clear(jsonunit, "faction_id")
         self.id = extract_and_clear(jsonunit, "id")
         self.legends = extract_and_clear(jsonunit, "legends", False)
+        self.colors = colors
         self.the_rest = jsonunit
 
     def __str__(self):
         return self._raw_json
+
+    def get_color(self):
+        if type(self.colors) is list:
+            out = random.choice(self.colors)
+        elif type(self.colors) is Colour:
+            out = self.colors
+        else:
+            out = Colour.random()
+        return out
 
     def formatted_stats(self, parent):
         out = ""
