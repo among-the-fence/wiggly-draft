@@ -48,7 +48,8 @@ class Warhammer:
                 self.factions[wf.normalized_name] = wf
                 if wf.name:
                     self.faction_names.append(wf.name)
-        self.compiled_faction_names = self.faction_names
+        self.compiled_faction_names = []
+        self.compiled_faction_names.extend(self.faction_names)
         for k,v in faction_nickname_map.items():
             self.compiled_faction_names.extend(v)
 
@@ -101,6 +102,7 @@ class Warhammer:
         closest_match_ratio = 30
 
         for i in self.faction_names:
+            print(i)
             r = fuzz.token_sort_ratio(faction_name, i)
             if r > closest_match_ratio:
                 closest_match_name = i
