@@ -512,8 +512,27 @@ async def datacard(ctx, unitname:str, faction:str):
 @option("inv", description="Invuln", required=False)
 @option("fnp", description="Feel no pain", required=False)
 @option("a", description="Attacks", required=False)
-async def search(ctx, f: str, t: str, w: str, sv: str, m:str, inv:str, fnp:str, a:str):
-    sp = SearchParams({"faction": f, "toughness": t, "wounds": w, "save": sv, "movement": m, "invuln":inv, "feelnopain":fnp})
+@option("ws", description="Weapon Skill (BS and melee)", required=False)
+@option("s", description="Strength", required=False)
+@option("d", description="Damage", required=False)
+@option("ap", description="Armor Pierce", required=False)
+async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str):
+    sp = SearchParams(
+        {
+            "faction": f,
+            "toughness": t,
+            "wounds": w,
+            "save": sv,
+            "movement": m,
+            "invuln": inv,
+            "feelnopain": fnp,
+            "attacks": a,
+            "weaponskill": ws,
+            "strength": s,
+            "damage": d,
+            "ap": ap,
+        }
+    )
     if sp.empty():
         await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`n", ephemeral=True)
     else:

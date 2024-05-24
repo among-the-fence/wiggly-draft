@@ -55,6 +55,15 @@ class WHUnit:
             out = Colour.random()
         return out
 
+    @staticmethod
+    def calculate_variable_stats(stat):
+        if "d" in stat.lower():
+            return 12
+        elif stat.lower() == "n/a":
+            return 0
+        if stat:
+            return int(stat.replace("+", "").replace("-", ""))
+
     def formatted_stats(self, parent):
         out = ""
         ordered_props = [
@@ -102,6 +111,20 @@ class WHUnit:
             out.append(matches.group())
         return out
 
+    def extract_profile_values(self, value):
+        out = []
+        for ranged in self.rangedWeapons:
+            if 'profiles' in ranged:
+                for bp in ranged['profiles']:
+                    if value in bp:
+                        out.append(WHUnit.calculate_variable_stats(bp[value]))
+        for melee in self.meleeWeapons:
+            if 'profiles' in melee:
+                for m in melee['profiles']:
+                    if value in m:
+                        out.append(WHUnit.calculate_variable_stats(m[value]))
+        return out
+
     def get_prop(self, propname):
         if propname == "t":
             return [int(p["t"]) for p in self.stats]
@@ -128,6 +151,16 @@ class WHUnit:
                     if matches:
                         out.append(int(matches.group()))
                 return out
+        elif propname == "attacks":
+            return self.extract_profile_values("attacks")
+        elif propname == "weaponskill":
+            return self.extract_profile_values("skill")
+        elif propname == "strength":
+            return self.extract_profile_values("strength")
+        elif propname == "damage":
+            return self.extract_profile_values("damage")
+        elif propname == "ap":
+            return self.extract_profile_values("ap")
         return None
 
 
