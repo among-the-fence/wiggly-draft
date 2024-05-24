@@ -27,17 +27,17 @@ class SearchItem:
                 if operator_search:
                     match operator_search.group():
                         case ">":
-                            self.search_type = lambda unit: any([x > va for x in unit.get_prop(prop_name)])
+                            self.search_type = lambda unit: any([type(x) is int and x > va for x in unit.get_prop(prop_name) or [False]])
                         case ">=":
-                            self.search_type = lambda unit: any([x >= va for x in unit.get_prop(prop_name)])
+                            self.search_type = lambda unit: any([type(x) is int and x >= va for x in unit.get_prop(prop_name) or [False]])
                         case "<":
-                            self.search_type = lambda unit: any([x < va for x in unit.get_prop(prop_name)])
+                            self.search_type = lambda unit: any([type(x) is int and x < va for x in unit.get_prop(prop_name) or [False]])
                         case "<=":
-                            self.search_type = lambda unit: any([x <= va for x in unit.get_prop(prop_name)])
+                            self.search_type = lambda unit: any([type(x) is int and x <= va for x in unit.get_prop(prop_name) or [False]])
                         case _:
-                            self.search_type = lambda unit: any([va == x for x in unit.get_prop(prop_name)])
+                            self.search_type = lambda unit: any([type(x) is int and va == x for x in unit.get_prop(prop_name) or [False]])
                 else:
-                    self.search_type = lambda unit: any([va == x for x in unit.get_prop(prop_name)])
+                    self.search_type = lambda unit: any([type(x) is int and va == x for x in unit.get_prop(prop_name) or [False]])
 
     def __str__(self):
         return self.__raw

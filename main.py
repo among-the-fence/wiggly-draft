@@ -503,16 +503,18 @@ async def datacard(ctx, unitname:str, faction:str):
         await ctx.respond(embed=e, view=UnitView(unit), ephemeral=True)
 
 
-@bot.slash_command(name="search", description="Find a datacard t>12")
+@bot.slash_command(name="search", description="Search datacards for stats")
 @option("f", description="Faction Name", required=False)
 @option("t", description="Toughness", required=False)
 @option("w", description="Wounds", required=False)
 @option("sv", description="Save", required=False)
 @option("m", description="Movement", required=False)
-async def search(ctx, f: str, t: str, w: str, sv: str, m:str):
-    sp = SearchParams({"faction": f , "toughness": t, "wounds": w, "save": sv, "movement": m})
+@option("inv", description="Invuln", required=False)
+@option("fnp", description="Feel no pain", required=False)
+async def search(ctx, f: str, t: str, w: str, sv: str, m:str, inv:str, fnp:str):
+    sp = SearchParams({"faction": f, "toughness": t, "wounds": w, "save": sv, "movement": m, "invuln":inv, "feelnopain":fnp})
     if sp.empty():
-        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`")
+        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`n", ephemeral=True)
     else:
         # await ctx.defer()
         x = wh_data.search(sp)

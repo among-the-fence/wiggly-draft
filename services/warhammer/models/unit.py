@@ -55,7 +55,7 @@ class WHUnit:
             {"key": "m", "display": "M"},
             {"key": "t", "display": "T"},
             {"key": "sv", "display": "SV"},
-
+            {"key": "invul", "display": "INV"},
             {"key": "feelnopain", "display": "FNP"},
             {"key": "w", "display": "W"},
             {"key": "oc", "display": "OC"},
@@ -65,13 +65,15 @@ class WHUnit:
             for p in ordered_props:
                 if p['key'] in s:
                     out += f"{p['display']}:**{s[p['key']]}** "
-
-            if self.abilities and 'invul' in self.abilities and 'value' in self.abilities['invul']:
-                out += f"Inv: **{self.abilities['invul']['value']}** "
-            if self.abilities and 'core' in self.abilities:
-                fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
-                if fnp_list and len(fnp_list) > 0:
-                    out += f"FNP: **{','.join(fnp_list).replace('Feel No Pain ', '')}** "
+                else:
+                    if p['key'] == "invul":
+                        if self.abilities and 'invul' in self.abilities and 'value' in self.abilities['invul']:
+                            out += f"Inv: **{self.abilities['invul']['value']}** "
+                    elif p['key'] == "feelnopain":
+                        if self.abilities and 'core' in self.abilities:
+                            fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
+                            if fnp_list and len(fnp_list) > 0:
+                                out += f"FNP: **{','.join(fnp_list).replace('Feel No Pain ', '')}** "
             if len(self.stats) > 1:
                 parent.add_field(name=s["name"],
                              value=out,
@@ -106,6 +108,20 @@ class WHUnit:
                 return [int(p["m"].replace("\"", "").replace("+", "").replace("-", "")) for p in self.stats]
             except:
                 return [0]
+        elif propname == "feelnopain":
+            if self.abilities and 'core' in self.abilities:
+                fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
+                if fnp_list and len(fnp_list) > 0:
+                    matches = [int(save_reg.search(fnpentry).group()) for fnpentry in fnp_list]
+                    return matches
+        elif propname == "invuln":
+            if self.abilities and 'invul' in self.abilities and 'value' in self.abilities['invul']:
+                out = []
+                for aiv in self.abilities['invul']['value']:
+                    matches = save_reg.search(aiv)
+                    if matches:
+                        out.append(int(matches.group()))
+                return out
         return None
 
 
