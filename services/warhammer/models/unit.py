@@ -97,12 +97,12 @@ class WHUnit:
                 else:
                     if p['key'] == "invul":
                         if self.abilities and 'invul' in self.abilities and 'value' in self.abilities['invul']:
-                            out += f"Inv: **{self.abilities['invul']['value']}** "
+                            out += f"Inv:**{self.abilities['invul']['value']}** "
                     elif p['key'] == "feelnopain":
                         if self.abilities and 'core' in self.abilities:
                             fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
                             if fnp_list and len(fnp_list) > 0:
-                                out += f"FNP: **{','.join(fnp_list).replace('Feel No Pain ', '')}** "
+                                out += f"FNP:**{','.join(fnp_list).replace('Feel No Pain ', '')}** "
             if len(self.stats) > 1:
                 parent.add_field(name=s["name"],
                              value=out,

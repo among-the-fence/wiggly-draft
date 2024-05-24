@@ -95,6 +95,7 @@ class UnitView(discord.ui.View):
         try:
             err, unit = self.get_unit()
             e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description="Abilities")
+            unit.formatted_stats(e)
 
             if "core" in unit.abilities:
                 e.add_field(name="Core",
@@ -139,7 +140,6 @@ class UnitView(discord.ui.View):
                 e.add_field(name="Primarch",
                             value=simple_format(out),
                             inline=False)
-            unit.formatted_stats(e)
             await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
