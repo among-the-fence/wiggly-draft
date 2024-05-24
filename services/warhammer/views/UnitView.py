@@ -14,6 +14,12 @@ class UnitView(discord.ui.View):
         self.disable_forward_button = disable_forward_button
         super().__init__(timeout=None)
 
+
+    async def on_timeout(self):
+        self.disable_all_items()
+        await self.message.edit(view=self)
+
+
     def get_unit(self):
         return None, self.unit
 

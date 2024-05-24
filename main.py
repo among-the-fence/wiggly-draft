@@ -467,7 +467,7 @@ warhammer = bot.create_group("warhammer", "Command=War Hammer=Hammer")
 
 
 @bot.slash_command(name="faction", description="Get faction info")
-@option("faction", description="Faction Name")
+@option("faction", description="Faction Name", autocomplete=discord.utils.basic_autocomplete(wh_data.get_all_faction_names()))
 async def find_faction(ctx, faction: str):
     err, names, faction = wh_data.get_faction(faction)
 
@@ -486,7 +486,7 @@ async def find_faction(ctx, faction: str):
 
 @bot.slash_command(name="datacard", description="Find a datacard")
 @option("unitname", description="Unit Name")
-@option("faction", description="Faction Name", required=False)
+@option("faction", description="Faction Name", required=False, autocomplete=discord.utils.basic_autocomplete(wh_data.get_all_faction_names()))
 async def datacard(ctx, unitname:str, faction:str):
     err, unit = wh_data.find(unitname, faction)
 
@@ -504,14 +504,15 @@ async def datacard(ctx, unitname:str, faction:str):
 
 
 @bot.slash_command(name="search", description="Search datacards for stats")
-@option("f", description="Faction Name", required=False)
+@option("f", description="Faction Name", required=False, autocomplete=discord.utils.basic_autocomplete(wh_data.get_all_faction_names()))
 @option("t", description="Toughness", required=False)
 @option("w", description="Wounds", required=False)
 @option("sv", description="Save", required=False)
 @option("m", description="Movement", required=False)
 @option("inv", description="Invuln", required=False)
 @option("fnp", description="Feel no pain", required=False)
-async def search(ctx, f: str, t: str, w: str, sv: str, m:str, inv:str, fnp:str):
+@option("a", description="Attacks", required=False)
+async def search(ctx, f: str, t: str, w: str, sv: str, m:str, inv:str, fnp:str, a:str):
     sp = SearchParams({"faction": f, "toughness": t, "wounds": w, "save": sv, "movement": m, "invuln":inv, "feelnopain":fnp})
     if sp.empty():
         await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`n", ephemeral=True)

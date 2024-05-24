@@ -8,20 +8,20 @@ from services.warhammer.models.search_params import SearchParams
 from util.name_matcher import name_match_function, normalize_name
 
 faction_nickname_map = {
-    "astramilitarum": ["am", "ig", "guard", "imperialguard"],
+    "astramilitarum": ["am", "ig", "guard", "imperial guard"],
     "adeptasororitas": ["mommy", "sororitas", "senoritas", "sisters", "sob"],
-    "bloodangels": ["ba", "angels", "bloodangles"],
-    "darkangels": ["da", "angles", "darkangles"],
+    "bloodangels": ["ba", "angels", "blood angles"],
+    "darkangels": ["da", "angles", "dark angles"],
     "chaosknights": ["ck"],
     "chaosdeamons": ["daemons", "demons"],
-    "chaosspacemarines": ["csm", "chaosmarines"],
+    "chaosspacemarines": ["csm", "chaos marines"],
     "deathguard": ["dg"],
     "deathwatch": ["dw"],
-    "drukhari": ["darkelves", "darkeldar"],
+    "drukhari": ["dark elves", "dark eldar"],
     "blacktemplars": ["bt"],
     "adeptacustodes": ["custodes"],
     "adeptamechanicus": ["admech"],
-    "aeldari": ["elves", "eldar", "aeldar", "eldari", "aeldar","legalosandfriends"],
+    "aeldari": ["elves", "eldar", "aeldar", "eldari", "aeldar", "legalos and friends"],
     "greyknights": ["gk"],
     "genestealercults": ["gsc", "genestealer", "genestealers"],
     "imperialagents": ["ia"],
@@ -48,6 +48,10 @@ class Warhammer:
                 self.factions[wf.normalized_name] = wf
                 if wf.name:
                     self.faction_names.append(wf.name)
+        self.compiled_faction_names = self.faction_names
+        for k,v in faction_nickname_map.items():
+            self.compiled_faction_names.extend(v)
+
 
     def find(self, unitname, faction_name):
         if faction_name:
@@ -123,6 +127,8 @@ class Warhammer:
         else:
             return None, ", ".join(sorted(self.faction_names)), None
 
+    def get_all_faction_names(self):
+        return self.compiled_faction_names
 
 warhammer_40k_data = Warhammer()
 
