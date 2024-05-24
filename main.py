@@ -24,6 +24,12 @@ from services.warhammer.models.unit import WHUnit
 from services.warhammer.views.UnitView import UnitView
 from util.utils import send_in_chunks
 
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.future import select
+from models import Base, Match, Player, Team, Hero, MatchDetail
+from datetime import datetime
+
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
 if os.getenv("OPENAI_API_KEY"):
@@ -41,6 +47,10 @@ env = {
         "hacky_one_click": False,
     }
 }
+
+DATABASE_URL = os.getenv('DATABASE_URL')
+engine = create_async_engine(DATABASE_URL, echo=True)
+SessionLocal = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 hero_list = HeroList(os.getenv('DOTA_TOKEN'))
 pudge = None
@@ -68,6 +78,9 @@ async def on_ready():
 
     print(pudge)
     print(io_moji)
+
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
     for s in bot.guilds:
         for x in s.channels:

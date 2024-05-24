@@ -3,3 +3,5 @@ services:
     image: "poddo/wiggly-draft:development"
     env_file:
       - stack.env
+    volumes:
+      - ./data:/var/irobot/data
