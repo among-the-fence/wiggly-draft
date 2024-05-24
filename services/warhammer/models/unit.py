@@ -57,12 +57,26 @@ class WHUnit:
 
     @staticmethod
     def calculate_variable_stats(stat):
-        if "d" in stat.lower():
-            return 12
-        elif stat.lower() == "n/a":
-            return 0
+        s = stat.lower()
+        if "d" in s:
+            x = s.split("d")
+            dice_count = 1
+            if not x[0] == '':
+                dice_count = int(x[0].strip())
+            min_roll = dice_count
+            mod_split = x[1].split("+")
+            dice_size = int(mod_split[0].strip())
+            max_roll = dice_count * dice_size
+            if len(mod_split) > 1:
+                modifier = int(mod_split[1].strip())
+                min_roll += modifier
+                max_roll += modifier
+            return [min_roll, max_roll]
+        elif s == "n/a":
+            return [0]
         if stat:
-            return int(stat.replace("+", "").replace("-", ""))
+            return [int(stat.replace("+", "").replace("-", ""))]
+        return []
 
     def formatted_stats(self, parent):
         out = ""
@@ -117,12 +131,12 @@ class WHUnit:
             if 'profiles' in ranged:
                 for bp in ranged['profiles']:
                     if value in bp:
-                        out.append(WHUnit.calculate_variable_stats(bp[value]))
+                        out.extend(WHUnit.calculate_variable_stats(bp[value]))
         for melee in self.meleeWeapons:
             if 'profiles' in melee:
                 for m in melee['profiles']:
                     if value in m:
-                        out.append(WHUnit.calculate_variable_stats(m[value]))
+                        out.extend(WHUnit.calculate_variable_stats(m[value]))
         return out
 
     def get_prop(self, propname):

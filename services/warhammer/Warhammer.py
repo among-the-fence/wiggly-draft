@@ -102,7 +102,6 @@ class Warhammer:
         closest_match_ratio = 30
 
         for i in self.faction_names:
-            print(i)
             r = fuzz.token_sort_ratio(faction_name, i)
             if r > closest_match_ratio:
                 closest_match_name = i
