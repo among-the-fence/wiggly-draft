@@ -24,7 +24,7 @@ class UnitView(discord.ui.View):
         if len(t) > 2000:
             await send_in_chunks(interaction, t)
         else:
-            e = discord.Embed(title=unit.name, color=color, description=t)
+            e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description=t)
             unit.formatted_stats(e)
             e.add_field(name=display, value=t, inline=False)
             await interaction.edit(embed=e)
@@ -37,7 +37,7 @@ class UnitView(discord.ui.View):
     async def send_weapon_profiles(self, interaction, name, display_name, prop_order):
         try:
             err, unit = self.get_unit()
-            e = discord.Embed(title=unit.name, description=display_name, color=unit.get_color())
+            e = discord.Embed(title=unit.get_display_name(), description=display_name, color=unit.get_color())
             unit.formatted_stats(e)
 
             val = getattr(unit, name)
@@ -88,7 +88,7 @@ class UnitView(discord.ui.View):
     async def ability_button_callback(self, button, interaction):
         try:
             err, unit = self.get_unit()
-            e = discord.Embed(title=unit.name, color=unit.get_color(), description="Abilities")
+            e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description="Abilities")
 
             if "core" in unit.abilities:
                 e.add_field(name="Core",
@@ -147,7 +147,7 @@ class UnitView(discord.ui.View):
             if len(t) > 2000:
                 await send_in_chunks(interaction, t)
             else:
-                e = discord.Embed(title=unit.name, color=unit.get_color(), description=t)
+                e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description=t)
                 unit.formatted_stats(e)
                 e.add_field(name="Points",
                             value=unit.formatted_cost(),
@@ -202,7 +202,7 @@ class UnitView(discord.ui.View):
             if len(t) > 2000:
                 await send_in_chunks(interaction, t)
             else:
-                e = discord.Embed(title=unit.name, color=unit.get_color(), description=t)
+                e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description=t)
                 unit.formatted_stats(e)
                 e.add_field(name="Fluff", value=t, inline=False)
                 if unit.the_rest:

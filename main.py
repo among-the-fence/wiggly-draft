@@ -498,7 +498,7 @@ async def datacard(ctx, unitname:str, faction:str):
                     inline=True)
         await ctx.respond(embed=e)
     elif unit and type(unit) is WHUnit:
-        e = discord.Embed(title=unit.name, color=unit.get_color())
+        e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
         unit.formatted_stats(e)
         await ctx.respond(embed=e, view=UnitView(unit), ephemeral=True)
 
@@ -522,11 +522,11 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m:str, inv:str, fnp:str):
             await ctx.respond("No results", ephemeral=True)
         elif len(x) == 1:
             unit = x[0]["unit"]
-            e = discord.Embed(title=unit.name, color=unit.get_color())
+            e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
             unit.formatted_stats(e)
             await ctx.respond(embed=e, view=UnitView(unit))
         else:
-            out = [u["unit"].name for u in x]
+            out = [u["unit"].get_display_name() for u in x]
             await ctx.respond(", ".join(out)[:1999])
 
 

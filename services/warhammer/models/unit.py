@@ -37,6 +37,12 @@ class WHUnit:
         self.colors = colors
         self.the_rest = jsonunit
 
+    def get_display_name(self):
+        out = self.name
+        if self.legends:
+            out += " 🪦"
+        return out
+
     def __str__(self):
         return self._raw_json
 
