@@ -486,7 +486,7 @@ async def find_faction(ctx, faction: str):
 
 @bot.slash_command(name="datacard", description="Find a datacard")
 @option("unitname", description="Unit Name")
-@option("faction", description="Faction Name", required=False, autocomplete=discord.utils.basic_autocomplete(wh_data.get_all_faction_names()))
+@option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
     err, unit = wh_data.find(unitname, faction)
 
@@ -504,7 +504,7 @@ async def datacard(ctx, unitname:str, faction:str):
 
 
 @bot.slash_command(name="search", description="Search datacards for stats")
-@option("f", description="Faction Name", required=False, autocomplete=discord.utils.basic_autocomplete(wh_data.get_all_faction_names()))
+@option("f", description="Faction Name", required=False)
 @option("t", description="Toughness", required=False)
 @option("w", description="Wounds", required=False)
 @option("sv", description="Save", required=False)

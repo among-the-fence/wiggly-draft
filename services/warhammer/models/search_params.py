@@ -25,7 +25,7 @@ class SearchParams:
         SearchParams.parse_search_parameter(self.filters, "ap", get_or_default(params, 'ap'))
 
     def empty(self):
-        return len(self.filters) == 0 and self.faction == None
+        return len(self.filters) == 0 and self.faction is None
 
     def apply(self, unit: WHUnit):
         match = True

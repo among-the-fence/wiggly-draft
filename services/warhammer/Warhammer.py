@@ -53,23 +53,14 @@ class Warhammer:
         for k,v in faction_nickname_map.items():
             self.compiled_faction_names.extend(v)
 
-
     def find(self, unitname, faction_name):
-        if faction_name:
-            faction_name = self.find_closest_faction_name(faction_name)
+        factions = self.get_matching_factions(faction_name)
 
         unitname = normalize_name(unitname)
         closest_match_ratio = 0
         closest_match_unit = None
-        if faction_name and unitname:
-            unit, match = self.factions[faction_name].get_unit(unitname)
-            if match >= 99:
-                return None, unit
-            elif match > closest_match_ratio:
-                closest_match_unit = unit
-                closest_match_ratio = match
-        elif unitname:
-            for i in self.factions.keys():
+        if unitname:
+            for i in factions:
                 unit, match = self.factions[i].get_unit(unitname)
                 # print(f"{unitname} {unit.name} {match}")
                 if match >= 99:
@@ -85,8 +76,7 @@ class Warhammer:
         return None, closest_match_unit
 
     def search(self, params: SearchParams):
-        faction_name = self.find_closest_faction_name(params.faction) if params.faction else None
-        factions = {faction_name: self.factions[faction_name]} if faction_name else self.factions
+        factions = self.get_matching_factions(params.faction)
         units = []
         for k,i in factions.items():
             if i.units:
@@ -95,7 +85,20 @@ class Warhammer:
                         units.append({"color": i.get_color(), "unit": u})
         return units
 
-    def find_closest_faction_name(self, faction_name):
+    def get_matching_factions(self, faction_name: str):
+        if faction_name:
+            invert = "!=" in faction_name
+            faction_name = faction_name.replace("!=", "")
+            faction_name = self.find_closest_faction_name(faction_name)
+            if invert:
+                out = {k: v for k, v in self.factions.items() if k != faction_name}
+            else:
+                out = {faction_name: self.factions[faction_name]}
+            return out
+        else:
+            return self.factions
+
+    def find_closest_faction_name(self, faction_name: str):
         faction_name = normalize_name(faction_name)
 
         closest_match_name = None
