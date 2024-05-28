@@ -34,6 +34,8 @@ class SearchItem:
                             self.search_type = lambda unit: any([type(x) is int and x < va for x in unit.get_prop(prop_name) or [False]])
                         case "<=":
                             self.search_type = lambda unit: any([type(x) is int and x <= va for x in unit.get_prop(prop_name) or [False]])
+                        case "!=":
+                            self.search_type = lambda unit: any([type(x) is int and va != x for x in unit.get_prop(prop_name) or [False]])
                         case _:
                             self.search_type = lambda unit: any([type(x) is int and va == x for x in unit.get_prop(prop_name) or [False]])
                 else:
