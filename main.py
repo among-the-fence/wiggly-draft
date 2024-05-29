@@ -546,7 +546,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
             e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
             unit.formatted_stats(e)
             await ctx.respond(embed=e, view=UnitView(unit))
-        elif len(x) <= 10:
+        elif len(x) <= 20:
             await ctx.respond("Choose", view=TestView(x))
         else:
             out = [u.get_display_name() for u in x]
