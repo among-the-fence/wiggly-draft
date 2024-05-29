@@ -21,6 +21,7 @@ from services.warhammer import Warhammer
 from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.search_params import SearchParams
 from services.warhammer.models.unit import WHUnit
+from services.warhammer.views.TestView import TestView
 from services.warhammer.views.UnitView import UnitView
 from util.utils import send_in_chunks
 
@@ -545,10 +546,11 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
             e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
             unit.formatted_stats(e)
             await ctx.respond(embed=e, view=UnitView(unit))
+        elif len(x) <= 10:
+            await ctx.respond("Choose", view=TestView(x))
         else:
             out = [u.get_display_name() for u in x]
             await ctx.respond(", ".join(out)[:1999])
-
 
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))

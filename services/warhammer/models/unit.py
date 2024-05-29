@@ -9,6 +9,8 @@ from util.utils import extract_and_clear, remove_empty_fields
 
 fnp_reg = re.compile("Feel No Pain \d\+")
 save_reg = re.compile("(\d)+")
+
+
 class WHUnit:
 
     def __init__(self, jsonunit, colors):
@@ -116,6 +118,33 @@ class WHUnit:
         for p in self.points:
             out.append(f"**{p['models']}** models: **{p['cost']}** points")
         return "\n".join(out)
+
+    def unformatted_stats(self):
+        out = ""
+        ordered_props = [
+            {"key": "m", "display": "M"},
+            {"key": "t", "display": "T"},
+            {"key": "sv", "display": "SV"},
+            {"key": "invul", "display": "INV"},
+            {"key": "feelnopain", "display": "FNP"},
+            {"key": "w", "display": "W"},
+            {"key": "oc", "display": "OC"},
+            {"key": "ld", "display": "Ld"}]
+
+        for s in self.stats:
+            for p in ordered_props:
+                if p['key'] in s:
+                    out += f"{p['display']}:{s[p['key']]}"
+                else:
+                    if p['key'] == "invul":
+                        if self.abilities and 'invul' in self.abilities and 'value' in self.abilities['invul']:
+                            out += f"/{self.abilities['invul']['value']}++"
+                    elif p['key'] == "feelnopain":
+                        if self.abilities and 'core' in self.abilities:
+                            fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
+                            if fnp_list and len(fnp_list) > 0:
+                                out += f"/{','.join(fnp_list).replace('Feel No Pain ', '')}+++"
+        return out
 
     @staticmethod
     def extract_numeric(property, stats):
