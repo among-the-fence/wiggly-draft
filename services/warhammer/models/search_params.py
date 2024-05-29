@@ -23,6 +23,7 @@ class SearchParams:
         SearchParams.parse_search_parameter(self.filters, "strength", get_or_default(params, 'strength'))
         SearchParams.parse_search_parameter(self.filters, "damage", get_or_default(params, 'damage'))
         SearchParams.parse_search_parameter(self.filters, "ap", get_or_default(params, 'ap'))
+        SearchParams.parse_search_parameter(self.filters, "points", get_or_default(params, 'points'))
 
     def empty(self):
         return len(self.filters) == 0 and self.faction is None

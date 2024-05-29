@@ -154,6 +154,12 @@ class WHUnit:
             out.append(matches.group())
         return out
 
+    def trycastint(self, val):
+        try:
+            return int(val)
+        except:
+            return None
+
     def extract_profile_values(self, value):
         out = []
         for ranged in self.rangedWeapons:
@@ -204,6 +210,8 @@ class WHUnit:
             return self.extract_profile_values("damage")
         elif propname == "ap":
             return self.extract_profile_values("ap")
+        elif propname == "points":
+            return [self.trycastint(p['cost']) for p in self.points]
         return None
 
 

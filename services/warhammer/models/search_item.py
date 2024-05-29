@@ -53,12 +53,12 @@ class SearchItem:
 
     @staticmethod
     def flatten(lst):
-        print(lst)
+        # print(lst)
         out = []
         for i in lst:
             if i:
                 out.extend(i)
-        print(out)
+        # print(out)
         return out
 
     def filter(self, units: list[WHUnit]):

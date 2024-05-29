@@ -517,7 +517,8 @@ async def datacard(ctx, unitname:str, faction:str):
 @option("s", description="Strength", required=False)
 @option("d", description="Damage", required=False)
 @option("ap", description="Armor Pierce", required=False)
-async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str):
+@option("pts", description="Points", required=False)
+async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str, pts: str):
     sp = SearchParams(
         {
             "faction": f,
@@ -532,6 +533,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
             "strength": s,
             "damage": d,
             "ap": ap,
+            "points": pts,
         }
     )
     if sp.empty():
