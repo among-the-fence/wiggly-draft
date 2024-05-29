@@ -51,5 +51,22 @@ class SearchItem:
             match &= self.search_type(unit)
         return match
 
-
-
+    def filter(self, units: list[WHUnit]):
+        prop_name = None
+        extreme_value = -1
+        if self.max_filter:
+            prop_name = self.max_filter
+            flatten_values = [x.get_prop(self.max_filter) for x in units]
+            extreme_value = max(flatten_values)
+        if self.min_filter:
+            prop_name = self.min_filter
+            flatten_values = [x.get_prop(self.max_filter) for x in units]
+            extreme_value = max(flatten_values)
+        out = []
+        if prop_name:
+            if type(extreme_value) is list:
+                extreme_value = extreme_value[0]
+            for u in units:
+                if extreme_value in u.get_prop(self.max_filter):
+                    out.append(u)
+        return out

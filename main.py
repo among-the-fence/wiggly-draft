@@ -541,12 +541,12 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
         if len(x) == 0:
             await ctx.respond("No results", ephemeral=True)
         elif len(x) == 1:
-            unit = x[0]["unit"]
+            unit = x[0]
             e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
             unit.formatted_stats(e)
             await ctx.respond(embed=e, view=UnitView(unit))
         else:
-            out = [u["unit"].get_display_name() for u in x]
+            out = [u.get_display_name() for u in x]
             await ctx.respond(", ".join(out)[:1999])
 
 

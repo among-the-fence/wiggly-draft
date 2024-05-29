@@ -34,4 +34,10 @@ class SearchParams:
                 match &= f.apply(unit)
         return match
 
+    def filter(self, unit_list: list[WHUnit]):
+        for f in self.filters:
+            if f and (f.min_filter or f.max_filter):
+                unit_list = f.filter(unit_list)
+        return unit_list
+
 
