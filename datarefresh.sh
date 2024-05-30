@@ -12,4 +12,4 @@ done
 pushd datasources
 rm -rf 40k
 pushd 10th
-rm -rf conversion
+rm -rf
