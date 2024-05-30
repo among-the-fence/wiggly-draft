@@ -1,0 +1,49 @@
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
+# Order is important; the last matching pattern takes the most precedence.
+
+# These owners will be the default owners for everything in the repo.
+# Unless a later match takes precedence, @BSData/data-authors-wh40k
+# will be requested for review when someone opens a pull request.
+
+*       @BSData/data-admins-wh40k
+
+# # # # # # # # # # #
+# Generic "owners"  #
+# # # # # # # # # # #
+
+Aeldari*    @FarseerVeraenthis
+Chaos*      @Mad-Spy
+Library*    @Mad-Spy
+
+
+# # # # # # # # # # # # # # # # # # # # #
+# Exceptions from globs and other stuff #
+# # # # # # # # # # # # # # # # # # # # #
+
+# Imperium
+
+Imperium*                         @acebaur
+*Adepta\ Sororitas.cat            @CrusherJoe
+*Adeptus\ Custodes.cat            @Thairne
+*Adeptus\ Mechanicus.cat          @Thairne
+*Adeptus\ Titanicus.cat           @Mad-Spy
+*Agents\ of\ the\ Imperium.cat    @Mad-Spy
+*Astra\ Militarum*                @Abonshell
+*Dark\ Angels.cat                 @FarseerVeraenthis
+*Deathwatch.cat                   @FarseerVeraenthis
+*Grey\ Knights.cat                @Dunamis55
+*Imperial\ Knights*               @Dunamis55
+# Space Marines require 'Imperium' prefix/full name to prevent confusion with Chaos Space Marines
+Imperium\ -\ Space\ Marines.cat   @acebaur
+
+# Xenos and Other
+
+Tyranids.cat                      @Abonshell
+Genestealer\ Cults.cat            @Abonshell
+Leagues\ of\ Votann.cat           @Mad-Spy
+Necrons.cat                       @Mad-Spy
+Orks.cat                          @Dunamis55
+T?au\ Empire.cat                  @Dunamis55
+# the question mark is a hack until GitHub fixes support for single quotes in CODEOWNERS
+Unaligned\ Forces.cat             @Dunamis55

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="46d8-abc8-ef3a-9f85" name="Chaos - Chaos Knights" revision="5" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+  <catalogueLinks>
+    <catalogueLink id="bbb1-4f45-fafb-fc09" name="Chaos - Chaos Knights Library" targetId="8106-aad2-918a-9ac" type="catalogue" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Chaos - Daemons Library" id="4386-7333-134-9a18" targetId="b45c-af22-788a-dfd6" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Library - Titans" id="9edd-ef10-2070-22d6" targetId="7481-280e-b55e-7867" importRootEntries="true"/>
+  </catalogueLinks>
+  <entryLinks>
+    <entryLink import="true" name="Detachment Choice" hidden="false" type="selectionEntry" id="c62d-6a62-3548-b76e" targetId="a435-b94a-eb7b-7c0c"/>
+    <entryLink import="true" name="Show/Hide Options" hidden="false" type="selectionEntry" id="d6b9-36a1-6ef5-a028" targetId="e8ef-836a-a9d1-901d">
+      <entryLinks>
+        <entryLink import="true" name="Show Khorne Daemons" hidden="false" type="selectionEntry" id="ed4f-b26b-dd4a-3340" targetId="f5f9-1339-84bb-ae85"/>
+        <entryLink import="true" name="Show Nurgle Daemons" hidden="false" type="selectionEntry" id="153d-2ba9-ff5a-18f5" targetId="f486-5e38-994c-15ec"/>
+        <entryLink import="true" name="Show Slaanesh Daemons" hidden="false" type="selectionEntry" id="6494-c7c1-669b-69a0" targetId="d3ff-16f0-dad2-c03c"/>
+        <entryLink import="true" name="Show Tzeentch Daemons" hidden="false" type="selectionEntry" id="6521-e858-36dd-8949" targetId="1248-8642-b42f-1dca"/>
+        <entryLink import="true" name="Show Titans" hidden="false" type="selectionEntry" id="b5a-4957-a734-d027" targetId="f26b-79db-80e0-3a3b"/>
+      </entryLinks>
+    </entryLink>
+  </entryLinks>
+</catalogue>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="d265-877b-e03d-30ca" name="Chaos - Chaos Daemons" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="4" battleScribeVersion="2.03" type="catalogue">
+  <catalogueLinks>
+    <catalogueLink type="catalogue" name="Chaos - Chaos Knights Library" id="2943-3e92-48e0-3479" targetId="8106-aad2-918a-9ac" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Chaos - Daemons Library" id="6b29-4df1-605-f4f3" targetId="b45c-af22-788a-dfd6" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Library - Titans" id="b871-5232-cb1e-3ba1" targetId="7481-280e-b55e-7867" importRootEntries="true"/>
+  </catalogueLinks>
+  <entryLinks>
+    <entryLink import="true" name="Detachment Choice" hidden="false" type="selectionEntry" id="5f9d-d017-ce57-a011" targetId="6470-c44a-45f4-3313"/>
+    <entryLink import="true" name="Show/Hide Options" hidden="false" type="selectionEntry" id="c33e-de90-ab0c-995f" targetId="e8ef-836a-a9d1-901d">
+      <entryLinks>
+        <entryLink import="true" name="Show Chaos Knights" hidden="false" type="selectionEntry" id="cbba-c94b-79f8-9cef" targetId="aeb4-96de-7401-eaa3"/>
+        <entryLink import="true" name="Show Titans" hidden="false" type="selectionEntry" id="bcd3-dd3f-1e3-9617" targetId="f26b-79db-80e0-3a3b"/>
+      </entryLinks>
+    </entryLink>
+    <entryLink import="true" name="Show Khorne Daemons" hidden="false" type="selectionEntry" id="4a6d-e24e-e36a-1479" targetId="f5f9-1339-84bb-ae85">
+      <categoryLinks>
+        <categoryLink targetId="4ac9-fd30-1e3d-b249" id="2f8-5b49-2045-d735" primary="true" name="Configuration"/>
+      </categoryLinks>
+    </entryLink>
+    <entryLink import="true" name="Show Nurgle Daemons" hidden="false" type="selectionEntry" id="12d3-29b2-62da-df56" targetId="f486-5e38-994c-15ec">
+      <categoryLinks>
+        <categoryLink targetId="4ac9-fd30-1e3d-b249" id="c916-b2a5-221d-8093" primary="true" name="Configuration"/>
+      </categoryLinks>
+    </entryLink>
+    <entryLink import="true" name="Show Tzeentch Daemons" hidden="false" type="selectionEntry" id="feae-5239-37a7-4241" targetId="1248-8642-b42f-1dca">
+      <categoryLinks>
+        <categoryLink targetId="4ac9-fd30-1e3d-b249" id="10a2-35ab-591f-7c93" primary="true" name="Configuration"/>
+      </categoryLinks>
+    </entryLink>
+    <entryLink import="true" name="Show Slaanesh Daemons" hidden="false" type="selectionEntry" id="b1c8-4dd-3518-bf7" targetId="d3ff-16f0-dad2-c03c">
+      <categoryLinks>
+        <categoryLink targetId="4ac9-fd30-1e3d-b249" id="a5ed-27ac-6d94-cb9f" primary="true" name="Configuration"/>
+      </categoryLinks>
+    </entryLink>
+  </entryLinks>
+  <selectionEntries>
+    <selectionEntry type="upgrade" import="true" name="Show Leaders inside units" hidden="true" id="3464-ba60-581-5957">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="force" shared="true" id="c7e5-a938-3d59-811f"/>
+      </constraints>
+      <modifiers>
+        <modifier type="set" value="Leaders can be added to units" field="name">
+          <conditions>
+            <condition type="atLeast" value="1" field="selections" scope="force" childId="3464-ba60-581-5957" shared="true" id="c3a6-3095-f4b8-d0b6" includeChildSelections="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+      <categoryLinks>
+        <categoryLink targetId="4ac9-fd30-1e3d-b249" id="40d5-2cd2-a7d-575c" primary="true" name="Configuration"/>
+      </categoryLinks>
+    </selectionEntry>
+  </selectionEntries>
+  <sharedSelectionEntryGroups>
+    <selectionEntryGroup name="Leader" hidden="false" id="3c72-2846-347b-f185">
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="12dd-4de2-f079-b631"/>
+      </constraints>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="force" childId="3464-ba60-581-5957" shared="true" id="e5f0-2e94-d2b9-e62b" includeChildSelections="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </selectionEntryGroup>
+  </sharedSelectionEntryGroups>
+</catalogue>
