@@ -1,0 +1,10416 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+#
+# Generated Thu May 30 08:25:21 2024 by generateDS.py version 2.44.1.
+# Python 3.10.12 (main, Nov 20 2023, 15:14:05) [GCC 11.4.0]
+#
+# Command line options:
+#   ('-o', 'Catalogue.py')
+#
+# Command line arguments:
+#   lib/Catalogue.xsd
+#
+# Command line:
+#   /home/bill/code/bsdataparse/bsdataParser/.venv/bin/generateDS -o "Catalogue.py" lib/Catalogue.xsd
+#
+# Current working directory (os.getcwd()):
+#   bsdataParser
+#
+
+import sys
+try:
+    ModulenotfoundExp_ = ModuleNotFoundError
+except NameError:
+    ModulenotfoundExp_ = ImportError
+from six.moves import zip_longest
+import os
+import re as re_
+import base64
+import datetime as datetime_
+import decimal as decimal_
+from lxml import etree as etree_
+
+
+Validate_simpletypes_ = True
+SaveElementTreeNode = True
+TagNamePrefix = ""
+if sys.version_info.major == 2:
+    BaseStrType_ = basestring
+else:
+    BaseStrType_ = str
+
+
+def parsexml_(infile, parser=None, **kwargs):
+    if parser is None:
+        # Use the lxml ElementTree compatible parser so that, e.g.,
+        #   we ignore comments.
+        try:
+            parser = etree_.ETCompatXMLParser()
+        except AttributeError:
+            # fallback to xml.etree
+            parser = etree_.XMLParser()
+    try:
+        if isinstance(infile, os.PathLike):
+            infile = os.path.join(infile)
+    except AttributeError:
+        pass
+    doc = etree_.parse(infile, parser=parser, **kwargs)
+    return doc
+
+def parsexmlstring_(instring, parser=None, **kwargs):
+    if parser is None:
+        # Use the lxml ElementTree compatible parser so that, e.g.,
+        #   we ignore comments.
+        try:
+            parser = etree_.ETCompatXMLParser()
+        except AttributeError:
+            # fallback to xml.etree
+            parser = etree_.XMLParser()
+    element = etree_.fromstring(instring, parser=parser, **kwargs)
+    return element
+
+#
+# Namespace prefix definition table (and other attributes, too)
+#
+# The module generatedsnamespaces, if it is importable, must contain
+# a dictionary named GeneratedsNamespaceDefs.  This Python dictionary
+# should map element type names (strings) to XML schema namespace prefix
+# definitions.  The export method for any class for which there is
+# a namespace prefix definition, will export that definition in the
+# XML representation of that element.  See the export method of
+# any generated element type class for an example of the use of this
+# table.
+# A sample table is:
+#
+#     # File: generatedsnamespaces.py
+#
+#     GenerateDSNamespaceDefs = {
+#         "ElementtypeA": "http://www.xxx.com/namespaceA",
+#         "ElementtypeB": "http://www.xxx.com/namespaceB",
+#     }
+#
+# Additionally, the generatedsnamespaces module can contain a python
+# dictionary named GenerateDSNamespaceTypePrefixes that associates element
+# types with the namespace prefixes that are to be added to the
+# "xsi:type" attribute value.  See the _exportAttributes method of
+# any generated element type and the generation of "xsi:type" for an
+# example of the use of this table.
+# An example table:
+#
+#     # File: generatedsnamespaces.py
+#
+#     GenerateDSNamespaceTypePrefixes = {
+#         "ElementtypeC": "aaa:",
+#         "ElementtypeD": "bbb:",
+#     }
+#
+
+try:
+    from generatedsnamespaces import GenerateDSNamespaceDefs as GenerateDSNamespaceDefs_
+except ModulenotfoundExp_ :
+    GenerateDSNamespaceDefs_ = {}
+try:
+    from generatedsnamespaces import GenerateDSNamespaceTypePrefixes as GenerateDSNamespaceTypePrefixes_
+except ModulenotfoundExp_ :
+    GenerateDSNamespaceTypePrefixes_ = {}
+
+#
+# You can replace the following class definition by defining an
+# importable module named "generatedscollector" containing a class
+# named "GdsCollector".  See the default class definition below for
+# clues about the possible content of that class.
+#
+try:
+    from generatedscollector import GdsCollector as GdsCollector_
+except ModulenotfoundExp_ :
+
+    class GdsCollector_(object):
+
+        def __init__(self, messages=None):
+            if messages is None:
+                self.messages = []
+            else:
+                self.messages = messages
+
+        def add_message(self, msg):
+            self.messages.append(msg)
+
+        def get_messages(self):
+            return self.messages
+
+        def clear_messages(self):
+            self.messages = []
+
+        def print_messages(self):
+            for msg in self.messages:
+                print("Warning: {}".format(msg))
+
+        def write_messages(self, outstream):
+            for msg in self.messages:
+                outstream.write("Warning: {}\n".format(msg))
+
+
+#
+# The super-class for enum types
+#
+
+try:
+    from enum import Enum
+except ModulenotfoundExp_ :
+    Enum = object
+
+#
+# The root super-class for element type classes
+#
+# Calls to the methods in these classes are generated by generateDS.py.
+# You can replace these methods by re-implementing the following class
+#   in a module named generatedssuper.py.
+
+try:
+    from generatedssuper import GeneratedsSuper
+except ModulenotfoundExp_ as exp:
+    try:
+        from generatedssupersuper import GeneratedsSuperSuper
+    except ModulenotfoundExp_ as exp:
+        class GeneratedsSuperSuper(object):
+            pass
+    
+    class GeneratedsSuper(GeneratedsSuperSuper):
+        __hash__ = object.__hash__
+        tzoff_pattern = re_.compile('(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$')
+        class _FixedOffsetTZ(datetime_.tzinfo):
+            def __init__(self, offset, name):
+                self.__offset = datetime_.timedelta(minutes=offset)
+                self.__name = name
+            def utcoffset(self, dt):
+                return self.__offset
+            def tzname(self, dt):
+                return self.__name
+            def dst(self, dt):
+                return None
+        def __str__(self):
+            settings = {
+                'str_pretty_print': True,
+                'str_indent_level': 0,
+                'str_namespaceprefix': '',
+                'str_name': self.__class__.__name__,
+                'str_namespacedefs': '',
+            }
+            for n in settings:
+                if hasattr(self, n):
+                    settings[n] = getattr(self, n)
+            if sys.version_info.major == 2:
+                from StringIO import StringIO
+            else:
+                from io import StringIO
+            output = StringIO()
+            self.export(
+                output,
+                settings['str_indent_level'],
+                pretty_print=settings['str_pretty_print'],
+                namespaceprefix_=settings['str_namespaceprefix'],
+                name_=settings['str_name'],
+                namespacedef_=settings['str_namespacedefs']
+            )
+            strval = output.getvalue()
+            output.close()
+            return strval
+        def gds_format_string(self, input_data, input_name=''):
+            return input_data
+        def gds_parse_string(self, input_data, node=None, input_name=''):
+            return input_data
+        def gds_validate_string(self, input_data, node=None, input_name=''):
+            if not input_data:
+                return ''
+            else:
+                return input_data
+        def gds_format_base64(self, input_data, input_name=''):
+            return base64.b64encode(input_data).decode('ascii')
+        def gds_validate_base64(self, input_data, node=None, input_name=''):
+            return input_data
+        def gds_format_integer(self, input_data, input_name=''):
+            return '%d' % int(input_data)
+        def gds_parse_integer(self, input_data, node=None, input_name=''):
+            try:
+                ival = int(input_data)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(node, 'Requires integer value: %s' % exp)
+            return ival
+        def gds_validate_integer(self, input_data, node=None, input_name=''):
+            try:
+                value = int(input_data)
+            except (TypeError, ValueError):
+                raise_parse_error(node, 'Requires integer value')
+            return value
+        def gds_format_integer_list(self, input_data, input_name=''):
+            if len(input_data) > 0 and not isinstance(input_data[0], BaseStrType_):
+                input_data = [str(s) for s in input_data]
+            return '%s' % ' '.join(input_data)
+        def gds_validate_integer_list(
+                self, input_data, node=None, input_name=''):
+            values = input_data.split()
+            for value in values:
+                try:
+                    int(value)
+                except (TypeError, ValueError):
+                    raise_parse_error(node, 'Requires sequence of integer values')
+            return values
+        def gds_format_float(self, input_data, input_name=''):
+            value = ('%.15f' % float(input_data)).rstrip('0')
+            if value.endswith('.'):
+                value += '0'
+            return value
+    
+        def gds_parse_float(self, input_data, node=None, input_name=''):
+            try:
+                fval_ = float(input_data)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(node, 'Requires float or double value: %s' % exp)
+            return fval_
+        def gds_validate_float(self, input_data, node=None, input_name=''):
+            try:
+                value = float(input_data)
+            except (TypeError, ValueError):
+                raise_parse_error(node, 'Requires float value')
+            return value
+        def gds_format_float_list(self, input_data, input_name=''):
+            if len(input_data) > 0 and not isinstance(input_data[0], BaseStrType_):
+                input_data = [str(s) for s in input_data]
+            return '%s' % ' '.join(input_data)
+        def gds_validate_float_list(
+                self, input_data, node=None, input_name=''):
+            values = input_data.split()
+            for value in values:
+                try:
+                    float(value)
+                except (TypeError, ValueError):
+                    raise_parse_error(node, 'Requires sequence of float values')
+            return values
+        def gds_format_decimal(self, input_data, input_name=''):
+            return_value = '%s' % input_data
+            if '.' in return_value:
+                return_value = return_value.rstrip('0')
+                if return_value.endswith('.'):
+                    return_value = return_value.rstrip('.')
+            return return_value
+        def gds_parse_decimal(self, input_data, node=None, input_name=''):
+            try:
+                decimal_value = decimal_.Decimal(input_data)
+            except (TypeError, ValueError):
+                raise_parse_error(node, 'Requires decimal value')
+            return decimal_value
+        def gds_validate_decimal(self, input_data, node=None, input_name=''):
+            try:
+                value = decimal_.Decimal(input_data)
+            except (TypeError, ValueError):
+                raise_parse_error(node, 'Requires decimal value')
+            return value
+        def gds_format_decimal_list(self, input_data, input_name=''):
+            if len(input_data) > 0 and not isinstance(input_data[0], BaseStrType_):
+                input_data = [str(s) for s in input_data]
+            return ' '.join([self.gds_format_decimal(item) for item in input_data])
+        def gds_validate_decimal_list(
+                self, input_data, node=None, input_name=''):
+            values = input_data.split()
+            for value in values:
+                try:
+                    decimal_.Decimal(value)
+                except (TypeError, ValueError):
+                    raise_parse_error(node, 'Requires sequence of decimal values')
+            return values
+        def gds_format_double(self, input_data, input_name=''):
+            return '%s' % input_data
+        def gds_parse_double(self, input_data, node=None, input_name=''):
+            try:
+                fval_ = float(input_data)
+            except (TypeError, ValueError) as exp:
+                raise_parse_error(node, 'Requires double or float value: %s' % exp)
+            return fval_
+        def gds_validate_double(self, input_data, node=None, input_name=''):
+            try:
+                value = float(input_data)
+            except (TypeError, ValueError):
+                raise_parse_error(node, 'Requires double or float value')
+            return value
+        def gds_format_double_list(self, input_data, input_name=''):
+            if len(input_data) > 0 and not isinstance(input_data[0], BaseStrType_):
+                input_data = [str(s) for s in input_data]
+            return '%s' % ' '.join(input_data)
+        def gds_validate_double_list(
+                self, input_data, node=None, input_name=''):
+            values = input_data.split()
+            for value in values:
+                try:
+                    float(value)
+                except (TypeError, ValueError):
+                    raise_parse_error(
+                        node, 'Requires sequence of double or float values')
+            return values
+        def gds_format_boolean(self, input_data, input_name=''):
+            return ('%s' % input_data).lower()
+        def gds_parse_boolean(self, input_data, node=None, input_name=''):
+            input_data = input_data.strip()
+            if input_data in ('true', '1'):
+                bval = True
+            elif input_data in ('false', '0'):
+                bval = False
+            else:
+                raise_parse_error(node, 'Requires boolean value')
+            return bval
+        def gds_validate_boolean(self, input_data, node=None, input_name=''):
+            if input_data not in (True, 1, False, 0, ):
+                raise_parse_error(
+                    node,
+                    'Requires boolean value '
+                    '(one of True, 1, False, 0)')
+            return input_data
+        def gds_format_boolean_list(self, input_data, input_name=''):
+            if len(input_data) > 0 and not isinstance(input_data[0], BaseStrType_):
+                input_data = [str(s) for s in input_data]
+            return '%s' % ' '.join(input_data)
+        def gds_validate_boolean_list(
+                self, input_data, node=None, input_name=''):
+            values = input_data.split()
+            for value in values:
+                value = self.gds_parse_boolean(value, node, input_name)
+                if value not in (True, 1, False, 0, ):
+                    raise_parse_error(
+                        node,
+                        'Requires sequence of boolean values '
+                        '(one of True, 1, False, 0)')
+            return values
+        def gds_validate_datetime(self, input_data, node=None, input_name=''):
+            return input_data
+        def gds_format_datetime(self, input_data, input_name=''):
+            if input_data.microsecond == 0:
+                _svalue = '%04d-%02d-%02dT%02d:%02d:%02d' % (
+                    input_data.year,
+                    input_data.month,
+                    input_data.day,
+                    input_data.hour,
+                    input_data.minute,
+                    input_data.second,
+                )
+            else:
+                _svalue = '%04d-%02d-%02dT%02d:%02d:%02d.%s' % (
+                    input_data.year,
+                    input_data.month,
+                    input_data.day,
+                    input_data.hour,
+                    input_data.minute,
+                    input_data.second,
+                    ('%f' % (float(input_data.microsecond) / 1000000))[2:],
+                )
+            if input_data.tzinfo is not None:
+                tzoff = input_data.tzinfo.utcoffset(input_data)
+                if tzoff is not None:
+                    total_seconds = tzoff.seconds + (86400 * tzoff.days)
+                    if total_seconds == 0:
+                        _svalue += 'Z'
+                    else:
+                        if total_seconds < 0:
+                            _svalue += '-'
+                            total_seconds *= -1
+                        else:
+                            _svalue += '+'
+                        hours = total_seconds // 3600
+                        minutes = (total_seconds - (hours * 3600)) // 60
+                        _svalue += '{0:02d}:{1:02d}'.format(hours, minutes)
+            return _svalue
+        @classmethod
+        def gds_parse_datetime(cls, input_data):
+            tz = None
+            if input_data[-1] == 'Z':
+                tz = GeneratedsSuper._FixedOffsetTZ(0, 'UTC')
+                input_data = input_data[:-1]
+            else:
+                results = GeneratedsSuper.tzoff_pattern.search(input_data)
+                if results is not None:
+                    tzoff_parts = results.group(2).split(':')
+                    tzoff = int(tzoff_parts[0]) * 60 + int(tzoff_parts[1])
+                    if results.group(1) == '-':
+                        tzoff *= -1
+                    tz = GeneratedsSuper._FixedOffsetTZ(
+                        tzoff, results.group(0))
+                    input_data = input_data[:-6]
+            time_parts = input_data.split('.')
+            if len(time_parts) > 1:
+                micro_seconds = int(float('0.' + time_parts[1]) * 1000000)
+                input_data = '%s.%s' % (
+                    time_parts[0], "{}".format(micro_seconds).rjust(6, "0"), )
+                dt = datetime_.datetime.strptime(
+                    input_data, '%Y-%m-%dT%H:%M:%S.%f')
+            else:
+                dt = datetime_.datetime.strptime(
+                    input_data, '%Y-%m-%dT%H:%M:%S')
+            dt = dt.replace(tzinfo=tz)
+            return dt
+        def gds_validate_date(self, input_data, node=None, input_name=''):
+            return input_data
+        def gds_format_date(self, input_data, input_name=''):
+            _svalue = '%04d-%02d-%02d' % (
+                input_data.year,
+                input_data.month,
+                input_data.day,
+            )
+            try:
+                if input_data.tzinfo is not None:
+                    tzoff = input_data.tzinfo.utcoffset(input_data)
+                    if tzoff is not None:
+                        total_seconds = tzoff.seconds + (86400 * tzoff.days)
+                        if total_seconds == 0:
+                            _svalue += 'Z'
+                        else:
+                            if total_seconds < 0:
+                                _svalue += '-'
+                                total_seconds *= -1
+                            else:
+                                _svalue += '+'
+                            hours = total_seconds // 3600
+                            minutes = (total_seconds - (hours * 3600)) // 60
+                            _svalue += '{0:02d}:{1:02d}'.format(
+                                hours, minutes)
+            except AttributeError:
+                pass
+            return _svalue
+        @classmethod
+        def gds_parse_date(cls, input_data):
+            tz = None
+            if input_data[-1] == 'Z':
+                tz = GeneratedsSuper._FixedOffsetTZ(0, 'UTC')
+                input_data = input_data[:-1]
+            else:
+                results = GeneratedsSuper.tzoff_pattern.search(input_data)
+                if results is not None:
+                    tzoff_parts = results.group(2).split(':')
+                    tzoff = int(tzoff_parts[0]) * 60 + int(tzoff_parts[1])
+                    if results.group(1) == '-':
+                        tzoff *= -1
+                    tz = GeneratedsSuper._FixedOffsetTZ(
+                        tzoff, results.group(0))
+                    input_data = input_data[:-6]
+            dt = datetime_.datetime.strptime(input_data, '%Y-%m-%d')
+            dt = dt.replace(tzinfo=tz)
+            return dt.date()
+        def gds_validate_time(self, input_data, node=None, input_name=''):
+            return input_data
+        def gds_format_time(self, input_data, input_name=''):
+            if input_data.microsecond == 0:
+                _svalue = '%02d:%02d:%02d' % (
+                    input_data.hour,
+                    input_data.minute,
+                    input_data.second,
+                )
+            else:
+                _svalue = '%02d:%02d:%02d.%s' % (
+                    input_data.hour,
+                    input_data.minute,
+                    input_data.second,
+                    ('%f' % (float(input_data.microsecond) / 1000000))[2:],
+                )
+            if input_data.tzinfo is not None:
+                tzoff = input_data.tzinfo.utcoffset(input_data)
+                if tzoff is not None:
+                    total_seconds = tzoff.seconds + (86400 * tzoff.days)
+                    if total_seconds == 0:
+                        _svalue += 'Z'
+                    else:
+                        if total_seconds < 0:
+                            _svalue += '-'
+                            total_seconds *= -1
+                        else:
+                            _svalue += '+'
+                        hours = total_seconds // 3600
+                        minutes = (total_seconds - (hours * 3600)) // 60
+                        _svalue += '{0:02d}:{1:02d}'.format(hours, minutes)
+            return _svalue
+        def gds_validate_simple_patterns(self, patterns, target):
+            # pat is a list of lists of strings/patterns.
+            # The target value must match at least one of the patterns
+            # in order for the test to succeed.
+            found1 = True
+            target = str(target)
+            for patterns1 in patterns:
+                found2 = False
+                for patterns2 in patterns1:
+                    mo = re_.search(patterns2, target)
+                    if mo is not None and len(mo.group(0)) == len(target):
+                        found2 = True
+                        break
+                if not found2:
+                    found1 = False
+                    break
+            return found1
+        @classmethod
+        def gds_parse_time(cls, input_data):
+            tz = None
+            if input_data[-1] == 'Z':
+                tz = GeneratedsSuper._FixedOffsetTZ(0, 'UTC')
+                input_data = input_data[:-1]
+            else:
+                results = GeneratedsSuper.tzoff_pattern.search(input_data)
+                if results is not None:
+                    tzoff_parts = results.group(2).split(':')
+                    tzoff = int(tzoff_parts[0]) * 60 + int(tzoff_parts[1])
+                    if results.group(1) == '-':
+                        tzoff *= -1
+                    tz = GeneratedsSuper._FixedOffsetTZ(
+                        tzoff, results.group(0))
+                    input_data = input_data[:-6]
+            if len(input_data.split('.')) > 1:
+                dt = datetime_.datetime.strptime(input_data, '%H:%M:%S.%f')
+            else:
+                dt = datetime_.datetime.strptime(input_data, '%H:%M:%S')
+            dt = dt.replace(tzinfo=tz)
+            return dt.time()
+        def gds_check_cardinality_(
+                self, value, input_name,
+                min_occurs=0, max_occurs=1, required=None):
+            if value is None:
+                length = 0
+            elif isinstance(value, list):
+                length = len(value)
+            else:
+                length = 1
+            if required is not None :
+                if required and length < 1:
+                    self.gds_collector_.add_message(
+                        "Required value {}{} is missing".format(
+                            input_name, self.gds_get_node_lineno_()))
+            if length < min_occurs:
+                self.gds_collector_.add_message(
+                    "Number of values for {}{} is below "
+                    "the minimum allowed, "
+                    "expected at least {}, found {}".format(
+                        input_name, self.gds_get_node_lineno_(),
+                        min_occurs, length))
+            elif length > max_occurs:
+                self.gds_collector_.add_message(
+                    "Number of values for {}{} is above "
+                    "the maximum allowed, "
+                    "expected at most {}, found {}".format(
+                        input_name, self.gds_get_node_lineno_(),
+                        max_occurs, length))
+        def gds_validate_builtin_ST_(
+                self, validator, value, input_name,
+                min_occurs=None, max_occurs=None, required=None):
+            if value is not None:
+                try:
+                    validator(value, input_name=input_name)
+                except GDSParseError as parse_error:
+                    self.gds_collector_.add_message(str(parse_error))
+        def gds_validate_defined_ST_(
+                self, validator, value, input_name,
+                min_occurs=None, max_occurs=None, required=None):
+            if value is not None:
+                try:
+                    validator(value)
+                except GDSParseError as parse_error:
+                    self.gds_collector_.add_message(str(parse_error))
+        def gds_str_lower(self, instring):
+            return instring.lower()
+        def get_path_(self, node):
+            path_list = []
+            self.get_path_list_(node, path_list)
+            path_list.reverse()
+            path = '/'.join(path_list)
+            return path
+        Tag_strip_pattern_ = re_.compile(r'{.*}')
+        def get_path_list_(self, node, path_list):
+            if node is None:
+                return
+            tag = GeneratedsSuper.Tag_strip_pattern_.sub('', node.tag)
+            if tag:
+                path_list.append(tag)
+            self.get_path_list_(node.getparent(), path_list)
+        def get_class_obj_(self, node, default_class=None):
+            class_obj1 = default_class
+            if 'xsi' in node.nsmap:
+                classname = node.get('{%s}type' % node.nsmap['xsi'])
+                if classname is not None:
+                    names = classname.split(':')
+                    if len(names) == 2:
+                        classname = names[1]
+                    class_obj2 = globals().get(classname)
+                    if class_obj2 is not None:
+                        class_obj1 = class_obj2
+            return class_obj1
+        def gds_build_any(self, node, type_name=None):
+            # provide default value in case option --disable-xml is used.
+            content = ""
+            content = etree_.tostring(node, encoding="unicode")
+            return content
+        @classmethod
+        def gds_reverse_node_mapping(cls, mapping):
+            return dict(((v, k) for k, v in mapping.items()))
+        @staticmethod
+        def gds_encode(instring):
+            if sys.version_info.major == 2:
+                if ExternalEncoding:
+                    encoding = ExternalEncoding
+                else:
+                    encoding = 'utf-8'
+                return instring.encode(encoding)
+            else:
+                return instring
+        @staticmethod
+        def convert_unicode(instring):
+            if isinstance(instring, str):
+                result = quote_xml(instring)
+            elif sys.version_info.major == 2 and isinstance(instring, unicode):
+                result = quote_xml(instring).encode('utf8')
+            else:
+                result = GeneratedsSuper.gds_encode(str(instring))
+            return result
+        def __eq__(self, other):
+            def excl_select_objs_(obj):
+                return (obj[0] != 'parent_object_' and
+                        obj[0] != 'gds_collector_')
+            if type(self) != type(other):
+                return False
+            return all(x == y for x, y in zip_longest(
+                filter(excl_select_objs_, self.__dict__.items()),
+                filter(excl_select_objs_, other.__dict__.items())))
+        def __ne__(self, other):
+            return not self.__eq__(other)
+        # Django ETL transform hooks.
+        def gds_djo_etl_transform(self):
+            pass
+        def gds_djo_etl_transform_db_obj(self, dbobj):
+            pass
+        # SQLAlchemy ETL transform hooks.
+        def gds_sqa_etl_transform(self):
+            return 0, None
+        def gds_sqa_etl_transform_db_obj(self, dbobj):
+            pass
+        def gds_get_node_lineno_(self):
+            if (hasattr(self, "gds_elementtree_node_") and
+                    self.gds_elementtree_node_ is not None):
+                return ' near line {}'.format(
+                    self.gds_elementtree_node_.sourceline)
+            else:
+                return ""
+    
+    
+    def getSubclassFromModule_(module, class_):
+        '''Get the subclass of a class from a specific module.'''
+        name = class_.__name__ + 'Sub'
+        if hasattr(module, name):
+            return getattr(module, name)
+        else:
+            return None
+
+
+#
+# If you have installed IPython you can uncomment and use the following.
+# IPython is available from http://ipython.scipy.org/.
+#
+
+## from IPython.Shell import IPShellEmbed
+## args = ''
+## ipshell = IPShellEmbed(args,
+##     banner = 'Dropping into IPython',
+##     exit_msg = 'Leaving Interpreter, back to program.')
+
+# Then use the following line where and when you want to drop into the
+# IPython shell:
+#    ipshell('<some message> -- Entering ipshell.\nHit Ctrl-D to exit')
+
+#
+# Globals
+#
+
+ExternalEncoding = ''
+# Set this to false in order to deactivate during export, the use of
+# name space prefixes captured from the input document.
+UseCapturedNS_ = True
+CapturedNsmap_ = {}
+Tag_pattern_ = re_.compile(r'({.*})?(.*)')
+String_cleanup_pat_ = re_.compile(r"[\n\r\s]+")
+Namespace_extract_pat_ = re_.compile(r'{(.*)}(.*)')
+CDATA_pattern_ = re_.compile(r"<!\[CDATA\[.*?\]\]>", re_.DOTALL)
+
+# Change this to redirect the generated superclass module to use a
+# specific subclass module.
+CurrentSubclassModule_ = None
+
+#
+# Support/utility functions.
+#
+
+
+def showIndent(outfile, level, pretty_print=True):
+    if pretty_print:
+        for idx in range(level):
+            outfile.write('    ')
+
+
+def quote_xml(inStr):
+    "Escape markup chars, but do not modify CDATA sections."
+    if not inStr:
+        return ''
+    s1 = (isinstance(inStr, BaseStrType_) and inStr or '%s' % inStr)
+    s2 = ''
+    pos = 0
+    matchobjects = CDATA_pattern_.finditer(s1)
+    for mo in matchobjects:
+        s3 = s1[pos:mo.start()]
+        s2 += quote_xml_aux(s3)
+        s2 += s1[mo.start():mo.end()]
+        pos = mo.end()
+    s3 = s1[pos:]
+    s2 += quote_xml_aux(s3)
+    return s2
+
+
+def quote_xml_aux(inStr):
+    s1 = inStr.replace('&', '&amp;')
+    s1 = s1.replace('<', '&lt;')
+    s1 = s1.replace('>', '&gt;')
+    return s1
+
+
+def quote_attrib(inStr):
+    s1 = (isinstance(inStr, BaseStrType_) and inStr or '%s' % inStr)
+    s1 = s1.replace('&', '&amp;')
+    s1 = s1.replace('<', '&lt;')
+    s1 = s1.replace('>', '&gt;')
+    s1 = s1.replace('\n', '&#10;')
+    if '"' in s1:
+        if "'" in s1:
+            s1 = '"%s"' % s1.replace('"', "&quot;")
+        else:
+            s1 = "'%s'" % s1
+    else:
+        s1 = '"%s"' % s1
+    return s1
+
+
+def quote_python(inStr):
+    s1 = inStr
+    if s1.find("'") == -1:
+        if s1.find('\n') == -1:
+            return "'%s'" % s1
+        else:
+            return "'''%s'''" % s1
+    else:
+        if s1.find('"') != -1:
+            s1 = s1.replace('"', '\\"')
+        if s1.find('\n') == -1:
+            return '"%s"' % s1
+        else:
+            return '"""%s"""' % s1
+
+
+def get_all_text_(node):
+    if node.text is not None:
+        text = node.text
+    else:
+        text = ''
+    for child in node:
+        if child.tail is not None:
+            text += child.tail
+    return text
+
+
+def find_attr_value_(attr_name, node):
+    attrs = node.attrib
+    attr_parts = attr_name.split(':')
+    value = None
+    if len(attr_parts) == 1:
+        value = attrs.get(attr_name)
+    elif len(attr_parts) == 2:
+        prefix, name = attr_parts
+        if prefix == 'xml':
+            namespace = 'http://www.w3.org/XML/1998/namespace'
+        else:
+            namespace = node.nsmap.get(prefix)
+        if namespace is not None:
+            value = attrs.get('{%s}%s' % (namespace, name, ))
+    return value
+
+
+def encode_str_2_3(instr):
+    return instr
+
+
+class GDSParseError(Exception):
+    pass
+
+
+def raise_parse_error(node, msg):
+    if node is not None:
+        msg = '%s (element %s/line %d)' % (msg, node.tag, node.sourceline, )
+    raise GDSParseError(msg)
+
+
+class MixedContainer:
+    # Constants for category:
+    CategoryNone = 0
+    CategoryText = 1
+    CategorySimple = 2
+    CategoryComplex = 3
+    # Constants for content_type:
+    TypeNone = 0
+    TypeText = 1
+    TypeString = 2
+    TypeInteger = 3
+    TypeFloat = 4
+    TypeDecimal = 5
+    TypeDouble = 6
+    TypeBoolean = 7
+    TypeBase64 = 8
+    def __init__(self, category, content_type, name, value):
+        self.category = category
+        self.content_type = content_type
+        self.name = name
+        self.value = value
+    def getCategory(self):
+        return self.category
+    def getContenttype(self, content_type):
+        return self.content_type
+    def getValue(self):
+        return self.value
+    def getName(self):
+        return self.name
+    def export(self, outfile, level, name, namespace,
+               pretty_print=True):
+        if self.category == MixedContainer.CategoryText:
+            # Prevent exporting empty content as empty lines.
+            if self.value.strip():
+                outfile.write(self.value)
+        elif self.category == MixedContainer.CategorySimple:
+            self.exportSimple(outfile, level, name)
+        else:    # category == MixedContainer.CategoryComplex
+            self.value.export(
+                outfile, level, namespace, name_=name,
+                pretty_print=pretty_print)
+    def exportSimple(self, outfile, level, name):
+        if self.content_type == MixedContainer.TypeString:
+            outfile.write('<%s>%s</%s>' % (
+                self.name, self.value, self.name))
+        elif self.content_type == MixedContainer.TypeInteger or \
+                self.content_type == MixedContainer.TypeBoolean:
+            outfile.write('<%s>%d</%s>' % (
+                self.name, self.value, self.name))
+        elif self.content_type == MixedContainer.TypeFloat or \
+                self.content_type == MixedContainer.TypeDecimal:
+            outfile.write('<%s>%f</%s>' % (
+                self.name, self.value, self.name))
+        elif self.content_type == MixedContainer.TypeDouble:
+            outfile.write('<%s>%g</%s>' % (
+                self.name, self.value, self.name))
+        elif self.content_type == MixedContainer.TypeBase64:
+            outfile.write('<%s>%s</%s>' % (
+                self.name,
+                base64.b64encode(self.value),
+                self.name))
+    def to_etree(self, element, mapping_=None, reverse_mapping_=None, nsmap_=None):
+        if self.category == MixedContainer.CategoryText:
+            # Prevent exporting empty content as empty lines.
+            if self.value.strip():
+                if len(element) > 0:
+                    if element[-1].tail is None:
+                        element[-1].tail = self.value
+                    else:
+                        element[-1].tail += self.value
+                else:
+                    if element.text is None:
+                        element.text = self.value
+                    else:
+                        element.text += self.value
+        elif self.category == MixedContainer.CategorySimple:
+            subelement = etree_.SubElement(
+                element, '%s' % self.name)
+            subelement.text = self.to_etree_simple()
+        else:    # category == MixedContainer.CategoryComplex
+            self.value.to_etree(element)
+    def to_etree_simple(self, mapping_=None, reverse_mapping_=None, nsmap_=None):
+        if self.content_type == MixedContainer.TypeString:
+            text = self.value
+        elif (self.content_type == MixedContainer.TypeInteger or
+                self.content_type == MixedContainer.TypeBoolean):
+            text = '%d' % self.value
+        elif (self.content_type == MixedContainer.TypeFloat or
+                self.content_type == MixedContainer.TypeDecimal):
+            text = '%f' % self.value
+        elif self.content_type == MixedContainer.TypeDouble:
+            text = '%g' % self.value
+        elif self.content_type == MixedContainer.TypeBase64:
+            text = '%s' % base64.b64encode(self.value)
+        return text
+    def exportLiteral(self, outfile, level, name):
+        if self.category == MixedContainer.CategoryText:
+            showIndent(outfile, level)
+            outfile.write(
+                'model_.MixedContainer(%d, %d, "%s", "%s"),\n' % (
+                    self.category, self.content_type,
+                    self.name, self.value))
+        elif self.category == MixedContainer.CategorySimple:
+            showIndent(outfile, level)
+            outfile.write(
+                'model_.MixedContainer(%d, %d, "%s", "%s"),\n' % (
+                    self.category, self.content_type,
+                    self.name, self.value))
+        else:    # category == MixedContainer.CategoryComplex
+            showIndent(outfile, level)
+            outfile.write(
+                'model_.MixedContainer(%d, %d, "%s",\n' % (
+                    self.category, self.content_type, self.name,))
+            self.value.exportLiteral(outfile, level + 1)
+            showIndent(outfile, level)
+            outfile.write(')\n')
+
+
+class MemberSpec_(object):
+    def __init__(self, name='', data_type='', container=0,
+            optional=0, child_attrs=None, choice=None):
+        self.name = name
+        self.data_type = data_type
+        self.container = container
+        self.child_attrs = child_attrs
+        self.choice = choice
+        self.optional = optional
+    def set_name(self, name): self.name = name
+    def get_name(self): return self.name
+    def set_data_type(self, data_type): self.data_type = data_type
+    def get_data_type_chain(self): return self.data_type
+    def get_data_type(self):
+        if isinstance(self.data_type, list):
+            if len(self.data_type) > 0:
+                return self.data_type[-1]
+            else:
+                return 'xs:string'
+        else:
+            return self.data_type
+    def set_container(self, container): self.container = container
+    def get_container(self): return self.container
+    def set_child_attrs(self, child_attrs): self.child_attrs = child_attrs
+    def get_child_attrs(self): return self.child_attrs
+    def set_choice(self, choice): self.choice = choice
+    def get_choice(self): return self.choice
+    def set_optional(self, optional): self.optional = optional
+    def get_optional(self): return self.optional
+
+
+def _cast(typ, value):
+    if typ is None or value is None:
+        return value
+    return typ(value)
+
+
+#
+# Start enum classes
+#
+class CatalogueLinkKind(str, Enum):
+    CATALOGUE='catalogue'
+
+
+class ConditionGroupKind(str, Enum):
+    AND='and'
+    OR='or'
+
+
+class ConditionKind(str, Enum):
+    LESS_THAN='lessThan'
+    GREATER_THAN='greaterThan'
+    EQUAL_TO='equalTo'
+    NOT_EQUAL_TO='notEqualTo'
+    AT_LEAST='atLeast'
+    AT_MOST='atMost'
+    INSTANCE_OF='instanceOf'
+    NOT_INSTANCE_OF='notInstanceOf'
+
+
+class ConstraintKind(str, Enum):
+    MIN='min'
+    MAX='max'
+
+
+class EntryLinkKind(str, Enum):
+    SELECTION_ENTRY='selectionEntry'
+    SELECTION_ENTRY_GROUP='selectionEntryGroup'
+
+
+class InfoLinkKind(str, Enum):
+    INFO_GROUP='infoGroup'
+    PROFILE='profile'
+    RULE='rule'
+
+
+class ModifierKind(str, Enum):
+    SET='set'
+    INCREMENT='increment'
+    DECREMENT='decrement'
+    APPEND='append'
+    ADD='add'
+    REMOVE='remove'
+    SETPRIMARY='set-primary'
+    UNSETPRIMARY='unset-primary'
+
+
+class SelectionEntryKind(str, Enum):
+    UPGRADE='upgrade'
+    MODEL='model'
+    UNIT='unit'
+
+
+#
+# Start data representation classes
+#
+class Commentable(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, comment=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        self.comment = comment
+        self.comment_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Commentable)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Commentable.subclass:
+            return Commentable.subclass(*args_, **kwargs_)
+        else:
+            return Commentable(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_comment(self):
+        return self.comment
+    def set_comment(self, comment):
+        self.comment = comment
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def has__content(self):
+        if (
+            self.comment is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Commentable', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Commentable')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Commentable':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Commentable')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Commentable', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Commentable'):
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Commentable', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.comment is not None:
+            namespaceprefix_ = self.comment_nsprefix_ + ':' if (UseCapturedNS_ and self.comment_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%scomment>%s</%scomment>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.comment), input_name='comment')), namespaceprefix_ , eol_))
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'comment':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'comment')
+            value_ = self.gds_validate_string(value_, node, 'comment')
+            self.comment = value_
+            self.comment_nsprefix_ = child_.prefix
+# end class Commentable
+
+
+class Publication(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, shortName=None, publisher=None, publicationDate=None, publisherUrl=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Publication"), self).__init__(comment,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.shortName = _cast(None, shortName)
+        self.shortName_nsprefix_ = None
+        self.publisher = _cast(None, publisher)
+        self.publisher_nsprefix_ = None
+        self.publicationDate = _cast(None, publicationDate)
+        self.publicationDate_nsprefix_ = None
+        self.publisherUrl = _cast(None, publisherUrl)
+        self.publisherUrl_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Publication)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Publication.subclass:
+            return Publication.subclass(*args_, **kwargs_)
+        else:
+            return Publication(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_shortName(self):
+        return self.shortName
+    def set_shortName(self, shortName):
+        self.shortName = shortName
+    def get_publisher(self):
+        return self.publisher
+    def set_publisher(self, publisher):
+        self.publisher = publisher
+    def get_publicationDate(self):
+        return self.publicationDate
+    def set_publicationDate(self, publicationDate):
+        self.publicationDate = publicationDate
+    def get_publisherUrl(self):
+        return self.publisherUrl
+    def set_publisherUrl(self, publisherUrl):
+        self.publisherUrl = publisherUrl
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            super(Publication, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Publication', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Publication')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Publication':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Publication')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Publication', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Publication'):
+        super(Publication, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Publication')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.shortName is not None and 'shortName' not in already_processed:
+            already_processed.add('shortName')
+            outfile.write(' shortName=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.shortName), input_name='shortName')), ))
+        if self.publisher is not None and 'publisher' not in already_processed:
+            already_processed.add('publisher')
+            outfile.write(' publisher=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.publisher), input_name='publisher')), ))
+        if self.publicationDate is not None and 'publicationDate' not in already_processed:
+            already_processed.add('publicationDate')
+            outfile.write(' publicationDate=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.publicationDate), input_name='publicationDate')), ))
+        if self.publisherUrl is not None and 'publisherUrl' not in already_processed:
+            already_processed.add('publisherUrl')
+            outfile.write(' publisherUrl=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.publisherUrl), input_name='publisherUrl')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Publication', fromsubclass_=False, pretty_print=True):
+        super(Publication, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('shortName', node)
+        if value is not None and 'shortName' not in already_processed:
+            already_processed.add('shortName')
+            self.shortName = value
+        value = find_attr_value_('publisher', node)
+        if value is not None and 'publisher' not in already_processed:
+            already_processed.add('publisher')
+            self.publisher = value
+        value = find_attr_value_('publicationDate', node)
+        if value is not None and 'publicationDate' not in already_processed:
+            already_processed.add('publicationDate')
+            self.publicationDate = value
+        value = find_attr_value_('publisherUrl', node)
+        if value is not None and 'publisherUrl' not in already_processed:
+            already_processed.add('publisherUrl')
+            self.publisherUrl = value
+        super(Publication, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Publication, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Publication
+
+
+class PublicationList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, publication=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if publication is None:
+            self.publication = []
+        else:
+            self.publication = publication
+        self.publication_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, PublicationList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if PublicationList.subclass:
+            return PublicationList.subclass(*args_, **kwargs_)
+        else:
+            return PublicationList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_publication(self):
+        return self.publication
+    def set_publication(self, publication):
+        self.publication = publication
+    def add_publication(self, value):
+        self.publication.append(value)
+    def insert_publication_at(self, index, value):
+        self.publication.insert(index, value)
+    def replace_publication_at(self, index, value):
+        self.publication[index] = value
+    def has__content(self):
+        if (
+            self.publication
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='PublicationList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('PublicationList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'PublicationList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='PublicationList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='PublicationList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='PublicationList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='PublicationList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for publication_ in self.publication:
+            namespaceprefix_ = self.publication_nsprefix_ + ':' if (UseCapturedNS_ and self.publication_nsprefix_) else ''
+            publication_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='publication', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'publication':
+            obj_ = Publication.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.publication.append(obj_)
+            obj_.original_tagname_ = 'publication'
+# end class PublicationList
+
+
+class CharacteristicType(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CharacteristicType"), self).__init__(comment,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CharacteristicType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CharacteristicType.subclass:
+            return CharacteristicType.subclass(*args_, **kwargs_)
+        else:
+            return CharacteristicType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            super(CharacteristicType, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CharacteristicType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CharacteristicType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CharacteristicType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CharacteristicType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CharacteristicType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CharacteristicType'):
+        super(CharacteristicType, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CharacteristicType')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CharacteristicType', fromsubclass_=False, pretty_print=True):
+        super(CharacteristicType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        super(CharacteristicType, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(CharacteristicType, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class CharacteristicType
+
+
+class CharacteristicTypeList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, characteristicType=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if characteristicType is None:
+            self.characteristicType = []
+        else:
+            self.characteristicType = characteristicType
+        self.characteristicType_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CharacteristicTypeList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CharacteristicTypeList.subclass:
+            return CharacteristicTypeList.subclass(*args_, **kwargs_)
+        else:
+            return CharacteristicTypeList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_characteristicType(self):
+        return self.characteristicType
+    def set_characteristicType(self, characteristicType):
+        self.characteristicType = characteristicType
+    def add_characteristicType(self, value):
+        self.characteristicType.append(value)
+    def insert_characteristicType_at(self, index, value):
+        self.characteristicType.insert(index, value)
+    def replace_characteristicType_at(self, index, value):
+        self.characteristicType[index] = value
+    def has__content(self):
+        if (
+            self.characteristicType
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CharacteristicTypeList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CharacteristicTypeList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CharacteristicTypeList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CharacteristicTypeList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CharacteristicTypeList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CharacteristicTypeList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CharacteristicTypeList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for characteristicType_ in self.characteristicType:
+            namespaceprefix_ = self.characteristicType_nsprefix_ + ':' if (UseCapturedNS_ and self.characteristicType_nsprefix_) else ''
+            characteristicType_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='characteristicType', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'characteristicType':
+            obj_ = CharacteristicType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.characteristicType.append(obj_)
+            obj_.original_tagname_ = 'characteristicType'
+# end class CharacteristicTypeList
+
+
+class ProfileType(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, characteristicTypes=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("ProfileType"), self).__init__(comment,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.characteristicTypes = characteristicTypes
+        self.characteristicTypes_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ProfileType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ProfileType.subclass:
+            return ProfileType.subclass(*args_, **kwargs_)
+        else:
+            return ProfileType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_characteristicTypes(self):
+        return self.characteristicTypes
+    def set_characteristicTypes(self, characteristicTypes):
+        self.characteristicTypes = characteristicTypes
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.characteristicTypes is not None or
+            super(ProfileType, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ProfileType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ProfileType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ProfileType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ProfileType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ProfileType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ProfileType'):
+        super(ProfileType, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ProfileType')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ProfileType', fromsubclass_=False, pretty_print=True):
+        super(ProfileType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.characteristicTypes is not None:
+            namespaceprefix_ = self.characteristicTypes_nsprefix_ + ':' if (UseCapturedNS_ and self.characteristicTypes_nsprefix_) else ''
+            self.characteristicTypes.export(outfile, level, namespaceprefix_, namespacedef_='', name_='characteristicTypes', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        super(ProfileType, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'characteristicTypes':
+            obj_ = CharacteristicTypeList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.characteristicTypes = obj_
+            obj_.original_tagname_ = 'characteristicTypes'
+        super(ProfileType, self)._buildChildren(child_, node, nodeName_, True)
+# end class ProfileType
+
+
+class ProfileTypeList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, profileType=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if profileType is None:
+            self.profileType = []
+        else:
+            self.profileType = profileType
+        self.profileType_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ProfileTypeList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ProfileTypeList.subclass:
+            return ProfileTypeList.subclass(*args_, **kwargs_)
+        else:
+            return ProfileTypeList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_profileType(self):
+        return self.profileType
+    def set_profileType(self, profileType):
+        self.profileType = profileType
+    def add_profileType(self, value):
+        self.profileType.append(value)
+    def insert_profileType_at(self, index, value):
+        self.profileType.insert(index, value)
+    def replace_profileType_at(self, index, value):
+        self.profileType[index] = value
+    def has__content(self):
+        if (
+            self.profileType
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ProfileTypeList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ProfileTypeList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ProfileTypeList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ProfileTypeList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ProfileTypeList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ProfileTypeList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ProfileTypeList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for profileType_ in self.profileType:
+            namespaceprefix_ = self.profileType_nsprefix_ + ':' if (UseCapturedNS_ and self.profileType_nsprefix_) else ''
+            profileType_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='profileType', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'profileType':
+            obj_ = ProfileType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.profileType.append(obj_)
+            obj_.original_tagname_ = 'profileType'
+# end class ProfileTypeList
+
+
+class CostType(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, defaultCostLimit=-1, hidden=False, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CostType"), self).__init__(comment,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.defaultCostLimit = _cast(float, defaultCostLimit)
+        self.defaultCostLimit_nsprefix_ = None
+        self.hidden = _cast(bool, hidden)
+        self.hidden_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CostType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CostType.subclass:
+            return CostType.subclass(*args_, **kwargs_)
+        else:
+            return CostType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_defaultCostLimit(self):
+        return self.defaultCostLimit
+    def set_defaultCostLimit(self, defaultCostLimit):
+        self.defaultCostLimit = defaultCostLimit
+    def get_hidden(self):
+        return self.hidden
+    def set_hidden(self, hidden):
+        self.hidden = hidden
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            super(CostType, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CostType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CostType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CostType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CostType'):
+        super(CostType, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostType')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.defaultCostLimit != -1 and 'defaultCostLimit' not in already_processed:
+            already_processed.add('defaultCostLimit')
+            outfile.write(' defaultCostLimit="%s"' % self.gds_format_decimal(self.defaultCostLimit, input_name='defaultCostLimit'))
+        if self.hidden and 'hidden' not in already_processed:
+            already_processed.add('hidden')
+            outfile.write(' hidden="%s"' % self.gds_format_boolean(self.hidden, input_name='hidden'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostType', fromsubclass_=False, pretty_print=True):
+        super(CostType, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('defaultCostLimit', node)
+        if value is not None and 'defaultCostLimit' not in already_processed:
+            already_processed.add('defaultCostLimit')
+            value = self.gds_parse_decimal(value, node, 'defaultCostLimit')
+            self.defaultCostLimit = value
+        value = find_attr_value_('hidden', node)
+        if value is not None and 'hidden' not in already_processed:
+            already_processed.add('hidden')
+            if value in ('true', '1'):
+                self.hidden = True
+            elif value in ('false', '0'):
+                self.hidden = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        super(CostType, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(CostType, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class CostType
+
+
+class CostTypeList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, costType=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if costType is None:
+            self.costType = []
+        else:
+            self.costType = costType
+        self.costType_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CostTypeList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CostTypeList.subclass:
+            return CostTypeList.subclass(*args_, **kwargs_)
+        else:
+            return CostTypeList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_costType(self):
+        return self.costType
+    def set_costType(self, costType):
+        self.costType = costType
+    def add_costType(self, value):
+        self.costType.append(value)
+    def insert_costType_at(self, index, value):
+        self.costType.insert(index, value)
+    def replace_costType_at(self, index, value):
+        self.costType[index] = value
+    def has__content(self):
+        if (
+            self.costType
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostTypeList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CostTypeList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CostTypeList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostTypeList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CostTypeList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CostTypeList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostTypeList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for costType_ in self.costType:
+            namespaceprefix_ = self.costType_nsprefix_ + ':' if (UseCapturedNS_ and self.costType_nsprefix_) else ''
+            costType_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costType', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'costType':
+            obj_ = CostType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costType.append(obj_)
+            obj_.original_tagname_ = 'costType'
+# end class CostTypeList
+
+
+class EntryBase(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("EntryBase"), self).__init__(comment, extensiontype_,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.hidden = _cast(bool, hidden)
+        self.hidden_nsprefix_ = None
+        self.publicationId = _cast(None, publicationId)
+        self.publicationId_nsprefix_ = None
+        self.page = _cast(None, page)
+        self.page_nsprefix_ = None
+        self.modifiers = modifiers
+        self.modifiers_nsprefix_ = "tns"
+        self.modifierGroups = modifierGroups
+        self.modifierGroups_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, EntryBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if EntryBase.subclass:
+            return EntryBase.subclass(*args_, **kwargs_)
+        else:
+            return EntryBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_modifiers(self):
+        return self.modifiers
+    def set_modifiers(self, modifiers):
+        self.modifiers = modifiers
+    def get_modifierGroups(self):
+        return self.modifierGroups
+    def set_modifierGroups(self, modifierGroups):
+        self.modifierGroups = modifierGroups
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_hidden(self):
+        return self.hidden
+    def set_hidden(self, hidden):
+        self.hidden = hidden
+    def get_publicationId(self):
+        return self.publicationId
+    def set_publicationId(self, publicationId):
+        self.publicationId = publicationId
+    def get_page(self):
+        return self.page
+    def set_page(self, page):
+        self.page = page
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.modifiers is not None or
+            self.modifierGroups is not None or
+            super(EntryBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='EntryBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('EntryBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'EntryBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EntryBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='EntryBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='EntryBase'):
+        super(EntryBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EntryBase')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.hidden and 'hidden' not in already_processed:
+            already_processed.add('hidden')
+            outfile.write(' hidden="%s"' % self.gds_format_boolean(self.hidden, input_name='hidden'))
+        if self.publicationId is not None and 'publicationId' not in already_processed:
+            already_processed.add('publicationId')
+            outfile.write(' publicationId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.publicationId), input_name='publicationId')), ))
+        if self.page is not None and 'page' not in already_processed:
+            already_processed.add('page')
+            outfile.write(' page=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.page), input_name='page')), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='EntryBase', fromsubclass_=False, pretty_print=True):
+        super(EntryBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.modifiers is not None:
+            namespaceprefix_ = self.modifiers_nsprefix_ + ':' if (UseCapturedNS_ and self.modifiers_nsprefix_) else ''
+            self.modifiers.export(outfile, level, namespaceprefix_, namespacedef_='', name_='modifiers', pretty_print=pretty_print)
+        if self.modifierGroups is not None:
+            namespaceprefix_ = self.modifierGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.modifierGroups_nsprefix_) else ''
+            self.modifierGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='modifierGroups', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('hidden', node)
+        if value is not None and 'hidden' not in already_processed:
+            already_processed.add('hidden')
+            if value in ('true', '1'):
+                self.hidden = True
+            elif value in ('false', '0'):
+                self.hidden = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('publicationId', node)
+        if value is not None and 'publicationId' not in already_processed:
+            already_processed.add('publicationId')
+            self.publicationId = value
+            self.validate_idtype(self.publicationId)    # validate type idtype
+        value = find_attr_value_('page', node)
+        if value is not None and 'page' not in already_processed:
+            already_processed.add('page')
+            self.page = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(EntryBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'modifiers':
+            obj_ = ModifierList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.modifiers = obj_
+            obj_.original_tagname_ = 'modifiers'
+        elif nodeName_ == 'modifierGroups':
+            obj_ = ModifierGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.modifierGroups = obj_
+            obj_.original_tagname_ = 'modifierGroups'
+        super(EntryBase, self)._buildChildren(child_, node, nodeName_, True)
+# end class EntryBase
+
+
+class Characteristic(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, name=None, typeId=None, valueOf_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.typeId = _cast(None, typeId)
+        self.typeId_nsprefix_ = None
+        self.valueOf_ = valueOf_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Characteristic)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Characteristic.subclass:
+            return Characteristic.subclass(*args_, **kwargs_)
+        else:
+            return Characteristic(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_typeId(self):
+        return self.typeId
+    def set_typeId(self, typeId):
+        self.typeId = typeId
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Characteristic', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Characteristic')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Characteristic':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Characteristic')
+        outfile.write('>')
+        self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_, pretty_print=pretty_print)
+        outfile.write(self.convert_unicode(self.valueOf_))
+        outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Characteristic'):
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.typeId is not None and 'typeId' not in already_processed:
+            already_processed.add('typeId')
+            outfile.write(' typeId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.typeId), input_name='typeId')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Characteristic', fromsubclass_=False, pretty_print=True):
+        pass
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        self.valueOf_ = get_all_text_(node)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('typeId', node)
+        if value is not None and 'typeId' not in already_processed:
+            already_processed.add('typeId')
+            self.typeId = value
+            self.validate_idtype(self.typeId)    # validate type idtype
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        pass
+# end class Characteristic
+
+
+class CharacteristicList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, characteristic=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if characteristic is None:
+            self.characteristic = []
+        else:
+            self.characteristic = characteristic
+        self.characteristic_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CharacteristicList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CharacteristicList.subclass:
+            return CharacteristicList.subclass(*args_, **kwargs_)
+        else:
+            return CharacteristicList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_characteristic(self):
+        return self.characteristic
+    def set_characteristic(self, characteristic):
+        self.characteristic = characteristic
+    def add_characteristic(self, value):
+        self.characteristic.append(value)
+    def insert_characteristic_at(self, index, value):
+        self.characteristic.insert(index, value)
+    def replace_characteristic_at(self, index, value):
+        self.characteristic[index] = value
+    def has__content(self):
+        if (
+            self.characteristic
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CharacteristicList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CharacteristicList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CharacteristicList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CharacteristicList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CharacteristicList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CharacteristicList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CharacteristicList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for characteristic_ in self.characteristic:
+            namespaceprefix_ = self.characteristic_nsprefix_ + ':' if (UseCapturedNS_ and self.characteristic_nsprefix_) else ''
+            characteristic_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='characteristic', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'characteristic':
+            obj_ = Characteristic.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.characteristic.append(obj_)
+            obj_.original_tagname_ = 'characteristic'
+# end class CharacteristicList
+
+
+class Profile(EntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = EntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, typeId=None, typeName=None, characteristics=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Profile"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups,  **kwargs_)
+        self.typeId = _cast(None, typeId)
+        self.typeId_nsprefix_ = None
+        self.typeName = _cast(None, typeName)
+        self.typeName_nsprefix_ = None
+        self.characteristics = characteristics
+        self.characteristics_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Profile)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Profile.subclass:
+            return Profile.subclass(*args_, **kwargs_)
+        else:
+            return Profile(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_characteristics(self):
+        return self.characteristics
+    def set_characteristics(self, characteristics):
+        self.characteristics = characteristics
+    def get_typeId(self):
+        return self.typeId
+    def set_typeId(self, typeId):
+        self.typeId = typeId
+    def get_typeName(self):
+        return self.typeName
+    def set_typeName(self, typeName):
+        self.typeName = typeName
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.characteristics is not None or
+            super(Profile, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Profile', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Profile')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Profile':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Profile')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Profile', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Profile'):
+        super(Profile, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Profile')
+        if self.typeId is not None and 'typeId' not in already_processed:
+            already_processed.add('typeId')
+            outfile.write(' typeId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.typeId), input_name='typeId')), ))
+        if self.typeName is not None and 'typeName' not in already_processed:
+            already_processed.add('typeName')
+            outfile.write(' typeName=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.typeName), input_name='typeName')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Profile', fromsubclass_=False, pretty_print=True):
+        super(Profile, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.characteristics is not None:
+            namespaceprefix_ = self.characteristics_nsprefix_ + ':' if (UseCapturedNS_ and self.characteristics_nsprefix_) else ''
+            self.characteristics.export(outfile, level, namespaceprefix_, namespacedef_='', name_='characteristics', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('typeId', node)
+        if value is not None and 'typeId' not in already_processed:
+            already_processed.add('typeId')
+            self.typeId = value
+            self.validate_idtype(self.typeId)    # validate type idtype
+        value = find_attr_value_('typeName', node)
+        if value is not None and 'typeName' not in already_processed:
+            already_processed.add('typeName')
+            self.typeName = value
+        super(Profile, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'characteristics':
+            obj_ = CharacteristicList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.characteristics = obj_
+            obj_.original_tagname_ = 'characteristics'
+        super(Profile, self)._buildChildren(child_, node, nodeName_, True)
+# end class Profile
+
+
+class ProfileList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, profile=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if profile is None:
+            self.profile = []
+        else:
+            self.profile = profile
+        self.profile_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ProfileList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ProfileList.subclass:
+            return ProfileList.subclass(*args_, **kwargs_)
+        else:
+            return ProfileList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_profile(self):
+        return self.profile
+    def set_profile(self, profile):
+        self.profile = profile
+    def add_profile(self, value):
+        self.profile.append(value)
+    def insert_profile_at(self, index, value):
+        self.profile.insert(index, value)
+    def replace_profile_at(self, index, value):
+        self.profile[index] = value
+    def has__content(self):
+        if (
+            self.profile
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ProfileList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ProfileList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ProfileList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ProfileList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ProfileList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ProfileList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ProfileList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for profile_ in self.profile:
+            namespaceprefix_ = self.profile_nsprefix_ + ':' if (UseCapturedNS_ and self.profile_nsprefix_) else ''
+            profile_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='profile', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'profile':
+            obj_ = Profile.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.profile.append(obj_)
+            obj_.original_tagname_ = 'profile'
+# end class ProfileList
+
+
+class Rule(EntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = EntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, description=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Rule"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups,  **kwargs_)
+        self.description = description
+        self.description_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Rule)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Rule.subclass:
+            return Rule.subclass(*args_, **kwargs_)
+        else:
+            return Rule(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_description(self):
+        return self.description
+    def set_description(self, description):
+        self.description = description
+    def has__content(self):
+        if (
+            self.description is not None or
+            super(Rule, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Rule', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Rule')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Rule':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Rule')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Rule', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Rule'):
+        super(Rule, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Rule')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Rule', fromsubclass_=False, pretty_print=True):
+        super(Rule, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.description is not None:
+            namespaceprefix_ = self.description_nsprefix_ + ':' if (UseCapturedNS_ and self.description_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sdescription>%s</%sdescription>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.description), input_name='description')), namespaceprefix_ , eol_))
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(Rule, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'description':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'description')
+            value_ = self.gds_validate_string(value_, node, 'description')
+            self.description = value_
+            self.description_nsprefix_ = child_.prefix
+        super(Rule, self)._buildChildren(child_, node, nodeName_, True)
+# end class Rule
+
+
+class RuleList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, rule=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if rule is None:
+            self.rule = []
+        else:
+            self.rule = rule
+        self.rule_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, RuleList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if RuleList.subclass:
+            return RuleList.subclass(*args_, **kwargs_)
+        else:
+            return RuleList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_rule(self):
+        return self.rule
+    def set_rule(self, rule):
+        self.rule = rule
+    def add_rule(self, value):
+        self.rule.append(value)
+    def insert_rule_at(self, index, value):
+        self.rule.insert(index, value)
+    def replace_rule_at(self, index, value):
+        self.rule[index] = value
+    def has__content(self):
+        if (
+            self.rule
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RuleList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('RuleList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'RuleList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='RuleList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='RuleList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RuleList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RuleList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for rule_ in self.rule:
+            namespaceprefix_ = self.rule_nsprefix_ + ':' if (UseCapturedNS_ and self.rule_nsprefix_) else ''
+            rule_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='rule', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'rule':
+            obj_ = Rule.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.rule.append(obj_)
+            obj_.original_tagname_ = 'rule'
+# end class RuleList
+
+
+class ContainerEntryBase(EntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = EntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("ContainerEntryBase"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, extensiontype_,  **kwargs_)
+        self.constraints = constraints
+        self.constraints_nsprefix_ = "tns"
+        self.profiles = profiles
+        self.profiles_nsprefix_ = "tns"
+        self.rules = rules
+        self.rules_nsprefix_ = "tns"
+        self.infoGroups = infoGroups
+        self.infoGroups_nsprefix_ = "tns"
+        self.infoLinks = infoLinks
+        self.infoLinks_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ContainerEntryBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ContainerEntryBase.subclass:
+            return ContainerEntryBase.subclass(*args_, **kwargs_)
+        else:
+            return ContainerEntryBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_constraints(self):
+        return self.constraints
+    def set_constraints(self, constraints):
+        self.constraints = constraints
+    def get_profiles(self):
+        return self.profiles
+    def set_profiles(self, profiles):
+        self.profiles = profiles
+    def get_rules(self):
+        return self.rules
+    def set_rules(self, rules):
+        self.rules = rules
+    def get_infoGroups(self):
+        return self.infoGroups
+    def set_infoGroups(self, infoGroups):
+        self.infoGroups = infoGroups
+    def get_infoLinks(self):
+        return self.infoLinks
+    def set_infoLinks(self, infoLinks):
+        self.infoLinks = infoLinks
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def has__content(self):
+        if (
+            self.constraints is not None or
+            self.profiles is not None or
+            self.rules is not None or
+            self.infoGroups is not None or
+            self.infoLinks is not None or
+            super(ContainerEntryBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ContainerEntryBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ContainerEntryBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ContainerEntryBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ContainerEntryBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ContainerEntryBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ContainerEntryBase'):
+        super(ContainerEntryBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ContainerEntryBase')
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ContainerEntryBase', fromsubclass_=False, pretty_print=True):
+        super(ContainerEntryBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.constraints is not None:
+            namespaceprefix_ = self.constraints_nsprefix_ + ':' if (UseCapturedNS_ and self.constraints_nsprefix_) else ''
+            self.constraints.export(outfile, level, namespaceprefix_, namespacedef_='', name_='constraints', pretty_print=pretty_print)
+        if self.profiles is not None:
+            namespaceprefix_ = self.profiles_nsprefix_ + ':' if (UseCapturedNS_ and self.profiles_nsprefix_) else ''
+            self.profiles.export(outfile, level, namespaceprefix_, namespacedef_='', name_='profiles', pretty_print=pretty_print)
+        if self.rules is not None:
+            namespaceprefix_ = self.rules_nsprefix_ + ':' if (UseCapturedNS_ and self.rules_nsprefix_) else ''
+            self.rules.export(outfile, level, namespaceprefix_, namespacedef_='', name_='rules', pretty_print=pretty_print)
+        if self.infoGroups is not None:
+            namespaceprefix_ = self.infoGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.infoGroups_nsprefix_) else ''
+            self.infoGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoGroups', pretty_print=pretty_print)
+        if self.infoLinks is not None:
+            namespaceprefix_ = self.infoLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.infoLinks_nsprefix_) else ''
+            self.infoLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoLinks', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(ContainerEntryBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'constraints':
+            obj_ = ConstraintList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.constraints = obj_
+            obj_.original_tagname_ = 'constraints'
+        elif nodeName_ == 'profiles':
+            obj_ = ProfileList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.profiles = obj_
+            obj_.original_tagname_ = 'profiles'
+        elif nodeName_ == 'rules':
+            obj_ = RuleList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.rules = obj_
+            obj_.original_tagname_ = 'rules'
+        elif nodeName_ == 'infoGroups':
+            obj_ = InfoGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoGroups = obj_
+            obj_.original_tagname_ = 'infoGroups'
+        elif nodeName_ == 'infoLinks':
+            obj_ = InfoLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoLinks = obj_
+            obj_.original_tagname_ = 'infoLinks'
+        super(ContainerEntryBase, self)._buildChildren(child_, node, nodeName_, True)
+# end class ContainerEntryBase
+
+
+class InfoGroup(EntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = EntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("InfoGroup"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups,  **kwargs_)
+        self.profiles = profiles
+        self.profiles_nsprefix_ = "tns"
+        self.rules = rules
+        self.rules_nsprefix_ = "tns"
+        self.infoGroups = infoGroups
+        self.infoGroups_nsprefix_ = "tns"
+        self.infoLinks = infoLinks
+        self.infoLinks_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, InfoGroup)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if InfoGroup.subclass:
+            return InfoGroup.subclass(*args_, **kwargs_)
+        else:
+            return InfoGroup(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_profiles(self):
+        return self.profiles
+    def set_profiles(self, profiles):
+        self.profiles = profiles
+    def get_rules(self):
+        return self.rules
+    def set_rules(self, rules):
+        self.rules = rules
+    def get_infoGroups(self):
+        return self.infoGroups
+    def set_infoGroups(self, infoGroups):
+        self.infoGroups = infoGroups
+    def get_infoLinks(self):
+        return self.infoLinks
+    def set_infoLinks(self, infoLinks):
+        self.infoLinks = infoLinks
+    def has__content(self):
+        if (
+            self.profiles is not None or
+            self.rules is not None or
+            self.infoGroups is not None or
+            self.infoLinks is not None or
+            super(InfoGroup, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoGroup', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('InfoGroup')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'InfoGroup':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='InfoGroup')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='InfoGroup', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='InfoGroup'):
+        super(InfoGroup, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='InfoGroup')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoGroup', fromsubclass_=False, pretty_print=True):
+        super(InfoGroup, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.profiles is not None:
+            namespaceprefix_ = self.profiles_nsprefix_ + ':' if (UseCapturedNS_ and self.profiles_nsprefix_) else ''
+            self.profiles.export(outfile, level, namespaceprefix_, namespacedef_='', name_='profiles', pretty_print=pretty_print)
+        if self.rules is not None:
+            namespaceprefix_ = self.rules_nsprefix_ + ':' if (UseCapturedNS_ and self.rules_nsprefix_) else ''
+            self.rules.export(outfile, level, namespaceprefix_, namespacedef_='', name_='rules', pretty_print=pretty_print)
+        if self.infoGroups is not None:
+            namespaceprefix_ = self.infoGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.infoGroups_nsprefix_) else ''
+            self.infoGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoGroups', pretty_print=pretty_print)
+        if self.infoLinks is not None:
+            namespaceprefix_ = self.infoLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.infoLinks_nsprefix_) else ''
+            self.infoLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoLinks', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(InfoGroup, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'profiles':
+            obj_ = ProfileList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.profiles = obj_
+            obj_.original_tagname_ = 'profiles'
+        elif nodeName_ == 'rules':
+            obj_ = RuleList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.rules = obj_
+            obj_.original_tagname_ = 'rules'
+        elif nodeName_ == 'infoGroups':
+            obj_ = InfoGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoGroups = obj_
+            obj_.original_tagname_ = 'infoGroups'
+        elif nodeName_ == 'infoLinks':
+            obj_ = InfoLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoLinks = obj_
+            obj_.original_tagname_ = 'infoLinks'
+        super(InfoGroup, self)._buildChildren(child_, node, nodeName_, True)
+# end class InfoGroup
+
+
+class InfoGroupList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, infoGroup=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if infoGroup is None:
+            self.infoGroup = []
+        else:
+            self.infoGroup = infoGroup
+        self.infoGroup_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, InfoGroupList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if InfoGroupList.subclass:
+            return InfoGroupList.subclass(*args_, **kwargs_)
+        else:
+            return InfoGroupList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_infoGroup(self):
+        return self.infoGroup
+    def set_infoGroup(self, infoGroup):
+        self.infoGroup = infoGroup
+    def add_infoGroup(self, value):
+        self.infoGroup.append(value)
+    def insert_infoGroup_at(self, index, value):
+        self.infoGroup.insert(index, value)
+    def replace_infoGroup_at(self, index, value):
+        self.infoGroup[index] = value
+    def has__content(self):
+        if (
+            self.infoGroup
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoGroupList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('InfoGroupList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'InfoGroupList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='InfoGroupList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='InfoGroupList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='InfoGroupList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoGroupList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for infoGroup_ in self.infoGroup:
+            namespaceprefix_ = self.infoGroup_nsprefix_ + ':' if (UseCapturedNS_ and self.infoGroup_nsprefix_) else ''
+            infoGroup_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoGroup', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'infoGroup':
+            obj_ = InfoGroup.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoGroup.append(obj_)
+            obj_.original_tagname_ = 'infoGroup'
+# end class InfoGroupList
+
+
+class CategoryEntry(ContainerEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = ContainerEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CategoryEntry"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks,  **kwargs_)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CategoryEntry)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CategoryEntry.subclass:
+            return CategoryEntry.subclass(*args_, **kwargs_)
+        else:
+            return CategoryEntry(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def has__content(self):
+        if (
+            super(CategoryEntry, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryEntry', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CategoryEntry')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CategoryEntry':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryEntry')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CategoryEntry', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CategoryEntry'):
+        super(CategoryEntry, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryEntry')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryEntry', fromsubclass_=False, pretty_print=True):
+        super(CategoryEntry, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(CategoryEntry, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(CategoryEntry, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class CategoryEntry
+
+
+class CategoryEntryList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, categoryEntry=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if categoryEntry is None:
+            self.categoryEntry = []
+        else:
+            self.categoryEntry = categoryEntry
+        self.categoryEntry_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CategoryEntryList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CategoryEntryList.subclass:
+            return CategoryEntryList.subclass(*args_, **kwargs_)
+        else:
+            return CategoryEntryList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_categoryEntry(self):
+        return self.categoryEntry
+    def set_categoryEntry(self, categoryEntry):
+        self.categoryEntry = categoryEntry
+    def add_categoryEntry(self, value):
+        self.categoryEntry.append(value)
+    def insert_categoryEntry_at(self, index, value):
+        self.categoryEntry.insert(index, value)
+    def replace_categoryEntry_at(self, index, value):
+        self.categoryEntry[index] = value
+    def has__content(self):
+        if (
+            self.categoryEntry
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryEntryList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CategoryEntryList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CategoryEntryList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryEntryList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CategoryEntryList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CategoryEntryList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryEntryList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for categoryEntry_ in self.categoryEntry:
+            namespaceprefix_ = self.categoryEntry_nsprefix_ + ':' if (UseCapturedNS_ and self.categoryEntry_nsprefix_) else ''
+            categoryEntry_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categoryEntry', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'categoryEntry':
+            obj_ = CategoryEntry.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categoryEntry.append(obj_)
+            obj_.original_tagname_ = 'categoryEntry'
+# end class CategoryEntryList
+
+
+class ForceEntry(ContainerEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = ContainerEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, forceEntries=None, categoryLinks=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("ForceEntry"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks,  **kwargs_)
+        self.forceEntries = forceEntries
+        self.forceEntries_nsprefix_ = "tns"
+        self.categoryLinks = categoryLinks
+        self.categoryLinks_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ForceEntry)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ForceEntry.subclass:
+            return ForceEntry.subclass(*args_, **kwargs_)
+        else:
+            return ForceEntry(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_forceEntries(self):
+        return self.forceEntries
+    def set_forceEntries(self, forceEntries):
+        self.forceEntries = forceEntries
+    def get_categoryLinks(self):
+        return self.categoryLinks
+    def set_categoryLinks(self, categoryLinks):
+        self.categoryLinks = categoryLinks
+    def has__content(self):
+        if (
+            self.forceEntries is not None or
+            self.categoryLinks is not None or
+            super(ForceEntry, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ForceEntry', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ForceEntry')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ForceEntry':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ForceEntry')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ForceEntry', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ForceEntry'):
+        super(ForceEntry, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ForceEntry')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ForceEntry', fromsubclass_=False, pretty_print=True):
+        super(ForceEntry, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.forceEntries is not None:
+            namespaceprefix_ = self.forceEntries_nsprefix_ + ':' if (UseCapturedNS_ and self.forceEntries_nsprefix_) else ''
+            self.forceEntries.export(outfile, level, namespaceprefix_, namespacedef_='', name_='forceEntries', pretty_print=pretty_print)
+        if self.categoryLinks is not None:
+            namespaceprefix_ = self.categoryLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.categoryLinks_nsprefix_) else ''
+            self.categoryLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categoryLinks', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(ForceEntry, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'forceEntries':
+            obj_ = ForceEntryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.forceEntries = obj_
+            obj_.original_tagname_ = 'forceEntries'
+        elif nodeName_ == 'categoryLinks':
+            obj_ = CategoryLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categoryLinks = obj_
+            obj_.original_tagname_ = 'categoryLinks'
+        super(ForceEntry, self)._buildChildren(child_, node, nodeName_, True)
+# end class ForceEntry
+
+
+class ForceEntryList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, forceEntry=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if forceEntry is None:
+            self.forceEntry = []
+        else:
+            self.forceEntry = forceEntry
+        self.forceEntry_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ForceEntryList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ForceEntryList.subclass:
+            return ForceEntryList.subclass(*args_, **kwargs_)
+        else:
+            return ForceEntryList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_forceEntry(self):
+        return self.forceEntry
+    def set_forceEntry(self, forceEntry):
+        self.forceEntry = forceEntry
+    def add_forceEntry(self, value):
+        self.forceEntry.append(value)
+    def insert_forceEntry_at(self, index, value):
+        self.forceEntry.insert(index, value)
+    def replace_forceEntry_at(self, index, value):
+        self.forceEntry[index] = value
+    def has__content(self):
+        if (
+            self.forceEntry
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ForceEntryList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ForceEntryList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ForceEntryList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ForceEntryList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ForceEntryList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ForceEntryList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ForceEntryList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for forceEntry_ in self.forceEntry:
+            namespaceprefix_ = self.forceEntry_nsprefix_ + ':' if (UseCapturedNS_ and self.forceEntry_nsprefix_) else ''
+            forceEntry_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='forceEntry', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'forceEntry':
+            obj_ = ForceEntry.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.forceEntry.append(obj_)
+            obj_.original_tagname_ = 'forceEntry'
+# end class ForceEntryList
+
+
+class CostBase(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, name=None, typeId=None, value=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.typeId = _cast(None, typeId)
+        self.typeId_nsprefix_ = None
+        self.value = _cast(float, value)
+        self.value_nsprefix_ = None
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CostBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CostBase.subclass:
+            return CostBase.subclass(*args_, **kwargs_)
+        else:
+            return CostBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_typeId(self):
+        return self.typeId
+    def set_typeId(self, typeId):
+        self.typeId = typeId
+    def get_value(self):
+        return self.value
+    def set_value(self, value):
+        self.value = value
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CostBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CostBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CostBase', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CostBase'):
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.typeId is not None and 'typeId' not in already_processed:
+            already_processed.add('typeId')
+            outfile.write(' typeId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.typeId), input_name='typeId')), ))
+        if self.value is not None and 'value' not in already_processed:
+            already_processed.add('value')
+            outfile.write(' value="%s"' % self.gds_format_decimal(self.value, input_name='value'))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostBase', fromsubclass_=False, pretty_print=True):
+        pass
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('typeId', node)
+        if value is not None and 'typeId' not in already_processed:
+            already_processed.add('typeId')
+            self.typeId = value
+            self.validate_idtype(self.typeId)    # validate type idtype
+        value = find_attr_value_('value', node)
+        if value is not None and 'value' not in already_processed:
+            already_processed.add('value')
+            value = self.gds_parse_decimal(value, node, 'value')
+            self.value = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        pass
+# end class CostBase
+
+
+class Cost(CostBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = CostBase
+    def __init__(self, name=None, typeId=None, value=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Cost"), self).__init__(name, typeId, value,  **kwargs_)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Cost)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Cost.subclass:
+            return Cost.subclass(*args_, **kwargs_)
+        else:
+            return Cost(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def has__content(self):
+        if (
+            super(Cost, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Cost', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Cost')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Cost':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Cost')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Cost', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Cost'):
+        super(Cost, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Cost')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Cost', fromsubclass_=False, pretty_print=True):
+        super(Cost, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        pass
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(Cost, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Cost, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Cost
+
+
+class CostList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, cost=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if cost is None:
+            self.cost = []
+        else:
+            self.cost = cost
+        self.cost_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CostList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CostList.subclass:
+            return CostList.subclass(*args_, **kwargs_)
+        else:
+            return CostList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_cost(self):
+        return self.cost
+    def set_cost(self, cost):
+        self.cost = cost
+    def add_cost(self, value):
+        self.cost.append(value)
+    def insert_cost_at(self, index, value):
+        self.cost.insert(index, value)
+    def replace_cost_at(self, index, value):
+        self.cost[index] = value
+    def has__content(self):
+        if (
+            self.cost
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CostList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CostList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CostList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CostList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for cost_ in self.cost:
+            namespaceprefix_ = self.cost_nsprefix_ + ':' if (UseCapturedNS_ and self.cost_nsprefix_) else ''
+            cost_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='cost', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'cost':
+            obj_ = Cost.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.cost.append(obj_)
+            obj_.original_tagname_ = 'cost'
+# end class CostList
+
+
+class CostLimit(CostBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = CostBase
+    def __init__(self, name=None, typeId=None, value=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CostLimit"), self).__init__(name, typeId, value,  **kwargs_)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CostLimit)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CostLimit.subclass:
+            return CostLimit.subclass(*args_, **kwargs_)
+        else:
+            return CostLimit(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def has__content(self):
+        if (
+            super(CostLimit, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostLimit', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CostLimit')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CostLimit':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostLimit')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CostLimit', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CostLimit'):
+        super(CostLimit, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostLimit')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostLimit', fromsubclass_=False, pretty_print=True):
+        super(CostLimit, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        pass
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(CostLimit, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(CostLimit, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class CostLimit
+
+
+class CostLimitList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, costLimit=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if costLimit is None:
+            self.costLimit = []
+        else:
+            self.costLimit = costLimit
+        self.costLimit_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CostLimitList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CostLimitList.subclass:
+            return CostLimitList.subclass(*args_, **kwargs_)
+        else:
+            return CostLimitList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_costLimit(self):
+        return self.costLimit
+    def set_costLimit(self, costLimit):
+        self.costLimit = costLimit
+    def add_costLimit(self, value):
+        self.costLimit.append(value)
+    def insert_costLimit_at(self, index, value):
+        self.costLimit.insert(index, value)
+    def replace_costLimit_at(self, index, value):
+        self.costLimit[index] = value
+    def has__content(self):
+        if (
+            self.costLimit
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostLimitList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CostLimitList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CostLimitList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CostLimitList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CostLimitList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CostLimitList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CostLimitList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for costLimit_ in self.costLimit:
+            namespaceprefix_ = self.costLimit_nsprefix_ + ':' if (UseCapturedNS_ and self.costLimit_nsprefix_) else ''
+            costLimit_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costLimit', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'costLimit':
+            obj_ = CostLimit.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costLimit.append(obj_)
+            obj_.original_tagname_ = 'costLimit'
+# end class CostLimitList
+
+
+class SelectionEntryBase(ContainerEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = ContainerEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, collective=False, import_=False, categoryLinks=None, selectionEntries=None, selectionEntryGroups=None, entryLinks=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("SelectionEntryBase"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks, extensiontype_,  **kwargs_)
+        self.collective = _cast(bool, collective)
+        self.collective_nsprefix_ = None
+        self.import_ = _cast(bool, import_)
+        self.import__nsprefix_ = None
+        self.categoryLinks = categoryLinks
+        self.categoryLinks_nsprefix_ = "tns"
+        self.selectionEntries = selectionEntries
+        self.selectionEntries_nsprefix_ = "tns"
+        self.selectionEntryGroups = selectionEntryGroups
+        self.selectionEntryGroups_nsprefix_ = "tns"
+        self.entryLinks = entryLinks
+        self.entryLinks_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionEntryBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionEntryBase.subclass:
+            return SelectionEntryBase.subclass(*args_, **kwargs_)
+        else:
+            return SelectionEntryBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_categoryLinks(self):
+        return self.categoryLinks
+    def set_categoryLinks(self, categoryLinks):
+        self.categoryLinks = categoryLinks
+    def get_selectionEntries(self):
+        return self.selectionEntries
+    def set_selectionEntries(self, selectionEntries):
+        self.selectionEntries = selectionEntries
+    def get_selectionEntryGroups(self):
+        return self.selectionEntryGroups
+    def set_selectionEntryGroups(self, selectionEntryGroups):
+        self.selectionEntryGroups = selectionEntryGroups
+    def get_entryLinks(self):
+        return self.entryLinks
+    def set_entryLinks(self, entryLinks):
+        self.entryLinks = entryLinks
+    def get_collective(self):
+        return self.collective
+    def set_collective(self, collective):
+        self.collective = collective
+    def get_import(self):
+        return self.import_
+    def set_import(self, import_):
+        self.import_ = import_
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def has__content(self):
+        if (
+            self.categoryLinks is not None or
+            self.selectionEntries is not None or
+            self.selectionEntryGroups is not None or
+            self.entryLinks is not None or
+            super(SelectionEntryBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionEntryBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionEntryBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntryBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionEntryBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionEntryBase'):
+        super(SelectionEntryBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntryBase')
+        if self.collective and 'collective' not in already_processed:
+            already_processed.add('collective')
+            outfile.write(' collective="%s"' % self.gds_format_boolean(self.collective, input_name='collective'))
+        if self.import_ and 'import_' not in already_processed:
+            already_processed.add('import_')
+            outfile.write(' import="%s"' % self.gds_format_boolean(self.import_, input_name='import'))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryBase', fromsubclass_=False, pretty_print=True):
+        super(SelectionEntryBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.categoryLinks is not None:
+            namespaceprefix_ = self.categoryLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.categoryLinks_nsprefix_) else ''
+            self.categoryLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categoryLinks', pretty_print=pretty_print)
+        if self.selectionEntries is not None:
+            namespaceprefix_ = self.selectionEntries_nsprefix_ + ':' if (UseCapturedNS_ and self.selectionEntries_nsprefix_) else ''
+            self.selectionEntries.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selectionEntries', pretty_print=pretty_print)
+        if self.selectionEntryGroups is not None:
+            namespaceprefix_ = self.selectionEntryGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.selectionEntryGroups_nsprefix_) else ''
+            self.selectionEntryGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selectionEntryGroups', pretty_print=pretty_print)
+        if self.entryLinks is not None:
+            namespaceprefix_ = self.entryLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.entryLinks_nsprefix_) else ''
+            self.entryLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='entryLinks', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('collective', node)
+        if value is not None and 'collective' not in already_processed:
+            already_processed.add('collective')
+            if value in ('true', '1'):
+                self.collective = True
+            elif value in ('false', '0'):
+                self.collective = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('import', node)
+        if value is not None and 'import' not in already_processed:
+            already_processed.add('import')
+            if value in ('true', '1'):
+                self.import_ = True
+            elif value in ('false', '0'):
+                self.import_ = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(SelectionEntryBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'categoryLinks':
+            obj_ = CategoryLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categoryLinks = obj_
+            obj_.original_tagname_ = 'categoryLinks'
+        elif nodeName_ == 'selectionEntries':
+            obj_ = SelectionEntryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selectionEntries = obj_
+            obj_.original_tagname_ = 'selectionEntries'
+        elif nodeName_ == 'selectionEntryGroups':
+            obj_ = SelectionEntryGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selectionEntryGroups = obj_
+            obj_.original_tagname_ = 'selectionEntryGroups'
+        elif nodeName_ == 'entryLinks':
+            obj_ = EntryLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.entryLinks = obj_
+            obj_.original_tagname_ = 'entryLinks'
+        super(SelectionEntryBase, self)._buildChildren(child_, node, nodeName_, True)
+# end class SelectionEntryBase
+
+
+class SelectionEntry(SelectionEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = SelectionEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, collective=False, import_=False, categoryLinks=None, selectionEntries=None, selectionEntryGroups=None, entryLinks=None, type_=None, costs=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("SelectionEntry"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks, collective, import_, categoryLinks, selectionEntries, selectionEntryGroups, entryLinks,  **kwargs_)
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+        self.costs = costs
+        self.costs_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionEntry)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionEntry.subclass:
+            return SelectionEntry.subclass(*args_, **kwargs_)
+        else:
+            return SelectionEntry(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_costs(self):
+        return self.costs
+    def set_costs(self, costs):
+        self.costs = costs
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_SelectionEntryKind(self, value):
+        # Validate type tns:SelectionEntryKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['upgrade', 'model', 'unit']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on SelectionEntryKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            self.costs is not None or
+            super(SelectionEntry, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntry', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionEntry')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionEntry':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntry')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionEntry', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionEntry'):
+        super(SelectionEntry, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntry')
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntry', fromsubclass_=False, pretty_print=True):
+        super(SelectionEntry, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.costs is not None:
+            namespaceprefix_ = self.costs_nsprefix_ + ':' if (UseCapturedNS_ and self.costs_nsprefix_) else ''
+            self.costs.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costs', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_SelectionEntryKind(self.type_)    # validate type SelectionEntryKind
+        super(SelectionEntry, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'costs':
+            obj_ = CostList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costs = obj_
+            obj_.original_tagname_ = 'costs'
+        super(SelectionEntry, self)._buildChildren(child_, node, nodeName_, True)
+# end class SelectionEntry
+
+
+class SelectionEntryList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, selectionEntry=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if selectionEntry is None:
+            self.selectionEntry = []
+        else:
+            self.selectionEntry = selectionEntry
+        self.selectionEntry_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionEntryList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionEntryList.subclass:
+            return SelectionEntryList.subclass(*args_, **kwargs_)
+        else:
+            return SelectionEntryList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_selectionEntry(self):
+        return self.selectionEntry
+    def set_selectionEntry(self, selectionEntry):
+        self.selectionEntry = selectionEntry
+    def add_selectionEntry(self, value):
+        self.selectionEntry.append(value)
+    def insert_selectionEntry_at(self, index, value):
+        self.selectionEntry.insert(index, value)
+    def replace_selectionEntry_at(self, index, value):
+        self.selectionEntry[index] = value
+    def has__content(self):
+        if (
+            self.selectionEntry
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionEntryList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionEntryList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntryList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionEntryList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionEntryList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for selectionEntry_ in self.selectionEntry:
+            namespaceprefix_ = self.selectionEntry_nsprefix_ + ':' if (UseCapturedNS_ and self.selectionEntry_nsprefix_) else ''
+            selectionEntry_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selectionEntry', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'selectionEntry':
+            obj_ = SelectionEntry.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selectionEntry.append(obj_)
+            obj_.original_tagname_ = 'selectionEntry'
+# end class SelectionEntryList
+
+
+class SelectionEntryGroup(SelectionEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = SelectionEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, collective=False, import_=False, categoryLinks=None, selectionEntries=None, selectionEntryGroups=None, entryLinks=None, defaultSelectionEntryId=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("SelectionEntryGroup"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks, collective, import_, categoryLinks, selectionEntries, selectionEntryGroups, entryLinks,  **kwargs_)
+        self.defaultSelectionEntryId = _cast(None, defaultSelectionEntryId)
+        self.defaultSelectionEntryId_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionEntryGroup)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionEntryGroup.subclass:
+            return SelectionEntryGroup.subclass(*args_, **kwargs_)
+        else:
+            return SelectionEntryGroup(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_defaultSelectionEntryId(self):
+        return self.defaultSelectionEntryId
+    def set_defaultSelectionEntryId(self, defaultSelectionEntryId):
+        self.defaultSelectionEntryId = defaultSelectionEntryId
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            super(SelectionEntryGroup, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryGroup', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionEntryGroup')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionEntryGroup':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntryGroup')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionEntryGroup', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionEntryGroup'):
+        super(SelectionEntryGroup, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntryGroup')
+        if self.defaultSelectionEntryId is not None and 'defaultSelectionEntryId' not in already_processed:
+            already_processed.add('defaultSelectionEntryId')
+            outfile.write(' defaultSelectionEntryId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.defaultSelectionEntryId), input_name='defaultSelectionEntryId')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryGroup', fromsubclass_=False, pretty_print=True):
+        super(SelectionEntryGroup, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('defaultSelectionEntryId', node)
+        if value is not None and 'defaultSelectionEntryId' not in already_processed:
+            already_processed.add('defaultSelectionEntryId')
+            self.defaultSelectionEntryId = value
+            self.validate_idtype(self.defaultSelectionEntryId)    # validate type idtype
+        super(SelectionEntryGroup, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(SelectionEntryGroup, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class SelectionEntryGroup
+
+
+class SelectionEntryGroupList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, selectionEntryGroup=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if selectionEntryGroup is None:
+            self.selectionEntryGroup = []
+        else:
+            self.selectionEntryGroup = selectionEntryGroup
+        self.selectionEntryGroup_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionEntryGroupList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionEntryGroupList.subclass:
+            return SelectionEntryGroupList.subclass(*args_, **kwargs_)
+        else:
+            return SelectionEntryGroupList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_selectionEntryGroup(self):
+        return self.selectionEntryGroup
+    def set_selectionEntryGroup(self, selectionEntryGroup):
+        self.selectionEntryGroup = selectionEntryGroup
+    def add_selectionEntryGroup(self, value):
+        self.selectionEntryGroup.append(value)
+    def insert_selectionEntryGroup_at(self, index, value):
+        self.selectionEntryGroup.insert(index, value)
+    def replace_selectionEntryGroup_at(self, index, value):
+        self.selectionEntryGroup[index] = value
+    def has__content(self):
+        if (
+            self.selectionEntryGroup
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryGroupList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionEntryGroupList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionEntryGroupList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionEntryGroupList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionEntryGroupList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionEntryGroupList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionEntryGroupList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for selectionEntryGroup_ in self.selectionEntryGroup:
+            namespaceprefix_ = self.selectionEntryGroup_nsprefix_ + ':' if (UseCapturedNS_ and self.selectionEntryGroup_nsprefix_) else ''
+            selectionEntryGroup_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selectionEntryGroup', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'selectionEntryGroup':
+            obj_ = SelectionEntryGroup.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selectionEntryGroup.append(obj_)
+            obj_.original_tagname_ = 'selectionEntryGroup'
+# end class SelectionEntryGroupList
+
+
+class InfoLink(EntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = EntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, targetId=None, type_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("InfoLink"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups,  **kwargs_)
+        self.targetId = _cast(None, targetId)
+        self.targetId_nsprefix_ = None
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, InfoLink)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if InfoLink.subclass:
+            return InfoLink.subclass(*args_, **kwargs_)
+        else:
+            return InfoLink(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_targetId(self):
+        return self.targetId
+    def set_targetId(self, targetId):
+        self.targetId = targetId
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def validate_InfoLinkKind(self, value):
+        # Validate type tns:InfoLinkKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['infoGroup', 'profile', 'rule']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on InfoLinkKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            super(InfoLink, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoLink', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('InfoLink')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'InfoLink':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='InfoLink')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='InfoLink', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='InfoLink'):
+        super(InfoLink, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='InfoLink')
+        if self.targetId is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            outfile.write(' targetId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.targetId), input_name='targetId')), ))
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoLink', fromsubclass_=False, pretty_print=True):
+        super(InfoLink, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('targetId', node)
+        if value is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            self.targetId = value
+            self.validate_idtype(self.targetId)    # validate type idtype
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_InfoLinkKind(self.type_)    # validate type InfoLinkKind
+        super(InfoLink, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(InfoLink, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class InfoLink
+
+
+class InfoLinkList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, infoLink=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if infoLink is None:
+            self.infoLink = []
+        else:
+            self.infoLink = infoLink
+        self.infoLink_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, InfoLinkList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if InfoLinkList.subclass:
+            return InfoLinkList.subclass(*args_, **kwargs_)
+        else:
+            return InfoLinkList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_infoLink(self):
+        return self.infoLink
+    def set_infoLink(self, infoLink):
+        self.infoLink = infoLink
+    def add_infoLink(self, value):
+        self.infoLink.append(value)
+    def insert_infoLink_at(self, index, value):
+        self.infoLink.insert(index, value)
+    def replace_infoLink_at(self, index, value):
+        self.infoLink[index] = value
+    def has__content(self):
+        if (
+            self.infoLink
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoLinkList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('InfoLinkList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'InfoLinkList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='InfoLinkList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='InfoLinkList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='InfoLinkList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='InfoLinkList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for infoLink_ in self.infoLink:
+            namespaceprefix_ = self.infoLink_nsprefix_ + ':' if (UseCapturedNS_ and self.infoLink_nsprefix_) else ''
+            infoLink_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoLink', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'infoLink':
+            obj_ = InfoLink.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoLink.append(obj_)
+            obj_.original_tagname_ = 'infoLink'
+# end class InfoLinkList
+
+
+class CatalogueLink(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, targetId=None, type_=None, importRootEntries=False, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CatalogueLink"), self).__init__(comment,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.targetId = _cast(None, targetId)
+        self.targetId_nsprefix_ = None
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+        self.importRootEntries = _cast(bool, importRootEntries)
+        self.importRootEntries_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CatalogueLink)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CatalogueLink.subclass:
+            return CatalogueLink.subclass(*args_, **kwargs_)
+        else:
+            return CatalogueLink(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_targetId(self):
+        return self.targetId
+    def set_targetId(self, targetId):
+        self.targetId = targetId
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def get_importRootEntries(self):
+        return self.importRootEntries
+    def set_importRootEntries(self, importRootEntries):
+        self.importRootEntries = importRootEntries
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def validate_CatalogueLinkKind(self, value):
+        # Validate type tns:CatalogueLinkKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['catalogue']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on CatalogueLinkKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            super(CatalogueLink, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CatalogueLink', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CatalogueLink')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CatalogueLink':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CatalogueLink')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CatalogueLink', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CatalogueLink'):
+        super(CatalogueLink, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CatalogueLink')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.targetId is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            outfile.write(' targetId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.targetId), input_name='targetId')), ))
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+        if self.importRootEntries and 'importRootEntries' not in already_processed:
+            already_processed.add('importRootEntries')
+            outfile.write(' importRootEntries="%s"' % self.gds_format_boolean(self.importRootEntries, input_name='importRootEntries'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CatalogueLink', fromsubclass_=False, pretty_print=True):
+        super(CatalogueLink, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('targetId', node)
+        if value is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            self.targetId = value
+            self.validate_idtype(self.targetId)    # validate type idtype
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_CatalogueLinkKind(self.type_)    # validate type CatalogueLinkKind
+        value = find_attr_value_('importRootEntries', node)
+        if value is not None and 'importRootEntries' not in already_processed:
+            already_processed.add('importRootEntries')
+            if value in ('true', '1'):
+                self.importRootEntries = True
+            elif value in ('false', '0'):
+                self.importRootEntries = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        super(CatalogueLink, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(CatalogueLink, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class CatalogueLink
+
+
+class CatalogueLinkList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, catalogueLink=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if catalogueLink is None:
+            self.catalogueLink = []
+        else:
+            self.catalogueLink = catalogueLink
+        self.catalogueLink_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CatalogueLinkList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CatalogueLinkList.subclass:
+            return CatalogueLinkList.subclass(*args_, **kwargs_)
+        else:
+            return CatalogueLinkList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_catalogueLink(self):
+        return self.catalogueLink
+    def set_catalogueLink(self, catalogueLink):
+        self.catalogueLink = catalogueLink
+    def add_catalogueLink(self, value):
+        self.catalogueLink.append(value)
+    def insert_catalogueLink_at(self, index, value):
+        self.catalogueLink.insert(index, value)
+    def replace_catalogueLink_at(self, index, value):
+        self.catalogueLink[index] = value
+    def has__content(self):
+        if (
+            self.catalogueLink
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CatalogueLinkList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CatalogueLinkList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CatalogueLinkList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CatalogueLinkList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CatalogueLinkList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CatalogueLinkList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CatalogueLinkList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for catalogueLink_ in self.catalogueLink:
+            namespaceprefix_ = self.catalogueLink_nsprefix_ + ':' if (UseCapturedNS_ and self.catalogueLink_nsprefix_) else ''
+            catalogueLink_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='catalogueLink', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'catalogueLink':
+            obj_ = CatalogueLink.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.catalogueLink.append(obj_)
+            obj_.original_tagname_ = 'catalogueLink'
+# end class CatalogueLinkList
+
+
+class CategoryLink(ContainerEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = ContainerEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, targetId=None, primary=False, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CategoryLink"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks,  **kwargs_)
+        self.targetId = _cast(None, targetId)
+        self.targetId_nsprefix_ = None
+        self.primary = _cast(bool, primary)
+        self.primary_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CategoryLink)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CategoryLink.subclass:
+            return CategoryLink.subclass(*args_, **kwargs_)
+        else:
+            return CategoryLink(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_targetId(self):
+        return self.targetId
+    def set_targetId(self, targetId):
+        self.targetId = targetId
+    def get_primary(self):
+        return self.primary
+    def set_primary(self, primary):
+        self.primary = primary
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            super(CategoryLink, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryLink', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CategoryLink')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CategoryLink':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryLink')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CategoryLink', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CategoryLink'):
+        super(CategoryLink, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryLink')
+        if self.targetId is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            outfile.write(' targetId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.targetId), input_name='targetId')), ))
+        if self.primary and 'primary' not in already_processed:
+            already_processed.add('primary')
+            outfile.write(' primary="%s"' % self.gds_format_boolean(self.primary, input_name='primary'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryLink', fromsubclass_=False, pretty_print=True):
+        super(CategoryLink, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('targetId', node)
+        if value is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            self.targetId = value
+            self.validate_idtype(self.targetId)    # validate type idtype
+        value = find_attr_value_('primary', node)
+        if value is not None and 'primary' not in already_processed:
+            already_processed.add('primary')
+            if value in ('true', '1'):
+                self.primary = True
+            elif value in ('false', '0'):
+                self.primary = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        super(CategoryLink, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(CategoryLink, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class CategoryLink
+
+
+class CategoryLinkList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, categoryLink=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if categoryLink is None:
+            self.categoryLink = []
+        else:
+            self.categoryLink = categoryLink
+        self.categoryLink_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CategoryLinkList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CategoryLinkList.subclass:
+            return CategoryLinkList.subclass(*args_, **kwargs_)
+        else:
+            return CategoryLinkList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_categoryLink(self):
+        return self.categoryLink
+    def set_categoryLink(self, categoryLink):
+        self.categoryLink = categoryLink
+    def add_categoryLink(self, value):
+        self.categoryLink.append(value)
+    def insert_categoryLink_at(self, index, value):
+        self.categoryLink.insert(index, value)
+    def replace_categoryLink_at(self, index, value):
+        self.categoryLink[index] = value
+    def has__content(self):
+        if (
+            self.categoryLink
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryLinkList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CategoryLinkList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CategoryLinkList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryLinkList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CategoryLinkList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CategoryLinkList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryLinkList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for categoryLink_ in self.categoryLink:
+            namespaceprefix_ = self.categoryLink_nsprefix_ + ':' if (UseCapturedNS_ and self.categoryLink_nsprefix_) else ''
+            categoryLink_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categoryLink', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'categoryLink':
+            obj_ = CategoryLink.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categoryLink.append(obj_)
+            obj_.original_tagname_ = 'categoryLink'
+# end class CategoryLinkList
+
+
+class EntryLink(SelectionEntryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = SelectionEntryBase
+    def __init__(self, comment=None, id=None, name=None, hidden=False, publicationId=None, page=None, modifiers=None, modifierGroups=None, constraints=None, profiles=None, rules=None, infoGroups=None, infoLinks=None, collective=False, import_=False, categoryLinks=None, selectionEntries=None, selectionEntryGroups=None, entryLinks=None, targetId=None, type_=None, costs=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("EntryLink"), self).__init__(comment, id, name, hidden, publicationId, page, modifiers, modifierGroups, constraints, profiles, rules, infoGroups, infoLinks, collective, import_, categoryLinks, selectionEntries, selectionEntryGroups, entryLinks,  **kwargs_)
+        self.targetId = _cast(None, targetId)
+        self.targetId_nsprefix_ = None
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+        self.costs = costs
+        self.costs_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, EntryLink)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if EntryLink.subclass:
+            return EntryLink.subclass(*args_, **kwargs_)
+        else:
+            return EntryLink(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_costs(self):
+        return self.costs
+    def set_costs(self, costs):
+        self.costs = costs
+    def get_targetId(self):
+        return self.targetId
+    def set_targetId(self, targetId):
+        self.targetId = targetId
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def validate_EntryLinkKind(self, value):
+        # Validate type tns:EntryLinkKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['selectionEntry', 'selectionEntryGroup']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on EntryLinkKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            self.costs is not None or
+            super(EntryLink, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='EntryLink', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('EntryLink')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'EntryLink':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EntryLink')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='EntryLink', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='EntryLink'):
+        super(EntryLink, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EntryLink')
+        if self.targetId is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            outfile.write(' targetId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.targetId), input_name='targetId')), ))
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='EntryLink', fromsubclass_=False, pretty_print=True):
+        super(EntryLink, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.costs is not None:
+            namespaceprefix_ = self.costs_nsprefix_ + ':' if (UseCapturedNS_ and self.costs_nsprefix_) else ''
+            self.costs.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costs', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('targetId', node)
+        if value is not None and 'targetId' not in already_processed:
+            already_processed.add('targetId')
+            self.targetId = value
+            self.validate_idtype(self.targetId)    # validate type idtype
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_EntryLinkKind(self.type_)    # validate type EntryLinkKind
+        super(EntryLink, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'costs':
+            obj_ = CostList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costs = obj_
+            obj_.original_tagname_ = 'costs'
+        super(EntryLink, self)._buildChildren(child_, node, nodeName_, True)
+# end class EntryLink
+
+
+class EntryLinkList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, entryLink=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if entryLink is None:
+            self.entryLink = []
+        else:
+            self.entryLink = entryLink
+        self.entryLink_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, EntryLinkList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if EntryLinkList.subclass:
+            return EntryLinkList.subclass(*args_, **kwargs_)
+        else:
+            return EntryLinkList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_entryLink(self):
+        return self.entryLink
+    def set_entryLink(self, entryLink):
+        self.entryLink = entryLink
+    def add_entryLink(self, value):
+        self.entryLink.append(value)
+    def insert_entryLink_at(self, index, value):
+        self.entryLink.insert(index, value)
+    def replace_entryLink_at(self, index, value):
+        self.entryLink[index] = value
+    def has__content(self):
+        if (
+            self.entryLink
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='EntryLinkList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('EntryLinkList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'EntryLinkList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='EntryLinkList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='EntryLinkList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='EntryLinkList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='EntryLinkList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for entryLink_ in self.entryLink:
+            namespaceprefix_ = self.entryLink_nsprefix_ + ':' if (UseCapturedNS_ and self.entryLink_nsprefix_) else ''
+            entryLink_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='entryLink', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'entryLink':
+            obj_ = EntryLink.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.entryLink.append(obj_)
+            obj_.original_tagname_ = 'entryLink'
+# end class EntryLinkList
+
+
+class QueryBase(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, field=None, scope=None, value=None, percentValue=False, shared=True, includeChildSelections=False, includeChildForces=False, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("QueryBase"), self).__init__(comment, extensiontype_,  **kwargs_)
+        self.field = _cast(None, field)
+        self.field_nsprefix_ = None
+        self.scope = _cast(None, scope)
+        self.scope_nsprefix_ = None
+        self.value = _cast(float, value)
+        self.value_nsprefix_ = None
+        self.percentValue = _cast(bool, percentValue)
+        self.percentValue_nsprefix_ = None
+        self.shared = _cast(bool, shared)
+        self.shared_nsprefix_ = None
+        self.includeChildSelections = _cast(bool, includeChildSelections)
+        self.includeChildSelections_nsprefix_ = None
+        self.includeChildForces = _cast(bool, includeChildForces)
+        self.includeChildForces_nsprefix_ = None
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, QueryBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if QueryBase.subclass:
+            return QueryBase.subclass(*args_, **kwargs_)
+        else:
+            return QueryBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_field(self):
+        return self.field
+    def set_field(self, field):
+        self.field = field
+    def get_scope(self):
+        return self.scope
+    def set_scope(self, scope):
+        self.scope = scope
+    def get_value(self):
+        return self.value
+    def set_value(self, value):
+        self.value = value
+    def get_percentValue(self):
+        return self.percentValue
+    def set_percentValue(self, percentValue):
+        self.percentValue = percentValue
+    def get_shared(self):
+        return self.shared
+    def set_shared(self, shared):
+        self.shared = shared
+    def get_includeChildSelections(self):
+        return self.includeChildSelections
+    def set_includeChildSelections(self, includeChildSelections):
+        self.includeChildSelections = includeChildSelections
+    def get_includeChildForces(self):
+        return self.includeChildForces
+    def set_includeChildForces(self, includeChildForces):
+        self.includeChildForces = includeChildForces
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def has__content(self):
+        if (
+            super(QueryBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='QueryBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('QueryBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'QueryBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='QueryBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='QueryBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='QueryBase'):
+        super(QueryBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='QueryBase')
+        if self.field is not None and 'field' not in already_processed:
+            already_processed.add('field')
+            outfile.write(' field=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.field), input_name='field')), ))
+        if self.scope is not None and 'scope' not in already_processed:
+            already_processed.add('scope')
+            outfile.write(' scope=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.scope), input_name='scope')), ))
+        if self.value is not None and 'value' not in already_processed:
+            already_processed.add('value')
+            outfile.write(' value="%s"' % self.gds_format_decimal(self.value, input_name='value'))
+        if self.percentValue and 'percentValue' not in already_processed:
+            already_processed.add('percentValue')
+            outfile.write(' percentValue="%s"' % self.gds_format_boolean(self.percentValue, input_name='percentValue'))
+        if not self.shared and 'shared' not in already_processed:
+            already_processed.add('shared')
+            outfile.write(' shared="%s"' % self.gds_format_boolean(self.shared, input_name='shared'))
+        if self.includeChildSelections and 'includeChildSelections' not in already_processed:
+            already_processed.add('includeChildSelections')
+            outfile.write(' includeChildSelections="%s"' % self.gds_format_boolean(self.includeChildSelections, input_name='includeChildSelections'))
+        if self.includeChildForces and 'includeChildForces' not in already_processed:
+            already_processed.add('includeChildForces')
+            outfile.write(' includeChildForces="%s"' % self.gds_format_boolean(self.includeChildForces, input_name='includeChildForces'))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='QueryBase', fromsubclass_=False, pretty_print=True):
+        super(QueryBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('field', node)
+        if value is not None and 'field' not in already_processed:
+            already_processed.add('field')
+            self.field = value
+        value = find_attr_value_('scope', node)
+        if value is not None and 'scope' not in already_processed:
+            already_processed.add('scope')
+            self.scope = value
+        value = find_attr_value_('value', node)
+        if value is not None and 'value' not in already_processed:
+            already_processed.add('value')
+            value = self.gds_parse_decimal(value, node, 'value')
+            self.value = value
+        value = find_attr_value_('percentValue', node)
+        if value is not None and 'percentValue' not in already_processed:
+            already_processed.add('percentValue')
+            if value in ('true', '1'):
+                self.percentValue = True
+            elif value in ('false', '0'):
+                self.percentValue = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('shared', node)
+        if value is not None and 'shared' not in already_processed:
+            already_processed.add('shared')
+            if value in ('true', '1'):
+                self.shared = True
+            elif value in ('false', '0'):
+                self.shared = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('includeChildSelections', node)
+        if value is not None and 'includeChildSelections' not in already_processed:
+            already_processed.add('includeChildSelections')
+            if value in ('true', '1'):
+                self.includeChildSelections = True
+            elif value in ('false', '0'):
+                self.includeChildSelections = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('includeChildForces', node)
+        if value is not None and 'includeChildForces' not in already_processed:
+            already_processed.add('includeChildForces')
+            if value in ('true', '1'):
+                self.includeChildForces = True
+            elif value in ('false', '0'):
+                self.includeChildForces = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(QueryBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(QueryBase, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class QueryBase
+
+
+class QueryFilteredBase(QueryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = QueryBase
+    def __init__(self, comment=None, field=None, scope=None, value=None, percentValue=False, shared=True, includeChildSelections=False, includeChildForces=False, childId=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("QueryFilteredBase"), self).__init__(comment, field, scope, value, percentValue, shared, includeChildSelections, includeChildForces, extensiontype_,  **kwargs_)
+        self.childId = _cast(None, childId)
+        self.childId_nsprefix_ = None
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, QueryFilteredBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if QueryFilteredBase.subclass:
+            return QueryFilteredBase.subclass(*args_, **kwargs_)
+        else:
+            return QueryFilteredBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_childId(self):
+        return self.childId
+    def set_childId(self, childId):
+        self.childId = childId
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            super(QueryFilteredBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='QueryFilteredBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('QueryFilteredBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'QueryFilteredBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='QueryFilteredBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='QueryFilteredBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='QueryFilteredBase'):
+        super(QueryFilteredBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='QueryFilteredBase')
+        if self.childId is not None and 'childId' not in already_processed:
+            already_processed.add('childId')
+            outfile.write(' childId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.childId), input_name='childId')), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='QueryFilteredBase', fromsubclass_=False, pretty_print=True):
+        super(QueryFilteredBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('childId', node)
+        if value is not None and 'childId' not in already_processed:
+            already_processed.add('childId')
+            self.childId = value
+            self.validate_idtype(self.childId)    # validate type idtype
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(QueryFilteredBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(QueryFilteredBase, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class QueryFilteredBase
+
+
+class Constraint(QueryBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = QueryBase
+    def __init__(self, comment=None, field=None, scope=None, value=None, percentValue=False, shared=True, includeChildSelections=False, includeChildForces=False, id=None, type_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Constraint"), self).__init__(comment, field, scope, value, percentValue, shared, includeChildSelections, includeChildForces,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Constraint)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Constraint.subclass:
+            return Constraint.subclass(*args_, **kwargs_)
+        else:
+            return Constraint(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def validate_ConstraintKind(self, value):
+        # Validate type tns:ConstraintKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['min', 'max']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on ConstraintKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            super(Constraint, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Constraint', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Constraint')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Constraint':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Constraint')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Constraint', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Constraint'):
+        super(Constraint, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Constraint')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Constraint', fromsubclass_=False, pretty_print=True):
+        super(Constraint, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_ConstraintKind(self.type_)    # validate type ConstraintKind
+        super(Constraint, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Constraint, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Constraint
+
+
+class ConstraintList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, constraint=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if constraint is None:
+            self.constraint = []
+        else:
+            self.constraint = constraint
+        self.constraint_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConstraintList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConstraintList.subclass:
+            return ConstraintList.subclass(*args_, **kwargs_)
+        else:
+            return ConstraintList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_constraint(self):
+        return self.constraint
+    def set_constraint(self, constraint):
+        self.constraint = constraint
+    def add_constraint(self, value):
+        self.constraint.append(value)
+    def insert_constraint_at(self, index, value):
+        self.constraint.insert(index, value)
+    def replace_constraint_at(self, index, value):
+        self.constraint[index] = value
+    def has__content(self):
+        if (
+            self.constraint
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConstraintList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConstraintList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ConstraintList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConstraintList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConstraintList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConstraintList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConstraintList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for constraint_ in self.constraint:
+            namespaceprefix_ = self.constraint_nsprefix_ + ':' if (UseCapturedNS_ and self.constraint_nsprefix_) else ''
+            constraint_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='constraint', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'constraint':
+            obj_ = Constraint.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.constraint.append(obj_)
+            obj_.original_tagname_ = 'constraint'
+# end class ConstraintList
+
+
+class ModifierBase(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, repeats=None, conditions=None, conditionGroups=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("ModifierBase"), self).__init__(comment, extensiontype_,  **kwargs_)
+        self.repeats = repeats
+        self.repeats_nsprefix_ = "tns"
+        self.conditions = conditions
+        self.conditions_nsprefix_ = "tns"
+        self.conditionGroups = conditionGroups
+        self.conditionGroups_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ModifierBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ModifierBase.subclass:
+            return ModifierBase.subclass(*args_, **kwargs_)
+        else:
+            return ModifierBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_repeats(self):
+        return self.repeats
+    def set_repeats(self, repeats):
+        self.repeats = repeats
+    def get_conditions(self):
+        return self.conditions
+    def set_conditions(self, conditions):
+        self.conditions = conditions
+    def get_conditionGroups(self):
+        return self.conditionGroups
+    def set_conditionGroups(self, conditionGroups):
+        self.conditionGroups = conditionGroups
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def has__content(self):
+        if (
+            self.repeats is not None or
+            self.conditions is not None or
+            self.conditionGroups is not None or
+            super(ModifierBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ModifierBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ModifierBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ModifierBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ModifierBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ModifierBase'):
+        super(ModifierBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ModifierBase')
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierBase', fromsubclass_=False, pretty_print=True):
+        super(ModifierBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.repeats is not None:
+            namespaceprefix_ = self.repeats_nsprefix_ + ':' if (UseCapturedNS_ and self.repeats_nsprefix_) else ''
+            self.repeats.export(outfile, level, namespaceprefix_, namespacedef_='', name_='repeats', pretty_print=pretty_print)
+        if self.conditions is not None:
+            namespaceprefix_ = self.conditions_nsprefix_ + ':' if (UseCapturedNS_ and self.conditions_nsprefix_) else ''
+            self.conditions.export(outfile, level, namespaceprefix_, namespacedef_='', name_='conditions', pretty_print=pretty_print)
+        if self.conditionGroups is not None:
+            namespaceprefix_ = self.conditionGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.conditionGroups_nsprefix_) else ''
+            self.conditionGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='conditionGroups', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(ModifierBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'repeats':
+            obj_ = RepeatList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.repeats = obj_
+            obj_.original_tagname_ = 'repeats'
+        elif nodeName_ == 'conditions':
+            obj_ = ConditionList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.conditions = obj_
+            obj_.original_tagname_ = 'conditions'
+        elif nodeName_ == 'conditionGroups':
+            obj_ = ConditionGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.conditionGroups = obj_
+            obj_.original_tagname_ = 'conditionGroups'
+        super(ModifierBase, self)._buildChildren(child_, node, nodeName_, True)
+# end class ModifierBase
+
+
+class Modifier(ModifierBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = ModifierBase
+    def __init__(self, comment=None, repeats=None, conditions=None, conditionGroups=None, type_=None, field=None, value=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Modifier"), self).__init__(comment, repeats, conditions, conditionGroups,  **kwargs_)
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+        self.field = _cast(None, field)
+        self.field_nsprefix_ = None
+        self.value = _cast(None, value)
+        self.value_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Modifier)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Modifier.subclass:
+            return Modifier.subclass(*args_, **kwargs_)
+        else:
+            return Modifier(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def get_field(self):
+        return self.field
+    def set_field(self, field):
+        self.field = field
+    def get_value(self):
+        return self.value
+    def set_value(self, value):
+        self.value = value
+    def validate_ModifierKind(self, value):
+        # Validate type tns:ModifierKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['set', 'increment', 'decrement', 'append', 'add', 'remove', 'set-primary', 'unset-primary']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on ModifierKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            super(Modifier, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Modifier', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Modifier')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Modifier':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Modifier')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Modifier', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Modifier'):
+        super(Modifier, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Modifier')
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+        if self.field is not None and 'field' not in already_processed:
+            already_processed.add('field')
+            outfile.write(' field=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.field), input_name='field')), ))
+        if self.value is not None and 'value' not in already_processed:
+            already_processed.add('value')
+            outfile.write(' value=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.value), input_name='value')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Modifier', fromsubclass_=False, pretty_print=True):
+        super(Modifier, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_ModifierKind(self.type_)    # validate type ModifierKind
+        value = find_attr_value_('field', node)
+        if value is not None and 'field' not in already_processed:
+            already_processed.add('field')
+            self.field = value
+        value = find_attr_value_('value', node)
+        if value is not None and 'value' not in already_processed:
+            already_processed.add('value')
+            self.value = value
+        super(Modifier, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Modifier, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Modifier
+
+
+class ModifierList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, modifier=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if modifier is None:
+            self.modifier = []
+        else:
+            self.modifier = modifier
+        self.modifier_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ModifierList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ModifierList.subclass:
+            return ModifierList.subclass(*args_, **kwargs_)
+        else:
+            return ModifierList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_modifier(self):
+        return self.modifier
+    def set_modifier(self, modifier):
+        self.modifier = modifier
+    def add_modifier(self, value):
+        self.modifier.append(value)
+    def insert_modifier_at(self, index, value):
+        self.modifier.insert(index, value)
+    def replace_modifier_at(self, index, value):
+        self.modifier[index] = value
+    def has__content(self):
+        if (
+            self.modifier
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ModifierList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ModifierList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ModifierList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ModifierList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ModifierList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for modifier_ in self.modifier:
+            namespaceprefix_ = self.modifier_nsprefix_ + ':' if (UseCapturedNS_ and self.modifier_nsprefix_) else ''
+            modifier_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='modifier', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'modifier':
+            obj_ = Modifier.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.modifier.append(obj_)
+            obj_.original_tagname_ = 'modifier'
+# end class ModifierList
+
+
+class ModifierGroup(ModifierBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = ModifierBase
+    def __init__(self, comment=None, repeats=None, conditions=None, conditionGroups=None, modifiers=None, modifierGroups=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("ModifierGroup"), self).__init__(comment, repeats, conditions, conditionGroups,  **kwargs_)
+        self.modifiers = modifiers
+        self.modifiers_nsprefix_ = "tns"
+        self.modifierGroups = modifierGroups
+        self.modifierGroups_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ModifierGroup)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ModifierGroup.subclass:
+            return ModifierGroup.subclass(*args_, **kwargs_)
+        else:
+            return ModifierGroup(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_modifiers(self):
+        return self.modifiers
+    def set_modifiers(self, modifiers):
+        self.modifiers = modifiers
+    def get_modifierGroups(self):
+        return self.modifierGroups
+    def set_modifierGroups(self, modifierGroups):
+        self.modifierGroups = modifierGroups
+    def has__content(self):
+        if (
+            self.modifiers is not None or
+            self.modifierGroups is not None or
+            super(ModifierGroup, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierGroup', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ModifierGroup')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ModifierGroup':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ModifierGroup')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ModifierGroup', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ModifierGroup'):
+        super(ModifierGroup, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ModifierGroup')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierGroup', fromsubclass_=False, pretty_print=True):
+        super(ModifierGroup, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.modifiers is not None:
+            namespaceprefix_ = self.modifiers_nsprefix_ + ':' if (UseCapturedNS_ and self.modifiers_nsprefix_) else ''
+            self.modifiers.export(outfile, level, namespaceprefix_, namespacedef_='', name_='modifiers', pretty_print=pretty_print)
+        if self.modifierGroups is not None:
+            namespaceprefix_ = self.modifierGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.modifierGroups_nsprefix_) else ''
+            self.modifierGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='modifierGroups', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(ModifierGroup, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'modifiers':
+            obj_ = ModifierList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.modifiers = obj_
+            obj_.original_tagname_ = 'modifiers'
+        elif nodeName_ == 'modifierGroups':
+            obj_ = ModifierGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.modifierGroups = obj_
+            obj_.original_tagname_ = 'modifierGroups'
+        super(ModifierGroup, self)._buildChildren(child_, node, nodeName_, True)
+# end class ModifierGroup
+
+
+class ModifierGroupList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, modifierGroup=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if modifierGroup is None:
+            self.modifierGroup = []
+        else:
+            self.modifierGroup = modifierGroup
+        self.modifierGroup_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ModifierGroupList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ModifierGroupList.subclass:
+            return ModifierGroupList.subclass(*args_, **kwargs_)
+        else:
+            return ModifierGroupList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_modifierGroup(self):
+        return self.modifierGroup
+    def set_modifierGroup(self, modifierGroup):
+        self.modifierGroup = modifierGroup
+    def add_modifierGroup(self, value):
+        self.modifierGroup.append(value)
+    def insert_modifierGroup_at(self, index, value):
+        self.modifierGroup.insert(index, value)
+    def replace_modifierGroup_at(self, index, value):
+        self.modifierGroup[index] = value
+    def has__content(self):
+        if (
+            self.modifierGroup
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierGroupList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ModifierGroupList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ModifierGroupList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ModifierGroupList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ModifierGroupList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ModifierGroupList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ModifierGroupList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for modifierGroup_ in self.modifierGroup:
+            namespaceprefix_ = self.modifierGroup_nsprefix_ + ':' if (UseCapturedNS_ and self.modifierGroup_nsprefix_) else ''
+            modifierGroup_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='modifierGroup', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'modifierGroup':
+            obj_ = ModifierGroup.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.modifierGroup.append(obj_)
+            obj_.original_tagname_ = 'modifierGroup'
+# end class ModifierGroupList
+
+
+class Repeat(QueryFilteredBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = QueryFilteredBase
+    def __init__(self, comment=None, field=None, scope=None, value=None, percentValue=False, shared=True, includeChildSelections=False, includeChildForces=False, childId=None, repeats=None, roundUp=False, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Repeat"), self).__init__(comment, field, scope, value, percentValue, shared, includeChildSelections, includeChildForces, childId,  **kwargs_)
+        self.repeats = _cast(int, repeats)
+        self.repeats_nsprefix_ = None
+        self.roundUp = _cast(bool, roundUp)
+        self.roundUp_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Repeat)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Repeat.subclass:
+            return Repeat.subclass(*args_, **kwargs_)
+        else:
+            return Repeat(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_repeats(self):
+        return self.repeats
+    def set_repeats(self, repeats):
+        self.repeats = repeats
+    def get_roundUp(self):
+        return self.roundUp
+    def set_roundUp(self, roundUp):
+        self.roundUp = roundUp
+    def has__content(self):
+        if (
+            super(Repeat, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Repeat', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Repeat')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Repeat':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Repeat')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Repeat', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Repeat'):
+        super(Repeat, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Repeat')
+        if self.repeats is not None and 'repeats' not in already_processed:
+            already_processed.add('repeats')
+            outfile.write(' repeats="%s"' % self.gds_format_integer(self.repeats, input_name='repeats'))
+        if self.roundUp and 'roundUp' not in already_processed:
+            already_processed.add('roundUp')
+            outfile.write(' roundUp="%s"' % self.gds_format_boolean(self.roundUp, input_name='roundUp'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Repeat', fromsubclass_=False, pretty_print=True):
+        super(Repeat, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('repeats', node)
+        if value is not None and 'repeats' not in already_processed:
+            already_processed.add('repeats')
+            self.repeats = self.gds_parse_integer(value, node, 'repeats')
+            if self.repeats <= 0:
+                raise_parse_error(node, 'Invalid PositiveInteger')
+        value = find_attr_value_('roundUp', node)
+        if value is not None and 'roundUp' not in already_processed:
+            already_processed.add('roundUp')
+            if value in ('true', '1'):
+                self.roundUp = True
+            elif value in ('false', '0'):
+                self.roundUp = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        super(Repeat, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Repeat, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Repeat
+
+
+class RepeatList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, repeat=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if repeat is None:
+            self.repeat = []
+        else:
+            self.repeat = repeat
+        self.repeat_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, RepeatList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if RepeatList.subclass:
+            return RepeatList.subclass(*args_, **kwargs_)
+        else:
+            return RepeatList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_repeat(self):
+        return self.repeat
+    def set_repeat(self, repeat):
+        self.repeat = repeat
+    def add_repeat(self, value):
+        self.repeat.append(value)
+    def insert_repeat_at(self, index, value):
+        self.repeat.insert(index, value)
+    def replace_repeat_at(self, index, value):
+        self.repeat[index] = value
+    def has__content(self):
+        if (
+            self.repeat
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RepeatList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('RepeatList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'RepeatList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='RepeatList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='RepeatList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RepeatList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RepeatList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for repeat_ in self.repeat:
+            namespaceprefix_ = self.repeat_nsprefix_ + ':' if (UseCapturedNS_ and self.repeat_nsprefix_) else ''
+            repeat_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='repeat', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'repeat':
+            obj_ = Repeat.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.repeat.append(obj_)
+            obj_.original_tagname_ = 'repeat'
+# end class RepeatList
+
+
+class Condition(QueryFilteredBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = QueryFilteredBase
+    def __init__(self, comment=None, field=None, scope=None, value=None, percentValue=False, shared=True, includeChildSelections=False, includeChildForces=False, childId=None, type_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Condition"), self).__init__(comment, field, scope, value, percentValue, shared, includeChildSelections, includeChildForces, childId,  **kwargs_)
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Condition)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Condition.subclass:
+            return Condition.subclass(*args_, **kwargs_)
+        else:
+            return Condition(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_ConditionKind(self, value):
+        # Validate type tns:ConditionKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['lessThan', 'greaterThan', 'equalTo', 'notEqualTo', 'atLeast', 'atMost', 'instanceOf', 'notInstanceOf']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on ConditionKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            super(Condition, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Condition', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Condition')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Condition':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Condition')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Condition', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Condition'):
+        super(Condition, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Condition')
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Condition', fromsubclass_=False, pretty_print=True):
+        super(Condition, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_ConditionKind(self.type_)    # validate type ConditionKind
+        super(Condition, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Condition, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Condition
+
+
+class ConditionList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, condition=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if condition is None:
+            self.condition = []
+        else:
+            self.condition = condition
+        self.condition_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConditionList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConditionList.subclass:
+            return ConditionList.subclass(*args_, **kwargs_)
+        else:
+            return ConditionList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_condition(self):
+        return self.condition
+    def set_condition(self, condition):
+        self.condition = condition
+    def add_condition(self, value):
+        self.condition.append(value)
+    def insert_condition_at(self, index, value):
+        self.condition.insert(index, value)
+    def replace_condition_at(self, index, value):
+        self.condition[index] = value
+    def has__content(self):
+        if (
+            self.condition
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConditionList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConditionList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ConditionList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConditionList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConditionList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConditionList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConditionList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for condition_ in self.condition:
+            namespaceprefix_ = self.condition_nsprefix_ + ':' if (UseCapturedNS_ and self.condition_nsprefix_) else ''
+            condition_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='condition', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'condition':
+            obj_ = Condition.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.condition.append(obj_)
+            obj_.original_tagname_ = 'condition'
+# end class ConditionList
+
+
+class ConditionGroup(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, type_=None, conditions=None, conditionGroups=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("ConditionGroup"), self).__init__(comment,  **kwargs_)
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+        self.conditions = conditions
+        self.conditions_nsprefix_ = "tns"
+        self.conditionGroups = conditionGroups
+        self.conditionGroups_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConditionGroup)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConditionGroup.subclass:
+            return ConditionGroup.subclass(*args_, **kwargs_)
+        else:
+            return ConditionGroup(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_conditions(self):
+        return self.conditions
+    def set_conditions(self, conditions):
+        self.conditions = conditions
+    def get_conditionGroups(self):
+        return self.conditionGroups
+    def set_conditionGroups(self, conditionGroups):
+        self.conditionGroups = conditionGroups
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_ConditionGroupKind(self, value):
+        # Validate type tns:ConditionGroupKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['and', 'or']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on ConditionGroupKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            self.conditions is not None or
+            self.conditionGroups is not None or
+            super(ConditionGroup, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConditionGroup', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConditionGroup')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ConditionGroup':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConditionGroup')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConditionGroup', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConditionGroup'):
+        super(ConditionGroup, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConditionGroup')
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConditionGroup', fromsubclass_=False, pretty_print=True):
+        super(ConditionGroup, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.conditions is not None:
+            namespaceprefix_ = self.conditions_nsprefix_ + ':' if (UseCapturedNS_ and self.conditions_nsprefix_) else ''
+            self.conditions.export(outfile, level, namespaceprefix_, namespacedef_='', name_='conditions', pretty_print=pretty_print)
+        if self.conditionGroups is not None:
+            namespaceprefix_ = self.conditionGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.conditionGroups_nsprefix_) else ''
+            self.conditionGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='conditionGroups', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_ConditionGroupKind(self.type_)    # validate type ConditionGroupKind
+        super(ConditionGroup, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'conditions':
+            obj_ = ConditionList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.conditions = obj_
+            obj_.original_tagname_ = 'conditions'
+        elif nodeName_ == 'conditionGroups':
+            obj_ = ConditionGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.conditionGroups = obj_
+            obj_.original_tagname_ = 'conditionGroups'
+        super(ConditionGroup, self)._buildChildren(child_, node, nodeName_, True)
+# end class ConditionGroup
+
+
+class ConditionGroupList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, conditionGroup=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if conditionGroup is None:
+            self.conditionGroup = []
+        else:
+            self.conditionGroup = conditionGroup
+        self.conditionGroup_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ConditionGroupList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ConditionGroupList.subclass:
+            return ConditionGroupList.subclass(*args_, **kwargs_)
+        else:
+            return ConditionGroupList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_conditionGroup(self):
+        return self.conditionGroup
+    def set_conditionGroup(self, conditionGroup):
+        self.conditionGroup = conditionGroup
+    def add_conditionGroup(self, value):
+        self.conditionGroup.append(value)
+    def insert_conditionGroup_at(self, index, value):
+        self.conditionGroup.insert(index, value)
+    def replace_conditionGroup_at(self, index, value):
+        self.conditionGroup[index] = value
+    def has__content(self):
+        if (
+            self.conditionGroup
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConditionGroupList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ConditionGroupList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ConditionGroupList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ConditionGroupList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ConditionGroupList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ConditionGroupList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ConditionGroupList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for conditionGroup_ in self.conditionGroup:
+            namespaceprefix_ = self.conditionGroup_nsprefix_ + ':' if (UseCapturedNS_ and self.conditionGroup_nsprefix_) else ''
+            conditionGroup_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='conditionGroup', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'conditionGroup':
+            obj_ = ConditionGroup.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.conditionGroup.append(obj_)
+            obj_.original_tagname_ = 'conditionGroup'
+# end class ConditionGroupList
+
+
+class RosterElementBase(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, id=None, name=None, entryId=None, entryGroupId=None, customName=None, publicationId=None, page=None, customNotes=None, rules=None, profiles=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.entryId = _cast(None, entryId)
+        self.entryId_nsprefix_ = None
+        self.entryGroupId = _cast(None, entryGroupId)
+        self.entryGroupId_nsprefix_ = None
+        self.customName = _cast(None, customName)
+        self.customName_nsprefix_ = None
+        self.publicationId = _cast(None, publicationId)
+        self.publicationId_nsprefix_ = None
+        self.page = _cast(None, page)
+        self.page_nsprefix_ = None
+        self.customNotes = customNotes
+        self.customNotes_nsprefix_ = "tns"
+        self.rules = rules
+        self.rules_nsprefix_ = "tns"
+        self.profiles = profiles
+        self.profiles_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, RosterElementBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if RosterElementBase.subclass:
+            return RosterElementBase.subclass(*args_, **kwargs_)
+        else:
+            return RosterElementBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_customNotes(self):
+        return self.customNotes
+    def set_customNotes(self, customNotes):
+        self.customNotes = customNotes
+    def get_rules(self):
+        return self.rules
+    def set_rules(self, rules):
+        self.rules = rules
+    def get_profiles(self):
+        return self.profiles
+    def set_profiles(self, profiles):
+        self.profiles = profiles
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_entryId(self):
+        return self.entryId
+    def set_entryId(self, entryId):
+        self.entryId = entryId
+    def get_entryGroupId(self):
+        return self.entryGroupId
+    def set_entryGroupId(self, entryGroupId):
+        self.entryGroupId = entryGroupId
+    def get_customName(self):
+        return self.customName
+    def set_customName(self, customName):
+        self.customName = customName
+    def get_publicationId(self):
+        return self.publicationId
+    def set_publicationId(self, publicationId):
+        self.publicationId = publicationId
+    def get_page(self):
+        return self.page
+    def set_page(self, page):
+        self.page = page
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.customNotes is not None or
+            self.rules is not None or
+            self.profiles is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RosterElementBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('RosterElementBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'RosterElementBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='RosterElementBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='RosterElementBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RosterElementBase'):
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.entryId is not None and 'entryId' not in already_processed:
+            already_processed.add('entryId')
+            outfile.write(' entryId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.entryId), input_name='entryId')), ))
+        if self.entryGroupId is not None and 'entryGroupId' not in already_processed:
+            already_processed.add('entryGroupId')
+            outfile.write(' entryGroupId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.entryGroupId), input_name='entryGroupId')), ))
+        if self.customName is not None and 'customName' not in already_processed:
+            already_processed.add('customName')
+            outfile.write(' customName=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.customName), input_name='customName')), ))
+        if self.publicationId is not None and 'publicationId' not in already_processed:
+            already_processed.add('publicationId')
+            outfile.write(' publicationId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.publicationId), input_name='publicationId')), ))
+        if self.page is not None and 'page' not in already_processed:
+            already_processed.add('page')
+            outfile.write(' page=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.page), input_name='page')), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RosterElementBase', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.customNotes is not None:
+            namespaceprefix_ = self.customNotes_nsprefix_ + ':' if (UseCapturedNS_ and self.customNotes_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%scustomNotes>%s</%scustomNotes>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.customNotes), input_name='customNotes')), namespaceprefix_ , eol_))
+        if self.rules is not None:
+            namespaceprefix_ = self.rules_nsprefix_ + ':' if (UseCapturedNS_ and self.rules_nsprefix_) else ''
+            self.rules.export(outfile, level, namespaceprefix_, namespacedef_='', name_='rules', pretty_print=pretty_print)
+        if self.profiles is not None:
+            namespaceprefix_ = self.profiles_nsprefix_ + ':' if (UseCapturedNS_ and self.profiles_nsprefix_) else ''
+            self.profiles.export(outfile, level, namespaceprefix_, namespacedef_='', name_='profiles', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('entryId', node)
+        if value is not None and 'entryId' not in already_processed:
+            already_processed.add('entryId')
+            self.entryId = value
+            self.validate_idtype(self.entryId)    # validate type idtype
+        value = find_attr_value_('entryGroupId', node)
+        if value is not None and 'entryGroupId' not in already_processed:
+            already_processed.add('entryGroupId')
+            self.entryGroupId = value
+            self.validate_idtype(self.entryGroupId)    # validate type idtype
+        value = find_attr_value_('customName', node)
+        if value is not None and 'customName' not in already_processed:
+            already_processed.add('customName')
+            self.customName = value
+        value = find_attr_value_('publicationId', node)
+        if value is not None and 'publicationId' not in already_processed:
+            already_processed.add('publicationId')
+            self.publicationId = value
+            self.validate_idtype(self.publicationId)    # validate type idtype
+        value = find_attr_value_('page', node)
+        if value is not None and 'page' not in already_processed:
+            already_processed.add('page')
+            self.page = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'customNotes':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'customNotes')
+            value_ = self.gds_validate_string(value_, node, 'customNotes')
+            self.customNotes = value_
+            self.customNotes_nsprefix_ = child_.prefix
+        elif nodeName_ == 'rules':
+            obj_ = RuleList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.rules = obj_
+            obj_.original_tagname_ = 'rules'
+        elif nodeName_ == 'profiles':
+            obj_ = ProfileList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.profiles = obj_
+            obj_.original_tagname_ = 'profiles'
+# end class RosterElementBase
+
+
+class SelectionParentBase(RosterElementBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = RosterElementBase
+    def __init__(self, id=None, name=None, entryId=None, entryGroupId=None, customName=None, publicationId=None, page=None, customNotes=None, rules=None, profiles=None, selections=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("SelectionParentBase"), self).__init__(id, name, entryId, entryGroupId, customName, publicationId, page, customNotes, rules, profiles, extensiontype_,  **kwargs_)
+        self.selections = selections
+        self.selections_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionParentBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionParentBase.subclass:
+            return SelectionParentBase.subclass(*args_, **kwargs_)
+        else:
+            return SelectionParentBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_selections(self):
+        return self.selections
+    def set_selections(self, selections):
+        self.selections = selections
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def has__content(self):
+        if (
+            self.selections is not None or
+            super(SelectionParentBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionParentBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionParentBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionParentBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionParentBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionParentBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionParentBase'):
+        super(SelectionParentBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionParentBase')
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionParentBase', fromsubclass_=False, pretty_print=True):
+        super(SelectionParentBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.selections is not None:
+            namespaceprefix_ = self.selections_nsprefix_ + ':' if (UseCapturedNS_ and self.selections_nsprefix_) else ''
+            self.selections.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selections', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(SelectionParentBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'selections':
+            obj_ = SelectionList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selections = obj_
+            obj_.original_tagname_ = 'selections'
+        super(SelectionParentBase, self)._buildChildren(child_, node, nodeName_, True)
+# end class SelectionParentBase
+
+
+class Force(SelectionParentBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = SelectionParentBase
+    def __init__(self, id=None, name=None, entryId=None, entryGroupId=None, customName=None, publicationId=None, page=None, customNotes=None, rules=None, profiles=None, selections=None, catalogueId=None, catalogueRevision=None, catalogueName=None, publications=None, categories=None, forces=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Force"), self).__init__(id, name, entryId, entryGroupId, customName, publicationId, page, customNotes, rules, profiles, selections,  **kwargs_)
+        self.catalogueId = _cast(None, catalogueId)
+        self.catalogueId_nsprefix_ = None
+        self.catalogueRevision = _cast(int, catalogueRevision)
+        self.catalogueRevision_nsprefix_ = None
+        self.catalogueName = _cast(None, catalogueName)
+        self.catalogueName_nsprefix_ = None
+        self.publications = publications
+        self.publications_nsprefix_ = "tns"
+        self.categories = categories
+        self.categories_nsprefix_ = "tns"
+        self.forces = forces
+        self.forces_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Force)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Force.subclass:
+            return Force.subclass(*args_, **kwargs_)
+        else:
+            return Force(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_publications(self):
+        return self.publications
+    def set_publications(self, publications):
+        self.publications = publications
+    def get_categories(self):
+        return self.categories
+    def set_categories(self, categories):
+        self.categories = categories
+    def get_forces(self):
+        return self.forces
+    def set_forces(self, forces):
+        self.forces = forces
+    def get_catalogueId(self):
+        return self.catalogueId
+    def set_catalogueId(self, catalogueId):
+        self.catalogueId = catalogueId
+    def get_catalogueRevision(self):
+        return self.catalogueRevision
+    def set_catalogueRevision(self, catalogueRevision):
+        self.catalogueRevision = catalogueRevision
+    def get_catalogueName(self):
+        return self.catalogueName
+    def set_catalogueName(self, catalogueName):
+        self.catalogueName = catalogueName
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.publications is not None or
+            self.categories is not None or
+            self.forces is not None or
+            super(Force, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Force', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Force')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Force':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Force')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Force', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Force'):
+        super(Force, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Force')
+        if self.catalogueId is not None and 'catalogueId' not in already_processed:
+            already_processed.add('catalogueId')
+            outfile.write(' catalogueId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.catalogueId), input_name='catalogueId')), ))
+        if self.catalogueRevision is not None and 'catalogueRevision' not in already_processed:
+            already_processed.add('catalogueRevision')
+            outfile.write(' catalogueRevision="%s"' % self.gds_format_integer(self.catalogueRevision, input_name='catalogueRevision'))
+        if self.catalogueName is not None and 'catalogueName' not in already_processed:
+            already_processed.add('catalogueName')
+            outfile.write(' catalogueName=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.catalogueName), input_name='catalogueName')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Force', fromsubclass_=False, pretty_print=True):
+        super(Force, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.publications is not None:
+            namespaceprefix_ = self.publications_nsprefix_ + ':' if (UseCapturedNS_ and self.publications_nsprefix_) else ''
+            self.publications.export(outfile, level, namespaceprefix_, namespacedef_='', name_='publications', pretty_print=pretty_print)
+        if self.categories is not None:
+            namespaceprefix_ = self.categories_nsprefix_ + ':' if (UseCapturedNS_ and self.categories_nsprefix_) else ''
+            self.categories.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categories', pretty_print=pretty_print)
+        if self.forces is not None:
+            namespaceprefix_ = self.forces_nsprefix_ + ':' if (UseCapturedNS_ and self.forces_nsprefix_) else ''
+            self.forces.export(outfile, level, namespaceprefix_, namespacedef_='', name_='forces', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('catalogueId', node)
+        if value is not None and 'catalogueId' not in already_processed:
+            already_processed.add('catalogueId')
+            self.catalogueId = value
+            self.validate_idtype(self.catalogueId)    # validate type idtype
+        value = find_attr_value_('catalogueRevision', node)
+        if value is not None and 'catalogueRevision' not in already_processed:
+            already_processed.add('catalogueRevision')
+            self.catalogueRevision = self.gds_parse_integer(value, node, 'catalogueRevision')
+            if self.catalogueRevision < 0:
+                raise_parse_error(node, 'Invalid NonNegativeInteger')
+        value = find_attr_value_('catalogueName', node)
+        if value is not None and 'catalogueName' not in already_processed:
+            already_processed.add('catalogueName')
+            self.catalogueName = value
+        super(Force, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'publications':
+            obj_ = PublicationList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.publications = obj_
+            obj_.original_tagname_ = 'publications'
+        elif nodeName_ == 'categories':
+            obj_ = CategoryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categories = obj_
+            obj_.original_tagname_ = 'categories'
+        elif nodeName_ == 'forces':
+            obj_ = ForceList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.forces = obj_
+            obj_.original_tagname_ = 'forces'
+        super(Force, self)._buildChildren(child_, node, nodeName_, True)
+# end class Force
+
+
+class ForceList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, force=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if force is None:
+            self.force = []
+        else:
+            self.force = force
+        self.force_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, ForceList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if ForceList.subclass:
+            return ForceList.subclass(*args_, **kwargs_)
+        else:
+            return ForceList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_force(self):
+        return self.force
+    def set_force(self, force):
+        self.force = force
+    def add_force(self, value):
+        self.force.append(value)
+    def insert_force_at(self, index, value):
+        self.force.insert(index, value)
+    def replace_force_at(self, index, value):
+        self.force[index] = value
+    def has__content(self):
+        if (
+            self.force
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ForceList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('ForceList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'ForceList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='ForceList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='ForceList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='ForceList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='ForceList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for force_ in self.force:
+            namespaceprefix_ = self.force_nsprefix_ + ':' if (UseCapturedNS_ and self.force_nsprefix_) else ''
+            force_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='force', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'force':
+            obj_ = Force.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.force.append(obj_)
+            obj_.original_tagname_ = 'force'
+# end class ForceList
+
+
+class Category(RosterElementBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = RosterElementBase
+    def __init__(self, id=None, name=None, entryId=None, entryGroupId=None, customName=None, publicationId=None, page=None, customNotes=None, rules=None, profiles=None, primary=False, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Category"), self).__init__(id, name, entryId, entryGroupId, customName, publicationId, page, customNotes, rules, profiles,  **kwargs_)
+        self.primary = _cast(bool, primary)
+        self.primary_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Category)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Category.subclass:
+            return Category.subclass(*args_, **kwargs_)
+        else:
+            return Category(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_primary(self):
+        return self.primary
+    def set_primary(self, primary):
+        self.primary = primary
+    def has__content(self):
+        if (
+            super(Category, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Category', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Category')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Category':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Category')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Category', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Category'):
+        super(Category, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Category')
+        if self.primary and 'primary' not in already_processed:
+            already_processed.add('primary')
+            outfile.write(' primary="%s"' % self.gds_format_boolean(self.primary, input_name='primary'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Category', fromsubclass_=False, pretty_print=True):
+        super(Category, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('primary', node)
+        if value is not None and 'primary' not in already_processed:
+            already_processed.add('primary')
+            if value in ('true', '1'):
+                self.primary = True
+            elif value in ('false', '0'):
+                self.primary = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        super(Category, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(Category, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class Category
+
+
+class CategoryList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, category=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if category is None:
+            self.category = []
+        else:
+            self.category = category
+        self.category_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CategoryList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CategoryList.subclass:
+            return CategoryList.subclass(*args_, **kwargs_)
+        else:
+            return CategoryList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_category(self):
+        return self.category
+    def set_category(self, category):
+        self.category = category
+    def add_category(self, value):
+        self.category.append(value)
+    def insert_category_at(self, index, value):
+        self.category.insert(index, value)
+    def replace_category_at(self, index, value):
+        self.category[index] = value
+    def has__content(self):
+        if (
+            self.category
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CategoryList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CategoryList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CategoryList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CategoryList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CategoryList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CategoryList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for category_ in self.category:
+            namespaceprefix_ = self.category_nsprefix_ + ':' if (UseCapturedNS_ and self.category_nsprefix_) else ''
+            category_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='category', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'category':
+            obj_ = Category.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.category.append(obj_)
+            obj_.original_tagname_ = 'category'
+# end class CategoryList
+
+
+class Selection(SelectionParentBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = SelectionParentBase
+    def __init__(self, id=None, name=None, entryId=None, entryGroupId=None, customName=None, publicationId=None, page=None, customNotes=None, rules=None, profiles=None, selections=None, number=None, type_=None, costs=None, categories=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Selection"), self).__init__(id, name, entryId, entryGroupId, customName, publicationId, page, customNotes, rules, profiles, selections,  **kwargs_)
+        self.number = _cast(int, number)
+        self.number_nsprefix_ = None
+        self.type_ = _cast(None, type_)
+        self.type__nsprefix_ = None
+        self.costs = costs
+        self.costs_nsprefix_ = "tns"
+        self.categories = categories
+        self.categories_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Selection)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Selection.subclass:
+            return Selection.subclass(*args_, **kwargs_)
+        else:
+            return Selection(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_costs(self):
+        return self.costs
+    def set_costs(self, costs):
+        self.costs = costs
+    def get_categories(self):
+        return self.categories
+    def set_categories(self, categories):
+        self.categories = categories
+    def get_number(self):
+        return self.number
+    def set_number(self, number):
+        self.number = number
+    def get_type(self):
+        return self.type_
+    def set_type(self, type_):
+        self.type_ = type_
+    def validate_SelectionEntryKind(self, value):
+        # Validate type tns:SelectionEntryKind, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['upgrade', 'model', 'unit']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on SelectionEntryKind' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+    def has__content(self):
+        if (
+            self.costs is not None or
+            self.categories is not None or
+            super(Selection, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Selection', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Selection')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Selection':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Selection')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Selection', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Selection'):
+        super(Selection, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Selection')
+        if self.number is not None and 'number' not in already_processed:
+            already_processed.add('number')
+            outfile.write(' number="%s"' % self.gds_format_integer(self.number, input_name='number'))
+        if self.type_ is not None and 'type_' not in already_processed:
+            already_processed.add('type_')
+            outfile.write(' type=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.type_), input_name='type')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Selection', fromsubclass_=False, pretty_print=True):
+        super(Selection, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.costs is not None:
+            namespaceprefix_ = self.costs_nsprefix_ + ':' if (UseCapturedNS_ and self.costs_nsprefix_) else ''
+            self.costs.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costs', pretty_print=pretty_print)
+        if self.categories is not None:
+            namespaceprefix_ = self.categories_nsprefix_ + ':' if (UseCapturedNS_ and self.categories_nsprefix_) else ''
+            self.categories.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categories', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('number', node)
+        if value is not None and 'number' not in already_processed:
+            already_processed.add('number')
+            self.number = self.gds_parse_integer(value, node, 'number')
+            if self.number < 0:
+                raise_parse_error(node, 'Invalid NonNegativeInteger')
+        value = find_attr_value_('type', node)
+        if value is not None and 'type' not in already_processed:
+            already_processed.add('type')
+            self.type_ = value
+            self.validate_SelectionEntryKind(self.type_)    # validate type SelectionEntryKind
+        super(Selection, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'costs':
+            obj_ = CostList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costs = obj_
+            obj_.original_tagname_ = 'costs'
+        elif nodeName_ == 'categories':
+            obj_ = CategoryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categories = obj_
+            obj_.original_tagname_ = 'categories'
+        super(Selection, self)._buildChildren(child_, node, nodeName_, True)
+# end class Selection
+
+
+class SelectionList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, selection=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if selection is None:
+            self.selection = []
+        else:
+            self.selection = selection
+        self.selection_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, SelectionList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if SelectionList.subclass:
+            return SelectionList.subclass(*args_, **kwargs_)
+        else:
+            return SelectionList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_selection(self):
+        return self.selection
+    def set_selection(self, selection):
+        self.selection = selection
+    def add_selection(self, value):
+        self.selection.append(value)
+    def insert_selection_at(self, index, value):
+        self.selection.insert(index, value)
+    def replace_selection_at(self, index, value):
+        self.selection[index] = value
+    def has__content(self):
+        if (
+            self.selection
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('SelectionList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'SelectionList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='SelectionList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='SelectionList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='SelectionList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='SelectionList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for selection_ in self.selection:
+            namespaceprefix_ = self.selection_nsprefix_ + ':' if (UseCapturedNS_ and self.selection_nsprefix_) else ''
+            selection_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selection', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'selection':
+            obj_ = Selection.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selection.append(obj_)
+            obj_.original_tagname_ = 'selection'
+# end class SelectionList
+
+
+class RosterTag(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, id=None, name=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, RosterTag)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if RosterTag.subclass:
+            return RosterTag.subclass(*args_, **kwargs_)
+        else:
+            return RosterTag(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RosterTag', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('RosterTag')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'RosterTag':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='RosterTag')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='RosterTag', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RosterTag'):
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RosterTag', fromsubclass_=False, pretty_print=True):
+        pass
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        pass
+# end class RosterTag
+
+
+class RosterTagList(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, tag=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        if tag is None:
+            self.tag = []
+        else:
+            self.tag = tag
+        self.tag_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, RosterTagList)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if RosterTagList.subclass:
+            return RosterTagList.subclass(*args_, **kwargs_)
+        else:
+            return RosterTagList(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_tag(self):
+        return self.tag
+    def set_tag(self, tag):
+        self.tag = tag
+    def add_tag(self, value):
+        self.tag.append(value)
+    def insert_tag_at(self, index, value):
+        self.tag.insert(index, value)
+    def replace_tag_at(self, index, value):
+        self.tag[index] = value
+    def has__content(self):
+        if (
+            self.tag
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RosterTagList', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('RosterTagList')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'RosterTagList':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='RosterTagList')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='RosterTagList', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='RosterTagList'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='RosterTagList', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for tag_ in self.tag:
+            namespaceprefix_ = self.tag_nsprefix_ + ':' if (UseCapturedNS_ and self.tag_nsprefix_) else ''
+            tag_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='tag', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'tag':
+            obj_ = RosterTag.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.tag.append(obj_)
+            obj_.original_tagname_ = 'tag'
+# end class RosterTagList
+
+
+class CatalogueBase(Commentable):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = Commentable
+    def __init__(self, comment=None, id=None, name=None, revision=None, battleScribeVersion=None, authorName=None, authorContact=None, authorUrl=None, readme=None, publications=None, costTypes=None, profileTypes=None, categoryEntries=None, forceEntries=None, selectionEntries=None, entryLinks=None, rules=None, infoLinks=None, sharedSelectionEntries=None, sharedSelectionEntryGroups=None, sharedRules=None, sharedProfiles=None, sharedInfoGroups=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("CatalogueBase"), self).__init__(comment, extensiontype_,  **kwargs_)
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.revision = _cast(int, revision)
+        self.revision_nsprefix_ = None
+        self.battleScribeVersion = _cast(None, battleScribeVersion)
+        self.battleScribeVersion_nsprefix_ = None
+        self.authorName = _cast(None, authorName)
+        self.authorName_nsprefix_ = None
+        self.authorContact = _cast(None, authorContact)
+        self.authorContact_nsprefix_ = None
+        self.authorUrl = _cast(None, authorUrl)
+        self.authorUrl_nsprefix_ = None
+        self.readme = readme
+        self.readme_nsprefix_ = "tns"
+        self.publications = publications
+        self.publications_nsprefix_ = "tns"
+        self.costTypes = costTypes
+        self.costTypes_nsprefix_ = "tns"
+        self.profileTypes = profileTypes
+        self.profileTypes_nsprefix_ = "tns"
+        self.categoryEntries = categoryEntries
+        self.categoryEntries_nsprefix_ = "tns"
+        self.forceEntries = forceEntries
+        self.forceEntries_nsprefix_ = "tns"
+        self.selectionEntries = selectionEntries
+        self.selectionEntries_nsprefix_ = "tns"
+        self.entryLinks = entryLinks
+        self.entryLinks_nsprefix_ = "tns"
+        self.rules = rules
+        self.rules_nsprefix_ = "tns"
+        self.infoLinks = infoLinks
+        self.infoLinks_nsprefix_ = "tns"
+        self.sharedSelectionEntries = sharedSelectionEntries
+        self.sharedSelectionEntries_nsprefix_ = "tns"
+        self.sharedSelectionEntryGroups = sharedSelectionEntryGroups
+        self.sharedSelectionEntryGroups_nsprefix_ = "tns"
+        self.sharedRules = sharedRules
+        self.sharedRules_nsprefix_ = "tns"
+        self.sharedProfiles = sharedProfiles
+        self.sharedProfiles_nsprefix_ = "tns"
+        self.sharedInfoGroups = sharedInfoGroups
+        self.sharedInfoGroups_nsprefix_ = "tns"
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, CatalogueBase)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if CatalogueBase.subclass:
+            return CatalogueBase.subclass(*args_, **kwargs_)
+        else:
+            return CatalogueBase(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_readme(self):
+        return self.readme
+    def set_readme(self, readme):
+        self.readme = readme
+    def get_publications(self):
+        return self.publications
+    def set_publications(self, publications):
+        self.publications = publications
+    def get_costTypes(self):
+        return self.costTypes
+    def set_costTypes(self, costTypes):
+        self.costTypes = costTypes
+    def get_profileTypes(self):
+        return self.profileTypes
+    def set_profileTypes(self, profileTypes):
+        self.profileTypes = profileTypes
+    def get_categoryEntries(self):
+        return self.categoryEntries
+    def set_categoryEntries(self, categoryEntries):
+        self.categoryEntries = categoryEntries
+    def get_forceEntries(self):
+        return self.forceEntries
+    def set_forceEntries(self, forceEntries):
+        self.forceEntries = forceEntries
+    def get_selectionEntries(self):
+        return self.selectionEntries
+    def set_selectionEntries(self, selectionEntries):
+        self.selectionEntries = selectionEntries
+    def get_entryLinks(self):
+        return self.entryLinks
+    def set_entryLinks(self, entryLinks):
+        self.entryLinks = entryLinks
+    def get_rules(self):
+        return self.rules
+    def set_rules(self, rules):
+        self.rules = rules
+    def get_infoLinks(self):
+        return self.infoLinks
+    def set_infoLinks(self, infoLinks):
+        self.infoLinks = infoLinks
+    def get_sharedSelectionEntries(self):
+        return self.sharedSelectionEntries
+    def set_sharedSelectionEntries(self, sharedSelectionEntries):
+        self.sharedSelectionEntries = sharedSelectionEntries
+    def get_sharedSelectionEntryGroups(self):
+        return self.sharedSelectionEntryGroups
+    def set_sharedSelectionEntryGroups(self, sharedSelectionEntryGroups):
+        self.sharedSelectionEntryGroups = sharedSelectionEntryGroups
+    def get_sharedRules(self):
+        return self.sharedRules
+    def set_sharedRules(self, sharedRules):
+        self.sharedRules = sharedRules
+    def get_sharedProfiles(self):
+        return self.sharedProfiles
+    def set_sharedProfiles(self, sharedProfiles):
+        self.sharedProfiles = sharedProfiles
+    def get_sharedInfoGroups(self):
+        return self.sharedInfoGroups
+    def set_sharedInfoGroups(self, sharedInfoGroups):
+        self.sharedInfoGroups = sharedInfoGroups
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_revision(self):
+        return self.revision
+    def set_revision(self, revision):
+        self.revision = revision
+    def get_battleScribeVersion(self):
+        return self.battleScribeVersion
+    def set_battleScribeVersion(self, battleScribeVersion):
+        self.battleScribeVersion = battleScribeVersion
+    def get_authorName(self):
+        return self.authorName
+    def set_authorName(self, authorName):
+        self.authorName = authorName
+    def get_authorContact(self):
+        return self.authorContact
+    def set_authorContact(self, authorContact):
+        self.authorContact = authorContact
+    def get_authorUrl(self):
+        return self.authorUrl
+    def set_authorUrl(self, authorUrl):
+        self.authorUrl = authorUrl
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.readme is not None or
+            self.publications is not None or
+            self.costTypes is not None or
+            self.profileTypes is not None or
+            self.categoryEntries is not None or
+            self.forceEntries is not None or
+            self.selectionEntries is not None or
+            self.entryLinks is not None or
+            self.rules is not None or
+            self.infoLinks is not None or
+            self.sharedSelectionEntries is not None or
+            self.sharedSelectionEntryGroups is not None or
+            self.sharedRules is not None or
+            self.sharedProfiles is not None or
+            self.sharedInfoGroups is not None or
+            super(CatalogueBase, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CatalogueBase', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('CatalogueBase')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'CatalogueBase':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CatalogueBase')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='CatalogueBase', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='CatalogueBase'):
+        super(CatalogueBase, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='CatalogueBase')
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.revision is not None and 'revision' not in already_processed:
+            already_processed.add('revision')
+            outfile.write(' revision="%s"' % self.gds_format_integer(self.revision, input_name='revision'))
+        if self.battleScribeVersion is not None and 'battleScribeVersion' not in already_processed:
+            already_processed.add('battleScribeVersion')
+            outfile.write(' battleScribeVersion=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.battleScribeVersion), input_name='battleScribeVersion')), ))
+        if self.authorName is not None and 'authorName' not in already_processed:
+            already_processed.add('authorName')
+            outfile.write(' authorName=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.authorName), input_name='authorName')), ))
+        if self.authorContact is not None and 'authorContact' not in already_processed:
+            already_processed.add('authorContact')
+            outfile.write(' authorContact=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.authorContact), input_name='authorContact')), ))
+        if self.authorUrl is not None and 'authorUrl' not in already_processed:
+            already_processed.add('authorUrl')
+            outfile.write(' authorUrl=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.authorUrl), input_name='authorUrl')), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='CatalogueBase', fromsubclass_=False, pretty_print=True):
+        super(CatalogueBase, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.readme is not None:
+            namespaceprefix_ = self.readme_nsprefix_ + ':' if (UseCapturedNS_ and self.readme_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sreadme>%s</%sreadme>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.readme), input_name='readme')), namespaceprefix_ , eol_))
+        if self.publications is not None:
+            namespaceprefix_ = self.publications_nsprefix_ + ':' if (UseCapturedNS_ and self.publications_nsprefix_) else ''
+            self.publications.export(outfile, level, namespaceprefix_, namespacedef_='', name_='publications', pretty_print=pretty_print)
+        if self.costTypes is not None:
+            namespaceprefix_ = self.costTypes_nsprefix_ + ':' if (UseCapturedNS_ and self.costTypes_nsprefix_) else ''
+            self.costTypes.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costTypes', pretty_print=pretty_print)
+        if self.profileTypes is not None:
+            namespaceprefix_ = self.profileTypes_nsprefix_ + ':' if (UseCapturedNS_ and self.profileTypes_nsprefix_) else ''
+            self.profileTypes.export(outfile, level, namespaceprefix_, namespacedef_='', name_='profileTypes', pretty_print=pretty_print)
+        if self.categoryEntries is not None:
+            namespaceprefix_ = self.categoryEntries_nsprefix_ + ':' if (UseCapturedNS_ and self.categoryEntries_nsprefix_) else ''
+            self.categoryEntries.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categoryEntries', pretty_print=pretty_print)
+        if self.forceEntries is not None:
+            namespaceprefix_ = self.forceEntries_nsprefix_ + ':' if (UseCapturedNS_ and self.forceEntries_nsprefix_) else ''
+            self.forceEntries.export(outfile, level, namespaceprefix_, namespacedef_='', name_='forceEntries', pretty_print=pretty_print)
+        if self.selectionEntries is not None:
+            namespaceprefix_ = self.selectionEntries_nsprefix_ + ':' if (UseCapturedNS_ and self.selectionEntries_nsprefix_) else ''
+            self.selectionEntries.export(outfile, level, namespaceprefix_, namespacedef_='', name_='selectionEntries', pretty_print=pretty_print)
+        if self.entryLinks is not None:
+            namespaceprefix_ = self.entryLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.entryLinks_nsprefix_) else ''
+            self.entryLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='entryLinks', pretty_print=pretty_print)
+        if self.rules is not None:
+            namespaceprefix_ = self.rules_nsprefix_ + ':' if (UseCapturedNS_ and self.rules_nsprefix_) else ''
+            self.rules.export(outfile, level, namespaceprefix_, namespacedef_='', name_='rules', pretty_print=pretty_print)
+        if self.infoLinks is not None:
+            namespaceprefix_ = self.infoLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.infoLinks_nsprefix_) else ''
+            self.infoLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='infoLinks', pretty_print=pretty_print)
+        if self.sharedSelectionEntries is not None:
+            namespaceprefix_ = self.sharedSelectionEntries_nsprefix_ + ':' if (UseCapturedNS_ and self.sharedSelectionEntries_nsprefix_) else ''
+            self.sharedSelectionEntries.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sharedSelectionEntries', pretty_print=pretty_print)
+        if self.sharedSelectionEntryGroups is not None:
+            namespaceprefix_ = self.sharedSelectionEntryGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.sharedSelectionEntryGroups_nsprefix_) else ''
+            self.sharedSelectionEntryGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sharedSelectionEntryGroups', pretty_print=pretty_print)
+        if self.sharedRules is not None:
+            namespaceprefix_ = self.sharedRules_nsprefix_ + ':' if (UseCapturedNS_ and self.sharedRules_nsprefix_) else ''
+            self.sharedRules.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sharedRules', pretty_print=pretty_print)
+        if self.sharedProfiles is not None:
+            namespaceprefix_ = self.sharedProfiles_nsprefix_ + ':' if (UseCapturedNS_ and self.sharedProfiles_nsprefix_) else ''
+            self.sharedProfiles.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sharedProfiles', pretty_print=pretty_print)
+        if self.sharedInfoGroups is not None:
+            namespaceprefix_ = self.sharedInfoGroups_nsprefix_ + ':' if (UseCapturedNS_ and self.sharedInfoGroups_nsprefix_) else ''
+            self.sharedInfoGroups.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sharedInfoGroups', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('revision', node)
+        if value is not None and 'revision' not in already_processed:
+            already_processed.add('revision')
+            self.revision = self.gds_parse_integer(value, node, 'revision')
+            if self.revision < 0:
+                raise_parse_error(node, 'Invalid NonNegativeInteger')
+        value = find_attr_value_('battleScribeVersion', node)
+        if value is not None and 'battleScribeVersion' not in already_processed:
+            already_processed.add('battleScribeVersion')
+            self.battleScribeVersion = value
+        value = find_attr_value_('authorName', node)
+        if value is not None and 'authorName' not in already_processed:
+            already_processed.add('authorName')
+            self.authorName = value
+        value = find_attr_value_('authorContact', node)
+        if value is not None and 'authorContact' not in already_processed:
+            already_processed.add('authorContact')
+            self.authorContact = value
+        value = find_attr_value_('authorUrl', node)
+        if value is not None and 'authorUrl' not in already_processed:
+            already_processed.add('authorUrl')
+            self.authorUrl = value
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+        super(CatalogueBase, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'readme':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'readme')
+            value_ = self.gds_validate_string(value_, node, 'readme')
+            self.readme = value_
+            self.readme_nsprefix_ = child_.prefix
+        elif nodeName_ == 'publications':
+            obj_ = PublicationList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.publications = obj_
+            obj_.original_tagname_ = 'publications'
+        elif nodeName_ == 'costTypes':
+            obj_ = CostTypeList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costTypes = obj_
+            obj_.original_tagname_ = 'costTypes'
+        elif nodeName_ == 'profileTypes':
+            obj_ = ProfileTypeList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.profileTypes = obj_
+            obj_.original_tagname_ = 'profileTypes'
+        elif nodeName_ == 'categoryEntries':
+            obj_ = CategoryEntryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categoryEntries = obj_
+            obj_.original_tagname_ = 'categoryEntries'
+        elif nodeName_ == 'forceEntries':
+            obj_ = ForceEntryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.forceEntries = obj_
+            obj_.original_tagname_ = 'forceEntries'
+        elif nodeName_ == 'selectionEntries':
+            obj_ = SelectionEntryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.selectionEntries = obj_
+            obj_.original_tagname_ = 'selectionEntries'
+        elif nodeName_ == 'entryLinks':
+            obj_ = EntryLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.entryLinks = obj_
+            obj_.original_tagname_ = 'entryLinks'
+        elif nodeName_ == 'rules':
+            obj_ = RuleList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.rules = obj_
+            obj_.original_tagname_ = 'rules'
+        elif nodeName_ == 'infoLinks':
+            obj_ = InfoLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.infoLinks = obj_
+            obj_.original_tagname_ = 'infoLinks'
+        elif nodeName_ == 'sharedSelectionEntries':
+            obj_ = SelectionEntryList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.sharedSelectionEntries = obj_
+            obj_.original_tagname_ = 'sharedSelectionEntries'
+        elif nodeName_ == 'sharedSelectionEntryGroups':
+            obj_ = SelectionEntryGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.sharedSelectionEntryGroups = obj_
+            obj_.original_tagname_ = 'sharedSelectionEntryGroups'
+        elif nodeName_ == 'sharedRules':
+            obj_ = RuleList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.sharedRules = obj_
+            obj_.original_tagname_ = 'sharedRules'
+        elif nodeName_ == 'sharedProfiles':
+            obj_ = ProfileList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.sharedProfiles = obj_
+            obj_.original_tagname_ = 'sharedProfiles'
+        elif nodeName_ == 'sharedInfoGroups':
+            obj_ = InfoGroupList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.sharedInfoGroups = obj_
+            obj_.original_tagname_ = 'sharedInfoGroups'
+        super(CatalogueBase, self)._buildChildren(child_, node, nodeName_, True)
+# end class CatalogueBase
+
+
+class Roster(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, id=None, name=None, battleScribeVersion=None, gameSystemId=None, gameSystemName=None, gameSystemRevision=None, costs=None, costLimits=None, forces=None, customNotes=None, tags=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        self.id = _cast(None, id)
+        self.id_nsprefix_ = None
+        self.name = _cast(None, name)
+        self.name_nsprefix_ = None
+        self.battleScribeVersion = _cast(None, battleScribeVersion)
+        self.battleScribeVersion_nsprefix_ = None
+        self.gameSystemId = _cast(None, gameSystemId)
+        self.gameSystemId_nsprefix_ = None
+        self.gameSystemName = _cast(None, gameSystemName)
+        self.gameSystemName_nsprefix_ = None
+        self.gameSystemRevision = _cast(int, gameSystemRevision)
+        self.gameSystemRevision_nsprefix_ = None
+        self.costs = costs
+        self.costs_nsprefix_ = "tns"
+        self.costLimits = costLimits
+        self.costLimits_nsprefix_ = "tns"
+        self.forces = forces
+        self.forces_nsprefix_ = "tns"
+        self.customNotes = customNotes
+        self.customNotes_nsprefix_ = "tns"
+        self.tags = tags
+        self.tags_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Roster)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Roster.subclass:
+            return Roster.subclass(*args_, **kwargs_)
+        else:
+            return Roster(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_costs(self):
+        return self.costs
+    def set_costs(self, costs):
+        self.costs = costs
+    def get_costLimits(self):
+        return self.costLimits
+    def set_costLimits(self, costLimits):
+        self.costLimits = costLimits
+    def get_forces(self):
+        return self.forces
+    def set_forces(self, forces):
+        self.forces = forces
+    def get_customNotes(self):
+        return self.customNotes
+    def set_customNotes(self, customNotes):
+        self.customNotes = customNotes
+    def get_tags(self):
+        return self.tags
+    def set_tags(self, tags):
+        self.tags = tags
+    def get_id(self):
+        return self.id
+    def set_id(self, id):
+        self.id = id
+    def get_name(self):
+        return self.name
+    def set_name(self, name):
+        self.name = name
+    def get_battleScribeVersion(self):
+        return self.battleScribeVersion
+    def set_battleScribeVersion(self, battleScribeVersion):
+        self.battleScribeVersion = battleScribeVersion
+    def get_gameSystemId(self):
+        return self.gameSystemId
+    def set_gameSystemId(self, gameSystemId):
+        self.gameSystemId = gameSystemId
+    def get_gameSystemName(self):
+        return self.gameSystemName
+    def set_gameSystemName(self, gameSystemName):
+        self.gameSystemName = gameSystemName
+    def get_gameSystemRevision(self):
+        return self.gameSystemRevision
+    def set_gameSystemRevision(self, gameSystemRevision):
+        self.gameSystemRevision = gameSystemRevision
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.costs is not None or
+            self.costLimits is not None or
+            self.forces is not None or
+            self.customNotes is not None or
+            self.tags is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Roster', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Roster')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Roster':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Roster')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Roster', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Roster'):
+        if self.id is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            outfile.write(' id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.id), input_name='id')), ))
+        if self.name is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            outfile.write(' name=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.name), input_name='name')), ))
+        if self.battleScribeVersion is not None and 'battleScribeVersion' not in already_processed:
+            already_processed.add('battleScribeVersion')
+            outfile.write(' battleScribeVersion=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.battleScribeVersion), input_name='battleScribeVersion')), ))
+        if self.gameSystemId is not None and 'gameSystemId' not in already_processed:
+            already_processed.add('gameSystemId')
+            outfile.write(' gameSystemId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.gameSystemId), input_name='gameSystemId')), ))
+        if self.gameSystemName is not None and 'gameSystemName' not in already_processed:
+            already_processed.add('gameSystemName')
+            outfile.write(' gameSystemName=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.gameSystemName), input_name='gameSystemName')), ))
+        if self.gameSystemRevision is not None and 'gameSystemRevision' not in already_processed:
+            already_processed.add('gameSystemRevision')
+            outfile.write(' gameSystemRevision="%s"' % self.gds_format_integer(self.gameSystemRevision, input_name='gameSystemRevision'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Roster', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.costs is not None:
+            namespaceprefix_ = self.costs_nsprefix_ + ':' if (UseCapturedNS_ and self.costs_nsprefix_) else ''
+            self.costs.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costs', pretty_print=pretty_print)
+        if self.costLimits is not None:
+            namespaceprefix_ = self.costLimits_nsprefix_ + ':' if (UseCapturedNS_ and self.costLimits_nsprefix_) else ''
+            self.costLimits.export(outfile, level, namespaceprefix_, namespacedef_='', name_='costLimits', pretty_print=pretty_print)
+        if self.forces is not None:
+            namespaceprefix_ = self.forces_nsprefix_ + ':' if (UseCapturedNS_ and self.forces_nsprefix_) else ''
+            self.forces.export(outfile, level, namespaceprefix_, namespacedef_='', name_='forces', pretty_print=pretty_print)
+        if self.customNotes is not None:
+            namespaceprefix_ = self.customNotes_nsprefix_ + ':' if (UseCapturedNS_ and self.customNotes_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%scustomNotes>%s</%scustomNotes>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.customNotes), input_name='customNotes')), namespaceprefix_ , eol_))
+        if self.tags is not None:
+            namespaceprefix_ = self.tags_nsprefix_ + ':' if (UseCapturedNS_ and self.tags_nsprefix_) else ''
+            self.tags.export(outfile, level, namespaceprefix_, namespacedef_='', name_='tags', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('id', node)
+        if value is not None and 'id' not in already_processed:
+            already_processed.add('id')
+            self.id = value
+            self.validate_idtype(self.id)    # validate type idtype
+        value = find_attr_value_('name', node)
+        if value is not None and 'name' not in already_processed:
+            already_processed.add('name')
+            self.name = value
+        value = find_attr_value_('battleScribeVersion', node)
+        if value is not None and 'battleScribeVersion' not in already_processed:
+            already_processed.add('battleScribeVersion')
+            self.battleScribeVersion = value
+        value = find_attr_value_('gameSystemId', node)
+        if value is not None and 'gameSystemId' not in already_processed:
+            already_processed.add('gameSystemId')
+            self.gameSystemId = value
+            self.validate_idtype(self.gameSystemId)    # validate type idtype
+        value = find_attr_value_('gameSystemName', node)
+        if value is not None and 'gameSystemName' not in already_processed:
+            already_processed.add('gameSystemName')
+            self.gameSystemName = value
+        value = find_attr_value_('gameSystemRevision', node)
+        if value is not None and 'gameSystemRevision' not in already_processed:
+            already_processed.add('gameSystemRevision')
+            self.gameSystemRevision = self.gds_parse_integer(value, node, 'gameSystemRevision')
+            if self.gameSystemRevision < 0:
+                raise_parse_error(node, 'Invalid NonNegativeInteger')
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'costs':
+            obj_ = CostList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costs = obj_
+            obj_.original_tagname_ = 'costs'
+        elif nodeName_ == 'costLimits':
+            obj_ = CostLimitList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.costLimits = obj_
+            obj_.original_tagname_ = 'costLimits'
+        elif nodeName_ == 'forces':
+            obj_ = ForceList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.forces = obj_
+            obj_.original_tagname_ = 'forces'
+        elif nodeName_ == 'customNotes':
+            value_ = child_.text
+            value_ = self.gds_parse_string(value_, node, 'customNotes')
+            value_ = self.gds_validate_string(value_, node, 'customNotes')
+            self.customNotes = value_
+            self.customNotes_nsprefix_ = child_.prefix
+        elif nodeName_ == 'tags':
+            obj_ = RosterTagList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.tags = obj_
+            obj_.original_tagname_ = 'tags'
+# end class Roster
+
+
+class Catalogue(CatalogueBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = CatalogueBase
+    def __init__(self, comment=None, id=None, name=None, revision=None, battleScribeVersion=None, authorName=None, authorContact=None, authorUrl=None, readme=None, publications=None, costTypes=None, profileTypes=None, categoryEntries=None, forceEntries=None, selectionEntries=None, entryLinks=None, rules=None, infoLinks=None, sharedSelectionEntries=None, sharedSelectionEntryGroups=None, sharedRules=None, sharedProfiles=None, sharedInfoGroups=None, library=False, gameSystemId=None, gameSystemRevision=None, catalogueLinks=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("Catalogue"), self).__init__(comment, id, name, revision, battleScribeVersion, authorName, authorContact, authorUrl, readme, publications, costTypes, profileTypes, categoryEntries, forceEntries, selectionEntries, entryLinks, rules, infoLinks, sharedSelectionEntries, sharedSelectionEntryGroups, sharedRules, sharedProfiles, sharedInfoGroups,  **kwargs_)
+        self.library = _cast(bool, library)
+        self.library_nsprefix_ = None
+        self.gameSystemId = _cast(None, gameSystemId)
+        self.gameSystemId_nsprefix_ = None
+        self.gameSystemRevision = _cast(int, gameSystemRevision)
+        self.gameSystemRevision_nsprefix_ = None
+        self.catalogueLinks = catalogueLinks
+        self.catalogueLinks_nsprefix_ = "tns"
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, Catalogue)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if Catalogue.subclass:
+            return Catalogue.subclass(*args_, **kwargs_)
+        else:
+            return Catalogue(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_catalogueLinks(self):
+        return self.catalogueLinks
+    def set_catalogueLinks(self, catalogueLinks):
+        self.catalogueLinks = catalogueLinks
+    def get_library(self):
+        return self.library
+    def set_library(self, library):
+        self.library = library
+    def get_gameSystemId(self):
+        return self.gameSystemId
+    def set_gameSystemId(self, gameSystemId):
+        self.gameSystemId = gameSystemId
+    def get_gameSystemRevision(self):
+        return self.gameSystemRevision
+    def set_gameSystemRevision(self, gameSystemRevision):
+        self.gameSystemRevision = gameSystemRevision
+    def validate_idtype(self, value):
+        # Validate type tns:idtype, a restriction on xs:string.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            pass
+    def has__content(self):
+        if (
+            self.catalogueLinks is not None or
+            super(Catalogue, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Catalogue', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('Catalogue')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'Catalogue':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Catalogue')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='Catalogue', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='Catalogue'):
+        super(Catalogue, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='Catalogue')
+        if self.library and 'library' not in already_processed:
+            already_processed.add('library')
+            outfile.write(' library="%s"' % self.gds_format_boolean(self.library, input_name='library'))
+        if self.gameSystemId is not None and 'gameSystemId' not in already_processed:
+            already_processed.add('gameSystemId')
+            outfile.write(' gameSystemId=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.gameSystemId), input_name='gameSystemId')), ))
+        if self.gameSystemRevision is not None and 'gameSystemRevision' not in already_processed:
+            already_processed.add('gameSystemRevision')
+            outfile.write(' gameSystemRevision="%s"' % self.gds_format_integer(self.gameSystemRevision, input_name='gameSystemRevision'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='Catalogue', fromsubclass_=False, pretty_print=True):
+        super(Catalogue, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.catalogueLinks is not None:
+            namespaceprefix_ = self.catalogueLinks_nsprefix_ + ':' if (UseCapturedNS_ and self.catalogueLinks_nsprefix_) else ''
+            self.catalogueLinks.export(outfile, level, namespaceprefix_, namespacedef_='', name_='catalogueLinks', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('library', node)
+        if value is not None and 'library' not in already_processed:
+            already_processed.add('library')
+            if value in ('true', '1'):
+                self.library = True
+            elif value in ('false', '0'):
+                self.library = False
+            else:
+                raise_parse_error(node, 'Bad boolean attribute')
+        value = find_attr_value_('gameSystemId', node)
+        if value is not None and 'gameSystemId' not in already_processed:
+            already_processed.add('gameSystemId')
+            self.gameSystemId = value
+            self.validate_idtype(self.gameSystemId)    # validate type idtype
+        value = find_attr_value_('gameSystemRevision', node)
+        if value is not None and 'gameSystemRevision' not in already_processed:
+            already_processed.add('gameSystemRevision')
+            self.gameSystemRevision = self.gds_parse_integer(value, node, 'gameSystemRevision')
+            if self.gameSystemRevision < 0:
+                raise_parse_error(node, 'Invalid NonNegativeInteger')
+        super(Catalogue, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'catalogueLinks':
+            obj_ = CatalogueLinkList.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.catalogueLinks = obj_
+            obj_.original_tagname_ = 'catalogueLinks'
+        super(Catalogue, self)._buildChildren(child_, node, nodeName_, True)
+# end class Catalogue
+
+
+class GameSystem(CatalogueBase):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = CatalogueBase
+    def __init__(self, comment=None, id=None, name=None, revision=None, battleScribeVersion=None, authorName=None, authorContact=None, authorUrl=None, readme=None, publications=None, costTypes=None, profileTypes=None, categoryEntries=None, forceEntries=None, selectionEntries=None, entryLinks=None, rules=None, infoLinks=None, sharedSelectionEntries=None, sharedSelectionEntryGroups=None, sharedRules=None, sharedProfiles=None, sharedInfoGroups=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = "tns"
+        super(globals().get("GameSystem"), self).__init__(comment, id, name, revision, battleScribeVersion, authorName, authorContact, authorUrl, readme, publications, costTypes, profileTypes, categoryEntries, forceEntries, selectionEntries, entryLinks, rules, infoLinks, sharedSelectionEntries, sharedSelectionEntryGroups, sharedRules, sharedProfiles, sharedInfoGroups,  **kwargs_)
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, GameSystem)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if GameSystem.subclass:
+            return GameSystem.subclass(*args_, **kwargs_)
+        else:
+            return GameSystem(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def has__content(self):
+        if (
+            super(GameSystem, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='GameSystem', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('GameSystem')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'GameSystem':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='GameSystem')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='GameSystem', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='GameSystem'):
+        super(GameSystem, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='GameSystem')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"', name_='GameSystem', fromsubclass_=False, pretty_print=True):
+        super(GameSystem, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(GameSystem, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(GameSystem, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class GameSystem
+
+
+#
+# End data representation classes.
+#
+
+
+GDSClassesMapping = {
+    'catalogue': Catalogue,
+    'gameSystem': GameSystem,
+    'roster': Roster,
+}
+
+
+USAGE_TEXT = """
+Usage: python <Parser>.py [ -s ] <in_xml_file>
+"""
+
+
+def usage():
+    print(USAGE_TEXT)
+    sys.exit(1)
+
+
+def get_root_tag(node):
+    tag = Tag_pattern_.match(node.tag).groups()[-1]
+    prefix_tag = TagNamePrefix + tag
+    rootClass = GDSClassesMapping.get(prefix_tag)
+    if rootClass is None:
+        rootClass = globals().get(prefix_tag)
+    return tag, rootClass
+
+
+def get_required_ns_prefix_defs(rootNode):
+    '''Get all name space prefix definitions required in this XML doc.
+    Return a dictionary of definitions and a char string of definitions.
+    '''
+    nsmap = {
+        prefix: uri
+        for node in rootNode.iter()
+        for (prefix, uri) in node.nsmap.items()
+        if prefix is not None
+    }
+    namespacedefs = ' '.join([
+        'xmlns:{}="{}"'.format(prefix, uri)
+        for prefix, uri in nsmap.items()
+    ])
+    return nsmap, namespacedefs
+
+
+def parse(inFileName, silence=False, print_warnings=True):
+    global CapturedNsmap_
+    gds_collector = GdsCollector_()
+    parser = None
+    doc = parsexml_(inFileName, parser)
+    rootNode = doc.getroot()
+    rootTag, rootClass = get_root_tag(rootNode)
+    if rootClass is None:
+        rootTag = 'Commentable'
+        rootClass = Commentable
+    rootObj = rootClass.factory()
+    rootObj.build(rootNode, gds_collector_=gds_collector)
+    CapturedNsmap_, namespacedefs = get_required_ns_prefix_defs(rootNode)
+    if not SaveElementTreeNode:
+        doc = None
+        rootNode = None
+    if not silence:
+        sys.stdout.write('<?xml version="1.0" ?>\n')
+        rootObj.export(
+            sys.stdout, 0, name_=rootTag,
+            namespacedef_=namespacedefs,
+            pretty_print=True)
+    if print_warnings and len(gds_collector.get_messages()) > 0:
+        separator = ('-' * 50) + '\n'
+        sys.stderr.write(separator)
+        sys.stderr.write('----- Warnings -- count: {} -----\n'.format(
+            len(gds_collector.get_messages()), ))
+        gds_collector.write_messages(sys.stderr)
+        sys.stderr.write(separator)
+    return rootObj
+
+
+def parseEtree(inFileName, silence=False, print_warnings=True,
+               mapping=None, reverse_mapping=None, nsmap=None):
+    parser = None
+    doc = parsexml_(inFileName, parser)
+    gds_collector = GdsCollector_()
+    rootNode = doc.getroot()
+    rootTag, rootClass = get_root_tag(rootNode)
+    if rootClass is None:
+        rootTag = 'Commentable'
+        rootClass = Commentable
+    rootObj = rootClass.factory()
+    rootObj.build(rootNode, gds_collector_=gds_collector)
+    if mapping is None:
+        mapping = {}
+    if reverse_mapping is None:
+        reverse_mapping = {}
+    rootElement = rootObj.to_etree(
+        None, name_=rootTag, mapping_=mapping,
+        reverse_mapping_=reverse_mapping, nsmap_=nsmap)
+    reverse_node_mapping = rootObj.gds_reverse_node_mapping(mapping)
+    # Enable Python to collect the space used by the DOM.
+    if not SaveElementTreeNode:
+        doc = None
+        rootNode = None
+    if not silence:
+        content = etree_.tostring(
+            rootElement, pretty_print=True,
+            xml_declaration=True, encoding="utf-8")
+        sys.stdout.write(str(content))
+        sys.stdout.write('\n')
+    if print_warnings and len(gds_collector.get_messages()) > 0:
+        separator = ('-' * 50) + '\n'
+        sys.stderr.write(separator)
+        sys.stderr.write('----- Warnings -- count: {} -----\n'.format(
+            len(gds_collector.get_messages()), ))
+        gds_collector.write_messages(sys.stderr)
+        sys.stderr.write(separator)
+    return rootObj, rootElement, mapping, reverse_node_mapping
+
+
+def parseString(inString, silence=False, print_warnings=True):
+    '''Parse a string, create the object tree, and export it.
+
+    Arguments:
+    - inString -- A string.  This XML fragment should not start
+      with an XML declaration containing an encoding.
+    - silence -- A boolean.  If False, export the object.
+    Returns -- The root object in the tree.
+    '''
+    parser = None
+    rootNode= parsexmlstring_(inString, parser)
+    gds_collector = GdsCollector_()
+    rootTag, rootClass = get_root_tag(rootNode)
+    if rootClass is None:
+        rootTag = 'Commentable'
+        rootClass = Commentable
+    rootObj = rootClass.factory()
+    rootObj.build(rootNode, gds_collector_=gds_collector)
+    if not SaveElementTreeNode:
+        rootNode = None
+    if not silence:
+        sys.stdout.write('<?xml version="1.0" ?>\n')
+        rootObj.export(
+            sys.stdout, 0, name_=rootTag,
+            namespacedef_='xmlns:tns="http://www.battlescribe.net/schema/catalogueSchema"')
+    if print_warnings and len(gds_collector.get_messages()) > 0:
+        separator = ('-' * 50) + '\n'
+        sys.stderr.write(separator)
+        sys.stderr.write('----- Warnings -- count: {} -----\n'.format(
+            len(gds_collector.get_messages()), ))
+        gds_collector.write_messages(sys.stderr)
+        sys.stderr.write(separator)
+    return rootObj
+
+
+def parseLiteral(inFileName, silence=False, print_warnings=True):
+    parser = None
+    doc = parsexml_(inFileName, parser)
+    gds_collector = GdsCollector_()
+    rootNode = doc.getroot()
+    rootTag, rootClass = get_root_tag(rootNode)
+    if rootClass is None:
+        rootTag = 'Commentable'
+        rootClass = Commentable
+    rootObj = rootClass.factory()
+    rootObj.build(rootNode, gds_collector_=gds_collector)
+    # Enable Python to collect the space used by the DOM.
+    if not SaveElementTreeNode:
+        doc = None
+        rootNode = None
+    if not silence:
+        sys.stdout.write('#from Catalogue import *\n\n')
+        sys.stdout.write('import Catalogue as model_\n\n')
+        sys.stdout.write('rootObj = model_.rootClass(\n')
+        rootObj.exportLiteral(sys.stdout, 0, name_=rootTag)
+        sys.stdout.write(')\n')
+    if print_warnings and len(gds_collector.get_messages()) > 0:
+        separator = ('-' * 50) + '\n'
+        sys.stderr.write(separator)
+        sys.stderr.write('----- Warnings -- count: {} -----\n'.format(
+            len(gds_collector.get_messages()), ))
+        gds_collector.write_messages(sys.stderr)
+        sys.stderr.write(separator)
+    return rootObj
+
+
+def main():
+    args = sys.argv[1:]
+    if len(args) == 1:
+        parse(args[0])
+    else:
+        usage()
+
+
+if __name__ == '__main__':
+    #import pdb; pdb.set_trace()
+    main()
+
+RenameMappings_ = {
+}
+
+#
+# Mapping of namespaces to types defined in them
+# and the file in which each is defined.
+# simpleTypes are marked "ST" and complexTypes "CT".
+NamespaceToDefMappings_ = {'http://www.battlescribe.net/schema/catalogueSchema': [('idtype',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('SelectionEntryKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('InfoLinkKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('CatalogueLinkKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('EntryLinkKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('ConstraintKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('ModifierKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('ConditionKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('ConditionGroupKind',
+                                                         'lib/Catalogue.xsd',
+                                                         'ST'),
+                                                        ('Commentable',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Publication',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('PublicationList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CharacteristicType',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CharacteristicTypeList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ProfileType',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ProfileTypeList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CostType',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CostTypeList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('EntryBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Characteristic',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CharacteristicList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Profile',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ProfileList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Rule',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('RuleList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ContainerEntryBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('InfoGroup',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('InfoGroupList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CategoryEntry',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CategoryEntryList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ForceEntry',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ForceEntryList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CostBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Cost',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CostList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CostLimit',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CostLimitList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionEntryBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionEntry',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionEntryList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionEntryGroup',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionEntryGroupList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('InfoLink',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('InfoLinkList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CatalogueLink',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CatalogueLinkList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CategoryLink',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CategoryLinkList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('EntryLink',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('EntryLinkList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('QueryBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('QueryFilteredBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Constraint',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ConstraintList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ModifierBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Modifier',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ModifierList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ModifierGroup',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ModifierGroupList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Repeat',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('RepeatList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Condition',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ConditionList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ConditionGroup',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ConditionGroupList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('RosterElementBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionParentBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Force',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('ForceList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Category',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CategoryList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Selection',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('SelectionList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('RosterTag',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('RosterTagList',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('CatalogueBase',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Roster',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('Catalogue',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT'),
+                                                        ('GameSystem',
+                                                         'lib/Catalogue.xsd',
+                                                         'CT')]}
+
+__all__ = [
+    "Catalogue",
+    "CatalogueBase",
+    "CatalogueLink",
+    "CatalogueLinkList",
+    "Category",
+    "CategoryEntry",
+    "CategoryEntryList",
+    "CategoryLink",
+    "CategoryLinkList",
+    "CategoryList",
+    "Characteristic",
+    "CharacteristicList",
+    "CharacteristicType",
+    "CharacteristicTypeList",
+    "Commentable",
+    "Condition",
+    "ConditionGroup",
+    "ConditionGroupList",
+    "ConditionList",
+    "Constraint",
+    "ConstraintList",
+    "ContainerEntryBase",
+    "Cost",
+    "CostBase",
+    "CostLimit",
+    "CostLimitList",
+    "CostList",
+    "CostType",
+    "CostTypeList",
+    "EntryBase",
+    "EntryLink",
+    "EntryLinkList",
+    "Force",
+    "ForceEntry",
+    "ForceEntryList",
+    "ForceList",
+    "GameSystem",
+    "InfoGroup",
+    "InfoGroupList",
+    "InfoLink",
+    "InfoLinkList",
+    "Modifier",
+    "ModifierBase",
+    "ModifierGroup",
+    "ModifierGroupList",
+    "ModifierList",
+    "Profile",
+    "ProfileList",
+    "ProfileType",
+    "ProfileTypeList",
+    "Publication",
+    "PublicationList",
+    "QueryBase",
+    "QueryFilteredBase",
+    "Repeat",
+    "RepeatList",
+    "Roster",
+    "RosterElementBase",
+    "RosterTag",
+    "RosterTagList",
+    "Rule",
+    "RuleList",
+    "Selection",
+    "SelectionEntry",
+    "SelectionEntryBase",
+    "SelectionEntryGroup",
+    "SelectionEntryGroupList",
+    "SelectionEntryList",
+    "SelectionList",
+    "SelectionParentBase"
+]
