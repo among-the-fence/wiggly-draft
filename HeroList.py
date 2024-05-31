@@ -4,9 +4,17 @@ import random
 from os.path import exists
 from typing import Dict
 
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.future import select
+from models import Hero
+
 import requests
 from PIL import Image, ImageDraw, ImageFont
 
+db = os.getenv('DATABASE_URL')
+engine = create_async_engine(db, echo=True)
+SessionLocal = sessionmaker(engine, expire_on_commit=False, class_=AsyncSession)
 
 class HeroList:
     def __init__(self, dota_token: str = None):
@@ -40,7 +48,6 @@ class HeroList:
                 f"https://api.steampowered.com/IEconDOTA2_570/GetHeroes/v0001/?key={dota_token}&language=en-US").content
         self._raw = raw_content
         heroesjson = json.loads(raw_content)
-        open("heroData.json", 'w').write(json.dumps(heroesjson['result']))
         # for h in heroesjson['result']['heroes']:
         #     print(h)
         return heroesjson['result']['heroes']
