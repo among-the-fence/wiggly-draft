@@ -211,7 +211,8 @@ class WHUnit:
         elif propname == "ap":
             return self.extract_profile_values("ap")
         elif propname == "points":
-            return [self.trycastint(p['cost']) for p in self.points]
+            if self.points:
+                return [self.trycastint(p['cost']) for p in self.points]
         return None
 
 
