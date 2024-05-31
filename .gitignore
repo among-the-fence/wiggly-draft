@@ -4,4 +4,4 @@ discord.log
 collage.jpg
 .idea
 /.stagingenv
-*/__pycache__/*
+*__pycache__*
