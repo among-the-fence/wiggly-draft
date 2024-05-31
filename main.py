@@ -541,6 +541,8 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
     else:
         # await ctx.defer()
         x = wh_data.search(sp)
+        if len(x) != 0:
+            print("\n".join([x.name + ": " + x.unformatted_stats() for x in units]))
         if len(x) == 0:
             await ctx.respond("No results", ephemeral=True)
         elif len(x) == 1:
