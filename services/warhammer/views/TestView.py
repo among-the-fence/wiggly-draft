@@ -10,9 +10,10 @@ wh_data = Warhammer.get_wh_data()
 
 class UnitSelect(discord.ui.Select):
     def __init__(self, units: list[WHUnit]):
-
+        print("\n".join([x.name + ": " + x.unformatted_stats() for x in units]))
+        i = 0
         options = [
-            discord.SelectOption(label=x.get_display_name(), description=x.unformatted_stats()) for x in units
+            discord.SelectOption(label=f"{x} {units[x].get_display_name()}", description=units[x].unformatted_stats()) for x in range(len(units))
         ]
         super().__init__(placeholder="Choose your destiny", max_values=1, min_values=1, options=options)
 

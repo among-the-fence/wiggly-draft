@@ -145,7 +145,7 @@ class WHUnit:
                             fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
                             if fnp_list and len(fnp_list) > 0:
                                 out += f"/{','.join(fnp_list).replace('Feel No Pain ', '')}+++"
-        return out
+        return out[:99]
 
     @staticmethod
     def extract_numeric(property, stats):

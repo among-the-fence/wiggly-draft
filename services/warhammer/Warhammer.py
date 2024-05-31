@@ -95,7 +95,7 @@ class Warhammer:
                     if params.apply(u):
                         units.append(u)
         units = params.filter(units)
-        return units
+        return list(set(units))
 
     def get_matching_factions(self, faction_name: str):
         if faction_name:
