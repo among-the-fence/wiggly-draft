@@ -78,6 +78,7 @@ class SearchItem:
                 extreme_value = extreme_value[0]
             print(extreme_value)
             for u in units:
-                if extreme_value in u.get_prop(prop_name):
+                got_prop = u.get_prop(prop_name)
+                if got_prop and extreme_value in got_prop:
                     out.append(u)
         return out
