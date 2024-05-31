@@ -10,7 +10,8 @@ from util.utils import extract_and_clear
 
 
 class WHFaction:
-    def __init__(self, json_faction):
+    def __init__(self, json_faction, xml_units=None):
+        xml_units |= {}
         self.colors = [WHFaction.extract_color(json_faction["colours"][x]) for x in json_faction["colours"]] if "colours" in json_faction else [WHFaction.extract_color("#ffffff")]
         extract_and_clear(json_faction, "colours")
 
@@ -24,7 +25,8 @@ class WHFaction:
         unit_list = []
         if "datasheets" in json_faction:
             for u in json_faction["datasheets"]:
-                converted = WHUnit(u, self.colors)
+                xu = xml_units[u["name"]] if u["name"] in xml_units else None
+                converted = WHUnit(u, xu, self.colors)
                 datasheets[converted.normalized_name] = converted
                 unit_list.append(converted.name)
         self.units = datasheets

@@ -4,3 +4,4 @@ requests
 Pillow
 openai
 thefuzz
+lxml

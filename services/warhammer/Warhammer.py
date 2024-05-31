@@ -4,13 +4,14 @@ import os
 from thefuzz import fuzz
 
 from services.warhammer.models.faction import WHFaction
+from services.warhammer.models.generated.Catalogue import parse
 from services.warhammer.models.search_params import SearchParams
 from util.name_matcher import name_match_function, normalize_name
 
 faction_nickname_map = {
     "astramilitarum": ["am", "ig", "guard", "imperial guard"],
     "adeptasororitas": ["mommy", "sororitas", "senoritas", "sisters", "sob"],
-    "bloodangels": ["ba", "angels", "blood angles"],
+    "bloodangel*s": ["ba", "angels", "blood angles"],
     "darkangels": ["da", "angles", "dark angles"],
     "chaosknights": ["ck"],
     "chaosdeamons": ["daemons", "demons"],
@@ -37,14 +38,24 @@ faction_nickname_map = {
     "necrons": ["necrons", "crons", "zombies"]
 }
 
+JSON_DATA_PREFIX = "datasources/10th/json/"
+XML_DATA_PREFIX = "wh40k-10e/"
 
 class Warhammer:
-    def __init__(self, dataroot="data/datasources/10th/json/"):
+    def __init__(self, dataroot="data/"):
         self.factions = {}
         self.faction_names = []
-        for f in os.listdir(dataroot):
-            with open(dataroot + f, "r") as file:
-                wf = WHFaction(json.load(file))
+        xml_units = {}
+        for f in os.listdir(dataroot + XML_DATA_PREFIX):
+            if ".cat" in f:
+                data = parse(dataroot + XML_DATA_PREFIX + f, silence=True)
+                if data.sharedSelectionEntries:
+                    for x in data.sharedSelectionEntries.selectionEntry:
+                        if x.type_ in ["unit", "model"]:
+                            xml_units[x.name] = x
+        for f in os.listdir(dataroot + JSON_DATA_PREFIX):
+            with open(dataroot + JSON_DATA_PREFIX + f, "r") as file:
+                wf = WHFaction(json.load(file), xml_units)
                 self.factions[wf.normalized_name] = wf
                 if wf.name:
                     self.faction_names.append(wf.name)

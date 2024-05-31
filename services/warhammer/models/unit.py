@@ -13,8 +13,9 @@ save_reg = re.compile("(\d)+")
 
 class WHUnit:
 
-    def __init__(self, jsonunit, colors):
+    def __init__(self, jsonunit, xml_unit, colors):
         self._raw_json = jsonunit
+        self._raw_xml = xml_unit
         self.name = extract_and_clear(jsonunit, "name")
         self.normalized_name = normalize_name(self.name)
         self.abilities = remove_empty_fields(extract_and_clear(jsonunit, "abilities"))
