@@ -13,17 +13,35 @@ save_reg = re.compile("(\d)+")
 
 class WHUnit:
 
-    def __init__(self, jsonunit, xml_unit, colors):
-        self._raw_json = jsonunit
+    def __init__(self, xml_unit, jsonunit, colors):
         self._raw_xml = xml_unit
-        self.name = extract_and_clear(jsonunit, "name")
-        self.normalized_name = normalize_name(self.name)
-        self.abilities = remove_empty_fields(extract_and_clear(jsonunit, "abilities"))
+        self.name = xml_unit.name
+        self.normalized_name = normalize_name(xml_unit.name)
+        self.abilities = []
+        self.meleeWeapons = []
+        self.rangedWeapons = []
+        self.otherProfiles = []
+        self.transport = []
+        profiles = {}
+        if xml_unit.profiles and xml_unit.profiles.profile:
+            for p in xml_unit.profiles.profile:
+                if not p.typeName in profiles:
+                    profiles[p.typeName] = []
+                profiles[p.typeName].append(p)
+        self.extract_stat_blocks(xml_unit)
+        self.abilities = profiles["Abilities"] if "Abilities" in profiles else []
+        self.meleeWeapons = profiles["Abilities"] if "Abilities" in profiles else []
+        self.rangedWeapons = profiles["Abilities"] if "Abilities" in profiles else []
+        self.transport = profiles["Abilities"] if "Abilities" in profiles else []
+
         self.stats = extract_and_clear(jsonunit, "stats")
         self.composition = extract_and_clear(jsonunit, "composition")
         self.rangedWeapons = extract_and_clear(jsonunit, "rangedWeapons")
         self.meleeWeapons = extract_and_clear(jsonunit, "meleeWeapons")
-        self.keywords = extract_and_clear(jsonunit, "keywords")
+        if xml_unit.infoLinks:
+            self.keywords = [link.name for link in xml_unit.infoLinks.infoLink]
+        else:
+            self.keywords = None
         self.fluff = extract_and_clear(jsonunit, "fluff")
         self.loadout = extract_and_clear(jsonunit, "loadout")
         self.wargear = extract_and_clear(jsonunit, "wargear")
@@ -35,10 +53,22 @@ class WHUnit:
         self.imperialArmour = extract_and_clear(jsonunit, "imperialArmour")
         self.factions = ", ".join(extract_and_clear(jsonunit, "factions"))
         self.faction_id = extract_and_clear(jsonunit, "faction_id")
-        self.id = extract_and_clear(jsonunit, "id")
-        self.legends = extract_and_clear(jsonunit, "legends", False)
+        self.legends = "[Legends]" in self.name
         self.colors = colors
         self.the_rest = jsonunit
+
+    def extract_stat_blocks(self, xml_unit):
+        stats = {}
+        if xml_unit.profiles and xml_unit.profiles.profile:
+            for p in xml_unit.profiles.profile:
+                if p.typeName == "Unit":
+                    print(xml_unit.name)
+        if xml_unit.selectionEntries and xml_unit.selectionEntries.selectionEntry:
+            print(xml_unit.name)
+            for p in xml_unit.selectionEntries.selectionEntry:
+                print(f" - {p.name}")
+
+        return None
 
     def get_display_name(self):
         out = self.name
@@ -47,7 +77,7 @@ class WHUnit:
         return out
 
     def __str__(self):
-        return self._raw_json
+        return self.name
 
     def get_color(self):
         if type(self.colors) is list:

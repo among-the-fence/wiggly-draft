@@ -1,23 +1,20 @@
 import os
 
 from services.warhammer.models.generated.Catalogue import parse
+from services.warhammer.models.unit import WHUnit
 
-data_root = "data/wh40k-10e/"
+dataroot = "data/"
+XML_DATA_PREFIX = "wh40k-10e/"
 
 if __name__ == "__main__":
-    libs = {}
-    for f in os.listdir(data_root):
+    xml_units = {}
+    for f in os.listdir(dataroot + XML_DATA_PREFIX):
         if ".cat" in f:
-            # print(f)
-            data = parse(data_root + f, silence=True)
-            libs[f] = data
-    for k, data in libs.items():
-        print(k)
-        if data.sharedSelectionEntries:
-            for x in data.sharedSelectionEntries.selectionEntry:
-                if x.type_ in ["unit", "model"]:
-                    if x.costs:
-                        print(f" - {x.name} {','.join([str(c.value) for c in x.costs.cost if x.costs])}")
-                    else:
-                        print(f" - {x.name} {x}")
+            data = parse(dataroot + XML_DATA_PREFIX + f, silence=True)
+            if data.sharedSelectionEntries:
+                for x in data.sharedSelectionEntries.selectionEntry:
+                    if x.type_ in ["unit", "model"]:
+                        xml_units[x.name] = WHUnit(x, {"factions": ["a"]}, "a")
+
+
 

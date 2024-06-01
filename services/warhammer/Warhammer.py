@@ -6,6 +6,7 @@ from thefuzz import fuzz
 from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.generated.Catalogue import parse
 from services.warhammer.models.search_params import SearchParams
+from services.warhammer.models.unit import WHUnit
 from util.name_matcher import name_match_function, normalize_name
 
 faction_nickname_map = {
@@ -52,13 +53,8 @@ class Warhammer:
                 if data.sharedSelectionEntries:
                     for x in data.sharedSelectionEntries.selectionEntry:
                         if x.type_ in ["unit", "model"]:
-                            xml_units[x.name] = x
-        for f in os.listdir(dataroot + JSON_DATA_PREFIX):
-            with open(dataroot + JSON_DATA_PREFIX + f, "r") as file:
-                wf = WHFaction(json.load(file), xml_units)
-                self.factions[wf.normalized_name] = wf
-                if wf.name:
-                    self.faction_names.append(wf.name)
+                            xml_units[x.name] = WHUnit(x)
+
         self.compiled_faction_names = []
         self.compiled_faction_names.extend(self.faction_names)
         for k,v in faction_nickname_map.items():
