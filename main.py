@@ -23,6 +23,7 @@ from services.warhammer.models.search_params import SearchParams
 from services.warhammer.models.unit import WHUnit
 from services.warhammer.views.TestView import TestView
 from services.warhammer.views.UnitView import UnitView
+from services.warhammer.wh_data import get_wh_data
 from util.utils import send_in_chunks
 
 load_dotenv()
@@ -48,7 +49,8 @@ pudge = None
 io_moji = None
 activation_owner = None
 wiggle_poll = WigglePoll()
-wh_data = Warhammer.get_wh_data()
+wh_data = get_wh_data()
+
 
 def get_env_attribute(attribute):
     e = os.getenv('ENV')

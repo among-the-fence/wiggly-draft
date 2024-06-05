@@ -1,10 +1,10 @@
 import discord
 
-from services.warhammer import Warhammer
 from services.warhammer.models.unit import WHUnit
+from services.warhammer.wh_data import get_wh_data
 from util.utils import simple_format, send_in_chunks
 
-wh_data = Warhammer.get_wh_data()
+wh_data = get_wh_data()
 
 
 class UnitView(discord.ui.View):

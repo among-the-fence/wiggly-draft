@@ -146,9 +146,5 @@ class Warhammer:
     def get_all_faction_names(self):
         return self.compiled_faction_names
 
-warhammer_40k_data = Warhammer()
 
-
-def get_wh_data():
-    return warhammer_40k_data
 
