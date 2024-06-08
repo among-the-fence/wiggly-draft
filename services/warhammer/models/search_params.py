@@ -6,6 +6,7 @@ keyword_abbreviation_map = {
     "devestating wounds": ["dw", "dev wounds"],
     "deadly demise": ["dd"],
     "lethal hits": ["lh", "lethal"],
+    "sustained hits": ["sh", "sustain", "sustained", "sus"],
 }
 
 
@@ -15,7 +16,7 @@ class SearchParams:
         if key == "keywords":
             if item:
                 for x in item.lower().split(","):
-                    added=False
+                    added = False
                     for k, v in keyword_abbreviation_map.items():
                         if x in v:
                             l.append(SearchItem("keywords", k))

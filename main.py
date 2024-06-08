@@ -541,24 +541,28 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
         }
     )
     if sp.empty():
-        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`\n`f:csm t:>10 w:min`\n`f:!=Aeldari pts:>=300 k:dev wounds`", ephemeral=True)
+        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n"
+                          "`f:fish t:4`\n"
+                          "`f:csm t:>10 w:min`\n"
+                          "`f:!=Aeldari pts:>=300 k:dev wounds`\n"
+                          "`f:elf,orc t:>12`", ephemeral=True)
     else:
         # await ctx.defer()
-        x = wh_data.search(sp)
-        if len(x) != 0:
-            print("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
+        x = list(set(wh_data.search(sp)))
         if len(x) == 0:
             await ctx.respond("No results", ephemeral=True)
-        elif len(x) == 1:
-            unit = x[0]
-            e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
-            unit.formatted_stats(e)
-            await ctx.respond(embed=e, view=UnitView(unit))
-        elif len(x) <= 20:
-            await ctx.respond("Choose", view=TestView(x))
         else:
-            out = [u.get_display_name() for u in x]
-            await ctx.respond(", ".join(out)[:1999])
+            print("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
+            if len(x) == 1:
+                unit = x[0]
+                e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
+                unit.formatted_stats(e)
+                await ctx.respond(embed=e, view=UnitView(unit))
+            elif len(x) <= 20:
+                await ctx.respond("Choose", view=TestView(x))
+            else:
+                out = [u.get_display_name() for u in x]
+                await ctx.respond(", ".join(out)[:1999])
 
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))

@@ -97,16 +97,19 @@ class Warhammer:
         units = params.filter(units)
         return list(set(units))
 
-    def get_matching_factions(self, faction_name: str):
-        if faction_name:
-            invert = "!=" in faction_name
-            faction_name = faction_name.replace("!=", "")
-            faction_name = self.find_closest_faction_name(faction_name)
-            if invert:
-                out = {k: v for k, v in self.factions.items() if k != faction_name}
-            else:
-                out = {faction_name: self.factions[faction_name]}
-            return out
+    def get_matching_factions(self, faction_name_stuck: str):
+        if faction_name_stuck:
+            matches = {}
+            for faction_name in faction_name_stuck.split(","):
+                if faction_name:
+                    invert = "!=" in faction_name
+                    faction_name = faction_name.replace("!=", "").strip()
+                    faction_name = self.find_closest_faction_name(faction_name)
+                    if invert:
+                        matches.update({k: v for k, v in self.factions.items() if k != faction_name})
+                    else:
+                        matches.update({faction_name: self.factions[faction_name]})
+            return matches
         else:
             return self.factions
 
