@@ -14,11 +14,19 @@ class SearchItem:
         self.max_filter = None
         self.search_type = None
         self.search_value = None
+        # print(self.__raw)
         if len(item_str) > 0:
             if "min" in item_str:
                 self.min_filter = prop_name
             elif "max" in item_str:
                 self.max_filter = prop_name
+            elif "keywords" == prop_name:
+                if "!=" in item_str:
+                    item_str = item_str.replace("!=", "")
+                    self.search_type = lambda unit: not any(item_str.lower() in k.lower() for k in unit.get_prop("keywords"))
+                else:
+                    item_str = item_str.replace("=", "")
+                    self.search_type = lambda unit: any(item_str.lower() in k.lower() for k in unit.get_prop("keywords"))
             else:
                 operator_search = search_type_re.search(item_str)
 

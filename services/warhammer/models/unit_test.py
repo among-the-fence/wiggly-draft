@@ -39,8 +39,46 @@ class TestUnit(unittest.TestCase):
 
             }
         )
-        units = warhammer_data.search(sp)
-        print(set([u.factions for u in units]))
+        self.runsearch(warhammer_data, sp)
+
+        sp = SearchParams(
+            {
+                "points": ">45,<100"
+            }
+        )
+        self.runsearch(warhammer_data, sp)
+
+        sp = SearchParams(
+            {
+                "points": "<100,>45"
+            }
+        )
+        self.runsearch(warhammer_data, sp)
+
+    def test_search_keywords(self):
+        warhammer_data = Warhammer("../../../data/")
+        sp = SearchParams(
+            {
+                "faction": "orc",
+                "keywords": "Deadly Demise,Torrent",
+                "points": "<100"
+            }
+        )
+        self.runsearch(warhammer_data, sp)
+
+        sp = SearchParams(
+            {
+                "faction": "elf",
+                "keywords": "lh"
+            }
+        )
+        self.runsearch(warhammer_data, sp)
+
+    @staticmethod
+    def runsearch(data, sp):
+        units = data.search(sp)
+        print(set([u.name for u in units]))
+        return units
 
 
 if __name__ == '__main__':

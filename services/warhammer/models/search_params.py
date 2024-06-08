@@ -2,12 +2,29 @@ from services.warhammer.models.search_item import SearchItem
 from services.warhammer.models.unit import WHUnit
 from util.utils import get_or_default
 
+keyword_abbreviation_map = {
+    "devestating wounds": ["dw", "dev wounds"],
+    "deadly demise": ["dd"],
+    "lethal hits": ["lh", "lethal"],
+}
+
 
 class SearchParams:
-
     @staticmethod
     def parse_search_parameter(l, key, item):
-        l.extend([SearchItem(key, x) for x in item.split(",")]) if item else None
+        if key == "keywords":
+            if item:
+                for x in item.lower().split(","):
+                    added=False
+                    for k, v in keyword_abbreviation_map.items():
+                        if x in v:
+                            l.append(SearchItem("keywords", k))
+                            added = True
+                            break
+                    if not added:
+                        l.append(SearchItem("keywords", x))
+        else:
+            l.extend([SearchItem(key, x) for x in item.split(",")]) if item else None
 
     def __init__(self, params):
         self.faction = get_or_default(params, 'faction')
@@ -24,6 +41,7 @@ class SearchParams:
         SearchParams.parse_search_parameter(self.filters, "damage", get_or_default(params, 'damage'))
         SearchParams.parse_search_parameter(self.filters, "ap", get_or_default(params, 'ap'))
         SearchParams.parse_search_parameter(self.filters, "points", get_or_default(params, 'points'))
+        SearchParams.parse_search_parameter(self.filters, "keywords", get_or_default(params, 'keywords'))
 
     def empty(self):
         return len(self.filters) == 0 and self.faction is None
@@ -40,5 +58,3 @@ class SearchParams:
             if f and (f.min_filter or f.max_filter):
                 unit_list = f.filter(unit_list)
         return unit_list
-
-

@@ -10,6 +10,7 @@ from util.utils import extract_and_clear, remove_empty_fields
 fnp_reg = re.compile("Feel No Pain \d\+")
 save_reg = re.compile("(\d)+")
 
+SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "Fights First"]
 
 class WHUnit:
 
@@ -37,6 +38,7 @@ class WHUnit:
         self.faction_id = extract_and_clear(jsonunit, "faction_id")
         self.id = extract_and_clear(jsonunit, "id")
         self.legends = extract_and_clear(jsonunit, "legends", False)
+        self.compiled_keywords = self.collect_all_keywords()
         self.colors = colors
         self.the_rest = jsonunit
 
@@ -211,7 +213,36 @@ class WHUnit:
         elif propname == "points":
             if self.points:
                 return [self.trycastint(p['cost']) for p in self.points]
+        elif propname == "keywords":
+            return self.compiled_keywords
         return None
+
+    def collect_all_keywords(self):
+            keywords = []
+            if self.abilities:
+                if 'core' in self.abilities:
+                    keywords.extend(self.abilities['core'])
+                if 'faction' in self.abilities:
+                    keywords.extend(self.abilities['faction'])
+                if 'invul' in self.abilities:
+                    keywords.append("Invuln")
+                if 'other' in self.abilities:
+                    for a in self.abilities['other']:
+                        if 'description' in a:
+                            for k in SEARCHABLE_ABILITIES:
+                                if k.lower() in a['description'].lower():
+                                    keywords.append(k)
+                for ranged in self.rangedWeapons:
+                    if 'profiles' in ranged:
+                        for bp in ranged['profiles']:
+                            if 'keywords' in bp:
+                                keywords.extend(bp['keywords'])
+                for melee in self.meleeWeapons:
+                    if 'profiles' in melee:
+                        for m in melee['profiles']:
+                            if 'keywords' in m:
+                                keywords.extend(m['keywords'])
+            return list(set(keywords))
 
 
 if __name__ == "__main__":

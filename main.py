@@ -520,7 +520,8 @@ async def datacard(ctx, unitname:str, faction:str):
 @option("d", description="Damage", required=False)
 @option("ap", description="Armor Pierce", required=False)
 @option("pts", description="Points", required=False)
-async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str, pts: str):
+@option("k", description="Keywords", required=False)
+async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str, pts: str, k: str):
     sp = SearchParams(
         {
             "faction": f,
@@ -536,10 +537,11 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
             "damage": d,
             "ap": ap,
             "points": pts,
+            "keywords": k,
         }
     )
     if sp.empty():
-        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`\n`f:csm t:>10 w:min`", ephemeral=True)
+        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`\n`f:csm t:>10 w:min`\n`f:!=Aeldari pts:>=300", ephemeral=True)
     else:
         # await ctx.defer()
         x = wh_data.search(sp)
