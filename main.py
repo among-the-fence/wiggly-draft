@@ -541,7 +541,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
         }
     )
     if sp.empty():
-        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`\n`f:csm t:>10 w:min`\n`f:!=Aeldari pts:>=300", ephemeral=True)
+        await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n`f:fish t:4`\n`f:csm t:>10 w:min`\n`f:!=Aeldari pts:>=300 k:dev wounds`", ephemeral=True)
     else:
         # await ctx.defer()
         x = wh_data.search(sp)
