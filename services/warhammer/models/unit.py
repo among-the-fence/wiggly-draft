@@ -12,6 +12,7 @@ save_reg = re.compile("(\d)+")
 
 SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "Fights First"]
 
+
 class WHUnit:
 
     def __init__(self, jsonunit, xml_unit, colors):
@@ -232,16 +233,19 @@ class WHUnit:
                             for k in SEARCHABLE_ABILITIES:
                                 if k.lower() in a['description'].lower():
                                     keywords.append(k)
-                for ranged in self.rangedWeapons:
-                    if 'profiles' in ranged:
-                        for bp in ranged['profiles']:
-                            if 'keywords' in bp:
-                                keywords.extend(bp['keywords'])
-                for melee in self.meleeWeapons:
-                    if 'profiles' in melee:
-                        for m in melee['profiles']:
-                            if 'keywords' in m:
-                                keywords.extend(m['keywords'])
+            for ranged in self.rangedWeapons:
+                if 'profiles' in ranged:
+                    for bp in ranged['profiles']:
+                        if 'keywords' in bp:
+                            keywords.extend(bp['keywords'])
+            for melee in self.meleeWeapons:
+                if 'profiles' in melee:
+                    for m in melee['profiles']:
+                        if 'keywords' in m:
+                            keywords.extend(m['keywords'])
+            if self.keywords:
+                keywords.extend(self.keywords)
+
             return list(set(keywords))
 
 
