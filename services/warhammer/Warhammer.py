@@ -8,38 +8,42 @@ from services.warhammer.models.generated.Catalogue import parse
 from services.warhammer.models.search_params import SearchParams
 from util.name_matcher import name_match_function, normalize_name
 
+# adeptus titanicus,,black templar,,basic,emperors children,, ,agents of the imperium,
+# ,,,space marines  leviathan,,
+
 faction_nickname_map = {
-    "astramilitarum": ["am", "ig", "guard", "imperial guard"],
-    "adeptasororitas": ["mommy", "sororitas", "senoritas", "sisters", "sob"],
-    "bloodangel*s": ["ba", "angels", "blood angles"],
-    "darkangels": ["da", "angles", "dark angles"],
-    "chaosknights": ["ck"],
-    "chaosdeamons": ["daemons", "demons"],
-    "chaosspacemarines": ["csm", "chaos marines"],
-    "deathguard": ["dg"],
-    "deathwatch": ["dw"],
+    "astra militarum": ["am", "ig", "guard", "imperial guard"],
+    "adepta sororitas": ["mommy", "sororitas", "senoritas", "sisters", "sob"],
+    "blood angels": ["ba", "angels", "blood angles"],
+    "dark angels": ["da", "angles", "dark angles"],
+    "chaos knights": ["ck"],
+    "chaos deamons": ["daemons", "demons"],
+    "chaos space marines": ["csm", "chaos marines"],
+    "death guard": ["dg"],
+    "death watch": ["dw"],
     "drukhari": ["dark elves", "dark eldar"],
-    "blacktemplars": ["bt"],
-    "adeptacustodes": ["custodes"],
-    "adeptamechanicus": ["admech"],
+    "black templars": ["bt"],
+    "adepta custodes": ["custodes"],
+    "adepta mechanicus": ["admech"],
     "aeldari": ["elves", "eldar", "aeldar", "eldari", "aeldar", "legalos and friends"],
-    "greyknights": ["gk"],
-    "genestealercults": ["gsc", "genestealer", "genestealers"],
-    "imperialagents": ["ia"],
-    "imperialknights": ["ik"],
-    "spacemarines": ["sm", "marines"],
-    "spacewolves": ["wolves", "sw"],
+    "grey knights": ["gk"],
+    "genestealer cults": ["gsc", "genestealer", "genestealers"],
+    "imperial agents": ["ia"],
+    "imperial knights": ["ik"],
+    "space marines": ["sm", "marines"],
+    "space wolves": ["wolves", "sw"],
     "votann": ["dwarves", "votan", "votann", "lov"],
-    "worldeaters": ["we", "eaters"],
+    "world eaters": ["we", "eaters"],
     "orks": ["orcs", "ork", "orc"],
     "tyranids": ["nids", "bugs"],
-    "tauempire": ["tau", "fish"],
-    "thousandsons": ["tsons", "ksons", "1ksons", "dustyboiz", "dustyboys"],
+    "tau empire": ["tau", "fish"],
+    "thousand sons": ["tsons", "ksons", "1ksons", "dustyboiz", "dustyboys"],
     "necrons": ["necrons", "crons", "zombies"]
 }
 
 JSON_DATA_PREFIX = "datasources/10th/json/"
 XML_DATA_PREFIX = "wh40k-10e/"
+
 
 class Warhammer:
     def __init__(self, dataroot="data/"):
@@ -89,7 +93,7 @@ class Warhammer:
     def search(self, params: SearchParams):
         factions = self.get_matching_factions(params.faction)
         units = []
-        for k,i in factions.items():
+        for k, i in factions.items():
             if i.units:
                 for uk, u in i.units.items():
                     if params.apply(u):
@@ -119,17 +123,17 @@ class Warhammer:
         closest_match_name = None
         closest_match_ratio = 30
 
+        for y, x in faction_nickname_map.items():
+            for i in x:
+                if i == faction_name:
+                    faction_name = y
+                    break
+
         for i in self.faction_names:
             r = fuzz.token_sort_ratio(faction_name, i)
             if r > closest_match_ratio:
                 closest_match_name = i
                 closest_match_ratio = r
-        for y, x in faction_nickname_map.items():
-            for i in x:
-                r = name_match_function(faction_name, i)
-                if r > closest_match_ratio:
-                    closest_match_name = y
-                    closest_match_ratio = r
         closest_match_ratio = 0
         for x in self.factions.keys():
             if x:
