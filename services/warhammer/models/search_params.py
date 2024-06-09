@@ -7,6 +7,7 @@ keyword_abbreviation_map = {
     "deadly demise": ["dd"],
     "lethal hits": ["lh", "lethal"],
     "sustained hits": ["sh", "sustain", "sustained", "sus"],
+    "re-roll": ["rr", "reroll", "re roll"],
 }
 
 

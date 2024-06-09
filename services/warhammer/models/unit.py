@@ -10,7 +10,7 @@ from util.utils import extract_and_clear, remove_empty_fields
 fnp_reg = re.compile("Feel No Pain \d\+")
 save_reg = re.compile("(\d)+")
 
-SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "Fights First"]
+SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "Fights First", "Re-roll"]
 
 
 class WHUnit:
