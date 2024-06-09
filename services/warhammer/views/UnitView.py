@@ -14,11 +14,9 @@ class UnitView(discord.ui.View):
         self.disable_forward_button = disable_forward_button
         super().__init__(timeout=None)
 
-
     async def on_timeout(self):
         self.disable_all_items()
         await self.message.edit(view=self)
-
 
     def get_unit(self):
         return None, self.unit
@@ -90,6 +88,18 @@ class UnitView(discord.ui.View):
         ]
         await self.send_weapon_profiles(interaction,"meleeWeapons", "Melee", prop_order)
 
+    def add_field(self, e, title, text, inline):
+        if len(text) < 1023:
+            e.add_field(name=title, value=text, inline=inline)
+        else:
+            chunk_count = (len(text) // 1023) + 1
+            chunk_size = len(text) // chunk_count
+            print(f"chunking message {chunk_size} {chunk_count}")
+            for i in range(0, len(text), chunk_size):
+                e.add_field(name=title, value=text[i: i + chunk_size], inline=inline)
+                title=""
+
+
     @discord.ui.button(label="", custom_id="abilittybutton", style=discord.ButtonStyle.primary, emoji="🗿")
     async def ability_button_callback(self, button, interaction):
         try:
@@ -98,24 +108,16 @@ class UnitView(discord.ui.View):
             unit.formatted_stats(e)
 
             if "core" in unit.abilities:
-                e.add_field(name="Core",
-                            value=simple_format(unit.abilities['core']),
-                            inline=True)
+                self.add_field(e, "Core", simple_format(unit.abilities['core']), True)
             if "faction" in unit.abilities:
-                e.add_field(name="Faction",
-                            value=simple_format(unit.abilities['faction']),
-                            inline=True)
+                self.add_field(e, "Faction", simple_format(unit.abilities['faction']), True)
             if 'invul' in unit.abilities and 'value' in unit.abilities['invul']:
-                e.add_field(name="Invuln",
-                            value=unit.abilities['invul']['value'],
-                            inline=True)
+                self.add_field(e, "Invuln", unit.abilities['invul']['value'], True)
             if 'wargear' in unit.abilities:
                 out = []
                 for x in unit.abilities['wargear']:
                     out.append(f"**{x['name']}**: {x['description']}")
-                e.add_field(name="Wargear",
-                        value="\n".join(out),
-                        inline=False)
+                self.add_field(e, "Wargear", "\n".join(out), False)
             if 'other' in unit.abilities:
                 out = []
                 for x in unit.abilities['other']:
@@ -123,9 +125,7 @@ class UnitView(discord.ui.View):
                         out.append(f"__{x['name']}__: {x['description']}")
                     else:
                         out.append(x)
-                e.add_field(name="Other",
-                            value=simple_format(out),
-                            inline=False)
+                self.add_field(e, "Other", out, False)
 
             if "primarch" in unit.abilities:
                 out = []
@@ -137,13 +137,10 @@ class UnitView(discord.ui.View):
                         else:
                             current.append(x)
                     out.append(f"**{y['name']}**: {' '.join(current)}")
-                e.add_field(name="Primarch",
-                            value=simple_format(out),
-                            inline=False)
+                self.add_field(e, "Primarch", simple_format(out), False)
             await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
-
 
     @discord.ui.button(label="", custom_id="buttoncomptbutton", style=discord.ButtonStyle.primary, emoji="🧀")
     async def composition_button_callback(self, button, interaction):
