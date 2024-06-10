@@ -15,12 +15,14 @@ class TestSeachItem(unittest.TestCase):
     def test_name_search(self):
         w = Warhammer(data_path)
         out = w.get_matching_factions(None)
-        print(",".join([x if x else ' ' for x in out.keys()]))
+        self.assertEqual(33, len(out))
         out = w.get_matching_factions("necrons")
-        print(",".join([x if x else ' ' for x in out.keys()]))
+        self.assertEqual(list(out.keys()), ["necrons"])
         out = w.get_matching_factions("demons")
         self.assertEqual(list(out.keys()), ["chaos daemons"])
-        out = w.get_matching_factions("demons,we")
+        out = w.get_matching_factions("angels,angles")
+        self.assertEqual(list(out.keys()), ['blood angels', 'dark angels'])
+        out = w.get_matching_factions("!=angels,!=we")
         print(",".join([x if x else ' ' for x in out.keys()]))
 
 
