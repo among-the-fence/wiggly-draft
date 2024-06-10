@@ -17,6 +17,7 @@ class SearchParams:
         if key == "keywords":
             if item:
                 for x in item.lower().split(","):
+                    x = x.strip()
                     added = False
                     for k, v in keyword_abbreviation_map.items():
                         if x in v:
@@ -26,7 +27,7 @@ class SearchParams:
                     if not added:
                         l.append(SearchItem("keywords", x))
         else:
-            l.extend([SearchItem(key, x) for x in item.split(",")]) if item else None
+            l.extend([SearchItem(key, x.strip()) for x in item.split(",")]) if item else None
 
     def __init__(self, params):
         self.faction = get_or_default(params, 'faction')

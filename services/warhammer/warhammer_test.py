@@ -25,6 +25,23 @@ class TestSeachItem(unittest.TestCase):
         out = w.get_matching_factions("!=angels,!=we")
         print(",".join([x if x else ' ' for x in out.keys()]))
 
+    def test_operator_order(self):
+        w = Warhammer(data_path)
+        sp = SearchParams({"points": "<45,>=20"})
+        out = w.search(sp)
+
+        sp2 = SearchParams({"points": ">=20,<45"})
+        out2 = w.search(sp2)
+        print(",".join([x if x else ' ' for x in out.keys()]))
+
+    def test_search_spaces(self):
+        w = Warhammer(data_path)
+        sp = SearchParams({"points": "<45, >=20"})
+        self.assertTrue(0 < len(w.search(sp)))
+
+        sp = SearchParams({"keywords": "assault , heavy"})
+        self.assertTrue(0 < len(w.search(sp)))
+
 
 if __name__ == '__main__':
     unittest.main()
