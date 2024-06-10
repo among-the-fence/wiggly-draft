@@ -8,7 +8,7 @@ number_re = re.compile("(\d+)")
 
 class SearchItem:
     def __init__(self, prop_name: str, item_str: str):
-        self.__raw = f"{prop_name}{item_str}"
+        self.__raw = f"{prop_name}:{item_str}"
         self.prop_name = prop_name
         self.min_filter = None
         self.max_filter = None

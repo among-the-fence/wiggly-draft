@@ -45,6 +45,11 @@ class SearchParams:
         SearchParams.parse_search_parameter(self.filters, "ap", get_or_default(params, 'ap'))
         SearchParams.parse_search_parameter(self.filters, "points", get_or_default(params, 'points'))
         SearchParams.parse_search_parameter(self.filters, "keywords", get_or_default(params, 'keywords'))
+        SearchParams.parse_search_parameter(self.filters, "oc", get_or_default(params, 'oc'))
+
+    def __str__(self):
+        out = f"f:{self.faction}" if self.faction else None
+        return ", ".join([str(x) for x in [out] + self.filters if x])
 
     def empty(self):
         return len(self.filters) == 0 and self.faction is None

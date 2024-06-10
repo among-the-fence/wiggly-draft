@@ -1,3 +1,5 @@
+import time
+
 import discord
 
 from services.warhammer.models.unit import WHUnit
@@ -10,13 +12,22 @@ wh_data = get_wh_data()
 class UnitView(discord.ui.View):
 
     def __init__(self, unit: WHUnit, disable_forward_button=False):
+        self.created = time.time()
+        self.updated = time.time()
         self.unit = unit
         self.disable_forward_button = disable_forward_button
         super().__init__(timeout=None)
+        if disable_forward_button:
+            self.children.remove(self.children[-1])
 
     async def on_timeout(self):
         self.disable_all_items()
-        await self.message.edit(view=self)
+        now = time.time()
+
+        if self.message:
+            await self.message.edit(content=f"{self.created} {self.updated} {now} {now-self.updated} {now-self.created}", view=self)
+        else:
+            await self.parent.edit(content=f"{self.created} {self.updated} {now} {now-self.updated} {now-self.created}", view=self)
 
     def get_unit(self):
         return None, self.unit
@@ -73,6 +84,7 @@ class UnitView(discord.ui.View):
             {"key": "damage", "display": "D"},
             {"key": "keywords", "display": "K"}
         ]
+        self.updated = time.time()
         await self.send_weapon_profiles(interaction,"rangedWeapons", "Ranged", prop_order)
 
     @discord.ui.button(label="", custom_id="meleebuttonid", style=discord.ButtonStyle.primary, emoji="⚔️")
@@ -86,6 +98,7 @@ class UnitView(discord.ui.View):
             {"key": "damage", "display": "D"},
             {"key": "keywords", "display": "K"}
         ]
+        self.updated = time.time()
         await self.send_weapon_profiles(interaction,"meleeWeapons", "Melee", prop_order)
 
     def add_field(self, e, title, text, inline):
@@ -138,6 +151,7 @@ class UnitView(discord.ui.View):
                             current.append(x)
                     out.append(f"**{y['name']}**: {' '.join(current)}")
                 self.add_field(e, "Primarch", simple_format(out), False)
+            self.updated = time.time()
             await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
@@ -193,6 +207,7 @@ class UnitView(discord.ui.View):
                                 value=simple_format(unit.transport),
                                 inline=False)
 
+                self.updated = time.time()
                 await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
@@ -210,6 +225,8 @@ class UnitView(discord.ui.View):
                 e.add_field(name="Fluff", value=t, inline=False)
                 if unit.the_rest:
                     e.add_field(name="The Rest", value=simple_format(unit.the_rest), inline=False)
+
+                self.updated = time.time()
                 await interaction.edit(embed=e, view=self)
         except Exception as e:
             await self.handle_error(interaction, e)
@@ -220,6 +237,7 @@ class UnitView(discord.ui.View):
             button.disabled = True
             self.children.remove(button)
             await interaction.channel.send(view=self, embed=self.message.embeds[0])
+            self.updated = time.time()
             await interaction.response.edit_message(view=self, embed=None)  # edit the message's view
         except Exception as e:
             await self.handle_error(interaction, e)

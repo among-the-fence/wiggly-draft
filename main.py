@@ -521,7 +521,8 @@ async def datacard(ctx, unitname:str, faction:str):
 @option("ap", description="Armor Pierce", required=False)
 @option("pts", description="Points", required=False)
 @option("k", description="Keywords", required=False)
-async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str, pts: str, k: str):
+@option("oc", description="Objective Control", required=False)
+async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: str, a: str, ws: str, s: str, d: str, ap: str, pts: str, k: str, oc: str):
     sp = SearchParams(
         {
             "faction": f,
@@ -538,6 +539,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
             "ap": ap,
             "points": pts,
             "keywords": k,
+            "oc": oc,
         }
     )
     if sp.empty():
@@ -552,17 +554,17 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
         if len(x) == 0:
             await ctx.respond("No results", ephemeral=True)
         else:
-            print("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
+            # print("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
             if len(x) == 1:
                 unit = x[0]
                 e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
                 unit.formatted_stats(e)
-                await ctx.respond(embed=e, view=UnitView(unit))
+                await ctx.respond(embed=e, view=UnitView(unit), ephemeral=True)
             elif len(x) <= 20:
-                await ctx.respond("Choose", view=TestView(x))
+                await ctx.respond(str(sp), view=TestView(x), ephemeral=True)
             else:
                 out = [u.get_display_name() for u in x]
-                await ctx.respond(", ".join(out)[:1999])
+                await ctx.respond(((str(sp) + "\n") + (", ".join(out)))[:1999], ephemeral=True)
 
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))

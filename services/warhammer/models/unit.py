@@ -187,6 +187,8 @@ class WHUnit:
                 return [int(p["m"].replace("\"", "").replace("+", "").replace("-", "")) for p in self.stats]
             except:
                 return [0]
+        elif propname == "oc":
+            return [int(p["oc"]) for p in self.stats]
         elif propname == "feelnopain":
             if self.abilities and 'core' in self.abilities:
                 fnp_list = list(filter(fnp_reg.match, self.abilities["core"]))
