@@ -23,11 +23,11 @@ class UnitView(discord.ui.View):
     async def on_timeout(self):
         self.disable_all_items()
         now = time.time()
-
+        print(f"Button Timeout: {self.created} {self.updated} {now} {now-self.updated} {now-self.created}", )
         if self.message:
-            await self.message.edit(content=f"{self.created} {self.updated} {now} {now-self.updated} {now-self.created}", view=self)
+            await self.message.edit(view=self)
         else:
-            await self.parent.edit(content=f"{self.created} {self.updated} {now} {now-self.updated} {now-self.created}", view=self)
+            await self.parent.edit(view=self)
 
     def get_unit(self):
         return None, self.unit

@@ -3,7 +3,7 @@ import re
 from services.warhammer.models.unit import WHUnit
 
 search_type_re = re.compile("(\\<|\\>|=|!)+")
-number_re = re.compile("(\d+)")
+number_re = re.compile("(\\d+)")
 
 
 class SearchItem:
@@ -30,24 +30,27 @@ class SearchItem:
             else:
                 operator_search = search_type_re.search(item_str)
 
-                va = int(number_re.search(item_str).group())
+                if "d" in item_str:
+                    self.search_value = item_str
+                else:
+                    self.search_value = int(number_re.search(item_str).group())
                 self.search_type = None
                 if operator_search:
                     match operator_search.group():
                         case ">":
-                            self.search_type = lambda unit: any([type(x) is int and x > va for x in unit.get_prop(prop_name) or [False]])
+                            self.search_type = lambda x, va: x > va
                         case ">=":
-                            self.search_type = lambda unit: any([type(x) is int and x >= va for x in unit.get_prop(prop_name) or [False]])
+                            self.search_type = lambda x, va: x >= va
                         case "<":
-                            self.search_type = lambda unit: any([type(x) is int and x < va for x in unit.get_prop(prop_name) or [False]])
+                            self.search_type = lambda x, va: x < va
                         case "<=":
-                            self.search_type = lambda unit: any([type(x) is int and x <= va for x in unit.get_prop(prop_name) or [False]])
+                            self.search_type = lambda x, va: x <= va
                         case "!=":
-                            self.search_type = lambda unit: any([type(x) is int and va != x for x in unit.get_prop(prop_name) or [False]])
+                            self.search_type = lambda x, va: x != va
                         case _:
-                            self.search_type = lambda unit: any([type(x) is int and va == x for x in unit.get_prop(prop_name) or [False]])
+                            self.search_type = lambda x, va: x == va
                 else:
-                    self.search_type = lambda unit: any([type(x) is int and va == x for x in unit.get_prop(prop_name) or [False]])
+                    self.search_type = lambda x, va: x == va
 
     def __str__(self):
         return self.__raw
@@ -55,8 +58,7 @@ class SearchItem:
     def apply(self, unit: WHUnit):
         match = True
         if self.search_type:
-            # print(f"{unit.stats} {unit.get_prop(self.prop_name)} {self.search_type(unit)}")
-            match &= self.search_type(unit)
+            match &= any([type(self.search_value) is type(x) and self.search_type(x, self.search_value) for x in unit.get_prop(self.prop_name) or False])
         return match
 
     @staticmethod

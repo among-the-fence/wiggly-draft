@@ -9,11 +9,13 @@ class TestSeachItem(unittest.TestCase):
         warhammer_data = Warhammer("../../../data/")
         err, unit = warhammer_data.find("Avatar of Khaine", "Elf")
         self.assertTrue(SearchItem("t", ">5").apply(unit))
-        self.assertTrue(SearchItem("w", ">5").apply(unit))
+        self.assertTrue(SearchItem("attacks", "<50").apply(unit))
         self.assertTrue(SearchItem("sv", "<5").apply(unit))
-        self.assertTrue(SearchItem("invuln", "<5").apply(unit))
+        self.assertTrue(SearchItem("invuln", "<=5").apply(unit))
         self.assertTrue(SearchItem("m", ">5").apply(unit))
+        self.assertTrue(SearchItem("w", "14").apply(unit))
         self.assertTrue(SearchItem("points", ">100").apply(unit))
+        self.assertTrue(SearchItem("damage", "d6+2").apply(unit))
 
 
 if __name__ == '__main__':

@@ -77,7 +77,7 @@ class WHUnit:
                 modifier = int(mod_split[1].strip())
                 min_roll += modifier
                 max_roll += modifier
-            return [min_roll, max_roll]
+            return [s.replace(" ","")] + list(range(min_roll, max_roll+1))  # range is exclusive
         elif s == "n/a":
             return [0]
         if stat:
@@ -140,7 +140,7 @@ class WHUnit:
                     out += f"/{','.join(fnp_list).replace('Feel No Pain ', '')}++"
             out += " "
             if 'w' in statblock:
-                out += f"M:{statblock['w']} "
+                out += f"W:{statblock['w']} "
             if 'oc' in statblock:
                 out += f"OC:{statblock['oc']} "
             if 'ld' in statblock:

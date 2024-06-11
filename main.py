@@ -14,16 +14,15 @@ from discord import option, Color
 from dotenv import load_dotenv
 
 from GameList import GameList
-from HeroList import HeroList
-from Pick import Pick
-from WigglePoll import WigglePoll
-from services.warhammer import Warhammer
 from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.search_params import SearchParams
 from services.warhammer.models.unit import WHUnit
 from services.warhammer.views.TestView import TestView
 from services.warhammer.views.UnitView import UnitView
 from services.warhammer.wh_data import get_wh_data
+from services.wiggle.HeroList import HeroList
+from services.wiggle.Pick import Pick
+from services.wiggle.WigglePoll import WigglePoll
 from util.utils import send_in_chunks
 
 load_dotenv()
@@ -39,7 +38,7 @@ env = {
         "hacky_one_click": True,
     },
     "PROD": {
-        "timeout": 300,
+        "timeout": 600,
         "hacky_one_click": False,
     }
 }

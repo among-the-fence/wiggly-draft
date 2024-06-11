@@ -1,4 +1,4 @@
-from HeroList import Hero
+from services.wiggle.HeroList import Hero
 
 
 class Pick:
