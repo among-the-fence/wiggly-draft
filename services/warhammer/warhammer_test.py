@@ -10,6 +10,8 @@ class TestSeachItem(unittest.TestCase):
     def test_split(self):
         w = Warhammer(data_path)
         out = w.search(SearchParams({"toughness": ">10"}))
+        w = Warhammer(data_path)
+        out = w.search(SearchParams({"faction": "elf", "damage": "d6+2"}))
         print(out)
 
     def test_name_search(self):

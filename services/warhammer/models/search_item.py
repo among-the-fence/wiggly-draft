@@ -58,7 +58,7 @@ class SearchItem:
     def apply(self, unit: WHUnit):
         match = True
         if self.search_type:
-            match &= any([type(self.search_value) is type(x) and self.search_type(x, self.search_value) for x in unit.get_prop(self.prop_name) or False])
+            match &= any([type(self.search_value) is type(x) and self.search_type(x, self.search_value) for x in unit.get_prop(self.prop_name) or [False]])
         return match
 
     @staticmethod
