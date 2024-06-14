@@ -2,6 +2,7 @@ import base64
 import io
 import json
 import math
+import logging
 import os
 import random
 import shutil
@@ -24,6 +25,8 @@ from services.wiggle.HeroList import HeroList
 from services.wiggle.Pick import Pick
 from services.wiggle.WigglePoll import WigglePoll
 from util.utils import send_in_chunks
+
+logger = logging.getLogger(__name__)
 
 load_dotenv()
 bot = discord.Bot(debug_guilds=[os.getenv('DEFAULT_GUILD')])
@@ -490,6 +493,7 @@ async def find_faction(ctx, faction: str):
 @option("unitname", description="Unit Name")
 @option("faction", description="Faction Name", required=False)
 async def datacard(ctx, unitname:str, faction:str):
+    await ctx.defer()
     err, unit = wh_data.find(unitname, faction)
 
     if err and type(err) is str:
@@ -498,11 +502,11 @@ async def datacard(ctx, unitname:str, faction:str):
         e.add_field(name="Error",
                     value=err,
                     inline=True)
-        await ctx.respond(embed=e)
+        await ctx.followup.send(embed=e)
     elif unit and type(unit) is WHUnit:
         e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
         unit.formatted_stats(e)
-        await ctx.respond(embed=e, view=UnitView(unit), ephemeral=True)
+        await ctx.followup.send(embed=e, view=UnitView(unit), ephemeral=True)
 
 
 @bot.slash_command(name="search", description="Search datacards for stats")
@@ -541,6 +545,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
             "oc": oc,
         }
     )
+    logger.warning(str(sp))
     if sp.empty():
         await ctx.respond("`t:>3,<8 w:=10 sv:<=3`\n"
                           "`f:fish t:4`\n"
@@ -548,22 +553,23 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
                           "`f:!=Aeldari pts:>=300 k:dev wounds`\n"
                           "`f:elf,orc t:>12`", ephemeral=True)
     else:
-        # await ctx.defer()
+        await ctx.defer()
         x = list(set(wh_data.search(sp)))
+
         if len(x) == 0:
-            await ctx.respond("No results", ephemeral=True)
+            await ctx.followup.send("No results", ephemeral=True)
         else:
-            # print("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
+            logger.debug("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
             if len(x) == 1:
                 unit = x[0]
                 e = discord.Embed(title=unit.get_display_name(), color=unit.get_color())
                 unit.formatted_stats(e)
-                await ctx.respond(str(sp), embed=e, view=UnitView(unit, True))
+                await ctx.followup.send(str(sp), embed=e, view=UnitView(unit, True))
             elif len(x) <= 20:
-                await ctx.respond(str(sp), view=TestView(x))
+                await ctx.followup.send(str(sp), view=TestView(x))
             else:
                 out = [u.get_display_name() for u in x]
-                await ctx.respond(((str(sp) + "\n") + (", ".join(out)))[:1999], ephemeral=True)
+                await ctx.followup.send(((str(sp) + "\n") + (", ".join(out)))[:1999], ephemeral=True)
 
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))

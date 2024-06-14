@@ -36,7 +36,6 @@ class TestUnit(unittest.TestCase):
                 "points": ">300",
                 "toughness": ">=8,<=10",
                 "wounds": ">10",
-
             }
         )
         self.runsearch(warhammer_data, sp)

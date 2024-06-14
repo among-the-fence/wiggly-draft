@@ -9,8 +9,12 @@ from util.utils import extract_and_clear, remove_empty_fields
 
 fnp_reg = re.compile("Feel No Pain \d\+")
 save_reg = re.compile("(\d)+")
+paran_phrase_reg = re.compile("\\(.*\\)")
+phrases_reg = re.compile("\\[.*]")
 
 SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "Fights First", "Re-roll"]
+
+LOWER_SEARCHABLES = [x.lower() for x in SEARCHABLE_ABILITIES]
 
 
 class WHUnit:
@@ -43,14 +47,14 @@ class WHUnit:
         self.colors = colors
         self.the_rest = jsonunit
 
+    def __str__(self):
+        return f"{self.factions} {self.name}"
+
     def get_display_name(self):
         out = self.name
         if self.legends:
             out += " 🪦"
         return out
-
-    def __str__(self):
-        return self._raw_json
 
     def get_color(self):
         if type(self.colors) is list:
@@ -220,6 +224,29 @@ class WHUnit:
             return self.compiled_keywords
         return None
 
+    def extract_bits(self, obj, key, do_split):
+        out = []
+        if key in obj:
+            text = obj[key].lower()
+            ability_name_search = paran_phrase_reg.search(text)
+            if ability_name_search:
+                g = ability_name_search.group()
+                text = text.replace(g, "")
+                g = g.replace("(", "").replace(")", "")
+                out.append(g)
+
+            ability_name_search = phrases_reg.search(text)
+            if ability_name_search:
+                g = ability_name_search.group()
+                text = text.replace(g, "")
+                g = g.replace("[", "").replace("]", "")
+                out.append(g)
+            if do_split:
+                out.extend([x for x in text.split(" ") if len(x) > 4 or x == "hit"])
+            else:
+                out.append(text.strip())
+        return out
+
     def collect_all_keywords(self):
             keywords = []
             if self.abilities:
@@ -232,9 +259,12 @@ class WHUnit:
                 if 'other' in self.abilities:
                     for a in self.abilities['other']:
                         if 'description' in a:
-                            for k in SEARCHABLE_ABILITIES:
-                                if k.lower() in a['description'].lower():
+                            for k in LOWER_SEARCHABLES:
+                                if k in a['description'].lower():
                                     keywords.append(k)
+                        keywords.extend(self.extract_bits(a, 'name', False))
+                        keywords.extend(self.extract_bits(a, 'description', True))
+
             for ranged in self.rangedWeapons:
                 if 'profiles' in ranged:
                     for bp in ranged['profiles']:
@@ -248,7 +278,7 @@ class WHUnit:
             if self.keywords:
                 keywords.extend(self.keywords)
 
-            return list(set(keywords))
+            return [x.lower().strip() for x in set(keywords) if x != '.']
 
 
 if __name__ == "__main__":
