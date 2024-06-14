@@ -248,37 +248,38 @@ class WHUnit:
         return out
 
     def collect_all_keywords(self):
-            keywords = []
-            if self.abilities:
-                if 'core' in self.abilities:
-                    keywords.extend(self.abilities['core'])
-                if 'faction' in self.abilities:
-                    keywords.extend(self.abilities['faction'])
-                if 'invul' in self.abilities:
-                    keywords.append("Invuln")
-                if 'other' in self.abilities:
-                    for a in self.abilities['other']:
-                        if 'description' in a:
-                            for k in LOWER_SEARCHABLES:
-                                if k in a['description'].lower():
-                                    keywords.append(k)
-                        keywords.extend(self.extract_bits(a, 'name', False))
-                        keywords.extend(self.extract_bits(a, 'description', True))
+        keywords = []
+        keywords.extend(self.normalized_name.split(" "))
+        if self.abilities:
+            if 'core' in self.abilities:
+                keywords.extend(self.abilities['core'])
+            if 'faction' in self.abilities:
+                keywords.extend(self.abilities['faction'])
+            if 'invul' in self.abilities:
+                keywords.append("Invuln")
+            if 'other' in self.abilities:
+                for a in self.abilities['other']:
+                    if 'description' in a:
+                        for k in LOWER_SEARCHABLES:
+                            if k in a['description'].lower():
+                                keywords.append(k)
+                    keywords.extend(self.extract_bits(a, 'name', False))
+                    keywords.extend(self.extract_bits(a, 'description', True))
 
-            for ranged in self.rangedWeapons:
-                if 'profiles' in ranged:
-                    for bp in ranged['profiles']:
-                        if 'keywords' in bp:
-                            keywords.extend(bp['keywords'])
-            for melee in self.meleeWeapons:
-                if 'profiles' in melee:
-                    for m in melee['profiles']:
-                        if 'keywords' in m:
-                            keywords.extend(m['keywords'])
-            if self.keywords:
-                keywords.extend(self.keywords)
+        for ranged in self.rangedWeapons:
+            if 'profiles' in ranged:
+                for bp in ranged['profiles']:
+                    if 'keywords' in bp:
+                        keywords.extend(bp['keywords'])
+        for melee in self.meleeWeapons:
+            if 'profiles' in melee:
+                for m in melee['profiles']:
+                    if 'keywords' in m:
+                        keywords.extend(m['keywords'])
+        if self.keywords:
+            keywords.extend(self.keywords)
 
-            return [x.lower().strip() for x in set(keywords) if x != '.']
+        return [x.lower().strip() for x in set(keywords) if x != '.']
 
 
 if __name__ == "__main__":
