@@ -18,6 +18,8 @@ SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "
 LOWER_SEARCHABLES = [x.lower() for x in SEARCHABLE_ABILITIES]
 
 
+EXCLUDE_KEYWORDS = ["a", "in", "of", "the", "where", "this", "is", "on"]
+
 class WHUnit:
 
     def __init__(self, jsonunit, xml_unit, colors):
@@ -229,7 +231,7 @@ class WHUnit:
     def extract_bits(self, obj, key, do_split):
         out = []
         if type(obj) is str:
-            return [x for x in obj.lower().translate(str.maketrans('', '', string.punctuation)).split(" ") if len(x) > 4 or x == "hits" or x == "hit"]
+            return [x for x in obj.lower().translate(str.maketrans('', '', string.punctuation)).split(" ") if x not in EXCLUDE_KEYWORDS]
         elif type(obj) is list:
             for x in obj:
                 out.extend(self.extract_bits(x, "", True))
