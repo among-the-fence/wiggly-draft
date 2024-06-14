@@ -24,10 +24,10 @@ class SearchItem:
             elif "keywords" == prop_name:
                 if "!=" in item_str:
                     item_str = item_str.replace("!=", "")
-                    self.search_function = lambda unit: not any(item_str.lower() in k.lower() for k in unit.get_prop("keywords"))
+                    self.search_function = lambda unit: item_str not in unit.get_prop("keywords")
                 else:
                     item_str = item_str.replace("=", "")
-                    self.search_function = lambda unit: any(item_str.lower() in k.lower() for k in unit.get_prop("keywords"))
+                    self.search_function = lambda unit: item_str in unit.get_prop("keywords")
             else:
                 operator_search = search_type_re.search(item_str)
 

@@ -59,7 +59,7 @@ class TestUnit(unittest.TestCase):
         sp = SearchParams(
             {
                 "faction": "orc",
-                "keywords": "Deadly Demise,Torrent",
+                "keywords": "Deadly Demise",
                 "points": "<100"
             }
         )
@@ -76,6 +76,7 @@ class TestUnit(unittest.TestCase):
     @staticmethod
     def runsearch(data, sp):
         units = data.search(sp)
+        print([u.compiled_keywords for u in units])
         print(set([u.name for u in units]))
         return units
 

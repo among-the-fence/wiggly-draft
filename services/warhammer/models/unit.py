@@ -1,6 +1,7 @@
 import json
 import random
 import re
+import string
 
 from discord import Colour
 
@@ -22,6 +23,7 @@ class WHUnit:
     def __init__(self, jsonunit, xml_unit, colors):
         self._raw_json = jsonunit
         self._raw_xml = xml_unit
+        self.super_keywords = self.extract_bits(jsonunit, "", True)
         self.name = extract_and_clear(jsonunit, "name")
         self.normalized_name = normalize_name(self.name)
         self.abilities = remove_empty_fields(extract_and_clear(jsonunit, "abilities"))
@@ -226,25 +228,19 @@ class WHUnit:
 
     def extract_bits(self, obj, key, do_split):
         out = []
-        if key in obj:
-            text = obj[key].lower()
-            ability_name_search = paran_phrase_reg.search(text)
-            if ability_name_search:
-                g = ability_name_search.group()
-                text = text.replace(g, "")
-                g = g.replace("(", "").replace(")", "")
-                out.append(g)
-
-            ability_name_search = phrases_reg.search(text)
-            if ability_name_search:
-                g = ability_name_search.group()
-                text = text.replace(g, "")
-                g = g.replace("[", "").replace("]", "")
-                out.append(g)
-            if do_split:
-                out.extend([x for x in text.split(" ") if len(x) > 4 or x == "hit"])
-            else:
-                out.append(text.strip())
+        if type(obj) is str:
+            return [x for x in obj.lower().translate(str.maketrans('', '', string.punctuation)).split(" ") if len(x) > 4 or x == "hits" or x == "hit"]
+        elif type(obj) is list:
+            for x in obj:
+                out.extend(self.extract_bits(x, "", True))
+        elif type(obj) is dict:
+            for k, v in obj.items():
+                # out.extend(self.extract_bits(k, "", True))
+                out.extend(self.extract_bits(v, "", True))
+        elif type(obj) is bool:
+            pass
+        else:
+            print(type(obj))
         return out
 
     def collect_all_keywords(self):
@@ -263,9 +259,6 @@ class WHUnit:
                         for k in LOWER_SEARCHABLES:
                             if k in a['description'].lower():
                                 keywords.append(k)
-                    keywords.extend(self.extract_bits(a, 'name', False))
-                    keywords.extend(self.extract_bits(a, 'description', True))
-
         for ranged in self.rangedWeapons:
             if 'profiles' in ranged:
                 for bp in ranged['profiles']:
@@ -278,8 +271,10 @@ class WHUnit:
                         keywords.extend(m['keywords'])
         if self.keywords:
             keywords.extend(self.keywords)
+        if self.super_keywords:
+            keywords.extend(self.super_keywords)
 
-        return [x.lower().strip() for x in set(keywords) if x != '.']
+        return [x.lower().strip().translate(str.maketrans('', '', string.punctuation)) for x in set(keywords) if x != '.']
 
 
 if __name__ == "__main__":

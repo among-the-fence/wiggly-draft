@@ -1,6 +1,7 @@
 from services.warhammer.models.search_item import SearchItem
 from services.warhammer.models.unit import WHUnit
 from util.utils import get_or_default
+import string
 
 keyword_abbreviation_map = {
     "devestating wounds": ["dw", "dev wounds"],
@@ -21,13 +22,14 @@ class SearchParams:
                     added = False
                     for k, v in keyword_abbreviation_map.items():
                         if x in v:
-                            l.append(SearchItem("keywords", k))
+                            # l.append(SearchItem("keywords", k))
+                            l.extend([SearchItem("keywords", x) for x in k.split(" ")])
                             added = True
                             break
                     if not added:
-                        l.append(SearchItem("keywords", x))
+                        l.extend([SearchItem("keywords", x) for x in x.translate(str.maketrans('', '', string.punctuation)).split(" ")])
         else:
-            l.extend([SearchItem(key, x.replace(" ", "").strip()) for x in item.split(",")]) if item else None
+            l.extend([SearchItem(key, x.replace(" ", "").strip().translate(str.maketrans('', '', string.punctuation))) for x in item.split(",")]) if item else None
 
     def __init__(self, params):
         self.faction = get_or_default(params, 'faction')
@@ -57,7 +59,7 @@ class SearchParams:
     def apply(self, unit: WHUnit):
         match = True
         for f in self.filters:
-            if f:
+            if f and match:
                 match &= f.apply(unit)
         return match
 
