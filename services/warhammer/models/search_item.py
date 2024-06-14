@@ -39,19 +39,19 @@ class SearchItem:
                 if operator_search:
                     match operator_search.group():
                         case ">":
-                            self.search_type = lambda x, va: x > va
+                            self.search_type = lambda x: x > self.search_value
                         case ">=":
-                            self.search_type = lambda x, va: x >= va
+                            self.search_type = lambda x: x >= self.search_value
                         case "<":
-                            self.search_type = lambda x, va: x < va
+                            self.search_type = lambda x: x < self.search_value
                         case "<=":
-                            self.search_type = lambda x, va: x <= va
+                            self.search_type = lambda x: x <= self.search_value
                         case "!=":
-                            self.search_type = lambda x, va: x != va
+                            self.search_type = lambda x: x != self.search_value
                         case _:
-                            self.search_type = lambda x, va: x == va
+                            self.search_type = lambda x: x == self.search_value
                 else:
-                    self.search_type = lambda x, va: x == va
+                    self.search_type = lambda x: x == self.search_value
 
     def __str__(self):
         return self.__raw
@@ -61,7 +61,7 @@ class SearchItem:
         if self.search_function:
             match &= self.search_function(unit)
         if self.search_type:
-            match &= any([type(self.search_value) is type(x) and self.search_type(x, self.search_value) for x in unit.get_prop(self.prop_name) or [False]])
+            match &= any([type(self.search_value) is type(x) and self.search_type(x) for x in unit.get_prop(self.prop_name) or [False]])
         return match
 
     @staticmethod
