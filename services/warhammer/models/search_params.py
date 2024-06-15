@@ -29,7 +29,7 @@ class SearchParams:
                     if not added:
                         l.extend([SearchItem("keywords", x) for x in x.translate(str.maketrans('', '', string.punctuation)).split(" ")])
         else:
-            l.extend([SearchItem(key, x.replace(" ", "").strip().translate(str.maketrans('', '', string.punctuation))) for x in item.split(",")]) if item else None
+            l.extend([SearchItem(key, x.replace(" ", "").strip()) for x in item.split(",")]) if item else None
 
     def __init__(self, params):
         self.faction = get_or_default(params, 'faction')

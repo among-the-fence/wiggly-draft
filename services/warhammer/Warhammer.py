@@ -1,5 +1,7 @@
 import json
 import os
+import re
+import string
 
 from thefuzz import fuzz
 
@@ -7,6 +9,7 @@ from services.warhammer.models.faction import WHFaction
 from services.warhammer.models.generated.Catalogue import parse
 from services.warhammer.models.search_params import SearchParams
 from util.name_matcher import name_match_function, normalize_name
+from collections import Counter
 
 # adeptus titanicus,,black templar,,basic,emperors children,, ,agents of the imperium,
 # ,,,space marines  leviathan,,
@@ -44,6 +47,7 @@ faction_nickname_map = {
 JSON_DATA_PREFIX = "datasources/10th/json/"
 XML_DATA_PREFIX = "wh40k-10e/"
 
+tab_remover_reg = re.compile("\s\s+")
 
 class Warhammer:
     def __init__(self, dataroot="data/"):
@@ -57,6 +61,14 @@ class Warhammer:
                     for x in data.sharedSelectionEntries.selectionEntry:
                         if x.type_ in ["unit", "model"]:
                             xml_units[x.name] = x
+        counts = Counter([])
+        # for f in os.listdir(dataroot + JSON_DATA_PREFIX):
+        #     with (open(dataroot + JSON_DATA_PREFIX + f, "r") as file):
+        #         content = file.read().lower()
+        #         words = tab_remover_reg.sub(" ",
+        #           content.translate(str.maketrans('', '', string.punctuation))).split(" ")
+        #         counts = counts + Counter(words)
+        # print("\',\'".join([x[0] for x in counts.most_common(100)]))
         for f in os.listdir(dataroot + JSON_DATA_PREFIX):
             with open(dataroot + JSON_DATA_PREFIX + f, "r") as file:
                 wf = WHFaction(json.load(file), xml_units)

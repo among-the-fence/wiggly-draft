@@ -18,7 +18,9 @@ SEARCHABLE_ABILITIES = ["Sustained Hits", "Lethal Hits", "Devastating Wounds", "
 LOWER_SEARCHABLES = [x.lower() for x in SEARCHABLE_ABILITIES]
 
 
-EXCLUDE_KEYWORDS = ["a", "in", "of", "the", "where", "this", "is", "on"]
+EXCLUDE_KEYWORDS = ['the','name','of','keywords','this','a','with','is','to','description','can','that','and','in',
+                    'wargear','your','each','equipped','be','from','cost','id','an','it','time','their','or','fluff',
+                    'has','if','you','while','value','40k10e']
 
 class WHUnit:
 
