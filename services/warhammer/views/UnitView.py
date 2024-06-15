@@ -132,13 +132,11 @@ class UnitView(discord.ui.View):
                     out.append(f"**{x['name']}**: {x['description']}")
                 self.add_field(e, "Wargear", "\n".join(out), False)
             if 'other' in unit.abilities:
-                out = []
                 for x in unit.abilities['other']:
                     if "name" in x and "description" in x:
-                        out.append(f"__{x['name']}__: {x['description']}")
+                        self.add_field(e, f"__{x['name']}__: {x['description']}", True)
                     else:
-                        out.append(x)
-                self.add_field(e, "Other", out, False)
+                        self.add_field(e, f"{x['description']}", True)
 
             if "primarch" in unit.abilities:
                 out = []
@@ -231,6 +229,19 @@ class UnitView(discord.ui.View):
         except Exception as e:
             await self.handle_error(interaction, e)
 
+    @discord.ui.button(label="", custom_id="debugbutton", style=discord.ButtonStyle.primary, emoji="🦠")
+    async def debug_button_callback(self, button, interaction):
+        try:
+            err, unit = self.get_unit()
+            e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description="Abilities")
+            unit.formatted_stats(e)
+
+            self.add_field(e, "DEBUG", simple_format(unit.compiled_keywords)[:1000], True)
+            self.updated = time.time()
+            await interaction.edit(embed=e, view=self)
+        except Exception as e:
+            await self.handle_error(interaction, e)
+
     @discord.ui.button(label="", custom_id="forwardbutton", style=discord.ButtonStyle.primary, emoji="➡️")
     async def send_button_callback(self, button, interaction):
         try:
@@ -241,3 +252,4 @@ class UnitView(discord.ui.View):
             await interaction.response.edit_message(view=self, embed=None)  # edit the message's view
         except Exception as e:
             await self.handle_error(interaction, e)
+
