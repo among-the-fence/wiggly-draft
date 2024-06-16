@@ -134,9 +134,9 @@ class UnitView(discord.ui.View):
             if 'other' in unit.abilities:
                 for x in unit.abilities['other']:
                     if "name" in x and "description" in x:
-                        self.add_field(e, f"__{x['name']}__: {x['description']}", True)
+                        self.add_field(e, f"{x['name']}", f"{x['description']}", True)
                     else:
-                        self.add_field(e, f"{x['description']}", True)
+                        self.add_field(e, "",f"{x['description']}", True)
 
             if "primarch" in unit.abilities:
                 out = []
