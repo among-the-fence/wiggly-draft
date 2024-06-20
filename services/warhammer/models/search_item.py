@@ -21,13 +21,13 @@ class SearchItem:
                 self.min_filter = prop_name
             elif "max" in item_str:
                 self.max_filter = prop_name
-            elif "keywords" == prop_name:
+            elif prop_name in ["keywords", "keywordextended"]:
                 if "!=" in item_str:
                     item_str = item_str.replace("!=", "")
-                    self.search_function = lambda unit: item_str not in unit.get_prop("keywords")
+                    self.search_function = lambda unit: item_str not in unit.get_prop(prop_name)
                 else:
                     item_str = item_str.replace("=", "")
-                    self.search_function = lambda unit: item_str in unit.get_prop("keywords")
+                    self.search_function = lambda unit: item_str in unit.get_prop(prop_name)
             else:
                 operator_search = search_type_re.search(item_str)
 

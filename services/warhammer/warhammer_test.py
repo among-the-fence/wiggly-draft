@@ -21,9 +21,12 @@ class TestSeachItem(unittest.TestCase):
         out = w.search(sp)
         print(f"{sp} {len(out)}")
 
-
+    def test_avatar_extended_keyword_search(self):
+        w = Warhammer(data_path)
         sp = SearchParams({"faction": "elf", "keywords": "dd,avatar"})
         out = w.search(sp)
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0].name, "Avatar of Khaine")
         print(f"{sp} {len(out)}")
 
     def test_name_search(self):
