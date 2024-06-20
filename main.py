@@ -557,7 +557,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
         x = list(set(wh_data.search(sp)))
 
         if len(x) == 0:
-            await ctx.followup.send("No results", ephemeral=True)
+            await ctx.followup.send(f"{sp}\nNo results", ephemeral=True)
         else:
             logger.debug("\n".join([y.name + ": " + y.unformatted_stats() for y in x]))
             if len(x) == 1:
@@ -569,6 +569,7 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
                 await ctx.followup.send(str(sp), view=TestView(x))
             else:
                 out = [u.get_display_name() for u in x]
+                print(sp)
                 await ctx.followup.send(((str(sp) + "\n") + (", ".join(out)))[:1999], ephemeral=True)
 
 if __name__ == "__main__":

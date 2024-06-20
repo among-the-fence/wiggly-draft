@@ -37,7 +37,9 @@ class TestSeachItem(unittest.TestCase):
 
         sp2 = SearchParams({"points": ">=20,<45"})
         out2 = w.search(sp2)
-        print(",".join([x if x else ' ' for x in out.keys()]))
+        print(",".join([str(x) if x else ' ' for x in out]))
+        print(",".join([str(x) if x else ' ' for x in out2]))
+        self.assertEqual(out, out2)
 
     def test_search_spaces(self):
         w = Warhammer(data_path)

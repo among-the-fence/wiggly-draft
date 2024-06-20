@@ -111,6 +111,13 @@ class Warhammer:
                     if params.apply(u):
                         units.append(u)
         units = params.filter(units)
+        if len(units) == 0:
+            for k, i in factions.items():
+                if i.units:
+                    for uk, u in i.units.items():
+                        if params.apply_loose(u):
+                            units.append(u)
+            units = params.filter(units)
         return list(set(units))
 
     def get_matching_factions(self, search_names_concatenated: str):

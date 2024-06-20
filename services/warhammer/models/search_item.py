@@ -34,7 +34,9 @@ class SearchItem:
                 if "d" in item_str:
                     self.search_value = item_str
                 else:
-                    self.search_value = int(number_re.search(item_str).group())
+                    search_result = number_re.search(item_str)
+                    if search_result:
+                        self.search_value = int(search_result.group())
                 self.search_type = None
                 if operator_search:
                     match operator_search.group():
@@ -79,11 +81,14 @@ class SearchItem:
         extreme_value = -1
         if self.max_filter:
             prop_name = self.max_filter
-            flatten_values = SearchItem.flatten([x.get_prop(self.max_filter) for x in units])
+            print(prop_name)
+            flatten_values = SearchItem.flatten([x.get_prop(prop_name) for x in units])
+            flatten_values = filter(lambda x: type(x) is int, flatten_values)
+
             extreme_value = max(flatten_values)
         if self.min_filter:
             prop_name = self.min_filter
-            flatten_values = SearchItem.flatten([x.get_prop(self.min_filter) for x in units])
+            flatten_values = SearchItem.flatten([x.get_prop(prop_name) for x in units])
             extreme_value = min(flatten_values)
         out = []
         if prop_name:

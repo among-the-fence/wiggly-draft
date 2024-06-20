@@ -33,6 +33,13 @@ async def send_in_chunks(ctx, t, size=2000, e=False):
         await ctx.response.send_message(t[i: i + chunk_size], ephemeral=e)
 
 
+def chunkatize(text, chunk_size):
+    out = []
+    for i in range(0, len(text), chunk_size):
+        out.append(text[i: i+chunk_size])
+    return out
+
+
 def remove_empty_fields(map):
     if map:
         if type(map) is str:

@@ -4,7 +4,7 @@ import discord
 
 from services.warhammer.models.unit import WHUnit
 from services.warhammer.wh_data import get_wh_data
-from util.utils import simple_format, send_in_chunks
+from util.utils import simple_format, send_in_chunks, chunkatize
 
 wh_data = get_wh_data()
 
@@ -110,8 +110,6 @@ class UnitView(discord.ui.View):
             print(f"chunking message {chunk_size} {chunk_count}")
             for i in range(0, len(text), chunk_size):
                 e.add_field(name=title, value=text[i: i + chunk_size], inline=inline)
-                title=""
-
 
     @discord.ui.button(label="", custom_id="abilittybutton", style=discord.ButtonStyle.primary, emoji="🗿")
     async def ability_button_callback(self, button, interaction):
@@ -235,8 +233,12 @@ class UnitView(discord.ui.View):
             err, unit = self.get_unit()
             e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description="Abilities")
             unit.formatted_stats(e)
-
-            self.add_field(e, "DEBUG", simple_format(unit.compiled_keywords)[:1000], True)
+            k_c = chunkatize(simple_format(unit.keywords), 1023)
+            for w in k_c:
+                self.add_field(e, "Kwywords", w, False)
+            k_c = chunkatize(simple_format(unit.compiled_keywords), 1023)
+            for w in k_c:
+                self.add_field(e, "Extended Keywords", w, False)
             self.updated = time.time()
             await interaction.edit(embed=e, view=self)
         except Exception as e:

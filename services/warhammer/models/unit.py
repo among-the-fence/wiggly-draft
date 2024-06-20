@@ -227,8 +227,10 @@ class WHUnit:
             if self.points:
                 return [self.trycastint(p['cost']) for p in self.points]
         elif propname == "keywords":
+            return self.keywords
+        elif propname == "keywordextended":
             return self.compiled_keywords
-        return None
+        return []
 
     def extract_bits(self, obj, key, do_split):
         out = []
@@ -248,37 +250,37 @@ class WHUnit:
         return out
 
     def collect_all_keywords(self):
-        keywords = []
-        keywords.extend(self.normalized_name.split(" "))
+        k = []
+        k.extend(self.normalized_name.split(" "))
         if self.abilities:
             if 'core' in self.abilities:
-                keywords.extend(self.abilities['core'])
+                k.extend(self.abilities['core'])
             if 'faction' in self.abilities:
-                keywords.extend(self.abilities['faction'])
+                k.extend(self.abilities['faction'])
             if 'invul' in self.abilities:
-                keywords.append("Invuln")
+                k.append("Invuln")
             if 'other' in self.abilities:
                 for a in self.abilities['other']:
                     if 'description' in a:
-                        for k in LOWER_SEARCHABLES:
-                            if k in a['description'].lower():
-                                keywords.append(k)
+                        for kw in LOWER_SEARCHABLES:
+                            if kw in a['description'].lower():
+                                k.append(kw)
         for ranged in self.rangedWeapons:
             if 'profiles' in ranged:
                 for bp in ranged['profiles']:
                     if 'keywords' in bp:
-                        keywords.extend(bp['keywords'])
+                        k.extend(bp['keywords'])
         for melee in self.meleeWeapons:
             if 'profiles' in melee:
                 for m in melee['profiles']:
                     if 'keywords' in m:
-                        keywords.extend(m['keywords'])
+                        k.extend(m['keywords'])
         if self.keywords:
-            keywords.extend(self.keywords)
+            k.extend(self.keywords)
         if self.super_keywords:
-            keywords.extend(self.super_keywords)
+            k.extend(self.super_keywords)
 
-        return [x.lower().strip().translate(str.maketrans('', '', string.punctuation)) for x in set(keywords) if x != '.']
+        return [x.lower().strip().translate(str.maketrans('', '', string.punctuation)) for x in set(k) if len(x) > 1]
 
 
 if __name__ == "__main__":
