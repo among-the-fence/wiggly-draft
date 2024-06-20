@@ -9,13 +9,22 @@ data_path = "../../data/"
 class TestSeachItem(unittest.TestCase):
     def test_split(self):
         w = Warhammer(data_path)
-        out = w.search(SearchParams({"toughness": "<10"}))
-        print(len(out))
-        out = w.search(SearchParams({"toughness": "<10,>2"}))
-        print(len(out))
-        w = Warhammer(data_path)
-        out = w.search(SearchParams({"faction": "elf", "damage": "d6+2"}))
-        print(len(out))
+        sp = SearchParams({"toughness": "<10"})
+        out = w.search(sp)
+        print(f"{sp} {len(out)}")
+
+        sp = SearchParams({"toughness": "<10,>2"})
+        out = w.search(sp)
+        print(f"{sp} {len(out)}")
+
+        sp = SearchParams({"faction": "elf", "damage": "d6+2"})
+        out = w.search(sp)
+        print(f"{sp} {len(out)}")
+
+
+        sp = SearchParams({"faction": "elf", "keywords": "dd,avatar"})
+        out = w.search(sp)
+        print(f"{sp} {len(out)}")
 
     def test_name_search(self):
         w = Warhammer(data_path)

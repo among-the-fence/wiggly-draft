@@ -27,7 +27,7 @@ class SearchParams:
                             added = True
                             break
                     if not added:
-                        self.filters.append(SearchItem("keywords", k))
+                        self.filters.append(SearchItem("keywords", x))
                         self.loose_filters.extend([SearchItem("keywordextended", x) for x in x.translate(str.maketrans('', '', string.punctuation)).split(" ")])
         else:
             self.filters.extend([SearchItem(key, x.replace(" ", "").strip()) for x in item.split(",")]) if item else None

@@ -227,9 +227,9 @@ class WHUnit:
             if self.points:
                 return [self.trycastint(p['cost']) for p in self.points]
         elif propname == "keywords":
-            return self.keywords
-        elif propname == "keywordextended":
             return self.compiled_keywords
+        elif propname == "keywordextended":
+            return self.super_keywords
         return []
 
     def extract_bits(self, obj, key, do_split):
@@ -250,37 +250,7 @@ class WHUnit:
         return out
 
     def collect_all_keywords(self):
-        k = []
-        k.extend(self.normalized_name.split(" "))
-        if self.abilities:
-            if 'core' in self.abilities:
-                k.extend(self.abilities['core'])
-            if 'faction' in self.abilities:
-                k.extend(self.abilities['faction'])
-            if 'invul' in self.abilities:
-                k.append("Invuln")
-            if 'other' in self.abilities:
-                for a in self.abilities['other']:
-                    if 'description' in a:
-                        for kw in LOWER_SEARCHABLES:
-                            if kw in a['description'].lower():
-                                k.append(kw)
-        for ranged in self.rangedWeapons:
-            if 'profiles' in ranged:
-                for bp in ranged['profiles']:
-                    if 'keywords' in bp:
-                        k.extend(bp['keywords'])
-        for melee in self.meleeWeapons:
-            if 'profiles' in melee:
-                for m in melee['profiles']:
-                    if 'keywords' in m:
-                        k.extend(m['keywords'])
-        if self.keywords:
-            k.extend(self.keywords)
-        if self.super_keywords:
-            k.extend(self.super_keywords)
-
-        return [x.lower().strip().translate(str.maketrans('', '', string.punctuation)) for x in set(k) if len(x) > 1]
+        return [x.lower().strip().translate(str.maketrans('', '', string.punctuation)) for x in set(self.keywords) if len(x) > 1]
 
 
 if __name__ == "__main__":
