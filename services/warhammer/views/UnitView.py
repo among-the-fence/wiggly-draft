@@ -233,10 +233,10 @@ class UnitView(discord.ui.View):
             err, unit = self.get_unit()
             e = discord.Embed(title=unit.get_display_name(), color=unit.get_color(), description="Abilities")
             unit.formatted_stats(e)
-            k_c = chunkatize(simple_format(unit.keywords), 1023)
+            k_c = chunkatize(simple_format(unit.compiled_keywords), 1023)
             for w in k_c:
                 self.add_field(e, "Kwywords", w, False)
-            k_c = chunkatize(simple_format(unit.compiled_keywords), 1023)
+            k_c = chunkatize(simple_format(unit.super_keywords), 1023)
             for w in k_c:
                 self.add_field(e, "Extended Keywords", w, False)
             self.updated = time.time()

@@ -67,6 +67,9 @@ class SearchParams:
 
     def apply_loose(self, unit: WHUnit):
         match = True
+        for f in self.filters:
+            if f and match and f.prop_name != "keywords":
+                match &= f.apply(unit)
         for f in self.loose_filters:
             if f and match:
                 match &= f.apply(unit)
