@@ -16,7 +16,7 @@ class UnitView(discord.ui.View):
         self.updated = time.time()
         self.unit = unit
         self.disable_forward_button = disable_forward_button
-        super().__init__(timeout=None)
+        super().__init__(timeout=3600)
         if disable_forward_button:
             self.children.remove(self.children[-1])
 
