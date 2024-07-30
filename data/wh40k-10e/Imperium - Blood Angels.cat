@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="4ef9-15ce-e3e6-36de" name="Imperium - Adeptus Astartes - Blood Angels" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="18" battleScribeVersion="2.03" type="catalogue" authorName="Acebaur">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="4ef9-15ce-e3e6-36de" name="Imperium - Adeptus Astartes - Blood Angels" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="21" battleScribeVersion="2.03" type="catalogue" authorName="Acebaur">
   <catalogueLinks>
     <catalogueLink type="catalogue" name="Imperium - Space Marines" id="abd0-8ebd-6fbd-2d94" targetId="e0af-67df-9d63-8fb7" importRootEntries="true"/>
-    <catalogueLink type="catalogue" name="Imperium - Imperial Knights" id="9c08-8ffc-d746-7384" targetId="1b6d-dc06-5db9-c7d1" importRootEntries="true"/>
-    <catalogueLink type="catalogue" name="Imperium - Imperial Agents" id="d012-8d6a-860f-79f0" targetId="b00-cd86-4b4c-97ba" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Imperium - Imperial Knights - Library" id="9c08-8ffc-d746-7384" targetId="1b6d-dc06-5db9-c7d1" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Imperium - Agents of the Imperium" id="d012-8d6a-860f-79f0" targetId="b00-cd86-4b4c-97ba" importRootEntries="true"/>
   </catalogueLinks>
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Astorath" hidden="false" id="f943-72c8-581c-e6f2">
@@ -436,7 +436,7 @@
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -533,7 +533,6 @@
         <categoryLink targetId="4f3a-f0f7-6647-348d" id="3237-1a66-35d0-d554" primary="true" name="Epic Hero"/>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="a7ac-3054-3c4f-5316" primary="false" name="Character"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="1738-e3f9-79df-a4d8" primary="false" name="Infantry"/>
-        <categoryLink targetId="2d7f-1892-2fd0-e29c" id="165-813f-8b31-668b" primary="false" name="Captain"/>
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="91d0-1af3-4358-569c" primary="false" name="Grenades"/>
         <categoryLink targetId="5179-8ede-45e3-49a2" id="3abf-3c69-1687-6a48" primary="false" name="Tacticus"/>
         <categoryLink targetId="13bf-2bee-3ae0-b414" id="38cc-768a-1825-5bf" primary="false" name="Psyker"/>
@@ -1192,7 +1191,7 @@
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1561,7 +1560,7 @@ Strength, or the [SUSTAINED HITS 2] ability if this unit is Below Half-strength
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2020,7 +2019,7 @@ horizontally away from all enemy models.</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2145,7 +2144,7 @@ horizontally away from all enemy models.</characteristic>
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2339,7 +2338,7 @@ You can attach this model to one of the above units, even if one Captain, Chapt
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2508,7 +2507,7 @@ You can attach this model to one of the above units, even if one Captain, Chapt
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2728,7 +2727,7 @@ You can attach this model to one of the above units, even if one Captain, Chapt
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -2798,6 +2797,6 @@ You can attach this model to one of the above units, even if one Captain, Chapt
     <entryLink import="true" name="Sanguinary Priest with Jump Pack" hidden="false" type="selectionEntry" id="518c-6b44-f47b-225" targetId="fa13-ba8a-8711-87b6"/>
     <entryLink import="true" name="Death Company Marines" hidden="false" type="selectionEntry" id="4877-5e0e-e27c-75d3" targetId="6562-9dcd-afea-d4ae"/>
     <entryLink import="true" name="Death Company Marines with Jump Packs" hidden="false" type="selectionEntry" id="8e5b-4b8e-a9cc-9dfd" targetId="65f6-18df-f6df-7e39"/>
-    <entryLink import="true" name="Sanguinary Priest on Bike" hidden="false" type="selectionEntry" id="7b49-f741-1011-5f29" targetId="3621-b460-722-8954"/>
+    <entryLink import="true" name="Sanguinary Priest on Bike [Legends]" hidden="false" type="selectionEntry" id="7b49-f741-1011-5f29" targetId="3621-b460-722-8954"/>
   </entryLinks>
 </catalogue>

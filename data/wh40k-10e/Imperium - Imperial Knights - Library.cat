@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="1b6d-dc06-5db9-c7d1" name="Imperium - Imperial Knights - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="20" battleScribeVersion="2.03" authorName="BSData Developers" type="catalogue" authorContact="Dunamis55 &amp; AbonShell">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="1b6d-dc06-5db9-c7d1" name="Imperium - Imperial Knights - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="23" battleScribeVersion="2.03" authorName="BSData Developers" type="catalogue" authorContact="Dunamis55 &amp; AbonShell">
   <rules>
     <rule name="Code Chivalric" id="cbd-943-bc7b-20ec">
       <description>If your Army Faction is IMPERIAL KNIGHTS, at the end of the Read Mission Objectives step, you must select one of the Oaths below to be active for your army. Models from your army with this ability gain the associated Oath ability, and you gain the associated Deed to complete.
@@ -246,6 +246,10 @@ Reclaim the Realm
             <categoryLink targetId="d666-e2c9-b6cc-5716" id="d2fb-962c-4e51-a333" primary="false" name="Towering"/>
             <categoryLink targetId="534d-ffcf-fc01-7eac" id="e6a9-2a2c-9cd4-7de7" primary="false" name="Canis Rex"/>
             <categoryLink targetId="e4d6-1a77-132b-f39d" id="2369-98b-5f8-38a2" primary="false" name="Questoris"/>
+            <categoryLink targetId="9cfd-1c32-585f-7d5c" id="d988-4dc3-c6d0-b75c" primary="false" name="Character"/>
+            <categoryLink targetId="4f3a-f0f7-6647-348d" id="2171-c47f-bebd-2b6e" primary="false" name="Epic Hero"/>
+            <categoryLink targetId="aff3-d6a3-2a95-9dc" id="853d-41d5-f945-9e19" primary="false" name="Imperium"/>
+            <categoryLink targetId="5128-90b-e4a5-dcbd" id="7798-cb70-9052-7d5d" primary="false" name="Faction: Agents of the Imperium"/>
           </categoryLinks>
           <profiles>
             <profile name="Canis Rex" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit" id="55d8-cfb6-d9f-48a0">
@@ -367,10 +371,14 @@ Reclaim the Realm
             </selectionEntry>
           </selectionEntries>
         </selectionEntry>
-        <selectionEntry type="model" import="true" name="Sir Hekhtur" id="a41b-81a0-ca89-75c1">
+        <selectionEntry type="model" import="true" name="Sir Hekhtur" id="a41b-81a0-ca89-75c1" subType="crew">
           <categoryLinks>
             <categoryLink targetId="cf47-a0d7-7207-29dc" id="c6b8-e08d-c64-4d76" primary="false" name="Infantry"/>
             <categoryLink targetId="dd27-74f3-9b5b-7908" id="2874-44bd-2013-e490" primary="false" name="Sir Hekhtur"/>
+            <categoryLink targetId="9cfd-1c32-585f-7d5c" id="5227-efb9-ad01-3a5b" primary="false" name="Character"/>
+            <categoryLink targetId="4f3a-f0f7-6647-348d" id="32b7-cff5-e40b-6e52" primary="false" name="Epic Hero"/>
+            <categoryLink targetId="aff3-d6a3-2a95-9dc" id="f333-c6c8-13f8-6cc8" primary="false" name="Imperium"/>
+            <categoryLink targetId="b5e4-3253-c157-54fd" id="73f2-9572-09cb-56eb" primary="false" name="Faction: Imperial Knights"/>
           </categoryLinks>
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="334a-d46a-f229-d0b5"/>
@@ -407,7 +415,7 @@ Reclaim the Realm
                     <characteristic name="S" typeId="ab33-d393-96ce-ccba">3</characteristic>
                     <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                     <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -510,7 +518,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
             <profile name="➤ Reaper chain-cleaver - sweep" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="5e11-8d35-b7a7-ba38">
@@ -521,7 +529,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -626,7 +634,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -641,7 +649,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -928,7 +936,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
             <profile name="➤ Reaper chainsword - strike" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="17bb-6ba0-56b1-3d3">
@@ -939,7 +947,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-4</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">6</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -959,7 +967,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">20</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">8</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
             <profile name="➤ Thunderstrike gauntlet - sweep" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="f123-9d4-e554-1559">
@@ -970,7 +978,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1175,7 +1183,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1349,7 +1357,7 @@ Reclaim the Realm
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -1744,7 +1752,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">8</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1760,7 +1768,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2011,7 +2019,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2099,7 +2107,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2190,7 +2198,7 @@ Reclaim the Realm
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2213,7 +2221,7 @@ Reclaim the Realm
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2228,7 +2236,7 @@ Reclaim the Realm
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2251,7 +2259,7 @@ Reclaim the Realm
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
-                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -2383,7 +2391,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2509,7 +2517,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-4</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">6</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
             <profile name="➤ Tempest warblade - sweep" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="79af-f718-ea61-3240">
@@ -2520,7 +2528,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2657,7 +2665,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-4</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">6</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
             <profile name="➤ Reaper chainfist - sweep" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="ae19-5f40-8f99-8d1b">
@@ -2668,7 +2676,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -2715,7 +2723,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">14</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-4</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">6</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
         <profile name="➤ Reaper chainsword - sweep" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="c460-106f-f9f2-69d4">
@@ -2726,7 +2734,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2742,7 +2750,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">20</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">8</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
         <profile name="➤ Thunderstrike gauntlet - sweep" hidden="false" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" id="d2f7-1f2a-e319-9e6a">
@@ -2753,7 +2761,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2833,7 +2841,7 @@ Reclaim the Realm
             <infoLink name="Sustained Hits" hidden="false" type="rule" id="c921-9fa-a985-6fe4" targetId="1897-c22c-9597-12b1"/>
           </infoLinks>
           <profiles>
-            <profile name="➤ Atrapos lascutter - high intensity" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8f72-a428-9ee4-acb2">
+            <profile name="➤ Atrapos lascutter - high intensity (melee)" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8f72-a428-9ee4-acb2">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
@@ -2844,7 +2852,7 @@ Reclaim the Realm
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
               </characteristics>
             </profile>
-            <profile name="➤ Atrapos lascutter - low intensity" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7dcf-78c3-82e1-b6fa">
+            <profile name="➤ Atrapos lascutter - low intensity (melee)" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7dcf-78c3-82e1-b6fa">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">12</characteristic>
@@ -2855,7 +2863,7 @@ Reclaim the Realm
                 <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Sustained Hits 1</characteristic>
               </characteristics>
             </profile>
-            <profile name="➤ Atrapos lascutter - high intensity" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8729-3dcc-8ed7-752a">
+            <profile name="➤ Atrapos lascutter - high intensity (ranged)" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8729-3dcc-8ed7-752a">
               <characteristics>
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
@@ -2866,7 +2874,7 @@ Reclaim the Realm
                 <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
               </characteristics>
             </profile>
-            <profile name="➤ Atrapos lascutter - low intensity" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c9f0-76bb-4602-e4f7">
+            <profile name="➤ Atrapos lascutter - low intensity (ranged)" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="c9f0-76bb-4602-e4f7">
               <characteristics>
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">2D6</characteristic>
@@ -3256,7 +3264,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">20</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">8</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
         <profile name="➤ Hekaton siege claw - sweep" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1d68-b832-4e87-7093">
@@ -3267,7 +3275,7 @@ Reclaim the Realm
             <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
             <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
             <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+            <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -3350,7 +3358,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">0</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -3481,7 +3489,7 @@ Reclaim the Realm
                         <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">D6+2</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
@@ -3640,7 +3648,7 @@ Reclaim the Realm
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
               </characteristics>
             </profile>
           </profiles>

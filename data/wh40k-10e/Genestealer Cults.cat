@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="3bdf-a114-5035-c6ac" name="Xenos - Genestealer Cults" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="38" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="3bdf-a114-5035-c6ac" name="Xenos - Genestealer Cults" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="42" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="false" name="Detachment" hidden="false" id="b96c-3fb6-1ee9-15ae">
       <constraints>
@@ -611,9 +611,9 @@
                     <profile name="Demolition Charge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8429-4679-97cf-4b05">
                       <characteristics>
                         <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
-                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+3</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                        <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
                         <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
                         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Blast, Hazardous, One Shot</characteristic>
@@ -708,6 +708,11 @@
       </infoGroups>
       <infoLinks>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="4443-dccf-4eca-d374" targetId="7cb5-dd6b-dd87-ad3b"/>
+        <infoLink name="Scouts" id="d3a1-1c59-8120-786d" hidden="false" type="rule" targetId="ada6-bac1-ffe0-d6f7">
+          <modifiers>
+            <modifier type="append" value="6&quot;" field="name"/>
+          </modifiers>
+        </infoLink>
       </infoLinks>
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Cult Claws" hidden="false" id="f435-efc3-2e04-3b25">
@@ -1387,7 +1392,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
       <infoLinks>
         <infoLink name="Firing Deck" hidden="false" type="rule" id="358b-864b-c0e4-ef0e" targetId="13b2-6518-dab3-7ea1">
           <modifiers>
-            <modifier type="append" value="12" field="name"/>
+            <modifier type="append" value="6" field="name"/>
           </modifiers>
         </infoLink>
         <infoLink name="Deadly Demise" hidden="false" type="rule" id="ca34-37e7-7396-284" targetId="b68a-5ded-65ac-98c">
@@ -1767,10 +1772,10 @@ If, at the start of the battle, every model in this unit is equipped with an aut
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
-                <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+                <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Pistol, Precision, Sustained hits D3</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Devastating Wounds, Pistol, Precision</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1778,11 +1783,6 @@ If, at the start of the battle, every model in this unit is equipped with an aut
             <infoLink name="Devastating Wounds" hidden="false" type="rule" id="b3f3-d620-ad60-5ac7" targetId="be1e-ac8e-1e2c-3528"/>
             <infoLink name="Pistol" hidden="false" type="rule" id="7e1a-a598-de0b-45bb" targetId="8bf7-8812-923d-29e4"/>
             <infoLink name="Precision" hidden="false" type="rule" id="66d6-3236-1232-949" targetId="9143-31ae-e0a6-6007"/>
-            <infoLink name="Sustained Hits" hidden="false" type="rule" id="e161-a0f5-467-3cb" targetId="1897-c22c-9597-12b1">
-              <modifiers>
-                <modifier type="append" value="D3" field="name"/>
-              </modifiers>
-            </infoLink>
           </infoLinks>
         </selectionEntry>
       </selectionEntries>
@@ -2023,6 +2023,9 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
           </modifiers>
         </modifierGroup>
       </modifierGroups>
+      <infoLinks>
+        <infoLink name="Deep Strike" id="d370-fd4a-eefd-1338" hidden="false" type="rule" targetId="7cb5-dd6b-dd87-ad3b"/>
+      </infoLinks>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Neophyte Hybrids" hidden="false" id="b5d2-8681-6bba-f05b">
       <categoryLinks>
@@ -2293,7 +2296,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
                             <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
                             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
                             <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
-                            <characteristic name="S" typeId="2229-f494-25db-c5d3">12</characteristic>
+                            <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
                             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
                             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+1</characteristic>
                             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Heavy</characteristic>
@@ -3615,7 +3618,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
-                <characteristic name="WS" typeId="95d1-95f-45b4-11d6"/>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">6+</characteristic>
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">D6</characteristic>
@@ -3951,13 +3954,20 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
                         <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                         <characteristic name="A" typeId="2337-daa1-6682-b110">2</characteristic>
                         <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3+</characteristic>
-                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">10</characteristic>
+                        <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
                         <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                         <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
-                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                        <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-Vehicle 4+</characteristic>
                       </characteristics>
                     </profile>
                   </profiles>
+                  <infoLinks>
+                    <infoLink name="Anti-" id="9132-d3a8-1eb9-71c3" hidden="false" type="rule" targetId="4111-82e3-9444-e942">
+                      <modifiers>
+                        <modifier type="append" value="Vehicle 4+" field="name"/>
+                      </modifiers>
+                    </infoLink>
+                  </infoLinks>
                 </selectionEntry>
               </selectionEntries>
               <infoLinks>
