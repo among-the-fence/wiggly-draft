@@ -20,11 +20,11 @@ class UnitView(discord.ui.View):
         if disable_forward_button:
             self.children.remove(self.children[-1])
 
-        safeFaction = urllib.parse.quote_plus(unit.factions)
-        safeName = urllib.parse.quote_plus(unit.name)
-        url = f'https://among-the-fence.github.io/wahasearch/{safeFaction}/{safeName}'
+        safeFaction = urllib.parse.quote(unit.factions)
+        safeName = unit.name.replace(" ","%20")
+        url = f'http://localhost:5173/wahasearch/{safeFaction}/{safeName}'
         # print(url)
-        button = discord.ui.Button(label='', style=discord.ButtonStyle.url, url = url)
+        button = discord.ui.Button(label='w', style=discord.ButtonStyle.url, url=url)
         self.add_item(button)
 
     async def on_timeout(self):
