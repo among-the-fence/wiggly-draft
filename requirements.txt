@@ -6,3 +6,4 @@ openai
 thefuzz
 lxml
 six
+urllib
