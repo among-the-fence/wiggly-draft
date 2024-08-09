@@ -22,7 +22,7 @@ class UnitView(discord.ui.View):
 
         safeFaction = urllib.parse.quote(unit.factions)
         safeName = unit.name.replace(" ","%20")
-        url = f'http://localhost:5173/wahasearch/{safeFaction}/{safeName}'
+        url = f'https://among-the-fence.github.io/wahasearch/{safeFaction}/{safeName}'
         # print(url)
         button = discord.ui.Button(label='w', style=discord.ButtonStyle.url, url=url)
         self.add_item(button)
