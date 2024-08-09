@@ -5,7 +5,7 @@ import discord
 from services.warhammer.models.unit import WHUnit
 from services.warhammer.wh_data import get_wh_data
 from util.utils import simple_format, send_in_chunks, chunkatize
-
+import urllib.parse
 wh_data = get_wh_data()
 
 
@@ -19,6 +19,13 @@ class UnitView(discord.ui.View):
         super().__init__(timeout=3600)
         if disable_forward_button:
             self.children.remove(self.children[-1])
+
+        safeFaction = urllib.parse.quote_plus(unit.factions)
+        safeName = urllib.parse.quote_plus(unit.name)
+        url = f'https://among-the-fence.github.io/wahasearch/{safeFaction}/{safeName}'
+        # print(url)
+        button = discord.ui.Button(label='', style=discord.ButtonStyle.url, url = url)
+        self.add_item(button)
 
     async def on_timeout(self):
         self.disable_all_items()
