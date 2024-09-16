@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="b984-7317-81cc-20f" name="Xenos - Tyranids" revision="53" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue" authorName="FitalShell" authorContact="fitalshell">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="b984-7317-81cc-20f" name="Xenos - Tyranids" revision="56" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue" authorName="FitalShell" authorContact="fitalshell">
   <categoryEntries>
     <categoryEntry name="Synapse" hidden="false" id="4129-a453-686a-d38a"/>
     <categoryEntry id="4f10-fe01-4b80-8d6b" name="Winged Hive Tyrant" hidden="false"/>
@@ -329,7 +329,7 @@
       </modifiers>
     </entryLink>
     <entryLink import="true" name="Detachment" hidden="false" type="selectionEntry" id="1f79-3dd4-507b-c50" targetId="bac9-a18e-5a8a-48d1"/>
-    <entryLink import="true" name="Barbed Hierodule" hidden="false" type="selectionEntry" id="c08c-3f82-eca5-bc5b" targetId="afd0-a0ca-68c3-d912">
+    <entryLink import="true" name="Barbed Hierodule [Legends]" hidden="false" type="selectionEntry" id="c08c-3f82-eca5-bc5b" targetId="afd0-a0ca-68c3-d912">
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditions>
@@ -338,7 +338,7 @@
         </modifier>
       </modifiers>
     </entryLink>
-    <entryLink import="true" name="Scythed Hierodule" hidden="false" type="selectionEntry" id="ca37-6c54-394c-2803" targetId="218c-639e-22e0-59ce">
+    <entryLink import="true" name="Scythed Hierodule [Legends]" hidden="false" type="selectionEntry" id="ca37-6c54-394c-2803" targetId="218c-639e-22e0-59ce">
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditions>
@@ -5044,7 +5044,7 @@
           <profiles>
             <profile name="Tentaclids" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8089-203-7e0c-cea5">
               <characteristics>
-                <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">3++</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
@@ -5724,6 +5724,7 @@
           </modifiers>
         </infoLink>
         <infoLink name="Hover" hidden="false" type="rule" id="c080-f10b-13d6-549f" targetId="eec5-5f54-9c03-c305"/>
+        <infoLink name="Synapse" id="f603-54d7-4487-4079" hidden="false" type="rule" targetId="86aa-437f-260b-5cad"/>
       </infoLinks>
       <profiles>
         <profile name="Harridan" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="1cbe-e64f-b19d-39b0">
@@ -5815,6 +5816,7 @@
             <modifier type="append" value="2D6" field="name"/>
           </modifiers>
         </infoLink>
+        <infoLink name="Synapse" id="e2f3-96cc-035c-0b8b" hidden="false" type="rule" targetId="86aa-437f-260b-5cad"/>
       </infoLinks>
       <profiles>
         <profile name="Damaged: 1-10 wounds remaining" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e1fc-f768-9ec6-be50">
