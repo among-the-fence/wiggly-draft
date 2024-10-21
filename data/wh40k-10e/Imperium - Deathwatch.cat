@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="f89b-84e0-6e3b-f1e2" name="Imperium - Adeptus Astartes - Deathwatch" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="23" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="f89b-84e0-6e3b-f1e2" name="Imperium - Adeptus Astartes - Deathwatch" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="27" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntryGroups>
     <selectionEntryGroup name="Terminator Weapons" hidden="false" id="ead7-caae-cc7e-f148" defaultSelectionEntryId="ad9-d7f5-59b8-cd0d">
       <selectionEntries>
@@ -630,6 +630,12 @@
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="758e-b851-8996-32af"/>
               </constraints>
             </entryLink>
+            <entryLink import="true" name="Infernus heavy bolter" hidden="false" id="56ac-611b-d57b-9cce" type="selectionEntry" targetId="ef13-323d-7627-dc7">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4c74-07d5-99c8-ded9-min" includeChildSelections="false"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4c74-07d5-99c8-ded9-max" includeChildSelections="false"/>
+              </constraints>
+            </entryLink>
           </entryLinks>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="65a9-69b5-bf32-8f0d"/>
@@ -759,7 +765,7 @@
         </profile>
         <profile name="Rites of Battle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d4de-4cfa-ee54-d422" publicationId="4115-3627-e608-39f6" page="7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, one unit from your army with this ability may be targeted by a Stratagem for 0CP even if another unit from your army has been targeted by that Stratagem this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6240-ce76-8480-ccfe" publicationId="4115-3627-e608-39f6" page="8">
@@ -1307,46 +1313,62 @@
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2246-e382-cc9-3706"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Missile choice" hidden="false" id="f7b7-2fa0-265f-69ec" publicationId="4115-3627-e608-39f6" page="19" defaultSelectionEntryId="e1bb-7422-d97a-8392">
+        <selectionEntryGroup name="Missile choice" hidden="false" id="f7b7-2fa0-265f-69ec" publicationId="4115-3627-e608-39f6" page="19" defaultSelectionEntryId="659f-cdb6-c687-5096">
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Blackstar rocket launcher" hidden="false" id="e1bb-7422-d97a-8392" publicationId="4115-3627-e608-39f6" page="19">
+            <selectionEntry type="upgrade" import="true" name="2 Blackstar rocket launchers" hidden="false" id="659f-cdb6-c687-5096">
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Blackstar rocket launcher" hidden="false" id="e1bb-7422-d97a-8392" publicationId="4115-3627-e608-39f6" page="19">
+                  <constraints>
+                    <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="3b70-79ee-b06a-8626-min" includeChildSelections="false"/>
+                    <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="3b70-79ee-b06a-8626-max" includeChildSelections="false"/>
+                  </constraints>
+                  <profiles>
+                    <profile name="Blackstar rocket launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b1e7-499-b467-b78">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                  <infoLinks>
+                    <infoLink name="Blast" id="1aeb-f47e-f6b5-d66e" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+                  </infoLinks>
+                </selectionEntry>
+              </selectionEntries>
               <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="178f-f14a-c0e6-77b5"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a909-b23b-a1ae-9ae3"/>
               </constraints>
-              <profiles>
-                <profile name="Blackstar rocket launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="b1e7-499-b467-b78">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">30&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <infoLinks>
-                <infoLink name="Blast" hidden="false" type="rule" id="1aeb-f47e-f6b5-d66e" targetId="6c1f-1cf7-ff25-c99e"/>
-              </infoLinks>
             </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Stormstrike missile launcher" hidden="false" id="8d31-e74f-7724-1f53" publicationId="4115-3627-e608-39f6" page="19">
+            <selectionEntry type="upgrade" import="true" name="2 Stormstrike missile launchers" hidden="false" id="f01a-6492-a57e-31e8">
               <constraints>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8052-dece-a690-60d7"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b7bd-f654-71f0-12e2" includeChildSelections="false"/>
               </constraints>
-              <profiles>
-                <profile name="Stormstrike missile launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="58c9-ffce-1cb1-e267" publicationId="4115-3627-e608-39f6" page="19">
-                  <characteristics>
-                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
-                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-                    <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
+              <selectionEntries>
+                <selectionEntry type="upgrade" import="true" name="Stormstrike missile launcher" hidden="false" id="8d31-e74f-7724-1f53" publicationId="4115-3627-e608-39f6" page="19">
+                  <constraints>
+                    <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="7bd8-a62e-2f6b-7a56-min" includeChildSelections="false"/>
+                    <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="7bd8-a62e-2f6b-7a56-max" includeChildSelections="false"/>
+                  </constraints>
+                  <profiles>
+                    <profile name="Stormstrike missile launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="58c9-ffce-1cb1-e267" publicationId="4115-3627-e608-39f6" page="19">
+                      <characteristics>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+                        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                        <characteristic name="S" typeId="2229-f494-25db-c5d3">10</characteristic>
+                        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
+                      </characteristics>
+                    </profile>
+                  </profiles>
+                </selectionEntry>
+              </selectionEntries>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -1427,6 +1449,14 @@
                   </characteristics>
                 </profile>
               </profiles>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Warlord" hidden="false" id="b2ed-4b07-c463-068b">
+              <categoryLinks>
+                <categoryLink name="Warlord" hidden="false" id="a06f-2608-8f15-99bc" targetId="5c0e-4c31-d51b-e470" primary="false"/>
+              </categoryLinks>
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5468-40a4-02e3-5e98" includeChildSelections="false"/>
+              </constraints>
             </selectionEntry>
           </selectionEntries>
         </selectionEntry>
@@ -5320,8 +5350,7 @@
       <description>Each time an attack targets this unit, if it contains models with different Toughness characteristics, until the attacking unit has finished making its attacks, use the Toughness characteristic of the majority of the models in that unit when determining what roll is required for that attack to successfully wound. If two or more Toughness characteristics are tied for majority, use the highest value. 
 For the purposes of determining which models in this unit can embark within a TRANSPORT, Kill Team Terminator models, Kill Team Outrider models, Kill Team Biker models and models equipped with a jump pack each take up the space of 2 models, but can otherwise embark within any TRANSPORT their unit can embark within, even though similar models in other units have the TERMINATOR, MOUNTED or JUMP PACK keywords. 
 For the purposes of interacting with terrain features, all models in units with this ability are considered Infantry models, even though similar models in other units may have the Mounted or Jump Pack keywords. 
-**Designer’s Note**: *While the abstractions in the above rule cause some models to behave differently to similar models in other units, they are designed to minimise complicated movement, Transport and Benefit of Cover rules.*
-</description>
+**Designer’s Note**: *While the abstractions in the above rule cause some models to behave differently to similar models in other units, they are designed to minimise complicated movement, Transport and Benefit of Cover rules.*</description>
     </rule>
   </sharedRules>
 </catalogue>

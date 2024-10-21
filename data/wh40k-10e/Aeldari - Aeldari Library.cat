@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="dfcf-1214-b57-2205" name="Aeldari - Aeldari Library" revision="48" battleScribeVersion="2.03" library="true" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="dfcf-1214-b57-2205" name="Aeldari - Aeldari Library" revision="53" battleScribeVersion="2.03" library="true" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
   <publications>
     <publication id="442c-a37c-3908-d701" name="Index: Aeldari" shortName="I:Aeldari" publisher="Index: Aeldari" publicationDate="6/15/2023"/>
     <publication id="1427-7c5c-863f-ac94" name="Index: Drukhari" shortName="I:Drukhari" publisher="Index: Drukhari" publicationDate="6/15/2023"/>
@@ -502,7 +502,7 @@
         </profile>
         <profile id="3cab-f2a6-9680-b9ad" name="Superlative Strategist" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, you can target this model’s unit with a Stratagem even if you have already used that Stratagem on a different unit this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile id="ef73-7885-790f-2bea" name="Path of Command" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -1404,7 +1404,7 @@
     </selectionEntry>
     <selectionEntry id="cc68-ad19-7285-7a11" name="Corsair Voidreavers" page="19" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="140">
+        <modifier type="set" field="51b2-306e-1021-d207" value="120">
           <conditions>
             <condition field="selections" scope="cc68-ad19-7285-7a11" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -1793,6 +1793,18 @@
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="8753-9166-541c-d0f1-min"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8753-9166-541c-d0f1-max"/>
                   </constraints>
+                  <modifiers>
+                    <modifier type="set" value="0" field="8753-9166-541c-d0f1-min">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="cc68-ad19-7285-7a11" childId="b89e-3e79-8a04-731" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                      </conditions>
+                    </modifier>
+                    <modifier type="set" value="true" field="hidden">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="cc68-ad19-7285-7a11" childId="b89e-3e79-8a04-731" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
                 </selectionEntry>
               </selectionEntries>
               <costs>
@@ -1993,6 +2005,11 @@
                         <condition type="atLeast" value="1" field="selections" scope="cc68-ad19-7285-7a11" childId="b89e-3e79-8a04-731" shared="true" includeChildSelections="true" includeChildForces="true"/>
                       </conditions>
                     </modifier>
+                    <modifier type="set" value="0" field="1d75-c77e-6484-4347-min">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="cc68-ad19-7285-7a11" childId="b89e-3e79-8a04-731" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                      </conditions>
+                    </modifier>
                   </modifiers>
                 </selectionEntry>
               </selectionEntries>
@@ -2004,7 +2021,11 @@
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <constraints>
         <constraint type="max" value="-1" field="selections" scope="force" shared="true" id="c312-7a4e-3c9e-d35a"/>
@@ -2013,7 +2034,7 @@
     </selectionEntry>
     <selectionEntry id="cbb7-6669-a014-36fe" name="Corsair Voidscarred" page="21" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="180">
+        <modifier type="set" field="51b2-306e-1021-d207" value="160">
           <conditions>
             <condition field="selections" scope="cbb7-6669-a014-36fe" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -3064,7 +3085,11 @@
         </selectionEntryGroup>
       </selectionEntryGroups>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <constraints>
         <constraint type="max" value="-1" field="selections" scope="force" shared="true" id="8f4a-1c6c-bd7c-25ff"/>
@@ -4119,7 +4144,11 @@
         <categoryLink id="b097-31d3-46f8-a860" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="140"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntries>
         <selectionEntry id="dc24-cfc3-17f7-c4fb" name="Pulse Laser" hidden="false" collective="false" import="true" type="upgrade">
@@ -4260,6 +4289,9 @@
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="d4a8-c18f-837f-7f78" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="b2f5-8219-f875-917e" name="Farseer" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -4454,6 +4486,9 @@
         <infoLink id="d97e-c486-508b-6057" name="Strands of Fate" hidden="false" targetId="c324-e193-e23c-7d2e" type="rule"/>
         <infoLink name="Leader" hidden="false" type="rule" id="a210-21b1-f22c-1c20" targetId="b4dd-3e1f-41cb-218f"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="4556-68da-0b62-ef7a" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="833b-55bc-73be-8862" name="Farseer Skyrunner" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -4888,7 +4923,11 @@
         <categoryLink id="f62d-7562-4ebd-871d" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <infoLinks>
         <infoLink id="f00b-bff1-fa9-e46a" name="Deadly Demise" hidden="false" targetId="b68a-5ded-65ac-98c" type="rule">
@@ -6908,9 +6947,9 @@
             </conditionGroup>
           </conditionGroups>
         </modifier>
-        <modifier type="increment" value="3" field="c312-7a4e-3c9e-d35a">
+        <modifier type="set" value="3" field="c312-7a4e-3c9e-d35a">
           <conditions>
-            <condition type="atLeast" value="1" field="forces" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true"/>
+            <condition type="lessThan" value="1" field="forces" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
         </modifier>
         <modifier type="decrement" value="1" field="c312-7a4e-3c9e-d35a">
@@ -6935,7 +6974,7 @@
     </selectionEntry>
     <selectionEntry id="433-faed-ea62-c531" name="Shining Spears" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="200">
+        <modifier type="set" field="51b2-306e-1021-d207" value="180">
           <conditions>
             <condition field="selections" scope="433-faed-ea62-c531" value="3" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -6953,7 +6992,11 @@
         <categoryLink id="cb21-5046-4938-be11" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="2-5 Shining Spears and 1 Shining Spear Exarch" hidden="false" id="f075-e4e1-73a-1a86" defaultSelectionEntryId="9020-3f97-8bc5-238f">
@@ -9722,6 +9765,11 @@ become separate units, with their original Starting Strengths.</characteristic>
             </conditionGroup>
           </conditionGroups>
         </modifier>
+        <modifier type="add" value="e338-111e-d0c6-b687" field="category">
+          <conditions>
+            <condition type="atLeast" value="1" field="selections" scope="roster" childId="f22-4c82-57e8-3613" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
       </modifiers>
       <constraints>
         <constraint type="max" value="-1" field="selections" scope="force" shared="true" id="c312-7a4e-3c9e-d35a"/>
@@ -9949,9 +9997,9 @@ become separate units, with their original Starting Strengths.</characteristic>
             </conditionGroup>
           </conditionGroups>
         </modifier>
-        <modifier type="increment" value="3" field="c312-7a4e-3c9e-d35a">
+        <modifier type="set" value="3" field="c312-7a4e-3c9e-d35a">
           <conditions>
-            <condition type="atLeast" value="1" field="forces" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true"/>
+            <condition type="lessThan" value="1" field="forces" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
         <modifier type="decrement" value="1" field="c312-7a4e-3c9e-d35a">
@@ -10332,6 +10380,7 @@ become separate units, with their original Starting Strengths.</characteristic>
       </modifiers>
       <constraints>
         <constraint type="max" value="-1" field="selections" scope="force" shared="true" id="aa83-44e2-b45f-7d08"/>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="5d21-333b-0049-ae85" includeChildSelections="true"/>
       </constraints>
       <entryLinks>
         <entryLink import="true" name="Warlock" hidden="false" type="selectionEntry" id="e857-79ba-3961-e182" targetId="ab89-7505-ff1e-4ed">
@@ -10339,6 +10388,9 @@ become separate units, with their original Starting Strengths.</characteristic>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="c781-9e9b-461e-6077"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8ee1-3d43-a01-fffd"/>
           </constraints>
+          <categoryLinks>
+            <categoryLink targetId="4378-1827-4988-be4e" id="afb2-483c-c31a-fa23" primary="false" name="Faction: Aeldari"/>
+          </categoryLinks>
         </entryLink>
       </entryLinks>
       <infoLinks>
@@ -10347,7 +10399,7 @@ become separate units, with their original Starting Strengths.</characteristic>
     </selectionEntry>
     <selectionEntry id="d61-c058-6bd1-112f" name="Warlock Conclave" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="120">
+        <modifier type="set" field="51b2-306e-1021-d207" value="110">
           <conditions>
             <condition field="selections" scope="d61-c058-6bd1-112f" value="2" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -10382,7 +10434,11 @@ become separate units, with their original Starting Strengths.</characteristic>
         <categoryLink id="dc4a-2a8d-f83d-f1da" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <profiles>
         <profile id="33ca-47b8-9d21-5b62" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -10669,10 +10725,13 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
           </modifiers>
         </infoLink>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="52ef-fc1b-648d-c4e5" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="ecfe-8994-b61e-f1c5" name="Warlock Skyrunner Conclave" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="150">
+        <modifier type="set" field="51b2-306e-1021-d207" value="135">
           <conditions>
             <condition field="selections" scope="ecfe-8994-b61e-f1c5" value="2" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -10693,7 +10752,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="1931-96ee-a0ac-43da" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <profiles>
         <profile id="41c0-3c00-aff6-8265" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -10962,7 +11025,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="b373-852d-da68-8a38" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="110"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <profiles>
         <profile id="32-1edb-2a23-6aec" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -11520,7 +11587,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="3015-397-bf4a-716a" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="510"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="495"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Right Arm" hidden="false" id="3035-2757-54b9-ca6d" defaultSelectionEntryId="f66-3e04-55d5-ab4d">
@@ -12116,7 +12187,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="180"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <profiles>
         <profile name="Wraithguard" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2c69-511d-9633-577b">
@@ -12353,7 +12428,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="8c56-b9d5-2ab2-17dc" name="Faction: Aeldari" hidden="false" targetId="4378-1827-4988-be4e" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Wraithblade" hidden="false" id="c696-ef67-b02b-eb47" collective="false">
@@ -12499,7 +12578,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink targetId="1015-db48-a2fa-c7da" id="d94d-f344-6115-7386" primary="false" name="Faction: Drukhari"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Pistol Choice" hidden="false" id="323-b391-d6b7-df1a" defaultSelectionEntryId="e6ee-907c-8ecc-49a3">
@@ -12597,9 +12680,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, each time a model in that unit makes an attack, re-roll a Wound roll of 1. While that unit is Empowered, each time a model in that unit makes an attack, you can re-roll the Wound roll instead</characteristic>
           </characteristics>
         </profile>
-        <profile name="Devious Mastermind" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e713-b966-c181-4cc7">
+        <profile name="Devious Mastermind (Aura)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e713-b966-c181-4cc7">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, after your opponent uses a Stratagem, if this model is your Warlord and is on the battlefield, it can use this ability. If it does, until the end of the battle, increase the cost of that Stratagem to your opponent by 1CP</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is your Warlord, each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12&quot; of this model, increase the cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile id="e9c3-fd99-a21e-bcac" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -12629,7 +12712,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="6975-c30b-2b48-eaa7" primary="true" name="Character"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Beastmaster" hidden="false" id="3dd7-f29e-4f39-fa99">
@@ -12878,7 +12965,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="6e62-e017-fe09-a705" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="true"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Lhamaean" hidden="false" id="4ca8-abd5-72ae-b5a">
@@ -13119,6 +13210,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
       <infoLinks>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="b9c3-3139-68-e45" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="e789-b8cd-6de6-b1da" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="a5d3-e21b-bf13-a952" name="Cronos" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
@@ -13255,6 +13349,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         </infoLink>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="ebe0-6266-ff7f-ae1c" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="4c4f-762d-28a3-8adb" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="a30b-b966-d264-e935" name="Drazhar" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -13266,7 +13363,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="833f-4c99-4d07-f34a" name="Character" hidden="false" targetId="9cfd-1c32-585f-7d5c" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <constraints>
         <constraint field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="b908-f607-57e-38c5" type="max"/>
@@ -13448,6 +13549,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         </infoLink>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="f0f4-19d-9f70-a4b5" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ca75-fd97-612b-0b91" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="32ff-aec4-9669-c8a2" name="Haemonculus" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -13557,10 +13661,13 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
           </infoLinks>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="9fd2-80d2-ff8b-9879" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="2311-9feb-9d0a-8154" name="Hellions" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="170">
+        <modifier type="set" field="51b2-306e-1021-d207" value="150">
           <conditions>
             <condition field="selections" scope="2311-9feb-9d0a-8154" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -13580,7 +13687,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="6f2f-29f9-9bdf-b5b2" name="Fly" hidden="false" targetId="c619-2086-bbcf-69c9" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Heliarch and 4-9 Hellions" hidden="false" id="8db7-4e53-eb9b-1f44" defaultSelectionEntryId="5603-89d5-83df-ddde">
@@ -13778,10 +13889,13 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
       <infoLinks>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="6bd7-c4ab-cfe4-4444" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="9283-4d50-27c9-6a08" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="1529-793d-481b-82bf" name="Incubi" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="150">
+        <modifier type="set" field="51b2-306e-1021-d207" value="170">
           <conditions>
             <condition field="selections" scope="1529-793d-481b-82bf" value="5" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="greaterThan"/>
           </conditions>
@@ -13794,7 +13908,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="e157-d1a9-c791-43de" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="true"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <profiles>
         <profile id="42ab-6af6-dae0-d2b0" name="Invulnerable Save" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -13932,6 +14050,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
       <infoLinks>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="5887-7d8e-c023-f4fe" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ce67-e35b-8b43-f729" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="d20b-783-ccf6-b29d" name="Kabalite Warriors" hidden="false" collective="false" import="true" type="unit">
       <categoryLinks>
@@ -14361,6 +14482,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
       <infoLinks>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="8893-bd16-b2a8-f000" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="cfa9-883b-67f1-e041" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="ae1b-1a96-5b4c-cecc" name="Lelith Hesperax" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -14374,7 +14498,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="3292-9825-2285-b3d0" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="false"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <constraints>
         <constraint field="selections" scope="roster" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="b908-f607-57e-38c5" type="max"/>
@@ -14461,7 +14589,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="b886-e314-7868-75f5" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="true"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="1 Nightfiend and 4-9 Mandrakes" hidden="false" id="6ebf-3e3b-8209-8198" defaultSelectionEntryId="8696-f601-cde0-da6c">
@@ -14602,6 +14734,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
           </characteristics>
         </profile>
       </profiles>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="3550-c949-9288-d31a" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="635b-21f4-f801-453" name="Raider" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -14725,6 +14860,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
           </profiles>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="85af-66d0-1811-e9c1" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="3376-d337-6a33-4bca" name="Ravager" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -14842,6 +14980,9 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
           </profiles>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="d290-13ee-0dab-946a" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="fbc4-c7d0-db5b-91c" name="Razorwing Jetfighter" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -15091,7 +15232,11 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
         <categoryLink id="992c-c113-9001-5a75" name="Mounted" hidden="false" targetId="14a0-40c9-2748-ae6e" primary="true"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntryGroups>
         <selectionEntryGroup name="Arena Champion and 2-5 Reavers" hidden="false" id="e29-840d-814b-fe7c">
@@ -15223,6 +15368,20 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
                   </constraints>
                 </selectionEntryGroup>
               </selectionEntryGroups>
+              <entryLinks>
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="a226-0eda-8bb0-f5e7" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                  <constraints>
+                    <constraint type="max" value="1" field="selections" scope="2c3a-9752-2516-69ab" shared="true" id="0fe5-53b5-ff18-4c4c" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="increment" value="1" field="0fe5-53b5-ff18-4c4c">
+                      <conditions>
+                        <condition type="equalTo" value="6" field="selections" scope="2c3a-9752-2516-69ab" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Reaver" hidden="false" id="786e-b4ee-ae4e-827f" collective="false">
               <constraints>
@@ -15309,6 +15468,20 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
                   </profiles>
                 </selectionEntry>
               </selectionEntries>
+              <entryLinks>
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="e658-cc60-d42e-cd8f" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                  <constraints>
+                    <constraint type="max" value="1" field="selections" scope="2c3a-9752-2516-69ab" shared="true" id="03c8-aab4-cc42-7f43" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="increment" value="1" field="03c8-aab4-cc42-7f43">
+                      <conditions>
+                        <condition type="equalTo" value="6" field="selections" scope="2c3a-9752-2516-69ab" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Reaver with Blaster" hidden="false" id="3095-279e-8a92-446c">
               <constraints>
@@ -15395,6 +15568,20 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
                   </profiles>
                 </selectionEntry>
               </selectionEntries>
+              <entryLinks>
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="7687-e074-747c-af06" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                  <constraints>
+                    <constraint type="max" value="1" field="selections" scope="2c3a-9752-2516-69ab" shared="true" id="b8da-a3e3-42b8-dbe6" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="increment" value="1" field="b8da-a3e3-42b8-dbe6">
+                      <conditions>
+                        <condition type="equalTo" value="6" field="selections" scope="2c3a-9752-2516-69ab" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Reaver with Heat Lance" hidden="false" id="8c2-3607-9b28-8c43" collective="false">
               <constraints>
@@ -15482,53 +15669,26 @@ You can attach this unit to the above unit, even if one other Leader unit (excl
                   </profiles>
                 </selectionEntry>
               </selectionEntries>
+              <entryLinks>
+                <entryLink import="true" name="Reaver Wargear" hidden="false" id="6413-b44e-624b-b994" type="selectionEntryGroup" targetId="aa50-13de-17f0-0c47">
+                  <constraints>
+                    <constraint type="max" value="1" field="selections" scope="2c3a-9752-2516-69ab" shared="true" id="5c16-ce80-ceb6-6f5d" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="increment" value="1" field="5c16-ce80-ceb6-6f5d">
+                      <conditions>
+                        <condition type="equalTo" value="6" field="selections" scope="2c3a-9752-2516-69ab" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
           </selectionEntries>
           <constraints>
             <constraint type="min" value="3" field="selections" scope="parent" shared="true" id="613a-a164-9b06-feba"/>
             <constraint type="max" value="6" field="selections" scope="parent" shared="true" id="ee29-ec2f-d7e8-ca14"/>
           </constraints>
-        </selectionEntryGroup>
-        <selectionEntryGroup name="Wargear" hidden="false" id="2b6f-7bf9-9b52-aad2">
-          <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Cluster Caltrops" hidden="false" id="4d6b-e33-71cd-3c0c">
-              <profiles>
-                <profile name="Cluster Caltrops" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="708e-8e09-3430-210a">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you roll to inflict wounds using this unit’s Eviscerating Fly-by ability, you can re-roll one D6 for each model in this unit equipped with cluster caltrops.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <constraints>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="40e4-ba85-d329-849a"/>
-              </constraints>
-            </selectionEntry>
-            <selectionEntry type="upgrade" import="true" name="Grav Talon" hidden="false" id="5093-d3dd-5e5-5d0d">
-              <profiles>
-                <profile name="Grav Talon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="20a7-4c48-44ae-642d">
-                  <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer’s melee weapons have the [LANCE] ability.</characteristic>
-                  </characteristics>
-                </profile>
-              </profiles>
-              <constraints>
-                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="40e4-ba85-d329-849a"/>
-              </constraints>
-              <infoLinks>
-                <infoLink name="Lance" hidden="false" type="rule" id="8f7f-5593-2845-f519" targetId="2ebc-abdf-8129-6c57"/>
-              </infoLinks>
-            </selectionEntry>
-          </selectionEntries>
-          <constraints>
-            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3eec-e83b-d2e7-47bb"/>
-          </constraints>
-          <modifiers>
-            <modifier type="set" value="2" field="3eec-e83b-d2e7-47bb">
-              <conditions>
-                <condition field="selections" scope="2c3a-9752-2516-69ab" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="equalTo"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntryGroup>
       </selectionEntryGroups>
       <profiles>
@@ -16632,6 +16792,9 @@ Before the battle, at the start of the Declare Battle Formations step, you can 
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="1c2b-fcf2-11d3-5d5e" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="71e1-7d54-4856-4ce1" name="Voidraven Bomber" hidden="false" collective="false" import="true" type="model">
       <categoryLinks>
@@ -16752,7 +16915,7 @@ Before the battle, at the start of the Declare Battle Formations step, you can 
                     <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
                     <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">14</characteristic>
-                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6+2</characteristic>
                     <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">-</characteristic>
                   </characteristics>
@@ -16793,6 +16956,9 @@ Before the battle, at the start of the Declare Battle Formations step, you can 
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="3fd3-36c0-a6fa-6e6f" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="2659-7a1b-3ce6-8e4b" name="Wracks" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
@@ -17073,7 +17239,11 @@ Before the battle, at the start of the Declare Battle Formations step, you can 
             <modifier type="append" field="name" value="5+"/>
           </modifiers>
         </infoLink>
+        <infoLink name="Power from Pain" id="4d16-87d1-fead-2aab" hidden="false" type="rule" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="c934-e675-a26d-f3b8" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="edca-1a1b-902d-421a" name="Wyches" hidden="false" collective="false" import="true" type="unit">
       <categoryLinks>
@@ -17263,6 +17433,9 @@ improved to a 4+ against melee attacks.</characteristic>
       <infoLinks>
         <infoLink name="Power from Pain" hidden="false" type="rule" id="6b24-7296-cc4f-f27c" targetId="5e02-2ddc-f55-e6dd"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="6" field="selections" scope="roster" shared="true" id="9eb4-b813-9d40-25a5" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="3924-7fd-61b4-f4ec" name="Shuriken Cannon" hidden="false" collective="false" import="true" type="upgrade">
       <profiles>
@@ -17490,6 +17663,9 @@ makes an attack, subtract 1 from the Hit roll</characteristic>
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="05e0-60e6-7cc9-88ca" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Scorpion" hidden="false" id="1420-c80d-66fc-6a">
       <costs>
@@ -19764,6 +19940,9 @@ You can attach this model to one of the above units, even if one other Leader u
         </infoLink>
       </infoLinks>
       <comment>Model categories and cost are set in child catalogue</comment>
+      <categoryLinks>
+        <categoryLink targetId="4378-1827-4988-be4e" id="86ee-eebe-a726-2311" primary="false" name="Faction: Aeldari"/>
+      </categoryLinks>
     </selectionEntry>
     <selectionEntry type="upgrade" import="false" name="Detachment" hidden="false" id="68f1-24f4-a4c6-303f">
       <entryLinks>
@@ -19893,6 +20072,9 @@ You can attach this model to one of the above units, even if one other Leader u
         <infoLink name="Lone Operative" hidden="false" type="rule" id="c744-394-1472-1a8f" targetId="a8a0-8fe7-898-e0f3"/>
         <infoLink id="356a-8fa5-3ea6-bd04" name="Strands of Fate" hidden="false" targetId="c324-e193-e23c-7d2e" type="rule"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="5ecb-0c44-0c34-b216" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Bonesinger [Legends]" hidden="false" id="2384-4154-b67a-3827">
       <costs>
@@ -20378,6 +20560,9 @@ You can attach this model to one of the above units, even if one other Leader u
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="3bfa-5cbf-d428-9d46" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Corsair Reaver Band [Legends]" hidden="false" id="758b-bfd2-96ed-52b">
       <categoryLinks>
@@ -21132,6 +21317,9 @@ You can attach this model to one of the above units, even if one other Leader u
           </characteristics>
         </profile>
       </profiles>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="098c-2293-f899-badd" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Corsair Skyreaver Band [Legends]" hidden="false" id="4146-4127-52f7-5786">
       <costs>
@@ -22018,6 +22206,9 @@ You can attach this model to one of the above units, even if one other Leader u
           </selectionEntryGroups>
         </selectionEntryGroup>
       </selectionEntryGroups>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="5306-60f4-e091-671b" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Firestorm [Legends]" hidden="false" id="d11f-239d-94b4-c194">
       <costs>
@@ -22171,6 +22362,9 @@ You can attach this model to one of the above units, even if one other Leader u
           </profiles>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0585-2ff3-8ebf-e543" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Phoenix [Legends]" hidden="false" id="6083-affa-5163-a94c">
       <categoryLinks>
@@ -22306,6 +22500,9 @@ You can attach this model to one of the above units, even if one other Leader u
           </infoLinks>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ebfd-6226-6b5e-0dc6" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Vampire Hunter [Legends]" hidden="false" id="22ea-9a4-cda3-a24">
       <categoryLinks>
@@ -22446,6 +22643,9 @@ You can attach this model to one of the above units, even if one other Leader u
           </profiles>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="dfb0-4c97-ad25-e01e" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Vampire Raider [Legends]" hidden="false" id="4016-44d3-c64b-cc1a">
       <categoryLinks>
@@ -22576,6 +22776,9 @@ charge in a turn in which it Advanced</characteristic>
           </profiles>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="c011-5540-2f4a-ce59" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Wasp Assault Walker [Legends]" hidden="false" id="6c50-7486-7c0d-52d0">
       <costs>
@@ -23360,6 +23563,40 @@ Pain tokens.</description>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="7a02-168c-a413-d09b" includeChildSelections="true"/>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3d3-4115-ed50-e603"/>
+      </constraints>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Reaver Wargear" id="aa50-13de-17f0-0c47" hidden="false">
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Cluster Caltrops" hidden="false" id="0777-ae0e-9a5b-3b29">
+          <profiles>
+            <profile name="Cluster Caltrops" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a69e-af5d-d417-e605">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you roll to inflict wounds using this unit’s Eviscerating Fly-by ability, you can re-roll one D6 for each model in this unit equipped with cluster caltrops.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="39b3-01b0-cb6d-c219"/>
+          </constraints>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Grav Talon" hidden="false" id="9d00-23e2-ea7b-76cc">
+          <profiles>
+            <profile name="Grav Talon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="632f-3ad6-8238-792d">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The bearer’s melee weapons have the [LANCE] ability.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="49f5-3064-63dc-0750"/>
+          </constraints>
+          <infoLinks>
+            <infoLink name="Lance" id="3884-d66f-6749-bfb6" hidden="false" type="rule" targetId="2ebc-abdf-8129-6c57"/>
+          </infoLinks>
+        </selectionEntry>
+      </selectionEntries>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ffe2-70f9-a7de-30d8"/>
       </constraints>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="b39e-4401-8f3e-fdf7" name="Imperium - Adepta Sororitas" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="39" battleScribeVersion="2.03" authorName="CrusherJoe" type="catalogue" authorContact="@CrusherJoe on Discord" authorUrl="Sometimes GitHub blows">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="b39e-4401-8f3e-fdf7" name="Imperium - Adepta Sororitas" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="48" battleScribeVersion="2.03" authorName="CrusherJoe" type="catalogue" authorContact="@CrusherJoe on Discord" authorUrl="Sometimes GitHub blows">
   <categoryEntries>
     <categoryEntry name="Aestred Thurga and Agathae Dolan" hidden="false" id="c8ba-2b2d-e47f-d7a6"/>
     <categoryEntry name="Arco-flagellants" hidden="false" id="63f8-3a5d-ef9c-d86e"/>
@@ -92,7 +92,7 @@
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="27c0-8dd8-5fc8-6c61-max"/>
               </constraints>
               <infoLinks>
-                <infoLink name="Bolt Pistol" hidden="false" type="profile" id="f7fb-ccc3-62d4-f1d9" targetId="c934-fc40-d6a2-8919"/>
+                <infoLink name="Bolt pistol" hidden="false" type="profile" id="f7fb-ccc3-62d4-f1d9" targetId="c934-fc40-d6a2-8919"/>
                 <infoLink name="Pistol" hidden="false" type="rule" id="4ec7-8626-b0a8-e78a" targetId="8bf7-8812-923d-29e4"/>
               </infoLinks>
             </selectionEntry>
@@ -100,7 +100,7 @@
         </selectionEntry>
         <selectionEntry type="model" import="true" name="Agathae Dolan" hidden="false" id="2ac6-3fa1-5a7e-73d8">
           <infoLinks>
-            <infoLink name="Bolt Pistol" hidden="false" type="profile" id="9093-a6af-abc1-d937" targetId="c934-fc40-d6a2-8919"/>
+            <infoLink name="Bolt pistol" hidden="false" type="profile" id="9093-a6af-abc1-d937" targetId="c934-fc40-d6a2-8919"/>
           </infoLinks>
           <profiles>
             <profile name="Agathae Dolan" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="c957-925b-487d-3411">
@@ -324,7 +324,11 @@
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Battle Sisters Squad" hidden="false" id="f26d-450d-1c55-caeb" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="105"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Sister Superior" hidden="false" id="245c-b19e-87f9-8ccc">
@@ -342,7 +346,7 @@
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3272-8ec7-c06-1046"/>
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="82d2-64-fc7e-9fda" targetId="a330-88d-5e33-d8ca">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="82d2-64-fc7e-9fda" targetId="a330-88d-5e33-d8ca">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="false" id="52f0-3ba0-10f3-bb00"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="false" id="8a3a-ec2d-3e36-8a0b"/>
@@ -374,7 +378,7 @@
           <selectionEntries>
             <selectionEntry type="model" import="true" name="Battle Sister" hidden="false" id="ae8a-1218-a416-d583" collective="false">
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="a25a-e411-872e-514d" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="a25a-e411-872e-514d" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4a99-a03c-5b86-921d"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b5b4-19f6-dace-a6f4"/>
@@ -406,7 +410,7 @@
                 <infoLink name="Battle Sister" hidden="false" type="profile" id="9501-8565-98aa-1400" targetId="68fd-7de8-6eb0-b30e"/>
               </infoLinks>
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="a1a5-ad5a-70a-8c74" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="a1a5-ad5a-70a-8c74" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4a1a-5ba3-d314-868"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6610-39c8-f528-abc0"/>
@@ -432,7 +436,7 @@
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Battle Sister w/ Special or Heavy Weapon" hidden="false" id="c24e-b34f-1f45-d364">
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="ab6a-415e-6f75-e544" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="ab6a-415e-6f75-e544" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="42be-8e95-2461-4498"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f53-d508-3c5-2083"/>
@@ -488,7 +492,7 @@
                 <infoLink name="Battle Sister" hidden="false" type="profile" id="c8ae-3ef7-4ebc-f772" targetId="68fd-7de8-6eb0-b30e"/>
               </infoLinks>
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="245-fd5c-760e-3663" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="245-fd5c-760e-3663" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d43-f174-903b-e945"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f5de-2b98-694a-a297"/>
@@ -541,15 +545,6 @@
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Boltgun" hidden="false" id="9378-6ba3-6811-68a7" collective="true">
       <infoLinks>
-        <infoLink name="Boltgun" hidden="false" type="profile" id="6f23-38ee-4dc0-fab7" targetId="f772-8828-ae5e-80ca">
-          <modifiers>
-            <modifier type="set" value="Rapid Fire 1, Assault" field="7f1b-8591-2fcf-d01c">
-              <conditions>
-                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3024-3404-5bd0-713" shared="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
-        </infoLink>
         <infoLink name="Rapid Fire" hidden="false" type="rule" id="74fc-6ddf-6c62-6ead" targetId="c5c8-8b58-b8b6-7786"/>
         <infoLink name="Assault" hidden="true" type="rule" id="79c8-9dd9-6cad-2a3d" targetId="fc8a-8c24-bae9-cc1c">
           <modifiers>
@@ -561,10 +556,30 @@
           </modifiers>
         </infoLink>
       </infoLinks>
+      <profiles>
+        <profile name="Boltgun" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="f772-8828-ae5e-80ca">
+          <characteristics>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+            <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+            <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+            <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+            <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+            <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+          </characteristics>
+          <modifiers>
+            <modifier type="set" value="Rapid Fire 1, Assault" field="7f1b-8591-2fcf-d01c">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3024-3404-5bd0-713" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </profile>
+      </profiles>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Bolt Pistol" hidden="false" id="a330-88d-5e33-d8ca" collective="true">
+    <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="a330-88d-5e33-d8ca" collective="true">
       <infoLinks>
-        <infoLink name="Bolt Pistol" hidden="false" type="profile" id="a449-c506-6cda-c375" targetId="c934-fc40-d6a2-8919"/>
+        <infoLink name="Bolt pistol" hidden="false" type="profile" id="a449-c506-6cda-c375" targetId="c934-fc40-d6a2-8919"/>
         <infoLink name="Pistol" hidden="false" type="rule" id="851d-ce97-a81a-2dd5" targetId="8bf7-8812-923d-29e4"/>
       </infoLinks>
     </selectionEntry>
@@ -739,6 +754,7 @@
     <selectionEntry id="c338-14f9-4ee-f223" name="Canoness" hidden="false" collective="false" import="true" type="model" publicationId="7d85-6d0f-57e0-5dea">
       <infoLinks>
         <infoLink name="Acts of Faith" hidden="false" type="rule" id="21ed-31a3-958c-23f4" targetId="7ef7-dca6-e2ea-ecc8"/>
+        <infoLink name="Sacred Command" id="664e-dc7d-430c-b8e7" hidden="false" type="profile" targetId="e8c6-0df9-48c0-7c29"/>
       </infoLinks>
       <categoryLinks>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="d95b-d363-56d2-116f" primary="true" name="Character"/>
@@ -794,7 +810,7 @@
               <profiles>
                 <profile id="77ff-2463-354-23fd" name="Null Rod" page="77" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Models in the bearer’s unit have the Feel No Pain 4+ ability against Psychic Attacks.</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Models in the bearer’s unit have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -1011,11 +1027,6 @@
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, at the start of any phase, this model can use this ability. If it does, until the end of the phase, this model has a 2+ invulnerable save.</characteristic>
           </characteristics>
         </profile>
-        <profile name="Sacred Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c991-24b6-da5f-9755">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can be targeted with a Strategem for 0CP, even if another unit from your army has already been targeted with that Strategem this phase.</characteristic>
-          </characteristics>
-        </profile>
       </profiles>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="f2bc-3676-4e45-bd10">
@@ -1105,7 +1116,11 @@
         <categoryLink targetId="fd71-afa6-b13b-7fda" id="de27-2ae2-77af-82c6" primary="false" name="Faction: Adepta Sororitas"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <profiles>
         <profile name="Castigator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3abd-1c95-28d7-b660">
@@ -1198,15 +1213,28 @@
         </selectionEntryGroup>
       </selectionEntryGroups>
       <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Heavy Bolters" hidden="false" id="96c2-1d90-def-8f60">
+        <selectionEntry type="upgrade" import="true" name="Heavy bolter" hidden="false" id="96c2-1d90-def-8f60">
           <infoLinks>
-            <infoLink name="Heavy bolter" hidden="false" type="profile" id="57d4-5d5f-8436-b91" targetId="bb98-2e08-23c3-6dc7"/>
             <infoLink name="Sustained Hits" hidden="false" type="rule" id="da1c-d47c-e40c-17a4" targetId="1897-c22c-9597-12b1"/>
           </infoLinks>
           <constraints>
             <constraint type="min" value="3" field="selections" scope="parent" shared="true" id="54b9-bc8d-a87b-e4ac"/>
             <constraint type="max" value="3" field="selections" scope="parent" shared="true" id="3a2-9e5e-39b4-e04"/>
           </constraints>
+          <profiles>
+            <profile name="Heavy bolter" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="bb98-2e08-23c3-6dc7">
+              <characteristics>
+                <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
+              </characteristics>
+              <comment>BS3</comment>
+            </profile>
+          </profiles>
         </selectionEntry>
       </selectionEntries>
       <infoGroups>
@@ -1238,7 +1266,7 @@
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="0321-d6f7-cf41-6aba" type="min"/>
           </constraints>
         </entryLink>
-        <entryLink id="9058-2bc-6087-163e" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="9058-2bc-6087-163e" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="33b1-a395-9687-cb70" type="min"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="c977-5e6b-d54d-6436" type="max"/>
@@ -1391,7 +1419,7 @@
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="9556-f683-4731-1f42" type="max"/>
           </constraints>
         </entryLink>
-        <entryLink id="41aa-1f3d-ecd0-45fa" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="41aa-1f3d-ecd0-45fa" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="2a15-0245-0183-f2b6" type="min"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="9b8f-3a9c-2ba1-62ae" type="max"/>
@@ -1452,7 +1480,7 @@
             </selectionEntry>
           </selectionEntries>
           <entryLinks>
-            <entryLink id="7e57-542b-7d0b-87f2" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+            <entryLink id="7e57-542b-7d0b-87f2" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
               <constraints>
                 <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="7c06-b67a-d4e9-73fe" type="max"/>
                 <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="575d-af23-36c6-f852" type="min"/>
@@ -1538,7 +1566,11 @@
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Dialogus" hidden="false" id="91b8-3ccb-de30-6e54" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="225c-a6d-f0c8-fb05" primary="false" name="Infantry"/>
@@ -1577,7 +1609,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </infoGroup>
       </infoGroups>
       <entryLinks>
-        <entryLink id="dc52-8c27-2d22-a2bc" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="dc52-8c27-2d22-a2bc" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="852a-0a8d-ffe2-1584" type="max"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="ab6e-88a7-66b3-b377" type="min"/>
@@ -1649,7 +1681,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         <categoryLink targetId="fd71-afa6-b13b-7fda" id="3d69-f634-4bb-8bd" primary="false" name="Faction: Adepta Sororitas"/>
       </categoryLinks>
       <entryLinks>
-        <entryLink id="f7d2-a522-56e7-6b90" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="f7d2-a522-56e7-6b90" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="852a-0a8d-ffe2-1584" type="max"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="ab6e-88a7-66b3-b377" type="min"/>
@@ -1738,7 +1770,11 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Dominion Squad" hidden="false" id="d929-b22d-3040-9707" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="910b-1a80-6e65-4326" primary="true" name="Infantry"/>
@@ -1783,7 +1819,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3272-8ec7-c06-1046"/>
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="20ad-c7e6-99c9-b524" targetId="a330-88d-5e33-d8ca">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="20ad-c7e6-99c9-b524" targetId="a330-88d-5e33-d8ca">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="false" id="52f0-3ba0-10f3-bb00"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="false" id="8a3a-ec2d-3e36-8a0b"/>
@@ -1807,7 +1843,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
           <selectionEntries>
             <selectionEntry type="model" import="true" name="Dominion" hidden="false" id="2831-13e5-9957-2c96" collective="false">
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="80ad-2c88-a9f-5f23" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="80ad-2c88-a9f-5f23" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4a99-a03c-5b86-921d"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="b5b4-19f6-dace-a6f4"/>
@@ -1839,7 +1875,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
                 <infoLink name="Dominion" hidden="false" type="profile" id="94f7-668f-981f-d75d" targetId="689a-a3bc-1cbd-b074"/>
               </infoLinks>
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="2c78-c481-fce8-4047" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="2c78-c481-fce8-4047" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4a1a-5ba3-d314-868"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6610-39c8-f528-abc0"/>
@@ -1868,7 +1904,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
                 <infoLink name="Dominion" hidden="false" type="profile" id="a680-e2f5-ab80-537f" targetId="689a-a3bc-1cbd-b074"/>
               </infoLinks>
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="1708-8c14-37a1-e76" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="1708-8c14-37a1-e76" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="d43-f174-903b-e945"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f5de-2b98-694a-a297"/>
@@ -2036,7 +2072,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </profile>
         <profile name="Devastating Refrain" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="62d8-4f1-3996-bcb9">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, if one or more of those attacks made with an Indirect Fire weapon scored a hit against an enemy unit, that unit my take a Battle-shock test. Each time such an attack destroys an enemy model that has the Deadly Demise ability, the model&apos;s Deadly Demise ability inflicts mortal wounds on a D6 roll of 5+ instead of a 6.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, after this model has shot, if one or more of those attacks made with an Indirect Fire weapon scored a hit against an enemy unit, that unit must take a Battle-shock test. Each time such an attack destroys an enemy model that has the Deadly Demise ability, the model&apos;s Deadly Demise ability inflicts mortal wounds on a D6 roll of 5+ instead of a 6.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -2172,7 +2208,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         </infoGroup>
       </infoGroups>
       <entryLinks>
-        <entryLink id="d728-f039-3f62-6ee3" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="d728-f039-3f62-6ee3" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="852a-0a8d-ffe2-1584" type="max"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="ab6e-88a7-66b3-b377" type="min"/>
@@ -2275,7 +2311,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
         <infoLink name="Acts of Faith" hidden="false" type="rule" id="db72-ccc5-d2ac-85c2" targetId="7ef7-dca6-e2ea-ecc8"/>
       </infoLinks>
       <entryLinks>
-        <entryLink id="f0e5-5bef-8d09-34ae" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="f0e5-5bef-8d09-34ae" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="852a-0a8d-ffe2-1584" type="max"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="ab6e-88a7-66b3-b377" type="min"/>
@@ -2339,7 +2375,11 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Immolator" hidden="false" id="1001-80ff-c9a8-5d9b" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="115"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="125"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="ba07-411c-2832-1f79" id="82c9-945a-74c-efc4" primary="true" name="Dedicated Transport"/>
@@ -2411,7 +2451,7 @@ This model can be attached to a Battle Sisters Squad, even if one Canoness, Pala
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has a transport capacity of 6 ADEPTA SORORITAS INFANTRY models. It cannot transport JUMP PACK models or the Triumph of Saint Katherine.
 
-At the start of the Declare Battle Formations step, you can select one BATTLE SISTERS SQUAD, DOMINION SQUAD or SISTERS NOVIATIATE SQUAD from your army. If you do, that unit is split into two units, each containing as equal a number of models as possible (when splitting a unit in this way, make a note of which models form each of the two new units). One of these units must start the battle embarked within this Transport; the other can start the battle embarked within another Transport, or it can be deployed as a separate unit.</characteristic>
+At the start of the Declare Battle Formations step, you can select one BATTLE SISTERS SQUAD, DOMINION SQUAD or SISTERS NOVIATIATE SQUAD from your army. If you do, that unit is split into two units, each containing as equal a number of models as possible (when splitting a unit in this way, make a note of which models form each of the two new units. If you are splitting a unit that has the Cherub ability, only one of the new units can use that ability during the battle – make a note of which of the new units this will be). One of these units must start the battle embarked within this TRANSPORT; the other can start the battle embarked within another TRANSPORT, or it can be deployed as a separate unit.</characteristic>
           </characteristics>
         </profile>
         <profile name="Purge and Cleanse" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5def-c759-39f-94ca">
@@ -2938,7 +2978,11 @@ of your Command phase, you can choose one of the following:
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Morvenn Vahl" hidden="false" id="7188-4d20-8216-c68a" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="160"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="170"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="d333-a966-2a02-7d86" primary="false" name="Vehicle"/>
@@ -3151,9 +3195,9 @@ of your Command phase, you can choose one of the following:
       <selectionEntryGroups>
         <selectionEntryGroup name="Pistols" hidden="false" id="3be8-e600-f2d7-7629" defaultSelectionEntryId="b469-3642-608f-349d">
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Bolt Pistol" hidden="false" id="b469-3642-608f-349d" collective="false">
+            <selectionEntry type="upgrade" import="true" name="Bolt pistol" hidden="false" id="b469-3642-608f-349d" collective="false">
               <infoLinks>
-                <infoLink name="Bolt Pistol" hidden="false" type="profile" id="a92b-e159-faff-1d8c" targetId="c934-fc40-d6a2-8919">
+                <infoLink name="Bolt pistol" hidden="false" type="profile" id="a92b-e159-faff-1d8c" targetId="c934-fc40-d6a2-8919">
                   <modifiers>
                     <modifier type="set" value="2+" field="94d-8a98-cf90-183e"/>
                   </modifiers>
@@ -3229,9 +3273,9 @@ of your Command phase, you can choose one of the following:
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="7cdd-e0c6-5390-1b61" includeChildSelections="false"/>
       </constraints>
       <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Palatine Blade" hidden="false" id="781f-8857-1a01-b77e">
+        <selectionEntry type="upgrade" import="true" name="Palatine blade" hidden="false" id="781f-8857-1a01-b77e">
           <profiles>
-            <profile name="Palatine Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="f39d-e382-22dc-8267">
+            <profile name="Palatine blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="f39d-e382-22dc-8267">
               <characteristics>
                 <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
                 <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
@@ -3252,7 +3296,11 @@ of your Command phase, you can choose one of the following:
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Paragon Warsuits" hidden="false" id="e75d-a7ac-7fcc-d302" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="210"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="220"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="dbd4-63-af05-998" id="8c78-61a5-b633-7b72" primary="true" name="Vehicle"/>
@@ -3298,7 +3346,7 @@ of your Command phase, you can choose one of the following:
             </profile>
           </profiles>
           <entryLinks>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="c8f1-26fb-38e0-b6e8" targetId="a330-88d-5e33-d8ca">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="c8f1-26fb-38e0-b6e8" targetId="a330-88d-5e33-d8ca">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7d31-28e9-e5bd-cf3f"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4552-e0ca-5e6d-65b0"/>
@@ -3470,7 +3518,7 @@ of your Command phase, you can choose one of the following:
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="d99b-7170-4cb1-56e9" type="min"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="8f93-20be-8de2-5d37" targetId="a330-88d-5e33-d8ca">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="8f93-20be-8de2-5d37" targetId="a330-88d-5e33-d8ca">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a367-2b0a-af5a-ef68"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c91e-214c-489a-5fae"/>
@@ -3879,7 +3927,7 @@ of your Command phase, you can choose one of the following:
         </infoGroup>
       </infoGroups>
       <selectionEntryGroups>
-        <selectionEntryGroup name="Weapons" hidden="false" id="1a2d-9cd3-ff31-59db" defaultSelectionEntryId="4566-396d-d9ee-9b93">
+        <selectionEntryGroup name="Weapons" hidden="false" id="1a2d-9cd3-ff31-59db" defaultSelectionEntryId="a05b-d778-f94b-51db">
           <selectionEntries>
             <selectionEntry type="upgrade" import="true" name="Holy Pistol and Power Weapon" hidden="false" id="cea7-9258-8e9f-100e">
               <constraints>
@@ -3901,8 +3949,8 @@ of your Command phase, you can choose one of the following:
                     </profile>
                   </profiles>
                   <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="5467-8712-d079-5534"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7a4a-ce8c-3c97-5ae9"/>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6a35-0774-3baa-def8-min" includeChildSelections="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6a35-0774-3baa-def8-max" includeChildSelections="false"/>
                   </constraints>
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Power weapon" hidden="false" id="511d-ead2-b3b1-3994" collective="false">
@@ -3919,14 +3967,16 @@ of your Command phase, you can choose one of the following:
                       </characteristics>
                     </profile>
                   </profiles>
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="41f4-f088-2cd4-4902-min" includeChildSelections="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="41f4-f088-2cd4-4902-max" includeChildSelections="false"/>
+                  </constraints>
                 </selectionEntry>
               </selectionEntries>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Zealot&apos;s vindictor" hidden="false" id="a05b-d778-f94b-51db">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e00e-caf1-2c69-703a"/>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="99e1-01c8-c3da-e0f2-min" includeChildSelections="false"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="99e1-01c8-c3da-e0f2-max" includeChildSelections="false"/>
               </constraints>
               <profiles>
                 <profile name="Zealot&apos;s vindictor" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="87ba-2f44-194d-23d1">
@@ -4063,7 +4113,7 @@ of your Command phase, you can choose one of the following:
         </selectionEntry>
         <selectionEntry type="model" import="true" name="Repentia Superior" hidden="false" id="4e82-d694-31fd-dc70">
           <entryLinks>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="ac8d-e110-277f-d786" targetId="a330-88d-5e33-d8ca">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="ac8d-e110-277f-d786" targetId="a330-88d-5e33-d8ca">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4547-a0e3-499-1ef"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="993a-6394-9ea1-a829"/>
@@ -4162,7 +4212,7 @@ of your Command phase, you can choose one of the following:
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3272-8ec7-c06-1046"/>
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="3e81-b744-d4ac-2815" targetId="a330-88d-5e33-d8ca">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="3e81-b744-d4ac-2815" targetId="a330-88d-5e33-d8ca">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="52f0-3ba0-10f3-bb00"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8a3a-ec2d-3e36-8a0b"/>
@@ -4170,7 +4220,7 @@ of your Command phase, you can choose one of the following:
             </entryLink>
           </entryLinks>
           <selectionEntries>
-            <selectionEntry type="upgrade" import="true" name="Close Combat Weapon" hidden="false" id="80bd-f9ab-bf85-1b69">
+            <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="80bd-f9ab-bf85-1b69">
               <constraints>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="62a8-2c97-10de-529e"/>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c1aa-76e8-a824-9d6c"/>
@@ -4239,6 +4289,14 @@ of your Command phase, you can choose one of the following:
                   </characteristics>
                 </profile>
               </profiles>
+              <entryLinks>
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="7939-afc1-33a6-a846" type="selectionEntry" targetId="f204-1361-eda8-9845">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="2a05-0c2d-6bab-ab1b-min" includeChildSelections="false"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2a05-0c2d-6bab-ab1b-max" includeChildSelections="false"/>
+                  </constraints>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -4449,7 +4507,7 @@ of your Command phase, you can choose one of the following:
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="2 Bolt Pistols" hidden="false" id="f54e-c0c6-dc22-f891">
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="e6fb-d0c2-e987-70d6" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="e6fb-d0c2-e987-70d6" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="1944-9d4c-531e-6e44"/>
                         <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="22cd-e635-5802-cb3b"/>
@@ -4462,7 +4520,7 @@ of your Command phase, you can choose one of the following:
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Bolt Pistol and Plasma Pistol" hidden="false" id="7f34-110d-27e7-dd20">
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="2e2-8ebf-930d-3eff" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="2e2-8ebf-930d-3eff" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="238-36c6-509c-fe48"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6015-b1dc-3b22-5626"/>
@@ -4515,7 +4573,7 @@ of your Command phase, you can choose one of the following:
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Bolt Pistol and Power Weapon" hidden="false" id="fe4f-aa85-2644-5578">
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="1b8f-24d4-dcd-171e" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="1b8f-24d4-dcd-171e" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1829-b38c-557c-2c62"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="db4e-d6da-7d7b-383d"/>
@@ -4549,7 +4607,7 @@ of your Command phase, you can choose one of the following:
                 </selectionEntry>
                 <selectionEntry type="upgrade" import="true" name="Bolt Pistol and Chainsword" hidden="false" id="91ae-88df-6a04-223f">
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="42fa-a65-fa47-2bdb" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="42fa-a65-fa47-2bdb" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="abf2-7e2f-2da5-8a47"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4b6a-4d8e-3eaf-ccec"/>
@@ -4637,10 +4695,14 @@ of your Command phase, you can choose one of the following:
         </selectionEntry>
       </selectionEntries>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="170" field="51b2-306e-1021-d207">
+        <modifier type="set" value="190" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="bee9-172b-7db7-f748" childId="model" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -4665,7 +4727,7 @@ of your Command phase, you can choose one of the following:
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="2 Bolt Pistols" hidden="false" id="8338-a43-10-5a14" collective="true">
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="255d-8409-c0aa-eb33" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="255d-8409-c0aa-eb33" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="1944-9d4c-531e-6e44"/>
                         <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="22cd-e635-5802-cb3b"/>
@@ -4824,7 +4886,7 @@ of your Command phase, you can choose one of the following:
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Autopistol" hidden="false" id="50d4-8ce5-9f75-bbc">
                   <infoLinks>
-                    <infoLink name="Novitiate Autopistol" hidden="false" type="profile" id="a39f-99d6-bd0f-3f74" targetId="3e10-d7df-b71c-6af3"/>
+                    <infoLink name="Novitiate autopistol" hidden="false" type="profile" id="a39f-99d6-bd0f-3f74" targetId="3e10-d7df-b71c-6af3"/>
                   </infoLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="67ba-6f71-fe29-a568"/>
@@ -4851,12 +4913,20 @@ of your Command phase, you can choose one of the following:
               <infoLinks>
                 <infoLink name="Sister Novitiate" hidden="false" type="profile" id="5cf3-4f5f-23dd-bbaf" targetId="9996-fbd1-4807-f820"/>
               </infoLinks>
+              <entryLinks>
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="7db8-b41a-9702-d476" type="selectionEntry" targetId="f204-1361-eda8-9845" collective="true">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="db91-4365-2aad-fbf4"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ce77-432c-fcbd-9b90"/>
+                  </constraints>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Novitiate with Simulacrum Imperialis" hidden="false" id="5c8d-6030-2b4d-33f1">
               <selectionEntries>
                 <selectionEntry type="upgrade" import="true" name="Autopistol" hidden="false" id="71a-e551-9c4a-ce7b">
                   <infoLinks>
-                    <infoLink name="Novitiate Autopistol" hidden="false" type="profile" id="9e47-c558-f978-7684" targetId="3e10-d7df-b71c-6af3"/>
+                    <infoLink name="Novitiate autopistol" hidden="false" type="profile" id="9e47-c558-f978-7684" targetId="3e10-d7df-b71c-6af3"/>
                   </infoLinks>
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="67ba-6f71-fe29-a568"/>
@@ -4872,6 +4942,12 @@ of your Command phase, you can choose one of the following:
               </infoLinks>
               <entryLinks>
                 <entryLink import="true" name="Simulacrum Imperialis" hidden="false" type="selectionEntry" id="7ca6-505e-f07d-f71c" targetId="dbfb-cfa4-24b3-54e8"/>
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="5c88-3b31-8667-ec77" type="selectionEntry" targetId="f204-1361-eda8-9845" collective="true">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="aaf7-41bd-e34c-8764"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="69ca-3c1e-ee39-fab4"/>
+                  </constraints>
+                </entryLink>
               </entryLinks>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Novitiate with Ministorum Flamer" hidden="false" id="e575-fde2-a41b-f778">
@@ -4883,6 +4959,12 @@ of your Command phase, you can choose one of the following:
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4484-f83-4282-5308"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e8f3-879-89af-8bdc"/>
+                  </constraints>
+                </entryLink>
+                <entryLink import="true" name="Close combat weapon" hidden="false" id="bebf-1b83-97b4-ca4d" type="selectionEntry" targetId="f204-1361-eda8-9845" collective="true">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="9733-2586-e86a-2ca2"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ede1-bc27-cad0-8cf3"/>
                   </constraints>
                 </entryLink>
               </entryLinks>
@@ -4914,7 +4996,7 @@ of your Command phase, you can choose one of the following:
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="c7eb-bd6-61a6-edad"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="1472-6242-2e9a-a02f" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="1472-6242-2e9a-a02f" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b22a-aec7-c1a5-9aa4"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ca9c-a8a5-5f2f-cc4e"/>
@@ -4933,7 +5015,7 @@ of your Command phase, you can choose one of the following:
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a030-1e13-759e-2fe9"/>
                   </constraints>
                   <entryLinks>
-                    <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="df4a-86e5-2c43-a439" targetId="a330-88d-5e33-d8ca">
+                    <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="df4a-86e5-2c43-a439" targetId="a330-88d-5e33-d8ca">
                       <constraints>
                         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="a7e4-ec71-639f-6f5f"/>
                         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="981e-9f90-d583-e4a0"/>
@@ -5060,7 +5142,11 @@ of your Command phase, you can choose one of the following:
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Triumph of Saint Katherine" hidden="false" id="9f5f-d769-7900-c8a1" publicationId="7d85-6d0f-57e0-5dea">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="190"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="250"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <categoryLinks>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="ce7a-44bc-6b4d-897e" primary="false" name="Infantry"/>
@@ -5239,7 +5325,7 @@ of your Command phase, you can choose one of the following:
           <selectionEntryGroups>
             <selectionEntryGroup name="Pistol" hidden="false" id="b722-d493-47e2-8552" defaultSelectionEntryId="93c6-7a0b-eed4-af5a">
               <entryLinks>
-                <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="93c6-7a0b-eed4-af5a" targetId="a330-88d-5e33-d8ca">
+                <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="93c6-7a0b-eed4-af5a" targetId="a330-88d-5e33-d8ca">
                   <constraints>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="337a-48bb-58aa-b6ae"/>
                   </constraints>
@@ -5318,7 +5404,7 @@ of your Command phase, you can choose one of the following:
             <constraint type="max" value="9" field="selections" scope="parent" shared="true" id="3349-ba6a-be83-2e2f"/>
           </constraints>
           <entryLinks>
-            <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="7c22-2115-ab7b-8f08" targetId="a330-88d-5e33-d8ca" collective="true">
+            <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="7c22-2115-ab7b-8f08" targetId="a330-88d-5e33-d8ca" collective="true">
               <constraints>
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="337a-48bb-58aa-b6ae"/>
                 <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="78f4-b9c0-225d-c5a4"/>
@@ -5348,10 +5434,14 @@ Before making your selection, if this unit made a Charge move this turn, you can
         </profile>
       </profiles>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="180" field="51b2-306e-1021-d207">
+        <modifier type="set" value="170" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="22f0-a7d8-b2b6-e26" childId="model" shared="true" includeChildSelections="true" includeChildForces="true"/>
           </conditions>
@@ -5451,14 +5541,14 @@ Before making your selection, if this unit made a Charge move this turn, you can
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Autopistol" hidden="false" id="3574-7d5b-2177-1de2" collective="true">
           <infoLinks>
-            <infoLink name="Novitiate Autopistol" hidden="false" type="profile" id="76e4-698e-8c52-f6bf" targetId="3e10-d7df-b71c-6af3"/>
+            <infoLink name="Novitiate autopistol" hidden="false" type="profile" id="76e4-698e-8c52-f6bf" targetId="3e10-d7df-b71c-6af3"/>
           </infoLinks>
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="67ba-6f71-fe29-a568"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="e333-394f-5fe7-a6e6"/>
           </constraints>
         </selectionEntry>
-        <selectionEntry type="upgrade" import="true" name="Noviatiate melee weapon" hidden="false" id="c5cf-70e-95a1-3c76" collective="true">
+        <selectionEntry type="upgrade" import="true" name="Novitiate melee weapon" hidden="false" id="c5cf-70e-95a1-3c76" collective="true">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="95fc-e6d9-2aea-99a0"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a076-6cb8-d4bd-a994"/>
@@ -5516,7 +5606,7 @@ Before making your selection, if this unit made a Charge move this turn, you can
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Autopistol" hidden="false" id="bf01-9ddb-4a01-f570" collective="true">
           <infoLinks>
-            <infoLink name="Novitiate Autopistol" hidden="false" type="profile" id="2761-a5d5-9892-ffd6" targetId="3e10-d7df-b71c-6af3"/>
+            <infoLink name="Novitiate autopistol" hidden="false" type="profile" id="2761-a5d5-9892-ffd6" targetId="3e10-d7df-b71c-6af3"/>
           </infoLinks>
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="67ba-6f71-fe29-a568"/>
@@ -5714,6 +5804,7 @@ Before making your selection, if this unit made a Charge move this turn, you can
       <infoLinks>
         <infoLink name="Acts of Faith" id="fee8-4d6e-860e-0c42" hidden="false" type="rule" targetId="7ef7-dca6-e2ea-ecc8"/>
         <infoLink name="Deep Strike" id="c0cc-38c1-6f8c-a17e" hidden="false" type="rule" targetId="7cb5-dd6b-dd87-ad3b"/>
+        <infoLink name="Sacred Command" id="6180-19b4-15bc-d4fa" hidden="false" type="profile" targetId="e8c6-0df9-48c0-7c29"/>
       </infoLinks>
       <categoryLinks>
         <categoryLink name="Character" hidden="false" id="10d6-fddf-8b3d-8ff3" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
@@ -5814,11 +5905,6 @@ Before making your selection, if this unit made a Charge move this turn, you can
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
-          </characteristics>
-        </profile>
-        <profile name="Sacred Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c668-af96-6c78-b7c2">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can be targeted with a Strategem for 0CP, even if another unit from your army has already been targeted with that Strategem this phase.</characteristic>
           </characteristics>
         </profile>
         <profile name="Divine Deliverance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d29e-6553-723c-5067">
@@ -6096,7 +6182,7 @@ Before making your selection, if this unit made a Charge move this turn, you can
         </infoLink>
       </infoLinks>
     </selectionEntry>
-    <selectionEntry type="upgrade" import="true" name="Celestian Sacresant Aveline [Legends]" hidden="false" id="6227-8c95-0e8a-81de">
+    <selectionEntry type="model" import="true" name="Celestian Sacresant Aveline [Legends]" hidden="false" id="6227-8c95-0e8a-81de">
       <categoryLinks>
         <categoryLink name="Epic Hero" hidden="false" id="b48a-f08a-59a9-b569" targetId="4f3a-f0f7-6647-348d" primary="true"/>
         <categoryLink name="Infantry" hidden="false" id="a888-c6e4-bf45-c5e1" targetId="cf47-a0d7-7207-29dc" primary="false"/>
@@ -6182,7 +6268,7 @@ Before making your selection, if this unit made a Charge move this turn, you can
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedProfiles>
-    <profile name="Bolt Pistol" hidden="false" id="c934-fc40-d6a2-8919" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
+    <profile name="Bolt pistol" hidden="false" id="c934-fc40-d6a2-8919" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
       <characteristics>
         <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
@@ -6191,50 +6277,6 @@ Before making your selection, if this unit made a Charge move this turn, you can
         <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
         <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
         <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
-      </characteristics>
-    </profile>
-    <profile name="Boltgun" hidden="false" id="f772-8828-ae5e-80ca" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
-      <characteristics>
-        <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
-        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-        <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
-        <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
-        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
-      </characteristics>
-    </profile>
-    <profile name="Plasma pistol - standard" hidden="false" id="baf2-bdc2-dcba-a407" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
-      <characteristics>
-        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-        <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
-        <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
-        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
-      </characteristics>
-    </profile>
-    <profile name="Plasma pistol - supercharge" hidden="false" id="29ae-960-e92d-6766" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
-      <characteristics>
-        <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
-        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-        <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-        <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
-        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Hazardous, Pistol</characteristic>
-      </characteristics>
-    </profile>
-    <profile name="Inferno Pistol" hidden="false" id="24b6-e0dd-8a59-98d4" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
-      <characteristics>
-        <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
-        <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-        <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
-        <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
-        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
-        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 2, Pistol</characteristic>
       </characteristics>
     </profile>
     <profile name="Close combat weapon" hidden="false" id="8619-2e4f-8e9a-4ccf" typeName="Melee Weapons" typeId="8a40-4aaa-c780-9046">
@@ -6273,18 +6315,6 @@ Before making your selection, if this unit made a Charge move this turn, you can
       <characteristics>
         <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, after this unit has performed an Act of Faith, you gain 1 Miracle dice.</characteristic>
       </characteristics>
-    </profile>
-    <profile name="Heavy bolter" hidden="false" id="bb98-2e08-23c3-6dc7" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
-      <characteristics>
-        <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
-        <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-        <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
-        <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
-        <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
-        <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
-        <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
-      </characteristics>
-      <comment>BS3</comment>
     </profile>
     <profile id="135c-b9f6-befe-a2cc" name="Celestian Sacresant" hidden="false" typeId="c547-1836-d8a-ff4f" typeName="Unit">
       <characteristics>
@@ -6376,7 +6406,7 @@ Before making your selection, if this unit made a Charge move this turn, you can
         <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
       </characteristics>
     </profile>
-    <profile name="Novitiate Autopistol" hidden="false" id="3e10-d7df-b71c-6af3" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
+    <profile name="Novitiate autopistol" hidden="false" id="3e10-d7df-b71c-6af3" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
       <characteristics>
         <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
         <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
@@ -6395,6 +6425,11 @@ Before making your selection, if this unit made a Charge move this turn, you can
         <characteristic name="W" typeId="750a-a2ec-90d3-21fe">1</characteristic>
         <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
         <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+      </characteristics>
+    </profile>
+    <profile name="Sacred Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e8c6-0df9-48c0-7c29">
+      <characteristics>
+        <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
       </characteristics>
     </profile>
   </sharedProfiles>
@@ -6480,7 +6515,7 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="cc61-2a46-dd89-22c1"/>
           </constraints>
         </entryLink>
-        <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="2d50-c679-dc18-d556" targetId="a330-88d-5e33-d8ca">
+        <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="2d50-c679-dc18-d556" targetId="a330-88d-5e33-d8ca">
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="false" id="218a-2ea8-d74d-a5af"/>
           </constraints>
@@ -6643,7 +6678,7 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
         <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="3baa-e9d8-a42a-cef8"/>
       </constraints>
       <entryLinks>
-        <entryLink id="437-d39c-fff0-5a6a" name="Bolt Pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
+        <entryLink id="437-d39c-fff0-5a6a" name="Bolt pistol" hidden="false" collective="false" import="true" targetId="a330-88d-5e33-d8ca" type="selectionEntry">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="f30a-d197-2383-cb7b" type="max"/>
           </constraints>
@@ -6967,7 +7002,11 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="5b59-aa62-3311-244f" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="5"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
               </costs>
               <modifiers>
                 <modifier type="set" value="true" field="hidden">
@@ -6995,7 +7034,11 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="008e-5524-8346-3484" includeChildSelections="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Manual of Saint Griselda" hidden="false" id="9105-7062-e61d-cc8b">
@@ -7011,7 +7054,11 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8dac-8e49-ead7-806d" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
               </costs>
             </selectionEntry>
             <selectionEntry type="upgrade" import="true" name="Fire and Fury" hidden="false" id="32e8-f267-c03d-c48e">
@@ -7027,7 +7074,11 @@ Death Before Disgrace: Each time a PENITENT model from your army is destroyed by
                 <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="c8f3-2cd5-a95c-b9fd" includeChildSelections="true" includeChildForces="true"/>
               </constraints>
               <costs>
-                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="30"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
               </costs>
             </selectionEntry>
           </selectionEntries>

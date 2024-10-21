@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="b45c-af22-788a-dfd6" name="Chaos - Daemons Library" revision="27" battleScribeVersion="2.03" library="true" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="b45c-af22-788a-dfd6" name="Chaos - Daemons Library" revision="31" battleScribeVersion="2.03" library="true" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
   <publications>
     <publication id="e3ec-7a32-ae62-8727" name="Index - Chaos Daemons"/>
   </publications>
@@ -310,6 +310,9 @@
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
+              <infoLinks>
+                <infoLink name="The Shadow of Chaos" id="7258-c7da-21ec-4fa4" hidden="false" type="rule" targetId="a312-a2f1-e1c0-30ed"/>
+              </infoLinks>
             </selectionEntry>
           </selectionEntries>
         </selectionEntryGroup>
@@ -1037,7 +1040,11 @@
         <entryLink id="71cb-14e8-d92f-890b" name="Warlord" hidden="false" collective="false" import="true" targetId="13f1-2794-34e7-4bd6" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="150"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="165"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -1663,6 +1670,9 @@
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="5129-f53e-6473-b57c" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="464a-b548-355f-2058" name="Skull Altar" hidden="false" collective="false" import="true" type="model">
       <constraints>
@@ -2761,7 +2771,7 @@
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time you target a friendly TZEENTCH LEGIONES DAEMONICA unit within 6&quot; of this model with a Stratagem, roll one D6: if the result is greater than the current battle round number, you gain 1CP.</characteristic>
           </characteristics>
         </profile>
-        <profile id="9d33-996b-cbcb-61c5" name="One Head Looks Back" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
+        <profile id="9d33-996b-cbcb-61c5" name="One Head Looks Back" hidden="true" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, after your opponent uses a Stratagem, this model can use this ability. If it does, until the end of the battle, each time your opponent uses that Stratagem, increase its cost to your opponent by 1CP.</characteristic>
           </characteristics>
@@ -2778,6 +2788,7 @@
         <infoLink id="9ad2-2eaa-f73c-e257" name="Warp Rifts" hidden="false" targetId="877e-cc0c-8a1d-be46" type="rule"/>
         <infoLink id="928f-fb92-e509-4e7b" name="Damaged: 1-7 wounds remaining" hidden="false" targetId="3a30-3e69-8e3e-f3f9" type="profile"/>
         <infoLink name="Greater Daemon of Tzeentch (Aura)" id="6c2d-fb77-7185-4724" hidden="false" type="profile" targetId="7213-ada6-8b04-e001"/>
+        <infoLink name="Lord of Deceit (Aura)" id="e87d-fdbb-add2-14da" hidden="false" type="profile" targetId="8332-466b-a51f-63ab"/>
       </infoLinks>
       <categoryLinks>
         <categoryLink id="f23a-4cdb-e52b-eb76" name="Faction: Legiones Daemonica" hidden="false" targetId="571f-ec3a-a5a2-751a" primary="false"/>
@@ -3063,6 +3074,9 @@
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="e7ec-bbd3-026e-00d2" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="ac75-c011-9a10-2c4a" name="The Changeling" publicationId="e3ec-7a32-ae62-8727" page="35-36" hidden="false" collective="false" import="true" type="model">
       <constraints>
@@ -4164,6 +4178,9 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="e931-7522-052d-24e0" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="550b-c5ab-5e27-f59b" name="Screamers" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
@@ -5607,7 +5624,11 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
             </selectionEntry>
           </selectionEntries>
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="70"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
           </costs>
         </selectionEntry>
       </selectionEntries>
@@ -6018,7 +6039,11 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
         <entryLink id="fa35-19f5-7ce5-6e23" name="Warlord" hidden="false" collective="false" import="true" targetId="13f1-2794-34e7-4bd6" type="selectionEntry"/>
       </entryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="450"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="425"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -7136,7 +7161,11 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
       </modifiers>
       <infoLinks>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="10fe-4801-5c43-2397" targetId="7cb5-dd6b-dd87-ad3b"/>
+        <infoLink name="The Shadow of Chaos" id="a2a0-9e8a-c100-53ec" hidden="false" targetId="a312-a2f1-e1c0-30ed" type="rule"/>
       </infoLinks>
+      <constraints>
+        <constraint type="max" value="6" field="selections" scope="force" shared="true" id="f933-0db6-aa85-0f4a" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="d1ee-8d05-4fae-1727" name="Fiends" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
@@ -7692,6 +7721,9 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="c351-bbf8-e1ed-da52" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="7f62-6b3f-c4fe-b971" name="Exalted Seeker Chariot" hidden="false" collective="false" import="true" type="model">
       <profiles>
@@ -7825,6 +7857,9 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
           </conditions>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="5d59-1e31-2acb-4f59" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry id="bb66-75ac-aa19-de70" name="Warlord" hidden="false" collective="false" import="true" type="upgrade">
       <comment>Used for Lucius Slaanesh validation</comment>
@@ -9691,10 +9726,17 @@ Designer’s Note: While this unit contains one or more PINK HORRORS models, the
 ■ At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Shadow of Chaos.
 
 DAEMONIC MANIFESTATION
-While a Legiones Daemonica unit from your army is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a Battleline unit and that test is passed, up to D3 destroyed models can be returned to that unit instead).
+While a LEGIONES DAEMONICA unit from your army is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a BATTLELINE unit and that test is passed, up to D3 destroyed models can be returned to that unit instead).
 
 DAEMONIC TERROR
-While an enemy unit is within your army’s Shadow of Chaos and/or it is within 6&quot; of one or more BLOODTHIRSTER, GREAT UNCLEAN ONE, KAIROS FATEWEAVER, KEEPER OF SECRETS, LORD OF CHANGE, ROTIGUS, SHALAXI HELBANE or SKARBRAND units from your army, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds.’</description>
+While an enemy unit is within your army’s Shadow of Chaos and/or it is within 6&quot; of one or more BLOODTHIRSTER, GREAT UNCLEAN ONE, KAIROS FATEWEAVER, KEEPER OF SECRETS, LORD OF CHANGE, ROTIGUS, SHALAXI HELBANE or SKARBRAND units from your army, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds.</description>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="force" childId="a7cf-90fa-4093-6047" shared="true" includeChildSelections="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
     </rule>
     <rule id="877e-cc0c-8a1d-be46" name="Warp Rifts" publicationId="e3ec-7a32-ae62-8727" page="2" hidden="false">
       <modifiers>

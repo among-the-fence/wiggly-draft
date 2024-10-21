@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="b00-cd86-4b4c-97ba" name="Imperium - Agents of the Imperium" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="31" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="b00-cd86-4b4c-97ba" name="Imperium - Agents of the Imperium" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="44" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Vindicare Assassin" hidden="false" id="efa3-2cf5-dcfb-b976">
       <categoryLinks>
@@ -410,6 +410,7 @@
         <infoLink name="Fights First" hidden="false" type="rule" id="25b3-6f39-6c4d-97d2" targetId="24-c886-e8ba-5a89"/>
         <infoLink name="Infiltrators" hidden="false" type="rule" id="d768-f450-fbd1-5297" targetId="c05d-f4c3-f091-4938"/>
         <infoLink name="Shadow Assignment" id="4473-0126-204b-4a6a" hidden="false" type="profile" targetId="3882-3521-d644-a482"/>
+        <infoLink name="Lord of Deceit (Aura)" id="5ca4-eb7d-5d5e-cf2b" hidden="false" type="profile" targetId="8332-466b-a51f-63ab"/>
       </infoLinks>
       <profiles>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d455-fbfd-ca57-c259">
@@ -427,7 +428,7 @@
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
           </characteristics>
         </profile>
-        <profile name="Reign of Confusion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d262-7a63-4838-828a">
+        <profile name="Reign of Confusion" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="true" id="d262-7a63-4838-828a">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, after your opponent uses a Stratagem, this model can use this ability. If it does, until the end of the battle, the CP cost your opponent must pay to use that Stratagem again is increased by 1CP.</characteristic>
           </characteristics>
@@ -513,6 +514,7 @@
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="5445-dd3d-e789-14e3" primary="false" name="Imperium"/>
         <categoryLink targetId="6c5b-17c8-6475-5a74" id="cce0-5c57-7c21-168d" primary="false" name="Rogue Trader Entourage"/>
         <categoryLink name="Voidfarers" hidden="false" id="e24c-a935-cb0d-1a63" targetId="7aea-df68-2ade-9bd6" primary="false"/>
+        <categoryLink name="Voidfarer Character" hidden="false" id="9679-87fc-83c2-89b6" targetId="dc9f-a416-58db-fe5a" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Invulnerable Save" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1ac1-b5e7-896-e7c">
@@ -829,7 +831,7 @@
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">3</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">1</characteristic>
-            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
           </characteristics>
         </profile>
@@ -926,7 +928,7 @@
           <profiles>
             <profile name="Navy Bodyguard" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="06ef-9a1f-72c7-c2ef">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If you attach one or more VOIDFARERS CHARACTER units to this unit, this unit does not count towards the total number of RETINUE selections in your army.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If your Army Faction is not Agents of the Imperium, then for each VOIDFARERS CHARACTER unit you include in your army, you can include one VOIDSMEN-AT-ARMS unit in your army that does not count towards the number of RETINUE units your army can include.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -1600,6 +1602,11 @@
             </conditionGroup>
           </conditionGroups>
         </modifier>
+        <modifier type="increment" value="15" field="51b2-306e-1021-d207">
+          <conditions>
+            <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="b00-cd86-4b4c-97ba" shared="true" includeChildSelections="false"/>
+          </conditions>
+        </modifier>
       </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Arbites shotpistol" hidden="false" id="29d8-67fc-dd00-563" collective="true">
@@ -1697,6 +1704,7 @@
             <entryLink import="true" name="Close combat weapon" hidden="false" type="selectionEntry" id="bdc-6783-9d76-120a" targetId="b56e-3b3a-25d-2fea"/>
             <entryLink import="true" name="Nuncio-aquila" hidden="false" type="selectionEntry" id="820b-3f84-8b58-6840" targetId="e381-860c-4187-dbd6"/>
             <entryLink import="true" name="Arbites combat shotgun" hidden="false" type="selectionEntry" id="a2ce-b53d-aeb9-e0c0" targetId="9ece-a182-1248-f933"/>
+            <entryLink import="true" name="Arbites shotpistol" hidden="false" id="df10-ce60-936b-cb2e" type="selectionEntry" targetId="29d8-67fc-dd00-563"/>
           </entryLinks>
         </selectionEntry>
       </selectionEntries>
@@ -3042,6 +3050,9 @@
           </conditionGroups>
         </modifier>
       </modifiers>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="622d-d3d0-57ea-0048" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Inquisitor Eisenhorn [Legends]" hidden="false" id="d4d2-5f39-6a24-60ab">
       <costs>
@@ -4727,6 +4738,9 @@
           </infoLinks>
         </selectionEntry>
       </selectionEntries>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="0aa7-4cb7-83b5-6ae3" includeChildSelections="true"/>
+      </constraints>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Detachment Choice" hidden="false" id="1162-9cd5-d6b0-1663">
       <constraints>
@@ -4810,6 +4824,7 @@ Select one objective marker on the battlefield. Until the start of your next Com
         <categoryLink name="Imperium" hidden="false" id="70bb-2350-5384-dfde" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
         <categoryLink name="Voidfarers" hidden="false" id="ca05-a94e-ef1c-0e2c" targetId="7aea-df68-2ade-9bd6" primary="false"/>
         <categoryLink name="Navigator" hidden="false" id="88f2-761d-3534-c2f1" targetId="9922-bda1-77ca-84e9" primary="false"/>
+        <categoryLink name="Voidfarer Character" hidden="false" id="00ae-7af3-fe47-8f5a" targetId="dc9f-a416-58db-fe5a" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Navigator" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="dbd9-a367-c039-19f8">
@@ -5426,7 +5441,7 @@ Select one objective marker on the battlefield. Until the start of your next Com
           <profiles>
             <profile name="Inquisitorial Henchmen" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0e46-e68b-8ade-cf66">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If you attach one or more INQUISTOR models to this unit, this unit does not count towards the total number of RETINUE selections in your army.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If your Army Faction is not Agents of the Imperium, then for each INQUISITOR unit you include in your army, you can include one INQUISITORIAL AGENTS unit in your army that does not count towards the number of RETINUE units your army can include.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -5653,11 +5668,6 @@ Select one objective marker on the battlefield. Until the start of your next Com
                 </selectionEntry>
               </selectionEntries>
               <entryLinks>
-                <entryLink import="true" name="Storm bolter" hidden="false" id="cd7b-2521-860c-4ccb" type="selectionEntry" targetId="ac72-81fa-ea32-15fe">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="95ac-3d3f-b7d0-4a1b" includeChildSelections="false"/>
-                  </constraints>
-                </entryLink>
                 <entryLink import="true" name="Nemesis force weapon" hidden="false" id="9568-a0a9-9d1e-7a77" type="selectionEntry" targetId="a3a7-20c8-4d26-8d37"/>
               </entryLinks>
             </selectionEntry>
@@ -5929,6 +5939,13 @@ Select one objective marker on the battlefield. Until the start of your next Com
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Sustained Hits 1</characteristic>
           </characteristics>
+          <modifiers>
+            <modifier type="set" value="3+" field="94d-8a98-cf90-183e">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="a860-cde8-a263-dfa0" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </modifier>
+          </modifiers>
         </profile>
       </profiles>
       <constraints>
@@ -6027,7 +6044,7 @@ Select one objective marker on the battlefield. Until the start of your next Com
       <profiles>
         <profile name="Imperial Rhino" typeId="74f8-5443-9d6d-1f1e" typeName="Transport" hidden="false" id="9b87-7144-a334-0498">
           <characteristics>
-            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 AGENTS OF THE IMPERIUM models. It cannot transport TERMINATOR or OFFICIO ASSASSINORUM models.</characteristic>
+            <characteristic name="Capacity" typeId="30f2-be70-861d-1b84">This model has a transport capacity of 12 AGENTS OF THE IMPERIUM INFANTRY models. It cannot transport TERMINATOR or OFFICIO ASSASSINORUM models.</characteristic>
           </characteristics>
         </profile>
         <profile name="Imperial Rhino" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3b22-872c-e7c5-3578">
@@ -6038,6 +6055,11 @@ Select one objective marker on the battlefield. Until the start of your next Com
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">6+</characteristic>
             <characteristic name="OC" typeId="bef7-942a-1a23-59f8">2</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Self-repair" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="0249-2b47-6f71-b089">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of your Command phase, this model regains 1 lost wound.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -6790,12 +6812,19 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
           <characteristics>
             <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
-            <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+            <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">14</characteristic>
             <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
             <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
             <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">One Shot</characteristic>
           </characteristics>
+          <modifiers>
+            <modifier type="set" value="4+" field="94d-8a98-cf90-183e">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="3769-650b-539f-dc11" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </modifier>
+          </modifiers>
         </profile>
       </profiles>
       <infoLinks>
@@ -7073,7 +7102,7 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
         <constraint type="max" value="1" field="selections" scope="force" shared="true" id="b529-969a-a864-bf2a" includeChildSelections="true"/>
       </constraints>
     </categoryEntry>
-    <categoryEntry name="Assigned Agents - Character" hidden="false" id="49d5-cc63-72d1-7bcb">
+    <categoryEntry name="Assigned Agents - Character" hidden="true" id="49d5-cc63-72d1-7bcb">
       <comment>Characters</comment>
       <constraints>
         <constraint type="max" value="0" field="selections" scope="force" shared="true" id="77aa-f5f6-f7b5-b974" includeChildSelections="true"/>
@@ -7167,11 +7196,7 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
         <constraint type="max" value="1" field="selections" scope="force" shared="true" id="b529-969a-a864-bf2a" includeChildSelections="true"/>
       </constraints>
     </categoryEntry>
-    <categoryEntry name="Inquisitor" hidden="false" id="92d3-447e-a71e-6739">
-      <constraints>
-        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="680d-4cf4-e424-524c" includeChildSelections="true"/>
-      </constraints>
-    </categoryEntry>
+    <categoryEntry name="Inquisitor" hidden="false" id="92d3-447e-a71e-6739"/>
     <categoryEntry name="Coteaz" hidden="false" id="5b1c-f22a-438d-be29">
       <constraints>
         <constraint type="max" value="1" field="selections" scope="force" shared="true" id="b529-969a-a864-bf2a" includeChildSelections="true"/>
@@ -7197,7 +7222,7 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
         <constraint type="max" value="3" field="selections" scope="force" shared="true" id="9e1c-e0b-5d37-7a99" includeChildSelections="true"/>
       </constraints>
     </categoryEntry>
-    <categoryEntry name="Assigned Agents - Retinue" hidden="false" id="1eb4-fcfc-7e90-1ea0">
+    <categoryEntry name="Assigned Agents - Retinue" hidden="true" id="1eb4-fcfc-7e90-1ea0">
       <constraints>
         <constraint type="max" value="0" field="selections" scope="force" shared="true" id="2842-fde8-36ca-60f7" includeChildSelections="true"/>
       </constraints>
@@ -7218,10 +7243,37 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
           </conditions>
         </modifier>
         <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
-          <repeats>
-            <repeat value="1" repeats="1" field="selections" scope="force" childId="9d77-a14d-d0ca-088c" shared="true" roundUp="false" includeChildSelections="true" includeChildForces="true"/>
-            <repeat value="1" repeats="1" field="selections" scope="force" childId="701b-07a8-22cf-c3f0" shared="true" roundUp="false" includeChildSelections="true" includeChildForces="false"/>
-          </repeats>
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="92d3-447e-a71e-6739" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+          <comment>Inq + Agents</comment>
+        </modifier>
+        <modifier type="increment" value="2" field="2842-fde8-36ca-60f7">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="force" childId="d75b-79c6-fe15-a72a" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="2" field="selections" scope="force" childId="dc9f-a416-58db-fe5a" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+          <comment>Voidsmen + Char</comment>
+        </modifier>
+        <modifier type="increment" value="3" field="2842-fde8-36ca-60f7">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="force" childId="92d3-447e-a71e-6739" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="3" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+          <comment>Inq + Agents</comment>
         </modifier>
         <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
           <conditionGroups>
@@ -7232,6 +7284,18 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
               </conditions>
             </conditionGroup>
           </conditionGroups>
+          <comment>Agents and Daemonhost</comment>
+        </modifier>
+        <modifier type="increment" value="1" field="2842-fde8-36ca-60f7">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="d75b-79c6-fe15-a72a" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="1" field="selections" scope="force" childId="dc9f-a416-58db-fe5a" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+          <comment>Voidsmen + Char</comment>
         </modifier>
         <modifier type="increment" value="2" field="2842-fde8-36ca-60f7">
           <conditionGroups>
@@ -7242,6 +7306,18 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
               </conditions>
             </conditionGroup>
           </conditionGroups>
+          <comment>Agents and Daemonhost</comment>
+        </modifier>
+        <modifier type="increment" value="2" field="2842-fde8-36ca-60f7">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="2" field="selections" scope="force" childId="92d3-447e-a71e-6739" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="2" field="selections" scope="force" childId="d328-29e2-67d0-2185" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+          <comment>Inq + Agents</comment>
         </modifier>
         <modifier type="increment" value="3" field="2842-fde8-36ca-60f7">
           <conditionGroups>
@@ -7252,6 +7328,18 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
               </conditions>
             </conditionGroup>
           </conditionGroups>
+          <comment>Agents and Daemonhost</comment>
+        </modifier>
+        <modifier type="increment" value="3" field="2842-fde8-36ca-60f7">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="atLeast" value="3" field="selections" scope="force" childId="d75b-79c6-fe15-a72a" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="3" field="selections" scope="force" childId="dc9f-a416-58db-fe5a" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+          <comment>Voidsmen + Char</comment>
         </modifier>
       </modifiers>
     </categoryEntry>
@@ -7287,7 +7375,7 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
     <categoryEntry name="Ordo Hereticus" id="cc90-ec2e-cca3-e44d" hidden="false"/>
     <categoryEntry name="Navigator" id="9922-bda1-77ca-84e9" hidden="false"/>
     <categoryEntry name="Inquisitorial Agents" id="d328-29e2-67d0-2185" hidden="false"/>
-    <categoryEntry name="Assigned Agents - Requisitioned" id="d074-7a54-bf4f-768c" hidden="false">
+    <categoryEntry name="Assigned Agents - Requisitioned" id="d074-7a54-bf4f-768c" hidden="true">
       <constraints>
         <constraint type="max" value="0" field="selections" scope="force" shared="true" id="7cb1-09e0-acd9-5a8f" includeChildSelections="true"/>
       </constraints>
@@ -7311,7 +7399,11 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
     </categoryEntry>
     <categoryEntry name="Adeptus Arbites" id="1fe2-9841-c085-291c" hidden="false"/>
     <categoryEntry name="Requisitioned" id="75f4-93ee-b9a0-bb5f" hidden="false"/>
-    <categoryEntry name="Grey Knights Terminator Squad" id="b934-842e-c724-dc77" hidden="false"/>
+    <categoryEntry name="Grey Knights Terminator Squad" id="b934-842e-c724-dc77" hidden="false">
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="force" shared="true" id="c303-275d-6598-a5b9" includeChildSelections="true"/>
+      </constraints>
+    </categoryEntry>
     <categoryEntry name="Watch Captain Artemis" id="4dde-9319-6f3c-0c04" hidden="false"/>
     <categoryEntry name="Deathwatch" id="357e-615e-5313-2ac2" hidden="false"/>
     <categoryEntry name="Inquisitorial Chimera" id="3769-650b-539f-dc11" hidden="false"/>
@@ -7320,14 +7412,15 @@ At the start of the Declare Battle Formations step, you can select one SISTERS O
     <categoryEntry name="Sisters of Battle Immolator" id="a860-cde8-a263-dfa0" hidden="false"/>
     <categoryEntry name="Daemonhost" id="ec84-2fe2-fbf8-5993" hidden="false"/>
     <categoryEntry name="Jokaero Weaponsmith" id="2ba8-cb91-7a80-93fc" hidden="false"/>
+    <categoryEntry name="Voidfarer Character" id="dc9f-a416-58db-fe5a" hidden="true"/>
   </categoryEntries>
   <sharedRules>
     <rule name="Assigned Agents" hidden="false" id="58c1-ec7a-74f5-26b9">
       <description>If your army Faction is not AGENTS OF THE IMPERIUM, but every model in your army has the IMPERIUM keyword, you can include AGENTS OF THE IMPERIUM units in your army even if they do not have the Faction keyword you selected in the Select Army Faction step. In this case, the maximum number of AGENTS OF THE IMPERIUM units you can include in your army depends on the battle size, as shown below.
 
 Incursion: 1 RETINUE, 1 CHARACTER, 1 REQUISITIONED
-Strike Force: 2 RETINUE, 2 CHARACTER, 2 REQUISITIONED
-Onslaught: 3 RETINUE, 3 CHARACTER, 3 REQUISITIONED
+Strike Force: 2 RETINUE, 2 CHARACTER, 1 REQUISITIONED
+Onslaught: 3 RETINUE, 3 CHARACTER, 2 REQUISITIONED
 
 
 Note that you can include AGENTS OF THE IMPERIUM DEDICATED TRANSPORT units in such an army as normal, but each unit must start the battle with one or more units embarked within it, or it cannot be deployed for that battle and will count as having been destroyed during the first battle round.</description>
@@ -8143,6 +8236,13 @@ Note that you can include AGENTS OF THE IMPERIUM DEDICATED TRANSPORT units in su
         <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
         <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
       </characteristics>
+      <modifiers>
+        <modifier type="set" value="-1" field="41a0-1301-112a-e2f2">
+          <conditions>
+            <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="f710-a22a-34f3-26c0" shared="true" includeChildSelections="false"/>
+          </conditions>
+        </modifier>
+      </modifiers>
     </profile>
     <profile name="Navis shotgun" hidden="false" id="fd23-8d2b-a87d-6e80" typeName="Ranged Weapons" typeId="f77d-b953-8fa4-b762">
       <characteristics>
@@ -8274,7 +8374,7 @@ Note that you can include AGENTS OF THE IMPERIUM DEDICATED TRANSPORT units in su
           <profiles>
             <profile name="Universal Anathema" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7fdd-aa75-3965-5f20">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Melee weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 2+] abilities</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Melee weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities</characteristic>
               </characteristics>
             </profile>
           </profiles>

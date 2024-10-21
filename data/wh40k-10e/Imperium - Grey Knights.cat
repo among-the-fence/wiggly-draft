@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="50c4-3e83-fe54-97c4" name="Imperium - Grey Knights" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="26" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="50c4-3e83-fe54-97c4" name="Imperium - Grey Knights" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="30" battleScribeVersion="2.03" type="catalogue">
   <catalogueLinks>
     <catalogueLink type="catalogue" name="Imperium - Imperial Knights - Library" id="f3e4-7fc3-8f57-6303" importRootEntries="true" targetId="1b6d-dc06-5db9-c7d1"/>
     <catalogueLink type="catalogue" name="Imperium - Agents of the Imperium" id="575c-d0f9-7fdc-2ddb" targetId="b00-cd86-4b4c-97ba" importRootEntries="true"/>
@@ -840,7 +840,11 @@
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Brotherhood Terminator Squad" hidden="false" id="a037-a89c-f59f-8b1e">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="210"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
         <modifier type="set" value="420" field="51b2-306e-1021-d207">
@@ -1360,7 +1364,7 @@
         </profile>
         <profile name="Master Strategist" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cb03-8115-df85-19ac">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, one unit from your army with this ability can be targeted by a Stratagem for 0CP, even if another unit from your army has already been targeted by that Stratagem this phase.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle, one unit from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ecd8-2298-e581-30d1">
@@ -3582,6 +3586,11 @@
 ■ Paladin Squad</characteristic>
           </characteristics>
         </profile>
+        <profile name="Supreme Commander" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a802-75b0-2e06-2487">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is in your army, it must be your WARLORD.</characteristic>
+          </characteristics>
+        </profile>
       </profiles>
       <infoLinks>
         <infoLink name="Deep Strike" hidden="false" type="rule" id="64e5-ddc6-93b6-845d" targetId="7cb5-dd6b-dd87-ad3b"/>
@@ -3655,7 +3664,11 @@
         </selectionEntry>
       </selectionEntries>
       <entryLinks>
-        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="11ba-e4a9-aa6-2721" targetId="beae-4593-3686-1672"/>
+        <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="11ba-e4a9-aa6-2721" targetId="beae-4593-3686-1672">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="faaf-b728-4fb7-e97d" includeChildSelections="false"/>
+          </constraints>
+        </entryLink>
       </entryLinks>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Nemesis Dreadknight" hidden="false" id="5458-a458-c51d-c4e9">
@@ -3738,7 +3751,11 @@
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Paladin Squad" hidden="false" id="6528-4634-c2cf-2840">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="225"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="215"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
         <modifier type="set" value="450" field="51b2-306e-1021-d207">
@@ -4141,10 +4158,14 @@
     </selectionEntry>
     <selectionEntry type="unit" import="true" name="Purgation Squad" hidden="false" id="e8ad-bd40-5952-6859">
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="130"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="120"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <modifiers>
-        <modifier type="set" value="260" field="51b2-306e-1021-d207">
+        <modifier type="set" value="240" field="51b2-306e-1021-d207">
           <conditions>
             <condition type="atLeast" value="6" field="selections" scope="e8ad-bd40-5952-6859" childId="model" shared="true"/>
           </conditions>
@@ -6178,7 +6199,6 @@
       </categoryLinks>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f97-b336-21f1-ce3d"/>
-        <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="788e-3612-f2c0-5c3f"/>
       </constraints>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Close combat weapon" hidden="false" id="d0e-7460-ee7b-660f" collective="true">
@@ -6507,7 +6527,13 @@
     </selectionEntryGroup>
     <selectionEntryGroup name="Detachments" hidden="false" id="f7f3-a061-3f69-1432" defaultSelectionEntryId="bcb7-c2a7-e7fb-3aae">
       <selectionEntries>
-        <selectionEntry type="upgrade" import="true" name="Teleport Strike Force" hidden="false" id="bcb7-c2a7-e7fb-3aae"/>
+        <selectionEntry type="upgrade" import="true" name="Teleport Strike Force" hidden="false" id="bcb7-c2a7-e7fb-3aae">
+          <rules>
+            <rule name="Teleport Shunt" id="e00e-7255-398a-d7fc" hidden="false">
+              <description>Each time a GREY KNIGHTS unit with the Deep Strike ability Advances, do not make an Advance roll. Instead, until the end of the phase, add 6&quot; to that unit’s Move characteristic and that unit can FLY.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
       </selectionEntries>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
@@ -6601,4 +6627,16 @@
       <comment>4+ Unit</comment>
     </profile>
   </sharedProfiles>
+  <rules>
+    <rule name="Teleport Assault" id="6a5e-1316-2d87-93c5" hidden="false">
+      <description>If your Army Faction is GREY KNIGHTS, at the end of your opponent’s turn, you can select a number of GREY KNIGHTS units from your army with this ability (excluding units that are within Engagement Range of one or more enemy units). The maximum number of units you can select depends on the battle size, as follows:
+
+Combat Patrol - Up to 1 unit
+Incursion - Up to 2 units
+Strike Force - Up to 3 units
+Onslaught - Up to 4 units
+
+Once you have made your selections, remove those units from the battlefield. In the Reinforcements step of your next Movement phase, set each of those units up anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy models. Any units that are not on the battlefield at the end of the battle count as destroyed.</description>
+    </rule>
+  </rules>
 </catalogue>
