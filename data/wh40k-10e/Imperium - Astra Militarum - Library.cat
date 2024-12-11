@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="5a44-f048-114b-e3ff" name="Imperium - Astra Militarum - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="70" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="5a44-f048-114b-e3ff" name="Imperium - Astra Militarum - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="78" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Aegis Defence Line" hidden="false" id="cb99-456-f100-40ed">
       <categoryLinks>
@@ -1153,12 +1153,6 @@
                 <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6083-969e-98af-8b97"/>
               </constraints>
             </entryLink>
-            <entryLink import="true" name="Laspistol" hidden="false" type="selectionEntry" id="341c-a1a7-b6f3-3753" targetId="2689-4c0e-cdfb-3e5">
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="1739-331a-4d5f-3a"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="8510-cc8d-da91-5d37"/>
-              </constraints>
-            </entryLink>
           </entryLinks>
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9ee8-cfae-1a9d-c426"/>
@@ -2163,7 +2157,7 @@
         </modifier>
       </modifiers>
       <selectionEntries>
-        <selectionEntry type="model" import="true" name="Ordnance Teams" hidden="false" id="13da-3f66-646f-8952">
+        <selectionEntry type="model" import="true" name="Ordnance Teams" hidden="false" id="13da-3f66-646f-8952" defaultAmount="1,1">
           <constraints>
             <constraint type="min" value="2" field="selections" scope="parent" shared="true" id="9181-a1bf-30f3-262b"/>
             <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="37ae-d8a4-bab7-b44a"/>
@@ -3266,24 +3260,19 @@
                   </constraints>
                   <modifiers>
                     <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false" id="c9c0-c646-4622-eaf4" includeChildSelections="true"/>
+                      </repeats>
                     </modifier>
                     <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false" id="fbbd-ab13-7a95-c30f" includeChildSelections="true"/>
+                      </repeats>
                     </modifier>
                     <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
                       <repeats>
                         <repeat value="1" repeats="1" field="selections" scope="parent" childId="9e42-70ac-702c-819d" shared="true" roundUp="false" id="1860-df04-a21f-4d22"/>
                       </repeats>
-                    </modifier>
-                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
                     </modifier>
                     <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
                       <repeats>
@@ -3316,28 +3305,23 @@
                   </constraints>
                   <modifiers>
                     <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                    <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
-                      <repeats>
-                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false"/>
-                      </repeats>
-                    </modifier>
-                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
                       <repeats>
                         <repeat value="1" repeats="1" field="selections" scope="parent" childId="9e42-70ac-702c-819d" shared="true" roundUp="false" id="1331-a8b-fec2-29b4"/>
-                      </repeats>
-                    </modifier>
-                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
-                      <repeats>
-                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false"/>
                       </repeats>
                     </modifier>
                     <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
                       <repeats>
                         <repeat value="1" repeats="1" field="selections" scope="parent" childId="9e42-70ac-702c-819d" shared="true" roundUp="false" id="5a77-81f-6099-a8d6"/>
+                      </repeats>
+                    </modifier>
+                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false" id="1f84-7365-ed2b-e2e5" includeChildSelections="true"/>
+                      </repeats>
+                    </modifier>
+                    <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false" id="227a-9f29-bd6e-f33c" includeChildSelections="true"/>
                       </repeats>
                     </modifier>
                   </modifiers>
@@ -3384,28 +3368,23 @@
                   </constraints>
                   <modifiers>
                     <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                    <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
-                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
                       <repeats>
                         <repeat value="1" repeats="1" field="selections" scope="parent" childId="9e42-70ac-702c-819d" shared="true" roundUp="false" id="a68b-2932-cdbd-251c"/>
                       </repeats>
                     </modifier>
-                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
-                      <conditions>
-                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" includeChildSelections="true"/>
-                      </conditions>
-                    </modifier>
                     <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
                       <repeats>
                         <repeat value="1" repeats="1" field="selections" scope="parent" childId="9e42-70ac-702c-819d" shared="true" roundUp="false" id="8e7e-cae6-efd0-7673"/>
+                      </repeats>
+                    </modifier>
+                    <modifier type="decrement" value="1" field="4f19-3e4-4928-57c0">
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false" id="9f0a-7086-2aea-c29c" includeChildSelections="true"/>
+                      </repeats>
+                    </modifier>
+                    <modifier type="decrement" value="1" field="d3e2-d033-4660-7f61">
+                      <repeats>
+                        <repeat value="1" repeats="1" field="selections" scope="parent" childId="47cc-2173-cdbd-c86c" shared="true" roundUp="false" id="6615-1323-dd0c-ce70" includeChildSelections="true"/>
                       </repeats>
                     </modifier>
                   </modifiers>
@@ -5140,7 +5119,7 @@
               <characteristics>
                 <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
-                <characteristic name="BS" typeId="94d-8a98-cf90-183e">4+</characteristic>
+                <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
@@ -6507,6 +6486,18 @@
             </profile>
           </profiles>
         </infoGroup>
+        <infoGroup name="War Hymns" id="0f82-16dc-a60e-8298" hidden="false">
+          <profiles>
+            <profile name="War Hymns" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4d55-ded7-a541-492f">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <infoLinks>
+            <infoLink name="Sustained Hits" id="0d6b-f716-e6a8-84b7" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
+          </infoLinks>
+        </infoGroup>
       </infoGroups>
       <selectionEntryGroups>
         <selectionEntryGroup name="Loadout" hidden="false" id="f8bd-f9dc-b394-f612" defaultSelectionEntryId="8855-294f-aece-f0cc">
@@ -6625,11 +6616,6 @@
         </selectionEntryGroup>
       </selectionEntryGroups>
       <profiles>
-        <profile name="War Hymns" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4d55-ded7-a541-492f">
-          <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, melee weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.</characteristic>
-          </characteristics>
-        </profile>
         <profile name="Holy Piety" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1b3d-358b-34c4-73">
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a melee attack, unless this model’s unit is Battle-shocked, you can re-roll the Hit roll</characteristic>
@@ -8623,6 +8609,13 @@
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6b04-a27d-5637-84ec" includeChildSelections="true" includeChildForces="true"/>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="ce9e-872c-ed2d-4835" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="notInstanceOf" value="1" field="selections" scope="primary-catalogue" childId="b0ae-12a5-c84-ea45" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Power Weapon" hidden="false" id="600b-6aef-1737-a654">
       <profiles>
@@ -11175,6 +11168,7 @@
         <categoryLink targetId="fa45-57e-930e-602b" id="58bf-c93e-a110-d1d1" primary="false" name="Faction: Astra Militarum"/>
         <categoryLink targetId="dbd4-63-af05-998" id="fa16-73fd-e963-6c9c" primary="true" name="Vehicle"/>
         <categoryLink targetId="f783-bc74-48f0-7645" id="629-8630-3e12-d3a5" primary="false" name="Cyclops Demolition Vehicle"/>
+        <categoryLink name="Imperium" hidden="false" id="a843-b65a-8f03-4775" targetId="aff3-d6a3-2a95-9dc" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Cyclops Demolition Vehicle" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="2425-424c-8f46-5b16">
@@ -11524,7 +11518,7 @@
         <categoryLink targetId="aff3-d6a3-2a95-9dc" id="d737-489a-feab-4e73" primary="false" name="Imperium"/>
         <categoryLink targetId="4780-be29-8c52-1d20" id="fad3-c66b-1c03-f83a" primary="false" name="Squadron"/>
         <categoryLink targetId="6df-937-16bc-8c1a" id="214b-1e44-4c1c-c43c" primary="false" name="Smoke"/>
-        <categoryLink targetId="6501-966b-bf99-20d1" id="6309-de0b-2172-dacc" primary="false" name="Malcador Annihilator"/>
+        <categoryLink name="Malcador Defender" hidden="false" id="bc30-6dfa-3c7c-4426" targetId="d7dc-1aca-3600-b308" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Malcador Defender" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="64bc-c720-fb53-8312">
@@ -14824,7 +14818,7 @@
       <profiles>
         <profile name="Stygies Destroyer Tank Hunter" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="5efc-1520-68dd-91cd">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">01&quot;</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">10&quot;</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">11</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">13</characteristic>
