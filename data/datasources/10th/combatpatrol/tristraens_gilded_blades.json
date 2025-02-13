@@ -435,7 +435,7 @@
       "cost": 1,
       "turn": "either",
       "target": "One Adeptus Custodes unit from your army that has not been selected to fight this phase.",
-      "when": "Fight phase.",
+      "when": "Fight phase",
       "effect": "Until the end of the phase, each time a model in your unit makes a Pile‑in move, it can move up to 6\" instead of up to 3\".",
       "restrictions": "",
       "type": "Battle Tactic",
@@ -495,5 +495,5 @@
       "faction_id": "basic"
     }
   ],
-  "updated": "2024-08-26T15:21:04.740Z"
+  "updated": "2025-02-05T13:26:46.322Z"
 }

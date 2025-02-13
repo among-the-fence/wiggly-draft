@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-352e-adc2-7639-d6a9" name="Warhammer 40,000 10th Edition" revision="21" battleScribeVersion="2.03" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-352e-adc2-7639-d6a9" name="Warhammer 40,000 10th Edition" revision="27" battleScribeVersion="2.03" type="gameSystem">
   <publications>
     <publication id="48fc-15aa-b307-9443" name="10th Edition Core Rules" shortName="10th Ed Core"/>
     <publication name="Github" hidden="false" id="8db3-575d-91b-47f8" shortName="BSData/wh40k-10e" publisherUrl="https://github.com/BSData/wh40k-10e"/>
@@ -108,7 +108,43 @@
     <categoryEntry id="4c3e-9310-a516-3590" name="Beast" hidden="false"/>
     <categoryEntry id="4c00-2578-faf5-6918" name="Chaos" hidden="false"/>
     <categoryEntry id="bb67-f191-6562-acc7" name="Faction: Chaos Knights" hidden="false"/>
-    <categoryEntry id="d1d8-6ae0-1be7-e9e" name="Faction: Tyranids" hidden="false"/>
+    <categoryEntry id="d1d8-6ae0-1be7-e9e" name="Faction: Tyranids" hidden="false">
+      <constraints>
+        <constraint type="max" value="-1" field="51b2-306e-1021-d207" scope="force" shared="true" id="10a0-a45c-f379-bb06" includeChildSelections="true" includeChildForces="false"/>
+      </constraints>
+      <modifiers>
+        <modifier type="set" value="500" field="10a0-a45c-f379-bb06" id="d345-5a54-3609-7600">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="3bdf-a114-5035-c6ac" shared="true" includeChildSelections="false"/>
+                <condition type="greaterThan" value="0" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="1000" field="10a0-a45c-f379-bb06" id="8a58-5a9f-9d23-5682">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="greaterThan" value="0" field="selections" scope="force" childId="baf8-997f-e323-a090" shared="true" includeChildSelections="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="3bdf-a114-5035-c6ac" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="1500" field="10a0-a45c-f379-bb06" id="8438-8892-1129-d075">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="greaterThan" value="0" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="3bdf-a114-5035-c6ac" shared="true" includeChildSelections="false"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
+    </categoryEntry>
     <categoryEntry id="1015-db48-a2fa-c7da" name="Faction: Drukhari" hidden="false">
       <constraints>
         <constraint type="max" value="-1" field="51b2-306e-1021-d207" scope="force" shared="true" id="4d8f-6e09-606e-788e" includeChildSelections="true" includeChildForces="false"/>
@@ -146,7 +182,7 @@
         </modifier>
       </modifiers>
     </categoryEntry>
-    <categoryEntry id="4378-1827-4988-be4e" name="Faction: Aeldari" hidden="false"/>
+    <categoryEntry id="4378-1827-4988-be4e" name="Faction: Asuryani" hidden="false"/>
     <categoryEntry id="fa45-57e-930e-602b" name="Faction: Astra Militarum" hidden="false"/>
     <categoryEntry id="b5e4-3253-c157-54fd" name="Faction: Imperial Knights" hidden="false">
       <modifiers>
@@ -260,7 +296,43 @@
     <categoryEntry id="4bd-5ee0-f179-2fc5" name="Khorne" hidden="false"/>
     <categoryEntry id="b188-114f-6ba5-79a1" name="Tzeentch" hidden="false"/>
     <categoryEntry id="6e7-40c-58d9-e402" name="Faction: Adeptus Astartes" hidden="false"/>
-    <categoryEntry id="5418-f86b-6e76-c5a" name="Faction: Adeptus Mechanicus" hidden="false"/>
+    <categoryEntry id="5418-f86b-6e76-c5a" name="Faction: Adeptus Mechanicus" hidden="false">
+      <modifiers>
+        <modifier type="set" value="250" field="dee8-c245-3c3c-86b6" id="5155-3d32-76df-053b">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="25dd-7aa0-6bf4-f2d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                <condition type="greaterThan" value="0" field="selections" scope="force" childId="d62d-db22-4893-4bc0" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="500" field="dee8-c245-3c3c-86b6" id="2f2a-1769-3b72-b003">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="greaterThan" value="0" field="selections" scope="force" childId="baf8-997f-e323-a090" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="25dd-7aa0-6bf4-f2d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+        <modifier type="set" value="750" field="dee8-c245-3c3c-86b6" id="464a-d2f8-101b-1fab">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditions>
+                <condition type="greaterThan" value="0" field="selections" scope="force" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="25dd-7aa0-6bf4-f2d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
+      <constraints>
+        <constraint type="max" value="-1" field="51b2-306e-1021-d207" scope="roster" shared="true" id="dee8-c245-3c3c-86b6" includeChildSelections="true" includeChildForces="true" negative="false"/>
+      </constraints>
+    </categoryEntry>
     <categoryEntry id="226b-cf1e-353a-ae7f" name="Faction: Genestealer Cults" hidden="false"/>
     <categoryEntry id="bd1d-c1a5-6ca2-c791" name="Faction: World Eaters" hidden="false"/>
     <categoryEntry id="8474-765-16a9-f00d" name="Faction: Leagues of Votann" hidden="false"/>
@@ -318,7 +390,7 @@
             </conditionGroup>
           </conditionGroups>
         </modifier>
-        <modifier type="set" value="1000" field="4d8f-6e09-606e-788e" id="1225-b57b-bfa5-1448">
+        <modifier type="set" value="1000" field="4d8f-6e09-606e-788e" id="934b-e7e4-b560-2d8c">
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>
@@ -328,7 +400,7 @@
             </conditionGroup>
           </conditionGroups>
         </modifier>
-        <modifier type="set" value="1500" field="4d8f-6e09-606e-788e" id="3d8e-d570-a4d2-6ed8">
+        <modifier type="set" value="1500" field="4d8f-6e09-606e-788e" id="d1e5-86a2-d34b-13b3">
           <conditionGroups>
             <conditionGroup type="and">
               <conditions>
@@ -347,6 +419,8 @@
     <categoryEntry name="Cerastus" hidden="false" id="481c-3b2e-5c99-c248"/>
     <categoryEntry name="Artillery" hidden="false" id="8cab-448d-37b7-32bc"/>
     <categoryEntry name="Order of Battle" id="ac7e-be7b-eb02-4752" hidden="false"/>
+    <categoryEntry name="Faction: Harlequins" id="a5a2-d0c0-0349-d226" hidden="false"/>
+    <categoryEntry name="Faction: Ynnari" id="9a21-190a-9d31-35d2" hidden="false"/>
   </categoryEntries>
   <forceEntries>
     <forceEntry id="bb9d-299a-ed60-2d8a" name="Army Roster" hidden="false">
@@ -427,9 +501,14 @@
                 <condition type="atLeast" value="1" field="selections" scope="roster" childId="4204-82d0-908c-a62a" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
+            <modifier type="set" value="1" field="21dc-d454-3048-5aeb">
+              <conditions>
+                <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
           </modifiers>
           <constraints>
-            <constraint type="min" value="1" field="forces" scope="roster" shared="true" id="21dc-d454-3048-5aeb" includeChildSelections="true" includeChildForces="true"/>
+            <constraint type="min" value="0" field="forces" scope="roster" shared="true" id="21dc-d454-3048-5aeb" includeChildSelections="true" includeChildForces="true"/>
             <constraint type="max" value="1" field="forces" scope="roster" shared="true" id="97cd-724b-362c-071d" includeChildSelections="true" includeChildForces="true"/>
             <constraint type="max" value="0" field="51b2-306e-1021-d207" scope="force" shared="true" id="57b7-ac0e-5d06-9ddb" includeChildSelections="true"/>
           </constraints>
@@ -1133,4 +1212,45 @@ If a model is in Hover mode,  then until the end of the battle, its Move charact
       </selectionEntryGroups>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
+  <sharedInfoGroups>
+    <infoGroup name="Feel No Pain 5+" id="8a4b-57b8-c4f4-ba03" hidden="false">
+      <infoLinks>
+        <infoLink name="Feel No Pain" id="5e49-829b-9b3f-d42e" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb"/>
+      </infoLinks>
+      <profiles>
+        <profile name="Feel No Pain 5+" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7fe0-0a9b-accc-230a">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the Feel No Pain 5+ ability.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>Single model</comment>
+    </infoGroup>
+    <infoGroup name="Feel No Pain 4+" id="2425-d48d-bb98-29c9" hidden="false">
+      <infoLinks>
+        <infoLink name="Feel No Pain" id="01cb-db1b-46fe-17e6" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb"/>
+      </infoLinks>
+      <profiles>
+        <profile name="Feel No Pain 4+" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1b52-9c42-049a-f04b">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the Feel No Pain 4+ ability against mortal wounds.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>Single model vs mortal wounds</comment>
+    </infoGroup>
+    <infoGroup name="Feel No Pain 6+" id="d213-0347-b195-cd21" hidden="false">
+      <infoLinks>
+        <infoLink name="Feel No Pain" id="1fed-4b06-089c-d26c" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb"/>
+      </infoLinks>
+      <profiles>
+        <profile name="Feel No Pain 6+" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ae25-5896-0ce9-6a20">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model has the Feel No Pain 6+ ability.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <comment>Single model</comment>
+    </infoGroup>
+  </sharedInfoGroups>
 </gameSystem>

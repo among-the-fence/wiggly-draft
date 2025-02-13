@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="1069-10ff-3ba9-873b" name="Chaos - Thousand Sons" revision="34" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="1069-10ff-3ba9-873b" name="Chaos - Thousand Sons" revision="39" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
   <publications>
     <publication id="015a-6212-d737-9044" name="Index - Thousand Sons"/>
   </publications>
@@ -874,7 +874,7 @@
         </profile>
         <profile id="efa5-c1d9-a512-e566" name="Annihilator" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a MONSTER or VEHICLE unit, re-roll a Damage roll of 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time this model makes a ranged attack that targets a MONSTER or VEHICLE unit, you can re-roll the Damage roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -1534,12 +1534,14 @@
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent, Twin-linked</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
               <infoLinks>
                 <infoLink id="24a8-893c-36db-2031" name="Twin-linked" hidden="false" targetId="cf93-ad4d-2f08-a79d" type="rule"/>
+                <infoLink name="Torrent" id="da36-685a-2fde-aff7" hidden="false" targetId="5edf-d619-23e0-9b56" type="rule"/>
+                <infoLink name="Ignores Cover" id="0f14-baaf-10e0-d110" hidden="false" targetId="4640-43e7-30b-215a" type="rule"/>
               </infoLinks>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
@@ -1862,7 +1864,6 @@
         <categoryLink id="1fb4-37a9-4e7d-01c6" name="Faction: Thousand Sons" hidden="false" targetId="7002-1fbb-7571-e8e7" primary="false"/>
         <categoryLink id="46d6-cd2b-88ed-aa69" name="Infantry" hidden="false" targetId="cf47-a0d7-7207-29dc" primary="false"/>
         <categoryLink id="f9b1-336f-233f-01eb" name="Character" hidden="false" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
-        <categoryLink id="58d6-6cd6-f961-c09f" name="Grenades" hidden="false" targetId="5a61-81ac-eb7c-a87e" primary="false"/>
         <categoryLink id="071c-7b6d-5243-c97b" name="Psyker" hidden="false" targetId="13bf-2bee-3ae0-b414" primary="false"/>
         <categoryLink id="d32b-c212-0959-d018" name="Chaos" hidden="false" targetId="4c00-2578-faf5-6918" primary="false"/>
         <categoryLink id="c706-4a20-c892-0b05" name="Tzeentch" hidden="false" targetId="b188-114f-6ba5-79a1" primary="false"/>
@@ -3564,7 +3565,7 @@
       <profiles>
         <profile name="Scarab Occult Terminators" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="8632-64da-6963-3506">
           <characteristics>
-            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5+</characteristic>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">5&quot;</characteristic>
             <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">3</characteristic>
@@ -6169,7 +6170,7 @@ Wound roll.</characteristic>
           <profiles>
             <profile name="Arcane Might" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2f79-0968-0cff-59df">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573"> Add 1 to the Strength characteristic of Psychic weapons equipped by models in the bearer’s unit. While the bearer’s unit is wholly within your army’s Flow of Magic, add 2 to the Strength characteristic of Psychic weapons equipped by models in that unit instead.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 1 to the Strength characteristic of Psychic weapons equipped by models in the bearer’s unit. While the bearer’s unit is wholly within your army’s Flow of Magic, add 2 to the Strength characteristic of Psychic weapons equipped by models in that unit instead.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -6196,7 +6197,7 @@ Wound roll.</characteristic>
           <profiles>
             <profile name="Empowered Manifestation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8f5c-41e6-3d38-260f">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573"> While the bearer’s unit is wholly within your army’s Flow of Magic, add 6&quot; to the range of Psychic abilities the bearer has that specify a range (including Rituals) and each time a model in the bearer’s unit takes a Hazardous test for a Psychic weapon, you can re‑roll the result.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While the bearer’s unit is wholly within your army’s Flow of Magic, you can add 6&quot; to the range of Psychic abilities the bearer has that specify a range (including Rituals) and each time a model in the bearer’s unit takes a Hazardous test for a Psychic weapon, you can re‑roll the result.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -6250,7 +6251,7 @@ Wound roll.</characteristic>
           <profiles>
             <profile name="Noctilith Mantle" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="68fe-e60d-0b40-856b">
               <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573"> While the bearer’s unit is on the battlefield, it is wholly within your army’s Flow of Magic. Models in that unit cannot be selected to use any Rituals.</characteristic>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While the bearer’s unit is on the battlefield, it is wholly within your army’s Flow of Magic. Models in that unit cannot be selected to use any Rituals.</characteristic>
               </characteristics>
             </profile>
           </profiles>
@@ -6290,8 +6291,7 @@ Psychic weapons equipped by THOUSAND SONS models from your army have the [DEVAST
 - At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Flow of Magic. 
 
 
-Each time a Thousand Sons model from your army makes a Psychic Attack, re‑roll a Wound roll of 1. If such a model is wholly within your army’s Flow of Magic, each time it makes a Psychic Attack, add 1 to the Wound roll instead.
-</description>
+Each time a Thousand Sons model from your army makes a Psychic Attack, re‑roll a Wound roll of 1. If such a model is wholly within your army’s Flow of Magic, each time it makes a Psychic Attack, add 1 to the Wound roll instead.</description>
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditionGroups>

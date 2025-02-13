@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="3bdf-a114-5035-c6ac" name="Xenos - Genestealer Cults" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="50" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="3bdf-a114-5035-c6ac" name="Xenos - Genestealer Cults" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="62" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="false" name="Detachment" hidden="false" id="b96c-3fb6-1ee9-15ae">
       <constraints>
@@ -161,7 +161,11 @@
         <categoryLink targetId="7850-cc5a-c191-b80d" id="f63e-8fea-b26f-7f1" primary="false" name="Great Devourer"/>
       </categoryLinks>
       <costs>
-        <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
       </costs>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="ce3c-3b3b-f90d-e13" includeChildSelections="true" includeChildForces="true"/>
@@ -277,7 +281,11 @@
       <selectionEntries>
         <selectionEntry type="model" import="true" name="Achilles Ridgerunner" hidden="false" id="71c2-cc66-9aac-181e">
           <costs>
-            <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
           </costs>
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="e4c1-ec8a-3788-80fb" includeChildSelections="true"/>
@@ -573,20 +581,18 @@
                 </selectionEntry>
               </selectionEntries>
             </selectionEntryGroup>
-            <selectionEntryGroup name="Pistol Option" hidden="false" id="ee48-e27f-cc26-fc8b" defaultSelectionEntryId="dd53-5a8a-ada9-65cd">
-              <entryLinks>
-                <entryLink import="true" name="Autopistol" hidden="false" type="selectionEntry" id="dd53-5a8a-ada9-65cd" targetId="d9a7-25e0-3ab8-efad"/>
-                <entryLink import="true" name="Hand Flamer" hidden="false" type="selectionEntry" id="1bb8-6da5-3140-8020" targetId="e455-c2e1-698f-7a8"/>
-              </entryLinks>
-              <constraints>
-                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b41b-d9c2-c534-14ae"/>
-                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6eaf-39c7-ccd-bdb6"/>
-              </constraints>
-            </selectionEntryGroup>
           </selectionEntryGroups>
           <infoLinks>
             <infoLink targetId="346a-8364-5e27-ffbd" id="365e-21b7-2378-32a" type="profile" name="Acolyte Hybrid" hidden="false"/>
           </infoLinks>
+          <entryLinks>
+            <entryLink import="true" name="Hand Flamer" hidden="false" id="1bb8-6da5-3140-8020" type="selectionEntry" targetId="e455-c2e1-698f-7a8">
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b41b-d9c2-c534-14ae"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6eaf-39c7-ccd-bdb6"/>
+              </constraints>
+            </entryLink>
+          </entryLinks>
         </selectionEntry>
       </selectionEntries>
       <selectionEntryGroups>
@@ -628,7 +634,7 @@
                   <profiles>
                     <profile name="Demolition Charge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="8429-4679-97cf-4b05">
                       <characteristics>
-                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
+                        <characteristic name="Range" typeId="9896-9419-16a1-92fc">8&quot;</characteristic>
                         <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
                         <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
                         <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
@@ -821,7 +827,7 @@
           <modifiers>
             <modifier type="increment" value="1" field="f747-cb13-c7c9-f53a">
               <conditions>
-                <condition type="equalTo" value="8" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" includeChildSelections="true"/>
+                <condition type="atLeast" value="8" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" includeChildSelections="true"/>
               </conditions>
             </modifier>
           </modifiers>
@@ -931,32 +937,27 @@
                 </profile>
               </profiles>
               <constraints>
-                <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="3819-465f-f0a1-9644"/>
+                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="3819-465f-f0a1-9644"/>
               </constraints>
-              <selectionEntryGroups>
-                <selectionEntryGroup name="Melee Choice" hidden="false" id="dd69-c447-2c20-dff3" defaultSelectionEntryId="5c5a-d00e-8e18-6154">
-                  <constraints>
-                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fa61-ca29-5f1f-969b"/>
-                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="42a2-b62-e709-79a2"/>
-                  </constraints>
-                  <entryLinks>
-                    <entryLink targetId="595a-e1c5-7280-6da3" id="bb98-1-cf7e-c2df" type="selectionEntry" name="Atalan Power Weapon" hidden="false" collective="false"/>
-                    <entryLink targetId="431d-a26e-89f8-bf06" id="5c5a-d00e-8e18-6154" type="selectionEntry" name="Close Combat Weapon" hidden="false" collective="false"/>
-                  </entryLinks>
-                </selectionEntryGroup>
-              </selectionEntryGroups>
-              <modifiers>
-                <modifier type="increment" value="1" field="3819-465f-f0a1-9644">
-                  <repeats>
-                    <repeat value="4" repeats="1" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" roundUp="false" id="54ac-699-1242-4b69" includeChildSelections="true"/>
-                  </repeats>
-                </modifier>
-              </modifiers>
               <entryLinks>
                 <entryLink import="true" name="Grenade Launcher" hidden="false" type="selectionEntry" id="ad32-587a-4f40-d461" targetId="dba3-6506-4103-2088" collective="false">
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="7dac-fa50-1336-3db2" includeChildSelections="true"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6e3d-5efe-b45e-b395" includeChildSelections="true"/>
+                    <constraint type="max" value="1" field="selections" scope="unit" shared="true" id="e425-482c-6e1b-e62a" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="set" value="2" field="e425-482c-6e1b-e62a">
+                      <conditions>
+                        <condition type="atLeast" value="8" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+                <entryLink import="true" name="Close Combat Weapon" hidden="false" id="5c5a-d00e-8e18-6154" targetId="431d-a26e-89f8-bf06" type="selectionEntry" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="93cd-58ed-cb34-6789"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="f805-4283-5d3f-4a40"/>
                   </constraints>
                 </entryLink>
               </entryLinks>
@@ -983,6 +984,10 @@
                 </entryLink>
                 <entryLink targetId="17cd-6ea6-d3e9-c53c" id="250e-bd99-8e6e-e58a" type="selectionEntry" name="Atalan Small Arms" hidden="false" collective="true"/>
               </entryLinks>
+              <constraints>
+                <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="fae7-de6d-bddb-28bf" includeChildSelections="false"/>
+                <constraint type="max" value="8" field="selections" scope="parent" shared="true" id="7bea-bcd8-7a0f-4f8d" includeChildSelections="false"/>
+              </constraints>
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Atalan Jackal w/ Atalan Power Weapon" hidden="false" id="e824-edab-18c6-3347">
               <profiles>
@@ -1003,19 +1008,67 @@
                   <constraints>
                     <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="ded7-3d3-abc1-7d5a"/>
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1050-3efd-60fe-52ab"/>
+                    <constraint type="max" value="2" field="selections" scope="unit" shared="true" id="54dc-43f2-3586-9997" includeChildSelections="true"/>
                   </constraints>
+                  <modifiers>
+                    <modifier type="set" value="4" field="54dc-43f2-3586-9997">
+                      <conditions>
+                        <condition type="atLeast" value="8" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
                 </entryLink>
               </entryLinks>
               <constraints>
-                <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="91ad-aa62-da0a-ef1f"/>
+                <constraint type="max" value="4" field="selections" scope="parent" shared="true" id="91ad-aa62-da0a-ef1f"/>
               </constraints>
-              <modifiers>
-                <modifier type="increment" value="2" field="91ad-aa62-da0a-ef1f">
-                  <repeats>
-                    <repeat value="4" repeats="1" field="selections" scope="parent" childId="model" shared="true" roundUp="false" includeChildSelections="true" includeChildForces="true"/>
-                  </repeats>
-                </modifier>
-              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="model" import="true" name="Atalan Jackal w/ Grenade Launcher &amp; Power Weapon" hidden="false" id="8c22-aa37-99f0-8e69">
+              <profiles>
+                <profile name="Atalan Jackal" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3627-57b3-f46b-2c63">
+                  <characteristics>
+                    <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
+                    <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">4</characteristic>
+                    <characteristic name="SV" typeId="450-a17e-9d5e-29da">5+</characteristic>
+                    <characteristic name="W" typeId="750a-a2ec-90d3-21fe">2</characteristic>
+                    <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+                    <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <constraints>
+                <constraint type="max" value="2" field="selections" scope="parent" shared="true" id="10eb-5293-6d99-35d4"/>
+              </constraints>
+              <entryLinks>
+                <entryLink import="true" name="Grenade Launcher" hidden="false" type="selectionEntry" id="5c16-3ee6-3bcc-f1db" targetId="dba3-6506-4103-2088" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0d67-a3b6-2133-e87c" includeChildSelections="true"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4e9f-0974-7f4a-3ce7" includeChildSelections="true"/>
+                    <constraint type="max" value="1" field="selections" scope="unit" shared="true" id="33c2-8a09-8d68-3432" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="set" value="2" field="33c2-8a09-8d68-3432">
+                      <conditions>
+                        <condition type="atLeast" value="8" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+                <entryLink import="true" name="Atalan Power Weapon" hidden="false" id="6d4f-32f7-d589-ce35" targetId="595a-e1c5-7280-6da3" type="selectionEntry" collective="false">
+                  <constraints>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6276-7799-6a9a-db29"/>
+                    <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="73aa-4531-486f-0904"/>
+                    <constraint type="max" value="2" field="selections" scope="unit" shared="true" id="fe5d-413b-7f3b-e24f" includeChildSelections="true"/>
+                  </constraints>
+                  <modifiers>
+                    <modifier type="set" value="4" field="fe5d-413b-7f3b-e24f">
+                      <conditions>
+                        <condition type="atLeast" value="8" field="selections" scope="3a81-2b84-bf4c-4f85" childId="5742-90b0-3164-cb74" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </entryLink>
+              </entryLinks>
             </selectionEntry>
           </selectionEntries>
           <constraints>
@@ -1124,7 +1177,7 @@
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Alchemicus Familiar" hidden="false" id="2302-2c37-c52e-ad0a">
           <constraints>
-            <constraint type="min" value="0" field="selections" scope="parent" shared="true" id="6939-83dc-3f7c-b1c5"/>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="6939-83dc-3f7c-b1c5"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="66a6-f9da-4db4-d2ad"/>
           </constraints>
           <profiles>
@@ -1134,13 +1187,6 @@
               </characteristics>
             </profile>
           </profiles>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </selectionEntry>
       </selectionEntries>
       <infoLinks>
@@ -1659,7 +1705,6 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an enemy unit is selected to shoot, after that unit has shot, if any models from this unit were destroyed as a result of those attacks, this unit can make a Brood Surge move. To do so, roll one D6: this unit can be moved a number of inches up to the result, but it must end that move as close as possible to the closest enemy unit (excluding AIRCRAFT). When doing so those models can be within Engagement Range of that enemy unit.
 
-
 If, at the start of the battle, no model in this unit is equipped with a hand flamer, each time this unit makes a Brood Surge move, it can be moved up to 6&quot; instead of up to D6&quot;. A unit cannot make a Brood Surge move while it is Battle-shocked.</characteristic>
           </characteristics>
         </profile>
@@ -1828,7 +1873,7 @@ If, at the start of the battle, no model in this unit is equipped with a hand fl
       <profiles>
         <profile name="Hypersensory Abilities" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f872-566b-d324-828f">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your opponent&apos;s Movement phase, when an enemy unit ends a Normal, Advance, or Fall Back move within 12&quot; of this model, if this unit is not within Engagement Range of one or more enemy units, it can shoot at that unit as if it were your Shooting phase, and then make a Normal move of up to D6&quot; (it cannot embark within a TRANSPORT as part of this move)</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per turn, in your opponent&apos;s Movement phase, when an enemy unit ends a Normal, Advance, or Fall Back move within 9&quot; of this model, if this unit is not within Engagement Range of one or more enemy units, it can shoot at that unit as if it were your Shooting phase, and then make a Normal move of up to D6&quot; (it cannot embark within a TRANSPORT as part of this move)</characteristic>
           </characteristics>
         </profile>
         <profile name="Heroic Fusillade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="38a1-4506-e19e-bdf7">
@@ -2556,13 +2601,6 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
           <characteristics>
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or and of any turn.</characteristic>
           </characteristics>
-          <modifiers>
-            <modifier type="set" value="true" field="hidden">
-              <conditions>
-                <condition type="atLeast" value="1" field="selections" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true"/>
-              </conditions>
-            </modifier>
-          </modifiers>
         </profile>
       </profiles>
     </selectionEntry>
@@ -2593,7 +2631,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
         </profile>
         <profile name="Battlefield Analysis" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="968c-f493-12fa-f01e">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, when you target the bearer&apos;s unit with a Stratagem, reduce the CP cost of that usage of that Stratagem by 1 ( to a maximum of 0CP).</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per battle round, one model from your army with this ability can use it when its unit is targeted with a Stratagem. If it does, reduce the CP cost of that use of that Stratagem by 1CP.</characteristic>
           </characteristics>
         </profile>
         <profile name="Cult Infiltration" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7d54-f68a-b935-acd3">
@@ -3073,7 +3111,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
           <profiles>
             <profile name="Demolition Charge" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="590e-793b-1fd6-1c03">
               <characteristics>
-                <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
+                <characteristic name="Range" typeId="9896-9419-16a1-92fc">8&quot;</characteristic>
                 <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
                 <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
@@ -3385,7 +3423,6 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
       <infoLinks>
         <infoLink name="Pistol" hidden="false" type="rule" id="10e8-5547-7ac9-d492" targetId="8bf7-8812-923d-29e4"/>
       </infoLinks>
-      <comment>C</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Hand Flamer" hidden="false" id="2847-d130-817-7064" collective="true">
       <profiles>
@@ -3406,7 +3443,6 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
         <infoLink name="Torrent" hidden="false" type="rule" id="ea56-dbf2-44bf-2f3b" targetId="5edf-d619-23e0-9b56"/>
         <infoLink name="Pistol" hidden="false" type="rule" id="7128-f9fd-ee13-7672" targetId="8bf7-8812-923d-29e4"/>
       </infoLinks>
-      <comment>C</comment>
     </selectionEntry>
     <selectionEntry type="upgrade" import="true" name="Warlord" hidden="false" id="2665-129e-3c44-1270">
       <categoryLinks>
@@ -3473,7 +3509,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
       <profiles>
         <profile name="Demolition Charge Cache" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="dd61-527c-40a8-2d57">
           <characteristics>
-            <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
+            <characteristic name="Range" typeId="9896-9419-16a1-92fc">8&quot;</characteristic>
             <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6</characteristic>
             <characteristic name="BS" typeId="94d-8a98-cf90-183e">5+</characteristic>
             <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
@@ -3549,7 +3585,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
       <profiles>
         <profile name="Cult Icon" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="22c6-be05-5fd4-ebc8">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Command phase, you can return up to 3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to D3+3 destroyed models to that unit instead. This ability cannot be used to return destroyed CHARACTER models in Attached units and any [ONE SHOT] weapons equipped with by returned models that were shot before they were destroyed are still considered to have been shot.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In the Command phase, you can return up to D3 destroyed models to the bearer’s unit. If the bearer’s unit is within range of an objective marker you control, you can return up to 3 destroyed models to that unit instead. This ability cannot be used to return destroyed CHARACTER models in Attached units and any [ONE SHOT] weapons equipped with by returned models that were shot before they were destroyed are still considered to have been shot.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -4126,6 +4162,430 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
           </characteristics>
         </profile>
       </profiles>
+    </selectionEntry>
+    <selectionEntry type="model" import="true" name="Winged Hive Tyrant" hidden="false" id="ddd1-2233-dcb1-df74" collective="false">
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="25a0-8717-0896-0316" percentValue="false" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Winged Hive Tyrant" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="152c-c407-a9e2-0e40">
+          <characteristics>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">9</characteristic>
+            <characteristic name="SV" typeId="450-a17e-9d5e-29da">2+</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">10</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">3</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Paroxysm (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="09a6-1369-63c5-b783">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, you can select one enemy unit within 12&quot; of and visible to this model and roll one D6: on a 1, this Psyker suffers D3 mortal wounds; on a 2+, until the end of the phase, subtract 1 from the Attacks characteristic of weapons equipped by models in that unit.</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Deadly Demise" id="bffb-a431-920b-9553" hidden="false" targetId="b68a-5ded-65ac-98c" type="rule">
+          <modifiers>
+            <modifier type="append" value="D3" field="name"/>
+          </modifiers>
+        </infoLink>
+        <infoLink name="Deep Strike" id="cf43-1283-f925-3d06" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule"/>
+        <infoLink name="Invulnerable Save (4+)" id="2f8d-2ac6-d88d-09e6" hidden="false" targetId="a2fa-ebfd-7b32-9a75" type="profile"/>
+        <infoLink name="Shadow in the Warp" id="8f46-0dc9-0397-efb0" hidden="false" type="rule" targetId="395b-a159-b293-27aa"/>
+        <infoLink name="Synapse" id="00ad-29d6-71b6-302b" hidden="false" type="rule" targetId="86aa-437f-260b-5cad"/>
+        <infoLink name="Will of the Hive Mind" id="eb02-a52c-3431-c626" hidden="false" type="profile" targetId="13-98c1-d481-eb95"/>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Monster" hidden="false" id="e487-8c0b-8dda-995d" targetId="9693-cf84-fe69-37a9" primary="false"/>
+        <categoryLink name="Character" hidden="false" id="041f-79f8-e636-d683" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
+        <categoryLink name="Psyker" hidden="false" id="3da1-f295-76e5-c2fe" targetId="13bf-2bee-3ae0-b414" primary="false"/>
+        <categoryLink name="Winged Hive Tyrant" hidden="false" id="be05-f691-8db0-02f3" targetId="4f10-fe01-4b80-8d6b" primary="false"/>
+        <categoryLink name="Faction: Tyranids" hidden="false" id="575e-cf75-3d38-7a2b" targetId="d1d8-6ae0-1be7-e9e" primary="false"/>
+        <categoryLink name="Great Devourer" hidden="false" id="ca4e-23b4-4384-f49a" targetId="7850-cc5a-c191-b80d" primary="false"/>
+        <categoryLink name="Fly" hidden="false" id="3deb-ead6-20d6-1784" targetId="c619-2086-bbcf-69c9" primary="false"/>
+        <categoryLink name="Synapse" hidden="false" id="1a65-b55b-813a-b07d" targetId="4129-a453-686a-d38a" primary="false"/>
+        <categoryLink name="Vanguard Invader" hidden="false" id="83c7-743e-5cf1-7e03" targetId="5ff0-d52d-e2b8-9de" primary="false"/>
+        <categoryLink name="Hive Tyrant" hidden="false" id="4c47-db52-d14b-a66b" targetId="101a-751-2ee4-c46e" primary="false"/>
+      </categoryLinks>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Winged Hive Tyrant Equipment" id="c9c5-ab45-74e8-df06" hidden="false" collective="false" import="true" defaultSelectionEntryId="777b-826-ebd3-6a1a">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="b6c6-fde2-88e8-5b38" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="15c2-03e2-e8ee-f80b" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+          </constraints>
+          <entryLinks>
+            <entryLink import="true" name="Stranglethorn Cannon" hidden="false" id="87f9-8573-306a-9d73" collective="false" targetId="b9ec-cb81-44f6-49" type="selectionEntry">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="16e2-b4aa-ac2a-df9a" includeChildSelections="true"/>
+              </constraints>
+              <modifiers>
+                <modifier type="set" value="0" field="16e2-b4aa-ac2a-df9a">
+                  <conditions>
+                    <condition type="greaterThan" value="0" field="selections" scope="parent" childId="1504-4096-b992-65c3" shared="true" includeChildSelections="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </entryLink>
+            <entryLink import="true" name="Heavy Venom Cannon" hidden="false" id="b98e-a02c-0189-b4a6" collective="false" targetId="1504-4096-b992-65c3" type="selectionEntry"/>
+          </entryLinks>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Monstrous Scything Talons" hidden="false" id="34f6-9d33-4706-6a2f" collective="false">
+              <profiles>
+                <profile name="Monstrous Scything Talons" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0298-5fc3-b631-1fdf">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks</characteristic>
+                  </characteristics>
+                  <modifierGroups>
+                    <modifierGroup type="and">
+                      <modifiers>
+                        <modifier type="increment" value="1" field="ab33-d393-96ce-ccba">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                          </conditions>
+                        </modifier>
+                        <modifier type="decrement" value="1" field="41a0-1301-112a-e2f2">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                          </conditions>
+                        </modifier>
+                        <modifier type="append" value="Vanguard Tyrant" field="annotation" join=", ">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                          </conditions>
+                        </modifier>
+                      </modifiers>
+                    </modifierGroup>
+                  </modifierGroups>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Extra Attacks" id="706f-77a2-c3d3-e2fe" hidden="false" targetId="115b-79dc-f723-d761" type="rule"/>
+              </infoLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Monstrous Bonesword and Lash Whip" hidden="false" id="ebc7-b627-626d-b1c8" collective="false">
+              <constraints>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7dfc-5c54-56da-cc11" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+              </constraints>
+              <profiles>
+                <profile name="Monstrous bonesword and lash whip" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="2b42-8772-6f7d-c108">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Twin-linked</characteristic>
+                  </characteristics>
+                  <modifierGroups>
+                    <modifierGroup type="and">
+                      <modifiers>
+                        <modifier type="increment" value="1" field="ab33-d393-96ce-ccba">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                          </conditions>
+                        </modifier>
+                        <modifier type="decrement" value="1" field="41a0-1301-112a-e2f2">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                          </conditions>
+                        </modifier>
+                        <modifier type="append" value="Vanguard Tyrant" field="annotation" join=", ">
+                          <conditions>
+                            <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                          </conditions>
+                        </modifier>
+                      </modifiers>
+                    </modifierGroup>
+                  </modifierGroups>
+                </profile>
+              </profiles>
+              <infoLinks>
+                <infoLink name="Twin-linked" id="d8cc-2bce-05cc-b6a2" hidden="false" targetId="cf93-ad4d-2f08-a79d" type="rule"/>
+              </infoLinks>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
+      <entryLinks>
+        <entryLink import="true" name="Enhancements" hidden="false" id="441d-b1d0-ed2e-6271" type="selectionEntryGroup" targetId="fb5-9606-c45e-bcdb"/>
+      </entryLinks>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="200"/>
+      </costs>
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Tyrant talons" hidden="false" id="2f11-c2ae-529a-2132">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="dcce-6027-4c00-2cda"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2c72-5ef0-58b8-9cd1"/>
+          </constraints>
+          <profiles>
+            <profile name="Tyrant talons" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="4365-5f3e-df79-68fb">
+              <characteristics>
+                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+              </characteristics>
+              <modifierGroups>
+                <modifierGroup type="and">
+                  <modifiers>
+                    <modifier type="increment" value="1" field="ab33-d393-96ce-ccba">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                    <modifier type="decrement" value="1" field="41a0-1301-112a-e2f2">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                    <modifier type="append" value="Vanguard Tyrant" field="annotation" join=", ">
+                      <conditions>
+                        <condition type="atLeast" value="1" field="selections" scope="model" childId="9a17-3f82-3890-5576" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </modifier>
+                  </modifiers>
+                </modifierGroup>
+              </modifierGroups>
+            </profile>
+          </profiles>
+        </selectionEntry>
+      </selectionEntries>
+      <comment>GSC character variant</comment>
+    </selectionEntry>
+    <selectionEntry type="model" import="true" name="Winged Tyranid Prime" hidden="false" id="5d7b-4bf1-0825-097c" collective="false">
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="433e-1112-6e2b-ad64" percentValue="false" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <profiles>
+        <profile name="Alpha Warrior" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5f5b-81ed-a045-26bc">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Death Blow" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5b51-6d98-00fe-7b8f">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 4+, do not remove it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Winged Tyranid Prime" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="c2a0-c67b-34d9-6413">
+          <characteristics>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+            <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">6</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <infoLinks>
+        <infoLink name="Deep Strike" id="bde4-5af9-cecf-6f55" hidden="false" targetId="7cb5-dd6b-dd87-ad3b" type="rule">
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </infoLink>
+        <infoLink name="Synapse" id="c147-e23a-cdcf-48d8" hidden="false" type="rule" targetId="86aa-437f-260b-5cad"/>
+        <infoLink name="Shadow in the Warp" id="cb8a-21f7-01d3-8a83" hidden="false" type="rule" targetId="395b-a159-b293-27aa"/>
+        <infoLink name="Invulnerable Save (5+)" id="bfc0-2df7-e553-6be7" hidden="true" type="profile" targetId="57fe-61a-b993-2db0">
+          <modifiers>
+            <modifier type="set" value="false" field="hidden">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="7416-b7cc-fdbf-5bf0" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </infoLink>
+      </infoLinks>
+      <categoryLinks>
+        <categoryLink name="Winged Tyranid Prime" hidden="false" id="62c1-8419-1ea0-bba8" targetId="d5b9-2986-70fe-f755" primary="false"/>
+        <categoryLink name="Character" hidden="false" id="5eae-6c75-0a74-63e7" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
+        <categoryLink name="Infantry" hidden="false" id="7671-cb7b-e1c7-1bd8" targetId="cf47-a0d7-7207-29dc" primary="false"/>
+        <categoryLink name="Fly" hidden="false" id="52b3-7eee-5a79-46f9" targetId="c619-2086-bbcf-69c9" primary="false"/>
+        <categoryLink name="Great Devourer" hidden="false" id="9c87-b9ac-c910-f23c" targetId="7850-cc5a-c191-b80d" primary="false"/>
+        <categoryLink name="Faction: Tyranids" hidden="false" id="b65a-1b1b-8f26-454e" targetId="d1d8-6ae0-1be7-e9e" primary="false"/>
+        <categoryLink name="Synapse" hidden="false" id="caab-fa5a-9fa6-6897" targetId="4129-a453-686a-d38a" primary="false"/>
+        <categoryLink name="Vanguard Invader" hidden="false" id="f257-3158-4500-6ca5" targetId="5ff0-d52d-e2b8-9de" primary="false"/>
+      </categoryLinks>
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Prime Talons" hidden="false" id="87b4-7080-32a6-d4aa" collective="false">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="21e3-f6aa-f673-2e8b" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="6162-b179-f2fa-d2f2" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+          </constraints>
+          <profiles>
+            <profile name="Prime Talons" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="c55a-5bc2-5e0d-5846">
+              <characteristics>
+                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+          </costs>
+        </selectionEntry>
+      </selectionEntries>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
+      </costs>
+      <entryLinks>
+        <entryLink import="true" name="Enhancements" hidden="false" id="8c3d-1106-c692-e3f0" type="selectionEntryGroup" targetId="fb5-9606-c45e-bcdb"/>
+      </entryLinks>
+      <infoGroups>
+        <infoGroup name="Leader" id="a064-b011-8317-b438" hidden="false">
+          <profiles>
+            <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a719-6e45-e5e9-6f85">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can be attached to the following units:
+- GARGOYLES
+- TYRANID WARRIORS WITH MELEE BIO-WEAPONS
+- TYRANID WARRIORS WITH RANGED BIO-WEAPONS</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <infoLinks>
+            <infoLink name="Leader" id="bc5a-e075-1cd0-2551" hidden="false" type="rule" targetId="b4dd-3e1f-41cb-218f"/>
+          </infoLinks>
+        </infoGroup>
+      </infoGroups>
+      <modifierGroups>
+        <modifierGroup type="and">
+          <modifiers>
+            <modifier type="set" value="1" field="433e-1112-6e2b-ad64">
+              <conditions>
+                <condition type="atLeast" value="1" field="selections" scope="roster" childId="1d6e-2579-8e7f-1ed4" shared="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </modifierGroup>
+      </modifierGroups>
+      <comment>GSC character variant</comment>
+    </selectionEntry>
+    <selectionEntry type="model" import="true" name="Parasite of Mortrex" hidden="false" id="ee14-d5b6-2248-f6f3">
+      <categoryLinks>
+        <categoryLink name="Parasite of Mortrex" hidden="false" id="5207-0c72-d44b-1a0b" targetId="6646-3625-4f52-f47c" primary="false"/>
+        <categoryLink name="Character" hidden="false" id="249c-355c-8633-e4c7" targetId="9cfd-1c32-585f-7d5c" primary="true"/>
+        <categoryLink name="Fly" hidden="false" id="7f31-ff26-25e8-3aa0" targetId="c619-2086-bbcf-69c9" primary="false"/>
+        <categoryLink name="Great Devourer" hidden="false" id="93ed-477f-1aa0-6385" targetId="7850-cc5a-c191-b80d" primary="false"/>
+        <categoryLink name="Infantry" hidden="false" id="c2c5-e115-940e-6ca5" targetId="cf47-a0d7-7207-29dc" primary="false"/>
+        <categoryLink name="Faction: Tyranids" hidden="false" id="2236-b628-51c2-f7fe" targetId="d1d8-6ae0-1be7-e9e" primary="false"/>
+        <categoryLink name="Vanguard Invader" hidden="false" id="3a9b-d9f3-0941-659e" targetId="5ff0-d52d-e2b8-9de" primary="false"/>
+        <categoryLink name="Synapse" hidden="false" id="7bcd-17bd-59e9-32a0" targetId="4129-a453-686a-d38a" primary="false"/>
+      </categoryLinks>
+      <profiles>
+        <profile name="Parasitic Infection" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8a17-f780-6bab-11e0">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an INFANTRY model is destroyed by an attack made with this model’s barbed ovipositor, after this model has finished making its attacks, you can add one new RIPPER SWARMS unit to your army consisting of D3 models and set it up within 3&quot; of this model. If you do, that RIPPER SWARMS unit can be set up within Engagement Range of the destroyed model’s unit (but not within Engagement Range of any other enemy units).</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="It Itches!" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7e65-3ee4-96b2-a423">
+          <characteristics>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the Fight phase, select one enemy unit within Engagement Range of this model. That enemy unit must take a Battle-shock test.</characteristic>
+          </characteristics>
+        </profile>
+        <profile name="Parasite of Mortrex" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="4f98-76a0-f597-a652">
+          <characteristics>
+            <characteristic name="M" typeId="e703-ecb6-5ce7-aec1">12&quot;</characteristic>
+            <characteristic name="T" typeId="d29d-cf75-fc2d-34a4">5</characteristic>
+            <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
+            <characteristic name="W" typeId="750a-a2ec-90d3-21fe">5</characteristic>
+            <characteristic name="LD" typeId="58d2-b879-49c7-43bc">8+</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+          </characteristics>
+        </profile>
+      </profiles>
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Barbed Ovipositor" hidden="false" id="31bc-9c52-c7d3-7ba8">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="0aa9-bf2a-caca-4074" includeChildSelections="true"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ddf1-74da-145b-492c" includeChildSelections="true"/>
+          </constraints>
+          <infoLinks>
+            <infoLink name="Extra Attacks" id="949d-56fd-3dd7-8529" hidden="false" type="rule" targetId="115b-79dc-f723-d761"/>
+            <infoLink name="Anti-" id="067b-9ee5-3eff-52f5" hidden="false" type="rule" targetId="4111-82e3-9444-e942">
+              <modifiers>
+                <modifier type="append" value="infantry 3+" field="name"/>
+              </modifiers>
+            </infoLink>
+          </infoLinks>
+          <profiles>
+            <profile name="Barbed Ovipositor" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="3718-bb65-4f38-4041">
+              <characteristics>
+                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">3</characteristic>
+                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">3</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Anti-infantry 3+, Extra Attacks</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Clawed Limbs" hidden="false" id="e687-c806-01ef-bddf">
+          <profiles>
+            <profile name="Clawed Limbs" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="b5ba-d435-0890-5099">
+              <characteristics>
+                <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2+</characteristic>
+                <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="4dd7-b818-46bf-b079" includeChildSelections="true"/>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="5fea-a622-b3e1-b1aa" includeChildSelections="true"/>
+          </constraints>
+        </selectionEntry>
+      </selectionEntries>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
+      </costs>
+      <infoLinks>
+        <infoLink name="Deep Strike" id="b085-b721-8556-6292" hidden="false" type="rule" targetId="7cb5-dd6b-dd87-ad3b"/>
+        <infoLink name="Lone Operative" id="38ff-d899-2209-e03b" hidden="false" type="rule" targetId="a8a0-8fe7-898-e0f3"/>
+        <infoLink name="Stealth" id="81ab-898d-a0b9-deca" hidden="false" type="rule" targetId="bec5-4288-34a6-ccfa"/>
+        <infoLink name="Synapse" id="ab97-a711-1273-e3e5" hidden="false" type="rule" targetId="86aa-437f-260b-5cad"/>
+        <infoLink name="Shadow in the Warp" id="79ec-c4db-9d95-5fa7" hidden="false" type="rule" targetId="395b-a159-b293-27aa"/>
+      </infoLinks>
+      <entryLinks>
+        <entryLink import="true" name="Enhancements" hidden="false" id="8b9c-7a59-23ab-90d1" type="selectionEntryGroup" targetId="fb5-9606-c45e-bcdb"/>
+      </entryLinks>
+      <constraints>
+        <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="0869-d381-1b9f-bf9f" includeChildSelections="true" includeChildForces="true"/>
+      </constraints>
+      <comment>GSC character variant</comment>
     </selectionEntry>
   </sharedSelectionEntries>
   <entryLinks>
@@ -5124,7 +5584,11 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
         </modifier>
       </modifiers>
     </entryLink>
-    <entryLink import="true" name="Show/Hide Options" hidden="false" type="selectionEntry" id="fab-583a-af-46f7" targetId="e8ef-836a-a9d1-901d"/>
+    <entryLink import="true" name="Show/Hide Options" hidden="false" type="selectionEntry" id="fab-583a-af-46f7" targetId="e8ef-836a-a9d1-901d">
+      <categoryLinks>
+        <categoryLink name="Configuration" hidden="false" id="d278-ad8b-493e-31b6" targetId="4ac9-fd30-1e3d-b249" primary="true"/>
+      </categoryLinks>
+    </entryLink>
     <entryLink import="true" name="Gorgon Heavy Transport [Legends]" hidden="false" type="selectionEntry" id="b691-ac32-3768-769d" targetId="5d8e-2b2a-6ed1-8309">
       <modifiers>
         <modifier type="set" value="true" field="hidden">
@@ -5553,11 +6017,6 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
       <modifiers>
         <modifier type="set" value="true" field="hidden">
           <conditions>
-            <condition type="lessThan" value="1" field="selections" scope="roster" childId="0a59-1d64-257c-04fb" shared="true" includeChildForces="true"/>
-          </conditions>
-        </modifier>
-        <modifier type="set" value="true" field="hidden">
-          <conditions>
             <condition type="equalTo" value="0" field="selections" scope="roster" childId="0a59-1d64-257c-04fb" shared="true" includeChildForces="true" includeChildSelections="true"/>
           </conditions>
         </modifier>
@@ -5565,10 +6024,119 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
     </entryLink>
     <entryLink import="true" name="Benefictus" hidden="false" id="dabe-b258-691d-9855" type="selectionEntry" targetId="908a-9fd8-2270-8dbd"/>
     <entryLink import="true" name="Acolyte Hybrids with Autopistols" hidden="false" id="1ad4-c21c-1bea-1028" type="selectionEntry" targetId="04cc-6196-1755-ad58"/>
+    <entryLink import="true" name="Von Ryan&apos;s Leapers" hidden="false" id="380f-9b52-6d93-eb4b" type="selectionEntry" targetId="9bd8-ac8c-2d3b-79f6">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Lictor" hidden="false" id="3e7b-8a2e-faea-6dff" type="selectionEntry" targetId="da44-72c9-7a27-48aa">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Winged Tyranid Prime" hidden="false" id="d2dd-cc52-0ced-3b78" type="selectionEntry" targetId="5d7b-4bf1-0825-097c">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Winged Hive Tyrant" hidden="false" id="d596-0c20-bcb5-5973" type="selectionEntry" targetId="ddd1-2233-dcb1-df74">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Gargoyles" hidden="false" id="b50d-3a18-7e4d-9444" type="selectionEntry" targetId="9ce8-7a63-15c3-0347">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Deathleaper" hidden="false" id="b6d5-1658-b3f7-84fd" type="selectionEntry" targetId="bc36-92fe-ecc6-58b3">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Mawloc" hidden="false" id="2f29-64be-785c-4eda" type="selectionEntry" targetId="2bbb-d811-15f7-1a81">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Parasite of Mortrex" hidden="false" id="9b2d-ab6f-1d24-dc86" type="selectionEntry" targetId="ee14-d5b6-2248-f6f3">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Tyrannocyte" hidden="false" id="3c10-800d-fffd-baa6" type="selectionEntry" targetId="fada-677a-f6a4-cd12">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Trygon" hidden="false" id="20fc-1b98-dfba-d58c" type="selectionEntry" targetId="56db-d7c-b349-677f">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Raveners" hidden="false" id="4c3f-2336-80a2-0c2b" type="selectionEntry" targetId="3f5-f7d6-1ce8-e6b9">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
+    <entryLink import="true" name="Neurolictor" hidden="false" id="71ea-8f89-1aca-c31c" type="selectionEntry" targetId="642f-9302-4fdc-ab68">
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="lessThan" value="1" field="selections" scope="parent" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </entryLink>
   </entryLinks>
   <catalogueLinks>
     <catalogueLink type="catalogue" name="Imperium - Astra Militarum - Library" id="1931-3c9a-ba46-7c7b" targetId="5a44-f048-114b-e3ff"/>
     <catalogueLink type="catalogue" name="Unaligned Forces" id="4b53-81a-1d51-b85c" targetId="581a-46b9-5b86-44b7" importRootEntries="true"/>
+    <catalogueLink type="catalogue" name="Xenos - Tyranids" id="280e-0f30-94a8-e99a" targetId="b984-7317-81cc-20f"/>
   </catalogueLinks>
   <sharedSelectionEntryGroups>
     <selectionEntryGroup name="Enhancements" hidden="false" id="fb5-9606-c45e-bcdb">
@@ -5576,7 +6144,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="f9c6-4231-f90a-17c8" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
       <selectionEntryGroups>
-        <selectionEntryGroup name="Host of Ascension" id="8644-4181-9c46-52de" hidden="false">
+        <selectionEntryGroup name="Host of Ascension Enhancements" id="8644-4181-9c46-52de" hidden="false">
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="2d9d-6d9b-26b2-6de3" includeChildSelections="false"/>
           </constraints>
@@ -5681,7 +6249,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
             </modifier>
           </modifiers>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Xenocreed Congregation" id="3d18-194e-8902-f9cc" hidden="false">
+        <selectionEntryGroup name="Xenocreed Congregation Enhancements" id="3d18-194e-8902-f9cc" hidden="false">
           <constraints>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="9f76-1b49-07d8-0f1e" includeChildSelections="false"/>
           </constraints>
@@ -5690,7 +6258,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
               <profiles>
                 <profile name="Deeds That Speak to the Masses" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="d3ad-75df-386b-91f7">
                   <characteristics>
-                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">MAGUS, PRIMUS or ACOLYTE ICONWARD model only. Once per turn, when rolling for a BATTLELINE unit for the Cult Ambush army rule, if the bearer is on the battlefield, you can re-roll the result</characteristic>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">MAGUS, PRIMUS or ACOLYTE ICONWARD model only. You start the battle with 2 additional Resurgence points.</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -5795,7 +6363,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
             </modifier>
           </modifiers>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Biosanctic Broodsurge" id="9cd2-6983-ed5f-baeb" hidden="false">
+        <selectionEntryGroup name="Biosanctic Broodsurge Enhancements" id="9cd2-6983-ed5f-baeb" hidden="false">
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -5920,7 +6488,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="a384-0d81-cb79-05fa" includeChildSelections="false"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Outlander Claw" id="1a2b-2a3a-eb6a-96be" hidden="false">
+        <selectionEntryGroup name="Outlander Claw Enhancements" id="1a2b-2a3a-eb6a-96be" hidden="false">
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -6036,7 +6604,7 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="d186-439d-5025-9131" includeChildSelections="false"/>
           </constraints>
         </selectionEntryGroup>
-        <selectionEntryGroup name="Brood Brothers Auxilia" id="b5b7-d84f-b877-74d4" hidden="false">
+        <selectionEntryGroup name="Brood Brothers Auxilia Enhancements" id="b5b7-d84f-b877-74d4" hidden="false">
           <modifiers>
             <modifier type="set" value="true" field="hidden">
               <conditions>
@@ -6146,70 +6714,187 @@ You can attach this model to an ACOLYTE HYBRIDS or NEOPHYTE HYBRID unit, even if
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="053d-ba42-7095-659e" includeChildSelections="false"/>
           </constraints>
         </selectionEntryGroup>
+        <selectionEntryGroup name="Final Day Enhancements" id="e65d-f8c6-de9e-a19d" hidden="false">
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="ecf3-8709-7cd8-244c" includeChildSelections="false"/>
+          </constraints>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Synaptic Auger" hidden="false" id="bd48-bac0-5ea2-74d6">
+              <profiles>
+                <profile name="Synaptic Auger" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="469b-a4ac-5b2e-5fbf">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">TYRANIDS model only. Each time the bearer would regain one or more lost wounds from the Psionic Parasitism Detachment rule, it regains up to twice that number of lost wounds instead.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="d1d8-6ae0-1be7-e9e" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Vanguard Tyrant" hidden="false" id="9a17-3f82-3890-5576">
+              <profiles>
+                <profile name="Vanguard Tyrant" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f3af-b19e-5c33-e4b0">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">WINGED HIVE TYRANT model only. Improve the Strength and Armour Penetration characteristics of melee weapons equipped by the bearer by 1.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="4f10-fe01-4b80-8d6b" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+              </costs>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Inhuman Integration" hidden="false" id="ab88-d94b-3bc8-e572">
+              <profiles>
+                <profile name="Inhuman Integration" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="79a0-1a2e-d00f-b128">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">GENESTEALER CULTS model only. Weapons equipped by models in the bearer’s unit have the [SUSTAINED HITS 1] ability while targeting an enemy unit within 6&quot; of one or more friendly TYRANIDS units.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="226b-cf1e-353a-ae7f" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="20"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Sustained Hits" id="2960-0b33-203e-67db" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Enraptured Damnation" hidden="false" id="69e3-01eb-348d-fb96">
+              <profiles>
+                <profile name="Enraptured Damnation" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9748-5886-70e6-4e25">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">GENESTEALER CULTS model only. Enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer’s unit.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="226b-cf1e-353a-ae7f" shared="true" includeChildSelections="true" includeChildForces="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+              </costs>
+            </selectionEntry>
+          </selectionEntries>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="lessThan" value="1" field="selections" scope="roster" childId="cb2f-554e-1162-75d5" shared="true" includeChildSelections="true" includeChildForces="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntryGroup>
       </selectionEntryGroups>
     </selectionEntryGroup>
-    <selectionEntryGroup name="Detachment" hidden="false" id="7170-c243-d89f-6644">
+    <selectionEntryGroup name="Detachment" hidden="false" id="7170-c243-d89f-6644" defaultSelectionEntryId="none">
       <selectionEntries>
         <selectionEntry type="upgrade" import="true" name="Host of Ascension" hidden="false" id="0a79-5968-68f0-56b5">
-          <profiles>
-            <profile name="A Perfect Ambush" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b026-dcac-d63a-0ddb">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a GENESTEALER CULTS unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
           <infoLinks>
             <infoLink name="Ignores Cover" id="d4eb-1f63-596f-0248" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
             <infoLink name="Sustained Hits" id="6890-0ca1-a2b2-0c1e" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
           </infoLinks>
+          <rules>
+            <rule name="A Perfect Ambush" id="8214-2942-7876-9ce9" hidden="false">
+              <description>Each time a GENESTEALER CULTS unit from your army is set up on the battlefield as Reinforcements, until the end of your next Fight phase, weapons equipped by models in that unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities</description>
+            </rule>
+          </rules>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Xenocreed Congregation" hidden="false" id="536a-b3ea-7597-81bb">
-          <profiles>
-            <profile name="Unquestioning Fanaticism" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2aed-fc3e-57c1-ef01">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">For Each ACOLYTE HYBRIDS, HYBRID METAMORPHS, and NEOPHYTE HYBRID unit from your army, while one or more CHARACTER models  are leading that unit, you can re-roll Advance and Charge rolls made for it. If that CHARACTER model is a MAGUS, PRIMUS, or ACOLYTE ICONWARD, that model has the Feel No Pain 3+ ability while leading that unit.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
           <infoLinks>
             <infoLink name="Feel No Pain" id="625a-19a0-4136-54d7" hidden="false" type="rule" targetId="9bf4-280f-bbe2-6fbb"/>
           </infoLinks>
+          <rules>
+            <rule name="Unquestioning Fanaticism" id="d2bd-ec2b-d13f-7a0f" hidden="false">
+              <description>For Each ACOLYTE HYBRIDS, HYBRID METAMORPHS, and NEOPHYTE HYBRID unit from your army, while one or more CHARACTER models are leading that unit, you can re-roll Advance and Charge rolls made for it. If that CHARACTER model is a MAGUS, PRIMUS, or ACOLYTE ICONWARD, that model has the Feel No Pain 3+ ability while leading that unit.</description>
+            </rule>
+          </rules>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Biosanctic Broodsurge" hidden="false" id="ff11-0fa4-2950-380e">
-          <profiles>
-            <profile name="Hypermorphic Fury" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="34c5-8385-c9d4-676b">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 1 to Charge rolls made for ABERRANTS, BIOPHAGUS and PURESTRAIN GENESTEALERS units from your army. In addition, each time such a unit is selected to fight, if it made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by the models in that unit.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
+          <rules>
+            <rule name="Hypermorphic Fury" id="0a4d-88d1-161e-213b" hidden="false">
+              <description>Add 1 to Charge rolls made for ABERRANTS, BIOPHAGUS and PURESTRAIN GENESTEALERS units from your army. In addition, each time such a unit is selected to fight, if it made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by the models in that unit.</description>
+            </rule>
+          </rules>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Outlander Claw" hidden="false" id="59e2-4fec-2b00-b1e8">
-          <profiles>
-            <profile name="Rapid Takeover" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e81d-8cb6-b0f3-a903">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Double the Objective Control characteristic of GENESTEALER CULTS MOUNTED and GENESTEALER CULTS VEHICLE models from your army. In addition, at the end of your Command phase, if one or more ATALAN JACKALS unit from your army are within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
+          <rules>
+            <rule name="Rapid Takeover" id="55fe-5524-6833-4196" hidden="false">
+              <description>While a GENESTEALER CULTS MOUNTED or GENESTEALER CULTS VEHICLE model from your army is not Battle‑shocked, add 1 to its Objective Control characteristic. In addition, at the end of your Command phase, if one or more ATALAN JACKALS units from your army are within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.</description>
+            </rule>
+          </rules>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Brood Brothers Auxilia" hidden="false" id="0a59-1d64-257c-04fb">
-          <profiles>
-            <profile name="Brood Brothers" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="646f-98bf-a868-9e90">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can include ASTRA MILITARUM units in your army, even though they do not have the GENESTEALER CULTS Faction keyword. The combined points cost of such units you can include in your army is:
+          <rules>
+            <rule name="Brood Brothers" id="fc33-afdd-30e9-47b1" hidden="false">
+              <description>You can include ASTRA MILITARUM units in your army, even though they do not have the GENESTEALER CULTS Faction keyword. The combined points cost of such units you can include in your army is:
 - Incursion: Up to 500 pts
 - Strike Force: Up to 1000 pts
 - Onslaught: Up to 1500 pts
-A GENESTEALER CULTS model must be your Warlord, and ASTRA MILITARUM models from your army lose the Voice of Command ability if they have it. You cannot include units with any of the following keywords in your army using this rule: AIRCRAFT; COMMISAR; EPIC HERO; MILITARUM TEMPESTUS; OGRYN; RATLING; TECH-PRIEST ENGINSEER; MINISTORUM PRIEST.</characteristic>
-              </characteristics>
-            </profile>
-            <profile name="Integrated Tactics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="88b7-0a13-cc9a-9c58">
-              <characteristics>
-                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time an ASTRA MILITARUM unit from your army is selected to shoot, you can select one enemy unit within 18&quot; of and visible to that unit. If you do, until the end of the phase, models in that STRA MILITARUM unit can only target that enemy unit (and only if it is an eligible target) and that enemy unit is caught in overlapping fire. While an enemy unit is caught in overlapping fire, each time a GENESTEALER CULT model from your army targets that enemy unit with a ranged attack, add 1 to the Hit roll.</characteristic>
-              </characteristics>
-            </profile>
-          </profiles>
+A GENESTEALER CULTS model must be your Warlord, and ASTRA MILITARUM models from your army lose the Voice of Command ability if they have it. You cannot include units with any of the following keywords in your army using this rule: AIRCRAFT; COMMISAR; EPIC HERO; MILITARUM TEMPESTUS; OGRYN; RATLING; TECH-PRIEST ENGINSEER; MINISTORUM PRIEST.</description>
+            </rule>
+            <rule name="Integrated Tactics" id="2ac6-4080-aea3-847e" hidden="false">
+              <description>Each time an ASTRA MILITARUM unit from your army is selected to shoot, you can select one enemy unit within 18&quot; of and visible to that unit. If you do, until the end of the phase, models in that STRA MILITARUM unit can only target that enemy unit (and only if it is an eligible target) and that enemy unit is caught in overlapping fire. While an enemy unit is caught in overlapping fire, each time a GENESTEALER CULT model from your army targets that enemy unit with a ranged attack, add 1 to the Hit roll.</description>
+            </rule>
+          </rules>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Final Day" hidden="false" id="cb2f-554e-1162-75d5">
+          <rules>
+            <rule name="The Star Children&apos;s Blessings" id="a351-e932-e0b3-2ed7" hidden="false">
+              <description>You can include TYRANIDS VANGUARD INVADER units (excluding AIRCRAFT, BROODLORD and GENESTEALERS units) in your army. The combined points cost of such units depends on your battle size:
+
+■ Incursion: Up to 500 pts
+■ Strike Force: Up to 1000 pts
+■ Onslaught: Up to 1500 pts
+
+No TYRANIDS models from your army can be your WARLORD.</description>
+            </rule>
+            <rule name="Psionic Parasitism" id="8db4-851f-477e-325e" hidden="false">
+              <description>At the end of your Movement phase, for each TYRANIDS SYNAPSE unit from your army, you can select one friendly GENESTEALER CULTS unit (excluding PURESTRAIN GENESTEALER and PATRIARCH units) and one friendly TYRANIDS unit each within 9&quot; of and visible to that SYNAPSE unit. If you do, that GENESTEALER CULTS unit from your army suffers D3+1 mortal wounds and one model in the selected TYRANIDS unit regains up to that many lost wounds and until the start of your next Movement phase, each time a model in the selected TYRANIDS unit makes an attack, add 1 to the Hit roll.
+
+TYRANIDS units from your army have the following ability:
+
+Catalyst (Aura): While an enemy unit is within 6&quot; of this unit, each time a friendly GENESTEALER CULTS unit makes an attack that targets that enemy unit, add 1 to the Hit roll.</description>
+            </rule>
+          </rules>
         </selectionEntry>
       </selectionEntries>
       <constraints>
@@ -6285,13 +6970,43 @@ A GENESTEALER CULTS model must be your Warlord, and ASTRA MILITARUM models from
   </sharedProfiles>
   <sharedRules>
     <rule name="Cult Ambush" hidden="false" id="8f27-1d49-40ef-b041">
-      <description>If your Army Faction is GENESTEALER CULTS, each time a unit with this ability is destroyed, roll one D6, adding 1 to the result if it is the first or second battle round. On a 5+, add a new unit to your army identical to your destroyed unit, in Cult Ambush, at its Starting Strength and with all of its wounds remaining and any [ONE SHOT] weapons those models are equipped with considered as not having been shot. Then place one Cult Ambush marker* anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy units (if this is not possible, no marker is placed).You can set up that unit on the battlefield using a Cult Ambush marker as described below or, if it has the Deep Strike ability, in the Reinforcements step of one of your Movement phases you can set up that unit anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy units.
+      <description>If your Army Faction is GENESTEALER CULTS, you start the battle with a number of Resurgence points, depending on the battle size, as shown below.
 
+- Incursion: 6 Resurgence points
+- Strike Force: 10 Resurgence points
+- Onslaught: 14 Resurgence points
 
-If an enemy model (excluding Aircraft models) ends any kind of move within 9&quot; of a Cult Ambush marker you placed, that Cult Ambush marker is removed from the battlefield. At the end of the Reinforcements step of your opponent’s next Movement phase, for each of your Cult Ambush markers that is still on the battlefield, you can select one unit from your army that is in Cult Ambush and set that destroyed unit back up on the battlefield using the Deep Strike ability, containing all of its models with their full wounds remaining and with at least one of those models touching that Cult Ambush marker (that Cult Ambush marker is then removed from the battlefield). 
+Each time a unit from your army is destroyed, if every model in that unit has this ability you can spend the relevant number of Resurgence points shown below based on that unit&apos;s Starting Strength.
 
+---Aberrants---
+5 models = 5 Resurgence Points
+10 models = 8 Resurgence Points
 
-CHARACTERS that are attached to a unit with this ability are not returned alongside that unit should it return to the battlefield as described above (only the Bodyguard unit returns).</description>
+---Acolyte Hybrids with Autopistols, Acolyte Hybrids with Hand Flamers, Hybrid Metamorphs---
+5 models = 2 Resurgence Points
+10 models = 4 Resurgence Points
+
+---Atalan Jackals---
+5 models = 3 Resurgence Points
+10 models = 6 Resurgence Points
+
+---Neophyte Hybrids---
+10 models = 3 Resurgence Points
+20 models = 6 Resurgence Points
+
+---Purestrain Genestealers---
+5 models = 3 Resurgence Points
+10 models = 6 Resurgence Points
+
+If you do:
+- Add a new unit to your army identical to your destroyed unit, in Cult Ambush, at its Starting Strength, with all of its wounds remaining and any [ONE SHOT] weapons those models are equipped with considered as not having been shot.
+- Place one Cult Ambush marker (see below) anywhere on the battlefield that is more than 9&quot; horizontally away from all enemy units (if this is not possible, not marker is placed).
+
+UNITS IN CULT AMBUSH
+Cult Ambush is a type of Strategic Reserves. Units in Cult Ambush cannot be targeted with the Rapid Ingress Stratagem, but can be set up on the battlefield using a Cult Ambush marker as described below, or by following the rules for Strategic Reserves in a subsequent turn.
+
+CULT AMBUSH MARKERS
+Use a circular 32mm diameter marker for Cult Ambush markers. If an enemy model (excluding AIRCRAFT) ends any kind of move within 9&quot; of a Cult Ambush marker you placed, that Cult Ambush marker is removed from the battlefield. At the end of the Reinforcements step of your opponent’s next Movement phase, for each of your Cult Ambush markers still on the battlefield, you can select one unit from your army that is in Cult Ambush and set up that unit using that Cult Ambush marker. To do so, set that unit up on the battlefield more than 9&quot; horizontally away from all enemy units, with at least one model in that unit touching that Cult Ambush marker and all other models placed wholly within 3&quot; of that Cult Ambush marker (that Cult Ambush marker is then removed from the battlefield).</description>
     </rule>
     <rule name="New Rule" hidden="false" id="66c5-5a84-d6d8-9e44">
       <modifiers>

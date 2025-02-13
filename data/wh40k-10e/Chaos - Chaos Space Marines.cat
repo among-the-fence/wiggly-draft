@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="c8da-e875-58f7-f6d6" name="Chaos - Chaos Space Marines" revision="77" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="c8da-e875-58f7-f6d6" name="Chaos - Chaos Space Marines" revision="87" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
   <profileTypes>
     <profileType id="3084-68b8-1d20-2f26" name="Marks of Chaos">
       <characteristicTypes>
@@ -690,7 +690,7 @@
         <categoryLink id="d957-b4b5-928-c430" name="Configuration" hidden="false" targetId="4ac9-fd30-1e3d-b249" primary="true"/>
       </categoryLinks>
       <selectionEntryGroups>
-        <selectionEntryGroup id="9fe0-d70e-a220-1c06" name="Detachment" hidden="false" collective="false" import="true">
+        <selectionEntryGroup id="9fe0-d70e-a220-1c06" name="Detachment" hidden="false" collective="false" import="true" defaultSelectionEntryId="none">
           <constraints>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="3db9-1a73-cb6f-f20a" type="min"/>
             <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="9d54-3ff5-bd60-5d93" type="max"/>
@@ -813,6 +813,23 @@ Each time a unit makes a Desperate Pact, it must first take a Leadership test; i
                     <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a HERETIC ASTARTES DAEMON VEHICLE model from your army makes a Dark Pact, it can invoke its contract. If it does, subtract 1 from the resulting Leadership test when making that Dark Pact and, until the end of the phase:
 - Each time a model in that unit makes a ranged attack, add 1 to the Wound roll.
 - Add 2 to the Attacks characteristic of melee weapons equipped by models in that unit.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Creations of Bile" hidden="false" id="1c30-e099-1aca-8708">
+              <profiles>
+                <profile name="Creations of Bile" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e9ae-b921-5895-6ace">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, select which augmentations are active for HERETIC ASTARTES INFANTRY models (excluding DAMNED models) from your army until the end of the battle. To do so, either select one from the list below, or randomly determine two by rolling two D6. If FABIUS BILE is your WARLORD, when randomly determining your augmentations, you can re‑roll one or both of the dice. Duplicated augmentations have no additional effect.
+
+
+1 - **Cholinergic Accelerants:** Add 1 to the Attacks characteristic of melee weapons equipped by this model.
+2 - **Hyperadrenal Infusion:** Add 2&quot; to the Move characteristic of this model.
+3 - **Paraneural Reactions:** Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1.
+4 - **Supracutaneous Chitination:** Improve the Toughness characteristic of this model by 1.
+5 - **Macrotensile Sinews:** Add 1 to the Strength characteristic of melee weapons equipped by this model.
+6 - **Ophthalmic Enhancement:** Improve the Ballistic Skill characteristic of ranged weapons equipped by this model by 1</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
@@ -4075,19 +4092,25 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry id="e32f-a7e9-6e5c-f2b3" name="Legionary w/ other weapon" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="set" field="7e7e-7e1d-91a2-63af" value="1">
-                  <conditions>
-                    <condition field="selections" scope="615-e6bf-cfd2-9384" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
-                  </conditions>
+                <modifier type="add" field="error" value="Max 1 {this} per 5 models">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="615-e6bf-cfd2-9384" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="615-e6bf-cfd2-9384" childId="e32f-a7e9-6e5c-f2b3" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
                 <constraint field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="7e7e-7e1d-91a2-63af" type="max"/>
               </constraints>
               <selectionEntryGroups>
-                <selectionEntryGroup id="2c78-2c88-4fc1-2f25" name="Weapon" hidden="false" collective="false" import="true">
+                <selectionEntryGroup id="2c78-2c88-4fc1-2f25" name="Weapon" hidden="false" collective="false" import="true" defaultSelectionEntryId="none">
                   <constraints>
                     <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="7456-7e22-6b00-b7e9" type="max"/>
+                    <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="773f-4050-b3f9-44f8" includeChildSelections="false"/>
                   </constraints>
                   <selectionEntries>
                     <selectionEntry id="aad4-5ec4-cc9e-115f" name="Flamer" hidden="false" collective="false" import="true" type="upgrade">
@@ -4845,14 +4868,19 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry id="fb50-52da-26d0-b692" name="Heavy weapon" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="set" field="f744-82e3-1d72-7ea0" value="2">
-                  <conditions>
-                    <condition field="selections" scope="203d-c50f-a438-4982" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
-                  </conditions>
+                <modifier type="add" field="error" value="Max 1 {this} per 5 models">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="203d-c50f-a438-4982" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="203d-c50f-a438-4982" childId="fb50-52da-26d0-b692" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
-                <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="f744-82e3-1d72-7ea0" type="max"/>
+                <constraint field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="f744-82e3-1d72-7ea0" type="max"/>
               </constraints>
               <selectionEntryGroups>
                 <selectionEntryGroup id="172b-c9e6-b7e-d913" name="Ranged weapon" hidden="false" collective="false" import="true">
@@ -6132,7 +6160,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
     </selectionEntry>
     <selectionEntry id="7373-47b7-11a3-2b48" name="Chaos Bikers" hidden="false" collective="false" import="true" type="unit">
       <modifiers>
-        <modifier type="set" field="51b2-306e-1021-d207" value="140">
+        <modifier type="set" field="51b2-306e-1021-d207" value="130">
           <conditions>
             <condition field="selections" scope="7373-47b7-11a3-2b48" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="atLeast"/>
           </conditions>
@@ -6688,19 +6716,31 @@ You can attach this model to one of the above units even if one other CHARACTER 
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
               </costs>
+              <modifiers>
+                <modifier type="decrement" value="1" field="2571-2255-b796-6f2">
+                  <repeats>
+                    <repeat value="1" repeats="1" field="selections" scope="acb5-dbf2-e3a6-ad94" childId="a76b-f5f1-ddc6-2780" shared="true" roundUp="false" includeChildSelections="true"/>
+                  </repeats>
+                </modifier>
+              </modifiers>
             </selectionEntry>
           </selectionEntries>
           <selectionEntryGroups>
             <selectionEntryGroup id="a76b-f5f1-ddc6-2780" name="2 selections per 5 models" hidden="false" collective="false" import="true">
               <modifiers>
-                <modifier type="set" value="4" field="7ffc-cc-34f0-72b0" id="ffd-99b8-efea-e359">
-                  <conditions>
-                    <condition type="atLeast" value="10" field="selections" scope="acb5-dbf2-e3a6-ad94" childId="model" shared="true" id="e9f4-dae7-f406-1ac6" includeChildSelections="true"/>
-                  </conditions>
+                <modifier type="add" value="Max 2 special weapons per 5 models" field="error" id="ffd-99b8-efea-e359">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="acb5-dbf2-e3a6-ad94" childId="model" shared="true" id="fac6-d312-55ad-1d99" includeChildSelections="true"/>
+                        <condition type="greaterThan" value="2" field="selections" scope="acb5-dbf2-e3a6-ad94" childId="a76b-f5f1-ddc6-2780" shared="true" id="f808-e4d0-bac2-7e00" includeChildSelections="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
-                <constraint field="selections" scope="acb5-dbf2-e3a6-ad94" value="2" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="7ffc-cc-34f0-72b0" type="max"/>
+                <constraint field="selections" scope="acb5-dbf2-e3a6-ad94" value="4" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" id="7ffc-cc-34f0-72b0" type="max"/>
               </constraints>
               <selectionEntries>
                 <selectionEntry id="ce9e-eb86-e99c-44c8" name="Raptor w/ plasma pistol" hidden="false" collective="false" import="true" type="model">
@@ -7062,13 +7102,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
             <constraint field="selections" scope="parent" value="4" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="91c9-73e1-7446-6613" type="max"/>
           </constraints>
           <selectionEntries>
-            <selectionEntry id="d82-980e-54d-7c" name="Havoc w/ autocannon" hidden="false" collective="false" import="true" type="model">
-              <modifiers>
-                <modifier type="set" field="dc5f-2e9-2372-b9eb" value="0"/>
-              </modifiers>
+            <selectionEntry id="d82-980e-54d-7c" name="Havoc w/ autocannon" hidden="false" collective="false" import="true" type="model" defaultAmount="2">
               <constraints>
                 <constraint field="selections" scope="parent" value="4" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="91c9-73e1-7446-6613" type="max"/>
-                <constraint field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="dc5f-2e9-2372-b9eb" type="min"/>
               </constraints>
               <selectionEntries>
                 <selectionEntry id="bd0f-39a7-958d-bea9" name="Havoc autocannon" hidden="false" collective="true" import="true" type="upgrade">
@@ -7105,13 +7141,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
                 </entryLink>
               </entryLinks>
             </selectionEntry>
-            <selectionEntry id="77aa-7131-9a3e-2e7b" name="Havoc w/ lascannon" hidden="false" collective="false" import="true" type="model">
-              <modifiers>
-                <modifier type="set" field="dc5f-2e9-2372-b9eb" value="0"/>
-              </modifiers>
+            <selectionEntry id="77aa-7131-9a3e-2e7b" name="Havoc w/ lascannon" hidden="false" collective="false" import="true" type="model" defaultAmount="2">
               <constraints>
                 <constraint field="selections" scope="parent" value="4" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="91c9-73e1-7446-6613" type="max"/>
-                <constraint field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="dc5f-2e9-2372-b9eb" type="min"/>
               </constraints>
               <selectionEntries>
                 <selectionEntry id="72b0-d52e-422e-1a82" name="Havoc lascannon" hidden="false" collective="true" import="true" type="upgrade">
@@ -8784,7 +8816,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         </profile>
         <profile id="4c0f-1b93-e310-b2a8" name="Annihilator" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a ranged attack made by this model is allocated to a MONSTER or VEHICLE model, re-roll a Damage roll of 1.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Each time a ranged attack made by this model is allocated to a MONSTER or VEHICLE model, you can re-roll the Damage roll.</characteristic>
           </characteristics>
         </profile>
       </profiles>
@@ -9299,12 +9331,14 @@ You can attach this model to one of the above units even if one other CHARACTER 
                     <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
                     <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                     <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Twin-linked</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent, Twin-linked</characteristic>
                   </characteristics>
                 </profile>
               </profiles>
               <infoLinks>
                 <infoLink id="a6ac-e6fb-232d-54b0" name="Twin-linked" hidden="false" targetId="cf93-ad4d-2f08-a79d" type="rule"/>
+                <infoLink name="Ignores Cover" id="3883-3880-04e0-2800" hidden="false" type="rule" targetId="4640-43e7-30b-215a"/>
+                <infoLink name="Torrent" id="27e0-0274-dd18-58aa" hidden="false" type="rule" targetId="5edf-d619-23e0-9b56"/>
               </infoLinks>
               <costs>
                 <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
@@ -10447,7 +10481,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
             <characteristic name="SV" typeId="450-a17e-9d5e-29da">4+</characteristic>
             <characteristic name="W" typeId="750a-a2ec-90d3-21fe">4</characteristic>
             <characteristic name="LD" typeId="58d2-b879-49c7-43bc">7+</characteristic>
-            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">1</characteristic>
+            <characteristic name="OC" typeId="bef7-942a-1a23-59f8">0</characteristic>
           </characteristics>
         </profile>
         <profile id="4dbc-fdb1-8acf-8009" name="Mind-breaking Mutations (Aura)" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -10618,10 +10652,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry id="c512-c486-5355-f031" name="Khorne Berserker w/ alternate weapons" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="set" field="7608-826b-4b1a-b7f4" value="2">
-                  <conditions>
-                    <condition field="selections" scope="3832-4208-11e9-ca22" value="6" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
-                  </conditions>
+                <modifier type="add" field="error" value="Max 2 {this} per 5 models">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="3832-4208-11e9-ca22" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="2" field="selections" scope="3832-4208-11e9-ca22" childId="c512-c486-5355-f031" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -11292,10 +11331,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
           <selectionEntries>
             <selectionEntry id="f4a6-f3e-129d-c7c9" name="Plague Marine w/ bubotic weapons" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="decrement" field="c23e-70bf-a663-eac8" value="2">
-                  <conditions>
-                    <condition field="selections" scope="9030-f62d-417-fc92" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
-                  </conditions>
+                <modifier type="add" field="error" value="Max 2 {this} per 5 models">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="9030-f62d-417-fc92" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="2" field="selections" scope="c835-5842-bbdb-63b7" childId="f4a6-f3e-129d-c7c9" shared="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -11315,10 +11359,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry id="2d46-b072-53d6-e1d5" name="Plague Marine w/ heavy plague weapon" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="decrement" field="5cdc-f0f7-5184-d7af" value="2">
-                  <conditions>
-                    <condition field="selections" scope="9030-f62d-417-fc92" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
-                  </conditions>
+                <modifier type="add" value="Max 2 {this} per 5 models" field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="9030-f62d-417-fc92" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="2" field="selections" scope="c835-5842-bbdb-63b7" childId="2d46-b072-53d6-e1d5" shared="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -11338,10 +11387,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry id="f8c0-8d1-b969-f76e" name="Plague Marine w/ blight launcher" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="decrement" field="b6b8-41d5-98e7-c31c" value="1">
-                  <conditions>
-                    <condition field="selections" scope="9030-f62d-417-fc92" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
-                  </conditions>
+                <modifier type="add" value="Max 1 {this} per 5 models" field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="9030-f62d-417-fc92" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="c835-5842-bbdb-63b7" childId="f8c0-8d1-b969-f76e" shared="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -11404,6 +11458,16 @@ You can attach this model to one of the above units even if one other CHARACTER 
                     <condition field="selections" scope="9030-f62d-417-fc92" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
                   </conditions>
                 </modifier>
+                <modifier type="add" value="Max 1 {this} per 5 models" field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="9030-f62d-417-fc92" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="c835-5842-bbdb-63b7" childId="cc0b-d3cf-13e8-9970" shared="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
+                </modifier>
               </modifiers>
               <constraints>
                 <constraint field="selections" scope="parent" value="2" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="c36a-757a-de99-83fa" type="max"/>
@@ -11446,10 +11510,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry id="6d88-4fe1-82fb-3ea2" name="Plague Marine w/ special weapon" hidden="false" collective="false" import="true" type="model">
               <modifiers>
-                <modifier type="decrement" field="06ea-31b3-42f1-242d" value="1">
-                  <conditions>
-                    <condition field="selections" scope="9030-f62d-417-fc92" value="10" percentValue="false" shared="true" includeChildSelections="true" includeChildForces="false" childId="model" type="lessThan"/>
-                  </conditions>
+                <modifier type="add" value="Max 1 {this} per 5 models" field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="10" field="selections" scope="9030-f62d-417-fc92" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="c835-5842-bbdb-63b7" childId="6d88-4fe1-82fb-3ea2" shared="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -14069,6 +14138,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="ed0d-8e2a-225c-2340" id="9229-203e-e120-29d4" primary="false" name="Nurgle"/>
         <categoryLink targetId="fdc7-891e-be33-f5b7" id="a5bf-de1e-be0b-54d9" primary="false" name="Gellerpox Infected"/>
         <categoryLink targetId="1e42-dfae-cbdd-207d" id="60a2-7614-cbd7-fba2" primary="false" name="Faction: Heretic Astartes"/>
+        <categoryLink name="Damned" hidden="false" id="baf2-2799-e653-acd0" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink id="436-384-9dc8-9afe" name="Dark Pacts" hidden="false" targetId="fd69-68cc-5d63-c84d" type="rule"/>
@@ -14236,6 +14306,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="ed0d-8e2a-225c-2340" id="1d2a-7ca4-6c6c-2679" primary="false" name="Nurgle"/>
         <categoryLink targetId="bf09-227d-24d5-dc10" id="910d-7cbe-1bf0-3dd6" primary="false" name="Mutoid Vermin"/>
         <categoryLink targetId="1e42-dfae-cbdd-207d" id="5804-c909-7a1c-119" primary="false" name="Faction: Heretic Astartes"/>
+        <categoryLink name="Damned" hidden="false" id="d70f-6cc1-d37f-6eef" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Mutoid Vermin" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="9dff-3d30-2126-144e">
@@ -14313,6 +14384,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="e9ea-5315-48d8-fa0e" primary="false" name="Grenades"/>
         <categoryLink targetId="4c00-2578-faf5-6918" id="b795-2849-5353-c8d6" primary="false" name="Chaos"/>
         <categoryLink targetId="fd82-cf94-5093-53e3" id="49fd-a40a-ebab-d899" primary="false" name="Renegade Enforcer"/>
+        <categoryLink name="Damned" hidden="false" id="b8cb-0e9d-ba79-dca6" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Renegade Enforcer" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="56cf-98ac-1d6e-58f0">
@@ -14516,6 +14588,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="5a61-81ac-eb7c-a87e" id="158d-6e17-78ea-790d" primary="false" name="Grenades"/>
         <categoryLink targetId="4c00-2578-faf5-6918" id="774c-a23b-e238-32fc" primary="false" name="Chaos"/>
         <categoryLink targetId="6334-789b-d3b5-44fb" id="2abd-353e-3d69-97f8" primary="false" name="Renegade Heavy Weapons Squad"/>
+        <categoryLink name="Damned" hidden="false" id="5df0-c4b3-1574-951f" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Renegade Heavy Weapons Squad" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="bde7-9068-f005-4b9e">
@@ -14751,6 +14824,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="4c00-2578-faf5-6918" id="2962-9b17-7410-a515" primary="false" name="Chaos"/>
         <categoryLink targetId="ed0d-8e2a-225c-2340" id="aecf-acde-26ed-29b3" primary="false" name="Nurgle"/>
         <categoryLink targetId="9f40-584-fe55-ab98" id="cd25-856e-f832-d8c2" primary="false" name="Renegade Plague Ogryns"/>
+        <categoryLink name="Damned" hidden="false" id="60ba-9a1a-3322-afa6" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <profiles>
         <profile name="Renegade Plague Ogryns" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="a653-1999-dada-96a8">
@@ -14935,6 +15009,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="b481-e77d-6803-fac0" primary="true" name="Infantry"/>
         <categoryLink targetId="4c00-2578-faf5-6918" id="e907-918-ec73-8532" primary="false" name="Chaos"/>
         <categoryLink targetId="ec3d-171c-93a0-b42f" id="a97a-110b-30fb-150d" primary="false" name="Renegade Ogryn Brutes"/>
+        <categoryLink name="Damned" hidden="false" id="00a5-b990-bf8b-ae61" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Dark Pacts" hidden="false" type="rule" id="bacd-f0d2-6691-3713" targetId="fd69-68cc-5d63-c84d"/>
@@ -15049,6 +15124,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="13bf-2bee-3ae0-b414" id="d678-8ce8-d55a-b8" primary="false" name="Psyker"/>
         <categoryLink targetId="4c00-2578-faf5-6918" id="1cf4-2299-be82-140e" primary="false" name="Chaos"/>
         <categoryLink targetId="8d71-2b80-a285-d621" id="1a3-c528-5969-e2ef" primary="false" name="Rogue Psyker"/>
+        <categoryLink name="Damned" hidden="false" id="eaa6-0ed1-ee8f-8148" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Dark Pacts" hidden="false" type="rule" id="8e22-e47d-7c98-f2b3" targetId="fd69-68cc-5d63-c84d"/>
@@ -15191,6 +15267,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="9c3c-c00d-17e6-5d15" primary="true" name="Infantry"/>
         <categoryLink targetId="4c00-2578-faf5-6918" id="f6dd-4f43-cd6a-b598" primary="false" name="Chaos"/>
         <categoryLink targetId="9de5-e352-c61b-ff6a" id="a400-b975-9066-61fe" primary="false" name="Negavolt Cultists"/>
+        <categoryLink name="Damned" hidden="false" id="9be6-2448-7803-d910" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <infoLinks>
         <infoLink name="Dark Pacts" hidden="false" type="rule" id="5326-a266-648b-8f0d" targetId="fd69-68cc-5d63-c84d"/>
@@ -15663,6 +15740,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <categoryLink targetId="4c3e-9310-a516-3590" id="3d97-e58e-54ec-a8e2" primary="true" name="Beast"/>
         <categoryLink targetId="4c00-2578-faf5-6918" id="94f-f7b3-a550-6749" primary="false" name="Chaos"/>
         <categoryLink targetId="6830-ab92-7d3e-cd40" id="86c6-fcf2-5108-e0dd" primary="false" name="Renegade Ogryn Beast Handler"/>
+        <categoryLink name="Damned" hidden="false" id="3c5f-5be4-b29e-4848" targetId="4026-8a3e-9922-eec" primary="false"/>
       </categoryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="40"/>
@@ -16619,7 +16697,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
                 <selectionEntry type="upgrade" import="true" name="Autogun and close combat weapon" hidden="false" id="cac3-1b50-8f3c-b9ef" collective="false">
                   <infoLinks>
                     <infoLink name="Rapid Fire" id="4d91-786c-be0a-177d" hidden="false" targetId="c5c8-8b58-b8b6-7786" type="rule"/>
-                    <infoLink name="Cultist firearm" id="b7c2-2d40-3d6c-3fb2" hidden="false" targetId="80cf-c50-c844-38c7" type="profile"/>
+                    <infoLink name="Autogun" id="b7c2-2d40-3d6c-3fb2" hidden="false" targetId="80cf-c50-c844-38c7" type="profile"/>
                     <infoLink name="Close combat weapon" id="a9e0-f069-f021-11d2" hidden="false" targetId="4a63-3f3c-aa9b-9136" type="profile"/>
                   </infoLinks>
                   <costs>
@@ -16705,7 +16783,7 @@ You can attach this model to one of the above units even if one other CHARACTER 
                     <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="3e58-d21b-f436-e7ab-max"/>
                   </constraints>
                   <infoLinks>
-                    <infoLink name="Cultist firearm" id="33e3-bfb0-e1ab-83dc" hidden="false" targetId="80cf-c50-c844-38c7" type="profile"/>
+                    <infoLink name="Autogun" id="33e3-bfb0-e1ab-83dc" hidden="false" targetId="80cf-c50-c844-38c7" type="profile"/>
                     <infoLink name="Rapid Fire" id="e94-9dd9-44be-e248" hidden="false" targetId="c5c8-8b58-b8b6-7786" type="rule"/>
                   </infoLinks>
                 </selectionEntry>
@@ -16713,10 +16791,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Cultist w/ flamer" hidden="false" id="b5c2-a2b9-9168-6933" collective="false">
               <modifiers>
-                <modifier type="decrement" value="1" field="4ab8-9da0-717f-13f7">
-                  <conditions>
-                    <condition type="lessThan" value="20" field="selections" scope="478-9d24-e5c8-c6f7" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-                  </conditions>
+                <modifier type="add" value="Max 1 {this} per 10 models." field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="20" field="selections" scope="478-9d24-e5c8-c6f7" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="478-9d24-e5c8-c6f7" childId="b5c2-a2b9-9168-6933" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -16762,10 +16845,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Cultist w/ cultist grenade launcher" hidden="false" id="ebee-2f10-81f3-dfba" collective="false">
               <modifiers>
-                <modifier type="decrement" value="1" field="4ab8-9da0-717f-13f7">
-                  <conditions>
-                    <condition type="lessThan" value="20" field="selections" scope="478-9d24-e5c8-c6f7" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-                  </conditions>
+                <modifier type="add" value="Max 1 {this} per 10 models." field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="20" field="selections" scope="478-9d24-e5c8-c6f7" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="478-9d24-e5c8-c6f7" childId="ebee-2f10-81f3-dfba" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -16821,10 +16909,15 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Cultist w/ heavy stubber" hidden="false" id="d5c9-4ac0-626-482a" collective="false">
               <modifiers>
-                <modifier type="decrement" value="1" field="4ab8-9da0-717f-13f7">
-                  <conditions>
-                    <condition type="lessThan" value="20" field="selections" scope="478-9d24-e5c8-c6f7" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-                  </conditions>
+                <modifier type="add" value="Max 1 {this} per 10 models." field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="20" field="selections" scope="478-9d24-e5c8-c6f7" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="greaterThan" value="1" field="selections" scope="478-9d24-e5c8-c6f7" childId="d5c9-4ac0-626-482a" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
@@ -17006,14 +17099,19 @@ You can attach this model to one of the above units even if one other CHARACTER 
             </selectionEntry>
             <selectionEntry type="model" import="true" name="Legionary w/ heavy weapon" hidden="false" id="bf36-b035-9bce-5250" collective="false">
               <modifiers>
-                <modifier type="set" value="1" field="32e7-537a-7fe8-bbf8">
-                  <conditions>
-                    <condition type="atLeast" value="9" field="selections" scope="ba84-53a5-716c-bc48" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
-                  </conditions>
+                <modifier type="add" value="Unit must have 10 models to include a {this}" field="error">
+                  <conditionGroups>
+                    <conditionGroup type="and">
+                      <conditions>
+                        <condition type="lessThan" value="9" field="selections" scope="ba84-53a5-716c-bc48" childId="model" shared="true" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
+                        <condition type="atLeast" value="1" field="selections" scope="parent" childId="bf36-b035-9bce-5250" shared="true" includeChildSelections="true"/>
+                      </conditions>
+                    </conditionGroup>
+                  </conditionGroups>
                 </modifier>
               </modifiers>
               <constraints>
-                <constraint type="max" value="0" field="selections" scope="parent" shared="true" id="32e7-537a-7fe8-bbf8" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
+                <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="32e7-537a-7fe8-bbf8" percentValue="false" includeChildSelections="false" includeChildForces="false"/>
               </constraints>
               <selectionEntryGroups>
                 <selectionEntryGroup name="Weapon" id="535b-16c2-c75e-d156" hidden="false" collective="false" import="true" defaultSelectionEntryId="none">
@@ -17340,6 +17438,9 @@ You can attach this model to one of the above units even if one other CHARACTER 
         <infoLink name="Stealth" id="2338-ac52-b49a-4caa" hidden="false" type="rule" targetId="bec5-4288-34a6-ccfa"/>
         <infoLink name="Dark Pacts" id="eb14-1727-d32e-a018" hidden="false" targetId="fd69-68cc-5d63-c84d" type="rule"/>
       </infoLinks>
+      <entryLinks>
+        <entryLink import="true" name="Mark of Chaos" hidden="false" id="2364-5140-f332-68f5" type="selectionEntryGroup" targetId="5581-5d38-90b8-f8cd"/>
+      </entryLinks>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedSelectionEntryGroups>
@@ -18247,9 +18348,123 @@ You can attach this model to one of the above units even if one other CHARACTER 
             <constraint type="max" value="1" field="selections" scope="force" shared="true" id="eea5-72ce-593c-9558" percentValue="false" includeChildSelections="true" includeChildForces="false"/>
           </constraints>
         </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Surgical Precision" hidden="false" id="2dfc-0cc5-f1c9-88d3">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="10"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+          </costs>
+          <profiles>
+            <profile name="Surgical Precision" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e041-cbfb-9b67-3d89">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">HERETIC ASTARTES model (excluding DAMNED models) only. The bearer’s melee weapons have the [PRECISION] ability.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="equalTo" value="0" field="selections" scope="roster" childId="1c30-e099-1aca-8708" shared="true" includeChildSelections="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4026-8a3e-9922-eec" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Living Carapace" hidden="false" id="45a6-15f1-c0ef-8c2d">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="15"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+          </costs>
+          <profiles>
+            <profile name="Living Carapace" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="8923-5cdb-c97d-09ba">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">CHAOS LORD model only. Add 1 to the bearer’s Wounds characteristic and the bearer has the Feel No Pain 5+ ability.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="equalTo" value="0" field="selections" scope="roster" childId="1c30-e099-1aca-8708" shared="true" includeChildSelections="true"/>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="544c-7152-ce3a-a85c" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Helm of All-Seeing" hidden="false" id="3586-b998-3970-f81d">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="25"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+          </costs>
+          <profiles>
+            <profile name="Helm of All-Seeing" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="963d-f6be-318c-d26f">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">HERETIC ASTARTES INFANTRY model (excluding DAMNED models) only. Enemy units that are set up on the battlefield from Reserves cannot be set up within 12&quot; of the bearer.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="equalTo" value="0" field="selections" scope="roster" childId="1c30-e099-1aca-8708" shared="true" includeChildSelections="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4026-8a3e-9922-eec" shared="true"/>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Prime Test Subject" hidden="false" id="0278-35d1-8bcc-9d70">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+          </costs>
+          <profiles>
+            <profile name="Prime Test Subject" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="1a78-f1c2-6a28-b557">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">HERETIC ASTARTES INFANTRY model (excluding DAMNED models) only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer. Each time the bearer makes a melee attack, you can re‑roll the Hit roll.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="equalTo" value="0" field="selections" scope="roster" childId="1c30-e099-1aca-8708" shared="true" includeChildSelections="true"/>
+                    <condition type="instanceOf" value="1" field="selections" scope="ancestor" childId="4026-8a3e-9922-eec" shared="true"/>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="cf47-a0d7-7207-29dc" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
       </selectionEntries>
     </selectionEntryGroup>
-    <selectionEntryGroup id="5581-5d38-90b8-f8cd" name="Mark of Chaos" hidden="false" collective="false" import="true">
+    <selectionEntryGroup id="5581-5d38-90b8-f8cd" name="Mark of Chaos" hidden="false" collective="false" import="true" defaultSelectionEntryId="none">
       <constraints>
         <constraint field="selections" scope="parent" value="0" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="d4ae-1dc8-3dfe-e03a" type="min"/>
         <constraint field="selections" scope="parent" value="1" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="84a9-b121-4012-6ffc" type="max"/>

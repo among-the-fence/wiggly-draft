@@ -25,7 +25,7 @@
         "other": [
           {
             "name": "Sunderer of Fortresses",
-            "description": "Each time this model makes an attack that targets a Vehicle, improve the Strength and Damage characteristics of that attack by 1 (if that attack targets a Fortification, improve the Strength and Damage characteristics of that attack by 2 instead).",
+            "description": "Each time this model makes an attack that targets a VEHICLE, improve the Strength and Damage characteristics of that attack by 1 (if that attack targets a FORTIFICATION, improve the Strength and Damage characteristics of that attack by 2 instead).",
             "showAbility": true,
             "showDescription": true
           }
@@ -1204,7 +1204,7 @@
           },
           {
             "name": "Storm of Bolts",
-            "description": "In your Shooting phase, after this model has shot, select one unit (excluding Monsters and Vehicles) hit by one or more of those attacks. Until the start of your next turn, while this model is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
+            "description": "In your Shooting phase, after this model has shot, select one unit (excluding MONSTERS and VEHICLES) hit by one or more of those attacks. Until the start of your next turn, while this model is on the battlefield, that enemy unit is suppressed. While a unit is suppressed, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
             "showAbility": true,
             "showDescription": true
           }
@@ -1332,7 +1332,7 @@
           },
           {
             "name": "Thin Their Ranks",
-            "description": "Each time this model makes a ranged attack that targets an enemy unit (excluding Monsters and Vehicles), that attack has the [DEVASTATING WOUNDS] ability.",
+            "description": "Each time this model makes a ranged attack that targets an enemy unit (excluding MONSTERS and VEHICLES), that attack has the [DEVASTATING WOUNDS] ability.",
             "showAbility": true,
             "showDescription": true
           }
@@ -1594,7 +1594,7 @@
         "primarch": [],
         "special": [
           {
-            "description": "When your Canis Rex model is destroyed, Sir Hekhtur is treated as a model disembarking from a destroyed Transport – set him up within 3\" of your Canis Rex model before it is removed. Sir Hekhtur then uses the profile, wargear, abilities and keywords shown on his datasheet, but cannot be selected as the target of any of your Stratagems other than Core Stratagems. Your Canis Rex unit is not considered to be destroyed until Sir Hekhtur is also destroyed.",
+            "description": "When your Canis Rex model is destroyed, Sir Hekhtur is treated as a model disembarking from a destroyed TRANSPORT – set him up within 3\" of your Canis Rex model before it is removed. Sir Hekhtur then uses the profile, wargear, abilities and keywords shown on his datasheet, but cannot be selected as the target of any of your Stratagems other than Core Stratagems. Your Canis Rex unit is not considered to be destroyed until Sir Hekhtur is also destroyed.",
             "name": "Using Sir Hekhtur",
             "showAbility": true,
             "showDescription": true
@@ -1603,7 +1603,7 @@
         "wargear": []
       },
       "cardType": "DataCard",
-      "composition": ["1 Canis Rex – Epic Hero"],
+      "composition": ["1 Canis Rex – EPIC HERO"],
       "factions": ["Imperial Knights"],
       "faction_id": "QI",
       "fluff": "Once a prisoner of the Iron Warriors, Sir Hekhtur resisted agonising torture and escaped only through sheer faith, determination and honour. Now he travels the galaxy, liberating Imperial citizens enslaved by the forces of the Arch-enemy.",
@@ -2070,13 +2070,13 @@
         "other": [
           {
             "name": "Ion Aegis (Aura)",
-            "description": "While a friendly Armiger model is within 6\" of this model, that Armiger model has the Benefit of Cover.",
+            "description": "While a friendly ARMIGER model is within 6\" of this model, that ARMIGER model has the Benefit of Cover.",
             "showAbility": true,
             "showDescription": true
           },
           {
             "name": "Titan Hunter",
-            "description": "Each time a ranged attack made by this model is allocated to a Monster or Vehicle model, re-roll a Damage roll of 1.",
+            "description": "Each time a ranged attack made by this model is allocated to a MONSTER or VEHICLE model, re-roll a Damage roll of 1.",
             "showAbility": true,
             "showDescription": true
           }
@@ -2309,7 +2309,7 @@
       "name": "Armiger Helverin",
       "points": [
         {
-          "cost": "140",
+          "cost": "130",
           "keyword": null,
           "models": "1",
           "active": true
@@ -2406,7 +2406,7 @@
         "primarch": [],
         "special": [
           {
-            "description": "When your Canis Rex model is destroyed, Sir Hekhtur is treated as a model disembarking from a destroyed Transport – set him up within 3\" of your Canis Rex model before it is removed. Sir Hekhtur then uses the profile, wargear, abilities and keywords shown on this datasheet, but cannot be selected as the target of any of your Stratagems other than Core Stratagems. Your Canis Rex unit is not considered to be destroyed until Sir Hekhtur is also destroyed.",
+            "description": "When your Canis Rex model is destroyed, Sir Hekhtur is treated as a model disembarking from a destroyed TRANSPORT – set him up within 3\" of your Canis Rex model before it is removed. Sir Hekhtur then uses the profile, wargear, abilities and keywords shown on this datasheet, but cannot be selected as the target of any of your Stratagems other than Core Stratagems. Your Canis Rex unit is not considered to be destroyed until Sir Hekhtur is also destroyed.",
             "name": "Using Sir Hekhtur",
             "showAbility": true,
             "showDescription": true
@@ -2415,7 +2415,7 @@
         "wargear": []
       },
       "cardType": "DataCard",
-      "composition": ["1 Sir Hekhtur – Epic Hero"],
+      "composition": ["1 Sir Hekhtur – EPIC HERO"],
       "factions": ["Imperial Knights"],
       "faction_id": "QI",
       "fluff": "Once a prisoner of the Iron Warriors, Sir Hekhtur resisted agonising torture and escaped only through sheer faith, determination and honour. Now he travels the galaxy, liberating Imperial citizens enslaved by the forces of the Arch-enemy.",
@@ -2505,7 +2505,7 @@
         "other": [
           {
             "name": "Ion Aegis (Aura)",
-            "description": "While a friendly Armiger model is within 6\" of this model, that Armiger model has the Benefit of Cover.",
+            "description": "While a friendly ARMIGER model is within 6\" of this model, that ARMIGER model has the Benefit of Cover.",
             "showAbility": true,
             "showDescription": true
           },
@@ -3404,7 +3404,7 @@
           },
           {
             "name": "Grav-pinned",
-            "description": "In your Shooting phase, after this model has shot, if an enemy Infantry unit was hit by one or more of those attacks made with a graviton crusher, until the end of your opponent’s next turn, that enemy unit is grav-pinned. While a unit is grav-pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Advance and Charge rolls made for that unit.",
+            "description": "In your Shooting phase, after this model has shot, if an enemy INFANTRY unit was hit by one or more of those attacks made with a graviton crusher, until the end of your opponent’s next turn, that enemy unit is grav-pinned. While a unit is grav-pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Advance and Charge rolls made for that unit.",
             "showAbility": true,
             "showDescription": true
           }
@@ -3649,7 +3649,7 @@
       "name": "Armiger Warglaive",
       "points": [
         {
-          "cost": "150",
+          "cost": "140",
           "keyword": null,
           "models": "1",
           "active": true
@@ -3745,13 +3745,13 @@
         "other": [
           {
             "name": "Atrapos’ Duty (Bondsman)",
-            "description": "While a model is affected by this ability, each time that model makes an attack that targets a Titanic or Towering model, you can re-roll the Hit roll and you can re-roll the Wound roll.",
+            "description": "While a model is affected by this ability, each time that model makes an attack that targets a TITANIC or TOWERING model, you can re-roll the Hit roll and you can re-roll the Wound roll.",
             "showAbility": true,
             "showDescription": true
           },
           {
             "name": "Macro-extinction Protocols",
-            "description": "Each time this model makes an attack that targets a Monster or Vehicle unit, add 1 to the Hit roll. If that target is Titanic or Towering, add 1 to the Wound roll as well.",
+            "description": "Each time this model makes an attack that targets a MONSTER or VEHICLE unit, add 1 to the Hit roll. If that target is TITANIC or TOWERING, add 1 to the Wound roll as well.",
             "showAbility": true,
             "showDescription": true
           }
@@ -3892,7 +3892,7 @@
       "wargear": ["None"]
     }
   ],
-  "detachments": ["Noble Lance"],
+  "detachments": ["Questor Forgepact", "Noble Lance"],
   "enhancements": [
     {
       "name": "Revered Knight (Aura)",
@@ -3900,7 +3900,7 @@
       "cost": "15",
       "keywords": ["Imperial Knights"],
       "excludes": [],
-      "description": "Imperial Knights model only. While a friendly Imperial Knights model is within 6\" of the bearer, improve that model’s Leadership characteristic by 1. If your army is Honoured, increase the range of this Aura ability to 12\".",
+      "description": "IMPERIAL KNIGHTS model only. While a friendly IMPERIAL KNIGHTS model is within 6\" of the bearer, improve that model’s Leadership characteristic by 1. If your army is Honoured, increase the range of this Aura ability to 12\".",
       "faction_id": "QI",
       "detachment": "Noble Lance"
     },
@@ -3910,7 +3910,7 @@
       "cost": "25",
       "keywords": ["Imperial Knights"],
       "excludes": [],
-      "description": "Imperial Knights model only. The bearer has the Deep Strike ability. Once per battle, at the end of your opponent’s turn, if the bearer is not within Engagement Range of any enemy units, it can fade away. If it does, remove it from the battlefield then, in the Reinforcements step of your subsequent Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the battle ends and the bearer is not on the battlefield, it is destroyed.",
+      "description": "IMPERIAL KNIGHTS model only. The bearer has the Deep Strike ability. Once per battle, at the end of your opponent’s turn, if the bearer is not within Engagement Range of any enemy units, it can fade away. If it does, remove it from the battlefield then, in the Reinforcements step of your subsequent Movement phase, set it up anywhere on the battlefield that is more than 9\" horizontally away from all enemy models. If the battle ends and the bearer is not on the battlefield, it is destroyed.",
       "faction_id": "QI",
       "detachment": "Noble Lance"
     },
@@ -3920,7 +3920,7 @@
       "cost": "25",
       "keywords": ["Questoris"],
       "excludes": [],
-      "description": "Questoris model with a Bondsman ability only. Each time the bearer uses its Bondsman ability, you can select one additional friendly Armiger model within 12\" of the bearer that is not already being affected by a Bondsman ability. Until the start of your next Command phase, that model is also affected by that Bondsman ability.",
+      "description": "QUESTORIS model with a Bondsman ability only. Each time the bearer uses its Bondsman ability, you can select one additional friendly ARMIGER model within 12\" of the bearer that is not already being affected by a Bondsman ability. Until the start of your next Command phase, that model is also affected by that Bondsman ability.",
       "faction_id": "QI",
       "detachment": "Noble Lance"
     },
@@ -3930,7 +3930,7 @@
       "cost": "30",
       "keywords": ["Imperial Knights"],
       "excludes": [],
-      "description": "Imperial Knights model only. If you control an objective marker at the end of your Command phase and the bearer is within range of that objective marker, that objective marker remains under your control even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+      "description": "IMPERIAL KNIGHTS model only. If you control an objective marker at the end of your Command phase and the bearer is within range of that objective marker, that objective marker remains under your control even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
       "faction_id": "QI",
       "detachment": "Noble Lance"
     },
@@ -3940,9 +3940,49 @@
       "cost": "40",
       "keywords": ["Questoris"],
       "excludes": [],
-      "description": "Questoris model only. Each time an attack is allocated to the bearer, worsen the Armour Penetration characteristic of that attack by 1.",
+      "description": "QUESTORIS model only. Each time an attack is allocated to the bearer, worsen the Armour Penetration characteristic of that attack by 1.",
       "faction_id": "QI",
       "detachment": "Noble Lance"
+    },
+    {
+      "name": "Omnissian Champion",
+      "id": "cff9e835-aed6-57f6-b065-1b3c6de5fff5",
+      "cost": "30",
+      "keywords": ["Imperial Knights"],
+      "excludes": [],
+      "description": "IMPERIAL KNIGHTS model only. Add 4 to the bearer’s Wounds characteristic.",
+      "faction_id": "QI",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Knight of the Opus Machina",
+      "id": "d29d2afb-0dbc-512b-9748-3bd6f51702ab",
+      "cost": "20",
+      "keywords": ["Imperial Knights"],
+      "excludes": [],
+      "description": "IMPERIAL KNIGHTS model only. Each time the bearer makes a ranged attack, if the bearer is within 6\" of one or more friendly ADEPTUS MECHANICUS units, re‑roll a Hit roll of 1.",
+      "faction_id": "QI",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Magos Questoris",
+      "id": "46269259-a3be-56e1-a17e-24a201c0dca7",
+      "cost": "35",
+      "keywords": ["Tech-Priest"],
+      "excludes": [],
+      "description": "TECH‑PRIEST model only. While the bearer is within 3\" of one or more friendly IMPERIAL KNIGHTS units, it has the Lone Operative ability. In your Command phase, select one friendly IMPERIAL KNIGHTS model within 3\" of the bearer. That model regains up to 2 lost wounds.",
+      "faction_id": "QI",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Vocifer Magnificat (Aura)",
+      "id": "250aab7a-4a69-5730-a512-5499072720a8",
+      "cost": "15",
+      "keywords": ["Imperial Knights"],
+      "excludes": [],
+      "description": "IMPERIAL KNIGHTS model only. While an enemy unit is within 6\" of the bearer, worsen the Leadership characteristic of models in that unit by 1. While a friendly ADEPTUS MECHANICUS unit is within 6\" of the bearer, improve the Leadership characteristic of models in that ADEPTUS MECHANICUS unit by 1.",
+      "faction_id": "QI",
+      "detachment": "Questor Forgepact"
     }
   ],
   "id": "QI",
@@ -3956,9 +3996,9 @@
       "id": "608d1be7-65fc-53bd-bbc8-5430627226e2",
       "cost": 1,
       "turn": "either",
-      "target": "One Imperial Knights model from your army that has not been selected to fight this phase.",
+      "target": "One IMPERIAL KNIGHTS model from your army that has not been selected to fight this phase.",
       "when": "Fight phase.",
-      "effect": "Until the end of the phase, your model cannot target Monster or Vehicle units, but all melee weapons equipped by your model have the [DEVASTATING WOUNDS] ability.",
+      "effect": "Until the end of the phase, your model cannot target MONSTER or VEHICLE units, but all melee weapons equipped by your model have the [DEVASTATING WOUNDS] ability.",
       "restrictions": "",
       "type": "Battle Tactic",
       "phase": ["fight"],
@@ -3971,9 +4011,9 @@
       "id": "f0fe447a-877b-500f-b314-b1def3cab0b4",
       "cost": 1,
       "turn": "either",
-      "target": "Two or more Armiger models from your army and one enemy unit that is an eligible target for all of those Armiger models.",
+      "target": "Two or more ARMIGER models from your army and one enemy unit that is an eligible target for all of those ARMIGER models.",
       "when": "The start of your Shooting phase or the start of the Fight phase.",
-      "effect": "Until the end of the phase, when resolving attacks that target that enemy unit, improve the Strength and Armour Penetration characteristics of weapons equipped by those Armiger models by 1. If your army is Honoured, until the end of the phase, add 1 to the Damage characteristic of those weapons as well.",
+      "effect": "Until the end of the phase, when resolving attacks that target that enemy unit, improve the Strength and Armour Penetration characteristics of weapons equipped by those ARMIGER models by 1. If your army is Honoured, until the end of the phase, add 1 to the Damage characteristic of those weapons as well.",
       "restrictions": "",
       "type": "Battle Tactic",
       "phase": ["fight", "shooting"],
@@ -3986,7 +4026,7 @@
       "id": "daa91252-afec-5d70-a1c4-ff4659f99d8e",
       "cost": 2,
       "turn": "either",
-      "target": "One Imperial Knights model from your army that has lost one or more wounds.",
+      "target": "One IMPERIAL KNIGHTS model from your army that has lost one or more wounds.",
       "when": "Your Command phase.",
       "effect": "Until the start of your next Command phase, improve your model’s Move, Toughness, Save, Leadership and Objective Control characteristics by 1 and each time your model makes an attack, add 1 to the Hit roll.",
       "restrictions": "You can only use this Stratagem once per battle. If your army is Honoured, you can use this Stratagem one additional time.",
@@ -3997,11 +4037,26 @@
       "detachment": "Noble Lance"
     },
     {
+      "name": "Bonded Imperative",
+      "id": "aecb7b89-1fa1-51db-8b8f-0f5be6434395",
+      "cost": 1,
+      "turn": "your",
+      "target": "That IMPERIAL KNIGHTS CHARACTER unit.",
+      "when": "Your Command phase, just before an IMPERIAL KNIGHTS CHARACTER unit from your army uses a Bondsman ability.",
+      "effect": "When selecting targets for that use of that Bondsman ability, you can select one friendly ADEPTUS MECHANICUS unit within 12\" of your unit in addition, or instead of selecting one ARMIGER model. Until the start of your next Command phase, every model in that ADEPTUS MECHANICUS unit is affected by that Bondsman ability.",
+      "restrictions": "",
+      "type": "Epic Deed",
+      "phase": ["command"],
+      "faction_id": "QI",
+      "fluff": "Tapping into the noospheric battle‑sphere, this Noble pilot issues binharic commands directly into the minds of Adeptus Mechanicus allies.",
+      "detachment": "Questor Forgepact"
+    },
+    {
       "name": "Trophy Claim",
       "id": "bb70b6c0-cc0f-58a3-b943-60b0c179053d",
       "cost": 2,
       "turn": "either",
-      "target": "One Imperial Knights model from your army that has not been selected to shoot or fight this phase, and one enemy Monster or Vehicle unit.",
+      "target": "One IMPERIAL KNIGHTS model from your army that has not been selected to shoot or fight this phase, and one enemy MONSTER or VEHICLE unit.",
       "when": "Your Shooting phase or the Fight phase.",
       "effect": "Until the end of the phase, each time your model makes an attack that targets that enemy unit, add 1 to the Wound roll. If your model destroys that enemy unit this phase, you gain 1CP, but if your model does not destroy that enemy unit this phase, you cannot use this Stratagem again for the rest of the battle.",
       "restrictions": "",
@@ -4016,10 +4071,10 @@
       "id": "03666d91-f97c-5b4d-918d-3b6a0179e870",
       "cost": 2,
       "turn": "either",
-      "target": "One Imperial Knights model from your army that was just destroyed and that is eligible to fight but has not been selected to fight this phase. You can use this Stratagem on that model even though it was just destroyed.",
+      "target": "One IMPERIAL KNIGHTS model from your army that was just destroyed and that is eligible to fight but has not been selected to fight this phase. You can use this Stratagem on that model even though it was just destroyed.",
       "when": "Fight phase.",
       "effect": "Before rolling to see if this model deals any mortal wounds as a result of its Deadly Demise ability, it can fight; when doing so, it is assumed to have 1 wound remaining, or all its wounds remaining if your army is Honoured. After it has finished resolving its attacks, resolve its Deadly Demise ability as normal.",
-      "restrictions": "You cannot target Sir Hekhtur with this Stratagem.",
+      "restrictions": "You cannot target SIR HEKHTUR with this Stratagem.",
       "type": "Epic Deed",
       "phase": ["fight"],
       "faction_id": "QI",
@@ -4027,13 +4082,88 @@
       "detachment": "Noble Lance"
     },
     {
+      "name": "Machine Focus",
+      "id": "b3d0d602-7982-5704-8130-7e6f9d463b24",
+      "cost": 1,
+      "turn": "your",
+      "target": "One IMPERIAL KNIGHTS unit from your army.",
+      "when": "Your Command phase.",
+      "effect": "Until the start of your next turn, your unit can ignore any or all modifiers to the following: the Weapon Skill or Ballistic Skill characteristics of weapons equipped by its models; any Hit roll or Wound roll made for it.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["command"],
+      "faction_id": "QI",
+      "fluff": "Soothing psalm programs inloaded by Tech‑Priests focus targeting arrays and enhance the responsiveness of the Noble pilot’s mighty Knight suit.",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Aggression Begets Aggression",
+      "id": "ff34463c-7951-5504-9b25-3eb1e2aab73f",
+      "cost": 1,
+      "turn": "your",
+      "target": "One IMPERIAL KNIGHTS unit from your army or one IMPERIAL KNIGHTS CHARACTER unit from your army and one friendly ADEPTUS MECHANICUS unit that is within 6\" of that unit.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, ranged weapons equipped by models in your units have the [ASSAULT] ability.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["shooting"],
+      "faction_id": "QI",
+      "fluff": "Driven by the wrathful whisperings of their Throne Mechanicum, the Noble pilot guides their Knight suit forward, weapons blazing with every step. Inspired by their titanic ally, the warriors of the Adeptus Mechanicus follow suit, pushing their cybernetic systems to the limit.",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Thronegheist Fury",
+      "id": "09c09a98-e4ea-5a41-9d80-f8f89354eb00",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One IMPERIAL KNIGHTS TITANIC unit from your army that is within 24\" of and visible to that enemy unit.",
+      "when": "Your opponent’s Movement phase, just after an enemy unit is set up or ends a Normal, Advance, or Fall Back move.",
+      "effect": "Select one ranged weapon equipped by a model in your unit. That model can shoot at that enemy unit (and only if it is an eligible target). When doing so, that model can only make attacks with that weapon and each time it makes a ranged attack, an unmodified Hit roll of 6 is required to score a hit, irrespective of the attacking weapon’s Ballistic Skill or any modifiers.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "QI",
+      "fluff": "As augurs detect enemy movements, the pilot’s Throne Mechanicum comes alive with the whispered fury of their ancestors. Weapon systems flare instinctively to life, dispensing the hatred of long‑dead Nobles upon the unfortunate foe.",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Omnissiah’s Grace",
+      "id": "1bccfa67-f334-510a-80d3-fa2eeee17462",
+      "cost": 1,
+      "turn": "either",
+      "target": "That IMPERIAL KNIGHTS or ADEPTUS MECHANICUS unit.",
+      "when": "Any phase, just after a mortal wound is allocated to an IMPERIAL KNIGHTS or ADEPTUS MECHANICUS unit from your army.",
+      "effect": "Until the end of the phase, models in your unit have the Feel No Pain 5+ ability against mortal wounds.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["any"],
+      "faction_id": "QI",
+      "fluff": "So resolute is their faith that the Machine God’s worshippers brave storms of killing fire, trusting in the Omnissiah to shield them from harm.",
+      "detachment": "Questor Forgepact"
+    },
+    {
+      "name": "Vengeance of the Machine Cult",
+      "id": "95d38edb-f7a6-533b-8571-d6be84ba0650",
+      "cost": 1,
+      "turn": "either",
+      "target": "One IMPERIAL KNIGHTS unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.",
+      "when": "Any phase.",
+      "effect": "Until the end of the battle, the enemy unit that destroyed your unit is Marked. Each time an ADEPTUS MECHANICUS model from your army makes an attack that targets a Marked unit, that attack has the [LETHAL HITS] ability.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["any"],
+      "faction_id": "QI",
+      "fluff": "Those who dare to fell the Machine God’s creations find themselves subject to the vengeance of the Adeptus Mechanicus.",
+      "detachment": "Questor Forgepact"
+    },
+    {
       "name": "Rotate Ion Shields",
       "id": "e5d846c2-4069-5ec3-9d31-acfd2ab8ebf6",
       "cost": 1,
       "turn": "opponents",
-      "target": "One Imperial Knights model from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "target": "One IMPERIAL KNIGHTS model from your army that was selected as the target of one or more of the attacking unit’s attacks.",
       "when": "Your opponent’s Shooting phase, just after an enemy unit has selected its targets.",
-      "effect": "Until the end of the phase, that Imperial Knights model has a 4+ invulnerable save against ranged attacks.",
+      "effect": "Until the end of the phase, that IMPERIAL KNIGHTS model has a 4+ invulnerable save against ranged attacks.",
       "restrictions": "",
       "type": "Wargear",
       "phase": ["shooting"],
@@ -4042,5 +4172,5 @@
       "detachment": "Noble Lance"
     }
   ],
-  "updated": "2024-10-16T10:34:29.993Z"
+  "updated": "2025-02-05T13:53:46.479Z"
 }
