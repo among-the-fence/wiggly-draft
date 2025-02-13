@@ -311,8 +311,10 @@ async def slash_debug(ctx, hero: str):
         h = hero_map[hero]
         cols = math.ceil(math.sqrt(len(h.name_list) * .7))
         rows = math.ceil(len(h.name_list) / cols)
-        single_height = h.image.height
-        single_width = h.image.width
+
+        img = Image.open(h.image_path)
+        single_height = img.height
+        single_width = img.width
         out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54, 0))
         x = 0
         y = 0
