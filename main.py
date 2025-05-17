@@ -6,6 +6,7 @@ import logging
 import os
 import random
 import shutil
+import re
 from typing import List
 
 import discord
