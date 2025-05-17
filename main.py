@@ -574,5 +574,77 @@ async def search(ctx, f: str, t: str, w: str, sv: str, m: str, inv: str, fnp: st
                 print(sp)
                 await ctx.followup.send(((str(sp) + "\n") + (", ".join(out)))[:1999], ephemeral=True)
 
+
+@bot.slash_command(name="roll", description="Rolls dice based on standard dice notation (e.g., 2d6, 1d20+3).")
+async def roll_dice(interaction: discord.Interaction, notation: str):
+    original_notation = notation
+    notation = notation.lower().strip()
+    match = re.fullmatch(r"(\d*)d(\d+)(?:([+-])(\d+))?", notation)
+
+    if not match:
+        await interaction.response.send_message(
+            f"Invalid dice notation: `{original_notation}`. "
+            "Please use a format like `2d6`, `d20`, `1d20+5`, or `3d8-1`.",
+            ephemeral=True
+        )
+        return
+
+    num_dice_str, _, num_sides_str, modifier_sign, modifier_value_str = match.groups()
+
+    num_dice = int(num_dice_str) if num_dice_str else 1
+    if num_dice <= 0 or num_dice > 100:
+        await interaction.response.send_message(
+            f"Number of dice must be between 1 and 100. You entered: {num_dice_str or '1'}.",
+            ephemeral=True
+        )
+        return
+
+    num_sides = int(num_sides_str)
+    if num_sides <= 1 or num_sides > 1000:
+        await interaction.response.send_message(
+            f"Number of sides must be between 2 and 1000. You entered: {num_sides_str}.",
+            ephemeral=True
+        )
+        return
+
+    modifier = 0
+    if modifier_sign and modifier_value_str:
+        modifier_value = int(modifier_value_str)
+        if modifier_sign == '+':
+            modifier = modifier_value
+        else:
+            modifier = -modifier_value
+    
+    if abs(modifier) > 1000:
+            await interaction.response.send_message(
+            f"Modifier value must be between -1000 and 1000. You entered: {modifier_sign}{modifier_value_str}.",
+            ephemeral=True
+        )
+            return
+
+    rolls = [random.randint(1, num_sides) for _ in range(num_dice)]
+    total_roll = sum(rolls)
+    final_result = total_roll + modifier
+
+    rolls_str = ", ".join(map(str, rolls))
+    
+    embed = discord.Embed(
+        title=f"🎲 Dice Roll: `{original_notation}`",
+        color=discord.Color.green()
+    )
+    
+    if not modifier_sign:
+        if num_dice == 1:
+            embed.description = f"**{final_result}**"
+        else:
+            embed.description = f"[{rolls_str}] = **{total_roll}**"
+    else:
+        if num_dice == 1:
+            embed.description = f"{rolls[0]} {modifier_sign} {abs(modifier)}\n**{final_result}**"
+        else:
+            embed.description = f"[{rolls_str}] = {total_roll} {modifier_sign} {abs(modifier)}\n**{final_result}**"
+
+    await interaction.response.send_message(embed=embed)
+
 if __name__ == "__main__":
     bot.run(os.getenv('TOKEN'))
