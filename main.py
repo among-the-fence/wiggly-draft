@@ -590,7 +590,7 @@ async def roll_dice(interaction: discord.Interaction, notation: str):
         )
         return
 
-    num_dice_str, _, num_sides_str, modifier_sign, modifier_value_str = match.groups()
+    num_dice_str, num_sides_str, modifier_sign, modifier_value_str = match.groups()
 
     num_dice = int(num_dice_str) if num_dice_str else 1
     if num_dice <= 0 or num_dice > 100:
