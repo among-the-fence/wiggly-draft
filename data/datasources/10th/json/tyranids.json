@@ -3,7 +3,100 @@
     "banner": "#411f41",
     "header": "#381a3a"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
+    {
+      "abilities": {
+        "core": ["Deep Strike"],
+        "damaged": {
+          "range": "1-5 WOUNDS REMAINING",
+          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+        },
+        "faction": ["Synapse"],
+        "invul": {
+          "info": "",
+
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Subterranean Tunnels",
+            "description": "In your Movement phase, when this model is set up on the battlefield using the Deep Strike ability, it can use a subterranean tunnel. If it does, this model can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units, but until the end of the turn, it is not eligible to declare a charge."
+          }
+        ],
+        "primarch": [],
+        "special": [],
+        "wargear": []
+      },
+
+      "composition": ["1 Trygon"],
+      "factions": ["Tyranids"],
+      "faction_id": "TYR",
+      "fluff": "Trygons are battle-tank-sized tunnelling machines. As they dig through the substrata of the prey world, they excavate huge tunnels for other Tyranid beasts to exploit. At the same time, the rasping of their chitinous plates builds up a powerful bio-electric charge that the Trygons can unleash as a weapon.",
+      "id": "6c4e1665-c826-50e4-8db9-304ca1d6fb74",
+      "keywords": ["Monster", "Great Devourer", "Vanguard Invader", "Trygon"],
+      "leader": "",
+      "loadout": "This model is equipped with: bio-electric pulse; Trygon scything talons.",
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "12",
+              "damage": "3",
+              "keywords": [],
+              "name": "Trygon scything talons",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "9"
+            }
+          ]
+        }
+      ],
+      "name": "Trygon",
+      "points": [
+        {
+          "cost": "140",
+          "keyword": null,
+          "models": "1",
+
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "6",
+              "damage": "1",
+              "keywords": ["Sustained Hits 2"],
+              "name": "Bio-electric pulse",
+              "range": "12\"",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "ld": "8+",
+          "m": "10\"",
+          "name": "Trygon",
+          "oc": "4",
+
+          "sv": "3+",
+          "t": "10",
+          "w": "14"
+        }
+      ],
+      "transport": "",
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
+    },
     {
       "abilities": {
         "core": ["Deep Strike"],
@@ -73,9 +166,11 @@
       "name": "Mawloc",
       "points": [
         {
-          "cost": "145",
+          "cost": "135",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -93,7 +188,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -153,12 +250,16 @@
         {
           "cost": "130",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -252,6 +353,8 @@
         "For every 3 models in this unit, 1 model’s devourer can be replaced with 1 barbed strangler.",
         "Any number of models can each have their devourer replaced with one of the following: ◦ 1 deathspitter ◦ 1 spinefists"
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": ["Winged Tyranid Prime"]
     },
     {
@@ -270,7 +373,7 @@
         "other": [
           {
             "name": "Will of the Hive Mind",
-            "description": "Once per turn, one unit from your army with this ability can use it when a friendly TYRANIDS unit within 12\" of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP."
+            "description": "Once per battle round, one model from your army with this ability can use it when a friendly TYRANIDS unit within 12\" of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP."
           },
           {
             "name": "Paroxysm (Psychic)",
@@ -347,9 +450,11 @@
       "name": "Winged Hive Tyrant",
       "points": [
         {
-          "cost": "200",
+          "cost": "170",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -398,7 +503,9 @@
       "transport": "",
       "wargear": [
         "This model’s monstrous bonesword and lash whip can be replaced with one of the following:  ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 monstrous scything talons"
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -462,7 +569,9 @@
         {
           "cost": "610",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -495,7 +604,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 20 GARGOYLES models and 1 WINGED TYRANID PRIME model.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Unique",
+      "chapter": null
     },
     {
       "abilities": {
@@ -574,7 +685,9 @@
         {
           "cost": "260",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -627,7 +740,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -643,10 +758,6 @@
           "value": ""
         },
         "other": [
-          {
-            "name": "Alpha Warrior",
-            "description": "While this model is leading a unit, weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability."
-          },
           {
             "name": "Death Blow",
             "description": "If this model is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 4+, do not remove  it from play. The destroyed model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
@@ -694,7 +805,9 @@
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -713,6 +826,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": [
           "GARGOYLES",
@@ -780,12 +895,16 @@
         {
           "cost": "140",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "70",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -803,7 +922,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -884,7 +1005,9 @@
         {
           "cost": "810",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -931,112 +1054,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 20 TYRANIDS INFANTRY models. Each model with a Wounds characteristic of more than 1 takes up the space of 3 models. This model cannot transport models that can FLY.",
-      "wargear": ["None"]
-    },
-    {
-      "abilities": {
-        "core": ["Deep Strike"],
-        "damaged": {
-          "description": "",
-          "range": ""
-        },
-        "faction": ["Synapse"],
-        "invul": {
-          "info": "",
-
-          "value": ""
-        },
-        "other": [
-          {
-            "name": "Death From Below",
-            "description": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
-          }
-        ],
-        "primarch": [],
-        "special": [],
-        "wargear": [
-          {
-            "name": "Armoured Thorax",
-            "description": "The bearer has a Save characteristic of 4+."
-          }
-        ]
-      },
-
-      "composition": ["3-6 Raveners"],
-      "factions": ["Tyranids"],
-      "faction_id": "TYR",
-      "fluff": "Serpentine bioforms capable of a terrifying turn of speed, Raveners are made doubly dangerous by their ability to tunnel swiftly through even solid bedrock. Often assaulting their prey from below, Raveners are especially vicious and predatory warrior organisms used as shock troops by the Hive Mind.",
-      "id": "cc767c7b-3110-509f-814e-98d9c58d1964",
-      "keywords": [
-        "Infantry",
-        "Great Devourer",
-        "Vanguard Invader",
-        "Raveners"
-      ],
-      "leader": "",
-      "loadout": "Every model is equipped with: thoracic bio-weapon; Ravener claws and talons.",
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "-1",
-              "attacks": "7",
-              "damage": "1",
-              "keywords": ["Twin-linked"],
-              "name": "Ravener claws and talons",
-              "range": "Melee",
-              "skill": "3+",
-              "strength": "5"
-            }
-          ]
-        }
-      ],
-      "name": "Raveners",
-      "points": [
-        {
-          "cost": "150",
-          "keyword": null,
-          "models": "6"
-        },
-        {
-          "cost": "75",
-          "keyword": null,
-          "models": "3"
-        }
-      ],
-      "rangedWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "3",
-              "damage": "1",
-              "keywords": ["Assault"],
-              "name": "Thoracic bio-weapon",
-              "range": "12\"",
-              "skill": "4+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "source": "40k-10e",
-      "stats": [
-        {
-          "ld": "8+",
-          "m": "10\"",
-          "name": "Raveners",
-          "oc": "1",
-
-          "sv": "5+",
-          "t": "5",
-          "w": "3"
-        }
-      ],
-      "transport": "",
-      "wargear": [
-        "All models in this unit can each have their thoracic bio-weapon replaced with 1 armoured thorax."
-      ]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1106,9 +1126,11 @@
       "name": "The Swarmlord",
       "points": [
         {
-          "cost": "240",
+          "cost": "220",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1142,6 +1164,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": ["TYRANT GUARD"],
         "extra": ""
@@ -1198,9 +1222,11 @@
       "name": "Exocrine",
       "points": [
         {
-          "cost": "135",
+          "cost": "140",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1233,7 +1259,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1288,12 +1316,16 @@
         {
           "cost": "140",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "70",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1311,7 +1343,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1371,12 +1405,16 @@
         {
           "cost": "150",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1395,6 +1433,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": ["Winged Tyranid Prime"]
     },
     {
@@ -1439,12 +1479,16 @@
         {
           "cost": "110",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "55",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1462,7 +1506,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "25mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1525,7 +1571,9 @@
         {
           "cost": "105",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1558,7 +1606,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 20 TYRANIDS INFANTRY models, or 1 TYRANIDS MONSTER model with a Wounds characteristic of 12 or less. Each Infantry model with a Wounds characteristic of more than 1 takes up the space of 3 models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1613,17 +1663,23 @@
         {
           "cost": "50",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "25",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1658,7 +1714,9 @@
       "transport": "",
       "wargear": [
         "All models in this unit can each be equipped with 1 spinemaws."
-      ]
+      ],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1713,17 +1771,23 @@
         {
           "cost": "150",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "50",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1761,7 +1825,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "80mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1832,7 +1898,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1850,7 +1918,142 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null
+    },
+    {
+      "abilities": {
+        "core": ["Deep Strike", "Leader"],
+        "damaged": {
+          "description": "",
+          "range": ""
+        },
+        "faction": ["Shadow in the Warp Ravener Prime only", "Synapse"],
+        "invul": {
+          "info": "",
+
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Alpha Invader",
+            "description": "Weapons equipped by models in this unit have the [SUSTAINED HITS 1] ability."
+          },
+          {
+            "name": "Hypersensory Array",
+            "description": "Once per battle round, you can target this unit with the Rapid Ingress or Heroic Intervention Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this turn."
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "This unit can be attached to the following units:\n\n■ RAVENERS",
+            "name": "LEADER"
+          }
+        ],
+        "wargear": []
+      },
+
+      "composition": ["1 Ravener Prime", "4 Raveners"],
+      "factions": ["Tyranids"],
+      "faction_id": "TYR",
+      "fluff": "Created to fight amongst the vanguard swarms, Hyperadapted Raveners boast additional biomorphs and weapon symbiotes. The toxic scythes, rending talons and crushing claws of the heavier bioforms, coupled with bioacids and unnatural senses, allow them to pick off the armoured vehicles of the prey.",
+      "id": "b31432b9-ba4c-5755-adc4-e01f592dd53d",
+      "keywords": [
+        "Infantry",
+        "Great Devourer",
+        "Vanguard Invader",
+        "Burrower",
+        "Hyperadapted Raveners",
+        "Character",
+        "Synapse"
+      ],
+      "leader": "",
+      "loadout": "The Ravener Prime is equipped with: Prime claws and talons.\n3 Raveners are equipped with: Ravener heavy claws and talons.\n1 Ravener is equipped with: venom bolt; Ravener heavy claws and talons.",
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "6",
+              "damage": "2",
+              "keywords": ["Twin-linked", "Anti-vehicle 5+", "Anti-monster 5+"],
+              "name": "Prime claws and talons",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "3",
+              "damage": "2",
+              "keywords": ["Twin-linked", "Anti-vehicle 5+", "Anti-monster 5+"],
+              "name": "Ravener heavy claws and talons",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        }
+      ],
+      "name": "Hyperadapted Raveners",
+      "points": [
+        {
+          "cost": "165",
+          "keyword": null,
+          "models": "5",
+
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "D6+3",
+              "damage": "1",
+              "keywords": ["Torrent", "Ignores Cover", "Assault"],
+              "name": "Venom bolt",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "6"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "ld": "7+",
+          "m": "10\"",
+          "name": "Ravener Prime",
+          "oc": "1",
+
+          "sv": "4+",
+          "t": "5",
+          "w": "6"
+        },
+        {
+          "ld": "8+",
+          "m": "10\"",
+          "name": "Raveners",
+          "oc": "1",
+
+          "sv": "4+",
+          "t": "5",
+          "w": "3"
+        }
+      ],
+      "transport": "",
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1929,7 +2132,9 @@
         {
           "cost": "275",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1948,8 +2153,8 @@
           ],
           "abilities": [
             {
-              "description": "After the bearer has shot with this weapon, select one enemy Monster or Vehicle unit hit by one or more of those attacks. Until the end of the turn, each time the bearer selects that unit as a target of a charge, add 2 to the Charge roll.",
-              "name": "Harpooned"
+              "name": "Harpooned",
+              "description": "After the bearer has shot with this weapon, select one enemy MONSTER or VEHICLE unit hit by one or more of those attacks. Until the end of the turn, each time the bearer selects that unit as a target of a charge, add 2 to the Charge roll."
             }
           ]
         }
@@ -1968,7 +2173,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2027,7 +2234,9 @@
         {
           "cost": "145",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2060,7 +2269,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2113,9 +2324,11 @@
       "name": "Tyrannofex",
       "points": [
         {
-          "cost": "190",
+          "cost": "200",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2192,7 +2405,9 @@
       "transport": "",
       "wargear": [
         "This model’s fleshborer hive can be replaced with one of the following: ◦ 1 acid spray ◦ 1 rupture cannon"
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2259,9 +2474,11 @@
       "name": "Neurolictor",
       "points": [
         {
-          "cost": "90",
+          "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2279,7 +2496,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2297,7 +2516,7 @@
         "other": [
           {
             "name": "Bio-stimulus (Aura)",
-            "description": "While a friendly TYRANIDS unit is within 6\" of this model, models in that unit have the Feel No Pain 6+ ability."
+            "description": "In your Shooting phase, after this model has shot, select one enemy unit hit by one or more of those attacks. Until the end of the turn, each time a friendly TYRANIDS unit makes a melee attack that targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1. The same enemy unit can only be affected by this ability once per turn."
           },
           {
             "name": "Feeding Frenzy",
@@ -2314,15 +2533,21 @@
       "faction_id": "TYR",
       "fluff": "These monsters stampede into battle with frightening speed. They devour any prey organism in their paths, but especially favour those victims with psychic abilities. How they metabolise such esoteric powers is unclear, but doing so allows them to project surges of psychocorrosive ash that deflagrate their victims’ minds and souls",
       "id": "d5a50301-0327-56f8-8e31-1741c01c7b28",
-      "keywords": ["Monster", "Great Devourer", "Harvester", "Psychophage"],
+      "keywords": [
+        "Monster",
+        "Smoke",
+        "Great Devourer",
+        "Harvester",
+        "Psychophage"
+      ],
       "leader": "",
       "loadout": "This model is equipped with: psychoclastic torrent; talons and betentacled maw.",
       "meleeWeapons": [
         {
           "profiles": [
             {
-              "ap": "-1",
-              "attacks": "D6+1",
+              "ap": "-2",
+              "attacks": "6",
               "damage": "2",
               "keywords": ["Devastating Wounds", "Anti-psyker 4+"],
               "name": "Talons and betentacled maw",
@@ -2336,9 +2561,11 @@
       "name": "Psychophage",
       "points": [
         {
-          "cost": "95",
+          "cost": "110",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2361,7 +2588,7 @@
       "stats": [
         {
           "ld": "8+",
-          "m": "8\"",
+          "m": "12\"",
           "name": "Psychophage",
           "oc": "3",
 
@@ -2371,7 +2598,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2437,12 +2666,16 @@
         {
           "cost": "200",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2486,95 +2719,9 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": ["Neurotyrant"]
-    },
-    {
-      "abilities": {
-        "core": ["Deep Strike"],
-        "damaged": {
-          "range": "1-5 WOUNDS REMAINING",
-          "description": "While this model has 1-5 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
-        },
-        "faction": ["Synapse"],
-        "invul": {
-          "info": "",
-
-          "value": ""
-        },
-        "other": [
-          {
-            "name": "Subterranean Tunnels",
-            "description": "In your Movement phase, when this model is set up on the battlefield using the Deep Strike ability, it can use a subterranean tunnel. If it does, this model can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units, but until the end of the turn, it is not eligible to declare a charge."
-          }
-        ],
-        "primarch": [],
-        "special": [],
-        "wargear": []
-      },
-
-      "composition": ["1 Trygon"],
-      "factions": ["Tyranids"],
-      "faction_id": "TYR",
-      "fluff": "Trygons are battle-tank-sized tunnelling machines. As they dig through the substrata of the prey world, they excavate huge tunnels for other Tyranid beasts to exploit. At the same time, the rasping of their chitinous plates builds up a powerful bio-electric charge that the Trygons can unleash as a weapon.",
-      "id": "6c4e1665-c826-50e4-8db9-304ca1d6fb74",
-      "keywords": ["Monster", "Great Devourer", "Vanguard Invader", "Trygon"],
-      "leader": "",
-      "loadout": "This model is equipped with: bio-electric pulse; Trygon scything talons.",
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "-2",
-              "attacks": "12",
-              "damage": "3",
-              "keywords": [],
-              "name": "Trygon scything talons",
-              "range": "Melee",
-              "skill": "3+",
-              "strength": "9"
-            }
-          ]
-        }
-      ],
-      "name": "Trygon",
-      "points": [
-        {
-          "cost": "150",
-          "keyword": null,
-          "models": "1"
-        }
-      ],
-      "rangedWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "6",
-              "damage": "1",
-              "keywords": ["Sustained Hits 2"],
-              "name": "Bio-electric pulse",
-              "range": "12\"",
-              "skill": "3+",
-              "strength": "5"
-            }
-          ]
-        }
-      ],
-      "source": "40k-10e",
-      "stats": [
-        {
-          "ld": "8+",
-          "m": "10\"",
-          "name": "Trygon",
-          "oc": "4",
-
-          "sv": "3+",
-          "t": "10",
-          "w": "14"
-        }
-      ],
-      "transport": "",
-      "wargear": ["None"]
     },
     {
       "abilities": {
@@ -2641,7 +2788,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2660,6 +2809,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["GENESTEALERS"],
         "extra": ""
@@ -2725,7 +2876,9 @@
         {
           "cost": "215",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2788,7 +2941,9 @@
       "transport": "",
       "wargear": [
         "This model’s twin stranglethorn cannon can be replaced with 1 twin heavy venom cannon."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2869,7 +3024,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2887,7 +3044,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2970,12 +3129,16 @@
         {
           "cost": "160",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "80",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2996,6 +3159,8 @@
       "wargear": [
         "Any number of models can each have their scything talons and rending claws replaced with one of the following:  ◦ 1 bone cleaver, lash whip and rending claws ◦ 1 crushing claws and rending claws"
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": ["The Swarmlord", "Neurotyrant", "Hive Tyrant"]
     },
     {
@@ -3049,9 +3214,11 @@
       "name": "Screamer-Killer",
       "points": [
         {
-          "cost": "145",
+          "cost": "125",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3084,7 +3251,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "90mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3128,12 +3297,16 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "30",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3151,7 +3324,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3212,12 +3387,16 @@
         {
           "cost": "130",
           "keyword": null,
-          "models": "20"
+          "models": "20",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3235,7 +3414,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "28.5mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3293,14 +3474,18 @@
       "name": "Genestealers",
       "points": [
         {
-          "cost": "150",
+          "cost": "140",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3319,6 +3504,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Broodlord"]
     },
     {
@@ -3378,7 +3565,9 @@
         {
           "cost": "150",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3411,7 +3600,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3466,17 +3657,23 @@
         {
           "cost": "105",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "70",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3509,7 +3706,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "80mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3580,7 +3779,9 @@
         {
           "cost": "105",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3614,6 +3815,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["NEUROGAUNTS", "TYRANT GUARD", "ZOANTHROPES"],
         "extra": ""
@@ -3678,12 +3881,16 @@
         {
           "cost": "120",
           "keyword": null,
-          "models": "20"
+          "models": "20",
+
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3792,7 +3999,9 @@
         "For every 10 models in this unit, 1 model’s ranged weapon can be replaced with 1 shardlauncher.",
         "All models in this unit can each have their fleshborer replaced with 1 Termagant spinefists.",
         "All models in this unit can each have their fleshborer replaced with 1 Termagant devourer."
-      ]
+      ],
+      "baseSize": "28.5mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3845,14 +4054,18 @@
       "name": "Hive Guard",
       "points": [
         {
-          "cost": "200",
+          "cost": "180",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "100",
+          "cost": "90",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3901,7 +4114,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their shockcannon replaced with 1 impaler cannon."
-      ]
+      ],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3956,12 +4171,16 @@
         {
           "cost": "110",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "55",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3994,7 +4213,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4054,17 +4275,23 @@
         {
           "cost": "90",
           "keyword": null,
-          "models": "22"
+          "models": "22",
+
+          "detachment": null
         },
         {
           "cost": "90",
           "keyword": null,
-          "models": "21"
+          "models": "21",
+
+          "detachment": null
         },
         {
           "cost": "45",
           "keyword": null,
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4083,6 +4310,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Neurogaunts: 25mm\nNodebeast: 28.5mm",
+      "chapter": null,
       "leadBy": ["Neurotyrant"]
     },
     {
@@ -4159,7 +4388,9 @@
         {
           "cost": "200",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4220,7 +4451,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4308,9 +4541,11 @@
       "name": "Tervigon",
       "points": [
         {
-          "cost": "175",
+          "cost": "160",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4345,7 +4580,9 @@
       "transport": "",
       "wargear": [
         "This model’s massive scything talons can be replaced with 1 massive crushing claws."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4420,7 +4657,9 @@
         {
           "cost": "150",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4439,6 +4678,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["CARNIFEXES"],
         "extra": ""
@@ -4513,7 +4754,9 @@
         {
           "cost": "170",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4546,7 +4789,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4641,14 +4886,18 @@
       "name": "Carnifexes",
       "points": [
         {
-          "cost": "230",
+          "cost": "180",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
-          "cost": "115",
+          "cost": "90",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4757,6 +5006,8 @@
         "Any number of models can each have their Carnifex scything talons replaced with one of the following: ◦ 1 deathspitters with slimer maggots ◦ 1 devourers with brainleech worms ◦ 1 Carnifex crushing claws",
         "Any number of models can each have their Carnifex extra scything talons replaced with one of the following: ◦ 1 deathspitters with slimer maggots ◦ 1 devourers with brainleech worms ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 Carnifex crushing claws"
       ],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null,
       "leadBy": ["Old One Eye"]
     },
     {
@@ -4775,7 +5026,7 @@
         "other": [
           {
             "name": "Will of the Hive Mind",
-            "description": "Once per turn, one unit from your army with this ability can use it when a friendly TYRANIDS unit within 12\" of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP."
+            "description": "Once per battle round, one model from your army with this ability can use it when a friendly TYRANIDS unit within 12\" of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP."
           },
           {
             "name": "Onslaught (Aura, Psychic)",
@@ -4835,9 +5086,11 @@
       "name": "Hive Tyrant",
       "points": [
         {
-          "cost": "235",
+          "cost": "195",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4888,6 +5141,8 @@
         "This model’s monstrous scything talons can be replaced with one of the following:  ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon  * This model cannot be equipped with both a stranglethorn cannon and a heavy venom cannon. This model cannot be equipped with more than 1 heavy venom cannon, and it cannot be equipped with more than 1 stranglethorn cannon.",
         "This model’s monstrous bonesword and lash whip can be replaced with one of the following:  ◦ 1 heavy venom cannon ◦ 1 stranglethorn cannon ◦ 1 monstrous scything talons"
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": ["TYRANT GUARD"],
         "extra": ""
@@ -4954,12 +5209,16 @@
         {
           "cost": "170",
           "keyword": null,
-          "models": "20"
+          "models": "20",
+
+          "detachment": null
         },
         {
           "cost": "85",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4993,6 +5252,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Small Flying Base",
+      "chapter": null,
       "leadBy": ["Winged Tyranid Prime"]
     },
     {
@@ -5062,7 +5323,9 @@
         {
           "cost": "125",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5095,7 +5358,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5154,7 +5419,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -5172,7 +5439,92 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null
+    },
+    {
+      "abilities": {
+        "core": ["Deep Strike"],
+        "damaged": {
+          "description": "",
+          "range": ""
+        },
+        "faction": ["Synapse"],
+        "invul": {
+          "info": "",
+
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Death From Below",
+            "description": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
+          }
+        ],
+        "primarch": [],
+        "special": [],
+        "wargear": []
+      },
+
+      "composition": ["5 Raveners"],
+      "factions": ["Tyranids"],
+      "faction_id": "TYR",
+      "fluff": "Serpentine bioforms capable of a terrifying turn of speed, Raveners are made doubly dangerous by their ability to tunnel swiftly through even solid bedrock. Often assaulting their prey from below, Raveners are especially vicious and predatory warrior organisms used as shock troops by the hive mind.",
+      "id": "cc767c7b-3110-509f-814e-98d9c58d1964",
+      "keywords": [
+        "Infantry",
+        "Great Devourer",
+        "Vanguard Invader",
+        "Burrower",
+        "Raveners"
+      ],
+      "leader": "",
+      "loadout": "Every model is equipped with: Ravener claws and talons.",
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "3",
+              "damage": "2",
+              "keywords": ["Twin-linked"],
+              "name": "Ravener claws and talons",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        }
+      ],
+      "name": "Raveners",
+      "points": [
+        {
+          "cost": "125",
+          "keyword": null,
+          "models": "5",
+
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "ld": "8+",
+          "m": "10\"",
+          "name": "Raveners",
+          "oc": "1",
+
+          "sv": "4+",
+          "t": "5",
+          "w": "3"
+        }
+      ],
+      "transport": "",
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5410,13 +5762,38 @@
     }
   ],
   "detachments": [
-    "Crusher Stampede",
-    "Assimilation Swarm",
-    "Unending Swarm",
-    "Synaptic Nexus",
-    "Vanguard Onslaught",
-    "Warrior Bioform Onslaught",
-    "Invasion Fleet"
+    {
+      "name": "Synaptic Nexus",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Subterranean Assault",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Warrior Bioform Onslaught",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Crusher Stampede",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Unending Swarm",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Vanguard Onslaught",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Invasion Fleet",
+      "faction": "Tyranids"
+    },
+    {
+      "name": "Assimilation Swarm",
+      "faction": "Tyranids"
+    }
   ],
   "enhancements": [
     {
@@ -5427,7 +5804,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. After both players have deployed their armies, select up to three TYRANIDS units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "TYR",
-      "detachment": "Invasion Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Perfectly Adapted",
@@ -5437,7 +5817,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. Once per turn, you can re-roll one Hit roll, one Wound roll, one Damage roll, one Advance roll, one Charge roll or one saving throw made for the bearer.",
       "faction_id": "TYR",
-      "detachment": "Invasion Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Lynchpin",
@@ -5447,7 +5830,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. While a friendly TYRANIDS unit is within 9\" of the bearer, that unit is within Synapse Range of your army.",
       "faction_id": "TYR",
-      "detachment": "Invasion Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Adaptive Biology",
@@ -5457,47 +5843,62 @@
       "excludes": [],
       "description": "TYRANIDS model only. The bearer has the Feel No Pain 5+ ability. At the start of any turn, if the bearer has fewer than its starting number of wounds remaining, until the end of the battle, it has the Feel No Pain 4+ ability instead.",
       "faction_id": "TYR",
-      "detachment": "Invasion Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Ominous Presence",
       "id": "f84c9c3c-5135-5866-b4b6-74e9d409ff79",
       "cost": "15",
-      "keywords": ["Monster"],
+      "keywords": ["Monster", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS MONSTER model only. Add 3 to the bearer’s Objective Control characteristic.",
       "faction_id": "TYR",
-      "detachment": "Crusher Stampede"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Enraged Reserves",
       "id": "c54fa1cb-99b5-59f9-b7c8-a5be084e4139",
       "cost": "20",
-      "keywords": ["Monster"],
+      "keywords": ["Monster", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS MONSTER model only. If the bearer is destroyed by a melee attack, if it has not fought this phase, roll one D6: on a 3+, do not remove it from play. It can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.",
       "faction_id": "TYR",
-      "detachment": "Crusher Stampede"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Null Nodules",
       "id": "70857bc4-5076-5ce3-b73d-da8bbe9eba77",
       "cost": "10",
-      "keywords": ["Monster"],
+      "keywords": ["Monster", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS MONSTER model only. Once per battle, when a Psychic Attack is allocated to the bearer, it can use this ability. If it does, until the end of the phase, the bearer has the Feel No Pain 5+ ability against Psychic Attacks.",
       "faction_id": "TYR",
-      "detachment": "Crusher Stampede"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Monstrous Nemesis",
       "id": "aa33376f-07ef-55a6-878d-5cd44b5bbab6",
       "cost": "25",
-      "keywords": ["Monster"],
+      "keywords": ["Monster", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS MONSTER model only. Each time the bearer makes a melee attack that targets a MONSTER or VEHICLE unit, add 1 to the Wound roll.",
       "faction_id": "TYR",
-      "detachment": "Crusher Stampede"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Relentless Hunger",
@@ -5507,7 +5908,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. Add 2\" to the Move characteristic of models in the bearer’s unit.",
       "faction_id": "TYR",
-      "detachment": "Unending Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Naturalised Camouflage",
@@ -5517,7 +5921,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. At the start of the first battle round, select up to three friendly ENDLESS MULTITUDE units within 9\" of the bearer. Until the end of the battle round, each time a ranged attack targets one of those units, models in that unit have the Benefit of Cover against that attack.",
       "faction_id": "TYR",
-      "detachment": "Unending Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Piercing Talons",
@@ -5527,7 +5934,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
       "faction_id": "TYR",
-      "detachment": "Unending Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Adrenalised Onslaught",
@@ -5537,7 +5947,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. Each time the bearer’s unit Piles In or Consolidates, models in this unit can move an additional 3\".",
       "faction_id": "TYR",
-      "detachment": "Unending Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Regenerating Monstrosity",
@@ -5547,7 +5960,10 @@
       "excludes": ["Monster"],
       "description": "TYRANIDS model only (excluding MONSTERS models). The bearer’s unit can be regenerated up to twice per phase, instead of once.",
       "faction_id": "TYR",
-      "detachment": "Assimilation Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Instinctive Defence",
@@ -5557,7 +5973,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. While the bearer is within 6\" of one or more friendly HARVESTER units, you can target the bearer’s unit with the Heroic Intervention Stratagem for 0CP. In addition, while the bearer is within 6\" of one or more friendly HARVESTER units, models in the bearer’s unit have the Fights First ability.",
       "faction_id": "TYR",
-      "detachment": "Assimilation Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Biophagic Flow (Aura)",
@@ -5567,7 +5986,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. While a friendly HARVESTER model is within 12\" of the bearer, when using the Feed the Swarm ability, that HARVESTER model can Regenerate one friendly TYRANIDS unit that is within 9\" of it, instead of one within 6\".",
       "faction_id": "TYR",
-      "detachment": "Assimilation Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Parasitic Biomorphology",
@@ -5577,7 +5999,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. Add 1 to the Strength characteristic of melee weapons equipped by models in the bearer’s unit. The first time the bearer’s unit destroys an enemy unit in the Fight phase while the bearer is within 6\" of one or more friendly HARVESTER units, until the end of the battle, add 1 to the Attacks characteristic of melee weapons equipped by models in the bearer’s unit.",
       "faction_id": "TYR",
-      "detachment": "Assimilation Swarm"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Hunting Grounds",
@@ -5587,7 +6012,10 @@
       "excludes": [],
       "description": "TYRANIDS model only. While the bearer is on the battlefield, each time your opponent sets up a Reserves unit on the battlefield, roll one D6: on a 2+, that unit must take a Battle-shock test.",
       "faction_id": "TYR",
-      "detachment": "Vanguard Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Chameleonic",
@@ -5597,7 +6025,10 @@
       "excludes": [],
       "description": "VANGUARD INVADER model only. The bearer has the Stealth ability and each time a ranged attack targets the bearer’s unit, models in that unit have the Benefit of Cover against that attack.",
       "faction_id": "TYR",
-      "detachment": "Vanguard Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Stalker",
@@ -5607,7 +6038,10 @@
       "excludes": [],
       "description": "VANGUARD INVADER model only. At the start of the battle, select one enemy unit. Each time the bearer makes an attack that targets that enemy unit, add 1 to the Hit roll and add 1 to the Wound roll.",
       "faction_id": "TYR",
-      "detachment": "Vanguard Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Neuronode",
@@ -5617,47 +6051,62 @@
       "excludes": [],
       "description": "TYRANIDS model only. After both players have deployed their armies, you can select up to three VANGUARD INVADER units from your army and redeploy all of those units. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "TYR",
-      "detachment": "Vanguard Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Power of the Hive Mind",
       "id": "814ada38-186a-55be-8a10-22a82c42fe2c",
       "cost": "10",
-      "keywords": ["Psyker"],
+      "keywords": ["Psyker", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS PSYKER model only. Improve the Strength and Armour Penetration characteristics of psychic weapons equipped by the bearer by 1.",
       "faction_id": "TYR",
-      "detachment": "Synaptic Nexus"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Psychostatic Disruption",
       "id": "6856fd9f-0c2e-57f9-9029-28d1fcc88755",
       "cost": "30",
-      "keywords": ["Synapse"],
+      "keywords": ["Synapse", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS SYNAPSE model only. Enemy units that arrive on the battlefield from Reserves cannot be set up within 12\" of the bearer. In addition, once per battle, during the first or second battle round, when your opponent declares that a unit will arrive on the battlefield from Strategic Reserves, the bearer can use this Enhancement. If it does, roll one D6: on a 4+, that enemy unit cannot arrive on the battlefield this turn.",
       "faction_id": "TYR",
-      "detachment": "Synaptic Nexus"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Control",
       "id": "9b187ce4-bbb9-54f3-9304-3bf26bcc1a4b",
       "cost": "20",
-      "keywords": ["Synapse"],
+      "keywords": ["Synapse", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS SYNAPSE model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack.",
       "faction_id": "TYR",
-      "detachment": "Synaptic Nexus"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "The Dirgeheart of Kharis (Aura)",
       "id": "d5e68f7d-5d95-5a18-bb57-ac8062ca9ee4",
       "cost": "15",
-      "keywords": ["Synapse"],
+      "keywords": ["Synapse", "Tyranids"],
       "excludes": [],
       "description": "TYRANIDS SYNAPSE model only. While an enemy unit is within 9\" of the bearer, worsen that unit’s Leadership characteristic by 1.",
       "faction_id": "TYR",
-      "detachment": "Synaptic Nexus"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Tyrant",
@@ -5667,7 +6116,10 @@
       "excludes": [],
       "description": "NEUROTYRANT model only. During the Declare Battle Formations step, the bearer can be attached to a TYRANID WARRIORS unit.&x20;",
       "faction_id": "TYR",
-      "detachment": "Warrior Bioform Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Ocular Adaptation",
@@ -5677,7 +6129,10 @@
       "excludes": [],
       "description": "WINGED TYRANID PRIME model only. Each time a model in the bearer’s unit makes an attack, add 1 to the Hit roll.",
       "faction_id": "TYR",
-      "detachment": "Warrior Bioform Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Sensory Assimilation",
@@ -5687,7 +6142,10 @@
       "excludes": [],
       "description": "WINGED TYRANID PRIME model only. Each time an attack targets the bearer’s unit, subtract 1 from the Hit roll.",
       "faction_id": "TYR",
-      "detachment": "Warrior Bioform Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Elevated Might",
@@ -5697,14 +6155,303 @@
       "excludes": [],
       "description": "TYRANIDS model only. The bearer’s unit is eligible to declare a charge in a turn in which it Advanced.",
       "faction_id": "TYR",
-      "detachment": "Warrior Bioform Onslaught"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Synaptic Strategy",
+      "id": "7d14c934-ceb5-5297-a8ba-538a2223dd8c",
+      "cost": "15",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "description": "TYRANIDS model only. Once per battle, you can target the bearer’s unit with the Rapid Ingress stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.",
+      "faction_id": "TYR",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Tremor Senses",
+      "id": "603c7ea3-fc95-5cb0-bd80-c4de2320c2c3",
+      "cost": "20",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "description": "TYRANIDS model only. After both players have deployed their armies, select up to three friendly TYRANIDS units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves.",
+      "faction_id": "TYR",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Vanguard Intellect",
+      "id": "1617de6e-6736-5d2a-a664-4bb7acc15696",
+      "cost": "15",
+      "keywords": ["Tyranids"],
+      "excludes": [],
+      "description": "TYRANIDS model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules.",
+      "faction_id": "TYR",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Trygon Prime",
+      "id": "3ceee34a-6547-56e4-9241-dd21dd4eb54a",
+      "cost": "20",
+      "keywords": ["Trygon"],
+      "excludes": [],
+      "description": "TRYGON model only. The bearer gains the SYNAPSE keyword. Improve the Strength and Weapon Skill characteristics of melee weapons equipped by the bearer by 1.",
+      "faction_id": "TYR",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
     }
   ],
   "id": "TYR",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Tyranids",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Synapse",
+        "rules": [
+          {
+            "text": "If your Army Faction is **TYRANIDS**, while a **TYRANIDS** unit from your army is within 6\" of one or more friendly **SYNAPSE** models, that **TYRANIDS** unit is said to be within Synapse Range of that model and of your army. While a **TYRANIDS** unit from your army is within Synapse Range of your army:\n\n■ Each time that unit takes a Battle-shock test, take that test on 3D6 instead of 2D6.\n■ Each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      },
+      {
+        "name": "Shadow in the Warp",
+        "rules": [
+          {
+            "text": "If your Army Faction is **TYRANIDS**, once per battle, in either player’s Command phase, if one or more units from your army with this ability are on the battlefield, you can unleash the Shadow in the Warp. When you do, each enemy unit on the battlefield must take a Battle-shock test. Each time an enemy unit takes such a Battle-shock test, if it is within 6\" of one or more **SYNAPSE** units from your army, subtract 1 from that test.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Synaptic Nexus",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Synaptic Imperatives",
+            "rules": [
+              {
+                "text": "At the start of the battle round, you can select one of the Synaptic Imperatives shown below. Until the end of the battle round, that Synaptic Imperative is active for your army and while a **TYRANIDS** unit from your army is within Synapse Range of your army, it will benefit from it. Each Synaptic Imperative can only be selected once per battle.\n\n■ **Synaptic Augmentation**: While this unit is within Synapse Range of your army, models in this unit have a 5+ invulnerable save.\n■ **Surging Vitality**: While this unit is within Synapse Range of your army, add 1 to Advance and Charge rolls made for this unit.\n■ **Goaded to Slaughter**: While this unit is within Synapse Range of your army, each time a model in this unit makes a melee attack, add 1 to the Hit roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Subterranean Assault",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Surprise Assault",
+            "rules": [
+              {
+                "text": "Each time a **TYRANIDS** model from your army makes an attack, re-roll a Hit roll of 1.\n\nEach time a **BURROWER** unit from your army is set up on the battlefield from Reserves, place a 40mm circular Tunnel Marker anywhere on the battlefield within 1\" of that unit and more than 3\" horizontally away from all enemy units.\n\nIn the Reinforcements step of your Movement phase, when you set up a unit on the battlefield from Reserves, you can set that unit up wholly within 9\" of one of your Tunnel Markers and more than 6\" horizontally away from any enemy units.\n\nIf an enemy model (excluding **AIRCRAFT**) ends any kind of move within 3\" of one of your Tunnel Markers, that Tunnel Marker is removed from the battlefield.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Warrior Bioform Onslaught",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Leader-beasts",
+            "rules": [
+              {
+                "text": "**TYRANID WARRIORS** and **WINGED TYRANID PRIME** units from your army have a 5+ invulnerable save.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Crusher Stampede",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Enraged Behemoths",
+            "rules": [
+              {
+                "text": "Each time a **TYRANIDS MONSTER** model from your army makes an attack, add 1 to the Hit roll if that model’s unit is below its Starting Strength, and add 1 to the Wound roll as well if that model’s unit is Below Half-strength. In addition, while a **TYRANIDS MONSTER** unit from your army (excluding Battle-shocked units) is at its Starting Strength, add 2 to the Objective Control characteristic of models in that unit.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Unending Swarm",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Insurmountable Odds",
+            "rules": [
+              {
+                "text": "Each time an enemy unit is selected to shoot, after that unit has finished making its attacks, if one or more models from one or more **ENDLESS MULTITUDE** units from your army were destroyed as a result of those attacks, each such unit can make a Surge move. To do so, roll one D6: that unit can be moved a distance in inches up to the result, but that unit must end that move as close as possible to the closest enemy unit (excluding **AIRCRAFT**). When doing so, those models can be moved within Engagement Range of enemy units. A unit cannot make a Surge move while it is Battle-shocked.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Vanguard Onslaught",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Questing Tendrils",
+            "rules": [
+              {
+                "text": "**TYRANIDS** units with this ability are eligible to charge in a turn in which they Fell Back. **VANGUARD INVADER** units with this ability are eligible to charge in a turn in which they Advanced.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          },
+          {
+            "name": "Vanguard Prime",
+            "rules": [
+              {
+                "text": "**DEATHLEAPER** loses the Hunter Organism rule and can be your **WARLORD**.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Invasion Fleet",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Hyper-adaptations",
+            "rules": [
+              {
+                "text": "At the start of the first battle round, select one of the following Hyper-adaptations to be active for **TYRANIDS** units from your army until the end of the battle.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Swarming Instincts",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Each time a **TYRANIDS** model with this Hyper-adaptation makes an attack that targets an **INFANTRY** or **SWARM** unit, that attack has the **[SUSTAINED HITS 1]** ability.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Hyper-aggression",
+                "order": 4,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Each time a **TYRANIDS** model with this Hyper-adaptation makes an attack that targets a **MONSTER** or **VEHICLE** unit, that attack has the **[LETHAL HITS]** ability.",
+                "order": 5,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Hive Predators",
+                "order": 6,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Each time a **TYRANIDS** model with this Hyper-adaptation makes an attack that targets a **CHARACTER** unit, on a Critical Hit, that attack has the **[PRECISION]** ability.",
+                "order": 7,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Assimilation Swarm",
+        "faction": "Tyranids",
+        "rules": [
+          {
+            "name": "Feed the Swarm",
+            "rules": [
+              {
+                "text": "In your Command phase, each **HARVESTER** unit from your army can Regenerate one friendly **TYRANIDS** unit that is within 6\" of it. A unit can only be regenerated once per phase. Each time a unit regenerates, do one of the following:\n\n■ One model in that unit regains up to D3+1 lost wounds.\n■ One destroyed **INFANTRY** model (excluding **CHARACTERS**) is returned to that unit with its full wounds remaining. If that unit is an **ENDLESS MULTITUDE** unit, up to 3 destroyed models are returned instead.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "Synaptic Channelling",
@@ -5719,7 +6466,8 @@
       "phase": ["command"],
       "faction_id": "TYR",
       "fluff": "Tyranids are one with the Hive Mind; individuality is a disadvantage that they surpass.",
-      "detachment": "Synaptic Nexus"
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Irresistible Will",
@@ -5734,7 +6482,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Whether paralysing its prey or forcing them to stumble out of cover with its force of will, or else puppeteering nearby warrior organisms, the leader-beast ensures the prey targets are struck down.",
-      "detachment": "Synaptic Nexus"
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Reinforced Hive Node",
@@ -5749,7 +6498,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Psionic shielding crackles around these leader-beasts, helping to ensure their survival.",
-      "detachment": "Synaptic Nexus"
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Swarm-guided Salvoes",
@@ -5764,7 +6514,8 @@
       "phase": ["shooting"],
       "faction_id": "TYR",
       "fluff": "One cannot hide from a gestalt entity with a million eyes, even in the densest cover.",
-      "detachment": "Crusher Stampede"
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Rampaging Monstrosities",
@@ -5779,7 +6530,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "Tyranid monsters have reserves of energy that they unleash in waves of devastating fury.",
-      "detachment": "Crusher Stampede"
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Savage Roar",
@@ -5794,7 +6546,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "This monster is even more terrifying to behold than other bioforms of its kind.",
-      "detachment": "Crusher Stampede"
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Teeming Masses",
@@ -5809,7 +6562,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Skittering, darting and pouring over one another, the Tyranids make for hard and confusing targets.",
-      "detachment": "Unending Swarm"
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Swarming Masses",
@@ -5824,7 +6578,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "The sheer weight of Tyranid numbers begins to tell as they bury their victims in lashing, biting horror.",
-      "detachment": "Unending Swarm"
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Bounding Advance",
@@ -5839,7 +6594,8 @@
       "phase": ["movement"],
       "faction_id": "TYR",
       "fluff": "Synaptic impulses from the Hive Mind urge greater speed from the swarm’s warrior organisms.",
-      "detachment": "Unending Swarm"
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Surprise Assault",
@@ -5854,7 +6610,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Vanguard organisms strike from unexpected quarters with calculated and emotionless alien savagery that is appalling to behold.",
-      "detachment": "Vanguard Onslaught"
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Assassin Beasts",
@@ -5869,7 +6626,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "These bioforms have been adapted to strike with pinpoint precision at the pre-assessed weak points of selected prey that require elimination.",
-      "detachment": "Vanguard Onslaught"
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Rapid Regeneration",
@@ -5884,7 +6642,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Prey stare in horror as chitinous armour regrows and flesh, muscle and sinew knots back together.",
-      "detachment": "Invasion Fleet"
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Rapacious Hunger",
@@ -5899,7 +6658,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "The hunger of the Tyranids can never be satiated.",
-      "detachment": "Assimilation Swarm"
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Adrenal Surge",
@@ -5914,7 +6674,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "These warrior organisms destroy all as their adrenaline surges.",
-      "detachment": "Invasion Fleet"
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Massive Impact",
@@ -5929,7 +6690,8 @@
       "phase": ["charge"],
       "faction_id": "TYR",
       "fluff": "Employing their sheer bulk and vicious chitinous horns and spikes, the largest Tyranids crash headlong through the foe, often with devastating results.",
-      "detachment": "Crusher Stampede"
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Broodguard Impulse",
@@ -5944,7 +6706,8 @@
       "phase": ["any"],
       "faction_id": "TYR",
       "fluff": "Should a foe successfully slay one of the swarm’s assimilation organisms, they only mark themselves as a priority for predation and consumption in turn.",
-      "detachment": "Assimilation Swarm"
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Ablative Carapace",
@@ -5959,7 +6722,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "These organisms have employed consumed minerals to exude an additional hardened protective layer over their chitinous armour.",
-      "detachment": "Assimilation Swarm"
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "The Smothering Shadow",
@@ -5974,7 +6738,8 @@
       "phase": ["any"],
       "faction_id": "TYR",
       "fluff": "In the heart of the swarms, the Shadow in the Warp can literally kill with its smothering power.",
-      "detachment": "Synaptic Nexus"
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Imperative Dominance",
@@ -5989,7 +6754,8 @@
       "phase": ["command"],
       "faction_id": "TYR",
       "fluff": "At need, the focused will of the Tyranid leader-beasts can goad warrior organisms to exhibit strategically beneficial behaviours at the instant they are needed most.",
-      "detachment": "Synaptic Nexus"
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Override Instincts",
@@ -6004,7 +6770,72 @@
       "phase": ["movement"],
       "faction_id": "TYR",
       "fluff": "The seemingly omniscient Hive Mind processes the sensory input of its swarms at an impossible rate, and compels its broods to react accordingly.",
-      "detachment": "Synaptic Nexus"
+      "detachment": "Synaptic Nexus",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Enfilading Emergence",
+      "id": "e737dadb-d212-5d38-8bc6-3bd208e6828a",
+      "cost": 1,
+      "turn": "your",
+      "target": "One TYRANIDS unit from your army that was set up as Reinforcements this turn.",
+      "when": "End of your Movement phase.",
+      "effect": "Until the end of your next Fight phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] and [IGNORES COVER] abilities.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "TYR",
+      "fluff": "Emerging from the depths, Tyranid bioforms level their weapon morphs and spit hissing volleys of living ammunition into the exposed backs of outflanked prey.",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Tunnel Network",
+      "id": "e502d7f6-edba-57f0-973e-daed5873177e",
+      "cost": 1,
+      "turn": "your",
+      "target": "One TYRANIDS unit from your army that is wholly within 9\" of one or more of your Tunnel Markers and not within Engagement Range of one or more enemy units.",
+      "when": "End of your Movement phase.",
+      "effect": "Remove your unit from the battlefield and set it up again, wholly within 9\" of another Tunnel Marker you placed, and more than 6\" horizontally away from all enemy units.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "TYR",
+      "fluff": "Taking advantage of freshly burrowed tunnels, Tyranid bioforms move swiftly across the landscape, emerging in unexpected locations.",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Swarming Assault",
+      "id": "f3b6df45-7ab9-56ad-a67a-af24cac75450",
+      "cost": 1,
+      "turn": "your",
+      "target": "One TYRANIDS MONSTER unit from your army that was set up as Reinforcements this turn.",
+      "when": "Your Charge phase.",
+      "effect": "Until the end of the phase, friendly TYRANIDS units within 6\" of your unit can re-roll Charge rolls.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["charge"],
+      "faction_id": "TYR",
+      "fluff": "A hive fleet’s vanguard organisms favour mobility and aggression, keeping the foe on the back foot with repeated coordinated assaults.",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Retreat Below",
+      "id": "aafee9ed-6f3b-53cc-9c0a-4d07f2b4a4d9",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One TYRANIDS unit or up to two BURROWER units from your army that are not within Engagement Range of one or more enemy units.",
+      "when": "End of your opponent’s Fight phase.",
+      "effect": "Remove your unit from the battlefield and place it into Strategic Reserves.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight"],
+      "faction_id": "TYR",
+      "fluff": "The network of tunnels beneath the battlefield enables Tyranid organisms to retreat from the foe and prepare further ambushes.",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Amplification",
@@ -6019,7 +6850,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Tyranid Warriors focus and amplify the urgency of the Hive Mind’s impulse to nearby broods, lending them increased coordination.",
-      "detachment": "Warrior Bioform Onslaught"
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Restorative Impulse",
@@ -6034,7 +6866,8 @@
       "phase": ["command"],
       "faction_id": "TYR",
       "fluff": "Responding to impulses from the Hive Mind, dormant nanoviral organisms awaken within the corpse of a fallen Tyranid Warrior, knitting together ruptured organs and restoring its broken form to life.",
-      "detachment": "Warrior Bioform Onslaught"
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Micronodes",
@@ -6049,7 +6882,8 @@
       "phase": ["movement"],
       "faction_id": "TYR",
       "fluff": "Impulses from the Hive Mind compel its most adaptable bioforms to shed microbial micronodes that burrow into the soil, knitting together to form a short‑term synaptic relay that persists only as long as the brief‑burning lifespans of its composite creatures.",
-      "detachment": "Warrior Bioform Onslaught"
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Parasitic Payload",
@@ -6064,7 +6898,8 @@
       "phase": ["shooting"],
       "faction_id": "TYR",
       "fluff": "The projectiles fired by this weapon are infected with parasites that burrow into the central nervous systems of their targets, causing them to wail and scream in pain and giving away their position to the oncoming swarms.",
-      "detachment": "Warrior Bioform Onslaught"
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Shield",
@@ -6079,7 +6914,8 @@
       "phase": ["shooting"],
       "faction_id": "TYR",
       "fluff": "By focusing the psionic energies of the Hive Mind, these leader‑beasts shield the teeming bioforms under their command.",
-      "detachment": "Warrior Bioform Onslaught"
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Untrammelled Ferocity",
@@ -6094,7 +6930,8 @@
       "phase": ["movement"],
       "faction_id": "TYR",
       "fluff": "Encircling and entrapping such physically powerful and fearless beasts is nigh on impossible.",
-      "detachment": "Crusher Stampede"
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Corrosive Viscera",
@@ -6109,7 +6946,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Highly acidic fluids spray from the creature’s wounds, lethal to those nearby.",
-      "detachment": "Crusher Stampede"
+      "detachment": "Crusher Stampede",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Synaptic Goading",
@@ -6124,7 +6962,8 @@
       "phase": ["any"],
       "faction_id": "TYR",
       "fluff": "For a moment, a minuscule sliver of the Hive Mind’s ineffable will is focussed through these warrior organisms, driving them to pounce upon either valuable prey or else some vital strategic target.",
-      "detachment": "Unending Swarm"
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Preservation Imperative",
@@ -6139,7 +6978,8 @@
       "phase": ["shooting"],
       "faction_id": "TYR",
       "fluff": "Triggered by incoming projectile fire, a synaptic pulse spurs the danger-senses of lesser warrior organisms and causes them to scatter like a shoal evading predators. Only once the explosions have stopped and the dust cleared do the bioforms bunch up once again.",
-      "detachment": "Unending Swarm"
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Seeded Broods",
@@ -6154,7 +6994,8 @@
       "phase": ["movement"],
       "faction_id": "TYR",
       "fluff": "Warrior organisms erupt from concealment straight into advanced positions.",
-      "detachment": "Vanguard Onslaught"
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Unseen Lurkers",
@@ -6169,7 +7010,8 @@
       "phase": ["shooting"],
       "faction_id": "TYR",
       "fluff": "Hyper-attuned senses warn vanguard organisms when they are being targeted by the prey.",
-      "detachment": "Vanguard Onslaught"
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Invisible Hunter",
@@ -6184,7 +7026,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "Hunter-slayer organisms can melt away before the eyes of their foes, only to strike from a new direction.",
-      "detachment": "Vanguard Onslaught"
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Death Frenzy",
@@ -6199,7 +7042,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "Tyranids care nothing for self-preservation, lashing out even in death.",
-      "detachment": "Invasion Fleet"
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Overrun",
@@ -6214,7 +7058,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "Tyranids in battle form an unstoppable avalanche of flesh and chitin that buries the foe alive.",
-      "detachment": "Invasion Fleet"
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Predatory Imperative",
@@ -6229,7 +7074,8 @@
       "phase": ["command"],
       "faction_id": "TYR",
       "fluff": "Guided by the instincts of leader-beasts, the swarm can be tasked with focusing its hunting instincts.",
-      "detachment": "Invasion Fleet"
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Endless Swarm",
@@ -6244,7 +7090,8 @@
       "phase": ["command"],
       "faction_id": "TYR",
       "fluff": "As the battle rages, more organisms pour in to bolster the swarms.",
-      "detachment": "Invasion Fleet"
+      "detachment": "Invasion Fleet",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Reclaim Biomass",
@@ -6259,7 +7106,8 @@
       "phase": ["any"],
       "faction_id": "TYR",
       "fluff": "Dead Tyranids are consumed and reconstituted by the swarm just as readily as the lifeless carcasses of their prey.",
-      "detachment": "Assimilation Swarm"
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Tyrannoformed",
@@ -6268,13 +7116,14 @@
       "turn": "either",
       "target": "One HARVESTER unit from your army that is within range of an objective marker you control.",
       "when": "Command phase.",
-      "effect": "That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+      "effect": "That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
       "restrictions": "",
       "type": "Strategic Ploy",
       "phase": ["command"],
       "faction_id": "TYR",
       "fluff": "Swarms of diminutive Tyranid phage organisms carpet even the most vital strategic assets, steadily breaking them down for assimilation.",
-      "detachment": "Assimilation Swarm"
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Secure Biomass",
@@ -6289,7 +7138,8 @@
       "phase": ["fight"],
       "faction_id": "TYR",
       "fluff": "When rich sources of biomass are identified the warrior organisms of this swarm will stop at nothing to destroy resistance and claim them.",
-      "detachment": "Assimilation Swarm"
+      "detachment": "Assimilation Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Unending Waves",
@@ -6304,7 +7154,8 @@
       "phase": ["any"],
       "faction_id": "TYR",
       "fluff": "No matter how many warrior organisms are slain, more are already surging forward over their corpses.",
-      "detachment": "Unending Swarm"
+      "detachment": "Unending Swarm",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Hypersensory Scillia",
@@ -6319,7 +7170,40 @@
       "phase": ["movement"],
       "faction_id": "TYR",
       "fluff": "Hissing clusters of scillia warn of the slightest prey movements, allowing the Tyranids to react.",
-      "detachment": "Vanguard Onslaught"
+      "detachment": "Vanguard Onslaught",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Adaptive Optimisation",
+      "id": "fc6b9778-cfa8-50c1-9281-f0fe8be1647b",
+      "cost": 1,
+      "turn": "either",
+      "target": "One MAWLOC or TRYGON unit from your army.",
+      "when": "Command phase.",
+      "effect": "Until the start of your next Command phase, your unit has the SYNAPSE keyword.",
+      "restrictions": "",
+      "type": "Wargear",
+      "phase": ["command"],
+      "faction_id": "TYR",
+      "fluff": "On occasions where subterranean assaults are deemed tactically useful, the hive mind may spontaneously alter its burrowing organisms, enabling them to act as beacons for its will.",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
+    },
+    {
+      "name": "Replenishing Swarms",
+      "id": "113a99cc-781e-5522-a0cb-0e2bf22efd9a",
+      "cost": 1,
+      "turn": "your",
+      "target": "One TYRANIDS unit from your army, wholly within 9\" of one or more Tunnel Markers you placed.",
+      "when": "Your Movement phase.",
+      "effect": "One model in your unit regains up to D3+1 lost wounds, or you can return up to D3+1 destroyed models with a Wounds characteristic of 1 to your unit, with their full wounds remaining, instead.",
+      "restrictions": "",
+      "type": "Wargear",
+      "phase": ["movement"],
+      "faction_id": "TYR",
+      "fluff": "Scrambling through the tunnels come endless multitudes of warrior-beasts and harvester bioforms, spilling out of the depths to reinforce the teeming masses.",
+      "detachment": "Subterranean Assault",
+      "detachment_faction": "Tyranids"
     },
     {
       "name": "Spontaneous Hypercorrosion",
@@ -6334,8 +7218,9 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TYR",
       "fluff": "Biomorphic symbiotes growing beneath the chitinous plates of some Tyranids can be activated by synaptic impulse, acidifying their bio‑weapons at a moment’s notice.",
-      "detachment": "Warrior Bioform Onslaught"
+      "detachment": "Warrior Bioform Onslaught",
+      "detachment_faction": "Tyranids"
     }
   ],
-  "updated": "2025-02-05T13:53:45.432Z"
+  "updated": "2026-03-09T13:13:52.908Z"
 }

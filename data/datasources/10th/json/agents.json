@@ -4,7 +4,289 @@
     "banner": "#1a3445",
     "header": "#244b6a"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
+    {
+      "abilities": {
+        "core": ["Scouts 6\""],
+        "damaged": {
+          "description": "",
+          "range": ""
+        },
+        "faction": ["Assigned Agents"],
+        "invul": {
+          "info": "",
+
+          "value": "5+"
+        },
+        "other": [
+          {
+            "name": "Ministorum Sermon",
+            "description": "While this unit contains a MINISTORUM PRIEST, each time a model in this unit makes a melee attack, add 1 to the Wound roll."
+          },
+          {
+            "name": "Cherub",
+            "description": "Once per battle, you can target this unit with the Command Re-roll Stratagem for 0CP, and can do so even if you have already targeted a different unit with that Stratagem this phase.\n\nDesigner’s Note: Place a Cherub token next to the unit, removing it once this ability has been used."
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "If a MINISTORUM PRIEST or INQUISITOR model from your army with the Leader ability can be attached to a SISTERS OF BATTLE SQUAD, it can be attached to this unit instead. If a MINISTORUM PRIEST or INQUISITOR model from your army is attached to this unit during the Declare Battle Formations step, that model gains the Scouts 6\" ability.",
+            "name": "Atttached Unit"
+          }
+        ],
+        "wargear": [
+          {
+            "name": "Salvationist Medikit",
+            "description": "In your Command phase, if the bearer is on the battlefield, you can return up to D3 destroyed models (excluding CHARACTER models) to this unit."
+          },
+          {
+            "name": "Simulacrum Imperialis",
+            "description": "Improve the Leadership characteristic of models in the bearer’s unit by 1."
+          }
+        ]
+      },
+
+      "composition": [
+        "1 Miraculist",
+        "1 Salvationist",
+        "1 Death Cult Assassin",
+        "2 Missionaries",
+        "4 Sanctifiers"
+      ],
+      "factions": ["Agents of the Imperium"],
+      "faction_id": "AoI",
+      "fluff": null,
+      "id": "fb25fb97-0644-5c52-ac27-40ba1170b23e",
+      "keywords": [
+        "Infantry",
+        "Grenades",
+        "Imperium",
+        "Retinue",
+        "Sanctifiers"
+      ],
+      "leader": "",
+      "loadout": "The Miraculist is equipped with: holy fire; burning hands.\nThe Salvationist is equipped with: close combat weapon; Salvationist medikit.\nThe Death Cult Assassin is equipped with: Death Cult blades.\n1 Missionary is equipped with: plasma gun; Sanctifier melee weapon.\n1 Missionary is equipped with: Ministorum flamer; Sanctifier melee weapon.\nEvery Sanctifier is equipped with: Ministorum hand flamer; Sanctifier melee weapon.",
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "1",
+              "damage": "3",
+              "keywords": ["Devastating Wounds"],
+              "name": "Burning hands",
+              "range": "Melee",
+              "skill": "2+",
+              "strength": "6"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "2",
+              "damage": "1",
+              "keywords": [],
+              "name": "Close combat weapon",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "3"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": ["Precision"],
+              "name": "Death Cult blades",
+              "range": "Melee",
+              "skill": "2+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "3",
+              "damage": "1",
+              "keywords": [],
+              "name": "Sanctifier melee weapon",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "3"
+            }
+          ]
+        }
+      ],
+      "name": "Sanctifiers",
+      "points": [
+        {
+          "cost": "100",
+          "keyword": null,
+          "models": "9",
+
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "D6",
+              "damage": "2",
+              "keywords": ["Torrent", "One Shot", "Ignores Cover"],
+              "name": "Holy fire",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "6"
+            }
+          ],
+          "abilities": [
+            {
+              "name": "One Shot",
+              "description": "The bearer can only shoot with this weapon once per battle."
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Rapid Fire 1"],
+              "name": "Plasma gun – Standard",
+              "range": "24\"",
+              "skill": "4+",
+              "strength": "7"
+            },
+            {
+              "ap": "-3",
+              "attacks": "1",
+              "damage": "2",
+              "keywords": ["Rapid Fire 1", "Hazardous"],
+              "name": "Plasma gun – Supercharge",
+              "range": "24\"",
+              "skill": "4+",
+              "strength": "8"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "D6",
+              "damage": "1",
+              "keywords": ["Torrent", "Ignores Cover"],
+              "name": "Ministorum flamer",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "D6",
+              "damage": "1",
+              "keywords": ["Torrent", "Pistol", "Ignores Cover"],
+              "name": "Ministorum hand flamer",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-4",
+              "attacks": "1",
+              "damage": "D6",
+              "keywords": ["Melta 2"],
+              "name": "Meltagun",
+              "range": "12\"",
+              "skill": "4+",
+              "strength": "9"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "ld": "7+",
+          "m": "6\"",
+          "name": "Miraculist",
+          "oc": "1",
+
+          "sv": "6+",
+          "t": "3",
+          "w": "1"
+        },
+        {
+          "ld": "7+",
+          "m": "6\"",
+          "name": "Salvationist",
+          "oc": "1",
+
+          "sv": "6+",
+          "t": "3",
+          "w": "1"
+        },
+        {
+          "ld": "7+",
+          "m": "6\"",
+          "name": "Death Cult Assassin",
+          "oc": "1",
+
+          "sv": "6+",
+          "t": "3",
+          "w": "1"
+        },
+        {
+          "ld": "7+",
+          "m": "6\"",
+          "name": "Missionary",
+          "oc": "1",
+
+          "sv": "6+",
+          "t": "3",
+          "w": "1"
+        },
+        {
+          "ld": "7+",
+          "m": "6\"",
+          "name": "Sanctifier",
+          "oc": "1",
+
+          "sv": "6+",
+          "t": "3",
+          "w": "1"
+        }
+      ],
+      "transport": "",
+      "wargear": [
+        "1 Sanctifier model can have its 1 Sanctifier melee weapon replaced with 1 close combat weapon and 1 simulacrum imperialis.",
+        "1 Sanctifier model can have its 1 Sanctifier melee weapon replaced with 1 Ministorum hand flamer and 1 close combat weapon.",
+        "1 Missionary model equipped with 1 plasma gun can be equipped with 1 holy fire (this model’s plasma gun cannot be replaced).",
+        "1 Missionary model can have its 1 plasma gun replaced with 1 meltagun."
+      ],
+      "baseSize": "25mm",
+      "chapter": null
+    },
     {
       "abilities": {
         "core": ["Feel No Pain 6+", "Leader"],
@@ -71,12 +353,16 @@
         {
           "cost": "65",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -115,6 +401,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["DEATHWATCH KILL TEAM"],
         "extra": ""
@@ -180,12 +468,16 @@
         {
           "cost": "70",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -313,7 +605,9 @@
         "This model can be equipped with one of the following: ◦ 1 heavy stubber ◦ 1 storm bolter",
         "This model’s multi‐laser can be replaced with one of the following: ◦ 1 heavy bolter ◦ 1 heavy flamer  *This weapon cannot be replaced.",
         "This model’s heavy bolter can be replaced with 1 heavy flamer."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -389,17 +683,23 @@
         {
           "cost": "140",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": "Veiled Blade Elimination Force"
         },
         {
           "cost": "100",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -432,7 +732,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -483,7 +785,7 @@
         "Greyfax"
       ],
       "leader": "This model can be attached to the following units: ■ EXACTION SQUAD ■ IMPERIUM BATTLELINE INFANTRY ■ IMPERIAL NAVY BREACHERS ■ INQUISITORIAL AGENTS ■ SISTERS OF BATTLE SQUAD ■ SUBDUCTOR SQUAD ■ VIGILANT SQUAD",
-      "loadout": "This model is equipped with: Castigation; condemnor stake; master-crafter power sword.",
+      "loadout": "This model is equipped with: Castigation; condemnor stake; master-crafted power sword.",
       "meleeWeapons": [
         {
           "profiles": [
@@ -505,12 +807,16 @@
         {
           "cost": "65",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -568,6 +874,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": [
           "EXACTION SQUAD",
@@ -642,12 +950,16 @@
         {
           "cost": "115",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -745,7 +1057,9 @@
       "wargear": [
         "This model can be equipped with 1 hunter-killer missile.",
         "This model’s immolation flamers can be replaced with one of the following:  ◦ 1 twin heavy bolter ◦ 1 twin multi-melta"
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -844,32 +1158,44 @@
         {
           "cost": "120",
           "keyword": "Imperium",
-          "models": "12"
+          "models": "12",
+
+          "detachment": null
         },
         {
           "cost": "120",
           "keyword": "Imperium",
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": "Imperium",
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "12"
+          "models": "12",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         },
         {
           "cost": "50",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -986,6 +1312,8 @@
         "For every 5 Inquisitorial Agents in this unit, 1 Inquisitorial Agent can be equipped with 1 plasma pistol.",
         "For every 5 Inquisitorial Agents in this unit, it can be equipped with 1 Tome‐skull."
       ],
+      "baseSize": "Inquisitorial Agents: 25mm\nGun Servitors: 32mm",
+      "chapter": null,
       "leadBy": [
         "Inquisitor Greyfax",
         "Inquisitor",
@@ -1043,7 +1371,7 @@
         "Imperium",
         "Inquisitor"
       ],
-      "leader": "This model can be attached to the following units: ■ DEATHWATCH KILL TEAM ■ EXACTION SQUAD ■ GREY KNIGHTS TERMINATOR SQUAD ■ IMPERIUM BATTLELINE INFANTRY ■ IMPERIAL NAVY BREACHERS ■ INQUISITORIAL AGENTS ■ SISTERS OF BATTLE SQUAD ■ SUBDUCTOR SQUAD ■ VIGILANT SQUAD",
+      "leader": "This model can be attached to the following units: ■ EXACTION SQUAD ■ GREY KNIGHTS TERMINATOR SQUAD ■ IMPERIUM BATTLELINE INFANTRY ■ IMPERIAL NAVY BREACHERS ■ INQUISITORIAL AGENTS ■ SISTERS OF BATTLE SQUAD ■ SUBDUCTOR SQUAD ■ VIGILANT SQUAD",
       "loadout": "This model is equipped with: bolt pistol; Inquisitorial melee weapon; blessed wardings.",
       "meleeWeapons": [
         {
@@ -1078,14 +1406,18 @@
       "name": "Inquisitor",
       "points": [
         {
-          "cost": "55",
+          "cost": "65",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "55",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1155,9 +1487,10 @@
         "This model’s blessed wardings can be replaced with 1 psychic gifts and 1 Psychic Shock Wave.",
         "This model’s bolt pistol can be replaced with 1 combi-weapon."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": [
-          "DEATHWATCH KILL TEAM",
           "EXACTION SQUAD",
           "GREY KNIGHTS TERMINATOR SQUAD",
           "IMPERIUM BATTLELINE INFANTRY",
@@ -1246,12 +1579,16 @@
         {
           "cost": "210",
           "keyword": "Imperium",
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
           "cost": "190",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1289,7 +1626,7 @@
               "ap": "0",
               "attacks": "6",
               "damage": "1",
-              "keywords": ["Sustained Hits 1", "Psychic"],
+              "keywords": ["Sustained Hits 1", "Psychic", "Precision"],
               "name": "Psilencer",
               "range": "24\"",
               "skill": "3+",
@@ -1332,6 +1669,8 @@
         "1 Grey Knights Terminator equipped with a storm bolter can be equipped with 1 Ancient’s banner.*",
         "1 Grey Knights Terminator’s storm bolter can be replaced with one of the following: ◦ 1 incinerator ◦ 1 psilencer ◦ 1 psycannon"
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": ["Inquisitor", "Inquisitor Coteaz"]
     },
     {
@@ -1413,12 +1752,16 @@
         {
           "cost": "70",
           "keyword": "Imperium",
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "50",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1494,6 +1837,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "25mm",
+      "chapter": null,
       "leadBy": ["Rogue Trader Entourage"]
     },
     {
@@ -1621,24 +1966,32 @@
       "name": "Deathwatch Kill Team",
       "points": [
         {
-          "cost": "200",
+          "cost": "190",
           "keyword": "Imperium",
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": "Imperium",
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "200",
+          "cost": "190",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1776,12 +2129,9 @@
         "For every 5 models in this unit, up to 2 models can each have their boltgun and power weapon replaced with 1 Deathwatch thunder hammer.",
         "For every 5 models in this unit, up to 2 models can each have their boltgun and power weapon replaced with one of the following: ◦ 1 boltgun and 1 Astartes shield ◦ 1 power weapon and 1 Astartes shield"
       ],
-      "leadBy": [
-        "Watch Captain Artemis",
-        "Inquisitor",
-        "Inquisitor Draxus",
-        "Watch Master"
-      ]
+      "baseSize": "32mm",
+      "chapter": null,
+      "leadBy": ["Watch Captain Artemis", "Watch Master"]
     },
     {
       "abilities": {
@@ -1853,17 +2203,23 @@
         {
           "cost": "145",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": "Veiled Blade Elimination Force"
         },
         {
           "cost": "120",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "110",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1901,7 +2257,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1963,12 +2321,16 @@
         {
           "cost": "75",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2021,7 +2383,374 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 AGENTS OF THE IMPERIUM INFANTRY models. It cannot transport TERMINATOR or OFFICIO ASSASSINORUM models.",
-      "wargear": ["This model can be equipped with 1 hunter‐killer missile."]
+      "wargear": ["This model can be equipped with 1 hunter‐killer missile."],
+      "baseSize": "Hull",
+      "chapter": null
+    },
+    {
+      "abilities": {
+        "core": [],
+        "damaged": {
+          "description": "",
+          "range": ""
+        },
+        "faction": ["Assigned Agents"],
+        "invul": {
+          "info": "",
+
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Death to the Alien",
+            "description": "Each time a model in this unit makes an attack, re‐roll a Hit roll of 1. If the target of that attack does not have the IMPERIUM or CHAOS keywords, you can re‐roll the Hit roll instead."
+          },
+          {
+            "name": "Kill Team",
+            "description": "Each time an attack targets this unit, if it contains models with different Toughness characteristics, until the attacking unit has finished making its attacks, use the Toughness characteristic of the majority of the models in that unit when determining what roll is required for that attack to successfully wound. If two or more Toughness characteristics are tied for majority, use the highest value.\n\nFor the purposes of determining which models in this unit can embark within a TRANSPORT, Gravis Veteran models take up the space of 2 models, but can otherwise embark within any TRANSPORT their unit can embark within, even though similar models in other units have the GRAVIS keyword.\n\nDesigner’s Note: While the abstractions in the above rule cause some models to behave differently to similar models in other units, they are designed to minimise complicated Transport rules."
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "If a Character unit from your army can be attached to a DEATHWATCH KILL TEAM unit, it can be attached to this unit instead.",
+            "name": "Attached Unit"
+          }
+        ],
+        "wargear": [
+          {
+            "name": "Astartes shield",
+            "description": "The bearer has a 4+ invulnerable save."
+          }
+        ]
+      },
+
+      "composition": [
+        "1 Kill Team Sergeant",
+        "1 Gravis Veteran",
+        "3 Deathwatch Veterans"
+      ],
+      "factions": ["Agents of the Imperium"],
+      "faction_id": "AoI",
+      "fluff": "Aquila Kill Teams are equipped to handle varied or unknown horrors with a measured and strategically versatile response.",
+      "id": "1311bb33-4981-5327-b549-4828708e9337",
+      "keywords": [
+        "Infantry",
+        "Battleline",
+        "Grenades",
+        "Imperium",
+        "Ordo Xenos",
+        "Retinue",
+        "Deathwatch",
+        "Aquila Kill Team",
+        "Tacticus",
+        "Gravis"
+      ],
+      "leader": "",
+      "loadout": "OR",
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "4",
+              "damage": "2",
+              "keywords": ["Sustained Hits 1"],
+              "name": "Power weapon",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": ["Precision"],
+              "name": "Combat knife",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "3",
+              "damage": "1",
+              "keywords": [],
+              "name": "Close combat weapon",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "3",
+              "damage": "3",
+              "keywords": ["Devastating Wounds"],
+              "name": "Heavy thunder hammer",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "10"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": ["Devastating Wounds"],
+              "name": "Xenophase blade",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        }
+      ],
+      "name": "Aquila Kill Team",
+      "points": [
+        {
+          "cost": "200",
+          "keyword": null,
+          "models": "10",
+
+          "detachment": null
+        },
+        {
+          "cost": "100",
+          "keyword": null,
+          "models": "5",
+
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Pistol"],
+              "name": "Plasma pistol – Standard",
+              "range": "12\"",
+              "skill": "3+",
+              "strength": "7"
+            },
+            {
+              "ap": "-3",
+              "attacks": "1",
+              "damage": "2",
+              "keywords": ["Pistol", "Hazardous"],
+              "name": "Plasma pistol – Supercharge",
+              "range": "12\"",
+              "skill": "3+",
+              "strength": "8"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "3",
+              "damage": "2",
+              "keywords": ["Sustained Hits 1"],
+              "name": "Infernus heavy bolter – Heavy bolter",
+              "range": "36\"",
+              "skill": "3+",
+              "strength": "5"
+            },
+            {
+              "ap": "-1",
+              "attacks": "D6",
+              "damage": "1",
+              "keywords": ["Torrent", "Ignores Cover"],
+              "name": "Infernus heavy bolter – Heavy flamer",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Lethal Hits", "Pistol"],
+              "name": "Bolt pistol",
+              "range": "12\"",
+              "skill": "3+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "2",
+              "damage": "2",
+              "keywords": ["Precision", "Lethal Hits", "Heavy"],
+              "name": "Stalker bolt rifle",
+              "range": "30\"",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "2",
+              "damage": "1",
+              "keywords": ["Lethal Hits", "Heavy"],
+              "name": "Deathwatch marksman bolt carbine",
+              "range": "24\"",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Lethal Hits", "Precision", "Pistol"],
+              "name": "Special-issue bolt pistol",
+              "range": "18\"",
+              "skill": "3+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "D3",
+              "damage": "2",
+              "keywords": ["Rapid Fire D3", "Lethal Hits", "Heavy", "Blast"],
+              "name": "Frag cannon",
+              "range": "18\"",
+              "skill": "3+",
+              "strength": "7"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "2",
+              "damage": "2",
+              "keywords": ["Lethal Hits", "Heavy", "Assault"],
+              "name": "Hellstorm bolt rifle",
+              "range": "30\"",
+              "skill": "3+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "1",
+              "damage": "D3",
+              "keywords": [],
+              "name": "Astartes grenade launcher – Krak",
+              "range": "24\"",
+              "skill": "3+",
+              "strength": "9"
+            },
+            {
+              "ap": "0",
+              "attacks": "D3",
+              "damage": "1",
+              "keywords": ["Blast"],
+              "name": "Astartes grenade launcher – Frag",
+              "range": "24\"",
+              "skill": "3+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "2",
+              "damage": "1",
+              "keywords": ["Heavy", "Assault"],
+              "name": "Plasma incinerator – Standard",
+              "range": "24\"",
+              "skill": "3+",
+              "strength": "7"
+            },
+            {
+              "ap": "-3",
+              "attacks": "2",
+              "damage": "2",
+              "keywords": ["Hazardous", "Heavy", "Assault"],
+              "name": "Plasma incinerator – Supercharge",
+              "range": "24\"",
+              "skill": "3+",
+              "strength": "8"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "ld": "6+",
+          "m": "6\"",
+          "name": "Deathwatch Veteran",
+          "oc": "2",
+
+          "sv": "3+",
+          "t": "4",
+          "w": "2"
+        },
+        {
+          "ld": "6+",
+          "m": "5\"",
+          "name": "Gravis Veteran",
+          "oc": "2",
+
+          "sv": "3+",
+          "t": "6",
+          "w": "3"
+        }
+      ],
+      "transport": "",
+      "wargear": [
+        "For every 5 models in the unit, up to one model’s Deathwatch marksman bolt carbine can be replaced with 1 combat knife.",
+        "For every 5 models in the unit, up to one model’s stalker bolt rifle can be replaced with 1 plasma incinerator.",
+        "For every 5 models in the unit, up to one model’s heavy thunder hammer can be replaced with 1 power weapon and 1 Astartes shield.",
+        "For every 5 models in the unit, up to one model’s infernus heavy bolter can be replaced with one of the following: ◦ 1 frag cannon. ◦ 1 hellstorm bolt rifle and 1 Astartes grenade launcher."
+      ],
+      "baseSize": "Kill Team Sergeant, Deathwatch Veterans: 32mm\nGravis Veterans: 40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2093,17 +2822,23 @@
         {
           "cost": "155",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": "Veiled Blade Elimination Force"
         },
         {
           "cost": "125",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "110",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2160,7 +2895,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2267,12 +3004,16 @@
         {
           "cost": "90",
           "keyword": "Imperium",
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         },
         {
           "cost": "90",
           "keyword": null,
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2393,6 +3134,8 @@
         "1 Exaction Vigilant that is equipped with an Arbites combat shotgun can be equipped with 1 excruciator maul.*",
         "Up to 2 Exaction Vigilants can each have their Arbites combat shotguns replaced with one of the following (duplicates are not allowed): ◦ 1 executioner shotgun ◦ 1 Arbites grenade launcher ◦ 1 heavy stubber ◦ 1 webber"
       ],
+      "baseSize": "Proctor-Exactant, Exaction Vigilants: 28.5mm\nCyber-mastiff: 25mm",
+      "chapter": null,
       "leadBy": [
         "Inquisitor Greyfax",
         "Inquisitor",
@@ -2518,12 +3261,16 @@
         {
           "cost": "90",
           "keyword": "Imperium",
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "90",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2677,6 +3424,8 @@
         "1 Navis Armsman’s Navis las-volley can be replaced with one of the following: ◦ 1 meltagun ◦ 1 plasma gun",
         "The Navis Sergeant-at-Arms’ Navis shotgun can be replaced with one of the following: ◦ 1 autopistol and 1 chainsword ◦ 1 bolt pistol and 1 power weapon"
       ],
+      "baseSize": "Imperial Navy Breachers: 25mm\nNavis las-volley, endurant shield: 28.5mm",
+      "chapter": null,
       "leadBy": [
         "Inquisitor Greyfax",
         "Inquisitor",
@@ -2759,19 +3508,25 @@
       "name": "Culexus Assassin",
       "points": [
         {
-          "cost": "140",
+          "cost": "125",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": "Veiled Blade Elimination Force"
         },
         {
-          "cost": "100",
+          "cost": "85",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
-          "cost": "100",
+          "cost": "85",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2815,7 +3570,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2897,12 +3654,16 @@
         {
           "cost": "85",
           "keyword": "Imperium",
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         },
         {
           "cost": "85",
           "keyword": null,
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3019,6 +3780,8 @@
         "The Proctor-Vigilant can be equipped with 1 nuncio aquila.",
         "Up to 2 Vigilants can each have their Arbites combat shotgun replaced with one of the following (duplicates are not allowed): ◦ 1 executioner shotgun ◦ 1 Arbites grenade launcher ◦ 1 heavy stubber ◦ 1 webber"
       ],
+      "baseSize": "Proctor-Vigilant, Vigilants: 28.5mm\nCyber-mastiff: 25mm",
+      "chapter": null,
       "leadBy": [
         "Inquisitor Greyfax",
         "Inquisitor",
@@ -3106,12 +3869,16 @@
         {
           "cost": "100",
           "keyword": "Imperium",
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         },
         {
           "cost": "85",
           "keyword": null,
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3147,6 +3914,8 @@
       "wargear": [
         "The Proctor-Subductor can be equipped with 1 nuncio aquila."
       ],
+      "baseSize": "Proctor-Subductor, Subductors: 28.5mm\nCyber-mastiff: 25mm",
+      "chapter": null,
       "leadBy": [
         "Inquisitor Greyfax",
         "Inquisitor",
@@ -3219,12 +3988,16 @@
         {
           "cost": "75",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3258,6 +4031,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["IMPERIAL NAVY BREACHERS", "VOIDSMEN‐AT‐ARMS"],
         "extra": ""
@@ -3311,7 +4086,7 @@
         "Inquisitor",
         "Draxus"
       ],
-      "leader": "This model can be attached to the following units: ■ DEATHWATCH KILL TEAM ■ EXACTION SQUAD ■ IMPERIUM BATTLELINE INFANTRY ■ IMPERIAL NAVY BREACHERS ■ INQUISITORIAL AGENTS ■ SUBDUCTOR SQUAD ■ VIGILANT SQUAD",
+      "leader": "This model can be attached to the following units: ■ EXACTION SQUAD ■ IMPERIUM BATTLELINE INFANTRY ■ IMPERIAL NAVY BREACHERS ■ INQUISITORIAL AGENTS ■ SUBDUCTOR SQUAD ■ VIGILANT SQUAD",
       "loadout": "This model is equipped with: Dirgesinger; Psychic Tempest; power fist.",
       "meleeWeapons": [
         {
@@ -3332,14 +4107,18 @@
       "name": "Inquisitor Draxus",
       "points": [
         {
-          "cost": "95",
+          "cost": "110",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3387,9 +4166,10 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": [
-          "DEATHWATCH KILL TEAM",
           "EXACTION SQUAD",
           "IMPERIUM BATTLELINE INFANTRY",
           "IMPERIAL NAVY BREACHERS",
@@ -3465,12 +4245,16 @@
         {
           "cost": "105",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
-          "cost": "105",
+          "cost": "95",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3504,6 +4288,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["DEATHWATCH KILL TEAM"],
         "extra": ""
@@ -3584,12 +4370,16 @@
         {
           "cost": "95",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3642,6 +4432,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": [
           "EXACTION SQUAD",
@@ -3671,7 +4463,7 @@
         "other": [
           {
             "name": "Defenders of the Faith",
-            "description": "If you control an objective marker at the end of your Command phase and this unit is within range of that objective marker, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase."
           },
           {
             "name": "Incensor Cherub",
@@ -3752,12 +4544,16 @@
         {
           "cost": "115",
           "keyword": "Imperium",
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3984,6 +4780,8 @@
         "The Sister Superior can be equipped with one of the following: ◦ 1 chainsword ◦ 1 power weapon",
         "The Sister Superior’s boltgun can be replaced with one of the following: ◦ 1 bolt pistol ◦ 1 combi-weapon ◦ 1 condemnor boltgun ◦ 1 inferno pistol ◦ 1 Ministorum hand flamer ◦ 1 plasma pistol"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Inquisitor Greyfax", "Inquisitor", "Ministorum Priest"]
     },
     {
@@ -4058,12 +4856,16 @@
         {
           "cost": "180",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "180",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4157,7 +4959,9 @@
         "This model can be equipped with 1 hurricane bolter.",
         "This model’s 2 Blackstar rocket launchers can be replaced with 2 stormstrike missile launchers.",
         "This model’s twin assault cannon can be replaced with 1 twin lascannon."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4236,12 +5040,16 @@
         {
           "cost": "40",
           "keyword": "Imperium",
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4291,6 +5099,8 @@
       "wargear": [
         "This model’s zealot’s vindictor can be replaced with 1 holy pistol and 1 power weapon."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": [
           "INQUISITORIAL AGENTS",
@@ -4300,7 +5110,8 @@
           "VIGILANT SQUAD",
           "SISTERS OF BATTLE SQUAD"
         ],
-        "extra": "You can attach this model to an INQUISITORIAL AGENTS unit, even if one INQUISITOR has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to an INQUISITORIAL AGENTS unit, even if one INQUISITOR has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "isBodyguard": true
       }
     },
     {
@@ -4405,12 +5216,16 @@
         {
           "cost": "105",
           "keyword": "Imperium",
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4496,6 +5311,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "25mm",
+      "chapter": null,
       "leads": {
         "units": ["IMPERIAL NAVY BREACHERS", "VOIDSMEN-AT-ARMS"],
         "extra": ""
@@ -5320,11 +6137,26 @@
     }
   ],
   "detachments": [
-    "Ordo Hereticus, Purgation Force",
-    "Veiled Blade Elimination Force",
-    "Imperialis Fleet",
-    "Ordo Xenos, Alien Hunters",
-    "Ordo Malleus, Daemon Hunters"
+    {
+      "name": "Imperialis Fleet",
+      "faction": "Agents of the Imperium"
+    },
+    {
+      "name": "Ordo Hereticus, Purgation Force",
+      "faction": "Agents of the Imperium"
+    },
+    {
+      "name": "Veiled Blade Elimination Force",
+      "faction": "Agents of the Imperium"
+    },
+    {
+      "name": "Ordo Xenos, Alien Hunters",
+      "faction": "Agents of the Imperium"
+    },
+    {
+      "name": "Ordo Malleus, Daemon Hunters",
+      "faction": "Agents of the Imperium"
+    }
   ],
   "enhancements": [
     {
@@ -5335,7 +6167,10 @@
       "excludes": [],
       "description": "AGENTS OF THE IMPERIUM model only. Melee weapons equipped by the bearer have the [ANTI‐INFANTRY 2+] and [ANTI‐MONSTER 4+] abilities.",
       "faction_id": "AoI",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Blackweave Shroud",
@@ -5345,7 +6180,10 @@
       "excludes": [],
       "description": "AGENTS OF THE IMPERIUM model only. The bearer has the Feel No Pain 4+ ability.",
       "faction_id": "AoI",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Beacon Angelis",
@@ -5355,7 +6193,10 @@
       "excludes": [],
       "description": "WATCH MASTER model only. Models in the bearer’s unit have the Deep Strike ability. In addition, you can target the bearer’s unit with the Rapid Ingress Stratagem for 0CP.",
       "faction_id": "AoI",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Amulet of Auto-chastisement",
@@ -5365,7 +6206,10 @@
       "excludes": [],
       "description": "WATCH MASTER model only. At the start of your opponent’s Shooting phase, select one enemy VEHICLE unit (excluding TITANIC units) within 12\" of and visible to the bearer. That unit must take a Leadership test. If that test is passed, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll; if that test is failed, that unit is not eligible to shoot this phase.",
       "faction_id": "AoI",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Liber Heresius",
@@ -5375,7 +6219,10 @@
       "excludes": [],
       "description": "INQUISITOR or MINISTORUM PRIEST model only. After both players have deployed their armies, select up to three AGENTS OF THE IMPERIUM units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "AoI",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "No Escape (Aura)",
@@ -5385,7 +6232,10 @@
       "excludes": [],
       "description": "INQUISITOR model only. While an enemy unit is within 6\" of the bearer, each time it is selected to Fall Back it must first take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead.",
       "faction_id": "AoI",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Witch Hunter",
@@ -5395,7 +6245,10 @@
       "excludes": [],
       "description": "INQUISITOR or MINISTORUM PRIEST model only. While the bearer is leading a unit, each time a model in that unit makes an attack that targets a PSYKER unit, you can re‐roll the Hit roll.",
       "faction_id": "AoI",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Ignis Judicium",
@@ -5405,7 +6258,10 @@
       "excludes": [],
       "description": "INQUISITOR or MINISTORUM PRIEST model only. The bearer’s ranged weapons have the [DEVASTATING WOUNDS], [MELTA 1] and [PRECISION] abilities.",
       "faction_id": "AoI",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Formidable Resolve",
@@ -5415,7 +6271,10 @@
       "excludes": [],
       "description": "INQUISITOR model only. Improve the bearer’s Leadership and Wounds characteristics by 1. Once per battle, at the start of any phase, you can select one friendly Battle‐shocked unit within 12\" of the bearer. That unit is no longer Battle‐shocked.",
       "faction_id": "AoI",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Daemon Slayer",
@@ -5425,7 +6284,10 @@
       "excludes": [],
       "description": "INQUISITOR model only. Add 1 to the Attacks characteristic of the bearer’s melee weapons, and those weapons have the [ANTI‐DAEMON 3+] ability.",
       "faction_id": "AoI",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Grimoire of True Names (Aura)",
@@ -5435,7 +6297,10 @@
       "excludes": [],
       "description": "INQUISITOR model only. While an enemy unit is within 9\" of the bearer, worsen the Leadership characteristic of models in that unit by 1. In addition, while an enemy DAEMON unit is within 9\" of the bearer, each time a model in that DAEMON unit makes an attack, subtract 1 from the Hit roll and subtract 1 from the Wound roll.",
       "faction_id": "AoI",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Gift of the Prescient",
@@ -5445,7 +6310,10 @@
       "excludes": [],
       "description": "INQUISITOR model only. Once per battle, if the bearer is on the battlefield, you can use the Rapid Ingress Stratagem for 0CP. When doing so, you must target a GREY KNIGHTS TERMINATOR SQUAD unit from your army, and when using that Stratagem, that unit can be set up anywhere on the battlefield that is more than 3\" away from all enemy units.",
       "faction_id": "AoI",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Digital Weapons",
@@ -5455,7 +6323,10 @@
       "excludes": [],
       "description": "AGENTS OF THE IMPERIUM model only. Each time the bearer is selected to fight, roll three D6: for each 4+, one enemy unit within Engagement Range of the bearer suffers 1 mortal wound. Mortal wounds inflicted by this Enhancement are allocated as if they had the [PRECISION] ability.",
       "faction_id": "AoI",
-      "detachment": "Imperialis Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Clandestine Operation",
@@ -5465,7 +6336,10 @@
       "excludes": [],
       "description": "AGENTS OF THE IMPERIUM model only. At the start of the Declare Battle Formations step, you can select up to three AGENTS OF THE IMPERIUM INFANTRY units from your army (excluding GREY KNIGHTS TERMINATOR SQUAD units) – those units gain the Infiltrators ability.",
       "faction_id": "AoI",
-      "detachment": "Imperialis Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Fleetmaster",
@@ -5475,7 +6349,10 @@
       "excludes": [],
       "description": "VOIDFARERS model only. Once per battle round, you can target the bearer’s unit with the Violent Acquisition, Masters of the Void or Close‐quarters Barrage Stratagems for 0CP.",
       "faction_id": "AoI",
-      "detachment": "Imperialis Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Combat Landers",
@@ -5485,14 +6362,234 @@
       "excludes": [],
       "description": "VOIDFARERS model only. At the start of the Declare Battle Formations step, you can select up to three VOIDFARERS units from your army – those units gain the Deep Strike ability.",
       "faction_id": "AoI",
-      "detachment": "Imperialis Fleet"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     }
   ],
   "id": "AoI",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Agents of the Imperium",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Assigned Agents",
+        "rules": [
+          {
+            "text": "If your Army Faction is **AGENTS OF THE IMPERIUM**, then in the Select Detachment Rules step, you can select one of the available Detachments from this publication as normal.\n\nIf your Army Faction is not **AGENTS OF THE IMPERIUM**, but every model in your army has the **IMPERIUM** keyword, you can include **AGENTS OF THE IMPERIUM** units in your army even if they do not have the Faction keyword you selected in the Select Army Faction step. In this case, the maximum number of **AGENTS OF THE IMPERIUM** units you can include in your army depends on the battle size, as shown below.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "-",
+            "order": 2,
+            "title": null,
+            "type": "image"
+          },
+          {
+            "text": "Note that you can include **AGENTS OF THE IMPERIUM DEDICATED TRANSPORT** units in such an army as normal, but each unit must start the battle with one or more units embarked within it, or it cannot be deployed for that battle and will count as having been destroyed during the first battle round.",
+            "order": 3,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Imperialis Fleet",
+        "faction": "Agents of the Imperium",
+        "rules": [
+          {
+            "name": "At All Costs",
+            "rules": [
+              {
+                "text": "At the start of your Command phase, you can select one of the following to apply:",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Eliminate At All Costs",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Select one enemy unit on the battlefield. Until the start of your next Command phase, each time an **AGENTS OF THE IMPERIUM** model from your army makes an attack that targets that enemy unit, add 1 to the Hit roll.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Acquire At All Costs",
+                "order": 4,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Select one objective marker on the battlefield. Until the start of your next Command phase, while an **AGENTS OF THE IMPERIUM** unit from your army is within range of that objective marker, improve the Leadership and Objective Control characteristics of models in that unit by 1 and models in that unit have a 5+ invulnerable save.",
+                "order": 5,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Ordo Hereticus, Purgation Force",
+        "faction": "Agents of the Imperium",
+        "rules": [
+          {
+            "name": "Root out Heresy",
+            "rules": [
+              {
+                "text": "Ranged weapons equipped by **ADEPTUS ARBITES**, **INQUISITOR**, **INQUISITORIAL AGENTS** and **ORDO HERETICUS** models from your army have the **[IGNORES COVER]** ability.\n\nEach time an **ADEPTUS ARBITES**, **INQUISITOR**, **INQUISITORIAL AGENTS** or **ORDO HERETICUS** model from your army makes an attack that targets a Chaos unit containing 5 or more models, that attack has the **[SUSTAINED HITS 1]** ability.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Veiled Blade Elimination Force",
+        "faction": "Agents of the Imperium",
+        "rules": [
+          {
+            "name": "Extremis Sanction",
+            "rules": [
+              {
+                "text": "**OFFICIO ASSASSINORUM** units from your army can use the Overkill, Soulless Horror and Shieldbreaker abilities twice per battle, instead of once per battle (but cannot use such an ability more than once in the same battle round).\n\nWhen mustering your army, each **OFFICIO ASSASSINORUM** unit from your army has the relevant Extremis ability shown below, and you must increase the points cost of each of those units by the amount shown. If this causes your army to exceed the points limit for the battle you are playing, you cannot include that unit in your army.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Extremis Abilities",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "*The agents of the Callidus Temple are known to utilisevat‐grown doubles to confound their foes.*\n\n**CALLIDUS ASSASSIN** models only. Twice per battle, in your Movement phase, you can select one other friendly **INFANTRY** model that is on the battlefield and not within Engagement Range of one or more enemy units. The selected model is destroyed (ignoring any rules that are triggered when a model is destroyed) and this model is removed from the battlefield and set up again as close as possible to where that destroyed model was and not within Engagement Range of one or more enemy units. This ability cannot be used more than once in the same battle round.",
+                "order": 3,
+                "title": "Decoy Targets",
+                "type": "accordion"
+              },
+              {
+                "text": "*This Culexus operative has been outfitted with various grenades tailored to destroy their assigned targets.*\n\n**CULEXUS ASSASSIN** models only. Each time this model is targeted with the Grenades Stratagem, 1 mortal wound is inflicted for each D6 roll of 3+ instead of for each 4+.",
+                "order": 4,
+                "title": "Esoteric Explosives",
+                "type": "accordion"
+              },
+              {
+                "text": "*This Eversor agent’s neurons have been surgically spliced to enhance awareness and speed of thought.*\n\n**EVERSOR ASSASSIN** models only. Once per battle round, you can target this model with the Heroic Intervention or Counter‑offensive Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase.",
+                "order": 5,
+                "title": "Intraneural Biotech",
+                "type": "accordion"
+              },
+              {
+                "text": "*These projectiles are tipped with miniaturised melta charges that detonate on impact.*\n\n**VINDICARE ASSASSIN** models only. This model’s exitus rifle has the **[ANTI‑MONSTER 4+]** and **[ANTI‑VEHICLE 4+]**  abilities.",
+                "order": 6,
+                "title": "Micromelta Rounds",
+                "type": "accordion"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Ordo Xenos, Alien Hunters",
+        "faction": "Agents of the Imperium",
+        "rules": [
+          {
+            "name": "Deathwatch Mission Tactics",
+            "rules": [
+              {
+                "text": "At the start of your Command phase, you can select one of the Mission Tactics listed below. Until the start of your next Command phase, that Mission Tactic is active and its effects apply to all **DEATHWATCH** units from your army. Each Mission Tactic can only be selected once per battle.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Furor Tactics",
+                "order": 3,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "While this Mission Tactic is active, weapons equipped by **DEATHWATCH** units from your army have the **[SUSTAINED HITS 1]** ability.",
+                "order": 4,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Malleus Tactics",
+                "order": 6,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "While this Mission Tactic is active, weapons equipped by **DEATHWATCH** units from your army have the **[LETHAL HITS]** ability.",
+                "order": 7,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Purgatus Tactics",
+                "order": 9,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "While this Mission Tactic is active, each time a **DEATHWATCH** model from your army makes an attack, on a Critical Wound, that attack has the **[PRECISION]** ability.",
+                "order": 10,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Ordo Malleus, Daemon Hunters",
+        "faction": "Agents of the Imperium",
+        "rules": [
+          {
+            "name": "Destroy the Daemonic",
+            "rules": [
+              {
+                "text": "Each time an **INQUISITOR**, **INQUISITORIAL AGENTS** or **ORDO MALLEUS** model from your army makes an attack, re‐roll a Hit roll of 1 and, if the target of that attack is a **DAEMON** unit, re‐roll a Wound roll of 1 as well.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "Close-quarters Barrage",
@@ -5507,7 +6604,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Soldiers trained in shipboard warfare and chamber‐by‐chamber clearance know how best to focus their firepower during close‐range firefights.",
-      "detachment": "Imperialis Fleet"
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Dispense Justice",
@@ -5522,7 +6620,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "Agents of the Ordo Hereticus are unmerciful in meting out what they see as the Emperor’s justice.",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Prime Target",
@@ -5537,7 +6636,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "A primary target has been revealed. All efforts must be made to ensure the kill.",
-      "detachment": "Veiled Blade Elimination Force"
+      "detachment": "Veiled Blade Elimination Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Armour of Contempt",
@@ -5552,7 +6652,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "The belligerence and transhuman physiologies of the Deathwatch make them unyielding foes.",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Hyperstimms",
@@ -5567,7 +6668,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "Unenhanced mortal bodies are routinely – and unknowingly – dosed with experimental stimulant cocktails that serve to reinforce their resilience, at least in the short term.",
-      "detachment": "Veiled Blade Elimination Force"
+      "detachment": "Veiled Blade Elimination Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Masters of the Void",
@@ -5582,7 +6684,8 @@
       "phase": ["movement"],
       "faction_id": "AoI",
       "fluff": "With command of the orbital engagement zone comes the ability to strike at the enemy from unexpected angles.",
-      "detachment": "Imperialis Fleet"
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Selfless Bodyguard",
@@ -5597,7 +6700,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "Loyal Imperial warriors will martyr themselves gladly to protect high‐ranking Imperial agents.",
-      "detachment": "Imperialis Fleet"
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Execution Order",
@@ -5612,7 +6716,8 @@
       "phase": ["command"],
       "faction_id": "AoI",
       "fluff": "There can be no mercy for heretic leaders.",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Emperor’s Will",
@@ -5627,7 +6732,8 @@
       "phase": ["movement"],
       "faction_id": "AoI",
       "fluff": "Believing they fight for the safety of the Golden Throne motivates warriors to exceptional deeds.",
-      "detachment": "Imperialis Fleet"
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Line of Fire",
@@ -5642,7 +6748,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "These ruthless warriors will risk firing into their own ranks if it ensures the deaths of heretics.",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Exact Punishment",
@@ -5657,7 +6764,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Vengeance is swift and unforgiving for those who attack the servants of the Emperor.",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Inviolate Jurisdiction",
@@ -5672,7 +6780,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "These warriors defend the sanctity of the Emperor’s realm with unwavering determination, no matter the odds stacked against them.",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Will-sapping Salvo",
@@ -5687,7 +6796,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Aiming concentrated volleys of fire toward an exceptionally resilient foe, these agents erode the will of their target, increasing their vulnerability to the concentrated psychic onslaughts of the Culexus Assassin’s animus speculum.",
-      "detachment": "Veiled Blade Elimination Force"
+      "detachment": "Veiled Blade Elimination Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Orbital Oversight",
@@ -5702,7 +6812,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Aided by orbiting assets, when the assault begins, voidships flood communication networks with jamming frequencies, fire screening bombardments and otherwise mask the agents’ approach.",
-      "detachment": "Veiled Blade Elimination Force"
+      "detachment": "Veiled Blade Elimination Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Blind Grenades",
@@ -5717,7 +6828,8 @@
       "phase": ["charge"],
       "faction_id": "AoI",
       "fluff": "These grenades release thick black smoke and broad‑spectrum electromagnetic chaff that disrupt vision and foul augury equipment upon detonating.",
-      "detachment": "Veiled Blade Elimination Force"
+      "detachment": "Veiled Blade Elimination Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Ensnaring Trap",
@@ -5732,7 +6844,8 @@
       "phase": ["charge"],
       "faction_id": "AoI",
       "fluff": "The eyes of the Officio Assassinorum are everywhere. As the foe turns to flee, the noose tightens, agents already forewarned of enemy movements and moving swiftly to cut off all avenues of retreat.",
-      "detachment": "Veiled Blade Elimination Force"
+      "detachment": "Veiled Blade Elimination Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Adaptive Tactics",
@@ -5747,7 +6860,8 @@
       "phase": ["command"],
       "faction_id": "AoI",
       "fluff": "Only a truly versatile approach to warfare allows the Deathwatch to focus their tactical genius and best the myriad xenos foes they face.",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Rapid Tactical Relocation",
@@ -5762,7 +6876,8 @@
       "phase": ["fight"],
       "faction_id": "AoI",
       "fluff": "The Ordo Xenos and Deathwatch alike have access to swift gunships and landers that allow for hasty repositioning in the midst of battle.",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Ritual of Warding",
@@ -5777,7 +6892,8 @@
       "phase": ["command"],
       "faction_id": "AoI",
       "fluff": "Whether sanctifying the battlefield against heresy or binding sinister guardian entities to keep watch, this ritual extends its practitioner’s strategic influence.",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Rites of Exorcism",
@@ -5792,7 +6908,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "With the correct words of abjuration and banishment, daemons can be driven out of realspace and back into the warp.",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Steel Heart",
@@ -5807,7 +6924,8 @@
       "phase": ["movement"],
       "faction_id": "AoI",
       "fluff": "The battle‐brothers of the Grey Knights never flee from their daemonic foes, instead merely withdrawing momentarily before striking anew.",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Violent Acquisition",
@@ -5822,7 +6940,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "If a high‐ranking Imperial agent locates something they wish to acquire, nothing will stop them from unleashing all the forces at their command to seize it.",
-      "detachment": "Imperialis Fleet"
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Displacer Field",
@@ -5837,7 +6956,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "These rare protective fields perform microteleport displacements to remove their bearers from harm.",
-      "detachment": "Imperialis Fleet"
+      "detachment": "Imperialis Fleet",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Stun Grenades",
@@ -5852,7 +6972,8 @@
       "phase": ["any"],
       "faction_id": "AoI",
       "fluff": "Emitting blasts of light, sound and blinding smoke, these devices disorient the foe.",
-      "detachment": "Ordo Hereticus, Purgation Force"
+      "detachment": "Ordo Hereticus, Purgation Force",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Hellfire Rounds",
@@ -5867,7 +6988,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Hellfire rounds contain reservoirs of virulent bio‐acids that eat away the flesh of their victims in seconds and leave nothing but bubbling gruel.",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Dragonfire Rounds",
@@ -5882,7 +7004,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Dragonfire rounds are designed to explode just before contact, saturating foes in cover with searing gas and flames.",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Kraken Rounds",
@@ -5897,7 +7020,8 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Kraken rounds utilise adamantine cores and improved propellants to penetrate the thickest hide.",
-      "detachment": "Ordo Xenos, Alien Hunters"
+      "detachment": "Ordo Xenos, Alien Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Truesilver Armour",
@@ -5912,7 +7036,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "Grey Knights battle plate incorporates litanies of purity, strands of sanctified silver and other sacred wards, whose defences can be further empowered by ritual mantras.",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Hexagrammic Wards",
@@ -5927,7 +7052,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AoI",
       "fluff": "Ancient warding sigils inscribed in shimmering silver, these strange runic designs ward away the hostile energies of the warp.",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     },
     {
       "name": "Psybolt Ammunition",
@@ -5942,8 +7068,9 @@
       "phase": ["shooting"],
       "faction_id": "AoI",
       "fluff": "Specially consecrated and silver‐tipped, these bolt shells channel the firer’s innate psychic fury and detonate spectacularly on impact.",
-      "detachment": "Ordo Malleus, Daemon Hunters"
+      "detachment": "Ordo Malleus, Daemon Hunters",
+      "detachment_faction": "Agents of the Imperium"
     }
   ],
-  "updated": "2025-02-05T13:53:46.701Z"
+  "updated": "2026-03-09T13:14:12.348Z"
 }

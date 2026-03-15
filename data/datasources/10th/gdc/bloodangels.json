@@ -4,6 +4,7 @@
     "banner": "#631210",
     "header": "#72191c"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -25,7 +26,7 @@
         "other": [
           {
             "name": "Black Rage",
-            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
+            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly BLOOD ANGELS CHARACTER models, or 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
             "showAbility": true,
             "showDescription": true
           },
@@ -104,10 +105,11 @@
       "name": "Death Company Dreadnought",
       "points": [
         {
-          "cost": "180",
+          "cost": "160",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -195,7 +197,9 @@
       "wargear": [
         "This model’s blood fists and blood fist bolt rifles can be replaced with 1 blood talons.",
         "This model’s twin heavy bolter can be replaced with 1 twin multi-melta."
-      ]
+      ],
+      "baseSize": "90mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -246,7 +250,7 @@
         "Tacticus",
         "Sanguinary Priest"
       ],
-      "leader": "This model can be attached to the following units: ■ ASSAULT INTERCESSOR SQUAD ■ DESOLATION SQUAD ■ DEVASTATOR SQUAD ■ HELLBLASTER SQUAD ■ INFERNUS SQUAD ■ INTERCESSOR SQUAD ■ TACTICAL SQUAD ■ STERNGUARD VETERAN SQUAD You can attach this model to one of the above units, even if one CAPTAIN, CHAPTER MASTER or LIEUTENANT model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+      "leader": "This model can be attached to the following units: ■ ASSAULT INTERCESSOR SQUAD ■ BLADEGUARD VETERAN SQUAD ■ DESOLATION SQUAD ■ DEVASTATOR SQUAD ■ HELLBLASTER SQUAD ■ INFERNUS SQUAD ■ INTERCESSOR SQUAD ■ TACTICAL SQUAD ■ STERNGUARD VETERAN SQUAD You can attach this model to one of the above units, even if one CAPTAIN, CHAPTER MASTER or LIEUTENANT model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
       "loadout": "This model is equipped with: absolver bolt pistol; Astartes chainsword.",
       "meleeWeapons": [
         {
@@ -269,10 +273,11 @@
       "name": "Sanguinary Priest",
       "points": [
         {
-          "cost": "90",
+          "cost": "75",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -310,9 +315,12 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": [
           "ASSAULT INTERCESSOR SQUAD",
+          "BLADEGUARD VETERAN SQUAD",
           "DESOLATION SQUAD",
           "DEVASTATOR SQUAD",
           "HELLBLASTER SQUAD",
@@ -321,7 +329,9 @@
           "TACTICAL SQUAD",
           "STERNGUARD VETERAN SQUAD"
         ],
-        "extra": "You can attach this model to one of the above units, even if one CAPTAIN, CHAPTER MASTER or LIEUTENANT model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to one of the above units, even if one CAPTAIN, CHAPTER MASTER or LIEUTENANT model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["CAPTAIN", "CHAPTER MASTER", "LIEUTENANT"],
+        "isBodyguard": true
       }
     },
     {
@@ -350,7 +360,7 @@
           },
           {
             "name": "Black Rage",
-            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
+            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly BLOOD ANGELS CHARACTER models, or 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
             "showAbility": true,
             "showDescription": true
           },
@@ -437,10 +447,11 @@
       "name": "Death Company Captain with Jump Pack",
       "points": [
         {
-          "cost": "85",
+          "cost": "75",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -524,6 +535,8 @@
         "This model’s master‐crafted chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 relic weapon",
         "This model’s heavy bolt pistol can be replaced with one of the following: ◦ 1 plasma pistol ◦ 1 hand flamer"
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["DEATH COMPANY MARINES WITH JUMP PACKS"],
         "extra": ""
@@ -549,7 +562,7 @@
         "other": [
           {
             "name": "Black Rage",
-            "description": "Each time a model in this unit makes a melee attack, you can re‐roll the Hit roll. While this unit is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and the Objective Control characteristic of models in this unit is 0.",
+            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly BLOOD ANGELS CHARACTER models, or 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
             "showAbility": true,
             "showDescription": true
           },
@@ -672,16 +685,18 @@
       "name": "Death Company Marines",
       "points": [
         {
-          "cost": "180",
+          "cost": "160",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "90",
+          "cost": "85",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -782,6 +797,8 @@
         "For every 5 models in this unit, 1 model’s Astartes chainsword can be replaced with 1 eviscerator.",
         "1 model’s heavy bolt pistol can be replaced with one of the following: ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Death Company Captain"]
     },
     {
@@ -859,10 +876,11 @@
       "name": "Astorath",
       "points": [
         {
-          "cost": "105",
+          "cost": "85",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -883,6 +901,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["DEATH COMPANY MARINES WITH JUMP PACKS"],
         "extra": ""
@@ -995,7 +1015,8 @@
           "cost": "80",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1052,6 +1073,8 @@
         "This model’s master‐crafted chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 relic weapon",
         "This model’s heavy bolt pistol can be replaced with 1 inferno pistol."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": [
           "ASSAULT INTERCESSOR SQUAD",
@@ -1138,10 +1161,11 @@
       "name": "Chief Librarian Mephiston",
       "points": [
         {
-          "cost": "135",
+          "cost": "120",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1221,7 +1245,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1299,10 +1325,11 @@
       "name": "Lemartes",
       "points": [
         {
-          "cost": "110",
+          "cost": "100",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1340,6 +1367,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["DEATH COMPANY MARINES WITH JUMP PACKS"],
         "extra": ""
@@ -1421,10 +1450,11 @@
       "name": "Commander Dante",
       "points": [
         {
-          "cost": "130",
+          "cost": "120",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1462,6 +1492,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": [
           "ASSAULT INTERCESSORS WITH JUMP PACKS",
@@ -1491,7 +1523,7 @@
         "other": [
           {
             "name": "Black Rage",
-            "description": "Each time a model in this unit makes a melee attack, you can re‐roll the Hit roll. While this unit is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and the Objective Control characteristic of models in this unit is 0.",
+            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly BLOOD ANGELS CHARACTER models, or 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
             "showAbility": true,
             "showDescription": true
           },
@@ -1630,16 +1662,18 @@
       "name": "Death Company Marines with Bolt Rifles",
       "points": [
         {
-          "cost": "180",
+          "cost": "160",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "90",
+          "cost": "85",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1784,6 +1818,8 @@
         "For every 5 models in this unit, 1 model’s bolt rifle and close combat weapon can be replaced with 1 eviscerator.",
         "1 model’s bolt rifle can be replaced with one of the following: ◦ 1 Astartes chainsword ◦ 1 hand flamer ◦ 1 inferno pistol ◦ 1 plasma pistol"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Death Company Captain"]
     },
     {
@@ -1860,10 +1896,11 @@
       "name": "The Sanguinor",
       "points": [
         {
-          "cost": "140",
+          "cost": "130",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1883,7 +1920,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1963,7 +2002,7 @@
               "keywords": [],
               "name": "Encarmine blade",
               "range": "Melee",
-              "skill": "3+",
+              "skill": "2+",
               "strength": "6"
             }
           ]
@@ -1974,12 +2013,12 @@
             {
               "active": true,
               "ap": "-2",
-              "attacks": "3",
+              "attacks": "4",
               "damage": "2",
               "keywords": ["Lance"],
               "name": "Encarmine Spear",
               "range": "Melee",
-              "skill": "3+",
+              "skill": "2+",
               "strength": "6"
             }
           ]
@@ -1991,13 +2030,15 @@
           "cost": "260",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "130",
+          "cost": "125",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2055,6 +2096,8 @@
         "For every 3 models in this unit, 1 model’s Angelus boltgun can be replaced with 1 inferno pistol.",
         "Any number of models can each have their encarmine blade replaced with 1 encarmine spear."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": ["Commander Dante"]
     },
     {
@@ -2116,10 +2159,11 @@
       "name": "Baal Predator",
       "points": [
         {
-          "cost": "135",
+          "cost": "125",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2249,7 +2293,9 @@
         "This model can be equipped with 1 storm bolter.",
         "This model can be equipped with 1 hunter-killer missile.",
         "This model’s twin assault cannon can be replaced with 1 Baal flamestorm cannon."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2271,7 +2317,7 @@
         "other": [
           {
             "name": "Black Rage",
-            "description": "Each time a model in this unit makes a melee attack, you can re‐roll the Hit roll. While this unit is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and the Objective Control characteristic of models in this unit is 0.",
+            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly BLOOD ANGELS CHARACTER models, or 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
             "showAbility": true,
             "showDescription": true
           },
@@ -2380,16 +2426,18 @@
       "name": "Death Company Marines with Jump Packs",
       "points": [
         {
-          "cost": "240",
+          "cost": "230",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "130",
+          "cost": "120",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2491,6 +2539,8 @@
         "For every 5 models in this unit, 1 model’s Astartes chainsword can be replaced with 1 eviscerator.",
         "For every 5 models in this unit, 1 model’s heavy bolt pistol can be replaced with 1 plasma pistol."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Death Company Captain with Jump Pack", "Astorath", "Lemartes"]
     },
     {
@@ -2519,7 +2569,7 @@
           },
           {
             "name": "Black Rage",
-            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
+            "description": "Each time this model makes a melee attack, you can re‐roll the Hit roll. While this model’s unit is not within 6\" of one or more friendly BLOOD ANGELS CHARACTER models, or 12\" of one or more friendly CHAPLAIN models, it cannot be selected to Fall Back and its Objective Control characteristic is 0.",
             "showAbility": true,
             "showDescription": true
           },
@@ -2607,7 +2657,8 @@
           "cost": "70",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2664,6 +2715,8 @@
         "This model’s master‐crafted chainsword can be replaced with one of the following: ◦ 1 power fist ◦ 1 relic weapon",
         "This model’s heavy bolt pistol can be replaced with 1 inferno pistol."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": [
           "DEATH COMPANY MARINES",
@@ -2978,10 +3031,26 @@
     }
   ],
   "detachments": [
-    "The Angelic Host",
-    "Angelic Inheritors",
-    "Liberator Assault Group",
-    "The Lost Brethren"
+    {
+      "name": "The Lost Brethren",
+      "faction": "Blood Angels"
+    },
+    {
+      "name": "Angelic Inheritors",
+      "faction": "Blood Angels"
+    },
+    {
+      "name": "Liberator Assault Group",
+      "faction": "Blood Angels"
+    },
+    {
+      "name": "The Angelic Host",
+      "faction": "Blood Angels"
+    },
+    {
+      "name": "Rage-cursed Onslaught",
+      "faction": "Blood Angels"
+    }
   ],
   "enhancements": [
     {
@@ -2992,17 +3061,23 @@
       "excludes": [],
       "description": "DEATH COMPANY model only. Once per battle, at the end of the Fight phase, if the bearer is within Engagement Range of three or more enemy models, the bearer can fight one additional time.",
       "faction_id": "CHBA",
-      "detachment": "The Lost Brethren"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Speed of the Primarch",
       "id": "693067b1-947f-5300-aa5a-d9f72a86f6bf",
       "cost": "25",
-      "keywords": ["Blood Angels"],
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer’s unit have the Fights First ability.",
       "faction_id": "CHBA",
-      "detachment": "Liberator Assault Group"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Blood Shard",
@@ -3012,17 +3087,23 @@
       "excludes": [],
       "description": "DEATH COMPANY model only. The first time the bearer is destroyed, at the end of the phase, roll one D6: on a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of any enemy units, with 3 wounds remaining.",
       "faction_id": "CHBA",
-      "detachment": "The Lost Brethren"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Rage-fuelled Warrior",
       "id": "1ccd0a44-393d-540f-9131-5c07f8c69730",
-      "cost": "25",
-      "keywords": ["Blood Angels"],
+      "cost": "35",
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, the bearer’s melee weapons have the [SUSTAINED HITS 3] ability.",
       "faction_id": "CHBA",
-      "detachment": "Liberator Assault Group"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "To Slay The Warmaster",
@@ -3032,17 +3113,23 @@
       "excludes": [],
       "description": "DEATH COMPANY model only. Once per battle, at the start of the Fight phase, if the bearer is within Engagement Range of one or more enemy CHARACTER units, you can select one of those CHARACTER units and roll six D6: for each 4+, one CHARACTER model in that unit suffers 1 mortal wound.",
       "faction_id": "CHBA",
-      "detachment": "The Lost Brethren"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Icon of the Angel",
       "id": "468e8afd-a173-5e50-bada-c65bd01a085b",
       "cost": "20",
-      "keywords": ["Blood Angels"],
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. Each time an enemy unit (excluding MONSTERS and VEHICLES) within Engagement Range of the bearer’s unit is selected to Fall Back, models in that enemy unit must take Desperate Escape tests as if their unit was Battle‐shocked. When doing so, if that enemy unit is also Battle‐shocked by other means, subtract 1 from each of those Desperate Escape tests.",
       "faction_id": "CHBA",
-      "detachment": "Liberator Assault Group"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Vengeful Onslaught",
@@ -3052,97 +3139,179 @@
       "excludes": [],
       "description": "DEATH COMPANY model only. If the bearer is destroyed, until the end of your next turn, each time a friendly DEATH COMPANY model makes an attack, add 1 to the Hit roll.",
       "faction_id": "CHBA",
-      "detachment": "The Lost Brethren"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Gift of Foresight",
       "id": "4b0d81cd-5507-5f07-bb4b-5eb74b25a561",
       "cost": "15",
-      "keywords": ["Blood Angels"],
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. Once per battle round, just after making a Hit roll, a Wound roll or a saving throw for the bearer, you can treat the result as an unmodified roll of 6 instead.",
       "faction_id": "CHBA",
-      "detachment": "Liberator Assault Group"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Artisan of War",
       "id": "deb9caaa-5e11-533b-b53b-cd3f632d7756",
       "cost": "20",
-      "keywords": ["Jump Pack"],
+      "keywords": ["Jump Pack", "Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES JUMP PACK model only. Improve the Armour Penetration characteristic of the bearer’s weapons by 1, and the bearer has a Save characteristic of 2+.",
       "faction_id": "CHBA",
-      "detachment": "The Angelic Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Visage of Death",
       "id": "2294b3f3-2844-550b-ad52-0c6cffb0d68d",
       "cost": "15",
-      "keywords": ["Jump Pack"],
+      "keywords": ["Jump Pack", "Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES JUMP PACK model only. In the Battle‐shock step of your opponent’s Command phase, each enemy unit (excluding MONSTERS and VEHICLES) within Engagement Range of the bearer must take a Battle‐shock test.",
       "faction_id": "CHBA",
-      "detachment": "The Angelic Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Archangel’s Shard",
       "id": "8f627182-ef5d-583d-b3e5-4d2bf31cf6be",
       "cost": "15",
-      "keywords": ["Jump Pack"],
+      "keywords": ["Jump Pack", "Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES JUMP PACK model only. The bearer’s melee weapons have the [ANTI-CHAOS 5+] and [LANCE] abilities.",
       "faction_id": "CHBA",
-      "detachment": "The Angelic Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Gleaming Pinions",
       "id": "14ea8d89-e2db-5a20-80b5-8323ad8f6b9f",
       "cost": "25",
-      "keywords": ["Jump Pack"],
+      "keywords": ["Jump Pack", "Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES JUMP PACK model only. Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of the bearer, if this bearer’s unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\".",
       "faction_id": "CHBA",
-      "detachment": "The Angelic Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Prescient Flash",
       "id": "e52bf420-3cfe-5234-9edd-33be67989247",
       "cost": "20",
-      "keywords": ["Blood Angels"],
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. Models in the bearer’s unit have the Scouts 6\" ability.",
       "faction_id": "CHBA",
-      "detachment": "Angelic Inheritors"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Troubling Visions",
       "id": "be5b7f41-49cb-5d15-b5b5-10b46da662ba",
       "cost": "15",
-      "keywords": ["Blood Angels"],
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. Once per battle, in your Command phase, the bearer can use this Enhancement. When it does, until the start of your next Command phase, all Angelic Legacy abilities (see Legacy of the Angel Detachment Rule) are active for the bearer’s unit, instead of only two of them.",
       "faction_id": "CHBA",
-      "detachment": "Angelic Inheritors"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Blazing Icon",
       "id": "fe9ae358-083d-5bd9-a486-65853870fc80",
       "cost": "20",
-      "keywords": ["Infantry"],
+      "keywords": ["Infantry", "Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES INFANTRY model only. Enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer’s unit.",
       "faction_id": "CHBA",
-      "detachment": "Angelic Inheritors"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Ordained Sacrifice",
       "id": "451e75dc-1a1a-55a1-ac5f-bdf7c4083c15",
       "cost": "25",
-      "keywords": ["Blood Angels"],
+      "keywords": ["Adeptus Astartes"],
       "excludes": [],
       "description": "ADEPTUS ASTARTES model only. The first time the bearer is destroyed, roll one D6 at the end of the phase: on a 2+, set the bearer back up on the battlefield as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with 3 wounds remaining.",
       "faction_id": "CHBA",
-      "detachment": "Angelic Inheritors"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Carmine Reliquary",
+      "id": "6a494532-f48c-5090-9f0c-de213253846a",
+      "cost": "30",
+      "keywords": ["Chaplain"],
+      "excludes": [],
+      "description": "CHAPLAIN model only. Models in the bearer’s unit have the Scouts 6\" ability. Each time you take a Battle-shock test for an ADEPTUS ASTARTES unit within 6\" of the bearer, you can re-roll the result.",
+      "faction_id": "CHBA",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Master of the Red Thirst",
+      "id": "ceed6b5e-f290-5d28-81f1-fc4abe5a93a5",
+      "cost": "25",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "description": "ADEPTUS ASTARTES model only. Once per battle, at the start of the Fight phase, the bearer can use this Enhancement. If it does, until the end of the phase, models in the bearer’s unit have the Fights First ability.",
+      "faction_id": "CHBA",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Sanguinary Tear (Aura)",
+      "id": "2f568096-fb2b-502c-8562-d08daa641e5b",
+      "cost": "35",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "description": "ADEPTUS ASTARTES model only. While a friendly DEATH COMPANY unit is within 6\" of the bearer, add 1 to the Strength characteristic of weapons equipped by models in that unit.",
+      "faction_id": "CHBA",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Angel’s Fang",
+      "id": "fd792905-ddc8-5a21-b2f3-db92dc9e2791",
+      "cost": "25",
+      "keywords": ["Adeptus Astartes"],
+      "excludes": [],
+      "description": "ADEPTUS ASTARTES model only. Each time the bearer makes a melee attack that targets a CHARACTER, MONSTER or VEHICLE unit, that attack has the [SUSTAINED HITS 2] ability.",
+      "faction_id": "CHBA",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
     }
   ],
   "id": "CHBA",
@@ -3151,6 +3320,159 @@
   "name": "Blood Angels",
   "parent_id": "SM",
   "parent_keyword": "Adeptus Astartes",
+  "parent_name": "Adeptus Astartes",
+  "rules": {
+    "army": [
+      {
+        "name": "Oath of Moment",
+        "rules": [
+          {
+            "text": "This ability is described in full on the Army Rules page of *Codex: Space Marines*.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      },
+      {
+        "name": "Space Marine Chapters",
+        "rules": [
+          {
+            "text": "■ If an **ADEPTUS ASTARTES** unit has a second Faction keyword on its datasheet, that Faction keyword is the name of that unit’s Chapter. For example, Marneus Calgar has both the **ADEPTUS ASTARTES** and **ULTRAMARINES** Faction keywords, and is therefore from the Ultramarines Chapter.\n\n■ You cannot include units from more than one Chapter in your army.\n\n■ If your army includes one or more **BLACK TEMPLARS** units, it cannot include any **ADEPTUS ASTARTES PSYKER** models, and cannot include any of the following models that do not have the Black Templars keyword: **GLADIATOR LANCER**; **GLADIATOR REAPER**; **GLADIATOR VALIANT**; **IMPULSOR**; **REPULSOR**; **REPULSOR EXECUTIONER**.\n\n■ If your army includes one or more **SPACE WOLVES** units, it cannot include any of the following units: **APOTHECARY**; **DEVASTATOR SQUAD**; **TACTICAL SQUAD**.\n\n**DEATHWATCH**\n\n■ Your army can include **ADEPTUS ASTARTES DEATHWATCH** units, but it cannot include any **ADEPTUS ASTARTES** units drawn from any other Chapter.\n■ With the exception of **KILL TEAM CASSIUS** (see *Legends: Agents of the Imperium*), your army cannot include any **AGENTS OF THE IMPERIUM DEATHWATCH** units.\n■ Your army cannot include any of the following units: **ASSAULT SQUAD**; **ASSAULT SQUAD WITH JUMP PACKS**; **ATTACK BIKE SQUAD**; **DEVASTATOR SQUAD**; **LAND SPEEDER STORM**; **RELIC TERMINATOR SQUAD**; **SCOUT BIKE SQUAD**; **SCOUT SQUAD**; **SCOUT SNIPER SQUAD**; **TACTICAL SQUAD**; **TERMINATOR ASSAULT SQUAD**; **TERMINATOR SQUAD**.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      },
+      {
+        "name": "The Sons of Sanguinius",
+        "rules": [
+          {
+            "text": "■ If an **ADEPTUS ASTARTES** unit has a second Faction keyword on its datasheet, that Faction keyword is the name of that unit’s Chapter. For example, Lemartes has both the **ADEPTUS ASTARTES** and **BLOOD ANGELS** Faction keywords, and is therefore from the Blood Angels Chapter.\n■ You cannot include units from more than one Chapter in your army.\n\n***Designer’s Note**: The rules presented in this section assume that the* **ADEPTUS ASTARTES** *units in your army are from the Blood Angels Chapter, but they can also be used to represent any Blood Angels successor Chapter, such as one described in the background section of this book, or even one of your own invention. However, players who wish to faithfully recreate the Blood Angels Chapter on the tabletop should only include* **BLOOD ANGELS EPIC HEROES** *if their collection is intended to represent the First Founding Chapter itself; Mephiston is the Chief Librarian of the Blood Angels, for example, and not of any of their successors.*",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "The Lost Brethren",
+        "faction": "Blood Angels",
+        "rules": [
+          {
+            "name": "A Noble Death in Combat",
+            "rules": [
+              {
+                "text": "Each time a **DEATH COMPANY** model from your army makes a melee attack, re‐roll a Wound roll of 1 if that model’s unit is below its Starting Strength; if that model’s unit is Below Half‐strength, you can re‐roll the Wound roll instead.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Angelic Inheritors",
+        "faction": "Blood Angels",
+        "rules": [
+          {
+            "name": "Legacy of the Angel",
+            "rules": [
+              {
+                "text": "At the start of the first battle round, select two of the Angelic Legacy abilities listed below. Until the end of the battle, those Angelic Legacy abilities are active and their effects apply to all **ADEPTUS ASTARTES CHARACTER** units from your army.\n\n**Sanguinary Grace**: This unit is eligible to shoot and declare a charge in a turn in which it Fell Back.\n\n**Carmine Wrath**: Each time a model in this unit makes an attack, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1.\n\n**Their Appointed Hour**: You can re‑roll Advance and Charge rolls made for this unit.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Liberator Assault Group",
+        "faction": "Blood Angels",
+        "rules": [
+          {
+            "name": "Red Thirst",
+            "rules": [
+              {
+                "text": "Each time an **ADEPTUS ASTARTES** unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic and add 2 to the Strength characteristic of melee weapons equipped by models in that unit.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "The Angelic Host",
+        "faction": "Blood Angels",
+        "rules": [
+          {
+            "name": "Upon Wings of Fire",
+            "rules": [
+              {
+                "text": "At the end of your opponent’s turn, you can select a number of **ADEPTUS ASTARTES JUMP PACK** units from your army (excluding units that are within Engagement Range of one or more enemy units). The maximum number of units you can select depends on the battle size, as follows:",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "-",
+                "order": 2,
+                "title": null,
+                "type": "image"
+              },
+              {
+                "text": "Once you have made your selections, remove those units from the battlefield and place them into Strategic Reserves. In the Reinforcements step of your next Movement phase, set each of those units up using their Deep Strike ability.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Rage-cursed Onslaught",
+        "faction": "Blood Angels",
+        "rules": [
+          {
+            "name": "Maddened Ferocity",
+            "rules": [
+              {
+                "text": "Each time an **ADEPTUS ASTARTES** model from your army makes a melee attack, re-roll a Wound roll of 1.\n\nEach time an **ADEPTUS ASTARTES** unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit. If your unit is Battle-shocked, add 2 to the Attacks characteristic of melee weapons equipped by models in that unit instead.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "Armour of Contempt",
@@ -3165,7 +3487,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "CHBA",
       "fluff": "The belligerence of the Adeptus Astartes combined with their enhanced physiology makes them unyielding foes to face.",
-      "detachment": "The Lost Brethren"
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Furious Onslaught",
@@ -3180,7 +3503,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "The Lost push towards new foes, the bloodlust in their veins enhancing their preternatural speed.",
-      "detachment": "The Lost Brethren"
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Lost to Rage",
@@ -3195,7 +3519,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "The Lost are consumed utterly by rage.",
-      "detachment": "The Lost Brethren"
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Armour of Contempt",
@@ -3210,7 +3535,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "CHBA",
       "fluff": "The belligerence of the Adeptus Astartes, combined with their transhuman physiology, makes them unyielding foes to face.",
-      "detachment": "Angelic Inheritors"
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Focused Fury",
@@ -3225,7 +3551,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "Keeping the beast within under tight control, the Blood Angels nonetheless tap into that inner rage and shackle it to their precisely aimed blows.&x20;",
-      "detachment": "Angelic Inheritors"
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "In The Shadow Of Great Wings",
@@ -3240,7 +3567,8 @@
       "phase": ["shooting"],
       "faction_id": "CHBA",
       "fluff": "The enemy is engulfed in a soul‑deep shadow for just a moment, as though mighty wings have spread above them and marred their vision with occluding darkness.",
-      "detachment": "Angelic Inheritors"
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Armour of Contempt",
@@ -3255,7 +3583,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "CHBA",
       "fluff": "The belligerence of the Adeptus Astartes combined with their enhanced physiology makes them unyielding foes to face.",
-      "detachment": "Liberator Assault Group"
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Savage Echoes",
@@ -3270,7 +3599,8 @@
       "phase": ["charge"],
       "faction_id": "CHBA",
       "fluff": "The Sons of Sanguinius may embrace the Red Thirst but for a moment, if the need arises.",
-      "detachment": "Liberator Assault Group"
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Red Rampage",
@@ -3285,7 +3615,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "In times of great desperation, fury and ferocity can be a warrior’s strongest allies.",
-      "detachment": "Liberator Assault Group"
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Armour of Contempt",
@@ -3300,7 +3631,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "CHBA",
       "fluff": "The belligerence of the Adeptus Astartes combined with their enhanced physiology makes them unyielding foes to face.",
-      "detachment": "The Angelic Host"
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Angel’s Sacrifice",
@@ -3315,7 +3647,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "The Blood Angels would gladly put themselves in harm’s way to protect others, just as Sanguinius sacrificed his own life.",
-      "detachment": "The Angelic Host"
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Martial Examplars",
@@ -3330,7 +3663,56 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "The Blood Angels are mighty warriors indeed, and wield their gilded and shimmering blades with consummate skill.",
-      "detachment": "The Angelic Host"
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "A Grim Warning",
+      "id": "86102807-9dec-56f5-9e70-d362e164edab",
+      "cost": 1,
+      "turn": "either",
+      "target": "One BLOOD ANGELS unit from your army that was just destroyed while it was within range of one or more objective markers you controlled at the end of the previous phase. You can use this Stratagem on that unit even though it was just destroyed.",
+      "when": "Any phase.",
+      "effect": "Select one of those objective markers. That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["any"],
+      "faction_id": "CHBA",
+      "fluff": "So savagely butchered are the corpses left strewn by the Blood Angels that the mere sight of them gives the enemy pause.",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Armour of Contempt",
+      "id": "1e21c885-2bf2-56a3-9088-17477f475788",
+      "cost": 1,
+      "turn": "either",
+      "target": "One ADEPTUS ASTARTES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the attacking unit has finished making its attacks, each time an attack targets your unit, worsen the Armour Penetration characteristic of that attack by 1.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "CHBA",
+      "fluff": "The belligerence of the Adeptus Astartes, combined with their enhanced physiology, makes them unyielding foes to face.",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Limb from Limb",
+      "id": "bc46fd97-272d-579f-a577-97f5225d61b6",
+      "cost": 1,
+      "turn": "either",
+      "target": "One ADEPTUS ASTARTES unit from your army that made a Charge move this turn.",
+      "when": "Fight phase.",
+      "effect": "Select either the Strength or Armour Penetration characteristic of melee weapons equipped by models in your unit. Until the end of the phase, add 1 to the selected characteristic. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle‑shocked (but the effects of this Stratagem still apply to it), and until the end of the phase, add 1 to the Strength and Armour Penetration characteristics of melee weapons equipped by models in your unit.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight"],
+      "faction_id": "CHBA",
+      "fluff": "While the Blood Angels display skill and discipline at close quarters, it is tinged with a blood-drenched brutality that only increases with their building rage.",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Glorious Sacrifice",
@@ -3339,13 +3721,14 @@
       "turn": "either",
       "target": "One DEATH COMPANY unit from your army that was just destroyed while it was within range of an objective marker you controlled. You can use this Stratagem on that unit even though it was just destroyed.",
       "when": "Any phase.",
-      "effect": "That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+      "effect": "That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
       "restrictions": "",
       "type": "Epic Deed",
       "phase": ["any"],
       "faction_id": "CHBA",
       "fluff": "Even in death, the Lost bring victory to their Chapter.",
-      "detachment": "The Lost Brethren"
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Final Retribution",
@@ -3360,7 +3743,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "These battle‐brothers have already accepted their deaths. They now seek to strike one last, telling blow against the enemy.",
-      "detachment": "The Lost Brethren"
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Instant of Grace",
@@ -3375,7 +3759,8 @@
       "phase": ["command"],
       "faction_id": "CHBA",
       "fluff": "In this most desperate moment of need, a lone battle‑brother rises to the challenge as a true inheritor of the Angel’s legacy.&x20;",
-      "detachment": "Angelic Inheritors"
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Unbridled Ardour",
@@ -3390,7 +3775,8 @@
       "phase": ["any"],
       "faction_id": "CHBA",
       "fluff": "The Sanguinary Guard exemplify the noble heritage of Sanguinius, leaping to avenge their battle‐brothers without hesitation.",
-      "detachment": "The Angelic Host"
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Descent of Angels",
@@ -3405,7 +3791,8 @@
       "phase": ["movement"],
       "faction_id": "CHBA",
       "fluff": "The Blood Angels are masters of aerial assault, leaping from airborne transports with jump packs roaring to plunge into the heat of battle.",
-      "detachment": "The Angelic Host"
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Death From The Skies",
@@ -3420,7 +3807,8 @@
       "phase": ["charge"],
       "faction_id": "CHBA",
       "fluff": "The roar of the Blood Angels jump packs is as a funeral dirge to their foes.",
-      "detachment": "The Angelic Host"
+      "detachment": "The Angelic Host",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Wrathful Rampage",
@@ -3435,7 +3823,8 @@
       "phase": ["movement"],
       "faction_id": "CHBA",
       "fluff": "So lost to rage are the Death Company that they surge unstoppably into battle, eagerly outpacing their brothers.",
-      "detachment": "The Lost Brethren"
+      "detachment": "The Lost Brethren",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Strike Now For Glory",
@@ -3450,7 +3839,8 @@
       "phase": ["shooting"],
       "faction_id": "CHBA",
       "fluff": "Knowing instinctively that the pivotal moment has arrived, these battle‑brothers aim and hammer their foes with unrelenting volleys.",
-      "detachment": "Angelic Inheritors"
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Unto The Burning Skies",
@@ -3465,7 +3855,8 @@
       "phase": ["fight"],
       "faction_id": "CHBA",
       "fluff": "In the face of encroaching doom, as the world seems to burn around them, these scions of Sanguinius leap high into the tormented heavens, ready to strike down with vengeful fury upon the enemy teeming below.&x20;",
-      "detachment": "Angelic Inheritors"
+      "detachment": "Angelic Inheritors",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Angelic Grace",
@@ -3480,7 +3871,8 @@
       "phase": ["any"],
       "faction_id": "CHBA",
       "fluff": "Sanguinius’ sons are blessed with the spiritual fortitude of their Primarch.",
-      "detachment": "Liberator Assault Group"
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Aggressive Onslaught",
@@ -3495,7 +3887,8 @@
       "phase": ["movement"],
       "faction_id": "CHBA",
       "fluff": "The Blood Angels enact a sweeping advance.",
-      "detachment": "Liberator Assault Group"
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
     },
     {
       "name": "Relentless Assault",
@@ -3510,8 +3903,57 @@
       "phase": ["movement"],
       "faction_id": "CHBA",
       "fluff": "When Blood Angels execute a tactical withdrawal it is but a prelude to a renewed assault.",
-      "detachment": "Liberator Assault Group"
+      "detachment": "Liberator Assault Group",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Insensate Rampage",
+      "id": "2beefe49-3242-51f5-9968-843c70771df7",
+      "cost": 1,
+      "turn": "either",
+      "target": "One DEATH COMPANY unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, models in your unit have the Feel No Pain 5+ ability.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight", "shooting"],
+      "faction_id": "CHBA",
+      "fluff": "The agony of even the most catastrophic wounds means nothing to the warriors of the Death Company, pain finding no purchase on their maddened minds.",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Red Wrath",
+      "id": "c86f6d79-6371-5768-9f1f-75992c96d114",
+      "cost": 1,
+      "turn": "your",
+      "target": "That ADEPTUS ASTARTES unit.",
+      "when": "Your Movement phase, just after an ADEPTUS ASTARTES unit from your army Advances.",
+      "effect": "Until the end of the turn, your unit is eligible to either shoot or declare a charge in a turn in which it Advanced. You can instead choose for your unit to give in to the Red Thirst; if it does, it becomes Battle-shocked (but the effects of this Stratagem still apply to it), and until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "CHBA",
+      "fluff": "Already swift and aggressive even by Space Marine standards, the Blood Angels can enhance their might yet further by surrendering temporarily to the Red Thirst, albeit at the cost of higher strategic thought.",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
+    },
+    {
+      "name": "Deathless Duty",
+      "id": "c5d63cdb-0422-54e1-88e1-fc973f8748a3",
+      "cost": 2,
+      "turn": "either",
+      "target": "One DEATH COMPANY unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight"],
+      "faction_id": "CHBA",
+      "fluff": "Even as death at last smothers the inferno of fury consuming the minds of these lost brethren, they keep killing, until not even the faintest spark remains.",
+      "detachment": "Rage-cursed Onslaught",
+      "detachment_faction": "Blood Angels"
     }
   ],
-  "updated": "2025-02-05T13:53:45.833Z"
+  "updated": "2026-03-09T13:13:56.170Z"
 }

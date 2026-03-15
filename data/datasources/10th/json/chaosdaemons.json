@@ -4,6 +4,7 @@
     "banner": "#202224",
     "header": "#393940"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -91,7 +92,9 @@
         {
           "cost": "180",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -180,7 +183,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["This model’s warpsword can be replaced with 1 warpclaw."]
+      "wargear": ["This model’s warpsword can be replaced with 1 warpclaw."],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -261,7 +266,9 @@
         {
           "cost": "180",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -294,7 +301,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -310,6 +319,10 @@
           "value": "4+"
         },
         "other": [
+          {
+            "name": "Daemonic Lord",
+            "description": "While this model is within 3\" of one or more friendly LEGIONES DAEMONICA INFANTRY units, this model has the Lone Operative ability."
+          },
           {
             "name": "Prince of Darkness (Aura)",
             "description": "While a friendly LEGIONES DAEMONICA unit is within 6\" of this model, models in that unit have the Stealth ability."
@@ -374,7 +387,9 @@
         {
           "cost": "190",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -407,11 +422,13 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deadly Demise D6", "Deep Strike"],
+        "core": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 6+"],
         "damaged": {
           "range": "1-7 WOUNDS REMAINING",
           "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
@@ -429,11 +446,11 @@
           },
           {
             "name": "Virulent Blessing (Psychic)",
-            "description": "At the start of the Fight phase, you can select one enemy unit within 18\" and visible to this model. Until the end of the phase, each time an attack made by a NURGLE LEGIONES DAEMONICA model is allocated to a model in that unit, add 1 to the Damage characteristic of that attack."
+            "description": "At the start of the Fight phase, you can select one enemy unit within 24\" and visible to this model. Until the end of the phase, each time an attack made by a NURGLE LEGIONES DAEMONICA model is allocated to a model in that unit, add 1 to the Damage characteristic of that attack."
           },
           {
             "name": "Deluge of Nurgle (Aura)",
-            "description": "While an enemy unit is within 6\" of this model, halve the Move and Objective Control characteristics of models in that unit."
+            "description": "While an enemy unit is within 6\" of this model, subtract 2 from the Move characteristic and subtract 1 from the Objective Control characteristic of models in that unit."
           }
         ],
         "primarch": [],
@@ -469,7 +486,7 @@
               "name": "Gnarlrod – Sweep",
               "range": "Melee",
               "skill": "2+",
-              "strength": "7"
+              "strength": "8"
             },
             {
               "ap": "-3",
@@ -479,7 +496,7 @@
               "name": "Gnarlrod – Strike",
               "range": "Melee",
               "skill": "2+",
-              "strength": "8"
+              "strength": "10"
             }
           ]
         }
@@ -487,9 +504,11 @@
       "name": "Rotigus",
       "points": [
         {
-          "cost": "230",
+          "cost": "265",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -503,7 +522,7 @@
               "name": "Streams of brackish filth",
               "range": "12\"",
               "skill": "N/A",
-              "strength": "7"
+              "strength": "8"
             }
           ]
         }
@@ -522,7 +541,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "130mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -588,9 +609,11 @@
       "name": "The Masque of Slaanesh",
       "points": [
         {
-          "cost": "85",
+          "cost": "95",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -608,11 +631,13 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deep Strike"],
+        "core": ["Deep Strike", "Fights First"],
         "damaged": {
           "description": "",
           "range": ""
@@ -625,8 +650,8 @@
         },
         "other": [
           {
-            "name": "Swift-taloned Slaughter",
-            "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead."
+            "name": "Horrifying Beauty",
+            "description": "At the start of the Fight phase, each enemy unit within Engagement Range of one or more units from your army with this ability must take a Battle‑shock test, subtracting 1 from the result if that enemy unit is Below Half‑strength."
           }
         ],
         "primarch": [],
@@ -679,7 +704,9 @@
         {
           "cost": "100",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -701,6 +728,8 @@
         "1 Daemonette that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Daemonette that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
       ],
+      "baseSize": "25mm",
+      "chapter": null,
       "leadBy": [
         "Tranceweaver",
         "Infernal Enrapturess",
@@ -719,12 +748,12 @@
         "invul": {
           "info": "",
 
-          "value": "6+"
+          "value": "5+"
         },
         "other": [
           {
-            "name": "Mischief Makers (Aura)",
-            "description": "While an enemy unit (excluding MONSTERS and VEHICLES) is within 6\" of this unit, each time a model in that unit makes a melee attack, subtract 1 from the Hit roll."
+            "name": "Mischief Makers",
+            "description": "Each time an enemy unit (excluding TITANIC units) within Engagement Range of one or more units with this ability is selected to fight, until the end of the phase, each time a model in that enemy unit makes a melee attack, subtract 1 from the Hit roll."
           }
         ],
         "primarch": [],
@@ -732,7 +761,7 @@
         "wargear": []
       },
 
-      "composition": ["3-9 Nurgling Swarms"],
+      "composition": ["3-6 Nurgling Swarms"],
       "factions": ["Legiones Daemonica"],
       "faction_id": "CD",
       "fluff": "Nurglings are malicious plague mites that pour across the battlefield in giggling masses. These foul imps might seem almost amusing from a distance, yet the illusion is shattered as the Nurglings spill forth to engulf their screaming victims in a rancid avalanche of needle fangs, filthy talons and bloated flesh.",
@@ -766,19 +795,18 @@
       "name": "Nurglings",
       "points": [
         {
-          "cost": "105",
-          "keyword": null,
-          "models": "9"
-        },
-        {
           "cost": "70",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -796,7 +824,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -862,7 +892,9 @@
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -870,7 +902,7 @@
       "stats": [
         {
           "ld": "7+",
-          "m": "6\"",
+          "m": "8\"",
           "name": "Bloodmaster",
           "oc": "1",
 
@@ -881,6 +913,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BLOODLETTERS"],
         "extra": ""
@@ -888,7 +922,7 @@
     },
     {
       "abilities": {
-        "core": ["Deep Strike", "Leader"],
+        "core": ["Deep Strike", "Leader", "Fights First"],
         "damaged": {
           "description": "",
           "range": ""
@@ -902,7 +936,7 @@
         "other": [
           {
             "name": "Tranceweaver",
-            "description": "While this model is leading a unit, models in that unit have the Fights First ability."
+            "description": "Each time a model in this unit makes an attack, re-roll a Hit roll of 1. If the target of that attack is within range of an objective marker, you can re-roll the Hit roll instead."
           },
           {
             "name": "Symphony of Pain (Psychic)",
@@ -951,7 +985,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -970,6 +1006,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["DAEMONETTES"],
         "extra": ""
@@ -1035,10 +1073,14 @@
               "ap": "-2",
               "attacks": "6",
               "damage": "2",
-              "keywords": ["Extra Attacks"],
+              "keywords": [
+                "Anti-vehicle 4+",
+                "Anti-monster 4+",
+                "Extra Attacks"
+              ],
               "name": "Screamer bites",
               "range": "Melee",
-              "skill": "4+",
+              "skill": "3+",
               "strength": "6"
             }
           ]
@@ -1049,7 +1091,9 @@
         {
           "cost": "115",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1092,7 +1136,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1116,7 +1162,7 @@
         "primarch": [],
         "special": [
           {
-            "description": "If, at any point, this unit contains no PINK HORROR models, use the BLUE HORRORS datasheet for this unit.\n\nDesigner’s Note: While this unit contains one or more PINK HORROR models, the Cackling Horrors and Exploding Horrors abilities from the BLUE HORRORS datasheet do not apply to this unit.",
+            "description": "If, at any point, this unit contains no PINK HORROR models, use the BLUE HORRORS datasheet for this unit.\n\nDesigner’s Note: While this unit contains one or more PINK HORROR models, the Sullen Malevolence and Exploding Horrors abilities from the BLUE HORRORS datasheet do not apply to this unit.",
             "name": "HORRORS ARE PINK. HORRORS ARE BLUE. WHERE ONCE THERE WAS ONE, NOW THERE ARE TWO."
           }
         ],
@@ -1198,7 +1244,9 @@
         {
           "cost": "140",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1208,7 +1256,7 @@
               "ap": "-1",
               "attacks": "2",
               "damage": "1",
-              "keywords": ["Psychic"],
+              "keywords": ["Pistol", "Psychic"],
               "name": "Coruscating Pink Flames",
               "range": "18\"",
               "skill": "3+",
@@ -1222,8 +1270,8 @@
               "ap": "-1",
               "attacks": "2",
               "damage": "1",
-              "keywords": ["Psychic"],
-              "name": "Coruscating Blue Flames",
+              "keywords": ["Pistol", "Psychic"],
+              "name": "Coruscating blue flames",
               "range": "18\"",
               "skill": "4+",
               "strength": "3"
@@ -1236,8 +1284,8 @@
               "ap": "-1",
               "attacks": "2",
               "damage": "1",
-              "keywords": ["Psychic"],
-              "name": "Coruscating Yellow Flames",
+              "keywords": ["Pistol", "Psychic"],
+              "name": "Coruscating yellow flames",
               "range": "18\"",
               "skill": "5+",
               "strength": "2"
@@ -1273,119 +1321,13 @@
         "1 Pink Horror that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Pink Horror that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Changecaster", "Fluxmaster"]
     },
     {
       "abilities": {
-        "core": ["Deep Strike"],
-        "damaged": {
-          "description": "",
-          "range": ""
-        },
-        "faction": ["The Shadow of Chaos"],
-        "invul": {
-          "info": "",
-
-          "value": "4+"
-        },
-        "other": [
-          {
-            "name": "Infernal Engines of Torment",
-            "description": "In the Fight phase, after this model has finished making its attacks, if one or more enemy units were destroyed as a result of those attacks, every enemy unit within 6\" of this model must take a Battle- shock test."
-          }
-        ],
-        "primarch": [],
-        "special": [],
-        "wargear": []
-      },
-
-      "composition": ["1 Exalted Seeker Chariot"],
-      "factions": ["Legiones Daemonica"],
-      "faction_id": "CD",
-      "fluff": "Larger and more deadly than Seeker Chariots, these infernal engines offer the legions of Slaanesh comparatively heavyweight weapons to break their victims’ lines. Multi-hued wheels emitting blurred skeins of hypnotic light, axles screaming like damned souls, they tear through the enemy ranks again and again.",
-      "id": "723bc56b-59c5-5507-8fcb-a507aa4b68d6",
-      "keywords": [
-        "Mounted",
-        "Chaos",
-        "Daemon",
-        "Slaanesh",
-        "Exalted Seeker Chariot"
-      ],
-      "leader": "",
-      "loadout": "This model is equipped with: lashes of torment; Exalted Seeker tongues; slashing claws.",
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "8",
-              "damage": "1",
-              "keywords": ["Lethal Hits", "Extra Attacks"],
-              "name": "Exalted Seeker tongues",
-              "range": "Melee",
-              "skill": "4+",
-              "strength": "4"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "ap": "-1",
-              "attacks": "14",
-              "damage": "1",
-              "keywords": ["Devastating Wounds"],
-              "name": "Slashing claws",
-              "range": "Melee",
-              "skill": "3+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "name": "Exalted Seeker Chariot",
-      "points": [
-        {
-          "cost": "115",
-          "keyword": null,
-          "models": "1"
-        }
-      ],
-      "rangedWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "6",
-              "damage": "1",
-              "keywords": ["Pistol", "Assault", "Anti-infantry 3+"],
-              "name": "Lashes of torment",
-              "range": "6\"",
-              "skill": "3+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "source": "40k-10e",
-      "stats": [
-        {
-          "ld": "7+",
-          "m": "14\"",
-          "name": "Exalted Seeker Chariot",
-          "oc": "5",
-
-          "sv": "5+",
-          "t": "6",
-          "w": "12"
-        }
-      ],
-      "transport": "",
-      "wargear": ["None"]
-    },
-    {
-      "abilities": {
-        "core": ["Deep Strike", "Leader"],
+        "core": ["Deep Strike", "Leader", "Fights First"],
         "damaged": {
           "description": "",
           "range": ""
@@ -1447,7 +1389,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1491,6 +1435,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60 x 35.5mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["DAEMONETTES"],
         "extra": ""
@@ -1512,7 +1458,7 @@
         "other": [
           {
             "name": "Infected Outbreak",
-            "description": "If you control an objective marker at the end of your Command phase and this unit is within range of that objective marker, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase."
           }
         ],
         "primarch": [],
@@ -1565,7 +1511,9 @@
         {
           "cost": "110",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1587,6 +1535,8 @@
         "1 Plaguebearer that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Plaguebearer that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Poxbringer",
         "Epidemius",
@@ -1626,7 +1576,7 @@
         "wargear": [
           {
             "name": "Shining Aegis",
-            "description": "The bearer has the Feel No Pain 5+ ability."
+            "description": "The bearer has a Save characteristic of 3+."
           }
         ]
       },
@@ -1694,9 +1644,11 @@
       "name": "Keeper of Secrets",
       "points": [
         {
-          "cost": "290",
+          "cost": "240",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1755,11 +1707,13 @@
       "transport": "",
       "wargear": [
         "This model can be equipped with one of the following: ◦ Living whip ◦ Ritual knife ◦ Shining aegis"
-      ]
+      ],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 5+"],
+        "core": ["Deadly Demise D6", "Deep Strike"],
         "damaged": {
           "range": "1-7 WOUNDS REMAINING",
           "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
@@ -1776,12 +1730,12 @@
             "description": "While a friendly SLAANESH LEGIONES DAEMONICA unit is within 6\" of this model, that unit is within your army’s Shadow of Chaos."
           },
           {
-            "name": "Cloak of Constriction",
-            "description": "At the start of the Fight phase, select one enemy unit within Engagement Range of this model. Until the end of the phase, subtract 1 from the Attacks characteristic of melee weapons equipped by that unit."
+            "name": "No Prey Can Evade",
+            "description": "You can re‑roll Advance and Charge rolls made for this model."
           },
           {
             "name": "Monarch of the Hunt",
-            "description": "Each time this model declares a charge that targets a MONSTER, VEHICLE or CHARACTER unit, you can re-roll the Charge roll. Each time this model makes a melee attack that targets a MONSTER, VEHICLE or CHARACTER unit, you can re-roll the Hit roll, the Wound roll and the Damage roll."
+            "description": "At the start of the first battle round, select one enemy unit to be this model’s quarry. Each time this model makes a melee attack that targets its quarry, you can re‑roll the Hit roll and you can re‑roll the Wound roll. Each time this model’s quarry is destroyed, select one new enemy unit to be this model’s quarry."
           }
         ],
         "primarch": [],
@@ -1831,7 +1785,7 @@
               "name": "Soulpiercer",
               "range": "Melee",
               "skill": "2+",
-              "strength": "14"
+              "strength": "12"
             }
           ]
         }
@@ -1839,9 +1793,11 @@
       "name": "Shalaxi Helbane",
       "points": [
         {
-          "cost": "425",
+          "cost": "340",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1897,13 +1853,15 @@
           "name": "Shalaxi Helbane",
           "oc": "5",
 
-          "sv": "5+",
+          "sv": "3+",
           "t": "10",
           "w": "20"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1981,12 +1939,16 @@
         {
           "cost": "160",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "80",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2007,7 +1969,9 @@
       "wargear": [
         "1 Seeker that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Seeker that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
-      ]
+      ],
+      "baseSize": "60 x 35.5mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2089,7 +2053,9 @@
         {
           "cost": "120",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2158,6 +2124,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["DAEMONETTES"],
         "extra": ""
@@ -2214,14 +2182,18 @@
       "name": "Screamers",
       "points": [
         {
-          "cost": "170",
+          "cost": "160",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "85",
+          "cost": "80",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2240,6 +2212,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Small Flying Base",
+      "chapter": null,
       "leadBy": ["Fateskimmer"]
     },
     {
@@ -2257,8 +2231,8 @@
         },
         "other": [
           {
-            "name": "Blood Begets Blood",
-            "description": "Each time a model in this unit makes a melee attack, re-roll a Wound roll of 1. If that attack targets a unit that is Below Half-strength, you can re-roll the Wound roll instead."
+            "name": "Bane of Cowards",
+            "description": "Each time an enemy unit (excluding MONSTERS and VEHICLES) within Engagement Range of one or more units from your army with this ability Falls Back, models in that enemy unit must take Desperate Escape tests. When doing so, if that enemy unit is also Battle‑shocked, subtract 1 from each of those Desperate Escape tests."
           }
         ],
         "primarch": [],
@@ -2311,7 +2285,9 @@
         {
           "cost": "110",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2319,7 +2295,7 @@
       "stats": [
         {
           "ld": "7+",
-          "m": "6\"",
+          "m": "8\"",
           "name": "Bloodletter",
           "oc": "2",
 
@@ -2333,14 +2309,16 @@
         "1 Bloodletter that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Bloodletter that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Bloodmaster", "Skulltaker"]
     },
     {
       "abilities": {
         "core": ["Deadly Demise D6", "Deep Strike"],
         "damaged": {
-          "range": "1-6 WOUNDS REMAINING",
-          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         },
         "faction": ["The Shadow of Chaos"],
         "invul": {
@@ -2417,9 +2395,11 @@
       "name": "Lord of Change",
       "points": [
         {
-          "cost": "260",
+          "cost": "285",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2438,7 +2418,7 @@
             {
               "ap": "-2",
               "attacks": "9",
-              "damage": "D3",
+              "damage": "3",
               "keywords": ["Psychic", "Hazardous"],
               "name": "Bolt of Change – Focused witchfire",
               "range": "18\"",
@@ -2452,10 +2432,10 @@
             {
               "ap": "-1",
               "attacks": "6",
-              "damage": "D3",
+              "damage": "2",
               "keywords": ["Psychic"],
               "name": "Rod of sorcery",
-              "range": "12\"",
+              "range": "18\"",
               "skill": "2+",
               "strength": "8"
             }
@@ -2478,7 +2458,9 @@
       "transport": "",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 rod of sorcery ◦ 1 baleful sword"
-      ]
+      ],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2545,7 +2527,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2589,6 +2573,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["BLUE HORRORS", "PINK HORRORS"],
         "extra": ""
@@ -2646,7 +2632,9 @@
         {
           "cost": "100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2664,11 +2652,13 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deadly Demise D6", "Deep Strike"],
+        "core": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 6+"],
         "damaged": {
           "range": "1-7 WOUNDS REMAINING",
           "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
@@ -2686,7 +2676,7 @@
           },
           {
             "name": "Daemon Lord of Nurgle (Aura)",
-            "description": "While a friendly NURGLE LEGIONES DAEMONICA unit is within 6\" of this model, models in that unit have the Feel No Pain 6+ ability."
+            "description": "While a friendly NURGLE LEGIONES DAEMONICA unit is within 6\" of this model, add 1 to the Toughness characteristic of models in that unit."
           },
           {
             "name": "Nurgle’s Rot (Psychic)",
@@ -2725,17 +2715,17 @@
               "name": "Bilesword – Sweep",
               "range": "Melee",
               "skill": "2+",
-              "strength": "6"
+              "strength": "7"
             },
             {
               "ap": "-2",
               "attacks": "6",
-              "damage": "D6",
+              "damage": "D6+1",
               "keywords": ["Lethal Hits"],
               "name": "Bilesword – Strike",
               "range": "Melee",
               "skill": "2+",
-              "strength": "8"
+              "strength": "10"
             }
           ]
         },
@@ -2769,7 +2759,7 @@
           "abilities": [
             {
               "name": "Reverberating Summons",
-              "description": "Each time a model is destroyed by this weapon, you can select one friendly Plaguebearers unit within 12\" of the bearer and return 1 destroyed Plaguebearer model to that unit."
+              "description": "Each time a model is destroyed by this weapon, you can select one friendly PLAGUEBEARERS unit within 12\" of the bearer and return 1 destroyed Plaguebearer model to that unit."
             }
           ]
         }
@@ -2777,9 +2767,11 @@
       "name": "Great Unclean One",
       "points": [
         {
-          "cost": "230",
+          "cost": "250",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2829,7 +2821,9 @@
       "wargear": [
         "This model’s bilesword can be replaced with 1 doomsday bell.",
         "This model’s plague flail can be replaced with 1 bileblade."
-      ]
+      ],
+      "baseSize": "130mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2842,7 +2836,7 @@
         "invul": {
           "info": "",
 
-          "value": "4+"
+          "value": "5+"
         },
         "other": [
           {
@@ -2907,12 +2901,16 @@
         {
           "cost": "220",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "110",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2924,7 +2922,7 @@
           "name": "Bloodcrusher",
           "oc": "2",
 
-          "sv": "4+",
+          "sv": "3+",
           "t": "7",
           "w": "4"
         }
@@ -2934,6 +2932,8 @@
         "1 Bloodcrusher that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Bloodcrusher that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
       ],
+      "baseSize": "90 x 52.5mm Oval Base",
+      "chapter": null,
       "leadBy": ["Skullmaster"]
     },
     {
@@ -2951,8 +2951,8 @@
         },
         "other": [
           {
-            "name": "Soporific Musk (Aura)",
-            "description": "While an enemy unit (excluding VEHICLE and TITANIC units) is within 6\" of this unit, each time a model in that enemy unit makes a melee attack, subtract 1 from the Hit roll, and each time a model in that enemy unit takes a Desperate Escape test, subtract 1 from that test."
+            "name": "Soporific Musk",
+            "description": "Each time an enemy unit (excluding MONSTERS and VEHICLES) within Engagement Range of one or more units from your army with this ability Falls Back, models in that enemy unit must take Desperate Escape tests. When doing so, if that enemy unit is also Battle‑shocked, subtract 1 from each of those Desperate Escape tests."
           }
         ],
         "primarch": [],
@@ -2987,14 +2987,18 @@
       "name": "Fiends",
       "points": [
         {
-          "cost": "210",
+          "cost": "190",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "105",
+          "cost": "95",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3012,7 +3016,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3034,11 +3040,11 @@
           },
           {
             "name": "Rage Embodied (Aura)",
-            "description": "While a friendly KHORNE LEGIONES DAEMONICA unit (excluding MONSTERS and VEHICLES) is within 6\" of this model, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit."
+            "description": "While a friendly KHORNE LEGIONES DAEMONICA unit is within 6\" of this model, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit."
           },
           {
-            "name": "Murderlust (Aura)",
-            "description": "While a unit is within 6\" of this model, each time that unit is selected to Fall Back, it must take a Leadership test. If that test is failed, that unit must Remain Stationary this phase instead."
+            "name": "Murderlust",
+            "description": "This unit is eligible to declare a charge in a turn in which it Advanced."
           }
         ],
         "primarch": [],
@@ -3066,7 +3072,7 @@
         {
           "profiles": [
             {
-              "ap": "-1",
+              "ap": "-2",
               "attacks": "16",
               "damage": "2",
               "keywords": [],
@@ -3093,21 +3099,23 @@
         {
           "cost": "305",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
         {
           "profiles": [
             {
-              "ap": "0",
+              "ap": "-1",
               "attacks": "2D6",
               "damage": "1",
               "keywords": ["Torrent", "Ignores Cover"],
               "name": "Bellow of endless fury",
               "range": "12\"",
               "skill": "N/A",
-              "strength": "5"
+              "strength": "8"
             }
           ]
         }
@@ -3116,24 +3124,26 @@
       "stats": [
         {
           "ld": "6+",
-          "m": "8\"",
+          "m": "10\"",
           "name": "Skarbrand",
           "oc": "5",
 
-          "sv": "4+",
+          "sv": "3+",
           "t": "11",
           "w": "20"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
         "core": ["Deadly Demise D6", "Deep Strike", "Stealth"],
         "damaged": {
-          "range": "1-6 WOUNDS REMAINING",
-          "description": "While this model has 1-6 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
+          "range": "1-7 WOUNDS REMAINING",
+          "description": "While this model has 1-7 wounds remaining, each time this model makes an attack, subtract 1 from the Hit roll."
         },
         "faction": ["The Shadow of Chaos"],
         "invul": {
@@ -3144,7 +3154,7 @@
         "other": [
           {
             "name": "The Dark Master (Aura)",
-            "description": "The area of the battlefield within 6\" of this model is considered to be within your army’s Shadow of Chaos."
+            "description": "The area of the battlefield within 6\" of this model is within your army’s Shadow of Chaos."
           },
           {
             "name": "Shadow Form Abilities",
@@ -3157,15 +3167,15 @@
             "abilities": [
               {
                 "name": "Wreathed in Shadows (Aura, Psychic)",
-                "description": "While a friendly LEGIONES DAEMONICA unit is within 6\" of this model, that unit can only be targeted by a ranged attack if the attacking model is within 18\"."
+                "description": "While a friendly LEGIONES DAEMONICA unit or SHADOW LEGION unit is within 6\" of this model, that unit can only be targeted by a ranged attack if the attacking model is within 18\"."
               },
               {
                 "name": "Pall of Despair (Aura, Psychic)",
-                "description": "In the Battle-shock step of your opponent’s Command phase, if an enemy unit that is below its Starting Strength is within 6\" of this model, that unit must take a Battle-shock test. For the purposes of this ability, if a unit has a Starting Strength of 1, it is considered to be below its Starting Strength while it has lost one or more wounds."
+                "description": "In the Battle-shock step of your opponent’s Command phase, if an enemy unit that is below its Starting Strength is within 9\" of this model, that unit must take a Battle-shock test. For the purposes of this ability, if a unit has a Starting Strength of 1, it is considered to be below its Starting Strength while it has lost one or more wounds. In addition, for each enemy unit that fails a Battle-shock test within 9” of this model, this model regains up to D3 lost wounds."
               },
               {
                 "name": "Shadow Lord (Aura, Psychic)",
-                "description": "While a friendly LEGIONES DAEMONICA unit is within 6\" of this model, you can re-roll Battle-shock and Leadership tests taken for that unit."
+                "description": "While a friendly LEGIONES DAEMONICA or SHADOW LEGION unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1."
               }
             ]
           }
@@ -3203,7 +3213,7 @@
               "ap": "-3",
               "attacks": "14",
               "damage": "1",
-              "keywords": [],
+              "keywords": ["Sustained Hits 1"],
               "name": "The Blade of Shadows – Sweep",
               "range": "Melee",
               "skill": "2+",
@@ -3211,9 +3221,9 @@
             },
             {
               "ap": "-4",
-              "attacks": "6",
+              "attacks": "7",
               "damage": "D6+1",
-              "keywords": ["Lethal Hits"],
+              "keywords": ["Devastating Wounds"],
               "name": "The Blade of Shadows – Strike",
               "range": "Melee",
               "skill": "2+",
@@ -3225,9 +3235,11 @@
       "name": "Be’lakor",
       "points": [
         {
-          "cost": "325",
+          "cost": "375",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3269,120 +3281,15 @@
           "name": "Be’lakor",
           "oc": "5",
 
-          "sv": "4+",
-          "t": "10",
-          "w": "18"
+          "sv": "3+",
+          "t": "11",
+          "w": "20"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
-    },
-    {
-      "abilities": {
-        "core": ["Deep Strike"],
-        "damaged": {
-          "description": "",
-          "range": ""
-        },
-        "faction": ["The Shadow of Chaos"],
-        "invul": {
-          "info": "",
-
-          "value": "4+"
-        },
-        "other": [
-          {
-            "name": "Scythed Impact",
-            "description": "Each time this unit makes a Charge move, until the end of the phase, melee weapons equipped by models in this unit have the [ANTI-INFANTRY 4+] ability."
-          }
-        ],
-        "primarch": [],
-        "special": [],
-        "wargear": []
-      },
-
-      "composition": ["1-2 Seeker Chariots"],
-      "factions": ["Legiones Daemonica"],
-      "faction_id": "CD",
-      "fluff": "Lightweight, swift and completely deadly, entire cavalcades of Seeker Chariots tear through the veil of reality to bear down upon the enemies of Slaanesh. Their crews race wildly to be first into battle, their eagerness for speed turning to wild bloodlust the moment their clattering charge crashes home.",
-      "id": "63f69a3c-0e96-56a8-ace9-5de1ce1f3834",
-      "keywords": ["Mounted", "Chaos", "Daemon", "Slaanesh", "Seeker Chariot"],
-      "leader": "",
-      "loadout": "Every model is equipped with: lashes of torment; Seeker tongues; slashing claws.",
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "4",
-              "damage": "1",
-              "keywords": ["Lethal Hits", "Extra Attacks"],
-              "name": "Seeker tongues",
-              "range": "Melee",
-              "skill": "4+",
-              "strength": "4"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "ap": "-1",
-              "attacks": "9",
-              "damage": "1",
-              "keywords": ["Devastating Wounds"],
-              "name": "Slashing claws",
-              "range": "Melee",
-              "skill": "3+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "name": "Seeker Chariot",
-      "points": [
-        {
-          "cost": "130",
-          "keyword": null,
-          "models": "2"
-        },
-        {
-          "cost": "65",
-          "keyword": null,
-          "models": "1"
-        }
-      ],
-      "rangedWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "6",
-              "damage": "1",
-              "keywords": ["Pistol", "Assault", "Anti-infantry 3+"],
-              "name": "Lashes of torment",
-              "range": "6\"",
-              "skill": "3+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "source": "40k-10e",
-      "stats": [
-        {
-          "ld": "7+",
-          "m": "14\"",
-          "name": "Seeker Chariot",
-          "oc": "3",
-
-          "sv": "5+",
-          "t": "6",
-          "w": "7"
-        }
-      ],
-      "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3463,7 +3370,9 @@
         {
           "cost": "120",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3482,6 +3391,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["BEASTS OF NURGLE"],
         "extra": ""
@@ -3489,7 +3400,7 @@
     },
     {
       "abilities": {
-        "core": ["Deep Strike", "Leader"],
+        "core": ["Deep Strike", "Leader", "Fights First"],
         "damaged": {
           "description": "",
           "range": ""
@@ -3563,9 +3474,11 @@
       "name": "Contorted Epitome",
       "points": [
         {
-          "cost": "80",
+          "cost": "100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3584,6 +3497,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["DAEMONETTES"],
         "extra": ""
@@ -3654,7 +3569,9 @@
         {
           "cost": "55",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3673,6 +3590,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["PLAGUEBEARERS"],
         "extra": ""
@@ -3744,10 +3663,14 @@
               "ap": "-2",
               "attacks": "6",
               "damage": "2",
-              "keywords": ["Extra Attacks"],
+              "keywords": [
+                "Anti-vehicle 4+",
+                "Anti-monster 4+",
+                "Extra Attacks"
+              ],
               "name": "Screamer bites",
               "range": "Melee",
-              "skill": "4+",
+              "skill": "3+",
               "strength": "6"
             }
           ]
@@ -3758,7 +3681,9 @@
         {
           "cost": "95",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3802,6 +3727,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "120 x 92 mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["SCREAMERS"],
         "extra": ""
@@ -3818,126 +3745,12 @@
         "invul": {
           "info": "",
 
-          "value": "4+"
-        },
-        "other": [
-          {
-            "name": "Tormentbringer (Aura)",
-            "description": "While a friendly SLAANESH LEGIONES DAEMONICA unit is within 6\" of this model, melee weapons in that unit have the [SUSTAINED HITS 1] ability."
-          },
-          {
-            "name": "Hysterical Frenzy (Psychic)",
-            "description": "Once per Fight phase, just after an enemy unit selects a SLAANESH LEGIONES DAEMONICA unit from your army as a target, one friendly PSYKER that is within 6\" of that SLAANESH unit and has this ability can use it. If it does, until the end of the phase, each time a model in that SLAANESH unit is destroyed, roll one D6: on a 4+, do not remove it from play. That model can fight after the attacking model’s unit has finished making its attacks, and is then removed from play."
-          }
-        ],
-        "primarch": [],
-        "special": [],
-        "wargear": []
-      },
-
-      "composition": ["1 Tormentbringer on Exalted Seeker Chariot"],
-      "factions": ["Legiones Daemonica"],
-      "faction_id": "CD",
-      "fluff": "Riding to battle above the clatter-slash blades of their Exalted Seeker Chariot, these wilfully vicious entities delight in ploughing screaming souls into the churned dirt of the battlefield. They strive to travel faster, strike harder, and leave even their lightning-fast fellow charioteers envious in their wakes.",
-      "id": "ece23d7e-0c90-5210-9ae3-55ff3b2dbed0",
-      "keywords": [
-        "Mounted",
-        "Character",
-        "Psyker",
-        "Chaos",
-        "Daemon",
-        "Slaanesh",
-        "Tormentbringer on Exalted Seeker Chariot"
-      ],
-      "leader": "",
-      "loadout": "This model is equipped with: lashes of torment; Exalted Seeker tongues; ravaging claws.",
-      "meleeWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "8",
-              "damage": "1",
-              "keywords": ["Lethal Hits", "Extra Attacks"],
-              "name": "Exalted Seeker tongues",
-              "range": "Melee",
-              "skill": "4+",
-              "strength": "4"
-            }
-          ]
-        },
-        {
-          "profiles": [
-            {
-              "ap": "-1",
-              "attacks": "15",
-              "damage": "1",
-              "keywords": ["Devastating Wounds"],
-              "name": "Ravaging claws",
-              "range": "Melee",
-              "skill": "3+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "name": "Tormentbringer on Exalted Seeker Chariot",
-      "points": [
-        {
-          "cost": "140",
-          "keyword": null,
-          "models": "1"
-        }
-      ],
-      "rangedWeapons": [
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "6",
-              "damage": "1",
-              "keywords": ["Pistol", "Assault", "Anti-infantry 3+"],
-              "name": "Lashes of torment",
-              "range": "6\"",
-              "skill": "3+",
-              "strength": "4"
-            }
-          ]
-        }
-      ],
-      "source": "40k-10e",
-      "stats": [
-        {
-          "ld": "7+",
-          "m": "14\"",
-          "name": "Tormentbringer on Exalted Seeker Chariot",
-          "oc": "3",
-
-          "sv": "5+",
-          "t": "6",
-          "w": "12"
-        }
-      ],
-      "transport": "",
-      "wargear": ["None"]
-    },
-    {
-      "abilities": {
-        "core": ["Deep Strike"],
-        "damaged": {
-          "description": "",
-          "range": ""
-        },
-        "faction": ["The Shadow of Chaos"],
-        "invul": {
-          "info": "",
-
-          "value": "4+"
+          "value": "5+"
         },
         "other": [
           {
             "name": "Cutting Down the Foe",
-            "description": "Each time this unit is selected to fight, you can select one enemy unit within Engagement Range of it and roll one D6, adding 2 to the result if that unit is an INFANTRY unit: on a 2-3, that enemy unit suffers D3 mortal wounds; on a 4-5, that enemy unit suffers 3 mortal wounds; on a 6+, that enemy unit suffers D3+3 mortal wounds."
+            "description": "Each time a model in this unit makes a melee attack, if this unit made a Charge move this turn, improve the Strength and Damage characteristics of that attack by 1."
           }
         ],
         "primarch": [],
@@ -3949,22 +3762,22 @@
       "factions": ["Legiones Daemonica"],
       "faction_id": "CD",
       "fluff": "Mortal myth has it that the Hellflayers of Slaanesh began as devices for mowing the gruesome pleasure-gardens of the Dark Prince’s realm, but that their efficacy in war was soon proven when their wild Daemonette crews unleashed the whirl-bladed murder engines upon the battlefields of realspace.",
-      "id": "f26ee0ad-2bb8-50e2-a8d4-aa0b2dd84e90",
-      "keywords": ["Mounted", "Chaos", "Daemon", "Slaanesh", "Hellflayer"],
+      "id": "d919babd-8f5e-54cc-9249-35da577e890f",
+      "keywords": ["Mounted", "Chaos", "Daemon", "Slaanesh", "Hellflayers"],
       "leader": "",
-      "loadout": "Every model is equipped with: lashes of torment; bladed axle; Seeker tongues; slashing claws.",
+      "loadout": "Every model is equipped with: lashes of torment; Seeker tongues; slashing claws.",
       "meleeWeapons": [
         {
           "profiles": [
             {
               "ap": "-1",
-              "attacks": "6",
+              "attacks": "3",
               "damage": "2",
-              "keywords": ["Extra Attacks"],
-              "name": "Bladed axle",
+              "keywords": ["Extra Attacks", "Anti-infantry 3+"],
+              "name": "Lashes of torment – Melee",
               "range": "Melee",
               "skill": "3+",
-              "strength": "6"
+              "strength": "4"
             }
           ]
         },
@@ -3985,8 +3798,8 @@
         {
           "profiles": [
             {
-              "ap": "0",
-              "attacks": "9",
+              "ap": "-1",
+              "attacks": "8",
               "damage": "1",
               "keywords": ["Devastating Wounds"],
               "name": "Slashing claws",
@@ -3997,29 +3810,33 @@
           ]
         }
       ],
-      "name": "Hellflayer",
+      "name": "Hellflayers",
       "points": [
         {
-          "cost": "210",
+          "cost": "160",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
-          "cost": "105",
+          "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
         {
           "profiles": [
             {
-              "ap": "0",
-              "attacks": "6",
-              "damage": "1",
+              "ap": "-1",
+              "attacks": "3",
+              "damage": "2",
               "keywords": ["Pistol", "Assault", "Anti-infantry 3+"],
-              "name": "Lashes of torment",
-              "range": "6\"",
+              "name": "Lashes of torment – Ranged",
+              "range": "12\"",
               "skill": "3+",
               "strength": "4"
             }
@@ -4031,7 +3848,7 @@
         {
           "ld": "7+",
           "m": "14\"",
-          "name": "Hellflayer",
+          "name": "Hellflayers",
           "oc": "3",
 
           "sv": "5+",
@@ -4040,7 +3857,10 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null,
+      "leadBy": ["Tormentbringer"]
     },
     {
       "abilities": {
@@ -4125,12 +3945,16 @@
         {
           "cost": "220",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "110",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4166,7 +3990,9 @@
       "wargear": [
         "1 Plague Drone that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
         "1 Plague Drone that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos."
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4256,7 +4082,7 @@
             {
               "ap": "-4",
               "attacks": "8",
-              "damage": "D6",
+              "damage": "D3+1",
               "keywords": [],
               "name": "Axe of Khorne – Strike",
               "range": "Melee",
@@ -4271,7 +4097,9 @@
         {
           "cost": "305",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4306,7 +4134,7 @@
         {
           "profiles": [
             {
-              "ap": "0",
+              "ap": "-1",
               "attacks": "6",
               "damage": "2",
               "keywords": [],
@@ -4326,7 +4154,7 @@
           "name": "Bloodthirster",
           "oc": "5",
 
-          "sv": "4+",
+          "sv": "3+",
           "t": "11",
           "w": "18"
         }
@@ -4334,7 +4162,9 @@
       "transport": "",
       "wargear": [
         "This model’s great axe of Khorne can be replaced with 1 axe of Khorne and one of the following:  ◦ 1 bloodflail ◦ 1 lash of Khorne"
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4406,7 +4236,9 @@
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4450,6 +4282,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["FLAMERS"],
         "extra": ""
@@ -4533,7 +4367,9 @@
         {
           "cost": "100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4545,13 +4381,15 @@
           "name": "Skullmaster",
           "oc": "2",
 
-          "sv": "4+",
+          "sv": "3+",
           "t": "7",
           "w": "6"
         }
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "90 x 52.5mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["BLOODCRUSHERS"],
         "extra": ""
@@ -4622,7 +4460,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4641,8 +4481,123 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": ["PLAGUEBEARERS"],
+        "extra": ""
+      }
+    },
+    {
+      "abilities": {
+        "core": ["Deep Strike", "Leader"],
+        "damaged": {
+          "description": "",
+          "range": ""
+        },
+        "faction": ["The Shadow of Chaos"],
+        "invul": {
+          "info": "",
+
+          "value": "4+"
+        },
+        "other": [
+          {
+            "name": "Pack Leader",
+            "description": "While this model is leading a unit, you can re-roll Advance and Charge rolls made for that unit."
+          },
+          {
+            "name": "Prey of the Blood God",
+            "description": "At the start of the first battle round, select one enemy unit to be this model’s prey. Each time a model in this model’s unit makes a melee attack that targets its prey, you can re-roll the Wound roll. Each time this model’s prey is destroyed, select one new enemy unit to be this model’s prey."
+          }
+        ],
+        "primarch": [],
+        "special": [],
+        "wargear": [
+          {
+            "name": "Brass Collar of Bloody Vengeance",
+            "description": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks and mortal wounds."
+          }
+        ]
+      },
+
+      "composition": ["1 Karanak – EPIC HERO"],
+      "factions": ["Legiones Daemonica"],
+      "faction_id": "CD",
+      "fluff": "Karanak hunts those who give insult to Khorne. Scenting its prey across time and space, it is an inescapable predator. Karanak’s incorporeal howls summon the Blood Hunt of Khorne to join it in the chase, a cavalcade of ferocious daemons set on mayhem and slaughter.",
+      "id": "1d9dbbb2-e18b-532b-90c9-a14cd65892b0",
+      "keywords": [
+        "Beast",
+        "Character",
+        "Epic Hero",
+        "Chaos",
+        "Daemon",
+        "Khorne",
+        "Karanak"
+      ],
+      "leader": "This model can be attached to the following unit:&x20; ■ FLESH HOUNDS",
+      "loadout": "This model is equipped with: scalding roar; soul-rending fangs; Brass Collar of Bloody Vengeance.",
+      "meleeWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-2",
+              "attacks": "6",
+              "damage": "2",
+              "keywords": ["Precision", "Anti-character 3+"],
+              "name": "Soul-rending fangs",
+              "range": "Melee",
+              "skill": "2+",
+              "strength": "6"
+            }
+          ]
+        }
+      ],
+      "name": "Karanak",
+      "points": [
+        {
+          "cost": "75",
+          "keyword": null,
+          "models": "1",
+
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "D6+3",
+              "damage": "1",
+              "keywords": ["Torrent", "Ignores Cover"],
+              "name": "Scalding roar",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "5"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "ld": "7+",
+          "m": "12\"",
+          "name": "Karanak",
+          "oc": "3",
+
+          "sv": "7+",
+          "t": "4",
+          "w": "5"
+        }
+      ],
+      "transport": "",
+      "wargear": ["None"],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
+      "leads": {
+        "units": ["FLESH HOUNDS"],
         "extra": ""
       }
     },
@@ -4710,7 +4665,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4744,6 +4701,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["PLAGUEBEARERS"],
         "extra": ""
@@ -4764,40 +4723,35 @@
         },
         "other": [
           {
-            "name": "Pack Leader",
-            "description": "While this model is leading a unit, you can re-roll Advance and Charge rolls made for that unit."
+            "name": "Tormentbringer (Aura)",
+            "description": "While a friendly SLAANESH LEGIONES DAEMONICA unit is within 6\" of this model, melee weapons in that unit have the [SUSTAINED HITS 1] ability."
           },
           {
-            "name": "Prey of the Blood God",
-            "description": "At the start of the first battle round, select one enemy unit to be this model’s prey. Weapons equipped by models in this model’s unit have the [LETHAL HITS] ability when targeting this model’s prey. Each time this model’s prey is destroyed, select one new enemy unit to be this model’s prey."
+            "name": "Hysterical Frenzy",
+            "description": "Each time a model in this model’s unit is destroyed, if that model has not fought this phase, do not remove it from play. The destroyed model can fight after the attacking unit has finished making its attacks, and is then removed from play."
           }
         ],
         "primarch": [],
         "special": [],
-        "wargear": [
-          {
-            "name": "Collar of Khorne",
-            "description": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks."
-          }
-        ]
+        "wargear": []
       },
 
-      "composition": ["1 Karanak – EPIC HERO"],
+      "composition": ["1 Tormentbringer"],
       "factions": ["Legiones Daemonica"],
       "faction_id": "CD",
-      "fluff": "Karanak hunts those who give insult to Khorne. Scenting its prey across time and space, it is an inescapable predator. Karanak’s incorporeal howls summon the Blood Hunt of Khorne to join it in the chase, a cavalcade of ferocious daemons set on mayhem and slaughter.",
-      "id": "1d9dbbb2-e18b-532b-90c9-a14cd65892b0",
+      "fluff": "Riding to battle above the clatter-slash blades of their Exalted Seeker Chariot, these wilfully vicious entities delight in ploughing screaming souls into the churned dirt of the battlefield. They strive to travel faster, strike harder, and leave even their lightning-fast fellow charioteers envious in their wakes.",
+      "id": "4017ab4f-6a49-5ca4-b674-c73d2a5b67c3",
       "keywords": [
-        "Beast",
+        "Mounted",
         "Character",
-        "Epic Hero",
+        "Psyker",
         "Chaos",
         "Daemon",
-        "Khorne",
-        "Karanak"
+        "Slaanesh",
+        "Tormentbringer on Exalted Seeker Chariot"
       ],
-      "leader": "This model can be attached to the following unit: ■ FLESH HOUNDS",
-      "loadout": "This model is equipped with: soul-rending fangs; collar of Khorne.",
+      "leader": "This model can be attached to the following unit: ■ HELLFLAYERS",
+      "loadout": "This model is equipped with: lashes of torment; Seeker tongues; slashing claws.",
       "meleeWeapons": [
         {
           "profiles": [
@@ -4805,41 +4759,88 @@
               "ap": "-1",
               "attacks": "6",
               "damage": "2",
-              "keywords": ["Precision"],
-              "name": "Soul-rending fangs",
+              "keywords": ["Extra Attacks", "Anti-infantry 3+"],
+              "name": "Lashes of torment – Melee",
               "range": "Melee",
               "skill": "2+",
-              "strength": "6"
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": ["Lethal Hits", "Extra Attacks"],
+              "name": "Seeker tongues",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "8",
+              "damage": "1",
+              "keywords": ["Devastating Wounds"],
+              "name": "Slashing claws",
+              "range": "Melee",
+              "skill": "3+",
+              "strength": "4"
             }
           ]
         }
       ],
-      "name": "Karanak",
+      "name": "Tormentbringer",
       "points": [
         {
-          "cost": "65",
+          "cost": "140",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
-      "rangedWeapons": [],
+      "rangedWeapons": [
+        {
+          "profiles": [
+            {
+              "ap": "-1",
+              "attacks": "6",
+              "damage": "2",
+              "keywords": ["Pistol", "Assault", "Anti-infantry 3+"],
+              "name": "Lashes of torment – Ranged",
+              "range": "12\"",
+              "skill": "2+",
+              "strength": "4"
+            }
+          ]
+        }
+      ],
       "source": "40k-10e",
       "stats": [
         {
           "ld": "7+",
-          "m": "12\"",
-          "name": "Karanak",
-          "oc": "1",
+          "m": "14\"",
+          "name": "Tormentbringer",
+          "oc": "3",
 
-          "sv": "7+",
-          "t": "4",
-          "w": "5"
+          "sv": "5+",
+          "t": "6",
+          "w": "12"
         }
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null,
       "leads": {
-        "units": ["FLESH HOUNDS"],
+        "units": ["HELLFLAYERS"],
         "extra": ""
       }
     },
@@ -4908,7 +4909,9 @@
         {
           "cost": "85",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4916,7 +4919,7 @@
       "stats": [
         {
           "ld": "7+",
-          "m": "6\"",
+          "m": "8\"",
           "name": "Skulltaker",
           "oc": "1",
 
@@ -4927,6 +4930,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BLOODLETTERS"],
         "extra": ""
@@ -5010,7 +5015,9 @@
         {
           "cost": "165",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -5028,7 +5035,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5076,7 +5085,9 @@
         {
           "cost": "105",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -5094,7 +5105,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5160,7 +5173,9 @@
         {
           "cost": "55",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -5179,6 +5194,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["PLAGUEBEARERS"],
         "extra": ""
@@ -5203,12 +5220,12 @@
             "description": "While a friendly TZEENTCH LEGIONES DAEMONICA unit is within 6\" of this model, that unit is within your army’s Shadow of Chaos."
           },
           {
-            "name": "One Head Looks Forward (Aura)",
-            "description": "Each time you target a friendly TZEENTCH LEGIONES DAEMONICA unit within 6\" of this model with a Stratagem, roll one D6: if the result is greater than the current battle round number, you gain 1CP."
+            "name": "One Head Looks Forward",
+            "description": "At the end of your Command phase, if this model is on the battlefield, take a Leadership test for this model; if that test is passed, you gain 1CP."
           },
           {
-            "name": "Lord of Deceit (Aura)",
-            "description": "Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that use of that Stratagem by 1CP."
+            "name": "One Head Looks Back (Aura)",
+            "description": "Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that use of that Stratagem by 1CP (this is not cumulative with any other rules that would increase the CP cost of that Stratagem)."
           }
         ],
         "primarch": [],
@@ -5253,9 +5270,11 @@
       "name": "Kairos Fateweaver",
       "points": [
         {
-          "cost": "270",
+          "cost": "295",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5263,20 +5282,20 @@
           "profiles": [
             {
               "ap": "-2",
-              "attacks": "D6+3",
-              "damage": "D3",
-              "keywords": ["Psychic", "Indirect Fire", "Blast"],
-              "name": "Infernal Gateway – Witchfire",
+              "attacks": "D3+6",
+              "damage": "3",
+              "keywords": ["Psychic", "Hazardous", "Indirect Fire", "Blast"],
+              "name": "Infernal Gateway – Focused witchfire",
               "range": "24\"",
               "skill": "2+",
               "strength": "9"
             },
             {
-              "ap": "-3",
-              "attacks": "D3+6",
+              "ap": "-2",
+              "attacks": "D6+3",
               "damage": "D3",
-              "keywords": ["Psychic", "Hazardous", "Indirect Fire", "Blast"],
-              "name": "Infernal Gateway – Focused witchfire",
+              "keywords": ["Psychic", "Indirect Fire", "Blast"],
+              "name": "Infernal Gateway – Witchfire",
               "range": "24\"",
               "skill": "2+",
               "strength": "9"
@@ -5298,7 +5317,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5319,7 +5340,7 @@
             "description": "Each time a BLUE HORROR model in this unit is destroyed, after the attacking unit has finished making its attacks, if this unit is not destroyed, roll one D6 for that model. On a 4+, add one BRIMSTONE HORROR model to this unit."
           },
           {
-            "name": "Cackling Horrors (Aura)",
+            "name": "Sullen Malevolence (Aura)",
             "description": "While an enemy unit is within 6\" of this unit, if this unit contains one or more BLUE HORROR models, worsen the Leadership characteristic of models in that enemy unit by 1."
           },
           {
@@ -5383,7 +5404,9 @@
         {
           "cost": "125",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5393,8 +5416,8 @@
               "ap": "-1",
               "attacks": "2",
               "damage": "1",
-              "keywords": ["Psychic"],
-              "name": "Coruscating Blue Flames",
+              "keywords": ["Pistol", "Psychic"],
+              "name": "Coruscating blue flames",
               "range": "18\"",
               "skill": "4+",
               "strength": "3"
@@ -5407,8 +5430,8 @@
               "ap": "-1",
               "attacks": "2",
               "damage": "1",
-              "keywords": ["Psychic"],
-              "name": "Coruscating Yellow Flames",
+              "keywords": ["Pistol", "Psychic"],
+              "name": "Coruscating yellow flames",
               "range": "18\"",
               "skill": "5+",
               "strength": "2"
@@ -5424,13 +5447,15 @@
           "name": "Brimstone Horror",
           "oc": "1",
 
-          "sv": "8+",
+          "sv": "7+",
           "t": "3",
           "w": "1"
         }
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "25mm",
+      "chapter": null,
       "leadBy": ["Changecaster", "Fluxmaster"]
     },
     {
@@ -5499,7 +5524,9 @@
         {
           "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -5517,7 +5544,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5585,7 +5614,9 @@
         {
           "cost": "90",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5628,7 +5659,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5650,7 +5683,7 @@
           },
           {
             "name": "Altered Reality (Psychic)",
-            "description": "Once per battle round, after a Hit roll, a Wound roll or a saving throw is made for this model, you can change the result of that roll to a 6."
+            "description": "Once per battle round, after a Hit roll, a Wound roll, or a saving throw is made for this model, you can change the result of that roll to an unmodified 6."
           }
         ],
         "primarch": [],
@@ -5696,7 +5729,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5740,6 +5775,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Large Flying Base",
+      "chapter": null,
       "leads": {
         "units": ["PINK HORRORS", "BLUE HORRORS"],
         "extra": ""
@@ -5796,14 +5833,18 @@
       "name": "Flamers",
       "points": [
         {
-          "cost": "150",
+          "cost": "130",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "75",
+          "cost": "65",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5814,7 +5855,7 @@
               "attacks": "D6",
               "damage": "1",
               "keywords": ["Torrent", "Psychic", "Ignores Cover"],
-              "name": "Flickering Flames",
+              "name": "Flickering flames",
               "range": "12\"",
               "skill": "N/A",
               "strength": "4"
@@ -5837,11 +5878,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Exalted Flamer"]
     },
     {
       "abilities": {
-        "core": ["Deadly Demise 1", "Deep Strike"],
+        "core": ["Deadly Demise 1", "Deep Strike", "Scouts 6\""],
         "damaged": {
           "description": "",
           "range": ""
@@ -5892,12 +5935,16 @@
         {
           "cost": "130",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -5907,7 +5954,7 @@
           "ld": "7+",
           "m": "6\"",
           "name": "Beasts of Nurgle",
-          "oc": "2",
+          "oc": "3",
 
           "sv": "6+",
           "t": "9",
@@ -5916,6 +5963,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null,
       "leadBy": ["Horticulous Slimux"]
     },
     {
@@ -5933,8 +5982,8 @@
         },
         "other": [
           {
-            "name": "Pouncing Hunters",
-            "description": "You can target this unit with the Heroic Intervention Stratagem for 0CP, and can do so even if you have already used that Stratagem on a different unit this phase."
+            "name": "Hunters from the Warp",
+            "description": "At the end of your opponent’s turn, if this unit is not within Engagement Range of one or more enemy units, you can remove it from the battlefield and place it into Strategic Reserves."
           }
         ],
         "primarch": [],
@@ -5978,14 +6027,18 @@
       "name": "Flesh Hounds",
       "points": [
         {
-          "cost": "140",
+          "cost": "150",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
-          "cost": "70",
+          "cost": "75",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6019,6 +6072,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60 x 35.5mm Oval Base",
+      "chapter": null,
       "leadBy": ["Karanak"]
     },
     {
@@ -6088,7 +6143,9 @@
         {
           "cost": "95",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6121,7 +6178,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -7144,219 +7203,595 @@
     }
   ],
   "detachments": [
-    "Scintillating Legion",
-    "Blood Legion",
-    "Daemonic Incursion",
-    "Legion of Excess",
-    "Plague Legion"
+    {
+      "name": "Blood Legion",
+      "faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Daemonic Incursion",
+      "faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Plague Legion",
+      "faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Shadow Legion",
+      "faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Scintillating Legion",
+      "faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Legion of Excess",
+      "faction": "Legiones Daemonica"
+    }
   ],
   "enhancements": [
     {
       "name": "A’rgath, The King of Blades",
       "id": "8750a7f6-165a-5095-bb9f-be5437634183",
       "cost": "20",
-      "keywords": ["Khorne"],
+      "keywords": ["Khorne", "Legiones Daemonica"],
       "excludes": [],
       "description": "KHORNE LEGIONES DAEMONICA model only. Add 1 to the Attacks and Strength characteristics of the bearer’s melee weapons. While the bearer is within your army’s Shadow of Chaos, add 2 to the Attacks and Strength characteristics of the bearer’s melee weapons instead.",
       "faction_id": "CD",
-      "detachment": "Daemonic Incursion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "The Everstave",
       "id": "bf82f617-8628-5b38-92c0-fc5e92671107",
       "cost": "25",
-      "keywords": ["Tzeentch"],
+      "keywords": ["Tzeentch", "Legiones Daemonica"],
       "excludes": [],
       "description": "TZEENTCH LEGIONES DAEMONICA model only. Add 1 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 3\". While the bearer is within your army’s Shadow of Chaos, add 2 to the Strength characteristic of the bearer’s ranged weapons and increase the Range characteristic of such weapons by 6\" instead.",
       "faction_id": "CD",
-      "detachment": "Daemonic Incursion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "The Endless Gift",
       "id": "4375f026-81bd-5dd3-a422-d7f8f6e4fca3",
       "cost": "30",
-      "keywords": ["Nurgle"],
+      "keywords": ["Nurgle", "Legiones Daemonica"],
       "excludes": [],
-      "description": "NURGLE LEGIONES DAEMONICA model only. The bearer has the Feel No Pain 5+ ability. While the bearer is within your army’s Shadow of Chaos, the bearer has the Feel No Pain 4+ ability instead.",
+      "description": "NURGLE LEGIONES DAEMONICA model only. The bearer has the Feel No Pain 5+ ability.",
       "faction_id": "CD",
-      "detachment": "Daemonic Incursion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Soulstealer",
       "id": "6243d6a6-51ff-51d6-b74c-139ff7906fa7",
       "cost": "15",
-      "keywords": ["Slaanesh"],
+      "keywords": ["Slaanesh", "Legiones Daemonica"],
       "excludes": [],
       "description": "SLAANESH LEGIONES DAEMONICA model only. Each time the bearer destroys an enemy model with a melee attack, roll one D6, adding 1 to the result if the bearer is within your army’s Shadow of Chaos. On a 4+, the bearer regains 1 lost wound.",
       "faction_id": "CD",
-      "detachment": "Daemonic Incursion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Slaughterthirst (Aura)",
       "id": "0d42e7a5-7de9-505a-baa2-fe6dcdc3e8cc",
-      "cost": "35",
-      "keywords": ["Khorne"],
+      "cost": "25",
+      "keywords": ["Khorne", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA KHORNE model only. While a friendly LEGIONES DAEMONICA KHORNE unit (excluding MONSTERS) is within 6\" of the bearer, weapons equipped by models in that unit have the [LANCE] ability.",
       "faction_id": "CD",
-      "detachment": "Blood Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Fury’s Cage",
       "id": "b79029ee-75da-57d4-bce0-76d3b68fa009",
       "cost": "20",
-      "keywords": ["Monster", "Khorne"],
+      "keywords": ["Monster", "Khorne", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA KHORNE MONSTER model only. Each time the bearer is selected to fight, it can use this Enhancement. If it does, the bearer suffers D3+1 mortal wounds, and until the end of the phase, each time it makes an attack, you can re‑roll the Hit roll and you can re‑roll the Wound roll.",
       "faction_id": "CD",
-      "detachment": "Blood Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Brazenmaw",
       "id": "1babd75c-3d82-50df-843a-5669294026ba",
       "cost": "15",
-      "keywords": ["Khorne"],
+      "keywords": ["Khorne", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA KHORNE model only. Add 2 to Charge rolls made for the bearer’s unit.",
       "faction_id": "CD",
-      "detachment": "Blood Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Gateway Unto Damnation",
       "id": "8687ee16-9eff-5113-868c-21bf612fedb7",
       "cost": "10",
-      "keywords": ["Monster", "Khorne"],
+      "keywords": ["Monster", "Khorne", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA KHORNE MONSTER model only. The bearer’s Deadly Demise ability inflicts mortal wounds on a D6 roll of 2+ instead of on a 6. In addition, if the bearer has destroyed one or more enemy units this battle, the bearer has the Deadly Demise D3+3 ability, instead of any other Deadly Demise ability on its datasheet.",
       "faction_id": "CD",
-      "detachment": "Blood Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Inescapable Eye",
       "id": "59b88a1f-3db6-5909-b042-14b4b69797ce",
       "cost": "10",
-      "keywords": ["Tzeentch"],
+      "keywords": ["Tzeentch", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA TZEENTCH model only. In your Command phase, if the bearer is on the battlefield, if your opponent has one or more Flux tokens, you gain one additional Flux token.&x20;",
       "faction_id": "CD",
-      "detachment": "Scintillating Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Infernal Puppeteer",
       "id": "50f04fb1-b372-5b2b-851f-f5cd1102436b",
-      "cost": "10",
-      "keywords": ["Tzeentch", "Monster"],
+      "cost": "25",
+      "keywords": ["Tzeentch", "Monster", "Legiones Daemonica"],
       "excludes": [],
-      "description": "LEGIONES DAEMONICA TZEENTCH MONSTER model only. Each time the bearer is selected to shoot, you can select one other friendly LEGIONES DAEMONICA TZEENTCH unit within 9\" of the bearer. If you do, when selecting targets for ranged weapons equipped by the bearer, you can measure range and determine visibility from one model of your choice in the selected unit instead.",
+      "description": "LEGIONES DAEMONICA TZEENTCH MONSTER model only. In your Shooting phase, the bearer can use this Enhancement. If it does, until the end of the phase, you can select one other friendly visible LEGIONES DAEMONICA TZEENTCH unit within 9\" of the bearer. If you do, when selecting targets for ranged weapons equipped by the bearer, you can measure range and determine visibility from one model of your choice in the selected unit instead.\n\nDesigner’s Note: When determining if a unit with the Lone Operative ability can be selected as the target, the range is determined from the model of your choice in the selected unit.",
       "faction_id": "CD",
-      "detachment": "Scintillating Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Neverblade",
       "id": "4cc1fb53-6573-501f-a1a1-0f8baa2dbe87",
       "cost": "20",
-      "keywords": ["Tzeentch", "Monster"],
+      "keywords": ["Tzeentch", "Monster", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA TZEENTCH MONSTER model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 2, improve the Attacks and Armour Penetration characteristics of melee weapons equipped by the bearer by 1, and each time the bearer makes a melee attack, add 1 to the Hit roll.",
       "faction_id": "CD",
-      "detachment": "Scintillating Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Improbable Shield (Aura)",
       "id": "c996748b-751d-5e77-9959-f75ab5d1c676",
       "cost": "30",
-      "keywords": ["Tzeentch"],
+      "keywords": ["Tzeentch", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA TZEENTCH model only. While a friendly LEGIONES DAEMONICA TZEENTCH unit is within 6\" of the bearer, models in that unit have the Feel No Pain 4+ ability against Psychic Attacks and mortal wounds.",
       "faction_id": "CD",
-      "detachment": "Scintillating Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Cankerblight (Aura)",
       "id": "6c2b4f55-8f83-5461-a5a4-7b98907ee2e0",
       "cost": "15",
-      "keywords": ["Nurgle"],
+      "keywords": ["Nurgle", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA NURGLE model only. Each time an enemy unit (excluding MONSTERS and VEHICLES) that is within 6\" of the bearer fails a Battle‑shock test, the bearer can use this Enhancement. If it does, one model in that unit is destroyed (chosen by its controlling player). Each time the bearer uses this Enhancement, no mortal wounds are inflicted by your army’s Daemonic Terror rule.",
       "faction_id": "CD",
-      "detachment": "Plague Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Maggot Maws",
       "id": "3b217ef5-3ca1-50e5-ad5a-fed20ebacfe2",
       "cost": "15",
-      "keywords": ["Nurgle"],
+      "keywords": ["Nurgle", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA NURGLE model only. In your Shooting phase, select one enemy unit within 6\" of the bearer; that enemy unit must take a Battle‑shock test. Then roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds. Each time the bearer uses this Enhancement, no mortal wounds are inflicted by your army’s Daemonic Terror rule.",
       "faction_id": "CD",
-      "detachment": "Plague Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Droning Shroud (Aura)",
       "id": "e81757e4-0e57-5e9f-93ed-1832ce9da168",
       "cost": "35",
-      "keywords": ["Monster", "Nurgle"],
+      "keywords": ["Monster", "Nurgle", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA NURGLE MONSTER model only. While a friendly LEGIONES DAEMONICA NURGLE unit is within 6\" of the bearer, that unit can only be targeted by a ranged attack if the attacking model is within 18\".",
       "faction_id": "CD",
-      "detachment": "Plague Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Font of Spores (Aura)",
       "id": "cb094152-86b4-5099-b7c5-61061352d6fe",
       "cost": "20",
-      "keywords": ["Monster", "Nurgle"],
+      "keywords": ["Monster", "Nurgle", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA NURGLE MONSTER model only. While a friendly LEGIONES DAEMONICA NURGLE unit is within 6\" of the bearer, improve the Armour Penetration characteristic of weapons equipped by models in that unit by 1.",
       "faction_id": "CD",
-      "detachment": "Plague Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "False Majesty (Aura)",
       "id": "07b82ffc-d495-5f2e-bc7b-84d8ca6405a5",
       "cost": "30",
-      "keywords": ["Slaanesh"],
+      "keywords": ["Slaanesh", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA SLAANESH model only. While a friendly LEGIONES DAEMONICA SLAANESH unit (excluding MONSTERS) is within 6\" of the bearer, each time a model in that unit makes a melee attack, add 1 to the Wound roll.",
       "faction_id": "CD",
-      "detachment": "Legion of Excess"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Dreaming Crown (Aura)",
       "id": "14f055be-595c-5f46-a75a-e437afa2ca0b",
       "cost": "30",
-      "keywords": ["Slaanesh"],
+      "keywords": ["Slaanesh", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA SLAANESH model only. While a friendly LEGIONES DAEMONICA SLAANESH unit (excluding MONSTERS) is within 6\" of the bearer, each time a model in that unit makes a melee attack, add 1 to the Hit roll.",
       "faction_id": "CD",
-      "detachment": "Legion of Excess"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Avatar of Perfection",
       "id": "464cd93f-db53-5185-a391-519deae359b8",
       "cost": "15",
-      "keywords": ["Monster", "Slaanesh"],
+      "keywords": ["Monster", "Slaanesh", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA SLAANESH MONSTER model only. At the start of each phase, if there are no other friendly units within 6\" of the bearer, you can: re‑roll Advance rolls made for the bearer; re‑roll Charge rolls made for the bearer; ignore any or all modifiers to its Move characteristic and to any Advance and/or Charge rolls made for the bearer.",
       "faction_id": "CD",
-      "detachment": "Legion of Excess"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Soul Glutton",
       "id": "41fb10e1-6546-589c-aede-f7f950059264",
       "cost": "10",
-      "keywords": ["Monster", "Slaanesh"],
+      "keywords": ["Monster", "Slaanesh", "Legiones Daemonica"],
       "excludes": [],
       "description": "LEGIONES DAEMONICA SLAANESH MONSTER model only. At the end of the Fight phase, if one or more enemy models were destroyed this phase as a result of one or more of the bearer’s attacks, it can use this Enhancement. If it does, it regains up to D3 lost wounds.",
       "faction_id": "CD",
-      "detachment": "Legion of Excess"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Leaping Shadows",
+      "id": "0fe07932-ffa8-5bca-934c-152e4e208165",
+      "cost": "25",
+      "keywords": ["Shadow Legion"],
+      "excludes": [],
+      "description": "SHADOW LEGION model only. Models in the bearer’s unit have the Scouts 9” ability.",
+      "faction_id": "CD",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Mantle of Gloom (Aura)",
+      "id": "5dfd48df-52e4-5aac-ac55-28fb19924135",
+      "cost": "20",
+      "keywords": ["Shadow Legion"],
+      "excludes": [],
+      "description": "SHADOW LEGION model only. While an enemy unit is within Engagement Range of the bearer’s unit, subtract 1 from the Objective Control characteristic of models in that enemy unit.",
+      "faction_id": "CD",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Fade to Darkness",
+      "id": "39ea4cd6-99fd-5ec1-9e26-27ac3c23609a",
+      "cost": "30",
+      "keywords": ["Shadow Legion"],
+      "excludes": [],
+      "description": "SHADOW LEGION model only. At the end of the Fight phase, if the bearer’s unit destroyed one or more enemy units this phase and is not within Engagement Range of one or more enemy units, you can remove the bearer’s unit from the battlefield and place it into Strategic Reserves.",
+      "faction_id": "CD",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Malice Made Manifest",
+      "id": "c88f9b91-f124-5d12-9a82-093f78e09944",
+      "cost": "25",
+      "keywords": ["Shadow Legion"],
+      "excludes": [],
+      "description": "SHADOW LEGION model only. At the start of the Fight phase, select one enemy unit within Engagement Range of the bearer’s unit and roll one D6: on a 2‐5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds.",
+      "faction_id": "CD",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
     }
   ],
   "id": "CD",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Chaos Daemons",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "The Shadow of Chaos",
+        "rules": [
+          {
+            "text": "If your Army Faction is **LEGIONES DAEMONICA**, certain areas of the battlefield are considered to be within your army’s Shadow of Chaos, as follows:\n\n■ Your deployment zone is always within your army’s Shadow of Chaos.\n■ At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Shadow of Chaos.\n■ At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Shadow of Chaos.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "DAEMONIC MANIFESTATION",
+            "order": 2,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "While a **LEGIONES DAEMONICA** unit from your army is within your army’s Shadow of Chaos, each time that unit takes a Battle-shock test, add 1 to that test and, if that test is passed, one model in that unit regains up to D3 lost wounds (if that unit is a **BATTLELINE** unit and that test is passed, up to D3 destroyed models can be returned to that unit instead).",
+            "order": 3,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "DAEMONIC TERROR",
+            "order": 4,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "While an enemy unit is within your army’s Shadow of Chaos and/or it is within 6\" of one or more **BLOODTHIRSTER**, **GREAT UNCLEAN ONE**, **KAIROS FATEWEAVER**, **KEEPER OF SECRETS**, **LORD OF CHANGE**, **ROTIGUS**, **SHALAXI HELBANE** or **SKARBRAND** units from your army, each time that unit takes a Battle-shock test, subtract 1 from that test and, if that test is failed, that enemy unit suffers D3 mortal wounds.",
+            "order": 5,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      },
+      {
+        "name": "Daemonic Pact",
+        "rules": [
+          {
+            "text": "If every model from your army has the **CHAOS KNIGHTS** or **HERETIC ASTARTES** keyword, you can include **LEGIONES DAEMONICA** units in your army, even if they do not have the Faction keyword you selected in the Select Army Faction step. The combined points cost of such units you can include depends on your battle size, as shown below.\n\n■ Incursion - Up to 250 pts\n■ Strike Force - Up to 500 pts\n■ Onslaught - Up to 750 pts\n\nNone of these models can be your **WARLORD**, and they cannot be given Enhancements.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "In addition, for each of the following keywords, the number of non-**BATTLELINE** units with that keyword you include in this way cannot be greater than the number of **BATTLELINE** units with that keyword you include in this way:\n\n■ **KHORNE**\n■ **TZEENTCH**\n■ **NURGLE**\n■ **SLAANESH**",
+            "order": 2,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Blood Legion",
+        "faction": "Legiones Daemonica",
+        "rules": [
+          {
+            "name": "Murdercall",
+            "rules": [
+              {
+                "text": "Each time an enemy unit (excluding **AIRCRAFT**) ends a Normal or Advance move within 6\" of one or more **LEGIONES DAEMONICA KHORNE** units from your army, one of those **LEGIONES DAEMONICA KHORNE** units can make a Surge move towards that enemy unit. To do so, roll one D6: models in your unit move a number of inches up to this result, but your unit must end that move as close as possible to that enemy unit. When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Surge move while it is within Engagement Range of one or more enemy units.&#x20;",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          },
+          {
+            "name": "Blood Tainted",
+            "rules": [
+              {
+                "text": "At the end of a phase in which a **LEGIONES DAEMONICA KHORNE** unit from your army destroyed an enemy unit that was within range of an objective marker at the start of the phase, if your unit has a higher Level of Control over that objective marker, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Daemonic Incursion",
+        "faction": "Legiones Daemonica",
+        "rules": [
+          {
+            "name": "Warp Rifts",
+            "rules": [
+              {
+                "text": "Each time a **LEGIONES DAEMONICA** unit from your army is set up on the battlefield using the Deep Strike ability, if it is set up wholly within your army’s Shadow of Chaos, and/or if it is set up wholly within 6\" of one or more friendly **BLOODTHIRSTER**, **GREAT UNCLEAN ONE**, **KAIROS FATEWEAVER**, **KEEPER OF SECRETS**, **LORD OF CHANGE**, **ROTIGUS**, **SHALAXI HELBANE** or **SKARBRAND** units with which it shares the **KHORNE**, **TZEENTCH**, **NURGLE** or **SLAANESH** keyword, it can be set up anywhere that is more than 6\" horizontally away from all enemy models, instead of more than 9\".",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Plague Legion",
+        "faction": "Legiones Daemonica",
+        "rules": [
+          {
+            "name": "Melancholic Miasma",
+            "rules": [
+              {
+                "text": "While an enemy unit is within 9\" of one or more **LEGIONES DAEMONICA NURGLE** units from your army, that enemy unit is within your army’s Shadow of Chaos. In each player’s Command phase, select one enemy unit within your army’s Shadow of Chaos. That unit must take a Battle‑shock test.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Shadow Legion",
+        "faction": "Legiones Daemonica",
+        "rules": [
+          {
+            "name": "First Prince of Chaos",
+            "rules": [
+              {
+                "text": "If your Army Faction is **LEGIONES DAEMONICA**, you can use this Shadow Legion Detachment rule.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "First Prince of Chaos",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Units from your army have the relevant abilities presented below.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "*The most murderous seek not to hide in the Dark Master’s pall. The shadows extend before them, offering a rapid route to slaughter.*\n\n**SHADOW LEGION KHORNE** units only. This unit is eligible to shoot and declare a charge in a turn in which it Advanced.",
+                "order": 5,
+                "title": "Murderer’s Cowl",
+                "type": "accordion"
+              },
+              {
+                "text": "*Mutative agents of change, touched by the Dark Master’s umbral aura, summon llusory magicks to confound and confuse their desperate foes.*\n\n**SHADOW LEGION TZEENTCH** units only. Each time an attack targets this unit, subtract 1 from the Hit roll.",
+                "order": 8,
+                "title": "Penumbral Puppetry",
+                "type": "accordion"
+              },
+              {
+                "text": "*Borne upon the gloaming wisp of Be’lakor’s shadow, this debilitating curse atrophies muscle and withers flesh, greatly weakening its victims.*\n\n**SHADOW LEGION NURGLE** units only. Each time an attack targets this unit, if the Strength characteristic of that attack is greater than this unit’s Toughness characteristic, subtract 1 from the Wound roll.",
+                "order": 11,
+                "title": "Gloam Rot",
+                "type": "accordion"
+              },
+              {
+                "text": "*The Dark Master’s shadow falls across his thralls, masking their approach.*\n\n**SHADOW LEGION SLAANESH** units only. Enemy units cannot use the Fire Overwatch Stratagem to shoot at this unit.",
+                "order": 14,
+                "title": "Shadow’s Caress",
+                "type": "accordion"
+              },
+              {
+                "text": "*Be’lakor’s immortal ego draws into his orbit those as yet unclaimed by any one Chaos God. Their hate‐filled pacts are made to the entire fell pantheon, and the dangerous boons they receive see them plunged along paths of perpetual night straight into the enemy’s midst.*\n\n**SHADOW LEGION UNDIVIDED** units only.\n■ This unit has the Dark Pacts army rule, and can use it as described in *Codex: Chaos Space Marines*, even though your Army Faction is not **HERETIC ASTARTES**. If this unit is **BE’LAKOR**, it automatically passes the Leadership test required for Dark Pacts.\n■ **SHADOW LEGION HERETIC ASTARTES** models in this unit have the Deep Strike ability.",
+                "order": 17,
+                "title": "Disciples of Be’lakor",
+                "type": "accordion"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Scintillating Legion",
+        "faction": "Legiones Daemonica",
+        "rules": [
+          {
+            "name": "Fates In Flux",
+            "rules": [
+              {
+                "text": "You start the battle with three Flux tokens (we recommend using a dice to track how many Flux tokens you have). You can spend one Flux token just after an Advance roll, Hit roll, Wound roll, Damage roll, saving throw or Hazardous test is made for a **LEGIONES DAEMONICA TZEENTCH** model or **LEGIONES DAEMONICA TZEENTCH** unit from your army to re‑roll the result of that roll, throw or test. Flux tokens can also be spent to enhance the effect of some Stratagems. Each time you spend a Flux token, reduce the number of Flux tokens you have by one and your opponent gains one Flux token.\n\nWhenever your opponent has one or more Flux tokens, they can spend one Flux token after an Advance roll, Hit roll, Wound roll or saving throw is made for a model or unit from their army, to re‑roll the result of that roll or throw. If they do, they reduce the number of Flux tokens they have by one and you gain one Flux token. This is ignored if your opponent has the Fates in Flux Detachment rule.\n\nIn your Command phase, if your opponent has one or more Flux tokens, you gain one Flux token.\n\n**Designer’s Note**: *When using fast dice rolling, this rule can be used to spend any number of Flux tokens (up to the amount you have), to re‑roll a number of dice up to the amount spent, after rolling multiple rolls or saving throws at once.*",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Legion of Excess",
+        "faction": "Legiones Daemonica",
+        "rules": [
+          {
+            "name": "Beguiling Aura",
+            "rules": [
+              {
+                "text": "**LEGIONES DAEMONICA SLAANESH** units from your army are eligible to declare a charge in a turn in which they Fell Back.&#x20;",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          },
+          {
+            "name": "Seductive Gambit",
+            "rules": [
+              {
+                "text": "**LEGIONES DAEMONICA SLAANESH** units from your army have the following ability:\n\n**Seductive Gambit**: Each time this unit ends a Charge move, you can declare it will perform a Seductive Gambit. If you do, until the end of the turn, this unit does not have the Fights First ability, but instead, each time a model in this unit makes an attack, you can re‐roll the Hit roll and you can re‐roll a Wound roll of 1.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "Sheathed In Brass",
@@ -7371,7 +7806,8 @@
       "phase": ["shooting"],
       "faction_id": "CD",
       "fluff": "The scorn of these daemons for the blasts and blades of the weakling foe manifests as flowing brass armour that enfolds their corporeal forms and denies all but the most dolorous blows.&x20;",
-      "detachment": "Blood Legion"
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Draught of Terror",
@@ -7386,7 +7822,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "CD",
       "fluff": "The swelling fear of their mortal prey serves as an intoxicating elixir to the daemonic followers, each draught invigorating their forms with deadly power.",
-      "detachment": "Daemonic Incursion"
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "The Realm of Chaos",
@@ -7401,7 +7838,8 @@
       "phase": ["fight"],
       "faction_id": "CD",
       "fluff": "When the energies of the warp bleed into realspace, the Legiones Daemonica can rip open portals in seeming thin-air, returning to their hellscapes only to rematerialise amidst their foes a heartbeat later.",
-      "detachment": "Daemonic Incursion"
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Daemonic Invulnerability",
@@ -7416,7 +7854,8 @@
       "phase": ["shooting"],
       "faction_id": "CD",
       "fluff": "Daemons are madness given form. Their very bodies are fashioned from the stuff of the warp, and are difficult to destroy through conventional means.",
-      "detachment": "Daemonic Incursion"
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Seeping Virulence",
@@ -7431,7 +7870,8 @@
       "phase": ["fight"],
       "faction_id": "CD",
       "fluff": "Repugnant filth wells from the weapons, gaping maws and open wounds of these daemons, slopping across the foe and causing swift and virulent rot wherever it finds the slightest way in.",
-      "detachment": "Plague Legion"
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Fever Visions",
@@ -7446,7 +7886,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "CD",
       "fluff": "A plague of waking nightmares races through the enemy ranks, leaving foes reeling in the grip of nauseating visions that curdle into soul-destroying reality.",
-      "detachment": "Plague Legion"
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Murkshadows",
@@ -7461,7 +7902,56 @@
       "phase": ["movement"],
       "faction_id": "CD",
       "fluff": "With the battlefield swathed in an occluding miasma of unreality, Nurgle’s daemons may loom out of the haze, solidify from amidst thrumming fly clouds or even rise out of the filth without warning.",
-      "detachment": "Plague Legion"
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Death Denied",
+      "id": "f8384b38-d4fa-5887-8b1e-4b382711fea6",
+      "cost": 1,
+      "turn": "your",
+      "target": "One SHADOW LEGION unit from your army.",
+      "when": "Your Command phase.",
+      "effect": "One model in your unit regains up to 3 lost wounds. In addition, If your unit has the TZEENTCH keyword, return up to one destroyed model (excluding CHARACTER models) to your unit with its full wounds remaining.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["command"],
+      "faction_id": "CD",
+      "fluff": "Even death does not free one from Be’lakor’s grasp. Those who disappoint him may be dragged back through the veil, granted one last chance to impress their master or face the full extent of his wrath.",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Encroaching Darkness",
+      "id": "697bb47a-53c2-579e-a771-8445a780ea3c",
+      "cost": 1,
+      "turn": "your",
+      "target": "Up to one SHADOW LEGION HERETIC ASTARTES unit from your army and up to one SHADOW LEGION LEGIONES DAEMONICA unit from your army. You can only select units that arrived from Reserves this turn.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, weapons equipped by models in your selected units have the [IGNORES COVER] ability.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["shooting"],
+      "faction_id": "CD",
+      "fluff": "Be’lakor’s aura falls across the field of battle, bearing servants both mortal and daemonic to war. Attuned to the gloom, these new arrivals combine their fire to unleash death upon the cowering foe.",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Pyrogenesis",
+      "id": "88b15926-a20d-57f5-afdf-4314b93f727b",
+      "cost": 1,
+      "turn": "either",
+      "target": "One LEGIONES DAEMONICA TZEENTCH unit from your army that has not been selected to shoot or fight that phase.",
+      "when": "Your Shooting phase or the Fight phase.",
+      "effect": "Until the end of the phase, add 2 to the Strength characteristic of weapons equipped by models in your unit, or spend one Flux token and add 3 to the Strength characteristic of those weapons and improve the Armour Penetration characteristic of those weapons by 1 instead.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "CD",
+      "fluff": "Warpflame is as changeable as the monsters who wield it, capable of easily burning through ceramite plates or reinforced hulls when desired.",
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Cavalcade of Blades",
@@ -7476,7 +7966,8 @@
       "phase": ["charge"],
       "faction_id": "CD",
       "fluff": "The cavorting approach of Slaaneshi daemons is hypnotic and enthralling. It is a whirling carousel of eye‑searing colours and flashing blades that tempt mortals to reach out with trembling eagerness until they can just reach.",
-      "detachment": "Legion of Excess"
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Overwhelming Excess",
@@ -7484,29 +7975,31 @@
       "cost": 1,
       "turn": "opponents",
       "target": "One LEGIONES DAEMONICA SLAANESH unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
-      "when": "Your opponent’s Shooting phase, just after an enemy unit has selected its targets.",
-      "effect": "The attacking unit must take a Battle‑shock test, subtracting 1 from the result. If that test is passed, until the end of the phase, each time a model in the attacking unit makes an attack that targets your unit, subtract 1 from the Hit roll. If that test is failed, in addition to being Battle‑shocked, until the end of the phase, the attacking unit cannot select your unit as the target of any attacks. That unit can then select new targets for any attacks that targeted your unit.",
-      "restrictions": "",
-      "type": "Battle Tactic",
-      "phase": ["shooting"],
-      "faction_id": "CD",
-      "fluff": "Sensation gushes relentlessly into the overstimulated minds of the enemy until their souls strain fit to burst. Barely able to think or function, they recoil in their desperate need to stem the unstoppable tide.",
-      "detachment": "Legion of Excess"
-    },
-    {
-      "name": "Pyrogenesis",
-      "id": "88b15926-a20d-57f5-afdf-4314b93f727b",
-      "cost": 2,
-      "turn": "either",
-      "target": "One LEGIONES DAEMONICA TZEENTCH unit from your army that has not been selected to shoot or fight that phase.",
-      "when": "Your Shooting phase or the Fight phase.",
-      "effect": "Until the end of the phase, add 2 to the Strength characteristic of weapons equipped by models in your unit, or spend one Flux token and add 3 to the Strength characteristic of those weapons and improve the Armour Penetration characteristic of those weapons by 1 instead.",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets",
+      "effect": "Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.",
       "restrictions": "",
       "type": "Battle Tactic",
       "phase": ["fight", "shooting"],
       "faction_id": "CD",
-      "fluff": "Warpflame is as changeable as the monsters who wield it, capable of easily burning through ceramite plates or reinforced hulls when desired.",
-      "detachment": "Scintillating Legion"
+      "fluff": "Sensation gushes relentlessly into the overstimulated minds of the enemy until their souls strain fit to burst. Barely able to think or function, they recoil in their desperate need to stem the unstoppable tide.",
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Shade Path",
+      "id": "3ff0f266-cfb4-541c-8694-2b4c10eb34f6",
+      "cost": 2,
+      "turn": "opponents",
+      "target": "One SHADOW LEGION unit from your army that was selected as a target of that charge.",
+      "when": "Your opponent’s Charge phase, just after an enemy unit declares a charge.",
+      "effect": "Until the end of the phase, subtract 2 from Charge rolls made for that enemy unit. In addition, if your unit has the NURGLE keyword, that enemy unit must take a Battle-shock test.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["charge"],
+      "faction_id": "CD",
+      "fluff": "A chill penumbra settles over the oncoming foe. Those that manage to cut their way through the blanket of twilight find themselves seized with terror as the darkness parts and the horrific nature of their enemy is revealed.",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Archagonists",
@@ -7521,7 +8014,8 @@
       "phase": ["fight"],
       "faction_id": "CD",
       "fluff": "These daemons perceive with absolute clarity whereabouts on their victims’ bodies they must strike to inflict the greatest possible excess of suffering.",
-      "detachment": "Legion of Excess"
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Blood Begets Skulls",
@@ -7536,7 +8030,8 @@
       "phase": ["charge"],
       "faction_id": "CD",
       "fluff": "The iron reek of mortal blood pulsing through living veins fires the unnatural senses of Khorne’s daemons, drawing them on all the swifter to tear, slay, and hack skulls from necks for mighty Khorne.",
-      "detachment": "Blood Legion"
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Wrath Undeniable",
@@ -7551,7 +8046,8 @@
       "phase": ["fight"],
       "faction_id": "CD",
       "fluff": "Even the banishing blow is often not enough to prevent the daemons of Khorne from lashing out to take bloody vengeance as they discorporate.",
-      "detachment": "Blood Legion"
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Gore-hungry Onslaught",
@@ -7566,7 +8062,8 @@
       "phase": ["charge", "movement"],
       "faction_id": "CD",
       "fluff": "The manifest will to run down and slaughter their prey allows the daemons of Khorne to surge through physical barriers as though they did not exist, falling upon their victims like bloody phantasms.",
-      "detachment": "Blood Legion"
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Skulls Beget Blood",
@@ -7581,7 +8078,8 @@
       "phase": ["shooting"],
       "faction_id": "CD",
       "fluff": "Torn from the wet and ragged necks of worthy mortal champions, these skulls blaze with balefire as the daemons of Khorne heft and hurl them. They explode amongst the foe to shed more blood for the Blood God.",
-      "detachment": "Blood Legion"
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Corrupt Realspace",
@@ -7596,7 +8094,8 @@
       "phase": ["command"],
       "faction_id": "CD",
       "fluff": "Daemons instinctively feel the need to despoil and corrupt every corner of realspace, the better to sustain their otherworldly forms.",
-      "detachment": "Daemonic Incursion"
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Warp Surge",
@@ -7611,7 +8110,8 @@
       "phase": ["charge"],
       "faction_id": "CD",
       "fluff": "The winds of the warp blow strong, invigorating daemonkind and lending them supernatural speed and ferocity.",
-      "detachment": "Daemonic Incursion"
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Denizens of the Warp",
@@ -7626,7 +8126,8 @@
       "phase": ["movement"],
       "faction_id": "CD",
       "fluff": "Ever lurking in the warp, daemons will wait until the barriers between realms thin before tearing their way into realspace.",
-      "detachment": "Daemonic Incursion"
+      "detachment": "Daemonic Incursion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Rot and Renewal",
@@ -7641,7 +8142,8 @@
       "phase": ["charge", "movement"],
       "faction_id": "CD",
       "fluff": "Rather than lumber across the battlefield, these daemons rot away to nothing before hatching anew from canker blooms wherever they wish to be.",
-      "detachment": "Plague Legion"
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Plague of Woes",
@@ -7656,7 +8158,56 @@
       "phase": ["command"],
       "faction_id": "CD",
       "fluff": "Even as one band of foes gives in to despair, their sorrows spread like a virus to the minds and souls of others, the enemy’s woes multiplying by the moment.",
-      "detachment": "Plague Legion"
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Spiteful Demise",
+      "id": "74bb6a54-70ef-5b0c-9e6c-a66454312904",
+      "cost": 1,
+      "turn": "either",
+      "target": "That SHADOW LEGION unit. You can use this Stratagem on that unit even though it was just destroyed.",
+      "when": "Any phase, just after a SHADOW LEGION unit from your army is destroyed, before removing the last model in that unit from the battlefield and before rolling any dice for the Deadly Demise ability.",
+      "effect": "Roll one D6 for each enemy unit that is within Engagement Range of the last model in your unit, adding 2 to the result if your unit has the SLAANESH keyword: on a 4-5, that enemy unit suffers D3 mortal wounds; on a 6+, that enemy unit suffers 3 mortal wounds.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["any"],
+      "faction_id": "CD",
+      "fluff": "Malevolent to the last, Be’lakor’s thralls expend their final reserves of mortal strength and empyric might in an act of vengeance, unleashing torrents of killing energy in all directions.",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Channelled Wrath",
+      "id": "49d579f1-689b-5c7c-9af6-a4749b29fc89",
+      "cost": 1,
+      "turn": "either",
+      "target": "One SHADOW LEGION unit from your army that has not been selected to fight this phase.",
+      "when": "Fight phase.",
+      "effect": "Until the end of the phase, melee weapons equipped by models in your unit have the [LANCE] ability. If your unit has the KHORNE keyword, until the end of the phase, improve the Armour Penetration characteristic of those weapons by 1 as well.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight"],
+      "faction_id": "CD",
+      "fluff": "Khorne may not care whence the blood flows, but Be’lakor is more discerning. He directs his slaughter-crazed followers to strike the most pressing targets with all their infernal fury.",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
+    },
+    {
+      "name": "Binding Shadow",
+      "id": "9850d86d-5b48-5c70-b63d-c59b6f0fc650",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "Up to one SHADOW LEGION HERETIC ASTARTES unit from your army and up to one SHADOW LEGION LEGIONES DAEMONICA unit from your army. You can only select units that are not within Engagement Range of one or more enemy units.",
+      "when": "End of your opponent’s Fight phase.",
+      "effect": "Remove those selected units from the battlefield and place them into Strategic Reserves.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight"],
+      "faction_id": "CD",
+      "fluff": "Bound by coils of umbral energy, mortal and daemonic followers are swept up in Be’lakor’s cloak of shadows as pawns returned to their master’s hand.",
+      "detachment": "Shadow Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Impossible Eclipse",
@@ -7671,7 +8222,8 @@
       "phase": ["any"],
       "faction_id": "CD",
       "fluff": "At the call of this malevolent entity, invisible stellar bodies slide into alignment, plunging the battlefield into momentary twilight, dancing with strange and sorcerous will–o’-the-wisps.",
-      "detachment": "Scintillating Legion"
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Flickering Reality",
@@ -7686,7 +8238,8 @@
       "phase": ["fight"],
       "faction_id": "CD",
       "fluff": "The very stuff of reality flickers like a candle flame in a gale, frustrating even the most skilful sworders as they strike at rippling illusions.",
-      "detachment": "Scintillating Legion"
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Fateborne Nightmares",
@@ -7701,7 +8254,8 @@
       "phase": ["charge", "movement"],
       "faction_id": "CD",
       "fluff": "Barred doors, reinforced windows, or walls are no barriers to the children of the Warp. They cannot be outrun; they cannot be hidden from; they cannot be stopped.",
-      "detachment": "Scintillating Legion"
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Ficklefire",
@@ -7716,7 +8270,8 @@
       "phase": ["shooting"],
       "faction_id": "CD",
       "fluff": "These daemons care little for who they engulf in their infernal fires, only that destruction and chaos are wrought.",
-      "detachment": "Scintillating Legion"
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Delirium Unmade",
@@ -7731,7 +8286,8 @@
       "phase": ["fight"],
       "faction_id": "CD",
       "fluff": "Between one heartbeat and the next, the daemons of Tzeentch vanish as though they were never there. Yet this jarring respite will last only long enough for their victims to question their sanity before the onslaught begins anew.",
-      "detachment": "Scintillating Legion"
+      "detachment": "Scintillating Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Thieves of Pain",
@@ -7739,14 +8295,15 @@
       "cost": 1,
       "turn": "either",
       "target": "That LEGIONES DAEMONICA SLAANESH unit.",
-      "when": "Any phase, just after an attack or mortal wound is allocated to a model in a LEGIONES DAEMONICA SLAANESH unit from your army (excluding MONSTERS).",
-      "effect": "Select one other friendly LEGIONES DAEMONICA SLAANESH unit within 12\" of your unit. Until the end of the phase, while the selected unit is on the battlefield, each time a model in your unit would lose a wound, inflict 1 mortal wound on the selected unit instead.",
+      "when": "Any phase, just after an attack or mortal wound is allocated to a model in a LEGIONES DAEMONICA SLAANESH unit from your army (excluding MONSTERS and VEHICLES).",
+      "effect": "Select one other friendly LEGIONES DAEMONICA SLAANESH unit that is within 9\" of and visible to your unit. Until the end of the phase, while the selected unit is on the battlefield, each time a model in your unit would lose a wound, inflict 1 mortal wound on the selected unit instead.",
       "restrictions": "",
       "type": "Strategic Ploy",
       "phase": ["any"],
       "faction_id": "CD",
       "fluff": "To exist, however fleetingly, in realspace is an opportunity to indulge in every physical sensation. So enraptured do the daemons of Slaanesh become that they even steal one another’s agonies to enjoy.",
-      "detachment": "Legion of Excess"
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Sensory Excruciation",
@@ -7761,7 +8318,8 @@
       "phase": ["command"],
       "faction_id": "CD",
       "fluff": "This entity causes the battlefield to flicker wildly between the debauched Slaaneshi Warp interstice and the most brutally mundane reality, faster than even supernatural senses can perceive. The result is a psychically devastating barrage of excess and deprivation.",
-      "detachment": "Legion of Excess"
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Phantasmal Longing",
@@ -7776,7 +8334,8 @@
       "phase": ["charge", "movement"],
       "faction_id": "CD",
       "fluff": "Against their wills, enemy combatants find themselves wishing for the daemons of Slaanesh to draw closer. It is child’s play for the daemons of Slaanesh to harness such strong emotions and transform them into manifest reality.",
-      "detachment": "Legion of Excess"
+      "detachment": "Legion of Excess",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Fool’s Flight",
@@ -7791,7 +8350,8 @@
       "phase": ["movement"],
       "faction_id": "CD",
       "fluff": "Khorne’s daemons know only hatred and contempt for those who flee from combat and will distort reality itself to keep such cowards trapped in the endless battle they sought to escape.",
-      "detachment": "Blood Legion"
+      "detachment": "Blood Legion",
+      "detachment_faction": "Legiones Daemonica"
     },
     {
       "name": "Foetid Resurgence",
@@ -7806,8 +8366,9 @@
       "phase": ["command"],
       "faction_id": "CD",
       "fluff": "As the power of the Plague God saturates the battlefield, fresh daemonic life blooms from the septic corpse mulch that bubbles underfoot.",
-      "detachment": "Plague Legion"
+      "detachment": "Plague Legion",
+      "detachment_faction": "Legiones Daemonica"
     }
   ],
-  "updated": "2025-02-05T13:53:46.262Z"
+  "updated": "2026-03-09T13:14:03.374Z"
 }

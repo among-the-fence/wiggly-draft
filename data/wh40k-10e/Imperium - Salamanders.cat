@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="2261-79a5-19d9-1668" name="Imperium - Adeptus Astartes - Salamanders" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="12" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="2261-79a5-19d9-1668" name="Imperium - Adeptus Astartes - Salamanders" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="17" battleScribeVersion="2.03" type="catalogue">
   <catalogueLinks>
     <catalogueLink type="catalogue" name="Imperium - Space Marines" id="8bc3-7260-40f5-5674" targetId="e0af-67df-9d63-8fb7" importRootEntries="true"/>
     <catalogueLink type="catalogue" name="Imperium - Imperial Knights - Library" id="3100-654a-4c35-f95c" targetId="1b6d-dc06-5db9-c7d1"/>
@@ -7,7 +7,6 @@
   </catalogueLinks>
   <categoryEntries>
     <categoryEntry name="Adrax Agatone" hidden="false" id="fca1-9ff0-bf21-b99f"/>
-    <categoryEntry name="Vulkan He&apos;stan" hidden="false" id="8425-f97a-408-9f8a"/>
   </categoryEntries>
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Adrax Agatone" hidden="false" id="98c-87ea-f51b-1475">
@@ -116,6 +115,13 @@
       <entryLinks>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="62fb-9eb1-d30b-2c9d" targetId="caa-f869-3cbd-b48e"/>
       </entryLinks>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Crusade" id="5389-bd1c-3459-b872" hidden="false" sortIndex="1">
+          <entryLinks>
+            <entryLink import="true" name="Mighty Champions" hidden="false" id="eec7-ac02-2757-f6fa" type="selectionEntryGroup" targetId="f842-6e90-bc5a-80f1"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Vulkan He&apos;stan" hidden="false" id="b351-fccc-2121-1e1e">
       <profiles>
@@ -134,9 +140,9 @@
             <characteristic name="Description" typeId="9b8f-694b-e5e-b573">In your Shooting phase, select one enemy unit within 24&quot; of and visible to this model. Until the end of the phase, each time a friendly Adeptus Astartes model makes a ranged attack with a Torrent or Melta weapon that targets that enemy unit, you can re-roll the Wound roll</characteristic>
           </characteristics>
         </profile>
-        <profile name="Seeker of Lost Relics" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="22fa-126d-31e4-6a5a">
+        <profile name="Seeker of the Unfound" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="22fa-126d-31e4-6a5a">
           <characteristics>
-            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle, select one objective marker on the battlefield. While this model is within  range of that objective marker, it has an Objective Control characteristic of 10, a Leadership characteristic of 5+ and the Feel No Pain 4+ ability.</characteristic>
+            <characteristic name="Description" typeId="9b8f-694b-e5e-b573">The first time this model is set up on the battlefield, select one objective marker on the battlefield. While this model is within range of that objective marker, it has an Objective Control characteristic of 10, a Leadership characteristic of 5+ and the Feel No Pain 4+ ability.</characteristic>
           </characteristics>
         </profile>
         <profile name="Leader" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="56bf-fb53-c81d-ff4a">
@@ -166,7 +172,7 @@
         </infoLink>
       </infoLinks>
       <entryLinks>
-        <entryLink import="true" name="Bolt Pistol" hidden="false" type="selectionEntry" id="8e3-ab74-8815-3767" targetId="b273-b85e-4018-a0cd">
+        <entryLink import="true" name="Bolt pistol" hidden="false" type="selectionEntry" id="8e3-ab74-8815-3767" targetId="b273-b85e-4018-a0cd">
           <constraints>
             <constraint type="min" value="1" field="selections" scope="parent" shared="true" id="247e-8f8f-3853-db0b"/>
             <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="4773-1cf3-40de-74a"/>
@@ -189,13 +195,14 @@
                 <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
                 <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
                 <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
-                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Torrent</characteristic>
+                <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Ignores Cover, Pistol, Torrent</characteristic>
               </characteristics>
             </profile>
           </profiles>
           <infoLinks>
             <infoLink name="Ignores Cover" hidden="false" type="rule" id="fb12-a5c8-5040-4ebf" targetId="4640-43e7-30b-215a"/>
             <infoLink name="Torrent" hidden="false" type="rule" id="9bca-1939-59b-4827" targetId="5edf-d619-23e0-9b56"/>
+            <infoLink name="Pistol" id="22ec-f5db-175c-d4ec" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
           </infoLinks>
         </selectionEntry>
         <selectionEntry type="upgrade" import="true" name="Spear of Vulkan" hidden="false" id="ee9-93ca-662-362b">
@@ -212,10 +219,13 @@
                 <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
                 <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
                 <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
-                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">-</characteristic>
+                <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds</characteristic>
               </characteristics>
             </profile>
           </profiles>
+          <infoLinks>
+            <infoLink name="Devastating Wounds" id="6c9a-f7c6-d1d7-693a" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
+          </infoLinks>
         </selectionEntry>
       </selectionEntries>
       <costs>
@@ -231,10 +241,18 @@
         <categoryLink targetId="8425-f97a-408-9f8a" id="a2ee-f7d7-7b7f-cd29" primary="false" name="Vulkan He&apos;stan"/>
         <categoryLink targetId="6e7-40c-58d9-e402" id="1cb3-b8ed-c64e-bb98" primary="false" name="Faction: Adeptus Astartes"/>
         <categoryLink targetId="65e4-13-4fa8-b36c" id="7eb1-2884-2ae1-1ae2" primary="false" name="Faction: Salamanders"/>
+        <categoryLink targetId="5179-8ede-45e3-49a2" id="457a-1162-5fb5-8856" primary="false" name="Tacticus"/>
       </categoryLinks>
       <constraints>
         <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="6711-29f6-97c0-74dc"/>
       </constraints>
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Crusade" id="b255-d889-b5ab-b8ba" hidden="false" sortIndex="1">
+          <entryLinks>
+            <entryLink import="true" name="Mighty Champions" hidden="false" id="e269-8080-d75e-fb92" type="selectionEntryGroup" targetId="f842-6e90-bc5a-80f1"/>
+          </entryLinks>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntry>
   </sharedSelectionEntries>
   <entryLinks>

@@ -3,6 +3,7 @@
     "banner": "#283109",
     "header": "#465b18"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -61,7 +62,9 @@
         {
           "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -95,6 +98,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BOYZ"],
         "extra": ""
@@ -151,9 +156,11 @@
       "name": "Megatrakk Scrapjet",
       "points": [
         {
-          "cost": "80",
+          "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -214,7 +221,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -309,14 +318,18 @@
       "name": "Warbikers",
       "points": [
         {
-          "cost": "140",
+          "cost": "130",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "70",
+          "cost": "65",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -377,6 +390,8 @@
         "The Boss Nob on Warbike can be equipped with one of the following:  ◦ 1 slugga ◦ 1 big choppa ◦ 1 power klaw",
         "Each Warbiker can be equipped with one of the following:  ◦ 1 slugga ◦ 1 choppa"
       ],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
       "leadBy": ["Deffkilla Wartrike"]
     },
     {
@@ -430,14 +445,18 @@
       "name": "Deffkoptas",
       "points": [
         {
-          "cost": "180",
+          "cost": "160",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "90",
+          "cost": "80",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -500,7 +519,9 @@
       "transport": "",
       "wargear": [
         "For every 3 models in this unit, 1 Deffkopta can have its kopta rokkits replaced with 1 kustom mega-blasta."
-      ]
+      ],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -558,9 +579,11 @@
       "name": "Kustom Boosta-blasta",
       "points": [
         {
-          "cost": "75",
+          "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -621,7 +644,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -699,7 +724,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -718,6 +745,8 @@
       ],
       "transport": "",
       "wargear": ["This model can be equipped with 1 grot orderly."],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["BOYZ", "NOBZ", "LOOTAS", "BURNA BOYZ", "TANKBUSTAS"],
         "extra": ""
@@ -739,7 +768,7 @@
         "other": [
           {
             "name": "Shooty Power Trip",
-            "description": "Each time this unit is selected to shoot, you can roll one D6:\n\n■ On a 1‑2, this unit suffers D6 mortal wounds.\n■ On a 3‑4, until the end of the phase, add 1 to the Strength characteristic of ranged weapons equipped by models in this unit.\n■ On a 5‑6, until the end of the phase, add 1 to the Attacks characteristic of ranged weapons equipped by models in this unit."
+            "description": "Each time this unit is selected to shoot, you can roll one D6:\n\n■ On a 1‑2, this unit suffers D3 mortal wounds.\n■ On a 3‑4, until the end of the phase, add 1 to the Strength characteristic of ranged weapons equipped by models in this unit.\n■ On a 5‑6, until the end of the phase, add 1 to the Attacks characteristic of ranged weapons equipped by models in this unit."
           }
         ],
         "primarch": [],
@@ -776,12 +805,16 @@
         {
           "cost": "250",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "125",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -858,7 +891,9 @@
       "transport": "",
       "wargear": [
         "Each Killa Kan’s Kan shoota can be replaced with one of the following:  ◦ 1 grotzooka ◦ 1 rokkit launcha ◦ 1 skorcha"
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -917,12 +952,16 @@
         {
           "cost": "100",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "50",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1000,6 +1039,8 @@
       "wargear": [
         "Any number of Spanners can each have their big shoota replaced with one of the following: ◦ 1 kustom mega-blasta ◦ 1 rokkit launcha"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Painboy", "Big Mek", "Mek"]
     },
     {
@@ -1022,7 +1063,7 @@
           },
           {
             "name": "Shokk-boosta",
-            "description": "You can re‑roll Advance rolls made for this model’s unit. In addition, each time this model’s unit makes a Normal, Advance or Fall Back move, until that move is finished, models in that unit can move horizontally through models and terrain features (but cannot finish a move on top of another model or its base)."
+            "description": "You can re‐roll Advance rolls made for this model’s unit. In addition, each time this model’s unit makes a Normal, Advance or Fall Back move, models in that unit can move through models and terrain features. When doing so, they can move within Engagement Range of such models but cannot end that move within Engagement Range of them, and any Desperate Escape test is automatically passed."
           }
         ],
         "primarch": [],
@@ -1073,7 +1114,9 @@
         {
           "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1124,6 +1167,8 @@
         "This model’s power klaw can be replaced with 1 drilla.",
         "This model’s kustom mega‑blasta can be replaced with 1 traktor blasta."
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["BOYZ", "LOOTAS", "MEK GUNZ", "NOBZ"],
         "extra": ""
@@ -1153,7 +1198,7 @@
         "wargear": [
           {
             "name": "Bomb Squig",
-            "description": "Once per battle for each bomb squig this unit has, after this unit ends a Normal move, you can select one enemy unit within 12\" of it and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds."
+            "description": "Once per battle, for each bomb squig this unit has, after this unit ends a Normal move, you can use one Bomb Squig. If you do, select one enemy unit within 12\" and visible to this unit and roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds."
           }
         ]
       },
@@ -1217,14 +1262,18 @@
       "name": "Squighog Boyz",
       "points": [
         {
-          "cost": "320",
+          "cost": "300",
           "keyword": null,
-          "models": "8"
+          "models": "8",
+
+          "detachment": null
         },
         {
-          "cost": "160",
+          "cost": "150",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1298,6 +1347,8 @@
       "wargear": [
         "For every 4 models in this unit, this unit can be equipped with 1 bomb squig."
       ],
+      "baseSize": "Nob on Smasha Squig: 90 x 52.5mm Oval Base\nSquighog Boyz: 75 x 42mm Oval Base",
+      "chapter": null,
       "leadBy": ["Mozrog Skragbad", "Beastboss on Squigosaur"]
     },
     {
@@ -1361,9 +1412,11 @@
       "name": "Warboss in Mega Armour",
       "points": [
         {
-          "cost": "90",
+          "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1397,6 +1450,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["MEGANOBZ"],
         "extra": ""
@@ -1467,7 +1522,9 @@
         {
           "cost": "175",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1546,7 +1603,9 @@
         "This model can be equipped with 1 twin supa-shoota.",
         "This model can be equipped with 1 blastajet force field.",
         "This model’s twin wazbom mega-kannon can be replaced with 1 twin tellyport mega-blasta."
-      ]
+      ],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1648,7 +1707,9 @@
         {
           "cost": "160",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1746,14 +1807,16 @@
           "w": "16"
         }
       ],
-      "transport": "This model has a transport capacity of 22 ORKS INFANTRY models. If this model is equipped with a killkannon, it has a transport capacity of 12 ORKS INFANTRY models. Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models. The GHAZGHKULL THRAKA model takes up the space of 15 models but can only embark within this model if this model is not equipped with an ’ard case, kannon, killkannon or zzap gun.",
+      "transport": "This model has a transport capacity of 22 ORKS INFANTRY models. If this model is equipped with a killkannon, it has a transport capacity of 12 ORKS INFANTRY models. Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models. The GHAZGHKULL THRAKA model takes up the space of 4 models.",
       "wargear": [
         "This model can be equipped with any of the following:  ◦ 1 ’ard case ◦ 1 grabbin’ klaw ◦ 1 wreckin’ ball",
         "This model’s tracks and wheels can be replaced with 1 deff rolla.",
         "This model can be equipped with up to 4 big shootas.",
         "This model can be equipped with:  ◦ 1 lobba",
         "This model can be equipped with one of the following:  ◦ 1 kannon ◦ 1 killkannon ◦ 1 zzap gun"
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1817,9 +1880,11 @@
       "name": "Boss Snikrot",
       "points": [
         {
-          "cost": "95",
+          "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1853,6 +1918,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["KOMMANDOS"],
         "extra": ""
@@ -1932,7 +1999,9 @@
         {
           "cost": "280",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2007,7 +2076,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 ORKS INFANTRY models (excluding GHAZGHKULL THRAKA). Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2054,7 +2125,7 @@
         "Warboss",
         "Ghazgkull Thraka"
       ],
-      "leader": "This unit can be attached to the following unit: ■ MEGANOBZ If this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength.",
+      "leader": "This unit can be attached to the following unit: ■ BOYZ ■ MEGANOBZ ■ NOBZ If this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength.",
       "loadout": "Ghazghkull Thraka is equipped with: Mork’s Roar; Gork’s Klaw.\nMakari is equipped with: Makari’s stabba.",
       "meleeWeapons": [
         {
@@ -2101,7 +2172,9 @@
         {
           "cost": "235",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2145,9 +2218,16 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Ghazghkull Thraka: 80mm\nMakari: 25mm",
+      "chapter": null,
       "leads": {
-        "units": ["MEGANOBZ"],
-        "extra": "If this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength."
+        "units": [
+          "BOYZ",
+          "MEGANOBZ",
+          "NOBZ If this unit’s Bodyguard unit is destroyed, Ghazkghull Thraka and Makari become a single unit with their original Starting Strength."
+        ],
+        "extra": "",
+        "isBodyguard": true
       }
     },
     {
@@ -2170,7 +2250,7 @@
           },
           {
             "name": "Bomb Squigs",
-            "description": "Twice per battle, after this unit ends a Normal move, you can select one enemy unit within 12\" of it and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds.\n\nDesigner’s Note: Place two Bomb Squig tokens next to the unit, removing one each time this unit uses this ability."
+            "description": "Once per battle, for each bomb squig this unit has, after this unit ends a Normal move, you can use one Bomb Squig. If you do, select one enemy unit within 12\" and visible to this unit and roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds.\n\nDesigner’s Note: Place two Bomb Squig tokens next to the unit, removing one each time this unit uses this ability."
           }
         ],
         "primarch": [],
@@ -2259,7 +2339,9 @@
         {
           "cost": "140",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2296,7 +2378,9 @@
         "One Breaka Boy’s smash hammer can be replaced with 1 tankhammer.",
         "One Breaka Boy’s smash hammer can be replaced with 1 knucklebustas.",
         "The Boss Nob’s smash hammer can be replaced with 1 rokkit pistol."
-      ]
+      ],
+      "baseSize": "Boss Nob: 40mm\nBreaka Boyz: 32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2372,7 +2456,9 @@
         {
           "cost": "800",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2475,7 +2561,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 22 ORKS INFANTRY models. Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models. The GHAZGHKULL THRAKA model takes up the space of 15 models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2523,7 +2611,9 @@
         {
           "cost": "135",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2582,7 +2672,9 @@
       "transport": "This model has a transport capacity of 11 ORKS INFANTRY models. Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models.",
       "wargear": [
         "This model can be equipped with up to 3 additional big shootas."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2604,7 +2696,7 @@
           },
           {
             "name": "Bomb Squigs",
-            "description": "Twice per battle, after this unit ends a Normal move, you can select one enemy unit within 12\" of it and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds.\n\nDesigner’s Note: Place two Bomb Squig tokens next to the unit, removing one each time this unit uses this ability."
+            "description": "Once per battle, for each bomb squig this unit has, after this unit ends a Normal move, you can use one Bomb Squig. If you do, select one enemy unit within 12\" and visible to this unit and roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds.\n\nDesigner’s Note: Place two Bomb Squig tokens next to the unit, removing one each time this unit uses this ability."
           }
         ],
         "primarch": [],
@@ -2677,9 +2769,11 @@
       "name": "Tankbustas",
       "points": [
         {
-          "cost": "120",
+          "cost": "140",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2740,6 +2834,8 @@
         "One Tankbusta can be equipped with one of the following: ◦ 1 pulsa rokkit ◦ 1 additional rokkit launcha",
         "1 of the Boss Nob’s rokkit pistols can be replaced with 1 smash hammer."
       ],
+      "baseSize": "Boss Nob: 40mm\nTankbustas: 32mm",
+      "chapter": null,
       "leadBy": ["Painboy", "Mek"]
     },
     {
@@ -2762,11 +2858,16 @@
           }
         ],
         "primarch": [],
-        "special": [],
+        "special": [
+          {
+            "description": "At the start of the Declare Battle Formations step this unit can be split into two units, each containing five models.\n(when splitting a unit in this way, make a note of which models form each of the two new units. If you are splitting a unit that is equipped with 1 bomb squig and/or 1 distraction grot, only one of the new units can use that ability during the battle – make a note of which of the new units this will be).",
+            "name": "Patrol Squad"
+          }
+        ],
         "wargear": [
           {
             "name": "Bomb Squig",
-            "description": "Once per battle, after this unit ends a Normal move, select one enemy unit within 12\" of this unit and roll one D6: on a 2+, that enemy unit suffers D3 mortal wounds."
+            "description": "Once per battle, for each bomb squig this unit has, after this unit ends a Normal move, you can use one Bomb Squig. If you do, select one enemy unit within 12\" and visible to this unit and roll one D6: on a 3+, that enemy unit suffers D3 mortal wounds."
           },
           {
             "name": "Distraction Grot",
@@ -2860,7 +2961,9 @@
         {
           "cost": "120",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2954,6 +3057,8 @@
         "Up to 2 Kommandos can each have their slugga and choppa replaced with 1 Kustom shoota and 1 close combat weapon.",
         "The Boss Nob’s choppa can be replaced with one of the following:  ◦ 1 big choppa ◦ 1 power klaw"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Boss Snikrot"]
     },
     {
@@ -2972,13 +3077,13 @@
         "other": [
           {
             "name": "Get Da Good Bitz",
-            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase."
           }
         ],
         "primarch": [],
         "special": [
           {
-            "description": "If this unit has a Starting Strength of 20, you can attach up to two Leader units to it instead of one (but only if one of those is a WARBOSS model). If you do, and this unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths.",
+            "description": "If this unit has a Starting Strength of 20, you can attach up to two Leader units to it instead of one (but only if one of those is a WARBOSS unit). If you do, and this unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths.",
             "name": "Bodyguard"
           }
         ],
@@ -3054,14 +3159,18 @@
       "name": "Boyz",
       "points": [
         {
-          "cost": "160",
+          "cost": "170",
           "keyword": null,
-          "models": "20"
+          "models": "20",
+
+          "detachment": null
         },
         {
           "cost": "80",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3170,10 +3279,13 @@
         "The Boss Nob’s big choppa and slugga can be replaced with 1 kombi-weapon and 1 close combat weapon.",
         "The Boss Nob’s big choppa can be replaced with 1 power klaw."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Weirdboy",
         "Painboy",
         "Big Mek",
+        "Ghazghkull Thraka",
         "Mek",
         "Big Mek with Shokk Attack Gun",
         "Warboss"
@@ -3244,9 +3356,11 @@
       "name": "Trukk",
       "points": [
         {
-          "cost": "65",
+          "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3279,7 +3393,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 ORKS INFANTRY models. Each MEGA ARMOUR model takes up the space of 2 models. It cannot transport JUMP PACK or GHAZGHKULL THRAKA models.",
-      "wargear": ["This model can be equipped with 1 wreckin’ ball."]
+      "wargear": ["This model can be equipped with 1 wreckin’ ball."],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3343,7 +3459,9 @@
         {
           "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3362,6 +3480,8 @@
       ],
       "transport": "",
       "wargear": ["This model can be equipped with 1 grot orderly."],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BEAST SNAGGA BOYZ"],
         "extra": ""
@@ -3441,7 +3561,9 @@
         {
           "cost": "265",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3516,7 +3638,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 ORKS INFANTRY models. Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models. It cannot transport GHAZGHKULL THRAKA.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3571,17 +3695,23 @@
         {
           "cost": "150",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "50",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3631,6 +3761,12 @@
               "skill": "4+",
               "strength": "12"
             }
+          ],
+          "abilities": [
+            {
+              "name": "Bubblechukka",
+              "description": "Before selecting targets for one or more models equipped with this weapon, roll one D6 to determine which profile models equipped with this weapon will make attacks with, comparing the result with the numbers shown on the left."
+            }
           ]
         },
         {
@@ -3679,6 +3815,8 @@
       "wargear": [
         "Each model’s smasha gun can be replaced with one of the following:  ◦ 1 bubblechukka ◦ 1 kustom mega-kannon ◦ 1 traktor kannon"
       ],
+      "baseSize": "Hull",
+      "chapter": null,
       "leadBy": ["Big Mek", "Mek", "Big Mek with Shokk Attack Gun"]
     },
     {
@@ -3748,12 +3886,16 @@
         {
           "cost": "130",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3796,7 +3938,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["The Boss Nob’s choppa can be replaced with 1 power klaw."]
+      "wargear": ["The Boss Nob’s choppa can be replaced with 1 power klaw."],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3856,12 +4000,16 @@
         {
           "cost": "160",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "80",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3894,7 +4042,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["This unit can be equipped with 1 ammo runt."]
+      "wargear": ["This unit can be equipped with 1 ammo runt."],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3955,7 +4105,9 @@
         {
           "cost": "115",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4002,7 +4154,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4020,7 +4174,7 @@
         "other": [
           {
             "name": "Piston-driven Brutality",
-            "description": "At the start of the Fight phase, each enemy unit within Engagement Range of one or more units with this ability must take a Battle-shock test."
+            "description": "Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers D3+3 mortal wounds."
           }
         ],
         "primarch": [],
@@ -4067,7 +4221,7 @@
           "abilities": [
             {
               "name": "Dead Choppy",
-              "description": "The Attacks characteristic of this weapon is increased by 1 for each additional dread klaw this model is equipped with."
+              "description": "The Attacks characteristic of this weapon is increased by 1 for each additional Dread klaw the bearer is equipped with."
             }
           ]
         }
@@ -4077,7 +4231,9 @@
         {
           "cost": "120",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4155,7 +4311,9 @@
       "wargear": [
         "This model’s dread klaws can each be replaced with one of the following:  ◦ 1 big shoota ◦ 1 kustom-mega blasta ◦ 1 rokkit launcha ◦ 1 skorcha",
         "This model’s big shootas can each be replaced with one of the following:  ◦ 1 dread klaw ◦ 1 kustom-mega blasta ◦ 1 rokkit launcha ◦ 1 skorcha"
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4220,7 +4378,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4254,6 +4414,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["BEAST SNAGGA BOYZ"],
         "extra": ""
@@ -4336,7 +4498,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4370,6 +4534,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["BEAST SNAGGA BOYZ"],
         "extra": ""
@@ -4428,7 +4594,9 @@
         {
           "cost": "135",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4463,7 +4631,9 @@
       "transport": "",
       "wargear": [
         "This model can be equipped with 1 additional twin supa-shoota."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4551,7 +4721,9 @@
         {
           "cost": "90",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4635,6 +4807,8 @@
         "This model can be equipped with one of the following:  ◦ 1 tellyport blasta ◦ 1 kustom force field",
         "This model’s kustom-mega blasta can be replaced with one of the following:  ◦ 1 killsaw ◦ 1 kombi-weapon ◦ 1 kustom shoota"
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["MEGANOBZ"],
         "extra": ""
@@ -4695,9 +4869,11 @@
       "name": "Rukkatrukk Squigbuggy",
       "points": [
         {
-          "cost": "100",
+          "cost": "95",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4744,7 +4920,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4833,12 +5011,16 @@
         {
           "cost": "190",
           "keyword": null,
-          "models": "20"
+          "models": "20",
+
+          "detachment": null
         },
         {
           "cost": "95",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4898,6 +5080,8 @@
       "wargear": [
         "For every 10 models in this unit, 1 Beast Snagga Boy’s slugga and choppa can be replaced with 1 thump gun and 1 close combat weapon."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Painboss", "Wurrboy", "Beastboss"]
     },
     {
@@ -4963,7 +5147,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5021,6 +5207,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["WARBIKERS"],
         "extra": ""
@@ -5097,7 +5285,9 @@
         {
           "cost": "45",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5133,6 +5323,8 @@
       "wargear": [
         "This model’s close combat weapon can be replaced with 1 killsaw."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["BOYZ", "LOOTAS", "MEK GUNZ", "NOBZ", "TANKBUSTAS"],
         "extra": ""
@@ -5189,9 +5381,11 @@
       "name": "Shokkjump Dragsta",
       "points": [
         {
-          "cost": "75",
+          "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5238,7 +5432,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5316,9 +5512,11 @@
       "name": "Mozrog Skragbad",
       "points": [
         {
-          "cost": "165",
+          "cost": "145",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5352,6 +5550,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "80mm",
+      "chapter": null,
       "leads": {
         "units": ["SQUIGHOG BOYZ"],
         "extra": ""
@@ -5412,9 +5612,11 @@
       "name": "Zodgrod Wortsnagga",
       "points": [
         {
-          "cost": "80",
+          "cost": "90",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5448,6 +5650,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["GRETCHIN"],
         "extra": ""
@@ -5528,12 +5732,16 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "22"
+          "models": "22",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "11"
+          "models": "11",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5591,6 +5799,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Runtherd: 32mm\nGretchin: 25mm",
+      "chapter": null,
       "leadBy": ["Zodgrod Wortsnagga"]
     },
     {
@@ -5659,9 +5869,11 @@
       "name": "Big Mek with Shokk Attack Gun",
       "points": [
         {
-          "cost": "65",
+          "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5695,6 +5907,8 @@
       ],
       "transport": "",
       "wargear": ["This model can be equipped with 1 grot assistant."],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BOYZ", "LOOTAZ", "MEK GUNZ", "NOBZ"],
         "extra": ""
@@ -5730,7 +5944,7 @@
       "fluff": "The Kill Rig’s stikka kannon fires rokkit‑harpoons big enough to wrangle battle tanks. Its ’eavy lobba hits with ground‑quaking force, and the tramplasquig that tows this land barge can flatten a fortress gate. Yet it is the Wurrboy atop his wurrtower that both the enemy and the Beast Snaggas themselves fear the most.",
       "id": "c70f4da0-73a6-5bb0-9c6f-893a5a9f42b1",
       "keywords": [
-        "Vehicle",
+        "Monster",
         "Transport",
         "Psyker",
         "Beast Snagga",
@@ -5774,7 +5988,7 @@
         {
           "profiles": [
             {
-              "ap": "-1",
+              "ap": "-2",
               "attacks": "6",
               "damage": "2",
               "keywords": [],
@@ -5791,7 +6005,9 @@
         {
           "cost": "155",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5825,7 +6041,7 @@
           "abilities": [
             {
               "name": "Snagged",
-              "description": "Each time this weapon scores a hit against an enemy Monster or Vehicle unit, until the end of the turn, if the bearer selects that unit as a target of a charge, add 2 to Charge rolls made for the bearer."
+              "description": "Each time this weapon scores a hit against a MONSTER or VEHICLE unit, until the end of the turn, if the bearer selects that unit as a target of a charge, add 2 to Charge rolls made for the bearer and enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer."
             }
           ]
         },
@@ -5858,7 +6074,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 11 BEAST SNAGGA INFANTRY models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5931,12 +6149,16 @@
         {
           "cost": "120",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6014,6 +6236,8 @@
       "wargear": [
         "Any number of Spanners can each have their big shoota replaced with one of the following: ◦ 1 kustom mega-blasta ◦ 1 rokkit launcha"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Painboy"]
     },
     {
@@ -6102,12 +6326,16 @@
         {
           "cost": "210",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "105",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6163,6 +6391,8 @@
         "Any number of models can each have their slugga and big choppa replaced with 1 kombi-weapon and 1 close combat weapon.",
         "Any number of models can each have their big choppa replaced with 1 power klaw."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Painboy",
         "Big Mek",
@@ -6246,9 +6476,11 @@
       "name": "Beastboss on Squigosaur",
       "points": [
         {
-          "cost": "130",
+          "cost": "110",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6296,6 +6528,8 @@
       ],
       "transport": "",
       "wargear": ["This model can be equipped with 1 thump gun."],
+      "baseSize": "80mm",
+      "chapter": null,
       "leads": {
         "units": ["SQUIGHOG BOYZ"],
         "extra": ""
@@ -6380,24 +6614,32 @@
       "name": "Meganobz",
       "points": [
         {
-          "cost": "210",
+          "cost": "190",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "175",
+          "cost": "160",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "105",
+          "cost": "95",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
-          "cost": "70",
+          "cost": "65",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6451,6 +6693,8 @@
       "wargear": [
         "Any number of models can each have their kustom shoota and power klaw replaced with one of the following: ◦ 1 kombi-weapon and 1 power klaw ◦ 1 kombi-weapon and 1 killsaw ◦ 1 kustom shoota and 1 killsaw ◦ 1 killsaw and 1 power klaw ◦ 1 twin killsaws"
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": [
         "Warboss in Mega Armour",
         "Ghazghkull Thraka",
@@ -6513,9 +6757,11 @@
       "name": "Boomdakka Snazzwagon",
       "points": [
         {
-          "cost": "80",
+          "cost": "70",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6576,7 +6822,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "150 x 95mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -6652,7 +6900,9 @@
         {
           "cost": "440",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6711,7 +6961,9 @@
       "transport": "This model has a transport capacity of 20 ORKS INFANTRY models. Each MEGA ARMOUR or JUMP PACK model takes up the space of 2 models. GHAZGHKULL THRAKA takes up the space of 18 models. If this model is equipped with a supa-kannon, it has a transport capacity of 15 ORKS INFANTRY models.",
       "wargear": [
         "This model can be equipped with one of the following: ◦ 1 kannon ◦ 1 supa-kannon"
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -6772,7 +7024,9 @@
         {
           "cost": "125",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6833,7 +7087,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["This model can be equipped with 1 skorcha missile rack."]
+      "wargear": ["This model can be equipped with 1 skorcha missile rack."],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -6864,7 +7120,7 @@
       "faction_id": "ORK",
       "fluff": "Welded, lashed and nailed together from enemy wrecks and scavenged scrap, the Hunta Rig forgoes a Wurrboy wurrtower – much to its crew’s relief. Instead it boasts an open metal deck and copious grab‑handles, the better for chanting and bellowing mobs of Beast Snagga Boyz to ride along on the hunt.",
       "id": "5680837d-12d4-5c28-9b6e-6ceb36083c1c",
-      "keywords": ["Vehicle", "Transport", "Beast Snagga", "Hunta Rig"],
+      "keywords": ["Monster", "Transport", "Beast Snagga", "Hunta Rig"],
       "leader": "",
       "loadout": "This model is equipped with: ’eavy lobba; stikka kannon; butcha boyz; savage horns and hooves; saw blades.",
       "meleeWeapons": [
@@ -6903,7 +7159,7 @@
         {
           "profiles": [
             {
-              "ap": "-1",
+              "ap": "-2",
               "attacks": "6",
               "damage": "2",
               "keywords": [],
@@ -6920,7 +7176,9 @@
         {
           "cost": "135",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6954,7 +7212,7 @@
           "abilities": [
             {
               "name": "Snagged",
-              "description": "Each time this weapon scores a hit against an enemy Monster or Vehicle unit, until the end of the turn, if the bearer selects that unit as a target of a charge, add 2 to Charge rolls made for the bearer."
+              "description": "Each time this weapon scores a hit against a MONSTER or VEHICLE unit, until the end of the turn, if the bearer selects that unit as a target of a charge, add 2 to Charge rolls made for the bearer and enemy units cannot use the Fire Overwatch Stratagem to shoot at the bearer."
             }
           ]
         }
@@ -6973,7 +7231,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 21 BEAST SNAGGA INFANTRY models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -7060,7 +7320,9 @@
         {
           "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -7115,6 +7377,8 @@
         "This model can be equipped with 1 attack squig.",
         "This model’s big choppa can be replaced with 1 power klaw."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BOYZ", "NOBZ"],
         "extra": ""
@@ -9227,13 +9491,42 @@
     }
   ],
   "detachments": [
-    "Kult of Speed",
-    "War Horde",
-    "Taktikal Brigade",
-    "Bully Boyz",
-    "Green Tide",
-    "Da Big Hunt",
-    "Dread Mob"
+    {
+      "name": "Kult of Speed",
+      "faction": "Orks"
+    },
+    {
+      "name": "Da Big Hunt",
+      "faction": "Orks"
+    },
+    {
+      "name": "Dread Mob",
+      "faction": "Orks"
+    },
+    {
+      "name": "War Horde",
+      "faction": "Orks"
+    },
+    {
+      "name": "Bully Boyz",
+      "faction": "Orks"
+    },
+    {
+      "name": "Green Tide",
+      "faction": "Orks"
+    },
+    {
+      "name": "Taktikal Brigade",
+      "faction": "Orks"
+    },
+    {
+      "name": "More Dakka!",
+      "faction": "Orks"
+    },
+    {
+      "name": "Freebooter Krew",
+      "faction": "Orks"
+    }
   ],
   "enhancements": [
     {
@@ -9244,7 +9537,10 @@
       "excludes": [],
       "description": "ORKS model only. While the bearer is leading a unit, add 2\" to the Move characteristic of models in that unit.",
       "faction_id": "ORK",
-      "detachment": "War Horde"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Headwoppa’s Killchoppa",
@@ -9254,7 +9550,10 @@
       "excludes": [],
       "description": "ORKS model only. Melee weapons equipped by the bearer (excluding Extra Attacks weapons) have the [DEVASTATING WOUNDS] ability.",
       "faction_id": "ORK",
-      "detachment": "War Horde"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Kunnin’ but Brutal",
@@ -9264,7 +9563,10 @@
       "excludes": [],
       "description": "ORKS model only. While the bearer is leading a unit, that unit is eligible to shoot and declare a charge in a turn in which it Fell Back.",
       "faction_id": "ORK",
-      "detachment": "War Horde"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Supa-Cybork Body",
@@ -9274,7 +9576,10 @@
       "excludes": [],
       "description": "ORKS model only. The bearer has the Feel No Pain 4+ ability.",
       "faction_id": "ORK",
-      "detachment": "War Horde"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Glory Hog",
@@ -9284,7 +9589,10 @@
       "excludes": [],
       "description": "BEASTBOSS ON SQUIGOSAUR model only. Models in the bearer’s unit have the Scouts 9\" ability.",
       "faction_id": "ORK",
-      "detachment": "Da Big Hunt"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Skrag Every Stash!",
@@ -9294,7 +9602,10 @@
       "excludes": [],
       "description": "BEAST SNAGGA model only. At the end of your Command phase, if the bearer is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
       "faction_id": "ORK",
-      "detachment": "Da Big Hunt"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Proper Killy",
@@ -9304,7 +9615,10 @@
       "excludes": [],
       "description": "BEAST SNAGGA model only. Add 1 to the Damage characteristic of melee weapons equipped by the bearer.",
       "faction_id": "ORK",
-      "detachment": "Da Big Hunt"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Surly As A Squiggoth",
@@ -9314,7 +9628,10 @@
       "excludes": [],
       "description": "BEASTBOSS ON SQUIGOSAUR model only. While the bearer is leading a unit, each time an attack targets that unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of that unit, subtract 1 from the Wound roll.",
       "faction_id": "ORK",
-      "detachment": "Da Big Hunt"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Wazblasta",
@@ -9324,17 +9641,23 @@
       "excludes": [],
       "description": "DEFFKILLA WARTRIKE model only. In your Shooting phase, after the bearer’s unit has shot, if it is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\". If it does, until the end of the turn, it is not eligible to declare a charge.",
       "faction_id": "ORK",
-      "detachment": "Kult of Speed"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Fasta Than Yooz",
       "id": "615dbb49-1211-5bc2-83e4-f8a30440c872",
       "cost": "35",
-      "keywords": ["Infantry"],
+      "keywords": ["Infantry", "Orks"],
       "excludes": [],
       "description": "ORKS INFANTRY model only. Each time the bearer’s unit disembarks from a TRANSPORT after that TRANSPORT has made a Normal move, the bearer’s unit is still eligible to declare a charge this turn.",
       "faction_id": "ORK",
-      "detachment": "Kult of Speed"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Squig-hide Tyres",
@@ -9344,7 +9667,10 @@
       "excludes": [],
       "description": "DEFFKILLA WARTRIKE model only. Each time a model in the bearer’s unit makes a Consolidation move, it can move up to 6\" instead of up to 3\".",
       "faction_id": "ORK",
-      "detachment": "Kult of Speed"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Speed Makes Right",
@@ -9354,7 +9680,10 @@
       "excludes": [],
       "description": "ORKS model only. In your Command phase, if the bearer (or a TRANSPORT the bearer is embarked within) is within 9\" of one or more enemy units, roll one D6: on a 3+, you gain 1CP.",
       "faction_id": "ORK",
-      "detachment": "Kult of Speed"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Smoky Gubbinz",
@@ -9364,7 +9693,10 @@
       "excludes": [],
       "description": "MEK model only. Models in the bearer’s unit have the Stealth ability.",
       "faction_id": "ORK",
-      "detachment": "Dread Mob"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Supa-glowy Fing",
@@ -9374,7 +9706,10 @@
       "excludes": [],
       "description": "MEK model only. In your Command phase, select one enemy unit within 18\" of and visible to the bearer, then roll one D6: on a 1‑2, that enemy unit must take a Battle‑shock test; on a 3‑4, that enemy unit suffers D3 mortal wounds; on a 5‑6, until the start of your next Command phase, each time a model in that enemy unit makes an attack, subtract 1 from the Hit roll.",
       "faction_id": "ORK",
-      "detachment": "Dread Mob"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Press It Fasta!",
@@ -9384,7 +9719,10 @@
       "excludes": [],
       "description": "MEK model only. Each time the bearer’s unit is selected to shoot, when rolling to determine which ability that unit’s weapons gain from the Try Dat Button! Detachment rule, roll one additional D6: until the end of the phase, ranged weapons equipped by models in that unit gain both Button Effects generated by those rolls. If a duplicate Button Effect is rolled, it has no additional effect.",
       "faction_id": "ORK",
-      "detachment": "Dread Mob"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Gitfinder Gogglez",
@@ -9394,47 +9732,62 @@
       "excludes": [],
       "description": "MEK model only. Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.",
       "faction_id": "ORK",
-      "detachment": "Dread Mob"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Ferocious Show Off",
       "id": "a2af83f9-581c-530f-bb91-decaf1bdef0a",
       "cost": "10",
-      "keywords": ["Infantry"],
+      "keywords": ["Infantry", "Orks"],
       "excludes": [],
       "description": "ORKS INFANTRY model only. Each time the bearer fights, while resolving those attacks, add 1 to the Strength characteristic of the bearer’s melee weapons. If the bearer’s unit contains 10 or more models, while resolving those attacks, add 3 to the Strength characteristic instead.",
       "faction_id": "ORK",
-      "detachment": "Green Tide"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Brutal But Kunnin’",
       "id": "4f02b2d6-abe5-5d7c-b48b-071811c2ccd4",
       "cost": "25",
-      "keywords": ["Infantry"],
+      "keywords": ["Infantry", "Orks"],
       "excludes": [],
       "description": "ORKS INFANTRY model only. In your Command phase, if the bearer is on the battlefield (or is embarked within a TRANSPORT that is on the battlefield), roll one D6, adding 2 to the result if the bearer’s unit contains 10 or more models: on a 5+, you gain 1CP.",
       "faction_id": "ORK",
-      "detachment": "Green Tide"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Bloodthirsty Belligerence",
       "id": "c14bcbec-fcd0-50d5-bd24-5a7f7e719a86",
       "cost": "15",
-      "keywords": ["Infantry"],
+      "keywords": ["Infantry", "Orks"],
       "excludes": [],
       "description": "ORKS INFANTRY model only. While the bearer is leading a unit, you can re‑roll Advance rolls made for that unit. While that unit contains 10 or more models, you can re‑roll Charge rolls made for that unit as well.",
       "faction_id": "ORK",
-      "detachment": "Green Tide"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Raucous Warcaller",
       "id": "337bf07f-eadc-53e1-8437-3ef3f9a2bd3c",
       "cost": "20",
-      "keywords": ["Infantry"],
+      "keywords": ["Infantry", "Orks"],
       "excludes": [],
       "description": "ORKS INFANTRY model only. While the bearer is leading a unit, that unit always counts as containing 10 or more models for the purposes of your Detachment rule and any Stratagems you use.",
       "faction_id": "ORK",
-      "detachment": "Green Tide"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Tellyporta",
@@ -9444,7 +9797,10 @@
       "excludes": [],
       "description": "WARBOSS IN MEGA ARMOUR model only. Models in the bearer’s unit have the Deep Strike ability.",
       "faction_id": "ORK",
-      "detachment": "Bully Boyz"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Big Gob",
@@ -9454,7 +9810,10 @@
       "excludes": [],
       "description": "INFANTRY WARBOSS model only. At the start of the Fight phase, select one enemy unit within Engagement range of the bearer. That unit must take a Battle‑shock test, and when doing so, subtract 1 from the result.",
       "faction_id": "ORK",
-      "detachment": "Bully Boyz"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Da Biggest Boss",
@@ -9464,7 +9823,10 @@
       "excludes": [],
       "description": "INFANTRY WARBOSS model only. Add 2 to the bearer’s Wounds characteristic.",
       "faction_id": "ORK",
-      "detachment": "Bully Boyz"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "’Eadstompa",
@@ -9474,22 +9836,28 @@
       "excludes": [],
       "description": "INFANTRY WARBOSS model only. Each time the bearer makes an attack that targets a unit that is below its Starting Strength, re‑roll a Wound roll of 1. If that unit is Below Half‑strength, you can re‑roll the Wound roll instead.",
       "faction_id": "ORK",
-      "detachment": "Bully Boyz"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Skwad Leader",
       "id": "ebff3d52-419d-5ebf-a66e-dcfb3fe71156",
       "cost": "15",
-      "keywords": ["Warboss"],
+      "keywords": ["Warboss", "Infantry"],
       "excludes": [],
-      "description": "WARBOSS model only. During the Declare Battle Formations step, the bearer can be attached to a KOMMANDOS unit. While leading a KOMMANDOS unit, it has the Infiltrators and Stealth abilities.&x20;",
+      "description": "WARBOSS INFANTRY model only. During the Declare Battle Formations step, the bearer can be attached to a KOMMANDOS unit. While leading a KOMMANDOS unit, it has the Infiltrators and Stealth abilities.",
       "faction_id": "ORK",
-      "detachment": "Taktikal Brigade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Mek Kaptin",
       "id": "2fbca2fc-1640-5a1e-af91-348dc4e9feb4",
-      "cost": "35",
+      "cost": "45",
       "keywords": [
         "Big Mek with Shokk Attack Gun",
         "Big Mek",
@@ -9498,7 +9866,10 @@
       "excludes": [],
       "description": "BIG MEK, BIG MEK IN MEGA ARMOUR or BIG MEK WITH SHOKK ATTACK GUN model only. During the Declare Battle Formations step, the bearer can be attached to a FLASH GITZ unit. Each time a model in the bearer’s unit makes a ranged attack, you can re‑roll the Hit roll.",
       "faction_id": "ORK",
-      "detachment": "Taktikal Brigade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Mork’s Kunnin’",
@@ -9508,7 +9879,10 @@
       "excludes": [],
       "description": "ORKS model only. After both players have deployed their armies, select up to three ORKS units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "ORK",
-      "detachment": "Taktikal Brigade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Gob Boomer",
@@ -9518,14 +9892,324 @@
       "excludes": [],
       "description": "WARBOSS or MEK model only. Each time the bearer issues Taktiks, it can do so to a friendly ORKS INFANTRY or ORKS MOUNTED unit within 18\", instead of 6\".",
       "faction_id": "ORK",
-      "detachment": "Taktikal Brigade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Da Gobshot Thunderbuss",
+      "id": "52b64d3c-8692-5b3a-831b-3e8d3e57c3f6",
+      "cost": "15",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "description": "ORKS model only. Ranged weapons equipped by the bearer have the [DEVASTATING WOUNDS] and [HAZARDOUS] abilities.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Dead Shiny Shootas",
+      "id": "6c4c0e8d-4d3d-525e-a7b4-72abd9533b35",
+      "cost": "35",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "description": "ORKS model only. Ranged weapons equipped by models in the bearer’s unit have the [RAPID FIRE 1] ability.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Targetin’ Squigs",
+      "id": "8f58b27c-9e02-53cd-9d96-991e0a62b7ea",
+      "cost": "15",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "description": "ORKS model only. Each time a model in the bearer’s unit makes a ranged attack, add 1 to the Hit roll.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Zog Off and Eat Dakka!",
+      "id": "1f7c3780-cdd5-5d23-ae37-f9963f45b573",
+      "cost": "10",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "description": "ORKS model only. The bearer’s unit is eligible to shoot in a turn in which it Fell Back.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Da Kaptin",
+      "id": "2821c29d-8b5f-5b01-8ce9-0cb002409f62",
+      "cost": "10",
+      "keywords": ["Warboss"],
+      "excludes": [],
+      "description": "WARBOSS model only. Once per battle round, at the start of any phase, you can select one friendly ORKS unit that is Battle‑shocked and within 12\" of the bearer. That unit suffers D3 mortal wounds and it is no longer Battle‑shocked.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Git-Spotter Squig",
+      "id": "c40d7255-95c5-56df-92e6-a4233147c9e4",
+      "cost": "20",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "description": "ORKS model only. Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Bionik Workshop",
+      "id": "5df9f664-a385-5577-8495-3405d037a5d1",
+      "cost": "15",
+      "keywords": ["Big Mek", "Painboy"],
+      "excludes": [],
+      "description": "BIG MEK or PAINBOY model only. At the start of the battle, roll one D3 and compare the result to the list below. Until the end of the battle, models in the bearer’s unit have that bioniks ability.\n\n1.  Bionik Legs: Add 2\" to the Move characteristic of this model.\n2.  Bionik Arms: Add 1 to the Strength characteristic of melee weapons equipped by this model.\n3.  Bionik Bonce: Improve the Weapon Skill characteristic of melee weapons equipped by this model by 1.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Razgit’s Magik Map",
+      "id": "d8c2d39e-4895-5d24-80f2-dec0bb0585e6",
+      "cost": "25",
+      "keywords": ["Orks"],
+      "excludes": [],
+      "description": "ORKS model only. After both players have deployed their armies, select up to three ORKS INFANTRY units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves.",
+      "faction_id": "ORK",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
     }
   ],
   "id": "ORK",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Orks",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Waaagh!",
+        "rules": [
+          {
+            "text": "If your Army Faction is **ORKS**, once per battle, at the start of your Command phase, you can call a Waaagh!. If you do, until the start of your next Command phase, the Waaagh! is active for your army and:\n\n■ Units from your army with this ability are eligible to declare a charge in a turn in which they Advanced.\n■ Add 1 to the Strength and Attacks characteristics of melee weapons equipped by models from your army with this ability.\n■ Models from your army with this ability have a 5+ invulnerable save.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Kult of Speed",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Adrenaline Junkies",
+            "rules": [
+              {
+                "text": "**SPEED FREEKS** units from your army are eligible to shoot and declare a charge in a turn in which they Advanced or Fell Back.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Da Big Hunt",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Da Hunt Is On",
+            "rules": [
+              {
+                "text": "At the start of your Command phase, select one **MONSTER**, **VEHICLE** or **CHARACTER** unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Prey:\n\n■ Each time a **BEAST SNAGGA** unit from your army declares a charge that includes your Prey as one of the targets, you can re‑roll the Charge roll.\n■ Each time a **BEAST SNAGGA** model from your army makes an attack that targets your Prey, improve the Armour Penetration characteristic of that attack by 1.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Dread Mob",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Try Dat Button!",
+            "rules": [
+              {
+                "text": "Each time a **MEK**, **ORKS WALKER** or **GROTS VEHICLE** unit from your army is selected to shoot or fight, roll one D6. Until the end of the phase, weapons equipped by models in that unit have the corresponding ability shown in the table below.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "-",
+                "order": 2,
+                "title": null,
+                "type": "image"
+              },
+              {
+                "text": "Alternatively, when such a unit is selected to shoot or fight, you can select one of the abilities above instead of rolling the D6. If you do, until the end of the phase, weapons equipped by models in that unit have the **[HAZARDOUS]** ability as well.\n\nIf a weapon equipped by a model from you army has the **[HAZARDOUS]** ability from multiple sources, each time you take a Hazardous test for that weapon, it is failed on a roll of a 1 or a 2.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "War Horde",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Get Stuck In",
+            "rules": [
+              {
+                "text": "Melee weapons equipped by **ORKS** models from your army have the **[SUSTAINED HITS 1]** ability.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Bully Boyz",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Da Boss Is Watchin’",
+            "rules": [
+              {
+                "text": "At the start of your Command phase, in a turn in which you have not called a Waaagh!, if you have one or more **WARBOSS** models on the battlefield (or embarked within a **TRANSPORT** that is on the battlefield), you can call a Waaagh! for a second time this battle. When doing so, that second Waaagh! only counts as having been called for **WARBOSS**, **NOBZ** and **MEGANOBZ** units from your army.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Green Tide",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Mob Mentality",
+            "rules": [
+              {
+                "text": "Each time an attack targets a **BOYZ** unit from your army, models in that unit have a 6+ invulnerable save against that attack. Each time an attack targets a **BOYZ** unit from your army that contains 10 or more models, models in that unit have a 5+ invulnerable save against that attack.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Taktikal Brigade",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Lissen ’Ere",
+            "rules": [
+              {
+                "text": "Once per battle round, in your Command phase or after being set up on the battlefield in your Movement phase, each **BOSS SNIKROT**, **MEK** and **WARBOSS** model in your army can issue Taktiks abilities.\n\nTo do so, select one of the Taktiks abilities below and select one friendly **ORKS** unit within 6\" of that model to issue them to. That model must take a Leadership test: if failed, the selected unit suffers 1 mortal wound. Until the start of your next Command phase, the selected unit is affected by the selected Taktik. A unit cannot have Taktiks issued to it in this way more than once per battle round.\n\nTaktiks abilities cannot be issued to Battle‑shocked units, and if a unit affected by Taktiks becomes Battle‑shocked, all Taktiks cease to affect that unit while it is Battle‑shocked.\n\n**Get Stuck In**: You can re‑roll Charge rolls made for this unit.\n\n**Get On Wiv It**: Add 1 to the Strength characteristic of melee weapons equipped by models in this unit.\n\n**Sneaky Stalkin’**: **INFANTRY** and **MOUNTED** models (excluding **MEGANOBZ**) in this unit have the Stealth ability and each time a ranged attack targets this unit, those models have the Benefit of Cover against that attack.\n\n**Shoota Drills**: Each time an **INFANTRY** or **MOUNTED** model in this unit makes a ranged attack, add 1 to the Hit roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "More Dakka!",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Dakka! Dakka! Dakka!",
+            "rules": [
+              {
+                "text": "Ranged weapons equipped by **ORKS INFANTRY** and **ORKS WALKER** models from your army have the **[ASSAULT]** ability.\n\nWhile the Waaagh! is active for your army, during your Shooting phase, ranged weapons equipped by **ORKS INFANTRY**  and **ORKS WALKER** models from your army have the **[SUSTAINED HITS 1]** ability.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Freebooter Krew",
+        "faction": "Orks",
+        "rules": [
+          {
+            "name": "Here be Loot",
+            "rules": [
+              {
+                "text": "At the start of the battle round, select one objective marker. Until the start of the next battle round, that objective marker is your loot objective.\n\nEach time a model in an **ORKS INFANTRY**, **ORKS MOUNTED** or **ORKS WALKER** unit from your army makes an attack, that attack has the **[SUSTAINED HITS 1]** ability if either or both of the following are true:\n\n■  That model’s unit is within range of your loot objective.\n■ That attack targets a unit within range of your loot objective.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "Dakkastorm",
@@ -9540,7 +10224,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "Often all an enemy will see of a Kult of Speed is a blur as they speed by, all guns blazing.",
-      "detachment": "Kult of Speed"
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Blitza Fire",
@@ -9555,7 +10240,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "Fiercely gripping the trigger, with a manic grin as they close on their foes, Speed Freeks fire so many rounds that some just have to find a weak spot.",
-      "detachment": "Kult of Speed"
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Full Throttle",
@@ -9570,7 +10256,8 @@
       "phase": ["charge"],
       "faction_id": "ORK",
       "fluff": "When racing buggies and warbikes charge at full pelt, the power behind their crews’ assault is so great that they can smash through the enemy.",
-      "detachment": "Kult of Speed"
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Stalkin’ Taktiks",
@@ -9585,7 +10272,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "There is no hiding a Beast Snagga stampede, but the more agile amongst the hunters know how to evade the worst of an unsporting prey’s dakka.",
-      "detachment": "Da Big Hunt"
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Drag It Down",
@@ -9600,7 +10288,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "Beast Snaggas have many tales of the times they took on the biggest prey, clobbering them with so many blows that what was left was a crumpled mass of broken hide and squished innards.",
-      "detachment": "Da Big Hunt"
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Klankin’ Klaws",
@@ -9615,7 +10304,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "The krews of a Mek’s stompiest contraptions revel in ripping apart anything they can get their klaws on, heedless of the damage done to their own gubbinz.",
-      "detachment": "Dread Mob"
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Bigger Shells For Bigger Gitz",
@@ -9630,7 +10320,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "Stashes of extra speshul ammo provided by the Meks are often expended on rival monstrosities.",
-      "detachment": "Dread Mob"
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Dakka! Dakka! Dakka!",
@@ -9645,7 +10336,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "Orks have a tendency to hold the trigger down until their weapon stops firing, falls apart or misfires.",
-      "detachment": "Dread Mob"
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Extra Gubbinz",
@@ -9660,7 +10352,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "The Meks’ creations can afford to have all manner of useless junk blasted from them with little effect.",
-      "detachment": "Dread Mob"
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Unbridled Carnage",
@@ -9675,7 +10368,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "When Orks get stuck into the foe, the carnage is wonderful to behold, at least for all their mates.",
-      "detachment": "War Horde"
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "’Ard as Nails",
@@ -9690,7 +10384,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "ORK",
       "fluff": "Even the lowliest Ork Boy has a toughened hide and a dense skull. While there yet remains the prospect of a git to give a good kicking, it takes a blow of truly phenomenal strength to even give the Ork pause.",
-      "detachment": "War Horde"
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Mob Rule",
@@ -9705,7 +10400,8 @@
       "phase": ["command"],
       "faction_id": "ORK",
       "fluff": "The more Orks that gather in one place the more the Waaagh! energy flows, and the more fearless they all become.",
-      "detachment": "War Horde"
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "’Ere We Go",
@@ -9720,7 +10416,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Even Orks can put on a surprising turn of speed when the promise of a good face‑to‑face fight is in the offing.",
-      "detachment": "War Horde"
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Armed To Da Teef",
@@ -9735,7 +10432,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "ORK",
       "fluff": "Nobz load themselves with all manner of weapons in shows of wealth and influence, enabling them to smash the foe with a ceaseless barrage of attacks.",
-      "detachment": "Bully Boyz"
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Cut’ Em Down",
@@ -9750,7 +10448,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Furious with any snivelling gitz who attempt to back away from a good fight, Nobz will ruthlessly hack them apart as they turn to flee.",
-      "detachment": "Bully Boyz"
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Hulking Brutes",
@@ -9765,7 +10464,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "The sheer aggressive contempt advancing Nobz project, not to mention their thick skulls and ‘eavy armour, make them a terrifying prospect for foes desperately trying to gun them down.",
-      "detachment": "Bully Boyz"
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Competitive Streak",
@@ -9780,7 +10480,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "Galvanised by the rest of their mates fighting around them, Orks will redouble their efforts to outdo each other.",
-      "detachment": "Green Tide"
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Bulldozer Brutality",
@@ -9795,7 +10496,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "In the massive fights that Orks enjoy, the only way to ensure a slice of the action is to bludgeon a path through the press to get a hand on the enemy.",
-      "detachment": "Green Tide"
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Fight Proppa",
@@ -9810,7 +10512,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "Some deviant Blood Axes go so far as to practise hand‑to‑hand combat, tailoring fighting styles to specific types of enemies.",
-      "detachment": "Taktikal Brigade"
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Krunchin’ Descent",
@@ -9825,7 +10528,72 @@
       "phase": ["charge"],
       "faction_id": "ORK",
       "fluff": "With their rocket packs at full throttle, Stormboyz plummet to smash into their foes with bone‑crushing force.",
-      "detachment": "Taktikal Brigade"
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Orks Is Still Orks",
+      "id": "da8488fd-6a13-55bb-aa4c-5c734962bf61",
+      "cost": 1,
+      "turn": "either",
+      "target": "One ORKS unit from your army that has not been selected to fight this phase.",
+      "when": "Fight phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit, re‐roll a Wound roll of 1. If that enemy unit is within range of an objective marker, you can re‐roll the Wound roll instead.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight"],
+      "faction_id": "ORK",
+      "fluff": "Even though they may be armed with the flashiest shootas, when enemies stray within arms reach, an Orks first and strongest instinct is to use their snazzy shoota as a cudgel, and bash their foe to a pulp.",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Long, Uncontrolled Bursts",
+      "id": "c0006e5f-3047-5438-9894-36d0d083a368",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ORKS unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, ranged weapons equipped by models in your unit have the [IGNORES COVER] ability.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["shooting"],
+      "faction_id": "ORK",
+      "fluff": "When facing off against sneaky gitz who like to lurk in cover, most Orks believe the most effective strategy is to fire off so many bullets and munitions that something is bound to hit the target.",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Bash and Grab",
+      "id": "ad697d65-64ca-5894-b23f-158a59bdab24",
+      "cost": 1,
+      "turn": "either",
+      "target": "One ORKS unit from your army that has not been selected to fight this phase.",
+      "when": "The Fight phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit within range of the loot objective, you can re‑roll the Wound roll.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight"],
+      "faction_id": "ORK",
+      "fluff": "Freebooterz waste no time getting violently stuck into anyone unwise enough to try to keep prized loot out of their grasping claws.",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Boardin’ Rush",
+      "id": "409fc219-e763-5c67-b5aa-0f9e639577ad",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ORKS unit from your army that has not been selected to move this phase.",
+      "when": "Your Movement phase.",
+      "effect": "Until the end of the phase, each time your unit Advances, do not make an Advance roll. Instead, until the end of the phase, add 6\" to the Move characteristic of models in your unit.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["movement"],
+      "faction_id": "ORK",
+      "fluff": "Having cut their gold‑plated fangs storming aboard hostile warships, these Freebooterz are good at getting stuck straight into the enemy.",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Careen!",
@@ -9840,7 +10608,8 @@
       "phase": ["any"],
       "faction_id": "ORK",
       "fluff": "If their vehicle is on its last legs, any sensible Ork driver will aim its fiery remains into the nearest foe.",
-      "detachment": "War Horde"
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Crushing Impact",
@@ -9855,7 +10624,8 @@
       "phase": ["charge"],
       "faction_id": "ORK",
       "fluff": "When a thundering mob of hulking Ork Nobz stampedes into the foe, their crushing momentum is a lethal weapon by itself.",
-      "detachment": "Bully Boyz"
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Tide of Muscle",
@@ -9870,7 +10640,24 @@
       "phase": ["charge"],
       "faction_id": "ORK",
       "fluff": "Once a horde of Orks get a sight of the foe, nothing can stop them.",
-      "detachment": "Green Tide"
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Huge Show-offs",
+      "id": "df3d43df-4284-5dcb-8b65-b0e7716d337f",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ORKS WALKER unit (excluding KILLA KANS) from your army.",
+      "when": "Your Command phase.",
+      "effect": "Until the start of your next Command phase, improve your unit’s Move, Leadership and Objective Control characteristics by 1, and each time a model in your unit makes an attack, add 1 to the Hit roll.",
+      "restrictions": "",
+      "type": "Epic Deed",
+      "phase": ["command"],
+      "faction_id": "ORK",
+      "fluff": "The pilots of the biggest Orky war machines are prone to showing off when the dakka starts flying. After all, they have a reputation to uphold.",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Orks is Never Beaten",
@@ -9885,7 +10672,24 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "So resilient is Ork physiology – and so slow are Orks on the uptake – even death can take time to register",
-      "detachment": "War Horde"
+      "detachment": "War Horde",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Get Stuck In, Ladz!",
+      "id": "240aef2a-1fed-5484-b62b-d499ae318a19",
+      "cost": 2,
+      "turn": "your",
+      "target": "One ORKS unit (excluding GRETCHIN) from your army.",
+      "when": "Your Command phase.",
+      "effect": "Until the start of your next Command phase, the Waaagh! is active for your unit, even if you have already called a Waaagh! this battle.\n\nDesigner’s Note: This means that any abilities that are in effect while the Waaagh! is active for your army will be in effect for your unit.",
+      "restrictions": "",
+      "type": "Epic Deed",
+      "phase": ["command"],
+      "faction_id": "ORK",
+      "fluff": "Lashing out with ferocious blows and bellowing loud enough to burst eardrums, the biggest Ork present persuades his ladz to fight even harder.",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Speediest Freeks",
@@ -9900,7 +10704,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "ORK",
       "fluff": "Speed Freeks are often just blurs of vehicular mayhem that prove difficult to land a blow on.",
-      "detachment": "Kult of Speed"
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Squig Flingin’",
@@ -9915,7 +10720,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Speed Freeks live in their vehicles, so it’s no surprise to find small squigs lurking in some compartments. A few are vicious, and entertaining, enough to be worth lobbing into nearby enemies to cause anarchy.",
-      "detachment": "Kult of Speed"
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "More Gitz Over ’Ere!",
@@ -9930,7 +10736,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Sometimes new targets that emerge are just too juicy to ignore.",
-      "detachment": "Kult of Speed"
+      "detachment": "Kult of Speed",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Where D’ya Fink You’re Going?",
@@ -9945,7 +10752,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Beast Snagga victims often make a break for it before the Orks have had their fill of fighting. With a roar, the Orks immediately give chase, or else lose interest and lunge after other potential trophies.",
-      "detachment": "Da Big Hunt"
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Instinctive Hunters",
@@ -9960,7 +10768,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "With a keen eye for tracking their prey, especially kunnin’ Beast Snaggas will circle round the hunt site to ambush the luckless gitz from another angle.",
-      "detachment": "Da Big Hunt"
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Unstoppable Momentum",
@@ -9975,7 +10784,8 @@
       "phase": ["charge"],
       "faction_id": "ORK",
       "fluff": "Smasha squigs are essentially battering rams on legs. Driven on by the squighogs piling in behind them, they plunge headlong into the foe, trampling one after the next.",
-      "detachment": "Da Big Hunt"
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Dat One’s Even Bigga!",
@@ -9990,7 +10800,8 @@
       "phase": ["charge"],
       "faction_id": "ORK",
       "fluff": "When bigger prey is sighted, nothing can keep a mob of Beast Snaggas from it. A great hunting chant erupts, and lesser gitz are swiftly forgotten in the enthusiastic impetus to pile into a bigger challenge.",
-      "detachment": "Da Big Hunt"
+      "detachment": "Da Big Hunt",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Superfuelled Boiler",
@@ -10005,7 +10816,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "By pushing their engines past any sane level, Ork combat walkers can build terrifying momentum.",
-      "detachment": "Dread Mob"
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Conniving Runts",
@@ -10020,7 +10832,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "A Gretchin’s lot is often a wretched one, and the spiteful zoggers will take any chance to cause pain and mischief using sneaky traps before legging it.",
-      "detachment": "Dread Mob"
+      "detachment": "Dread Mob",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Too Arrogant To Die",
@@ -10035,7 +10848,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "ORK",
       "fluff": "With bone‑headed arrogance, Nobz will carry on killing before their deaths finally register.",
-      "detachment": "Bully Boyz"
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Always Lookin’ Fer A Fight",
@@ -10050,7 +10864,8 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "As one enemy falls to the choppas of a battle‑hungry mob of Nobz, they immediately seek out more.",
-      "detachment": "Bully Boyz"
+      "detachment": "Bully Boyz",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Braggin’ Rights",
@@ -10065,7 +10880,8 @@
       "phase": ["command"],
       "faction_id": "ORK",
       "fluff": "With volleys of wagers, threats, insults, dung and the occasional hurled rock, mobs of Orks bolster each other’s spirits in the most Orky ways possible.",
-      "detachment": "Green Tide"
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Come On Ladz!",
@@ -10080,7 +10896,8 @@
       "phase": ["command"],
       "faction_id": "ORK",
       "fluff": "Orks are drawn to conflict and constantly race into battle at the merest hint of violence.",
-      "detachment": "Green Tide"
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Go Get ’Em!",
@@ -10095,7 +10912,8 @@
       "phase": ["shooting"],
       "faction_id": "ORK",
       "fluff": "Keeping Orks at arm’s length and pummelling them with as much firepower as possible is often the safest tactic for their victims. Unfortunately, it can also draw their attention and give them the urge to re‑educate the gitz in the joys of up‑close savagery.",
-      "detachment": "Green Tide"
+      "detachment": "Green Tide",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Dat’s Ours",
@@ -10110,7 +10928,8 @@
       "phase": ["command"],
       "faction_id": "ORK",
       "fluff": "A few Orks, particularly those of the Blood Axe Clan, can resist their destructive urges long enough to prioritise the seizing of objectives.",
-      "detachment": "Taktikal Brigade"
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Taktikal Retreat",
@@ -10125,7 +10944,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Blood Axes feel no shame in retreating from a fight, particularly if the boss wants someone else duffed up.",
-      "detachment": "Taktikal Brigade"
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "On To Da Next",
@@ -10140,7 +10960,8 @@
       "phase": ["movement"],
       "faction_id": "ORK",
       "fluff": "Seeing little value in pursuing fleeing foes, Blood Axe mobs turn their attention towards the next fight or press towards whatever cache of shiny gubbinz the boss desires.",
-      "detachment": "Taktikal Brigade"
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
     },
     {
       "name": "Ded Sneaky",
@@ -10155,8 +10976,105 @@
       "phase": ["fight"],
       "faction_id": "ORK",
       "fluff": "Utilising camouflage, cover or misdirection, these Orks slip away to prepare their next ambush, leaving their foes staring at thin air.",
-      "detachment": "Taktikal Brigade"
+      "detachment": "Taktikal Brigade",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Call Dat Dakka?",
+      "id": "d48ef1a0-3097-5132-b784-26f9ac9502c2",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One ORKS unit from your army that had one or more of its models destroyed as a result of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase, just after an enemy unit has shot.",
+      "effect": "Your unit can shoot as if it were your Shooting phase, but must target only that enemy unit when doing so, and can only do so if that enemy unit is an eligible target.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["shooting"],
+      "faction_id": "ORK",
+      "fluff": "Gun‐crazed mobs of Orks take incoming fire as a primal challenge, one that must be answered with an even bigger show of dakka.",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Grab and Bash",
+      "id": "39f7172b-ddd9-52fa-b745-9d3a31bab69e",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ORKS unit from your army (excluding GRETCHIN units) that is within range of the loot objective.",
+      "when": "Your Command phase.",
+      "effect": "Until the start of your next Command phase, the Waaagh! is active for your unit, even if you have already called a Waaagh! this battle.\n\nDesigner’s Note: This means that any abilities that are in effect while the Waaagh! is active for your army will be in effect for your unit.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["command"],
+      "faction_id": "ORK",
+      "fluff": "Few warriors in the galaxy fight with greater brutality than a Freebooter determined to hang onto his loot.",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Deck Fraggers",
+      "id": "346e95a0-cda5-5c5d-a887-fb48e61ea54d",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ORKS unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, each time a model in your unit targets an INFANTRY unit with a ranged weapon, that weapon has the [BLAST] ability.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["shooting"],
+      "faction_id": "ORK",
+      "fluff": "Invented by some sadistic Bad Mek, these shrapnel‑packed rounds of kustom ammunition are excellent for scything down tight‑packed enemy infantry.",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Rolling Loot-Heap",
+      "id": "c5f57b69-255e-5ed6-a35a-3b356b93d76c",
+      "cost": 1,
+      "turn": "your",
+      "target": "One FLASH GITZ unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, ranged weapons equipped by models in your unit have the [ANTI‑VEHICLE 4+] ability.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["shooting"],
+      "faction_id": "ORK",
+      "fluff": "Just because an enemy vehicle is still mobile and fighting doesn’t stop any suitably arrogant Flash Gitz from claiming it as their loot, especially when their snazzguns are more than capable of explosively backing up that claim.",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Krump and Run",
+      "id": "6944232f-1e4a-59ec-ab4b-06c6ce6a109c",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One ORKS unit from your army that was within engagement range of that enemy unit at the start of the phase and is not within range of one or more enemy units.",
+      "when": "Your opponent’s Movement phase, just after an enemy unit falls back.",
+      "effect": "Your unit can make a Normal move of up to 6\".",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "ORK",
+      "fluff": "Freebooterz are unscrupulous pirates through and through, always on the look out for new looting opportunities and sometimes even willing to forgo a good punch up in favour of hauling away their riches.",
+      "detachment": "Freebooter Krew",
+      "detachment_faction": "Orks"
+    },
+    {
+      "name": "Speshul Shells",
+      "id": "69abf31c-8882-53d6-8801-7cb92fd6159f",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ORKS unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a ranged attack that targets the closest eligible target within 18\", improve the Armour Penetration characteristic of ranged weapons equipped by models in your unit by 1.",
+      "restrictions": "",
+      "type": "Wargear",
+      "phase": ["shooting"],
+      "faction_id": "ORK",
+      "fluff": "Nothing helps a round punch through armour better than stuffing it full of extra propellant.",
+      "detachment": "More Dakka!",
+      "detachment_faction": "Orks"
     }
   ],
-  "updated": "2025-02-05T13:53:46.776Z"
+  "updated": "2026-03-09T13:14:13.516Z"
 }

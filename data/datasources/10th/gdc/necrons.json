@@ -3,6 +3,7 @@
     "banner": "#032b16",
     "header": "#04532a"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -72,7 +73,8 @@
           "cost": "115",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -109,7 +111,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 10 NECRON WARRIOR models and 1 NECRONS INFANTRY CHARACTER model.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -197,7 +201,8 @@
           "cost": "540",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -268,7 +273,9 @@
       "transport": "",
       "wargear": [
         "This model’s 2 singularity generators can be replaced with 2 synaptic obliterators and 2 transdimensional projectors."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -345,16 +352,18 @@
       "name": "Triarch Praetorians",
       "points": [
         {
-          "cost": "200",
+          "cost": "180",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "100",
+          "cost": "90",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -409,7 +418,9 @@
       "transport": "",
       "wargear": [
         "All models in this unit can each have their rod of covenant replaced with 1 particle caster and 1 voidblade."
-      ]
+      ],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -473,13 +484,15 @@
           "cost": "200",
           "keyword": null,
           "models": "20",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "90",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -535,6 +548,8 @@
       "wargear": [
         "Any number of models can each have their gauss flayer replaced with 1 gauss reaper."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Technomancer",
         "Overlord",
@@ -545,8 +560,163 @@
         "Overlord with Translocation Shroud",
         "Trazyn the Infinite",
         "Plasmancer",
+        "Geomancer",
         "Chronomancer"
       ]
+    },
+    {
+      "abilities": {
+        "core": ["Scouts 8\""],
+        "damaged": {
+          "description": "",
+          "range": "",
+          "showDamagedAbility": false,
+          "showDescription": true
+        },
+        "faction": ["Reanimation Protocols"],
+        "invul": {
+          "info": "",
+          "showAtTop": true,
+          "showInfo": false,
+          "showInvulnerableSave": false,
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Harassment Swarm (Aura)",
+            "description": "While an enemy unit (excluding MONSTERS and VEHICLES) is within 3\" of this unit, each time a model in that unit makes an attack, subtract 1 from the Hit roll.",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "primarch": [],
+        "special": [],
+        "wargear": [
+          {
+            "name": "Nanoscarab Projector",
+            "description": "Once per battle round, when a friendly NECRONS unit within 3\" of this model’s Reanimation Protocols activate, it can use this ability. If it does, that unit reanimates 1 additional wound.",
+            "showAbility": true,
+            "showDescription": true
+          },
+          {
+            "name": "Accelerator Mandible",
+            "description": "At the start of the Fight phase, select one friendly CANOPTEK unit within 3\" of this unit. Until the end of the phase, improve the Weapon Skill characteristic of models in that unit by 1.",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ]
+      },
+      "cardType": "DataCard",
+      "composition": ["5 Canoptek Macrocytes"],
+      "factions": ["Necrons"],
+      "faction_id": "NEC",
+      "fluff": "Swarms of Canoptek Macrocytes descend on those foolish enough to disturb Necron tombs or interfere with their Cryptek masters. Able to both augment the systems of fellow Canoptek constructs while also harassing and mauling enemy forces, these swift-skimming insectile horrors are far more dangerous than they seem at first glance.",
+      "id": "fd485a3b-39ef-5c9d-ac69-740352b9402e",
+      "keywords": ["Beasts", "Fly", "Canoptek", "Macrocytes"],
+      "leader": "",
+      "loadout": "Every model is equipped with: gauss scalpel; claws",
+      "meleeWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "2",
+              "damage": "1",
+              "keywords": [],
+              "name": "Claws",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        }
+      ],
+      "name": "Canoptek Macrocytes",
+      "points": [
+        {
+          "cost": "85",
+          "keyword": null,
+          "models": "5",
+          "active": true,
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Lethal Hits"],
+              "name": "Gauss scalpel",
+              "range": "18\"",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "0",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Sustained Hits 1", "Assault"],
+              "name": "Tesla caster",
+              "range": "18\"",
+              "skill": "4+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": [],
+              "name": "Atomiser beam",
+              "range": "12\"",
+              "skill": "4+",
+              "strength": "6"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "active": true,
+          "ld": "8+",
+          "m": "8\"",
+          "name": "Canoptek Macrocytes",
+          "oc": "1",
+          "showDamagedMarker": false,
+          "showName": false,
+          "sv": "4+",
+          "t": "3",
+          "w": "1"
+        }
+      ],
+      "transport": "",
+      "wargear": [
+        "1 model’s gauss scalpel or tesla caster can be replaced with 1 accelerator mandible.",
+        "1 model’s gauss scalpel or tesla caster can be replaced with 1 atomiser beam and 1 nanoscarab projector.",
+        "All models in this unit can each have their gauss scalpel replaced with 1 tesla caster."
+      ],
+      "baseSize": "28.5mm",
+      "chapter": null,
+      "leadBy": ["Geomancer"]
     },
     {
       "abilities": {
@@ -613,10 +783,11 @@
       "name": "Technomancer",
       "points": [
         {
-          "cost": "85",
+          "cost": "80",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -654,9 +825,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": ["CANOPTEK WRAITHS", "IMMORTALS", "NECRON WARRIORS"],
-        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["ROYAL WARDEN", "NOBLE"],
+        "isBodyguard": true
       }
     },
     {
@@ -727,7 +902,8 @@
           "cost": "145",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -764,7 +940,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 1 NECRONS INFANTRY unit.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -873,7 +1051,8 @@
           "cost": "85",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -938,6 +1117,8 @@
         "If this model is not equipped with a tachyon arrow, it can be equipped with 1 resurrection orb.",
         "This model’s tachyon arrow and Overlord’s blade can be replaced with one of the following:  ◦ 1 staff of light ◦ 1 voidscythe"
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "LYCHGUARD", "NECRON WARRIORS"],
         "extra": ""
@@ -1011,7 +1192,8 @@
           "cost": "50",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1049,6 +1231,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "NECRON WARRIORS"],
         "extra": ""
@@ -1113,10 +1297,11 @@
       "name": "Canoptek Doomstalker",
       "points": [
         {
-          "cost": "145",
+          "cost": "140",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1169,7 +1354,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "90mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1233,13 +1420,15 @@
           "cost": "150",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "70",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1295,6 +1484,8 @@
       "wargear": [
         "All models in this unit can each have their gauss blaster replaced with 1 tesla carbine."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Technomancer",
         "Overlord",
@@ -1305,6 +1496,7 @@
         "Overlord with Translocation Shroud",
         "Trazyn the Infinite",
         "Plasmancer",
+        "Geomancer",
         "Chronomancer"
       ]
     },
@@ -1383,7 +1575,8 @@
           "cost": "60",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1420,7 +1613,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1497,7 +1692,8 @@
           "cost": "80",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1518,9 +1714,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "NECRON WARRIORS"],
-        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["ROYAL WARDEN", "NOBLE"],
+        "isBodyguard": true
       }
     },
     {
@@ -1560,7 +1760,7 @@
       "id": "aaf70701-a3e2-5308-994f-7310ec7d0018",
       "keywords": ["Vehicle", "Titanic", "Fly", "Towering", "Tesseract Vault"],
       "leader": "",
-      "loadout": "This model is equipped with: 4 tesla spheres; armoured bulk.",
+      "loadout": "This model is equipped with: 4 tesla sphere; armoured bulk.",
       "meleeWeapons": [
         {
           "active": true,
@@ -1585,7 +1785,8 @@
           "cost": "425",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1622,7 +1823,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1705,13 +1908,15 @@
           "cost": "150",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1784,7 +1989,9 @@
         "Any number of models can each be equipped with one of the following:  ◦ 1 nebuloscope ◦ 1 shadowloom",
         "Any number of models can each be equipped with 1 shieldvanes.",
         "Any number of models can each have their twin gauss blaster replaced with one of the following:  ◦ 1 particle beamer ◦ 1 twin tesla carbine"
-      ]
+      ],
+      "baseSize": "Small Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1854,7 +2061,8 @@
           "cost": "55",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1892,9 +2100,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "NECRON WARRIORS"],
-        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["ROYAL WARDEN", "NOBLE"],
+        "isBodyguard": true
       }
     },
     {
@@ -1964,19 +2176,22 @@
           "cost": "165",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "110",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "55",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2032,6 +2247,8 @@
       "wargear": [
         "Any number of models can each have their gauss destructor replaced with 1 enmitic exterminator."
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leadBy": ["Lokhust Lord"]
     },
     {
@@ -2103,13 +2320,15 @@
           "cost": "180",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "90",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2132,6 +2351,8 @@
       "wargear": [
         "For every 3 models in this unit, this unit can have 1 Plasmacyte."
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": ["Skorpekh Lord"]
     },
     {
@@ -2198,19 +2419,22 @@
           "cost": "180",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "120",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2247,7 +2471,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2330,10 +2556,11 @@
       "name": "Skorpekh Lord",
       "points": [
         {
-          "cost": "80",
+          "cost": "90",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2371,6 +2598,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": ["SKORPEKH DESTROYERS"],
         "extra": ""
@@ -2435,16 +2664,18 @@
       "name": "Deathmarks",
       "points": [
         {
-          "cost": "130",
+          "cost": "120",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "65",
+          "cost": "60",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2481,7 +2712,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2545,7 +2778,8 @@
           "cost": "110",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2627,7 +2861,9 @@
       "transport": "",
       "wargear": [
         "This model’s heat ray can be replaced with one of the following:  ◦ 1 particle shredder ◦ 1 heavy gauss cannon array"
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2703,7 +2939,8 @@
           "cost": "100",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2757,6 +2994,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "LYCHGUARD", "NECRON WARRIORS"],
         "extra": ""
@@ -2824,7 +3063,8 @@
           "cost": "300",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2861,7 +3101,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2925,7 +3167,8 @@
           "cost": "75",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2962,7 +3205,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3055,7 +3300,8 @@
           "cost": "120",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3128,7 +3374,9 @@
         "This model can be equipped with 1 resurrection orb.",
         "This model’s staff of light can be replaced with 1 Overlord’s blade.",
         "This model’s gauss cannon can be replaced with 1 tesla cannon."
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3192,25 +3440,29 @@
           "cost": "180",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "90",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "35",
+          "cost": "40",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3248,6 +3500,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "Large Flying Base",
+      "chapter": null,
       "leadBy": ["Lokhust Lord"]
     },
     {
@@ -3335,13 +3589,15 @@
           "cost": "170",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "85",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3364,6 +3620,8 @@
       "wargear": [
         "All models in this unit can each have their warscythe replaced with 1 hyperphase sword and 1 dispersion shield."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Overlord",
         "Imotekh the Stormlord",
@@ -3433,7 +3691,8 @@
           "cost": "400",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3504,7 +3763,9 @@
       "transport": "",
       "wargear": [
         "This model’s 4 gauss flux arcs can be replaced with 4 death rays."
-      ]
+      ],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3587,7 +3848,8 @@
           "cost": "85",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3608,6 +3870,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "LYCHGUARD", "NECRON WARRIORS"],
         "extra": ""
@@ -3681,13 +3945,15 @@
           "cost": "80",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3707,7 +3973,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3784,16 +4052,18 @@
       "name": "Canoptek Wraiths",
       "points": [
         {
-          "cost": "230",
+          "cost": "220",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "115",
+          "cost": "110",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3850,6 +4120,8 @@
         "Any number of models can each have their vicious claws replaced with whip coils.",
         "Any number of models can each be equipped with one of the following:  ◦ 1 particle caster ◦ 1 transdimensional beamer"
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": ["Technomancer"]
     },
     {
@@ -3872,7 +4144,7 @@
         "other": [
           {
             "name": "Ancient Collector",
-            "description": "While this model is leading a unit, at the end of your Command phase, if that unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+            "description": "While this model is leading a unit, at the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
             "showAbility": true,
             "showDescription": true
           },
@@ -3926,7 +4198,8 @@
           "cost": "75",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -3947,6 +4220,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "25mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "LYCHGUARD", "NECRON WARRIORS"],
         "extra": ""
@@ -4055,7 +4330,8 @@
           "cost": "80",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4096,10 +4372,153 @@
         "This model can be equipped with one of the following:  ◦ 1 nanoscarab amulet ◦ 1 resurrection orb",
         "This model’s staff of light can be replaced with 1 Lord’s blade."
       ],
+      "baseSize": "Large Flying Base",
+      "chapter": null,
       "leads": {
         "units": ["LOKHUST DESTROYERS", "LOKHUST HEAVY DESTROYERS"],
         "extra": ""
       }
+    },
+    {
+      "abilities": {
+        "core": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 5+"],
+        "damaged": {
+          "description": "",
+          "range": "",
+          "showDamagedAbility": false,
+          "showDescription": true
+        },
+        "faction": ["Reanimation Protocols"],
+        "invul": {
+          "info": "",
+          "showAtTop": true,
+          "showInfo": false,
+          "showInvulnerableSave": true,
+          "value": "4+"
+        },
+        "other": [
+          {
+            "name": "Drain Life",
+            "description": "At the end of the Fight phase, roll one D6 for each enemy unit within 6\" of this model: on a 4+, that enemy unit suffers D3 mortal wounds.",
+            "showAbility": true,
+            "showDescription": true
+          },
+          {
+            "name": "Necrodermis",
+            "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "This model cannot be your WARLORD.",
+            "name": "Enslaved Star God",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "wargear": []
+      },
+      "cardType": "DataCard",
+      "composition": ["1 C’tan Shard of the Nightbringer – EPIC HERO"],
+      "factions": ["Necrons"],
+      "faction_id": "NEC",
+      "fluff": "The very essence of life bleeds away when exposed to a Shard of the C’tan known as the Nightbringer. Aza’gorod he was, the Inevitable Blade; his spectral form, cowl of shadows and flashing scythe are said to have spawned countless avatars of death in the legends of primitive cultures the entire galaxy over.",
+      "id": "a05f73a0-b26a-545c-965f-164494235913",
+      "keywords": [
+        "Monster",
+        "Character",
+        "Epic Hero",
+        "Fly",
+        "C’tan Shard of the Nightbringer"
+      ],
+      "leader": "",
+      "loadout": "This model is equipped with: gaze of death; Scythe of the Nightbringer.",
+      "meleeWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-2",
+              "attacks": "14",
+              "damage": "2",
+              "keywords": [],
+              "name": "Scythe of the Nightbringer – Sweep",
+              "range": "Melee",
+              "skill": "2+",
+              "strength": "8"
+            },
+            {
+              "active": true,
+              "ap": "-4",
+              "attacks": "6",
+              "damage": "D6+2",
+              "keywords": ["Devastating Wounds"],
+              "name": "Scythe of the Nightbringer – Strike",
+              "range": "Melee",
+              "skill": "2+",
+              "strength": "14"
+            }
+          ]
+        }
+      ],
+      "name": "C’tan Shard of the Nightbringer",
+      "points": [
+        {
+          "cost": "370",
+          "keyword": null,
+          "models": "1",
+          "active": true,
+          "detachment": "Pantheon of Woe"
+        },
+        {
+          "cost": "325",
+          "keyword": null,
+          "models": "1",
+          "active": true,
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-3",
+              "attacks": "D3",
+              "damage": "D6+3",
+              "keywords": [],
+              "name": "Gaze of death",
+              "range": "18\"",
+              "skill": "2+",
+              "strength": "12"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "active": true,
+          "ld": "6+",
+          "m": "10\"",
+          "name": "C’tan Shard of the Nightbringer",
+          "oc": "4",
+          "showDamagedMarker": false,
+          "showName": false,
+          "sv": "3+",
+          "t": "11",
+          "w": "16"
+        }
+      ],
+      "transport": "",
+      "wargear": ["None"],
+      "baseSize": "90mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4163,13 +4582,15 @@
           "cost": "120",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4189,7 +4610,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "28.5mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4253,7 +4676,8 @@
           "cost": "105",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4324,7 +4748,9 @@
       "transport": "",
       "wargear": [
         "This model’s gauss cannon can be replaced with 1 tesla cannon."
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4419,10 +4845,11 @@
       "name": "Illuminor Szeras",
       "points": [
         {
-          "cost": "175",
+          "cost": "165",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4459,11 +4886,13 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "80mm",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deadly Demise D6", "Feel No Pain 5+"],
+        "core": ["Deep Strike", "Fights First"],
         "damaged": {
           "description": "",
           "range": "",
@@ -4480,80 +4909,92 @@
         },
         "other": [
           {
-            "name": "Drain Life",
-            "description": "At the end of the Fight phase, roll one D6 for each enemy unit within 6\" of this model: on a 4+, that enemy unit suffers D3 mortal wounds.",
+            "name": "Protective Disciples",
+            "description": "While this model is within 3\" of one or more other friendly DESTROYER CULT units, this model has the Lone Operative ability.",
             "showAbility": true,
             "showDescription": true
           },
           {
-            "name": "Necrodermis",
-            "description": "Each time an attack is allocated to this model, halve the Damage characteristic of that attack.",
+            "name": "Infectious Murder-Madness (Aura)",
+            "description": "While a friendly NECRONS unit (excluding MONSTER and TITANIC units) is within 6” of this model, each time a model in that unit makes an attack, if that model has the DESTROYER CULT keyword or that enemy unit is the closest eligible target, that attack has the [SUSTAINED HITS 1] ability.",
+            "showAbility": true,
+            "showDescription": true
+          },
+          {
+            "name": "Prophet of Destruction",
+            "description": "Each time this model destroys an enemy unit, select one other friendly DESTROYER CULT unit within 9” of this model. Until the end of the phase, each time a model in that unit makes an attack, re-roll a Wound roll of 1.",
             "showAbility": true,
             "showDescription": true
           }
         ],
         "primarch": [],
-        "special": [
+        "special": [],
+        "wargear": [
           {
-            "description": "This model cannot be your WARLORD.",
-            "name": "Enslaved Star God",
+            "name": "Nullstone Field Generator (Aura)",
+            "description": "While a friendly NECRONS unit is within 6\" of the bearer, models in that unit have the Feel No Pain 5+ ability against mortal wounds and Psychic Attacks.",
             "showAbility": true,
             "showDescription": true
           }
-        ],
-        "wargear": []
+        ]
       },
       "cardType": "DataCard",
-      "composition": ["1 C’tan Shard of the Nightbringer – EPIC HERO"],
+      "composition": ["1 Nekrosor Ammentar - EPIC HERO"],
       "factions": ["Necrons"],
       "faction_id": "NEC",
-      "fluff": "The very essence of life bleeds away when exposed to a Shard of the C’tan known as the Nightbringer. Aza’gorod he was, the Inevitable Blade; his spectral form, cowl of shadows and flashing scythe are said to have spawned countless avatars of death in the legends of primitive cultures the entire galaxy over.",
-      "id": "a05f73a0-b26a-545c-965f-164494235913",
+      "fluff": "Death made manifest, Nekrosor Ammentar is a figure of horror even to other Necrons. Destroyer madness radiates from the Nekrosor like religious fervour, driving its legions to murderous ferocity. Yet none kill with the sheer relentless fury of the Nekrosor, whose Unmaker Gauntlet and enmitic disintegrators leave ruin in the monster’s wake.",
+      "id": "d4b9d96f-2553-5e2e-87d0-17f0e524d39b",
       "keywords": [
-        "Monster",
+        "Infantry",
         "Character",
         "Epic Hero",
-        "Fly",
-        "C’tan Shard of the Nightbringer"
+        "Destroyer Cult",
+        "Nekrosor Ammentar"
       ],
       "leader": "",
-      "loadout": "This model is equipped with: gaze of death; Scythe of the Nightbringer.",
+      "loadout": "This model is equipped with: Enmitic disintegrators; Unmaker Gauntlet; blade tail and whip coils; nullstone field generator.",
       "meleeWeapons": [
         {
           "active": true,
           "profiles": [
             {
               "active": true,
-              "ap": "-2",
-              "attacks": "14",
-              "damage": "2",
+              "ap": "-3",
+              "attacks": "6",
+              "damage": "3",
               "keywords": [],
-              "name": "Scythe of the Nightbringer – Sweep",
+              "name": "Unmaker Gauntlet",
               "range": "Melee",
               "skill": "2+",
-              "strength": "8"
-            },
+              "strength": "10"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
             {
               "active": true,
-              "ap": "-4",
+              "ap": "-1",
               "attacks": "6",
-              "damage": "D6+2",
-              "keywords": ["Devastating Wounds"],
-              "name": "Scythe of the Nightbringer – Strike",
+              "damage": "1",
+              "keywords": ["Extra Attacks"],
+              "name": "Blade tail",
               "range": "Melee",
               "skill": "2+",
-              "strength": "14"
+              "strength": "6"
             }
           ]
         }
       ],
-      "name": "C’tan Shard of the Nightbringer",
+      "name": "Nekrosor Ammentar",
       "points": [
         {
-          "cost": "305",
+          "cost": "185",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4563,13 +5004,13 @@
             {
               "active": true,
               "ap": "-2",
-              "attacks": "D3",
-              "damage": "D6+3",
-              "keywords": [],
-              "name": "Gaze of death",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": ["Sustained Hits 2", "Pistol", "Ignores Cover"],
+              "name": "Enmitic disintegrators",
               "range": "18\"",
               "skill": "2+",
-              "strength": "12"
+              "strength": "6"
             }
           ]
         }
@@ -4579,18 +5020,149 @@
         {
           "active": true,
           "ld": "6+",
-          "m": "6\"",
-          "name": "C’tan Shard of the Nightbringer",
-          "oc": "4",
+          "m": "10\"",
+          "name": "Nekrosor Ammentar",
+          "oc": "3",
           "showDamagedMarker": false,
           "showName": false,
-          "sv": "4+",
-          "t": "11",
-          "w": "12"
+          "sv": "3+",
+          "t": "8",
+          "w": "9"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "80mm",
+      "chapter": null
+    },
+    {
+      "abilities": {
+        "core": [],
+        "damaged": {
+          "description": "",
+          "range": "",
+          "showDamagedAbility": false,
+          "showDescription": true
+        },
+        "faction": ["Reanimation Protocols"],
+        "invul": {
+          "info": "",
+          "showAtTop": true,
+          "showInfo": false,
+          "showInvulnerableSave": false,
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Weapon Sentinels",
+            "description": "Each time a model in this unit makes a ranged attack that targets a unit within 12\", you can ignore any or all modifiers to the following: that attack’s Ballistic Skill characteristic; the Hit roll; the Wound roll",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "At the start of the Declare Battle Formations step, this unit can join one other unit from your army that is being led by a CRYPTEK model (a unit cannot have more than one Tomb Crawlers unit joined to it and cannot have both a TOMB CRAWLERS and a CRYPTOTHRALLS unit joined to it). If it does, until the end of the battle, every model in this unit counts as being part of that Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased accordingly.",
+            "name": "Canoptek Retinue",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "wargear": []
+      },
+      "cardType": "DataCard",
+      "composition": ["2 Canoptek Tomb Crawlers"],
+      "factions": ["Necrons"],
+      "faction_id": "NEC",
+      "fluff": "Lumbering weapon platforms and loyal bodyguards, Canoptek Tomb Crawlers are usually seen fighting alongside their Cryptek masters. They select and eliminate their targets with dogged persistence, their aim unwavering as they blast their victims to blackened ruin or pitch them screaming into dimensional oubliettes from which there is no escape.",
+      "id": "c6687d57-5f04-5692-a580-97d4f17a5fad",
+      "keywords": ["Beasts", "Canoptek", "Tomb Crawlers"],
+      "leader": "",
+      "loadout": "Every model is equipped with: twin gauss reaper; claws.",
+      "meleeWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": [],
+              "name": "Claws",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "6"
+            }
+          ]
+        }
+      ],
+      "name": "Canoptek Tomb Crawlers",
+      "points": [
+        {
+          "cost": "50",
+          "keyword": null,
+          "models": "2",
+          "active": true,
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "2",
+              "damage": "1",
+              "keywords": ["Twin-linked", "Lethal Hits"],
+              "name": "Twin gauss reaper",
+              "range": "12\"",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-2",
+              "attacks": "2",
+              "damage": "2",
+              "keywords": [],
+              "name": "Transdimensional isolator",
+              "range": "12\"",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "active": true,
+          "ld": "8+",
+          "m": "5\"",
+          "name": "Canoptek Tomb Crawlers",
+          "oc": "1",
+          "showDamagedMarker": false,
+          "showName": false,
+          "sv": "3+",
+          "t": "4",
+          "w": "3"
+        }
+      ],
+      "transport": "",
+      "wargear": [
+        "1 model’s twin gauss reaper can be replaced with 1 transdimensional isolator."
+      ],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4661,13 +5233,15 @@
           "cost": "160",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "80",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4689,7 +5263,9 @@
       "transport": "",
       "wargear": [
         "For every 3 models in this unit, this unit can have 1 Plasmacyte."
-      ]
+      ],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4756,10 +5332,11 @@
       "name": "Plasmancer",
       "points": [
         {
-          "cost": "60",
+          "cost": "55",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4797,9 +5374,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "NECRON WARRIORS"],
-        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["ROYAL WARDEN", "NOBLE"],
+        "isBodyguard": true
       }
     },
     {
@@ -4861,10 +5442,11 @@
       "name": "Doomsday Ark",
       "points": [
         {
-          "cost": "190",
+          "cost": "200",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4917,7 +5499,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4992,7 +5576,8 @@
           "cost": "75",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5029,11 +5614,13 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deadly Demise D6", "Feel No Pain 5+"],
+        "core": ["Deadly Demise D6", "Deep Strike", "Feel No Pain 5+"],
         "damaged": {
           "description": "",
           "range": "",
@@ -5057,7 +5644,7 @@
           },
           {
             "name": "Necrodermis",
-            "description": "Each time an attack is allocated to this model, halve the Damage characteristic of that attack.",
+            "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
             "showAbility": true,
             "showDescription": true
           }
@@ -5082,8 +5669,8 @@
       "keywords": [
         "Monster",
         "Character",
-        "Fly",
         "Epic Hero",
+        "Fly",
         "C’tan Shard of the Void Dragon"
       ],
       "leader": "",
@@ -5105,7 +5692,7 @@
             },
             {
               "active": true,
-              "ap": "-3",
+              "ap": "-4",
               "attacks": "5",
               "damage": "D6+2",
               "keywords": ["Anti-vehicle 2+"],
@@ -5136,10 +5723,18 @@
       "name": "C’tan Shard of the Void Dragon",
       "points": [
         {
-          "cost": "300",
+          "cost": "355",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": "Pantheon of Woe"
+        },
+        {
+          "cost": "320",
+          "keyword": null,
+          "models": "1",
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5149,13 +5744,13 @@
             {
               "active": true,
               "ap": "-3",
-              "attacks": "1",
+              "attacks": "D3",
               "damage": "D6+2",
               "keywords": ["Anti-vehicle 2+"],
               "name": "Spear of the Void Dragon – Ranged",
               "range": "12\"",
               "skill": "2+",
-              "strength": "4"
+              "strength": "8"
             }
           ]
         },
@@ -5181,22 +5776,29 @@
         {
           "active": true,
           "ld": "6+",
-          "m": "6\"",
+          "m": "10\"",
           "name": "C’tan Shard of the Void Dragon",
           "oc": "4",
           "showDamagedMarker": false,
           "showName": false,
-          "sv": "4+",
+          "sv": "3+",
           "t": "11",
-          "w": "12"
+          "w": "16"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "80mm",
+      "chapter": null
     },
     {
       "abilities": {
-        "core": ["Deadly Demise D6", "Feel No Pain 5+", "Stealth"],
+        "core": [
+          "Deadly Demise D6",
+          "Deep Strike",
+          "Feel No Pain 5+",
+          "Stealth"
+        ],
         "damaged": {
           "description": "",
           "range": "",
@@ -5220,7 +5822,7 @@
           },
           {
             "name": "Necrodermis",
-            "description": "Each time an attack is allocated to this model, halve the Damage characteristic of that attack.",
+            "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
             "showAbility": true,
             "showDescription": true
           }
@@ -5264,7 +5866,7 @@
               "name": "Golden fists",
               "range": "Melee",
               "skill": "2+",
-              "strength": "8"
+              "strength": "10"
             }
           ]
         }
@@ -5272,10 +5874,18 @@
       "name": "C’tan Shard of the Deceiver",
       "points": [
         {
-          "cost": "265",
+          "cost": "350",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": "Pantheon of Woe"
+        },
+        {
+          "cost": "295",
+          "keyword": null,
+          "models": "1",
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5286,7 +5896,7 @@
               "active": true,
               "ap": "-2",
               "attacks": "6",
-              "damage": "1",
+              "damage": "2",
               "keywords": [
                 "Precision",
                 "Devastating Wounds",
@@ -5305,18 +5915,20 @@
         {
           "active": true,
           "ld": "6+",
-          "m": "6\"",
+          "m": "8\"",
           "name": "C’tan Shard of the Deceiver",
-          "oc": "6",
+          "oc": "4",
           "showDamagedMarker": false,
           "showName": false,
-          "sv": "4+",
+          "sv": "3+",
           "t": "11",
-          "w": "12"
+          "w": "16"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5380,7 +5992,8 @@
           "cost": "230",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5433,7 +6046,143 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
+    },
+    {
+      "abilities": {
+        "core": ["Leader"],
+        "damaged": {
+          "description": "",
+          "range": "",
+          "showDamagedAbility": false,
+          "showDescription": true
+        },
+        "faction": ["Reanimation Protocols"],
+        "invul": {
+          "info": "",
+          "showAtTop": true,
+          "showInfo": false,
+          "showInvulnerableSave": false,
+          "value": ""
+        },
+        "other": [
+          {
+            "name": "Tectonic Reverberations",
+            "description": "In your Movement phase, you can select one enemy unit within 18\" of and visible to this model. Until the start of your next Movement phase that enemy unit is pinned. While a unit is pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Charge rolls made for it.",
+            "showAbility": true,
+            "showDescription": true
+          },
+          {
+            "name": "Obelisk Node Control",
+            "description": "While this model is within range of an objective marker you control, enemy units that are set up on the battlefield from Reserves cannot be set up within 12\" of this model.",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "If this model is attached to a CANOPTEK MACROCYTES unit during the Declare Battle Formations step, this model has the Scouts 8\" ability.",
+            "name": "Vanguard Protocols",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "wargear": []
+      },
+      "cardType": "DataCard",
+      "composition": ["1 Geomancer"],
+      "factions": ["Necrons"],
+      "faction_id": "NEC",
+      "fluff": "When Necron Crypteks turn their studies toward geomancy, they become masters of the battlefield. With their tremorglaives, they agitate their enemies’ molecules with explosive results. At the same time, their more esoteric arcana allow them to render the landscape temporarily insubstantial or dominate energistic leylines with summoned obelisk nodes.",
+      "id": "21b8c892-252b-57ab-977f-95ac8c2daa0e",
+      "keywords": ["Infantry", "Character", "Cryptek", "Geomancer"],
+      "leader": "This model can be attached to the following units: ■ CANOPTEK MACROCYTES ■ IMMORTALS ■ NECRON WARRIORS You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+      "loadout": "This model is equipped with: tremorglaive.",
+      "meleeWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-2",
+              "attacks": "2",
+              "damage": "2",
+              "keywords": [],
+              "name": "Tremorglaive",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "8"
+            }
+          ]
+        }
+      ],
+      "name": "Geomancer",
+      "points": [
+        {
+          "cost": "75",
+          "keyword": null,
+          "models": "1",
+          "active": true,
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-2",
+              "attacks": "2",
+              "damage": "2",
+              "keywords": ["Melta 2"],
+              "name": "Tremorglaive – Reverberating beam",
+              "range": "18\"",
+              "skill": "4+",
+              "strength": "8"
+            },
+            {
+              "active": true,
+              "ap": "0",
+              "attacks": "D6+2",
+              "damage": "1",
+              "keywords": ["Torrent", "Ignores Cover"],
+              "name": "Tremorglaive – Shock wave pulse",
+              "range": "18\"",
+              "skill": "N/A",
+              "strength": "4"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "active": true,
+          "ld": "6+",
+          "m": "8\"",
+          "name": "Geomancer",
+          "oc": "1",
+          "showDamagedMarker": false,
+          "showName": false,
+          "sv": "4+",
+          "t": "4",
+          "w": "4"
+        }
+      ],
+      "transport": "",
+      "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null,
+      "leads": {
+        "units": ["CANOPTEK MACROCYTES", "IMMORTALS", "NECRON WARRIORS"],
+        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["ROYAL WARDEN", "NOBLE"],
+        "isBodyguard": true
+      }
     },
     {
       "abilities": {
@@ -5472,19 +6221,19 @@
             "abilities": [
               {
                 "name": "Phaeron of the Stars (Aura)",
-                "description": "While a friendly NECRONS unit is within 6\" of this unit’s Szarekh model, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.",
+                "description": "While a friendly NECRONS unit (excluding MONSTER units) is within 6\" of this unit’s Szarekh model, each time a model in that unit makes an attack, re-roll a Hit roll of 1 and re-roll a Wound roll of 1.",
                 "showAbility": true,
                 "showDescription": true
               },
               {
                 "name": "Phaeron of the Blades (Aura)",
-                "description": "While a friendly NECRONS unit is within 6\" of this unit’s Szarekh model, you can re-roll Charge rolls made for that unit and each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.",
+                "description": "While a friendly NECRONS unit (excluding MONSTER units) is within 6\" of this unit’s Szarekh model, you can re-roll Charge rolls made for that unit and each time a model in that unit makes a melee attack, add 1 to the Strength characteristic of that attack.",
                 "showAbility": true,
                 "showDescription": true
               },
               {
-                "name": "Bringer of Unity (Aura)",
-                "description": "While a friendly NECRONS unit is within 6\" of this unit’s Szarekh model, you can ignore any or all modifiers to the characteristics of models in that unit and to any roll or test made for models in that unit (excluding modifiers to saving throws).",
+                "name": "Relentless March (Aura)",
+                "description": "While a friendly NECRONS unit (excluding MONSTER units) is within 6\" of this unit’s Szarekh model, add 2\" to the Move characteristic of models in that unit.",
                 "showAbility": true,
                 "showDescription": true
               }
@@ -5560,10 +6309,11 @@
       "name": "The Silent King",
       "points": [
         {
-          "cost": "420",
+          "cost": "400",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5644,7 +6394,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "The Silent King: Szarekh: 100mm\nTriarchal Menhir: 50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5714,7 +6466,8 @@
           "cost": "65",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5752,9 +6505,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["IMMORTALS", "NECRON WARRIORS"],
-        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths."
+        "extra": "You can attach this model to one of the above units even if one ROYAL WARDEN or NOBLE model has already been attached to it. If you do, and that Bodyguard unit is destroyed, the Leader units attached to it become separate units, with their original Starting Strengths.",
+        "canAttachWith": ["ROYAL WARDEN", "NOBLE"],
+        "isBodyguard": true
       }
     },
     {
@@ -5777,13 +6534,13 @@
         "other": [
           {
             "name": "Transdimensional Displacement",
-            "description": "Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.",
+            "description": "Each time this model is selected to Advance, you can remove it from the battlefield and set it up again anywhere on the battlefield that is more than 9\" horizontally away from all enemy units.",
             "showAbility": true,
             "showDescription": true
           },
           {
             "name": "Necrodermis",
-            "description": "Each time an attack is allocated to this model, halve the Damage characteristic of that attack.",
+            "description": "Each time an attack is allocated to this model, subtract 1 from the Damage characteristic of that attack.",
             "showAbility": true,
             "showDescription": true
           }
@@ -5827,7 +6584,7 @@
               "name": "Crackling tendrils",
               "range": "Melee",
               "skill": "2+",
-              "strength": "9"
+              "strength": "10"
             }
           ]
         }
@@ -5835,10 +6592,18 @@
       "name": "Transcendent C’tan",
       "points": [
         {
-          "cost": "295",
+          "cost": "355",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": "Pantheon of Woe"
+        },
+        {
+          "cost": "315",
+          "keyword": null,
+          "models": "1",
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5849,7 +6614,7 @@
               "active": true,
               "ap": "-2",
               "attacks": "6",
-              "damage": "D3",
+              "damage": "2",
               "keywords": ["Sustained Hits 1", "Assault"],
               "name": "Seismic assault",
               "range": "12\"",
@@ -5864,18 +6629,20 @@
         {
           "active": true,
           "ld": "6+",
-          "m": "6\"",
+          "m": "8\"",
           "name": "Transcendent C’tan",
           "oc": "4",
           "showDamagedMarker": false,
           "showName": false,
-          "sv": "4+",
+          "sv": "3+",
           "t": "11",
-          "w": "12"
+          "w": "16"
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5952,13 +6719,15 @@
           "cost": "150",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "75",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5999,7 +6768,9 @@
         "Any number of models can each be equipped with 1 gloom prism.",
         "Any number of models can each be equipped with 1 fabricator claw array.",
         "Any number of models can each be equipped with 2 particle beamers."
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -6907,12 +7678,42 @@
     }
   ],
   "detachments": [
-    "Obeisance Phalanx",
-    "Awakened Dynasty",
-    "Canoptek Court",
-    "Annihilation Legion",
-    "Hypercrypt Legion",
-    "Starshatter Arsenal"
+    {
+      "name": "Cryptek Conclave",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Starshatter Arsenal",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Cursed Legion",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Annihilation Legion",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Hypercrypt Legion",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Pantheon of Woe",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Obeisance Phalanx",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Canoptek Court",
+      "faction": "Necrons"
+    },
+    {
+      "name": "Awakened Dynasty",
+      "faction": "Necrons"
+    }
   ],
   "enhancements": [
     {
@@ -6923,7 +7724,10 @@
       "excludes": [],
       "description": "NECRONS model only. Once per battle, at the end of your opponent’s turn, if the bearer’s unit is not within Engagement Range of one or more enemy units, the bearer can use this Enhancement. If it does, remove that unit from the battlefield. Then, in the Reinforcements step of your next Movement phase, set up that unit anywhere on the battlefield that is more than 9\" horizontally away from all enemy models.",
       "faction_id": "NEC",
-      "detachment": "Awakened Dynasty"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Nether-realm Casket",
@@ -6933,7 +7737,10 @@
       "excludes": [],
       "description": "NECRONS model only. While the bearer is leading a unit, models in that unit have the Stealth ability.",
       "faction_id": "NEC",
-      "detachment": "Awakened Dynasty"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Phasal Subjugator (Aura)",
@@ -6943,17 +7750,23 @@
       "excludes": [],
       "description": "NECRONS model only. While a friendly NECRONS unit (excluding CHARACTER units) is within 6\" of the bearer, each time a model in that unit makes an attack, add 1 to the Hit roll.",
       "faction_id": "NEC",
-      "detachment": "Awakened Dynasty"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Enaegic Dermal Bond",
       "id": "786d835c-158e-5061-9580-c78e3af14e2c",
-      "cost": "15",
+      "cost": "30",
       "keywords": ["Necrons"],
       "excludes": [],
       "description": "NECRONS model only. The bearer has the Feel No Pain 4+ ability",
       "faction_id": "NEC",
-      "detachment": "Awakened Dynasty"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Eternal Madness",
@@ -6963,7 +7776,10 @@
       "excludes": [],
       "description": "NECRONS model only. In the Fight phase, each time a model in the bearer’s unit is destroyed, if that model has not fought this phase, roll one D6: on a 4+, do not remove the destroyed model from play; it can fight after the attacking model’s unit has finished making its attacks, and is then removed from play.",
       "faction_id": "NEC",
-      "detachment": "Annihilation Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Ingrained Superiority",
@@ -6973,7 +7789,10 @@
       "excludes": [],
       "description": "NECRONS model only. Each time a model in the bearer’s unit makes an attack, on a Critical Wound, improve the Armour Penetration characteristic of that attack by 1.",
       "faction_id": "NEC",
-      "detachment": "Annihilation Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Soulless Reaper",
@@ -6983,7 +7802,10 @@
       "excludes": [],
       "description": "DESTROYER CULT model only. Each time an enemy unit within Engagement Range of the bearer’s unit is selected to Fall Back, roll one D6: on a 3+, that unit cannot Fall Back this phase and must Remain Stationary.",
       "faction_id": "NEC",
-      "detachment": "Annihilation Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Eldritch Nightmare",
@@ -6993,7 +7815,10 @@
       "excludes": [],
       "description": "DESTROYER CULT model only. At the start of the Fight phase, each enemy unit within Engagement Range of the bearer must take a Battle-shock test.",
       "faction_id": "NEC",
-      "detachment": "Annihilation Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Dimensional Sanctum",
@@ -7003,7 +7828,10 @@
       "excludes": [],
       "description": "CRYPTEK model only. Models in the bearer’s unit have the Infiltrators ability.",
       "faction_id": "NEC",
-      "detachment": "Canoptek Court"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Hyperphasic Fulcrum",
@@ -7013,7 +7841,10 @@
       "excludes": [],
       "description": "CRYPTEK model only. While the bearer is leading a unit, if that unit is wholly within your army’s Power Matrix, each time a model in that unit makes an attack, re-roll a Wound roll of 1.",
       "faction_id": "NEC",
-      "detachment": "Canoptek Court"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Autodivinator",
@@ -7023,7 +7854,10 @@
       "excludes": [],
       "description": "CRYPTEK model only. Each time your opponent gains a CP as the result of an ability, roll one D6: on a 2+, you also gain 1CP",
       "faction_id": "NEC",
-      "detachment": "Canoptek Court"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Metalodermal Tesla Weave",
@@ -7033,7 +7867,10 @@
       "excludes": [],
       "description": "CRYPTEK model only. Once per phase, when an enemy unit selects the bearer’s unit as a target of a charge, roll one D6: on a 2-5, that enemy unit suffers D3 mortal wounds; on a 6, that enemy unit suffers 3 mortal wounds.",
       "faction_id": "NEC",
-      "detachment": "Canoptek Court"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Honourable Combatant",
@@ -7043,7 +7880,10 @@
       "excludes": [],
       "description": "OVERLORD model only. Each time the bearer’s unit destroys an enemy CHARACTER unit, your opponent loses 1CP if they have any.",
       "faction_id": "NEC",
-      "detachment": "Obeisance Phalanx"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Unflinching Will",
@@ -7053,7 +7893,10 @@
       "excludes": [],
       "description": "OVERLORD model only. The bearer’s melee weapons have the [PRECISION] and [ANTI-INFANTRY 5+] abilities.",
       "faction_id": "NEC",
-      "detachment": "Obeisance Phalanx"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Warrior Noble",
@@ -7063,7 +7906,10 @@
       "excludes": [],
       "description": "OVERLORD model only. Each time a melee attack targets the bearer’s unit, subtract 1 from the Hit roll.",
       "faction_id": "NEC",
-      "detachment": "Obeisance Phalanx"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Eternal Conqueror",
@@ -7073,7 +7919,10 @@
       "excludes": [],
       "description": "OVERLORD model only. Each time a model in the bearer’s unit makes an attack that targets an enemy unit within range of an objective marker, you can re-roll the Hit roll.",
       "faction_id": "NEC",
-      "detachment": "Obeisance Phalanx"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Dimensional Overseer",
@@ -7083,7 +7932,10 @@
       "excludes": [],
       "description": "NECRONS model only. While the bearer is on the battlefield or in Strategic Reserves, add one to the number of units from your army that you can select for the Hyperphasing rule.",
       "faction_id": "NEC",
-      "detachment": "Hypercrypt Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Arisen Tyrant",
@@ -7093,7 +7945,10 @@
       "excludes": [],
       "description": "NECRONS model only. Each time a model in the bearer’s unit makes an attack, re-roll a Hit roll of 1. If the bearer’s unit was set up on the battlefield this turn, you can re-roll the Hit roll instead.",
       "faction_id": "NEC",
-      "detachment": "Hypercrypt Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Hyperspatial Transfer Node",
@@ -7103,7 +7958,10 @@
       "excludes": [],
       "description": "NECRONS model only. Each time the bearer’s unit Advances, do not make an Advance roll for it. Instead, until the end of the phase, add 6\" to the Move characteristic of models in the bearer’s unit.",
       "faction_id": "NEC",
-      "detachment": "Hypercrypt Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Osteoclave Fulcrum",
@@ -7113,7 +7971,10 @@
       "excludes": [],
       "description": "NECRONS model only. Models in the bearer’s unit have the Deep Strike ability.",
       "faction_id": "NEC",
-      "detachment": "Hypercrypt Legion"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Dread Majesty (Aura)",
@@ -7121,9 +7982,12 @@
       "cost": "30",
       "keywords": ["Overlord", "Catacomb Command Barge"],
       "excludes": [],
-      "description": "OVERLORD or CATACOMB COMMAND BARGE model only. While a friendly NECRONS unit (excluding TITANIC units) is within 6\" of the bearer, each time a model in that unit makes an attack, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1.",
+      "description": "OVERLORD or CATACOMB COMMAND BARGE model only. While a friendly NECRONS unit (excluding MONSTER and TITANIC units) is within 6\" of the bearer, each time a model in that unit makes an attack, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1.",
       "faction_id": "NEC",
-      "detachment": "Starshatter Arsenal"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Miniaturised Nebuloscope",
@@ -7133,7 +7997,10 @@
       "excludes": [],
       "description": "NECRONS model only. Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability.",
       "faction_id": "NEC",
-      "detachment": "Starshatter Arsenal"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Demanding Leader",
@@ -7143,7 +8010,10 @@
       "excludes": [],
       "description": "NECRONS model only. In your Command phase, select one friendly NECRONS VEHICLE or NECRONS MOUNTED unit (excluding TITANIC units) within 6\" of the bearer. Until the start of your next Command phase, that unit is eligible to shoot in a turn in which it Fell Back.",
       "faction_id": "NEC",
-      "detachment": "Starshatter Arsenal"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Chrono-impedance Fields",
@@ -7153,15 +8023,429 @@
       "excludes": [],
       "description": "NECRONS model only. In your Command phase, select one friendly NECRONS VEHICLE or NECRONS MOUNTED unit (excluding TITANIC units) within 6\" of the bearer. Until the start of your next Command phase, each time an attack is allocated to a model in that unit, subtract 1 from the Damage characteristic of that attack.",
       "faction_id": "NEC",
-      "detachment": "Starshatter Arsenal"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Destroyer Ankh",
+      "id": "6fcd10ee-05c4-510d-8228-482434257747",
+      "cost": "20",
+      "keywords": ["Catacomb Command Barge", "Overlord"],
+      "excludes": [],
+      "description": "CATACOMB COMMAND BARGE or OVERLORD model only. The bearer has the DESTROYER CULT keyword. Add 2\" to the Move characteristic of models in the bearer’s unit and add 2 to the Attacks characteristic of melee weapons equipped by the bearer.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Murdermind",
+      "id": "efd1c481-93ee-5d4b-90a3-02316053c653",
+      "cost": "15",
+      "keywords": ["Cryptek"],
+      "excludes": [],
+      "description": "CRYPTEK model only. The bearer has the DESTROYER CULT keyword and during the Declare Battle Formations step, the bearer can be attached to a DESTROYER CULT unit (excluding CHARACTER units). If you do, the bearer’s unit cannot contain any models without the DESTROYER CULT keyword. Add 3\" to the Move characteristic of the bearer.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Mask of the Nekrosor",
+      "id": "188ee24a-52dd-55a8-b3a9-7e98d584361a",
+      "cost": "20",
+      "keywords": ["Destroyer Cult"],
+      "excludes": [],
+      "description": "DESTROYER CULT model only. Each time a model in the bearer’s unit makes an attack, add 1 to the Hit roll.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Cursed Circlet",
+      "id": "e4eebc87-10ae-56b8-9bc7-1f4d0270c658",
+      "cost": "25",
+      "keywords": ["Destroyer Cult"],
+      "excludes": [],
+      "description": "DESTROYER CULT model only. Each time an enemy unit is selected to shoot, after that unit has shot, if any models from the bearer’s unit were destroyed as a result of those attacks, the bearer’s unit can make a Surge move. To do so, roll one D6: the bearer’s unit can be moved a number of inches up to the result, but the bearer’s unit must finish that move as close as possible to the closest enemy unit (excluding AIRCRAFT). When doing so, those models can be moved within Engagement Range of that enemy unit. A unit cannot make a Surge move while it is Battle‑shocked.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Quantum Abacus",
+      "id": "300633a0-a1d9-5a37-a116-9cc6c6d9318c",
+      "cost": "15",
+      "keywords": ["Necrons"],
+      "excludes": [],
+      "description": "NECRONS model only. Each time you select the bearer’s unit as the target of a Stratagem, roll one D6, adding 1 if it is within range of one or more objectives: on a 4+, you gain 1CP.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Atomic Disintegrators",
+      "id": "ec42d171-fed1-5ac2-9f4d-f931bfddaf98",
+      "cost": "10",
+      "keywords": ["Cryptek"],
+      "excludes": [],
+      "description": "CRYPTEK model only. In your Shooting phase, each time the bearer’s unit is selected to shoot, when selecting an ability for the Technosorcerous Augmentations Detachment rule, you can also select from the following abilities: [ANTI‑MONSTER 5+], [ANTI‑VEHICLE 5+].",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Gauntlet of Compression",
+      "id": "825e4c26-e7e6-543e-8ecc-da6d37252973",
+      "cost": "20",
+      "keywords": ["Necrons"],
+      "excludes": [],
+      "description": "NECRONS model only. Add 6\" to the Range characteristic of ranged weapons equipped by models in the bearer’s unit.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Gravitic Bolas",
+      "id": "ef024790-a6a8-5565-8196-270866b7b516",
+      "cost": "15",
+      "keywords": ["Cryptek"],
+      "excludes": [],
+      "description": "CRYPTEK model only. In your Shooting phase, after the bearer has shot, select one enemy unit hit by one or more of those attacks (excluding TITANIC units); until the start of your next turn, that enemy unit is pinned. While a unit is pinned, subtract 2 from that unit’s Move characteristic and subtract 2 from Charge rolls made for that unit.",
+      "faction_id": "NEC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
     }
   ],
   "id": "NEC",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Necrons",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Reanimation Protocols",
+        "rules": [
+          {
+            "text": "If your Army Faction is **NECRONS**, at the end of your Command phase, each unit from your army with this ability that is on the battlefield activates its Reanimation Protocols and reanimates D3 wounds. Each time such a unit reanimates a wound:\n\n■ If that unit contains one or more models with fewer than their starting number of wounds remaining, select one of those models; that model regains one lost wound.\n■ If all models in that unit have their starting number of wounds, but that unit is not at its Starting Strength, one destroyed model is returned to that unit with one wound remaining.\n\nOnce such a unit is at its Starting Strength and all of its models have their starting number of wounds, nothing further happens.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "***Example**: A unit of Lokhust Destroyers (which have a Wounds characteristic of 3) activates its Reanimation Protocols. The unit had a Starting Strength of 3, but currently contains 2 models, and one of those models has lost 1 wound. A 3 is rolled to see how many wounds are reanimated. The first of these reanimated wounds restores the wounded Lokhust Destroyer back to 3 wounds. The second of these reanimated wounds returns the destroyed Lokhust Destroyer to the battlefield with 1 wound remaining. The third of these reanimated wounds restores one of the remaining lost wounds to the same Lokhust Destroyer that was just returned. The unit now contains 3 models, two of which have 3 wounds remaining and one of which has 2 wounds remaining.*",
+            "order": 2,
+            "title": null,
+            "type": "quote"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Cryptek Conclave",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Technosorcerous Augmentations",
+            "rules": [
+              {
+                "text": "■ Ranged weapons equipped by **CRYPTEK** models from your army have the **[ASSAULT]** ability.\n■ In your Shooting phase, each time a **CRYPTEK** unit from your army is selected to shoot, select one of the following abilities: **[ANTI‑INFANTRY 3+]**, **[ANTI‑MOUNTED 4+]**, **[ASSAULT]**, **[HEAVY]**, **[IGNORES COVER]**. Until the end of the phase, ranged weapons equipped by models in that unit have that ability.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Starshatter Arsenal",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Relentless Onslaught",
+            "rules": [
+              {
+                "text": "Each time a **NECRONS** model (excluding **MONSTER** models) from your army makes an attack that targets a unit within range of one or more objective markers, add 1 to the Hit roll. In addition, ranged weapons equipped by **NECRONS VEHICLE** and **NECRONS MOUNTED** models (excluding **TITANIC** models) from your army have the **[ASSAULT]** ability.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Cursed Legion",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Cold Fervour",
+            "rules": [
+              {
+                "text": "■ Add 2 to the Strength characteristic of weapons equipped by **DESTROYER CULT** models from your army.\n■ The first time each turn that a **DESTROYER CULT** unit from your army makes attacks that destroy a unit or cause it to become Below Half‑strength, after that unit has finished resolving its attacks, until the end of the turn, add 2 to the Strength characteristic of weapons equipped by friendly **NECRONS** models (excluding **DESTROYER CULT**, **MONSTER** and **TITANIC** models).",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Annihilation Legion",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Annihilation Protocol",
+            "rules": [
+              {
+                "text": "Each time a **DESTROYER CULT** or **FLAYED ONES** unit from your army declares a charge, you can re-roll the Charge roll. If one or more targets of that charge are Below Half-strength, add 1 to the Charge roll as well.\n\nEach time a **DESTROYER CULT** unit from your army makes a ranged attack that targets the closest eligible target, add 1 to the Armour Penetration characteristic of that attack.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Hypercrypt Legion",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Hyperphasing",
+            "rules": [
+              {
+                "text": "At the end of your opponent’s turn, you can select a number of **NECRONS** units from your army (excluding units that are within Engagement Range of one or more enemy units). The maximum number of units you can select depends on the battle size, as follows:\n\n■ **Incursion**: Up to 1 unit\n■ **Strike Force**: Up to 2 units\n■ **Onslaught**: Up to 3 units\n\nOnce you have made your selections, remove those units from the battlefield and place them into Strategic Reserves.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Pantheon of Woe",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Cosmic Distortion",
+            "rules": [
+              {
+                "text": "**NECRONS MONSTER** units from your army have the following ability:\n\n**Distortion Fields (Aura):** While an enemy unit is within 6\" of this unit, it is unravelling. While an enemy unit is unravelling, each time an attack targets that unit, improve the Armour Penetration characteristic of that attack by 1.\n\nAt the start of each phase, for each **NECRONS MONSTER** unit from your army, that unit can suffer 3 mortal wounds. If it does, until the end of the phase, the range of that unit’s Distortion Fields Aura ability is increased to 9\".\n\n**Designer’s Note:** *If your army contains more than one* **TRANSCENDENT C’TAN** *unit, each of those units must take the Reletavistic Tether ability.*",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Necrodermal Binding Abilities",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "*This eldritch device fetters and directs the Deceiver’s powers within a vortex that devours lesser wits entirely.*\n\n**C’TAN SHARD OF THE DECEIVER** model only. This model has the following ability:\n\n**Lord of Deceit (Aura):** Each time your opponent targets a unit from their army with a Stratagem, if that unit is within 12\" of this model, increase the cost of that use of that Stratagem by 1CP.",
+                "order": 3,
+                "title": "Singularity Matrix",
+                "type": "accordion"
+              },
+              {
+                "text": "*The energies of this binding latch onto enemy targets and shunt the shard into alignment with them.*\n\n**C’TAN SHARD OF THE NIGHTBRINGER** model only. This model is eligible to declare a charge in a turn in which it Advanced.",
+                "order": 4,
+                "title": "Quantum Goad",
+                "type": "accordion"
+              },
+              {
+                "text": "*This device bleeds off the Void Dragon shard’s energies and earths them violently through nearby machines.*\n\n**C’TAN SHARD OF THE VOID DRAGON** model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy **VEHICLE** unit visible to the bearer. That unit must take a Leadership test. Until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll and, if that Leadership test was failed, subtract 1 from the Wound roll as well.",
+                "order": 5,
+                "title": "Animus Damper",
+                "type": "accordion"
+              },
+              {
+                "text": "*This binding uses atomic resonance magnetism to compel the shard into the midst of the foe.*\n\n**TRANSCENDENT C’TAN** model only. In your turn, each time this model is set up on the battlefield using the Deep Strike or Transdimensional Displacement abilities, it can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units. When doing so, if this model is set up within 9\" of one or more enemy units, until the end of the turn, it is not eligible to declare a charge.",
+                "order": 6,
+                "title": "Reletavistic Tether",
+                "type": "accordion"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Obeisance Phalanx",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Worthy Foes",
+            "rules": [
+              {
+                "text": "In your Command phase, select one enemy unit. Until the start of your next Command phase, each time a **NOBLE**, **LYCHGUARD** or **TRIARCH** unit from your army makes an attack that targets that unit, add 1 to the Wound roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Canoptek Court",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Power Matrix",
+            "rules": [
+              {
+                "text": "Certain areas of the battlefield are considered to be within your army’s Power Matrix, as follows:\n\n■ Your deployment zone is always within your army’s Power Matrix.\n■ At the start of any phase, if you control at least half of the objective markers within No Man’s Land, until the end of that phase, No Man’s Land is within your army’s Power Matrix.\n■ At the start of any phase, if you control at least half of the objective markers within your opponent’s deployment zone, until the end of that phase, your opponent’s deployment zone is within your army’s Power Matrix.\n\nEach time a model in a **CRYPTEK** or **CANOPTEK** unit from your army makes an attack, re-roll a Hit roll of 1. If such a unit is wholly within your army’s Power Matrix, you can re-roll the Hit roll instead.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Awakened Dynasty",
+        "faction": "Necrons",
+        "rules": [
+          {
+            "name": "Command Protocols",
+            "rules": [
+              {
+                "text": "While a **NECRONS CHARACTER** model is leading this unit, each time a model in this unit makes an attack, add 1 to the Hit roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
+    {
+      "name": "Molecular Targeting",
+      "id": "790b1a85-2a5c-5813-a568-213a927716e8",
+      "cost": 1,
+      "turn": "either",
+      "target": "One NECRONS unit from your army that has not been selected to shoot or fight this phase.",
+      "when": "Your Shooting phase or the Fight phase",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack, you can ignore any or all modifiers to the following: that attack’s Ballistic Skill or Weapon Skill characteristic; the Hit roll. If your unit has the CRYPTEK keyword, you can also ignore any or all modifiers to the Wound roll.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "Targeting analysis of the targets’ molecular makeup allows all attempts at shielding or obfuscation to be bypassed with contemptuous ease",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Untapped Power",
+      "id": "66b8a7a1-2ba1-5558-9077-9e9519861c9b",
+      "cost": 1,
+      "turn": "your",
+      "target": "One CRYPTEK unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, each time your unit is selected to shoot, when selecting an ability for the Techno‑sorcerous Augmentations Detachment Rule, you can select one additional ability from those available.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["shooting"],
+      "faction_id": "NEC",
+      "fluff": "Accessing previously undreamed of skeins of cosmic power, the Cryptek unleashes terrible destructive energies onto the battlefield.",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Methodical Murder",
+      "id": "838ad6a0-b186-5051-87f3-e91c58993647",
+      "cost": 1,
+      "turn": "either",
+      "target": "One NECRONS unit (excluding MONSTERS and VEHICLES) from your army that has not been selected to shoot or fight this phase.",
+      "when": "Your Shooting phase or the Fight phase.",
+      "effect": "Until the end of the phase, weapons equipped by models in your unit have the [SUSTAINED HITS 1] ability.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "In the grip of the Destroyer madness, these Necrons strike and slay with inhuman speed and efficiency.",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Image of Death",
+      "id": "7ac4dd6e-ee4c-579f-8f63-2759d63f9512",
+      "cost": 1,
+      "turn": "either",
+      "target": "One DESTROYER CULT unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, subtract 1 from the Hit roll.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "Confronted with these android spectres of terminal mortality, even the most courageous enemies find their aim wavering and their limbs shaking.",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Spreading Madness",
+      "id": "6ae37b9a-5a10-547a-bb07-e0c2508d5c03",
+      "cost": 1,
+      "turn": "your",
+      "target": "One NECRONS unit (excluding MONSTERS and VEHICLES) from your army that has not declared a charge this phase.",
+      "when": "Your Charge phase",
+      "effect": "Until the end of the phase, each time your unit declares a charge, if one or more targets of that charge are within Engagement Range of one or more friendly units, add 2 to the Charge roll.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["charge"],
+      "faction_id": "NEC",
+      "fluff": "It is as though witnessing other Necrons engaged in acts of merciless butchery stokes the Destroyer madness in their fellows.",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
     {
       "name": "Pitiless Hunters",
       "id": "0a7f4234-6d34-5196-b3c9-3c87719b1efe",
@@ -7175,7 +8459,8 @@
       "phase": ["fight"],
       "faction_id": "NEC",
       "fluff": "Driven into a state of hyperaggression, an Annihilation Legion’s most eager hunters plunge into their prey’s midst to maximise their butchery.",
-      "detachment": "Annihilation Legion"
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Blood-fuelled Cruelty",
@@ -7190,7 +8475,8 @@
       "phase": ["movement"],
       "faction_id": "NEC",
       "fluff": "Whatever strange afflictions eat away at the sanity of Destroyers and Flayed Ones, mercy is not one of them.",
-      "detachment": "Annihilation Legion"
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "The Spoor of Frailty",
@@ -7205,7 +8491,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Where one foe falls, logic dictates all others must follow. Where blood is shed, ever must more flow.",
-      "detachment": "Annihilation Legion"
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Murderous Reanimation",
@@ -7220,7 +8507,40 @@
       "phase": ["fight"],
       "faction_id": "NEC",
       "fluff": "Through some quirk of their kind’s shared insanity, a spark of gruesome satisfaction surges through them with every enemy life snuffed out, triggering quiescent power reserves that drive them onwards.",
-      "detachment": "Annihilation Legion"
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Entrophasic Aura Targeting",
+      "id": "c7711835-9c8c-56f7-8a9f-a6a3a98786a0",
+      "cost": 1,
+      "turn": "either",
+      "target": "One NECRONS unit (excluding MONSTERS) from your army that has not been selected to shoot or fight this phase.",
+      "when": "Your Shooting phase or the Fight phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes an attack that targets an enemy unit, re‑roll a Hit roll of 1. If the target of that attack is unravelling, re‑roll a Wound roll of 1 as well.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "Necrons’ android senses can target the foe by reading the exotic radiation signatures wreathed about them by the C’tan shards onslaught.",
+      "detachment": "Pantheon of Woe",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Chronodistortion",
+      "id": "c58313db-2f45-5b5a-9c7d-70be5df01fe4",
+      "cost": 1,
+      "turn": "either",
+      "target": "One NECRONS unit from your army that was selected as the target of one or more of the attacking unit’s attacks",
+      "when": "Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 1 if the attacking unit is unravelling: on a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight"],
+      "faction_id": "NEC",
+      "fluff": "With the battlefield shuddering in and out of sync with time and space, slain Necrons still strike at their enemies through cracks in temporal causality.",
+      "detachment": "Pantheon of Woe",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Enslaved Artifice",
@@ -7235,7 +8555,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "It is not only android soldiery that be compelled to serve. With a command, prized war engines and ornate weapons are empowered to hyperlethality.",
-      "detachment": "Obeisance Phalanx"
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Nanoassembly Protocols",
@@ -7250,7 +8571,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "A tomb world’s war engines are the pride of its nobility and they will suffer no affront to them, demanding the reassembly of slablike armour atom by atom even as the foe seek to sunder the vehicles.",
-      "detachment": "Obeisance Phalanx"
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Suffer No Rival",
@@ -7265,7 +8587,8 @@
       "phase": ["fight"],
       "faction_id": "NEC",
       "fluff": "Few enemy are worthy of a duel. What dangerous vermin are encountered are prioritised for execution to safeguard the nobles’ honour.",
-      "detachment": "Obeisance Phalanx"
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Curse of the Cryptek",
@@ -7280,7 +8603,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Vindictive Crypteks often hardwire vengeance subprotocols into the ancient cores of their unliving servants, by which a last act of reprisal is assured.",
-      "detachment": "Canoptek Court"
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Protocol of the Hungry Void",
@@ -7295,7 +8619,8 @@
       "phase": ["fight"],
       "faction_id": "NEC",
       "fluff": "Necrons strike with data-augmented accuracy.",
-      "detachment": "Awakened Dynasty"
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Protocol of the Conquering Tyrant",
@@ -7310,14 +8635,15 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "The legions employ the strategies of their masters in perfect synchronicity, laying down hails of mechanically coordinated fire.",
-      "detachment": "Awakened Dynasty"
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Merciless Reclamation",
       "id": "873bfa87-7c02-5d05-984a-80607b82e8a3",
       "cost": 2,
       "turn": "either",
-      "target": "One NECRONS unit (excluding TITANIC units) from your army that has not been selected to shoot or fight this phase.&x20;",
+      "target": "One NECRONS unit (excluding MONSTER and TITANIC units) from your army that has not been selected to shoot or fight this phase.&x20;",
       "when": "Your Shooting phase or the Fight phase.",
       "effect": "Until the end of the phase, each time a model in your unit makes an attack, if the target of that attack is within range of one or more objective markers, add 1 to the Wound roll.",
       "restrictions": "",
@@ -7325,7 +8651,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "The Necrons are driven to reclaim what is theirs, exterminating all who would impede such efforts without mercy.",
-      "detachment": "Starshatter Arsenal"
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Unyielding Forms",
@@ -7340,7 +8667,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Wrought from living metal and further protected by the arcane technologies of Crypteks, the forms of Necron vehicles and steeds are almost impervious to conventional weapons.",
-      "detachment": "Starshatter Arsenal"
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Cynosure of Eradication",
@@ -7355,7 +8683,40 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Only the foolish tread where a Cryptek has set their sights, for these arcane scientists will suffer no threat to their works.",
-      "detachment": "Canoptek Court"
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Disharmonisation Cascade",
+      "id": "9e58a9d8-d5da-55d6-9be0-8cccf1eda4ff",
+      "cost": 1,
+      "turn": "either",
+      "target": "That NECRONS MONSTER model. You can use this Stratagem on that model even though it was just destroyed.",
+      "when": "Any phase, just after a NECRONS MONSTER model from your army is destroyed, before making its Deadly Demise roll.",
+      "effect": "Until the end of the phase, your model’s Deadly Demise ability inflicts mortal wounds on a D6 roll of 3+ instead of on a 6.",
+      "restrictions": "",
+      "type": "Epic Deed",
+      "phase": ["any"],
+      "faction_id": "NEC",
+      "fluff": "Tear one shard suddenly from the complex web of atomic resonances and its severing triggers a violent energistic dissonance blast.",
+      "detachment": "Pantheon of Woe",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Mass Transmogrification",
+      "id": "254c7b3e-b629-538a-b84e-0522ad381f7c",
+      "cost": 1,
+      "turn": "either",
+      "target": "One friendly NECRONS unit (excluding MONSTERS) within 6\" of that Monster unit.",
+      "when": "Your Shooting phase or the Fight phase, just after a NECRONS MONSTER unit from your army destroys an enemy unit.",
+      "effect": "If that enemy unit was unravelling at the start of the phase, your friendly unit’s Reanimation Protocols activate.",
+      "restrictions": "You can only use this Stratagem once per turn.",
+      "type": "Epic Deed",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "The power of the C’tan rips the foe’s greatest assets apart and forcibly reknits nearby Necron soldiery using the stolen corporeal matter.",
+      "detachment": "Pantheon of Woe",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Your Time Is Nigh",
@@ -7370,7 +8731,8 @@
       "phase": ["any"],
       "faction_id": "NEC",
       "fluff": "With a pulse of necroneural energy that erodes the foe’s will, the Necron commander declares the fall of the enemy general, promising their remaining forces that it is only a matter of time until they join their master in ignoble death.",
-      "detachment": "Obeisance Phalanx"
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Sentinels of Eternity",
@@ -7385,7 +8747,8 @@
       "phase": ["fight"],
       "faction_id": "NEC",
       "fluff": "Lychguard never tire, nor give a thought to their own safety over that of their master. With parrying blows and blocking shots they protect their liege even as they continue to strike down their opponents.",
-      "detachment": "Obeisance Phalanx"
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Protocol of the Eternal Revenant",
@@ -7400,7 +8763,40 @@
       "phase": ["any"],
       "faction_id": "NEC",
       "fluff": "Necron rulers possess enhanced self-repair systems.",
-      "detachment": "Awakened Dynasty"
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Synergistic Empowerment",
+      "id": "b3807107-a209-585c-b699-ae65f008be31",
+      "cost": 1,
+      "turn": "your",
+      "target": "One CRYPTEK unit from your army.",
+      "when": "Start of your Shooting phase.",
+      "effect": "Select one friendly NECRONS model (excluding MONSTERS and VEHICLES) within 12\" of a CRYPTEK model in your unit. Until the end of the phase, that friendly NECRONS model has the CRYPTEK keyword.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["shooting"],
+      "faction_id": "NEC",
+      "fluff": "Quantum reservoirs of potent energies held within this Cryptek’s warrior jewellery release a fragment of their charge to augment nearby Necron forces.",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Potentiality Syphon",
+      "id": "deffc0a1-e597-55ed-bcc4-249ffdba0f90",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One NECRONS unit from your army within range of one or more objective markers.",
+      "when": "Your opponent’s Command phase.",
+      "effect": "Your unit’s Reanimation Protocols activate. If it is a CRYPTEK unit, it reanimates an additional 1 wound.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["command"],
+      "faction_id": "NEC",
+      "fluff": "Drawing upon the accumulated precausal potential energies that coalesce around significant locations, the conclave are able to steal that power and use it to trigger the unrealized probable remanifestation matrices of their own forces.",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Chronoshift",
@@ -7415,7 +8811,8 @@
       "phase": ["movement"],
       "faction_id": "NEC",
       "fluff": "The time‑bending technologies in the nobility’s powerful vehicles allow them to traverse the battlefield in stuttering bursts of hypervelocity.",
-      "detachment": "Starshatter Arsenal"
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Dimensional Tunnel",
@@ -7430,14 +8827,15 @@
       "phase": ["movement"],
       "faction_id": "NEC",
       "fluff": "Using phase‑shifting technology, Necron war engines can slip into alternate dimensions, leaving only ghostly traces as they move through solid matter.",
-      "detachment": "Starshatter Arsenal"
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Endless Servitude",
       "id": "2e883768-2f63-5ff1-8527-9e73340889aa",
       "cost": 1,
       "turn": "your",
-      "target": "One NECRONS unit (excluding TITANIC units) from your army that is within range of one or more objective markers you control.",
+      "target": "One NECRONS unit (excluding MONSTER and TITANIC units) from your army that is within range of one or more objective markers you control.",
       "when": "End of your Fight phase.",
       "effect": "Your unit’s Reanimation Protocols activate.",
       "restrictions": "",
@@ -7445,14 +8843,15 @@
       "phase": ["fight"],
       "faction_id": "NEC",
       "fluff": "Should the unclean thralls of lesser species threaten dynastic territories, the fallen Necron soldiery will rise to repel the interlopers.",
-      "detachment": "Starshatter Arsenal"
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Reactive Reposition",
       "id": "0dba7660-1a67-53b4-965a-3e16b287c136",
       "cost": 1,
       "turn": "opponents",
-      "target": "&x20;One NECRONS unit from your army (excluding TITANIC units) that was the target of one or more of the attacking unit’s attacks.",
+      "target": "&x20;One NECRONS unit from your army (excluding MONSTER and TITANIC units) that was the target of one or more of the attacking unit’s attacks.",
       "when": "Your opponent’s Shooting phase, just after an enemy unit has shot.",
       "effect": "Your unit can make a Normal move of up to D6\".",
       "restrictions": "",
@@ -7460,7 +8859,40 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "Subroutines buried deep within the neural networks of Necron soldiers and crews enable them to react instantaneously to targeting locks, repositioning themselves to evade incoming fire or close in upon the foe.",
-      "detachment": "Starshatter Arsenal"
+      "detachment": "Starshatter Arsenal",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Mortis Protocols",
+      "id": "cf9e9678-a7d5-5b51-b84d-ba615d2b106d",
+      "cost": 1,
+      "turn": "either",
+      "target": "One friendly NECRONS unit (excluding MONSTERS and VEHICLES) within 9\" of that DESTROYER CULT unit.",
+      "when": "Your Shooting phase or the Fight phase, just after the first time a DESTROYER CULT unit from your army destroys an enemy unit this turn.",
+      "effect": "The friendly unit’s Reanimation Protocols activate.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "In the absolute destruction of their enemies, the corrupted Necrons find fresh purpose and a macabre simulacrum of new life.",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Driven to Butchery",
+      "id": "898a734a-9f1a-5a77-8ac2-f92ad07acd35",
+      "cost": 1,
+      "turn": "your",
+      "target": "One DESTROYER CULT unit from your army.",
+      "when": "Your Shooting phase or your Charge phase.",
+      "effect": "Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Advanced.",
+      "restrictions": "You can only use this Stratagem once per turn.",
+      "type": "Strategic Ploy",
+      "phase": ["charge", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "The murderous goad of the Destroyer madness pushes these android killers to seemingly impossible efforts to get to grips with the foe.",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Insanity’s Ire",
@@ -7475,7 +8907,8 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "To strike down one horror is merely to draw the rest of the pack’s insane and murderous focus.",
-      "detachment": "Annihilation Legion"
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Masks of Death",
@@ -7490,7 +8923,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Wreathed in tendrils of transdimensional shadow that intensify their deathly visages, these killing machines evoke such terror that steady aims tremble and blade arms are sapped of strength.",
-      "detachment": "Annihilation Legion"
+      "detachment": "Annihilation Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Reanimation Crypts",
@@ -7505,7 +8939,8 @@
       "phase": ["command"],
       "faction_id": "NEC",
       "fluff": "There is no rest for Necrons who fall in the service of their master. In dark crypts, their bodies are repaired and they are dispatched once more to war.",
-      "detachment": "Hypercrypt Legion"
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Cosmic Precision",
@@ -7520,7 +8955,40 @@
       "phase": ["movement"],
       "faction_id": "NEC",
       "fluff": "With a sanity-defying mechanism at the heart of the tomb, dynastic astromancers divine the pre-aligned point in space and time where a crucial role can be played in the wider battle plan.",
-      "detachment": "Hypercrypt Legion"
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Molecular Erosion",
+      "id": "43b818b0-eaf0-59f0-b5f2-d4b49914dacd",
+      "cost": 1,
+      "turn": "either",
+      "target": "One NECRONS MONSTER unit from your army.",
+      "when": "Command phase.",
+      "effect": "Select one unravelling enemy unit visible to your unit. That enemy unit must take a Battle‑shock test. When doing so, subtract 1 from the result. If that test is failed, that enemy unit suffers D3+1 mortal wounds.",
+      "restrictions": "You can only use this Stratagem once per battle round.",
+      "type": "Strategic Ploy",
+      "phase": ["command"],
+      "faction_id": "NEC",
+      "fluff": "Those without the will to hold themselves together start to physically tatter apart in a molecular haze in the presence of so many god shards.",
+      "detachment": "Pantheon of Woe",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Phase Melding",
+      "id": "a3905aa5-569a-59c4-b02a-39e605693cb6",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One NECRONS unit from your army that is within Engagement Range of that enemy unit",
+      "when": "Your opponent’s Movement phase, when an unravelling enemy unit is selected to Fall Back.",
+      "effect": "When that enemy unit Falls Back, all models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle‑shocked, subtract 1 from each of those tests.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "NEC",
+      "fluff": "The very stuff of reality flows together at an atomic level, and the foe find to their horror that they are literally – and gruesomely – rooted to the spot.",
+      "detachment": "Pantheon of Woe",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Territorial Obsession",
@@ -7535,7 +9003,8 @@
       "phase": ["command"],
       "faction_id": "NEC",
       "fluff": "The ancient and arrogant will of the nobility drives their powerful servants to stand their ground defiantly as they claim the dynasty’s rightful lands.",
-      "detachment": "Obeisance Phalanx"
+      "detachment": "Obeisance Phalanx",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Solar Pulse",
@@ -7550,7 +9019,8 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "By remotely accessing a hidden engine’s most illuminating protocols, a Cryptek can release the awesome power of a caged solar flare.",
-      "detachment": "Canoptek Court"
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Reactive Subroutines",
@@ -7565,7 +9035,8 @@
       "phase": ["movement"],
       "faction_id": "NEC",
       "fluff": "Canoptek constructs spent the long Great Sleep in watchful vigilance. Triggering a surge of power, they are capable of responsive manoeuvres to outwit the swiftest of attackers.",
-      "detachment": "Canoptek Court"
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Countertemporal Shift",
@@ -7580,7 +9051,8 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "With a twist to the fabric of time, a bubble of another moment enshrouds these constructs. Strange emissions from long-dead elder stars or utter darkness from a nighttime far in the future occludes them from their master’s foes.",
-      "detachment": "Canoptek Court"
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Suboptimal Facade",
@@ -7595,7 +9067,8 @@
       "phase": ["charge"],
       "faction_id": "NEC",
       "fluff": "Canoptek constructs use sophisticated metalogic to craft sinister ambushes. Luring the foe in by appearing at suboptimal operation, a surge of reanimation protocols suddenly swells their numbers.",
-      "detachment": "Canoptek Court"
+      "detachment": "Canoptek Court",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Protocol of the Undying Legions",
@@ -7610,7 +9083,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Nanoscarabs are released in boiling black clouds that whirl about the legions and effect rapid repairs.",
-      "detachment": "Awakened Dynasty"
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Protocol of the Sudden Storm",
@@ -7625,7 +9099,24 @@
       "phase": ["movement"],
       "faction_id": "NEC",
       "fluff": "Arcing energies leap from one Necron to the next, lending them unnatural speed and surety.",
-      "detachment": "Awakened Dynasty"
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Unnatural Aggression",
+      "id": "2f91482e-17f6-583c-a4c2-9f51767ac69b",
+      "cost": 2,
+      "turn": "opponents",
+      "target": "One NECRONS unit (excluding MONSTERS and VEHICLES) from your army that is within 6\" of one or more enemy units and would be eligible to declare a charge against one or more of those enemy units if it were your Charge phase",
+      "when": "End of your opponent’s Charge phase.",
+      "effect": "Your unit now declares a charge that only targets one or more of those enemy units, and you resolve that charge. Note that even if this charge is successful, your unit does not receive any Charge bonus this turn.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["charge"],
+      "faction_id": "NEC",
+      "fluff": "The android soldiery of the cursed legion are maddened with the desire to engage and slay their victims at close quarters.",
+      "detachment": "Cursed Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Hyperphasic Recall",
@@ -7640,7 +9131,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Obeying recall protocols, threatened tomb defenders will phase out of existence, only to be relocated to a more advantageous position by the tomb’s hulking Monoliths.",
-      "detachment": "Hypercrypt Legion"
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Dimensional Corridor",
@@ -7655,7 +9147,8 @@
       "phase": ["charge"],
       "faction_id": "NEC",
       "fluff": "As the tomb’s warriors pass through a dimensional displacement corridor, the passage’s surface is lit with data-glyphs providing hyperlogical tactical information. When they step from an eternity gate, they are already prepared for the hunt.",
-      "detachment": "Hypercrypt Legion"
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Protocol of the Vengeful Stars",
@@ -7670,7 +9163,40 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "Criss-cross fire leaps from the Necron ranks, forming a blazing corona of deadly energy to punish those who dare threaten the indignant nobility’s legions.",
-      "detachment": "Awakened Dynasty"
+      "detachment": "Awakened Dynasty",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Microscarab Swarm",
+      "id": "ed6efc58-5d9a-53b9-a79e-4cf04820ad3d",
+      "cost": 1,
+      "turn": "either",
+      "target": "One CRYPTEK INFANTRY unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "If your unit has the NECRON WARRIORS keyword, until the end of the phase, models in your unit have a 5+ invulnerable save. If your unit has the IMMORTALS keyword, until the end of the phase, models in your unit have a 4+ invulnerable save.",
+      "restrictions": "",
+      "type": "Wargear",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "This thrumming cloud of minute nanoscarabs whirls around the Necrons, affecting instantaneous repairs",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
+    },
+    {
+      "name": "Animus Curse",
+      "id": "6003cd85-78d8-5209-a004-424bdbe2b2c3",
+      "cost": 1,
+      "turn": "either",
+      "target": "One CRYPTEK model from your army that was destroyed by one of the attacking unit’s attacks. You can use this Stratagem on that model even though it was just destroyed",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has shot or fought",
+      "effect": "Until the end of the battle, each time a friendly NECRONS model makes an attack that targets the attacking unit, you can re‑roll the Hit roll.",
+      "restrictions": "",
+      "type": "Wargear",
+      "phase": ["fight", "shooting"],
+      "faction_id": "NEC",
+      "fluff": "A portion of the Cryptek’s animus clings to the battlefield just long enough to possess their servants and use them to exact revenge.",
+      "detachment": "Cryptek Conclave",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Quantum Deflection",
@@ -7685,7 +9211,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "NEC",
       "fluff": "Necron quantum shielding is a true marvel of techno-arcana. Channelled with energy reserves from the rising tomb structures, the shielding is capable of adaptive remodulation to diffuse and deflect the most powerful enemy attacks.",
-      "detachment": "Hypercrypt Legion"
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     },
     {
       "name": "Entropic Damping",
@@ -7700,8 +9227,9 @@
       "phase": ["shooting"],
       "faction_id": "NEC",
       "fluff": "Towering war engines rise from an erupting tomb in its defence, directing entropic energies to weaken and fracture the enemies’ own weapons and turning them into dangerous tools only the desperate would use.",
-      "detachment": "Hypercrypt Legion"
+      "detachment": "Hypercrypt Legion",
+      "detachment_faction": "Necrons"
     }
   ],
-  "updated": "2025-02-05T13:53:46.940Z"
+  "updated": "2026-03-09T13:14:16.970Z"
 }

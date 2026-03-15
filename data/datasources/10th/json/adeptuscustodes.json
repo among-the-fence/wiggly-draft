@@ -4,6 +4,7 @@
     "banner": "#6a0e19",
     "header": "#6d5035"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -80,9 +81,11 @@
       "name": "Telemon Heavy Dreadnought",
       "points": [
         {
-          "cost": "215",
+          "cost": "225",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -159,7 +162,9 @@
       "transport": "",
       "wargear": [
         "This model’s 2 iliastus accelerator culverins can be replaced with one of the following: ◦ 2 arachnus storm cannons ◦ 2 Telemon caestus and 2 twin plasma projectors ◦ 1 iliastus accelerator culverin and 1 arachnus storm cannon ◦ 1 iliastus accelerator culverin, 1 Telemon caestus and 1 twin plasma projector ◦ 1 arachnus storm cannon, 1 Telemon caestus and 1 twin plasma projector"
-      ]
+      ],
+      "baseSize": "100mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -220,7 +225,9 @@
         {
           "cost": "155",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -297,7 +304,9 @@
       "transport": "",
       "wargear": [
         "This model’s 2 lastrum storm bolters can be replaced with one of the following: ◦ 2 infernus incinerators ◦ 2 twin adrathic destructors ◦ 1 lastrum storm bolter and 1 infernus incinerator ◦ 1 lastrum storm bolter and 1 twin adrathic destructor ◦ 1 infernus incinerator and 1 twin adrathic destructor"
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -358,7 +367,9 @@
         {
           "cost": "165",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -391,7 +402,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -449,9 +462,11 @@
       "name": "Venerable Contemptor Dreadnought",
       "points": [
         {
-          "cost": "160",
+          "cost": "170",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -514,7 +529,9 @@
       "transport": "",
       "wargear": [
         "This model’s multi-melta can be replaced with 1 Kheres-pattern assault cannon."
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -591,9 +608,11 @@
       "name": "Blade Champion",
       "points": [
         {
-          "cost": "110",
+          "cost": "120",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -612,6 +631,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["CUSTODIAN GUARD", "CUSTODIAN WARDENS"],
         "extra": ""
@@ -671,7 +692,9 @@
         {
           "cost": "215",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -734,7 +757,9 @@
       "transport": "",
       "wargear": [
         "This model’s twin iliastus accelerator cannon can be replaced with 1 twin arachnus heavy blaze cannon."
-      ]
+      ],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -824,24 +849,32 @@
       "name": "Allarus Custodians",
       "points": [
         {
-          "cost": "390",
+          "cost": "330",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "325",
+          "cost": "275",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "195",
+          "cost": "165",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
-          "cost": "130",
+          "cost": "110",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -906,6 +939,8 @@
         "1 model’s guardian spear can be replaced with 1 vexilla and 1 misericordia.",
         "Any number of models can each have their guardian spear replaced with 1 castellan axe."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": ["Shield-Captain in Allarus Terminator Armour"]
     },
     {
@@ -970,9 +1005,11 @@
       "name": "Shield-Captain on Dawneagle Jetbike",
       "points": [
         {
-          "cost": "160",
+          "cost": "150",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1022,6 +1059,8 @@
       "wargear": [
         "This model’s salvo launcher can be replaced with 1 Vertus hurricane bolter."
       ],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
       "leads": {
         "units": ["VERTUS PRAETORS"],
         "extra": ""
@@ -1082,24 +1121,32 @@
       "name": "Vigilators",
       "points": [
         {
-          "cost": "125",
+          "cost": "100",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
-          "cost": "115",
+          "cost": "90",
           "keyword": null,
-          "models": "9"
+          "models": "9",
+
+          "detachment": null
         },
         {
-          "cost": "65",
+          "cost": "55",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "50",
+          "cost": "45",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1118,6 +1165,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Knight-Centura", "Aleya"]
     },
     {
@@ -1183,7 +1232,9 @@
         {
           "cost": "225",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1216,7 +1267,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1238,7 +1291,7 @@
           },
           {
             "name": "Sanctified Flames",
-            "description": "Each time this unit shoots, after it has shot, select one enemy unit that was hit by one or more of those attacks. That unit must take a Battle-shock test."
+            "description": "In your Shooting phase, after this unit has shot, select one enemy unit hit by one or more of those attacks. That enemy unit must take a Battle‑shock test."
           }
         ],
         "primarch": [],
@@ -1273,24 +1326,32 @@
       "name": "Witchseekers",
       "points": [
         {
-          "cost": "125",
+          "cost": "100",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
-          "cost": "115",
+          "cost": "90",
           "keyword": null,
-          "models": "9"
+          "models": "9",
+
+          "detachment": null
         },
         {
-          "cost": "65",
+          "cost": "55",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "50",
+          "cost": "45",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1324,6 +1385,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Knight-Centura", "Aleya"]
     },
     {
@@ -1380,7 +1443,9 @@
         {
           "cost": "580",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1427,7 +1492,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1525,14 +1592,18 @@
       "name": "Custodian Guard",
       "points": [
         {
-          "cost": "225",
+          "cost": "200",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "180",
+          "cost": "160",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1583,6 +1654,8 @@
         "1 model’s guardian spear can be replaced with 1 vexilla, 1 misericordia and 1 praesidium shield.",
         "Any number of models can each have their guardian spear replaced with 1 sentinel blade and 1 praesidium shield."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": [
         "Blade Champion",
         "Valerian",
@@ -1651,7 +1724,9 @@
         {
           "cost": "690",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1712,7 +1787,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 ADEPTUS CUSTODES INFANTRY models. This model can also transport 1 VENERABLE CONTEMPTOR DREADNOUGHT, 1 CONTEMPTOR-ACHILLUS DREADNOUGHT or 1 CONTEMPTOR GALATUS-DREADNOUGHT; while doing so, its transport capacity is reduced to 6 ADEPTUS CUSTODES INFANTRY models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1793,9 +1870,11 @@
       "name": "Knight-Centura",
       "points": [
         {
-          "cost": "70",
+          "cost": "55",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1845,6 +1924,8 @@
       "wargear": [
         "This model’s executioner greatblade can be replaced with one of the following:  ◦ 1 master-crafted boltgun and 1 close combat weapon ◦ 1 Witchseeker flamer and 1 close combat weapon"
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["PROSECUTORS", "VIGILATORS", "WITCHSEEKERS"],
         "extra": ""
@@ -1915,7 +1996,9 @@
         {
           "cost": "75",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1968,7 +2051,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 ANATHEMA PSYKANA INFANTRY models.",
-      "wargear": ["This model can be equipped with 1 hunter-killer missile."]
+      "wargear": ["This model can be equipped with 1 hunter-killer missile."],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2036,9 +2121,11 @@
       "name": "Aleya",
       "points": [
         {
-          "cost": "75",
+          "cost": "65",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2057,6 +2144,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["PROSECUTORS", "VIGILATORS", "WITCHSEEKERS"],
         "extra": ""
@@ -2125,12 +2214,16 @@
         {
           "cost": "450",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "225",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2193,7 +2286,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their lastrum bolt cannon replaced with one of the following: ◦ 1 adrathic devastator ◦ 1 twin las-pulsar"
-      ]
+      ],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2252,9 +2347,11 @@
       "name": "Venerable Land Raider",
       "points": [
         {
-          "cost": "240",
+          "cost": "220",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2338,7 +2435,9 @@
       "wargear": [
         "This model can be equipped with 1 storm bolter.",
         "This model can be equipped with 1 hunter-killer missile."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2414,14 +2513,18 @@
       "name": "Custodian Wardens",
       "points": [
         {
-          "cost": "250",
+          "cost": "260",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
-          "cost": "200",
+          "cost": "210",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2472,6 +2575,8 @@
         "1 model can be equipped with 1 vexilla.",
         "Any number of models can each have their guardian spear replaced with 1 castellan axe."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leadBy": [
         "Blade Champion",
         "Valerian",
@@ -2533,7 +2638,9 @@
         {
           "cost": "105",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2566,7 +2673,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2625,12 +2734,16 @@
         {
           "cost": "225",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "150",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2680,6 +2793,8 @@
       "wargear": [
         "Any number of models can each have their salvo launcher replaced with 1 Vertus hurricane bolter."
       ],
+      "baseSize": "75 x 42mm Oval Base",
+      "chapter": null,
       "leadBy": ["Shield-Captain on Dawneagle Jetbike"]
     },
     {
@@ -2746,7 +2861,9 @@
         {
           "cost": "110",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2780,6 +2897,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["CUSTODIAN GUARD", "CUSTODIAN WARDENS"],
         "extra": ""
@@ -2859,12 +2978,16 @@
         {
           "cost": "330",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "165",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2913,7 +3036,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their Venatari lance replaced with 1 kinetic destroyer and 1 tarsus buckler."
-      ]
+      ],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2990,9 +3115,11 @@
       "name": "Shield-Captain in Allarus Terminator Armour",
       "points": [
         {
-          "cost": "140",
+          "cost": "130",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3056,6 +3183,8 @@
       "wargear": [
         "This model’s guardian spear can be replaced with 1 castellan axe."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["ALLARUS CUSTODIANS"],
         "extra": ""
@@ -3138,12 +3267,16 @@
         {
           "cost": "390",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
           "cost": "195",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3207,7 +3340,9 @@
       "wargear": [
         "Any number of models can each have their solerite power gauntlet replaced with 1 solerite power talon.",
         "Any number of models can each have their lastrum storm bolter replaced with one of the following: ◦ 1 infernus firepike ◦ 1 twin adrathic destructor"
-      ]
+      ],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3290,7 +3425,9 @@
         {
           "cost": "250",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3339,7 +3476,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their adrasite spear replaced with 1 pyrithite spear."
-      ]
+      ],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3401,7 +3540,9 @@
         {
           "cost": "200",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3448,7 +3589,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 8 ADEPTUS CUSTODES INFANTRY models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3505,24 +3648,32 @@
       "name": "Prosecutors",
       "points": [
         {
-          "cost": "100",
+          "cost": "85",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
-          "cost": "90",
+          "cost": "75",
           "keyword": null,
-          "models": "9"
+          "models": "9",
+
+          "detachment": null
         },
         {
           "cost": "50",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "4"
+          "models": "4",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3556,6 +3707,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": ["Knight-Centura", "Aleya"]
     },
     {
@@ -3660,9 +3813,11 @@
       "name": "Shield-Captain",
       "points": [
         {
-          "cost": "140",
+          "cost": "120",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3740,6 +3895,8 @@
       "wargear": [
         "This model’s guardian spear can be replaced with one of the following:  ◦ 1 castellan axe ◦ 1 sentinel blade ◦ 1 sentinel blade and 1 praesidium shield ◦ 1 pyrithite spear and 1 praesidium shield"
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["CUSTODIAN GUARD", "CUSTODIAN WARDENS"],
         "extra": ""
@@ -3813,7 +3970,9 @@
         {
           "cost": "140",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3847,6 +4006,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["CUSTODIAN GUARD", "CUSTODIAN WARDENS"],
         "extra": ""
@@ -3854,11 +4015,30 @@
     }
   ],
   "detachments": [
-    "Solar Spearhead",
-    "Auric Champions",
-    "Null Maiden Vigil",
-    "Shield Host",
-    "Talons of the Emperor"
+    {
+      "name": "Lions of the Emperor",
+      "faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Auric Champions",
+      "faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Solar Spearhead",
+      "faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Shield Host",
+      "faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Null Maiden Vigil",
+      "faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Talons of the Emperor",
+      "faction": "Adeptus Custodes"
+    }
   ],
   "enhancements": [
     {
@@ -3869,7 +4049,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. Each time an attack targets the bearer’s unit, if the attacking model is within 12\", subtract 1 from the Hit roll.",
       "faction_id": "AC",
-      "detachment": "Talons of the Emperor"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Gift of Terran Artifice",
@@ -3879,7 +4062,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. Each time the bearer makes a melee attack, add 1 to the Wound roll.",
       "faction_id": "AC",
-      "detachment": "Talons of the Emperor"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Champion of the Imperium",
@@ -3889,7 +4075,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. The range of the bearer’s Null Aegis or Deadly Unity ability is increased to 9\".",
       "faction_id": "AC",
-      "detachment": "Talons of the Emperor"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Aegis Projector",
@@ -3899,7 +4088,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. Once per turn, the first time a saving throw is failed for the bearer’s unit, change the Damage characteristic of that attack to 0.",
       "faction_id": "AC",
-      "detachment": "Talons of the Emperor"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "From the Hall of Armouries",
@@ -3909,7 +4101,10 @@
       "excludes": [],
       "description": "SHIELD‑CAPTAIN model only. Add 1 to the Strength and Damage characteristics of the bearer’s melee weapons.",
       "faction_id": "AC",
-      "detachment": "Shield Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Castellan’s Mark",
@@ -3919,7 +4114,10 @@
       "excludes": [],
       "description": "SHIELD‑CAPTAIN model only. After both players have deployed their armies, you can select up to two ADEPTUS CUSTODES units from your army (excluding ANATHEMA PSYKANA units) and redeploy all of those units. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "AC",
-      "detachment": "Shield Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Auric Mantle",
@@ -3929,7 +4127,10 @@
       "excludes": [],
       "description": "SHIELD‑CAPTAIN or BLADE CHAMPION model only. Add 2 to the bearer’s Wounds characteristic.",
       "faction_id": "AC",
-      "detachment": "Shield Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Panoptispex",
@@ -3939,7 +4140,10 @@
       "excludes": [],
       "description": "SHIELD‑CAPTAIN or BLADE CHAMPION model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [IGNORES COVER] ability.",
       "faction_id": "AC",
-      "detachment": "Shield Host"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Raptor Blade",
@@ -3949,7 +4153,10 @@
       "excludes": [],
       "description": "ANATHEMA PSYKANA model only. Add 1 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons. While the bearer is within Engagement Range of one or more enemy PSYKER units that are Battle‑shocked, add 2 to the Attacks, Strength and Damage characteristics of the bearer’s melee weapons instead.",
       "faction_id": "AC",
-      "detachment": "Null Maiden Vigil"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Enhanced Voidsheen Cloak",
@@ -3959,7 +4166,10 @@
       "excludes": [],
       "description": "ANATHEMA PSYKANA model only. Each time an attack is allocated to the bearer, subtract 1 from the Damage characteristic of that attack. If that attack was made by a PSYKER or Battle‑shocked model, change the Damage characteristic of that attack to 1 instead.",
       "faction_id": "AC",
-      "detachment": "Null Maiden Vigil"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Huntress’ Eye",
@@ -3969,7 +4179,10 @@
       "excludes": [],
       "description": "ANATHEMA PSYKANA model only. In your Command phase, select one enemy unit within 12\" of the bearer. That unit must take a Battle‑shock test.",
       "faction_id": "AC",
-      "detachment": "Null Maiden Vigil"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Oblivion Knight",
@@ -3979,7 +4192,10 @@
       "excludes": [],
       "description": "ANATHEMA PSYKANA model only. While the bearer is leading a unit, each time a model in that unit makes an attack, add 1 to the Hit roll. If that attack targeted an enemy PSYKER unit, add 1 to the Wound roll as well.",
       "faction_id": "AC",
-      "detachment": "Null Maiden Vigil"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Blade Imperator",
@@ -3989,7 +4205,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. Each time the bearer’s unit ends a Charge move, select one enemy unit within Engagement Range of the bearer and roll one D6: on a 4+, that enemy unit suffers D3 mortal wounds. Once per battle, after the bearer’s unit ends a Charge move, all enemy units within 6\" of the bearer must take a Battle‑shock test.",
       "faction_id": "AC",
-      "detachment": "Auric Champions"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Inspirational Exemplar",
@@ -3999,7 +4218,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. The bearer has a Leadership characteristic of 5+. Once per battle, at the start of any phase, you can select one friendly ADEPTUS CUSTODES unit that is Battle‑shocked and within 12\" of the bearer; that unit is no longer Battle‑shocked.",
       "faction_id": "AC",
-      "detachment": "Auric Champions"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Veiled Blade",
@@ -4009,7 +4231,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. Add 2 to the Attacks characteristic of the bearer’s melee weapons. Once per battle, at the start of any Command phase, triple the bearer’s Objective Control characteristic until the end of the turn.",
       "faction_id": "AC",
-      "detachment": "Auric Champions"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Martial Philosopher",
@@ -4019,7 +4244,10 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. The bearer’s unit is eligible to shoot and/or declare a charge in a turn in which it Fell Back. Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of the bearer, if the bearer’s unit is not within Engagement Range of one or more enemy units, it can make a Normal move of up to 6\".",
       "faction_id": "AC",
-      "detachment": "Auric Champions"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Adamantine Talisman",
@@ -4029,48 +4257,299 @@
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. Improve the Attacks, Strength and Damage characteristics of melee weapons equipped by the bearer by 1.",
       "faction_id": "AC",
-      "detachment": "Solar Spearhead"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Augury Uplink",
       "id": "5274b486-9020-5acf-8cd0-e90bf4c9feb5",
-      "cost": "25",
+      "cost": "35",
       "keywords": ["Adeptus Custodes"],
       "excludes": [],
       "description": "ADEPTUS CUSTODES model only. The bearer has the Feel No Pain 5+ ability.",
       "faction_id": "AC",
-      "detachment": "Solar Spearhead"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Honoured Fallen (Aura)",
       "id": "551da8bf-8c69-5faf-a328-0a03b9b99062",
       "cost": "15",
-      "keywords": ["Vehicle"],
+      "keywords": ["Vehicle", "Adeptus Custodes"],
       "excludes": [],
       "description": "ADEPTUS CUSTODES VEHICLE model only. While a friendly ADEPTUS CUSTODES INFANTRY or ADEPTUS CUSTODES MOUNTED unit is within 6\" of the bearer, each time a model in that unit makes an attack, re‑roll a Hit roll of 1.",
       "faction_id": "AC",
-      "detachment": "Solar Spearhead"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Veteran of the Kataphraktoi",
       "id": "4671a39f-b2e8-5ace-b9db-054b51e2d070",
       "cost": "10",
-      "keywords": ["Infantry", "Mounted"],
+      "keywords": ["Infantry", "Adeptus Custodes", "Mounted"],
       "excludes": [],
       "description": "ADEPTUS CUSTODES INFANTRY or ADEPTUS CUSTODES MOUNTED model only. In your Command phase, select one ADEPTUS CUSTODES VEHICLE or ADEPTUS CUSTODES MOUNTED unit within 6\" of the bearer. Until the start of your next Command phase, that unit is eligible to shoot in a turn in which it Fell Back.",
       "faction_id": "AC",
-      "detachment": "Solar Spearhead"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Superior Creation",
+      "id": "58b4d1fc-d24b-5c86-aafd-077b643d9731",
+      "cost": "25",
+      "keywords": ["Infantry", "Adeptus Custodes"],
+      "excludes": [],
+      "description": "ADEPTUS CUSTODES INFANTRY model only. The first time the bearer is destroyed, roll one D6 at the end of the phase. On a 2+, set the bearer back up on the battlefield, as close as possible to where it was destroyed and not within Engagement Range of one or more enemy units, with its full wounds remaining.",
+      "faction_id": "AC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Praesidius",
+      "id": "2004f402-89ce-5b07-943f-8f962b4ced1e",
+      "cost": "25",
+      "keywords": ["Adeptus Custodes"],
+      "excludes": [],
+      "description": "ADEPTUS CUSTODES model only. The bearer has the Lone Operative and Stealth abilities.",
+      "faction_id": "AC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Fierce Conqueror",
+      "id": "dd505ad2-22e0-5e58-81fb-094afd364f0a",
+      "cost": "15",
+      "keywords": ["Shield-Captain"],
+      "excludes": [],
+      "description": "SHIELD‐CAPTAIN model only. At the start of the Fight phase, until the end of the phase, add 2 to the Attacks characteristic of melee weapons equipped by the bearer for every 5 enemy models within 6\" of the bearer (rounding down).",
+      "faction_id": "AC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Admonimortis",
+      "id": "fd5868cf-6cf7-53c2-a264-57df9670413b",
+      "cost": "10",
+      "keywords": ["Shield-Captain"],
+      "excludes": [],
+      "description": "SHIELD‐CAPTAIN model only. Improve the Strength characteristic of melee weapons equipped by the bearer by 3, and improve the Armour Penetration and Damage characteristics of those weapons by 1.",
+      "faction_id": "AC",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     }
   ],
   "id": "AC",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Adeptus Custodes",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Martial Ka’tah",
+        "rules": [
+          {
+            "text": "Each time a unit from your army with this ability is selected to fight, select one of the Ka’tah Stances below. Until that unit has finished making its attacks, the selected Stance is active for it and it gains the relevant ability:",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "Dacatari Stance",
+            "order": 3,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "Melee weapons equipped by models in this unit have the **[SUSTAINED HITS 1]** ability.",
+            "order": 4,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "Rendax Stance",
+            "order": 6,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "Melee weapons equipped by models in this unit have the **[LETHAL HITS]** ability.",
+            "order": 7,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Lions of the Emperor",
+        "faction": "Adeptus Custodes",
+        "rules": [
+          {
+            "name": "Against All Odds",
+            "rules": [
+              {
+                "text": "Each time a model in an **ADEPTUS CUSTODES** unit from your army (excluding **VEHICLES**) makes an attack, if there are no other friendly units within 6\" of that unit, add 1 to the Hit roll and add 1 to the Wound roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Auric Champions",
+        "faction": "Adeptus Custodes",
+        "rules": [
+          {
+            "name": "Assemblage of Might",
+            "rules": [
+              {
+                "text": "At the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, each time a model in an **ADEPTUS CUSTODES CHARACTER** unit from your army makes an attack that targets that enemy unit, add 1 to the Wound roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Solar Spearhead",
+        "faction": "Adeptus Custodes",
+        "rules": [
+          {
+            "name": "Auric Armour",
+            "rules": [
+              {
+                "text": "■ While an **ADEPTUS CUSTODES VEHICLE** unit from your army is at Starting Strength, unless that unit is an **AIRCRAFT** or it is Battle‑shocked, add 2 to the Objective Control characteristic of models in that unit.\n■ While an **ADEPTUS CUSTODES VEHICLE** unit from your army is below Starting Strength, each time a model in that unit makes an attack, re‑roll a Hit roll of 1.\n■ While an **ADEPTUS CUSTODES VEHICLE** unit from your army is Below Half‑strength, each time a model in that unit makes an attack, re‑roll a Hit roll of 1 and re‑roll a Wound roll of 1.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          },
+          {
+            "name": "Moritoi Ancients",
+            "rules": [
+              {
+                "text": "Add 2\" to the Move characteristic of models in **ADEPTUS CUSTODES WALKER** units from your army and add 1 to Advance and Charge rolls made for such units.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Shield Host",
+        "faction": "Adeptus Custodes",
+        "rules": [
+          {
+            "name": "Martial Mastery",
+            "rules": [
+              {
+                "text": "At the start of the battle round, you can select one of the bullet points below. If you do, until the start of the next battle round, that bullet point’s effects apply.\n\n■ Each time an **ADEPTUS CUSTODES** model from your army with the Martial Ka’tah ability makes a melee attack, a successful unmodified Hit roll of 5+ scores a Critical Hit.\n\n■ Improve the Armour Penetration characteristic of melee weapons equipped by **ADEPTUS CUSTODES** models from your army with the Martial Ka’tah ability by 1.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Null Maiden Vigil",
+        "faction": "Adeptus Custodes",
+        "rules": [
+          {
+            "name": "Creeping Dread (Aura)",
+            "rules": [
+              {
+                "text": "In the Battle‑shock step of your opponent’s Command phase, if an enemy unit that is either a **PSYKER** unit or below its Starting Strength is within 12\" of one or more **ANATHEMA PSYKANA** models from your army, that enemy unit must take a Battle‑shock test. If that unit is Below Half‑strength, it must subtract 1 from its Battle‑shock test this phase instead.\n\n**Designer’s Note:** *This means that all enemy **PSYKER** units within range of this Aura ability and all enemy units within range of this Aura ability that have lost one or more models must take a Battle‑shock test in your opponent’s Command phase, not just those that are Below Half‑strength.*",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Talons of the Emperor",
+        "faction": "Adeptus Custodes",
+        "rules": [
+          {
+            "name": "Revered Companions",
+            "rules": [
+              {
+                "text": "**ANATHEMA PSYKANA** units from your army gain the following the ability:\n\n**Null Aegis (Aura)**: While an **ADEPTUS CUSTODES** unit is within 6\" of this unit, models in that unit have the Feel No Pain 5+ ability against Psychic Attacks and mortal wounds.\n\nAll other **ADEPTUS CUSTODES** units from your army gain the following ability:\n\n**Deadly Unity (Aura)**: While an **ANATHEMA PSYKANA** unit is within 6\" of this unit, each time a model in that **ANATHEMA PSYKANA** unit makes an attack, add 1 to the Hit roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
-      "name": "Flawless Contruction",
-      "id": "f3cb72db-a24c-583f-9b59-248fb9830319",
+      "name": "Peerless Warrior",
+      "id": "b9e9f1c8-7535-5d2e-afd7-8ba32f2e0cf6",
+      "cost": 1,
+      "turn": "either",
+      "target": "One ADEPTUS CUSTODES unit from your army that has not been selected to fight this phase.",
+      "when": "Fight phase.",
+      "effect": "Until the end of the phase, melee weapons equipped by models in your unit have the [PRECISION] ability.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight"],
+      "faction_id": "AC",
+      "fluff": "With every strike, the Lions of the Emperor prove themselves the masters of single combat, even when engaging the mightiest foes.",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Flawless Construction",
+      "id": "f441144e-5491-5145-92f6-ed9e2b99a9ab",
       "cost": 1,
       "turn": "either",
       "target": "One ADEPTUS CUSTODES VEHICLE unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
@@ -4081,7 +4560,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AC",
       "fluff": "The vehicles of the Adeptus Custodes are the finest examples of their kind. Their expertly wrought armoured forms contain ancient and esoteric technology, including auto‑repair subroutines and reactive field generators.",
-      "detachment": "Solar Spearhead"
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Emperor’s Vengeance",
@@ -4096,7 +4576,8 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "Even as death’s cold embrace falls upon them, Custodians vent the last of their wrath upon the foe.",
-      "detachment": "Solar Spearhead"
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Wrathful Advance",
@@ -4111,7 +4592,8 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "The golden‑armoured onslaught smashes through the enemy line, trapping the foe and preventing their escape.",
-      "detachment": "Solar Spearhead"
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Arcane Genetic Alchemy",
@@ -4126,7 +4608,8 @@
       "phase": ["any"],
       "faction_id": "AC",
       "fluff": "The Adeptus Custodes are individually engineered on a molecular level using secrets of genetic alchemy that render them almost supernaturally resilient.",
-      "detachment": "Shield Host"
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Witch Hunters",
@@ -4141,7 +4624,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AC",
       "fluff": "Null Maidens train to slay psykers with swift martial efficiency, for they know their prey have many weapons beyond just their powers and must not be allowed time or opportunity to employ them.",
-      "detachment": "Null Maiden Vigil"
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Anathema Blademastery",
@@ -4156,14 +4640,15 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "The Vigilators train tirelessly in the art of the swift, beheading strike, with a particular emphasis on the swift elimination of enemy witches.",
-      "detachment": "Null Maiden Vigil"
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Purgation Sweep",
       "id": "2adfefb4-5b94-512b-b5cf-1f8e2b345249",
       "cost": 1,
       "turn": "your",
-      "target": "One WITCHSEEKERS unit from your army that  has not been selected to shoot this phase.",
+      "target": "One WITCHSEEKERS unit from your army that has not been selected to shoot this phase.",
       "when": "Your Shooting phase.",
       "effect": "Until the end of the phase, add 1 to the Attacks characteristic of Torrent weapons equipped by models in your unit. If such a weapon targets a PSYKER or Battle‑shocked unit this phase, add 2 to its Attacks characteristic instead.",
       "restrictions": "",
@@ -4171,7 +4656,8 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "Witchseekers know their role in combat is to spread indiscriminate carnage through the foe’s ranks.",
-      "detachment": "Null Maiden Vigil"
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Talons Interlocked",
@@ -4186,7 +4672,8 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "With practiced ease, the Talons of the Emperor establish vicious crossfires to cut the foe apart.",
-      "detachment": "Talons of the Emperor"
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Empyric Severance",
@@ -4201,7 +4688,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AC",
       "fluff": "Null Maidens quash the manifestations of witches.",
-      "detachment": "Talons of the Emperor"
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Taloned Pincer",
@@ -4216,7 +4704,8 @@
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "Every move the enemy makes only sees them fall.",
-      "detachment": "Talons of the Emperor"
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Emperor’s Executioners",
@@ -4231,7 +4720,8 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "The Talons of the Emperor tear apart their prey.",
-      "detachment": "Talons of the Emperor"
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Slayer of Champions",
@@ -4246,7 +4736,8 @@
       "phase": ["any"],
       "faction_id": "AC",
       "fluff": "What foe can withstand a warrior who has so tested the defences of the Throneworld itself?",
-      "detachment": "Auric Champions"
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "The Emperor’s Auspice",
@@ -4261,7 +4752,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AC",
       "fluff": "In an age plagued by monsters, when primordial horrors from the darkest void circle Humanity’s dying light, still the Adeptus Custodes stand strong.",
-      "detachment": "Auric Champions"
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Earning of a Name",
@@ -4276,7 +4768,8 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "To lay low the greatest and most terrible monsters and heretics is to earn new names for a Custodian’s mighty tally.",
-      "detachment": "Auric Champions"
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Shoulder the Mantle",
@@ -4291,7 +4784,8 @@
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "The greatest Custodians know when it is both their duty and their right to command their comrades.",
-      "detachment": "Auric Champions"
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Shield of Honour",
@@ -4306,7 +4800,8 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "It is second nature for Custodes to place themselves between their comrades and potential peril.",
-      "detachment": "Talons of the Emperor"
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Superhuman Reserves",
@@ -4321,7 +4816,8 @@
       "phase": ["any"],
       "faction_id": "AC",
       "fluff": "The greatest of the Custodians bring incredible reserves of stamina and ability to bear.",
-      "detachment": "Auric Champions"
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Vigil Unending",
@@ -4336,7 +4832,88 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "The Custodes do not yield while their duty remains unfulfilled.",
-      "detachment": "Auric Champions"
+      "detachment": "Auric Champions",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Gilded Champion",
+      "id": "eb74d639-319b-5aa3-b121-025763bd0063",
+      "cost": 1,
+      "turn": "either",
+      "target": "That ADEPTUS CUSTODES CHARACTER model.",
+      "when": "Any phase, just after an ADEPTUS CUSTODES CHARACTER model from your army has used an ability on its datasheet that states it can only be used ‘once per battle’.",
+      "effect": "Your model can use that ‘once per battle’ ability one additional time during the battle (but not in the same phase).",
+      "restrictions": "You cannot use this Stratagem on the same ADEPTUS CUSTODES CHARACTER model more than once per battle.",
+      "type": "Strategic Ploy",
+      "phase": ["any"],
+      "faction_id": "AC",
+      "fluff": "The shining champions of the Adeptus Custodes are looked upon in awe by all who witness their grim arts. Their judgement is without flaw, and their tactical acumen utterly impeccable.",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Defiant To The Last",
+      "id": "d0da5fcc-d190-5e53-9df7-babedfb8e80f",
+      "cost": 1,
+      "turn": "either",
+      "target": "One ADEPTUS CUSTODES unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6, adding 2 to the result if that model has the CHARACTER keyword. On a 4+, do not remove it from play; the destroyed model can fight after the attacking unit has finished making its attacks (when doing so, it is treated as having 1 wound remaining), and is then removed from play.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["fight"],
+      "faction_id": "AC",
+      "fluff": "The harder the battle, and the heavier their losses, the more resolute the Lions of the Emperor become.",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Unleash The Lions",
+      "id": "65ce73bd-58cb-54c8-8279-9b5f27e66abb",
+      "cost": 1,
+      "turn": "your",
+      "target": "One ALLARUS CUSTODIANS or AQUILON CUSTODIANS unit from your army that is on the battlefield.",
+      "when": "Your Command phase.",
+      "effect": "That unit is split into separate units, each containing one model. These new units each have a Starting Strength of 1.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["command"],
+      "faction_id": "AC",
+      "fluff": "Heroic bands of Terminator‐armoured Custodians engage entire armies in unrelenting battle.",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Manoeuvre and Fire",
+      "id": "627a2ee8-d0ce-532a-b648-2d9709e3497c",
+      "cost": 1,
+      "turn": "your",
+      "target": "That ADEPTUS CUSTODES unit.",
+      "when": "Your Movement phase, just after an ADEPTUS CUSTODES unit from your army Falls Back.",
+      "effect": "Until the end of the turn, your unit is eligible to shoot and declare a charge in a turn in which it Fell Back.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["movement"],
+      "faction_id": "AC",
+      "fluff": "The Adeptus Custodes are unrelenting in their advance, laying down punishing fire even as they manoeuvre to new positions.",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
+    },
+    {
+      "name": "Swift As The Eagle",
+      "id": "3cac7cff-9632-57b3-9d59-fa727f4ba86f",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One ADEPTUS CUSTODES unit from your army (excluding VEHICLE units) that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase, just after an enemy unit has shot.",
+      "effect": "Your unit can make a Normal move of up to D6\".",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["shooting"],
+      "faction_id": "AC",
+      "fluff": "Although every Custodian is devastatingly fast on the battlefield, with preternatural reactions to match, the Lions of the Emperor are outstanding even among their peers.",
+      "detachment": "Lions of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Unstoppable",
@@ -4344,14 +4921,15 @@
       "cost": 1,
       "turn": "your",
       "target": "One ADEPTUS CUSTODES VEHICLE or ADEPTUS CUSTODES MOUNTED unit from your army.",
-      "when": "Start of your Movement phase.",
-      "effect": "Until the end of the phase, models in your unit can move horizontally through models and terrain features.",
+      "when": "Your Movement phase or your Charge phase.",
+      "effect": "Until the end of the phase, each time a model in your unit makes a move, it can move through terrain features.",
       "restrictions": "",
       "type": "Strategic Ploy",
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "Armoured in adamantine and possessed of furious machine spirits, the vehicles of the Adeptus Custodes are almost impossible to stop in their tracks.",
-      "detachment": "Solar Spearhead"
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Relentless Persecution",
@@ -4366,7 +4944,8 @@
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "Custodians coax wrathful fury from their war engines’ machine spirits to hunt down and eliminate their foes at speed.",
-      "detachment": "Solar Spearhead"
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Punishment Inescapable",
@@ -4381,7 +4960,8 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "The Ten Thousand are relentless in pursuing the Emperor’s foes and thorough in their annihilation. No armour, sorcery or hiding place can shield an enemy from their wrath.",
-      "detachment": "Solar Spearhead"
+      "detachment": "Solar Spearhead",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Avenge the Fallen",
@@ -4396,7 +4976,8 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "The loss of a single Talon of the Emperor is commemorated by the tolling of the Bell of Lost Souls on Terra, and by their comrades’ bloody vengeance on the battlefield.",
-      "detachment": "Shield Host"
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Unwavering Sentinels",
@@ -4411,7 +4992,8 @@
       "phase": ["fight"],
       "faction_id": "AC",
       "fluff": "Once the Custodians have laid claim to a location, they defend it with incredible tenacity and skill.",
-      "detachment": "Shield Host"
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Multipotentiality",
@@ -4426,7 +5008,8 @@
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "So widely skilled and studied are the Custodians that, whatever situation they find themselves in, they have the martial wisdom to prevail.",
-      "detachment": "Shield Host"
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Vigilance Eternal",
@@ -4435,13 +5018,14 @@
       "turn": "your",
       "target": "One ADEPTUS CUSTODES BATTLELINE unit from your army (excluding ANATHEMA PSYKANA units) within range of an objective marker you control.",
       "when": "Your Movement phase.",
-      "effect": "That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+      "effect": "That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
       "restrictions": "",
       "type": "Strategic Ploy",
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "Simply because the Adeptus Custodes do not stand sentinel over a strategic location or asset, does not mean that it – or any who would threaten it – escapes their gaze.",
-      "detachment": "Shield Host"
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Desperation’s Price",
@@ -4456,7 +5040,8 @@
       "phase": ["any"],
       "faction_id": "AC",
       "fluff": "To overcome the Null Maidens’ aura, enemy psykers overstretch themselves with horrible consequences.",
-      "detachment": "Null Maiden Vigil"
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Psy-chaff Volley",
@@ -4471,7 +5056,8 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "Prosecutors can fire psy‑chaff bolts whose esoteric emissions weaken those targets not slain outright.",
-      "detachment": "Null Maiden Vigil"
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Psychic Abominations",
@@ -4486,7 +5072,8 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "Enemies must overcome disorienting waves of revulsion in order to even focus upon Null Maidens.",
-      "detachment": "Null Maiden Vigil"
+      "detachment": "Null Maiden Vigil",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Hunt as One",
@@ -4501,7 +5088,8 @@
       "phase": ["movement"],
       "faction_id": "AC",
       "fluff": "Custodians and Null Maidens cover one another seamlessly as they manoeuvre to corner their prey.",
-      "detachment": "Talons of the Emperor"
+      "detachment": "Talons of the Emperor",
+      "detachment_faction": "Adeptus Custodes"
     },
     {
       "name": "Archeotech Munitions",
@@ -4516,8 +5104,9 @@
       "phase": ["shooting"],
       "faction_id": "AC",
       "fluff": "The Shield Hosts have access to stockpiles of ancient and incredibly rare weaponry and ammunition.",
-      "detachment": "Shield Host"
+      "detachment": "Shield Host",
+      "detachment_faction": "Adeptus Custodes"
     }
   ],
-  "updated": "2025-02-05T13:53:46.649Z"
+  "updated": "2026-03-09T13:14:11.234Z"
 }

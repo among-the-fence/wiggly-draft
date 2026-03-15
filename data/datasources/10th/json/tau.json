@@ -3,6 +3,7 @@
     "banner": "#175966",
     "header": "#2e5a6a"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -69,14 +70,18 @@
       "name": "Krootox Rampagers",
       "points": [
         {
-          "cost": "190",
+          "cost": "170",
           "keyword": null,
-          "models": "6"
+          "models": "6",
+
+          "detachment": null
         },
         {
-          "cost": "95",
+          "cost": "85",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -109,7 +114,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -177,7 +184,9 @@
         {
           "cost": "2100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -282,7 +291,9 @@
         }
       ],
       "transport": "This model has a transport capacity of all of the following:\n\n■ 200 T’AU EMPIRE INFANTRY or TACTICAL DRONE models\n■ 4 DEVILFISH, SKY RAY GUNSHIP or HAMMERHEAD models\n■ 8 BATTLESUIT models with a Wounds characteristic of 9 or less",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Unique",
+      "chapter": null
     },
     {
       "abilities": {
@@ -374,9 +385,11 @@
       "name": "Crisis Fireknife Battlesuits",
       "points": [
         {
-          "cost": "130",
+          "cost": "120",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -428,6 +441,8 @@
         "Any number of models can each have their missile pod replaced with 1 plasma rifle.",
         "Any number of models can each have their plasma rifle replaced with 1 missile pod."
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": [
         "Commander Farsight",
         "Commander in Coldstar Battlesuit",
@@ -487,17 +502,23 @@
         {
           "cost": "180",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "120",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -581,7 +602,9 @@
       "wargear": [
         "Any number of models can each be equipped with up to 2 seeker missiles.",
         "Any number of models can each have their Piranha burst cannon can be replaced with 1 Piranha fusion blaster."
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -599,20 +622,12 @@
         "other": [
           {
             "name": "Forward Observers",
-            "description": "Each time this unit is an Observer unit, until the end of the phase, each time a ranged attack is made by a model in their Guided unit that targets their Spotted unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
+            "description": "Each time this unit is an Observer unit, until the end of the phase, each time a ranged attack is made by a model in a Guided unit that targets their Spotted unit, re-roll a Hit roll of 1 and re-roll a Wound roll of 1."
           }
         ],
         "primarch": [],
         "special": [],
         "wargear": [
-          {
-            "name": "Homing Beacon",
-            "description": "Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3\" of the bearer’s unit and not within 9\" of any enemy units."
-          },
-          {
-            "name": "Battlesuit Support System",
-            "description": "The bearer’s unit is eligible to shoot in a turn in which it Fell Back, but when doing so only models equipped with this wargear can make ranged attacks."
-          },
           {
             "name": "Gun Drone",
             "description": "The bearer is equipped with the following ranged weapon:"
@@ -622,24 +637,27 @@
             "description": "The bearer’s unit has the MARKERLIGHT keyword and can act as an Observer unit for another unit even if it Advanced this turn."
           },
           {
-            "name": "Shield Drone",
-            "description": "Add 1 to the bearer’s Wounds characteristic."
-          },
-          {
-            "name": "Battlesuit Support System",
-            "description": "The bearer’s unit is eligible to shoot in a turn in which it Fell Back, but when doing so only models equipped with this wargear can make ranged attacks."
+            "name": "Homing Beacon",
+            "description": "Once per battle, you can use the Rapid Ingress Stratagem for 0CP. The target must be set up within 3\" of the bearer’s unit and more than 9\" away from all enemy units."
           }
         ]
       },
 
-      "composition": ["1 Stealth Shas’vre", "2-5 Stealth Shas’ui"],
+      "composition": ["1 Stealth Shas’vre", "4 Stealth Shas’ui"],
       "factions": ["T’au Empire"],
       "faction_id": "TAU",
-      "fluff": "A comparatively lightweight and specialist mark of battlesuit, the XV25 conceals its pilot behind fields of sensor-baffling stealth technology. Benefiting from jet-assisted speed and impressive firepower, these teams make excellent forward operatives who can deploy homing beacons to guide entire insertion forces into battle from low orbit.",
+      "fluff": "Benefiting from sensor-baffling stealth technology, jet-assisted speed and impressive firepower, Stealth Battlesuit teams make excellent forward operatives who can deploy homing beacons to guide entire insertion forces into battle from low orbit.",
       "id": "e9255c83-49c4-59dd-a67d-8283e79a582d",
-      "keywords": ["Infantry", "Fly", "Battlesuit", "Stealth"],
+      "keywords": [
+        "Infantry",
+        "Fly",
+        "Battlesuit",
+        "Grenades",
+        "Markerlight",
+        "Stealth"
+      ],
       "leader": "",
-      "loadout": "The Stealth Shas’vre is equipped with: burst cannon, battlesuit fists, homing beacon.\nEvery Stealth Shas’ui model is equipped with: burst cannon; battlesuit fists.",
+      "loadout": "Every model is equipped with: burst cannon; battlesuit fists.",
       "meleeWeapons": [
         {
           "profiles": [
@@ -659,14 +677,11 @@
       "name": "Stealth Battlesuits",
       "points": [
         {
-          "cost": "120",
+          "cost": "100",
           "keyword": null,
-          "models": "6"
-        },
-        {
-          "cost": "60",
-          "keyword": null,
-          "models": "3"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -679,6 +694,20 @@
               "keywords": [],
               "name": "Burst cannon",
               "range": "18\"",
+              "skill": "4+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Pistol"],
+              "name": "Pulse pistol",
+              "range": "12\"",
               "skill": "4+",
               "strength": "5"
             }
@@ -714,10 +743,14 @@
       ],
       "transport": "",
       "wargear": [
-        "For every 3 models in the unit, 1 model can be equipped with 1 battlesuit support system.",
-        "For every 3 models in the unit, 1 model’s burst cannon can be replaced with 1 fusion blaster.",
-        "The Stealth Shas’vre can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone"
-      ]
+        "2 models can each have their burst cannon replaced with 1 fusion blaster.",
+        "1 Stealth Shas’ui can be equipped with 1 homing beacon.",
+        "The Stealth Shas’vre can be equipped with 1 pulse pistol.",
+        "The Stealth Shas’vre can be equipped with 1 marker drone.",
+        "The Stealth Shas’vre can be equipped with 1 gun drone."
+      ],
+      "baseSize": "32mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -772,7 +805,9 @@
         {
           "cost": "160",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -865,7 +900,9 @@
       "transport": "",
       "wargear": [
         "This model’s missile pod can be replaced with 1 twin missile pod."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -957,7 +994,9 @@
         {
           "cost": "85",
           "keyword": null,
-          "models": "12"
+          "models": "12",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1061,6 +1100,8 @@
         "1 Kroot Farstalker’s Farstalker firearm can be replaced with one of the following: ◦ 1 Dvorgite skinner ◦ 1 Londaxi tribalest",
         "The Kroot Kill-broker’s Farstalker firearm can be replaced with 1 T’au-tech rifle."
       ],
+      "baseSize": "Kroot Kill-broker: 32mm\nOther models: 28.5mm",
+      "chapter": null,
       "leadBy": ["Kroot Trail Shaper", "Kroot War Shaper", "Kroot Flesh Shaper"]
     },
     {
@@ -1127,7 +1168,9 @@
         {
           "cost": "790",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1272,7 +1315,9 @@
         "This model’s 3 pulse ordnance drivers can be replaced with one of the following: ◦ 2 nexus missile launchers ◦ 1 heavy rail cannon array and 1 fragmentation cluster shell launcher",
         "This model’s fusion eradicator can be replaced with 1 tri-axis ion cannon.",
         "This model’s tri-axis ion cannon can be replaced with 1 fusion eradicator."
-      ]
+      ],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1290,7 +1335,7 @@
         "other": [
           {
             "name": "Target Uploaded",
-            "description": "Once per turn, when using the Greater Good ability, you can select this unit to be an Observer unit for a second time. When doing so, you can change which enemy unit is this unit’s Spotted unit."
+            "description": "Each time a model in this unit makes an attack that targets their Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and that attack has the [IGNORES COVER] ability."
           }
         ],
         "primarch": [],
@@ -1352,7 +1397,9 @@
         {
           "cost": "90",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1467,6 +1514,8 @@
         "The Pathfinder Shas’ui can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone",
         "The Pathfinder Shas’ui can be equipped with one of the following: ◦ 1 grav-inhibitor drone ◦ 1 pulse accelerator drone ◦ 1 recon drone"
       ],
+      "baseSize": "25mm",
+      "chapter": null,
       "leadBy": ["Darkstrider"]
     },
     {
@@ -1548,9 +1597,11 @@
       "name": "Strike Team",
       "points": [
         {
-          "cost": "75",
+          "cost": "70",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1629,6 +1680,8 @@
         "Any number of Fire Warrior models can each have their pulse rifle replaced with 1 pulse carbine.",
         "The Fire Warrior Shas’ui can be equipped with up to two of the following, and can take duplicates: ◦ 1 guardian drone (it cannot take duplicates of this piece of wargear) ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone"
       ],
+      "baseSize": "25mm",
+      "chapter": null,
       "leadBy": ["Ethereal", "Cadre Fireblade"]
     },
     {
@@ -1723,7 +1776,9 @@
         {
           "cost": "110",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1775,6 +1830,8 @@
         "Any number of models can each have their T’au flamer replaced with 1 burst cannon.",
         "Any number of models can each have their burst cannon replaced with 1 T’au flamer."
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": [
         "Commander Farsight",
         "Commander in Coldstar Battlesuit",
@@ -1840,7 +1897,9 @@
         {
           "cost": "325",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2002,7 +2061,9 @@
         "This model can be equipped with up to 6 seeker missiles.",
         "This model’s 2 ion cannons can be replaced with one of the following: ◦ 2 swiftstrike burst cannons ◦ 2 swiftstrike railguns",
         "This model’s 2 burst cannons can be replaced with 2 cyclic ion blasters."
-      ]
+      ],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2086,9 +2147,11 @@
       "name": "Breacher Team",
       "points": [
         {
-          "cost": "100",
+          "cost": "90",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2152,6 +2215,8 @@
       "wargear": [
         "The Breacher Fire Warrior Shas’ui can be equipped with up to two of the following, and can take duplicates: ◦ 1 guardian drone (it cannot take duplicates of this piece of wargear) ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone"
       ],
+      "baseSize": "25mm",
+      "chapter": null,
       "leadBy": ["Ethereal", "Cadre Fireblade"]
     },
     {
@@ -2213,9 +2278,11 @@
       "name": "Stormsurge",
       "points": [
         {
-          "cost": "400",
+          "cost": "360",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2359,7 +2426,9 @@
       "wargear": [
         "This model’s twin T’au flamer can be replaced with one of the following: ◦ 1 twin airbursting fragmentation projector ◦ 1 twin burst cannon",
         "This model’s pulse driver cannon can be replaced with 1 pulse blast cannon."
-      ]
+      ],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2409,7 +2478,9 @@
         {
           "cost": "90",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2442,7 +2513,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 11 T’AU EMPIRE INFANTRY models. It cannot transport BATTLESUIT, KROOT or VESPID STINGWINGS models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2501,12 +2574,16 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2524,7 +2601,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "28.5mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2600,7 +2679,9 @@
         {
           "cost": "50",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2622,6 +2703,8 @@
         "This model can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone",
         "This model can be equipped with 1 hover drone."
       ],
+      "baseSize": "40mm",
+      "chapter": null,
       "leads": {
         "units": ["BREACHER TEAM", "STRIKE TEAM"],
         "extra": ""
@@ -2691,9 +2774,11 @@
       "name": "Riptide Battlesuit",
       "points": [
         {
-          "cost": "190",
+          "cost": "200",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2735,7 +2820,7 @@
               "name": "Ion accelerator – Standard",
               "range": "72\"",
               "skill": "4+",
-              "strength": "7"
+              "strength": "9"
             },
             {
               "ap": "-3",
@@ -2745,7 +2830,7 @@
               "name": "Ion accelerator – Overcharge",
               "range": "72\"",
               "skill": "4+",
-              "strength": "8"
+              "strength": "10"
             }
           ]
         },
@@ -2796,7 +2881,9 @@
         "This model can be equipped with up to 2 missile drones.",
         "This model’s twin plasma rifles can be replaced with one of the following: ◦ 1 twin fusion blaster ◦ 1 twin smart missile system",
         "This model’s heavy burst cannon can be replaced with 1 ion accelerator."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2876,9 +2963,11 @@
       "name": "Commander Farsight",
       "points": [
         {
-          "cost": "95",
+          "cost": "85",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2912,6 +3001,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CRISIS SUNFORGE BATTLESUITS",
@@ -2988,17 +3079,23 @@
         {
           "cost": "90",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "40",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3047,7 +3144,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their repeater cannon replaced with 1 tanglecannon."
-      ]
+      ],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3127,7 +3226,9 @@
         {
           "cost": "100",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3202,7 +3303,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "50mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3274,7 +3377,9 @@
         {
           "cost": "160",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3377,7 +3482,9 @@
         "This model can be equipped with one battlesuit support system.",
         "This model’s twin T’au flamer can be replaced with one of the following: ◦ 1 twin fusion blaster ◦ 1 twin burst cannon",
         "This model’s fusion collider can be replaced with 1 cyclic ion raker."
-      ]
+      ],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3433,7 +3540,9 @@
         {
           "cost": "315",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3541,7 +3650,9 @@
       "wargear": [
         "This model’s 2 burst cannons can be replaced with 2 cyclic ion blasters.",
         "This model can be equipped with up to 6 seeker missiles."
-      ]
+      ],
+      "baseSize": "160mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3598,9 +3709,11 @@
       "name": "Sky Ray Gunship",
       "points": [
         {
-          "cost": "140",
+          "cost": "150",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3677,7 +3790,9 @@
       "transport": "",
       "wargear": [
         "This model’s 2 twin pulse carbines can be replaced with one of the following: ◦ 2 accelerator burst cannons ◦ 2 smart missile systems"
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3737,12 +3852,16 @@
         {
           "cost": "130",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "5"
+          "models": "5",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3819,7 +3938,9 @@
       "transport": "",
       "wargear": [
         "If this unit contains 10 models:  ◦ The Vespid Strain Leader can be equipped with 1 Oversight Drone.  ◦ 1 Vespid Stingwing can replace its neutron blaster with 1 T’au flamer.  ◦ 1 Vespid Stingwing can replace its neutron blaster with 1 neutron grenade launcher.  ◦ 1 Vespid Stingwing can replace its neutron blaster with 1 neutron rail rifle."
-      ]
+      ],
+      "baseSize": "28.5mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3844,16 +3965,16 @@
         "special": [],
         "wargear": [
           {
+            "name": "Weapon Support System",
+            "description": "Each time the bearer makes a ranged attack, you can ignore any or all modifiers to the Hit roll."
+          },
+          {
             "name": "Battlesuit Support System",
             "description": "The bearer’s unit is eligible to shoot in a turn in which it Fell Back, but when doing so only models equipped with this wargear can make ranged attacks."
           },
           {
             "name": "Shield Generator",
             "description": "The bearer has a 4+ invulnerable save."
-          },
-          {
-            "name": "Weapon Support System",
-            "description": "Each time the bearer makes a ranged attack, you can ignore any or all modifiers to the Hit roll."
           },
           {
             "name": "Gun Drone",
@@ -3918,7 +4039,9 @@
         {
           "cost": "95",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3933,6 +4056,20 @@
               "range": "18\"",
               "skill": "3+",
               "strength": "5"
+            }
+          ]
+        },
+        {
+          "profiles": [
+            {
+              "ap": "0",
+              "attacks": "D6",
+              "damage": "1",
+              "keywords": ["Indirect Fire", "Blast"],
+              "name": "Airbursting fragmentation projector",
+              "range": "24\"",
+              "skill": "3+",
+              "strength": "3"
             }
           ]
         },
@@ -4029,20 +4166,6 @@
               "strength": "4"
             }
           ]
-        },
-        {
-          "profiles": [
-            {
-              "ap": "0",
-              "attacks": "D6",
-              "damage": "1",
-              "keywords": ["Indirect Fire", "Blast"],
-              "name": "Airbursting fragmentation projector",
-              "range": "24\"",
-              "skill": "3+",
-              "strength": "3"
-            }
-          ]
         }
       ],
       "source": "40k-10e",
@@ -4064,6 +4187,8 @@
         "This model can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone",
         "This model’s high-output burst cannon can be replaced with one of the following: ◦ 1 airbursting fragmentation projector ◦ 1 battlesuit support system ◦ 1 burst cannon ◦ 1 cyclic ion blaster ◦ 1 fusion blaster ◦ 1 missile pod ◦ 1 plasma rifle ◦ 1 shield generator ◦ 1 T’au flamer ◦ 1 weapon support system   This model cannot have duplicates of these pieces of wargear."
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CRISIS SUNFORGE BATTLESUITS",
@@ -4130,7 +4255,9 @@
         {
           "cost": "55",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4164,6 +4291,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["KROOT CARNIVORES", "KROOT FARSTALKERS"],
         "extra": ""
@@ -4220,12 +4349,16 @@
         {
           "cost": "105",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
           "cost": "85",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -4245,7 +4378,9 @@
       "transport": "This model has a transport capacity of 11 T’AU EMPIRE INFANTRY models. It cannot transport BATTLESUIT, KROOT or VESPID STINGWINGS models. If this model is equipped with a Tidewall defence platform, it has a transport capacity of 22 T’AU INFANTRY models instead.",
       "wargear": [
         "This model can be equipped with 1 Tidewall defence platform."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4339,19 +4474,25 @@
       "name": "Broadside Battlesuits",
       "points": [
         {
-          "cost": "300",
+          "cost": "270",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         },
         {
-          "cost": "180",
+          "cost": "170",
           "keyword": null,
-          "models": "2"
+          "models": "2",
+
+          "detachment": null
         },
         {
-          "cost": "90",
+          "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4437,7 +4578,7 @@
         {
           "ld": "7+",
           "m": "5\"",
-          "name": "Broadside Shas’ui",
+          "name": "Broadside Shas’vre",
           "oc": "2",
 
           "sv": "2+",
@@ -4450,7 +4591,9 @@
         "Any number of models can each be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 missile drone ◦ 1 shield drone",
         "Any number of models can each be equipped with up to two of the following, but cannot take duplicates: ◦ 1 seeker missile ◦ 1 twin plasma rifle ◦ 1 twin smart missile system ◦ 1 weapon support system  * No model can be equipped with both a twin plasma rifle and twin smart missile system.",
         "Any number of models can each have their heavy rail rifle replaced with 1 high-yield missile pods."
-      ]
+      ],
+      "baseSize": "60mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4549,7 +4692,9 @@
         {
           "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4681,6 +4826,8 @@
         "This model can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone",
         "This model’s burst cannon can be replaced with one of the following: ◦ 1 airbursting fragmentation projector ◦ 1 battlesuit support system ◦ 1 cyclic ion blaster ◦ 1 fusion blaster ◦ 1 missile pod ◦ 1 plasma rifle ◦ 1 shield generator ◦ 1 T’au flamer ◦ 1 weapon support system   This model cannot have duplicates of these pieces of wargear."
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CRISIS SUNFORGE BATTLESUITS",
@@ -4760,7 +4907,9 @@
         {
           "cost": "50",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4796,6 +4945,8 @@
       "wargear": [
         "This model can be equipped with up to two of the following, and can take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone"
       ],
+      "baseSize": "25mm",
+      "chapter": null,
       "leads": {
         "units": ["BREACHER TEAM", "STRIKE TEAM"],
         "extra": ""
@@ -4854,7 +5005,9 @@
         {
           "cost": "170",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4947,7 +5100,9 @@
       "transport": "",
       "wargear": [
         "This model’s accelerator burst cannon can be replaced with 1 missile pod."
-      ]
+      ],
+      "baseSize": "120 x 92mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5008,7 +5163,9 @@
         {
           "cost": "85",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5092,7 +5249,9 @@
       "wargear": [
         "This model can be equipped with up to 2 seeker missiles.",
         "This model’s 2 twin pulse carbines can be replaced with 2 smart missile systems."
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5157,7 +5316,9 @@
         {
           "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5191,6 +5352,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["PATHFINDER TEAM"],
         "extra": ""
@@ -5253,7 +5416,9 @@
         {
           "cost": "145",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5329,8 +5494,8 @@
               "ap": "0",
               "attacks": "3",
               "damage": "1",
-              "keywords": ["Twin-linked", "Indirect Fire"],
-              "name": "Twin smart missile system",
+              "keywords": ["Indirect Fire"],
+              "name": "Smart missile system",
               "range": "30\"",
               "skill": "4+",
               "strength": "5"
@@ -5374,9 +5539,11 @@
       "transport": "",
       "wargear": [
         "This model can be equipped with up to 2 seeker missiles.",
-        "This model’s 2 twin pulse carbines can be replaced with one of the following: ◦ 2 accelerator burst cannons ◦ 2 twin smart missile systems",
+        "This model’s 2 twin pulse carbines can be replaced with one of the following: ◦ 2 accelerator burst cannons ◦ 2 smart missile systems",
         "This model’s railgun can be replaced with 1 ion cannon."
-      ]
+      ],
+      "baseSize": "Large Flying Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5430,7 +5597,9 @@
         {
           "cost": "85",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5463,7 +5632,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 11 T’AU EMPIRE INFANTRY models. It cannot transport BATTLESUIT, KROOT or VESPID STINGWINGS models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5551,9 +5722,11 @@
       "name": "Crisis Sunforge Battlesuits",
       "points": [
         {
-          "cost": "150",
+          "cost": "140",
           "keyword": null,
-          "models": "3"
+          "models": "3",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5589,6 +5762,8 @@
       "wargear": [
         "Any number of models can each be equipped with up to two of the following, but cannot take duplicates: ◦ 1 gun drone ◦ 1 marker drone ◦ 1 shield drone"
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leadBy": [
         "Commander Farsight",
         "Commander in Coldstar Battlesuit",
@@ -5611,7 +5786,7 @@
         "other": [
           {
             "name": "Precise Targeting",
-            "description": "While this model is a Guided unit, each time it makes an attack that targets its Spotted unit, you can re-roll the Hit roll."
+            "description": "Each time a model in this unit makes an attack that targets a Spotted unit, you can re-roll the Hit roll."
           }
         ],
         "primarch": [],
@@ -5646,9 +5821,11 @@
       "name": "Firesight Team",
       "points": [
         {
-          "cost": "70",
+          "cost": "60",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5695,7 +5872,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -5713,7 +5892,7 @@
         "other": [
           {
             "name": "Fieldcraft",
-            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn."
+            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase."
           }
         ],
         "primarch": [],
@@ -5753,14 +5932,18 @@
       "name": "Kroot Carnivores",
       "points": [
         {
-          "cost": "130",
+          "cost": "140",
           "keyword": null,
-          "models": "20"
+          "models": "20",
+
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
-          "models": "10"
+          "models": "10",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5839,6 +6022,8 @@
         "For every 10 models in this unit, one Kroot Carnivore’s Kroot rifle can be replaced with 1 Tanglebomb launcher.",
         "The Long-quill’s Kroot rifle can be replaced with 1 Kroot carbine."
       ],
+      "baseSize": "28.5mm",
+      "chapter": null,
       "leadBy": ["Kroot Trail Shaper", "Kroot War Shaper", "Kroot Flesh Shaper"]
     },
     {
@@ -5912,7 +6097,9 @@
         {
           "cost": "50",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -5960,8 +6147,10 @@
       ],
       "transport": "",
       "wargear": [
-        "This model’s dart-bow and tri-bade can be replaced with 1 bladestave and prey-hook."
+        "This model’s dart-bow and tri-blade can be replaced with 1 bladestave and prey-hook."
       ],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["KROOT CARNIVORES", "KROOT FARSTALKERS"],
         "extra": ""
@@ -6050,9 +6239,11 @@
       "name": "Kroot Lone-spear",
       "points": [
         {
-          "cost": "90",
+          "cost": "80",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6101,7 +6292,9 @@
       "transport": "",
       "wargear": [
         "This model’s Kroot long gun can be replaced with 1 blast javelin and 1 hunting javelin."
-      ]
+      ],
+      "baseSize": "90 x 52.5mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -6160,7 +6353,9 @@
         {
           "cost": "45",
           "keyword": null,
-          "models": "1"
+          "models": "1",
+
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -6194,6 +6389,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["KROOT CARNIVORES", "KROOT FARSTALKERS"],
         "extra": ""
@@ -7198,11 +7395,30 @@
     }
   ],
   "detachments": [
-    "Auxiliary Cadre",
-    "Kroot Hunting Pack",
-    "Kauyon",
-    "Retaliation Cadre",
-    "Mont’ka"
+    {
+      "name": "Retaliation Cadre",
+      "faction": "T’au Empire"
+    },
+    {
+      "name": "Mont’ka",
+      "faction": "T’au Empire"
+    },
+    {
+      "name": "Kroot Hunting Pack",
+      "faction": "T’au Empire"
+    },
+    {
+      "name": "Experimental Prototype Cadre",
+      "faction": "T’au Empire"
+    },
+    {
+      "name": "Kauyon",
+      "faction": "T’au Empire"
+    },
+    {
+      "name": "Auxiliary Cadre",
+      "faction": "T’au Empire"
+    }
   ],
   "enhancements": [
     {
@@ -7213,7 +7429,10 @@
       "excludes": ["Shaper"],
       "description": "T’AU EMPIRE model only (excluding KROOT SHAPER models). While the bearer is leading a unit, the Patient Hunter Detachment rule applies to that unit from the second battle round onwards instead of from the third.",
       "faction_id": "TAU",
-      "detachment": "Kauyon"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Precision of the Patient Hunter",
@@ -7223,7 +7442,10 @@
       "excludes": [],
       "description": "T’AU EMPIRE model only. Each time the bearer makes a ranged attack, add 1 to the Hit roll. From the third battle round onwards, add 1 to the Wound roll as well.",
       "faction_id": "TAU",
-      "detachment": "Kauyon"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Solid-image Projection Unit",
@@ -7233,17 +7455,23 @@
       "excludes": [],
       "description": "T’AU EMPIRE model only. After both players have deployed their armies, select up to three T’AU EMPIRE units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "TAU",
-      "detachment": "Kauyon"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Through Unity, Devastation",
       "id": "43bb671a-4438-5387-8cf0-448261f72904",
-      "cost": "25",
+      "cost": "40",
       "keywords": ["T’au Empire"],
       "excludes": ["Shaper"],
-      "description": "T’AU EMPIRE model only (excluding KROOT SHAPER models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in their Guided unit have the [LETHAL HITS] ability while targeting their Spotted unit.",
+      "description": "T’AU EMPIRE model only (excluding KROOT SHAPER models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in a Guided unit have the [LETHAL HITS] ability while targeting their Spotted unit.",
       "faction_id": "TAU",
-      "detachment": "Kauyon"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Exemplar of the Mont’ka",
@@ -7253,7 +7481,10 @@
       "excludes": ["Shaper"],
       "description": "T’AU EMPIRE model only (excluding KROOT SHAPER models). While the bearer is leading a unit, the Killing Blow Detachment rule applies to that unit during the fourth battle round as well.",
       "faction_id": "TAU",
-      "detachment": "Mont’ka"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Strike Swiftly",
@@ -7263,7 +7494,10 @@
       "excludes": [],
       "description": "T’AU EMPIRE model only. At the start of the battle, before any moves are made using the Scouts ability, you can select up to two friendly T’AU EMPIRE units within 6\" of the bearer that do not have the Scouts ability. Until the end of the battle, all models in the selected units have the Scouts 6\" ability.",
       "faction_id": "TAU",
-      "detachment": "Mont’ka"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Strategic Conqueror",
@@ -7273,57 +7507,75 @@
       "excludes": [],
       "description": "T’AU EMPIRE model only. At the start of the first battle round, before the first turn begins, select one objective marker on the battlefield. While a friendly T’AU EMPIRE model is within range of that objective marker and the bearer is on the battlefield, add 1 to that friendly model’s Objective Control characteristic.",
       "faction_id": "TAU",
-      "detachment": "Mont’ka"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Coordinated Exploitation",
       "id": "f3b67a49-b662-5196-a942-e64dd2a371b7",
-      "cost": "20",
+      "cost": "40",
       "keywords": ["T’au Empire"],
       "excludes": ["Shaper"],
-      "description": "T’AU EMPIRE model only (excluding KROOT SHAPER models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in their Guided unit have the [SUSTAINED HITS 1] ability while targeting their Spotted unit.",
+      "description": "T’AU EMPIRE model only (excluding KROOT SHAPER models). While the bearer is leading a unit, each time that unit is an Observer unit, until the end of the phase, ranged weapons equipped by models in a Guided unit have the [SUSTAINED HITS 1] ability while targeting their Spotted unit.",
       "faction_id": "TAU",
-      "detachment": "Mont’ka"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Puretide Engram Neurochip",
       "id": "4687682c-84ca-50e4-bcc8-8c5ccedd85f2",
       "cost": "25",
-      "keywords": ["Battlesuit"],
+      "keywords": ["Battlesuit", "T’au Empire"],
       "excludes": [],
       "description": "T’AU EMPIRE BATTLESUIT model only. Each time you target the bearer’s unit with a Stratagem, roll one D6: on a 4+, you gain 1CP.",
       "faction_id": "TAU",
-      "detachment": "Retaliation Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Starflare Ignition System",
       "id": "28e7bc02-636f-510a-ba46-d2cb491d1a66",
       "cost": "20",
-      "keywords": ["Battlesuit"],
+      "keywords": ["Battlesuit", "T’au Empire"],
       "excludes": [],
       "description": "T’au EMPIRE BATTLESUIT model only. At the end of your opponent’s turn, if the bearer’s unit is not within Engagement Range of one or more enemy units, you can remove that unit from the battlefield and place it into Strategic Reserves.",
       "faction_id": "TAU",
-      "detachment": "Retaliation Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Internal Grenade Racks",
       "id": "3003886c-e0cc-5155-affe-f1ba0d44a93c",
       "cost": "20",
-      "keywords": ["Battlesuit"],
+      "keywords": ["Battlesuit", "T’au Empire"],
       "excludes": [],
       "description": "T’AU EMPIRE BATTLESUIT model only. The bearer has the GRENADES keyword, and each time the bearer ends a Normal move, you can select one enemy unit that it moved over during that move. If you do, roll six D6: for each 4+, that enemy unit suffers 1 mortal wound.",
       "faction_id": "TAU",
-      "detachment": "Retaliation Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Prototype Weapon System",
       "id": "cee3489a-6c94-574d-b3dc-3157e603d498",
       "cost": "15",
-      "keywords": ["Battlesuit"],
+      "keywords": ["Battlesuit", "T’au Empire"],
       "excludes": [],
       "description": "T’AU EMPIRE BATTLESUIT model only. Each time the bearer is selected to shoot, select either the [LETHAL HITS] or [SUSTAINED HITS 1] ability. Until those attacks are resolved, ranged weapons equipped by the bearer have the selected ability.",
       "faction_id": "TAU",
-      "detachment": "Retaliation Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Kroothawk Flock",
@@ -7333,7 +7585,10 @@
       "excludes": [],
       "description": "KROOT model only. Ranged weapons equipped by models in the bearer’s unit have the [IGNORES COVER] ability, and enemy units that are set up on the battlefield as Reinforcements cannot be set up within 12\" horizontally of the bearer.",
       "faction_id": "TAU",
-      "detachment": "Kroot Hunting Pack"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Nomadic Hunter",
@@ -7343,7 +7598,10 @@
       "excludes": [],
       "description": "KROOT TRAIL SHAPER model only. While the bearer is leading a unit, add 3\" to the Move characteristic of models in that unit and ranged weapons equipped by models in that unit have the [ASSAULT] ability.",
       "faction_id": "TAU",
-      "detachment": "Kroot Hunting Pack"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Root-carved Weapons",
@@ -7353,7 +7611,10 @@
       "excludes": [],
       "description": "KROOT WAR SHAPER model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities.",
       "faction_id": "TAU",
-      "detachment": "Kroot Hunting Pack"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Borthrod Gland",
@@ -7363,7 +7624,10 @@
       "excludes": [],
       "description": "KROOT FLESH SHAPER only. While the bearer is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit.",
       "faction_id": "TAU",
-      "detachment": "Kroot Hunting Pack"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Student of Kauyon",
@@ -7373,7 +7637,10 @@
       "excludes": [],
       "description": "KROOT SHAPER model only. In the Declare Battle Formations step, you can select up to three KROOT CARNIVORES or KROOT FARSTALKERS units from your army. Models in those units have the Deep Strike ability.",
       "faction_id": "TAU",
-      "detachment": "Auxiliary Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Admired Leader",
@@ -7383,7 +7650,10 @@
       "excludes": ["Kroot"],
       "description": "T’AU EMPIRE model (excluding KROOT models) only. In your Command phase, you can select one KROOT or VESPID STINGWINGS unit within 12\" of the bearer. If you do, until the start of your next Command phase, improve the Leadership characteristic of models in that unit by 1, and while such a unit is not Battle‑shocked, add 1 to the Objective Control characteristic of models in that unit.",
       "faction_id": "TAU",
-      "detachment": "Auxiliary Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Fanatical Convert",
@@ -7393,24 +7663,314 @@
       "excludes": [],
       "description": "KROOT model only. The bearer’s unit has the For the Greater Good ability (see Codex: T’au Empire).",
       "faction_id": "TAU",
-      "detachment": "Auxiliary Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Transponder Lock Module",
       "id": "d0a3a389-3b11-5948-8140-a1d856c6b485",
       "cost": "25",
-      "keywords": ["Walker"],
+      "keywords": ["Walker", "T’au Empire"],
       "excludes": [],
       "description": "T’AU EMPIRE WALKER model with the Deep Strike ability only. The bearer’s unit can be set up using the Deep Strike ability in the Reinforcements step of your first, second or third Movement phase, regardless of any mission rules. During your first Movement phase, when you set up the bearer’s unit, it must be set up within 12\" of one or more friendly KROOT or VESPID STINGWINGS units and not within 9\" horizontally of one or more enemy units.",
       "faction_id": "TAU",
-      "detachment": "Auxiliary Cadre"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Supernova Launcher",
+      "id": "bd1851c2-6bf2-5ccb-9d72-cb06a3aa5dfd",
+      "cost": "15",
+      "keywords": ["T’au Empire"],
+      "excludes": [],
+      "description": "T’AU EMPIRE model only. Select one airbursting fragmentation projector equipped by the bearer. Improve the Strength characteristic of that weapon by 3, and improve the Armour Penetration and Damage characteristics of that weapon by 1.",
+      "faction_id": "TAU",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Thermoneutronic Projector",
+      "id": "9fc7149c-28aa-5c44-ae5f-0fe94248e773",
+      "cost": "20",
+      "keywords": ["T’au Empire"],
+      "excludes": [],
+      "description": "T’AU EMPIRE model only. Select one T’au flamer equipped by the bearer. Improve the Strength characteristic of that weapon by 2, and improve the Armour Penetration and Damage characteristics of that weapon by 1.",
+      "faction_id": "TAU",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Plasma Accelerator Rifle",
+      "id": "2e285f1f-409b-54b4-a420-d24ee2f48f41",
+      "cost": "10",
+      "keywords": ["T’au Empire"],
+      "excludes": [],
+      "description": "T’AU EMPIRE model only. Select one plasma rifle equipped by the bearer. Improve the Strength characteristic of that weapon by 2, and improve the Attacks, Armour Penetration and Damage characteristics of that weapon by 1.",
+      "faction_id": "TAU",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Fusion Blades",
+      "id": "33ebf5a0-f2f1-5d3d-ae17-c9453f54e0b2",
+      "cost": "25",
+      "keywords": ["T’au Empire"],
+      "excludes": [],
+      "description": "T’AU EMPIRE model only. Select one fusion blaster equipped by the bearer. Improve the Attacks characteristic of that weapon by 1, improve the Strength characteristic of that weapon by 3, and that weapon has the [MELTA 4] ability",
+      "faction_id": "TAU",
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
     }
   ],
   "id": "TAU",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "T'au Empire",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Drones",
+        "rules": [
+          {
+            "text": "If you have upgraded a model to have a drone, place a Drone token next to your model as a reminder. These do not count as models for any rules purposes.",
+            "order": 1,
+            "title": null,
+            "type": "textBold"
+          },
+          {
+            "text": "Guardian Drone",
+            "order": 2,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "Each time a model makes a ranged attack that targets the bearer’s unit, subtract 1 from the Wound roll.",
+            "order": 3,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "Gun Drone",
+            "order": 5,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "The bearer is equipped with the following ranged weapon:",
+            "order": 6,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "-",
+            "order": 7,
+            "title": null,
+            "type": "image"
+          },
+          {
+            "text": "Marker Drone",
+            "order": 9,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "The bearer’s unit has the **MARKERLIGHT** keyword and can act as an Observer unit for another unit even if it Advanced this turn.",
+            "order": 10,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "Missile Drone",
+            "order": 12,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "The bearer is equipped with the following ranged weapon:",
+            "order": 13,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "-",
+            "order": 14,
+            "title": null,
+            "type": "image"
+          },
+          {
+            "text": "Shield Drone",
+            "order": 16,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "Add 1 to the bearer’s Wounds characteristic.",
+            "order": 17,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      },
+      {
+        "name": "For the Greater Good",
+        "rules": [
+          {
+            "text": "If your Army Faction is **T’AU EMPIRE**, at the start of your Shooting phase you can select units from your army with this ability to become Observer units.\n\nDuring your Shooting phase, for each Observer unit from your army that has not been selected to shoot this phase and is eligible to shoot (excluding **FORTIFICATION** and Battle-shocked units] select one enemy unit that is visible to be marked as their Spotted unit until the end of the phase. Each enemy unit can only be marked as a Spotted unit once per phase.\n\nUnits from your army with the For the Greater Good ability (excluding Observer units) are Guided units while targeting one or more Spotted units.\n\nUntil the end of the phase, each time a model from your army in a Guided unit makes an attack that targets a Spotted unit, improve the Ballistic Skill characteristic of that attack by 1 and, if the Spotted unit was marked by an Observer unit that has the Markerlight keyword, that attack has the **[IGNORES COVER]** ability.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Retaliation Cadre",
+        "faction": "T’au Empire",
+        "rules": [
+          {
+            "name": "Bonded Heroes",
+            "rules": [
+              {
+                "text": "Each time a **T’AU EMPIRE BATTLESUIT** model from your army makes a ranged attack that targets a unit within 12\", improve the Strength characteristic of that attack by 1. If that attack targets a unit within 9\", improve the Armour Penetration characteristic of that attack by 1 as well.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Mont’ka",
+        "faction": "T’au Empire",
+        "rules": [
+          {
+            "name": "Killing Blow",
+            "rules": [
+              {
+                "text": "During the first, second and third battle rounds, ranged weapons equipped by **T’AU EMPIRE** models from your army have the **[ASSAULT]** ability. During the first, second and third battle rounds, while a unit is a Guided unit (see For the Greater Good), its ranged weapons have the **[LETHAL HITS]** ability.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Kroot Hunting Pack",
+        "faction": "T’au Empire",
+        "rules": [
+          {
+            "name": "Hunter’s Instincts",
+            "rules": [
+              {
+                "text": "Each time a **KROOT** model from your army makes an attack, add 1 to the Hit roll if the target of that attack is below its Starting Strength, and add 1 to the Wound roll as well if the target of that attack is Below Half-strength.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          },
+          {
+            "name": "Skirmish Fighters",
+            "rules": [
+              {
+                "text": "**Kroot** models from your army have a 6+ invulnerable save against melee attacks and a 5+ invulnerable save against ranged attacks.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Experimental Prototype Cadre",
+        "faction": "T’au Empire",
+        "rules": [
+          {
+            "name": "Superior Craftsmanship",
+            "rules": [
+              {
+                "text": "Add 6\" to the Range characteristic of ranged weapons equipped by **T’AU EMPIRE** models from your army.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Kauyon",
+        "faction": "T’au Empire",
+        "rules": [
+          {
+            "name": "Patient Hunter",
+            "rules": [
+              {
+                "text": "During the third, fourth and fifth battle rounds, ranged weapons equipped by **T’AU EMPIRE** models from your army have the **[SUSTAINED HITS 1]** ability. During the third, fourth and fifth battle rounds, while a unit is a Guided unit (see For the Greater Good), each time a ranged attack is made by a model in that unit that targets a Spotted unit, you can ignore any or all modifiers to that attack’s Ballistic skill characteristics and/or all modifiers to the Hit roll.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Auxiliary Cadre",
+        "faction": "T’au Empire",
+        "rules": [
+          {
+            "name": "Integrated Command Structure",
+            "rules": [
+              {
+                "text": "**KROOT** and **VESPID STINGWINGS** units from your army have the following ability:\n\n**Targeting Triangulation (Aura)**: While an enemy unit is within 9\" of and visible to this unit, each time a ranged attack made by a friendly **T’AU EMPIRE** model (excluding **KROOT**, **VESPID STINGWINGS** and **TITANIC** models) targets that enemy unit, improve the Armour Penetration characteristic of that attack by 1.\n\n**T’AU EMPIRE** units (excluding **KROOT** and **VESPID STINGWINGS** units) from your army have the following ability:\n\n**Localised Stealth Projectors (Aura)**: While a friendly **KROOT** or **VESPID STINGWINGS** unit is wholly within 6\" of and visible to this unit, that **KROOT** or **VESPID STINGWINGS** unit can only be selected as the target of a ranged attack if the attacking model is within 18\".",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "The Arro’kon Protocol",
@@ -7425,7 +7985,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Commander Arro’kon’s teachings are considered pre-eminent in the art of engaging and eliminating numerically overwhelming enemy formations.",
-      "detachment": "Retaliation Cadre"
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Focused Fire",
@@ -7440,7 +8001,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Mont’ka doctrine heavily emphasises the massed concentration of fire upon a single target at a time, obliterating each component of the enemy force in succession with a series of unrelenting barrages.",
-      "detachment": "Mont’ka"
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Combat Debarkation",
@@ -7455,7 +8017,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "The most aggressive Fire caste warriors sometimes spring from moving transports, roll with the impact of landing, and come up with weapons already blazing.",
-      "detachment": "Mont’ka"
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Pinpoint Counter-offensive",
@@ -7470,7 +8033,8 @@
       "phase": ["any"],
       "faction_id": "TAU",
       "fluff": "Mont’ka emphasises rapid evolving threat-analysis and the application of overwhelming firepower to eliminate emergent high-priority targets.",
-      "detachment": "Mont’ka"
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Aggressive Mobility",
@@ -7485,7 +8049,8 @@
       "phase": ["movement"],
       "faction_id": "TAU",
       "fluff": "By advancing swiftly into commanding positions, Mont’ka forces maximise the benefits of their enemies’ shock and disorientation.",
-      "detachment": "Mont’ka"
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "A Trap Well Laid",
@@ -7500,7 +8065,40 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TAU",
       "fluff": "The Kroot have long perfected the art of ambush hunting, their packs working in deadly concert.",
-      "detachment": "Kroot Hunting Pack"
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Reactive Impact Dampeners",
+      "id": "a2bf2cf6-6fc1-5386-88ac-d7d28cfa1975",
+      "cost": 1,
+      "turn": "either",
+      "target": "One T’AU EMPIRE BATTLESUIT unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, each time an attack targets your unit, if the Strength characteristic of that attack is greater than the Toughness characteristic of your unit, subtract 1 from the Wound roll.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["fight", "shooting"],
+      "faction_id": "TAU",
+      "fluff": "Advancements in battlesuit field technology include the addition of autoreactive shield dampers to absorb and dissipate the energy from high‐velocity kinetic strikes.",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Experimental Weaponry",
+      "id": "d56d21da-25a5-5274-909d-0500569c2ab1",
+      "cost": 1,
+      "turn": "your",
+      "target": "One T’AU EMPIRE unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Until the end of the phase, each time you roll one or more dice to determine the number of attacks made with a weapon equipped by a model in your unit, you can re‐roll the result.",
+      "restrictions": "",
+      "type": "Battle Tactic",
+      "phase": ["shooting"],
+      "faction_id": "TAU",
+      "fluff": "T’au scientists have distributed the latest prototype weapons amongst this cadre’s contingents, all optimised to increase reliability and accuracy.",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "A Tempting Trap",
@@ -7515,7 +8113,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Kauyon teaches that many things can be used to bait a trap, luring the foe into position.",
-      "detachment": "Kauyon"
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Point-blank Ambush",
@@ -7530,7 +8129,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Devastating firepower need not be applied from afar, especially when striking an unsuspecting foe.",
-      "detachment": "Kauyon"
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Coordinate to Engage",
@@ -7545,7 +8145,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "T’au Hunter Cadres work in close coordination to destroy the most dangerous enemy targets.",
-      "detachment": "Kauyon"
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Wall of Mirrors",
@@ -7560,7 +8161,8 @@
       "phase": ["fight"],
       "faction_id": "TAU",
       "fluff": "T’au Stealth Cadres utilise obfuscation fields and wide-band refraction beams to mask their advance.",
-      "detachment": "Kauyon"
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Multisensory Scanning",
@@ -7575,7 +8177,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TAU",
       "fluff": "Target analysis data from scanning drones is rapidly translated into inputs ideally tailored to a range of alien sensoria and then disseminated through the cadre.",
-      "detachment": "Auxiliary Cadre"
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Alien Expertise",
@@ -7590,7 +8193,8 @@
       "phase": ["movement"],
       "faction_id": "TAU",
       "fluff": "There is much that the alien auxiliaries of the T’au empire can teach the Fire caste, not least through practical and deadly battlefield demonstrations.",
-      "detachment": "Auxiliary Cadre"
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Guided Fire",
@@ -7605,7 +8209,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "These Fire Warriors employ sensory data fed to them by supporting alien auxiliary units to maximise accuracy and place their shots against weak points they might not have perceived.",
-      "detachment": "Auxiliary Cadre"
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Join the Hunt",
@@ -7620,7 +8225,8 @@
       "phase": ["any"],
       "faction_id": "TAU",
       "fluff": "When a Kroot Hunting Pack closes in on its prey, there are often other hunters waiting to join in the fray and take their share of any spoils.",
-      "detachment": "Kroot Hunting Pack"
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Fail-safe Detonator",
@@ -7635,7 +8241,8 @@
       "phase": ["any"],
       "faction_id": "TAU",
       "fluff": "Devices are incorporated into some battlesuits either to prevent high-ranking pilots being taken alive for interrogation or to prevent just such fatal explosions.",
-      "detachment": "Retaliation Cadre"
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "The Torchstar Gambit",
@@ -7650,7 +8257,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Though now disgraced by association with O’Shovah, Sub-Commander Torchstar’s strike-and-fade tactics are still taught – albeit officially under other names – in many Fire caste academies.",
-      "detachment": "Retaliation Cadre"
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Grav-inhibitor Field",
@@ -7665,7 +8273,8 @@
       "phase": ["charge"],
       "faction_id": "TAU",
       "fluff": "First used by O’Jir during the battle for Laguna Shard, these battlesuit-mounted emitters batter advancing foes backwards with gravitic pulse waves.",
-      "detachment": "Retaliation Cadre"
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "The Grisly Feast",
@@ -7680,7 +8289,8 @@
       "phase": ["fight"],
       "faction_id": "TAU",
       "fluff": "The psychological impact of witnessing one’s comrades being dismembered and devoured by gore-splattered Kroot cannot be overstated.",
-      "detachment": "Kroot Hunting Pack"
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Guerrilla Warriors",
@@ -7695,7 +8305,8 @@
       "phase": ["movement"],
       "faction_id": "TAU",
       "fluff": "Kroot see no value in stand-up fights, caring little for honour or glory. They hit and fade, frustrating their foes and bleeding them by degrees until – weakened and out of position – they are rendered vulnerable.",
-      "detachment": "Kroot Hunting Pack"
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Hidden Hunters",
@@ -7710,7 +8321,24 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "The Kroot are experts in camouflage and concealment, able to utilise cover in ways most foes would never consider and – to their great misfortune – do not anticipate.",
-      "detachment": "Kroot Hunting Pack"
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Automated Repair Drones",
+      "id": "7bc8793e-1d6d-54a5-a7ab-cc8764a54dc5",
+      "cost": 1,
+      "turn": "either",
+      "target": "One T’AU EMPIRE BATTLESUIT unit from your army.",
+      "when": "Command phase.",
+      "effect": "Select one BATTLESUIT model in your unit: that model regains up to D3+1 lost wounds.",
+      "restrictions": "",
+      "type": "Strategic Ploy",
+      "phase": ["command"],
+      "faction_id": "TAU",
+      "fluff": "Much research is being placed into deploying miniaturised drones to affect battlefield repairs and dispense emergency medical treatments in combat.",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Experimental Modifications",
@@ -7725,7 +8353,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TAU",
       "fluff": "These experimental Earth caste weapon upgrades can only activate for short bursts at a time, but the extra stopping power they provide is formidable.",
-      "detachment": "Auxiliary Cadre"
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Interlocking Manouevres",
@@ -7740,7 +8369,8 @@
       "phase": ["fight"],
       "faction_id": "TAU",
       "fluff": "Regular Fire caste forces operating as part of auxiliary cadres are well trained in swift repositioning and fighting retreats, the better to exploit the presence of or provide support for their alien comrades.",
-      "detachment": "Auxiliary Cadre"
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Pheromone Waypoints",
@@ -7755,7 +8385,8 @@
       "phase": ["movement"],
       "faction_id": "TAU",
       "fluff": "Air caste craft have dropped drones that emit pheromones into this region, their emissions invisible but blazing like beacons to the correct alien senses.",
-      "detachment": "Auxiliary Cadre"
+      "detachment": "Auxiliary Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "The Shortened Blade",
@@ -7770,7 +8401,8 @@
       "phase": ["movement"],
       "faction_id": "TAU",
       "fluff": "Made famous by Commander Farsight and his protégé Brightsword, this philosophy encourages pilots to drop into the very teeth of the enemy army and apply their firepower at point-blank range.",
-      "detachment": "Retaliation Cadre"
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Pulse Onslaught",
@@ -7785,7 +8417,8 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Rather than charge into hand-to-hand combat, T’au soldiery instead intensify their fire patterns, pinning their advancing foes and staving off their onslaught.",
-      "detachment": "Mont’ka"
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Stimm Injectors",
@@ -7800,7 +8433,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TAU",
       "fluff": "On-board hypodermics shunt pain-blockers and chemical stimulants into the pilot’s system.",
-      "detachment": "Retaliation Cadre"
+      "detachment": "Retaliation Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "EMP Grenades",
@@ -7815,7 +8449,56 @@
       "phase": ["fight", "shooting"],
       "faction_id": "TAU",
       "fluff": "Furnished by T’au allies or returning Farstalkers, these electromagnetic grenades wreak havoc with the animuses of armoured fighting vehicles.",
-      "detachment": "Kroot Hunting Pack"
+      "detachment": "Kroot Hunting Pack",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Experimental Ammunition",
+      "id": "4fdc3613-1176-552c-8cb5-f4b244083eb9",
+      "cost": 1,
+      "turn": "your",
+      "target": "One T’AU EMPIRE unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Select one of the following to apply to your unit until the end of the phase:\n\n• Improve the Strength characteristic of ranged weapons equipped by models in your unit by 1.\n• Improve the Strength and Armour Penetration characteristics of ranged weapons equipped by models in your unit by 1, and those weapons have the [HAZARDOUS] ability.",
+      "restrictions": "You cannot target the same unit with the Experimental Ammunition and Threat Assessment Analyser Stratagems in the same phase.",
+      "type": "Wargear",
+      "phase": ["shooting"],
+      "faction_id": "TAU",
+      "fluff": "From hardened warheads and amplified ion capacitors, to hyperaccelerated pulse fields and refined fusion cores, the T’au are forever innovating improvements to improve the lethality of their ammunition.",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Threat Assessment Analyser",
+      "id": "1c035207-8a5c-5426-aa01-aa70e858728e",
+      "cost": 1,
+      "turn": "your",
+      "target": "One T’AU EMPIRE unit from your army that has not been selected to shoot this phase.",
+      "when": "Your Shooting phase.",
+      "effect": "Select the [SUSTAINED HITS 1] or [LETHAL HITS] ability. Until the end of the phase, ranged weapons equipped by models in your unit have the selected ability. You can instead select the [SUSTAINED HITS 1], [LETHAL HITS] and [HAZARDOUS] abilities to apply to those weapons until the end of the phase.",
+      "restrictions": "You cannot target the same unit with the Experimental Ammunition and Threat Assessment Analyser Stratagems in the same phase.",
+      "type": "Wargear",
+      "phase": ["shooting"],
+      "faction_id": "TAU",
+      "fluff": "The Earth caste have been experimenting with implanting AI neurochip-technology into hand‐held scanners, enabling the swift calculation of precise firing solutions.",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
+    },
+    {
+      "name": "Neuroweb System Jammer",
+      "id": "3e4c84f0-861d-50f1-ac4d-e2eaad86a6d8",
+      "cost": 1,
+      "turn": "opponents",
+      "target": "One T’AU EMPIRE CRISIS unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
+      "when": "Your opponent’s Shooting phase, just after an enemy unit has selected its targets.",
+      "effect": "Until the end of the phase, your unit can only be selected as the target of a ranged attack if the attacking model is within 18\".",
+      "restrictions": "",
+      "type": "Wargear",
+      "phase": ["shooting"],
+      "faction_id": "TAU",
+      "fluff": "This prototype countermeasure device emits an intense neurostatic jamming field, scrambling the enemy’s senses and fouling their aim.",
+      "detachment": "Experimental Prototype Cadre",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Combat Embarkation",
@@ -7830,7 +8513,8 @@
       "phase": ["charge"],
       "faction_id": "TAU",
       "fluff": "Those who act as the lure in the Kauyon must be ready to make a hasty withdrawal once the enemy closes into range.",
-      "detachment": "Kauyon"
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Photon Grenades",
@@ -7845,7 +8529,8 @@
       "phase": ["charge"],
       "faction_id": "TAU",
       "fluff": "Hurling a volley of photon grenades, the T’au leave their enemies dazzled and disorientated.",
-      "detachment": "Kauyon"
+      "detachment": "Kauyon",
+      "detachment_faction": "T’au Empire"
     },
     {
       "name": "Counterfire Defence Systems",
@@ -7860,8 +8545,9 @@
       "phase": ["shooting"],
       "faction_id": "TAU",
       "fluff": "Point-defence systems trigger as incoming fire is detected, blasting projectiles from the air and lessening the power of the enemy fusillade.",
-      "detachment": "Mont’ka"
+      "detachment": "Mont’ka",
+      "detachment_faction": "T’au Empire"
     }
   ],
-  "updated": "2025-02-05T13:53:46.901Z"
+  "updated": "2026-03-09T13:14:15.798Z"
 }

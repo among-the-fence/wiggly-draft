@@ -3,6 +3,7 @@
     "banner": "#092135",
     "header": "#4b6262"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -80,7 +81,8 @@
           "cost": "2600",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -233,7 +235,9 @@
         "This model’s Reaver laser blaster can be replaced with one of the following: ◦ 1 Reaver gatling blaster ◦ 1 Reaver melta cannon ◦ 1 Reaver volcano cannon",
         "This model’s Reaver gatling blaster can be replaced with one of the following: ◦ 1 Reaver laser blaster ◦ 1 Reaver melta cannon ◦ 1 Reaver volcano cannon",
         "This model’s Nemesis quake cannon can be replaced with 1 Nemesis volcano cannon."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -338,7 +342,8 @@
           "cost": "3500",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -518,7 +523,9 @@
         "This model’s macro gatling blaster can be replaced with one of the following: ◦ 1 arioch power claw ◦ 1 belicosa volcano cannon ◦ 1 mori quake cannon ◦ 1 sunfury plasma annihilator",
         "This model’s arioch power claw can be replaced with one of the following: ◦ 1 belicosa volcano cannon ◦ 1 macro gatling blaster ◦ 1 mori quake cannon ◦ 1 sunfury plasma annihilator",
         "This model’s 2 apocalypse launchers can be replaced with 2 laser blasters."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -596,7 +603,8 @@
           "cost": "1100",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -695,7 +703,9 @@
       "wargear": [
         "This model’s Warhound vulcan mega-bolter can be replaced with one of the following: ◦ 1 Warhound inferno gun ◦ 1 Warhound plasma blastgun ◦ 1 Warhound turbo-laser destructor",
         "This model’s Warhound plasma blastgun can be replaced with one of the following: ◦ 1 Warhound inferno gun ◦ 1 Warhound turbo-laser destructor ◦ 1 Warhound vulcan mega-bolter"
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -800,7 +810,8 @@
           "cost": "2200",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -904,7 +915,9 @@
       "wargear": [
         "This model’s Reaver laser blaster can be replaced with one of the following: ◦ 1 Reaver gatling blaster ◦ 1 Reaver melta cannon ◦ 1 Reaver volcano cannon",
         "This model’s Reaver gatling blaster can be replaced with one of the following: ◦ 1 Reaver laser blaster ◦ 1 Reaver melta cannon ◦ 1 Reaver volcano cannon ◦ 1 Reaver power fist"
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     }
   ],
   "detachments": [],
@@ -913,7 +926,12 @@
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Adeptus Titanicus",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [],
+    "detachment": []
+  },
   "stratagems": [],
-  "updated": "2025-02-05T13:53:47.125Z"
+  "updated": "2026-03-09T13:14:22.426Z"
 }

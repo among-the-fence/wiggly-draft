@@ -8,8 +8,8 @@ from discord import Colour
 from util.name_matcher import normalize_name
 from util.utils import extract_and_clear, remove_empty_fields
 
-fnp_reg = re.compile("Feel No Pain \d\+")
-save_reg = re.compile("(\d)+")
+fnp_reg = re.compile("Feel No Pain \\d+")
+save_reg = re.compile("(\\d)+")
 paran_phrase_reg = re.compile("\\(.*\\)")
 phrases_reg = re.compile("\\[.*]")
 
@@ -245,8 +245,8 @@ class WHUnit:
                 out.extend(self.extract_bits(v, "", True))
         elif type(obj) is bool:
             pass
-        else:
-            print(type(obj))
+        # else:
+        #     print(type(obj))
         return out
 
     def collect_all_keywords(self):

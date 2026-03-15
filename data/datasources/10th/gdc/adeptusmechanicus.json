@@ -4,6 +4,7 @@
     "banner": "#5d1615",
     "header": "#9f2628"
   },
+  "compatibleDataVersion": 754,
   "datasheets": [
     {
       "abilities": {
@@ -87,7 +88,8 @@
           "cost": "185",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -158,7 +160,9 @@
       "transport": "",
       "wargear": [
         "This model’s command uplink can be replaced with 1 chaff launcher."
-      ]
+      ],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -242,7 +246,8 @@
           "cost": "155",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -252,9 +257,9 @@
             {
               "active": true,
               "ap": "-2",
-              "attacks": "2D3",
+              "attacks": "3D3",
               "damage": "2",
-              "keywords": ["Sustained Hits D3", "Blast"],
+              "keywords": ["Sustained Hits 1", "Blast"],
               "name": "Eradication beamer – Dissipated",
               "range": "36\"",
               "skill": "4+",
@@ -263,13 +268,13 @@
             {
               "active": true,
               "ap": "-3",
-              "attacks": "2D3",
+              "attacks": "3D3",
               "damage": "3",
-              "keywords": ["Sustained Hits D3", "Blast"],
+              "keywords": ["Sustained Hits 1", "Blast"],
               "name": "Eradication beamer – Focused",
               "range": "18\"",
               "skill": "4+",
-              "strength": "9"
+              "strength": "10"
             }
           ]
         },
@@ -374,7 +379,9 @@
         "This model can be equipped with 1 broad spectrum data-tether.",
         "This model can be equipped with 1 additional cognis heavy stubber.",
         "This model’s eradication beamer can be replaced with one of the following:  ◦ 1 daedalus missile launcher and 1 Icarus array ◦ 1 neutron laser and 1 cognis heavy stubber ◦ 1 twin Onager heavy phosphor blaster"
-      ]
+      ],
+      "baseSize": "130mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -444,13 +451,15 @@
           "cost": "210",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "105",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -550,6 +559,8 @@
         "Any number of models can each have their phosphor blaster replaced with 1 cognis flamer.",
         "Any number of models can each have their heavy grav-cannon replaced with 1 Kataphron plasma culverin."
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leadBy": [
         "Tech-Priest Manipulus",
         "Tech-Priest Dominus",
@@ -566,7 +577,7 @@
           "showDamagedAbility": false,
           "showDescription": true
         },
-        "faction": [],
+        "faction": ["Doctrina Imperatives"],
         "invul": {
           "info": "",
           "showAtTop": true,
@@ -626,7 +637,8 @@
           "cost": "35",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -664,9 +676,13 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["KASTELAN ROBOTS"],
-        "extra": "You must attach this model to a KASTELAN ROBOTS unit, even if one or more other CYBERNETICA DATASMITH models have already been attached to it. In such cases, if that Bodyguard unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths. If you cannot attach this model to a KASTELAN ROBOTS unit, this model cannot be deployed and counts as having been destroyed during the first battle round. While attached to a KASTELAN ROBOTS unit, this model loses the INFANTRY keyword."
+        "extra": "You must attach this model to a KASTELAN ROBOTS unit, even if one or more other CYBERNETICA DATASMITH models have already been attached to it. In such cases, if that Bodyguard unit is destroyed, the Leader units attached to it become separate units with their original Starting Strengths. If you cannot attach this model to a KASTELAN ROBOTS unit, this model cannot be deployed and counts as having been destroyed during the first battle round. While attached to a KASTELAN ROBOTS unit, this model loses the INFANTRY keyword.",
+        "isBodyguard": true,
+        "isMandatory": true
       }
     },
     {
@@ -741,22 +757,25 @@
       "name": "Ironstrider Ballistarii",
       "points": [
         {
-          "cost": "225",
+          "cost": "255",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "150",
+          "cost": "170",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "75",
+          "cost": "85",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -768,7 +787,7 @@
               "ap": "-1",
               "attacks": "4",
               "damage": "3",
-              "keywords": ["Sustained Hits 1"],
+              "keywords": ["Twin-linked", "Sustained Hits 1"],
               "name": "Twin cognis autocannon",
               "range": "48\"",
               "skill": "4+",
@@ -784,7 +803,7 @@
               "ap": "-3",
               "attacks": "2",
               "damage": "D6+1",
-              "keywords": ["Sustained Hits 1"],
+              "keywords": ["Twin-linked", "Sustained Hits 1"],
               "name": "Twin cognis lascannon",
               "range": "48\"",
               "skill": "4+",
@@ -811,7 +830,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their twin cognis autocannon replaced with 1 twin cognis lascannon."
-      ]
+      ],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -888,7 +909,8 @@
           "cost": "60",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -944,6 +966,8 @@
       "wargear": [
         "This model’s magnarail lance can be replaced with 1 transonic cannon."
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CORPUSCARII ELECTRO-PRIESTS",
@@ -1032,19 +1056,22 @@
           "cost": "150",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "100",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "55",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1097,7 +1124,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1119,7 +1148,7 @@
         "other": [
           {
             "name": "Canticles of the Omnissiah",
-            "description": "At the start of the battle round, select one of the abilities in the Canticles of the Omnissiah section. Until the start of the next battle round, this model has that ability.",
+            "description": "At the start of your Command phase, select one of the abilities in the Canticles of the Omnissiah section. Until the start of your next Command phase, this model has that ability.",
             "showAbility": true,
             "showDescription": true
           },
@@ -1142,19 +1171,19 @@
             "abilities": [
               {
                 "name": "Invocation of Machine Vengeance (Aura)",
-                "description": "While a friendly ADEPTUS MECHANICUS unit is within 6\" of this model, each time a model in that unit makes an attack, re-roll a Hit roll of 1.",
+                "description": "At the start of your Command phase, select one unit from your opponent’s army. Until the start of your next Command phase, that enemy unit is your Machine Vengeance target. Each time a model in a friendly ADEPTUS MECHANICUS unit makes an attack that targets your Machine Vengeance target, you can re-roll the Hit roll.",
                 "showAbility": true,
                 "showDescription": true
               },
               {
                 "name": "Mantra of Discipline",
-                "description": "This model has the BATTLELINE keyword and has the following ability:\n\nBinharic Courage (Aura): While a friendly ADEPTUS MECHANICUS unit is within 6\" of this model, each time you take a Battle-shock or Leadership test for that unit, add 1 to that test.",
+                "description": "This model has the BATTLELINE keyword and has the following ability:\n\nBinharic Courage (Aura): While a friendly ADEPTUS MECHANICUS unit is within 6\" of this model, add 1 to the Objective Control characteristic of models in that unit and each time you take a Battle-shock or Leadership test for that unit, add 1 to that test.",
                 "showAbility": true,
                 "showDescription": true
               },
               {
                 "name": "Shroudpsalm (Aura)",
-                "description": "While a friendly ADEPTUS MECHANICUS unit is within 6\" of this model, each time a ranged attack targets that unit, that unit has the Benefit of Cover against that attack.",
+                "description": "While a friendly ADEPTUS MECHANICUS unit is within 6\" of this model, that unit has the Stealth ability.",
                 "showAbility": true,
                 "showDescription": true
               }
@@ -1246,10 +1275,11 @@
       "name": "Belisarius Cawl",
       "points": [
         {
-          "cost": "150",
+          "cost": "210",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1259,9 +1289,9 @@
             {
               "active": true,
               "ap": "-4",
-              "attacks": "D3",
-              "damage": "3",
-              "keywords": ["Melta D3", "Blast"],
+              "attacks": "3",
+              "damage": "D6",
+              "keywords": ["Melta 3"],
               "name": "Solar atomiser",
               "range": "18\"",
               "skill": "2+",
@@ -1286,7 +1316,241 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null
+    },
+    {
+      "abilities": {
+        "core": [],
+        "damaged": {
+          "description": "",
+          "range": "",
+          "showDamagedAbility": false,
+          "showDescription": true
+        },
+        "faction": ["Doctrina Imperatives"],
+        "invul": {
+          "info": "",
+          "showAtTop": true,
+          "showInfo": false,
+          "showInvulnerableSave": true,
+          "value": "6+"
+        },
+        "other": [
+          {
+            "name": "Network Override",
+            "description": "While this unit contains one or more TECH-PRIEST models, this unit is:\n\n■ Eligible to perform an Action in a turn in which it Advanced.\n■ Eligible to shoot in a turn in which it started an Action.",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "primarch": [],
+        "special": [
+          {
+            "description": "If a CHARACTER unit from your army with the Leader ability can be attached to a KATAPHRON BREACHERS unit, it can be attached to this unit instead.",
+            "name": "ATTACHED UNIT",
+            "showAbility": true,
+            "showDescription": true
+          }
+        ],
+        "wargear": []
+      },
+      "cardType": "DataCard",
+      "composition": [
+        "1 Servitor Underseer",
+        "2 Gun Servitors",
+        "6 Combat Servitors"
+      ],
+      "factions": ["Adeptus Mechanicus"],
+      "faction_id": "AdM",
+      "fluff": "Servitor Battleclades provide their Adeptus Mechanicus masters with expendable and extremely versatile combat assets in the field. Often sent to recover vital archeotech or data, their mix of firepower, close quarters punch, and array of servo-tools allows their Underseers to achieve whatever task is assigned to them.",
+      "id": "510467a8-cb57-520e-8ba7-b06240c4e335",
+      "keywords": [
+        "Infantry",
+        "Imperium",
+        "Cult Mechanicus",
+        "Servitor Battleclade",
+        "Tech-Priest"
+      ],
+      "leader": "",
+      "loadout": "The Servitor Underseer is equipped with: Mechanicus pistol; dataspikes.\n1 Gun Servitor is equipped with: heavy arc rifle; servo-claw.\n1 Gun Servitor is equipped with: heavy bolter; servo-claw.\nEvery Combat Servitor is equipped with: phosphor blaster; servo-claw.",
+      "meleeWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "0",
+              "attacks": "4",
+              "damage": "1",
+              "keywords": [],
+              "name": "Dataspikes",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "0",
+              "attacks": "2",
+              "damage": "1",
+              "keywords": [],
+              "name": "Servo-claw",
+              "range": "Melee",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        }
+      ],
+      "name": "Servitor Battleclade",
+      "points": [
+        {
+          "cost": "60",
+          "keyword": null,
+          "models": "9",
+          "active": true,
+          "detachment": null
+        }
+      ],
+      "rangedWeapons": [
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Pistol", "Devastating Wounds"],
+              "name": "Mechanicus pistol",
+              "range": "12\"",
+              "skill": "4+",
+              "strength": "6"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-2",
+              "attacks": "1",
+              "damage": "3",
+              "keywords": ["Rapid Fire 1", "Anti-vehicle 4+"],
+              "name": "Heavy arc rifle",
+              "range": "30\"",
+              "skill": "4+",
+              "strength": "8"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-1",
+              "attacks": "3",
+              "damage": "2",
+              "keywords": ["Sustained Hits 1", "Heavy"],
+              "name": "Heavy bolter",
+              "range": "36\"",
+              "skill": "4+",
+              "strength": "5"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "0",
+              "attacks": "1",
+              "damage": "1",
+              "keywords": ["Rapid Fire 1", "Ignores Cover"],
+              "name": "Phosphor blaster",
+              "range": "24\"",
+              "skill": "4+",
+              "strength": "4"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "-4",
+              "attacks": "1",
+              "damage": "D6",
+              "keywords": ["Melta 2"],
+              "name": "Meltagun",
+              "range": "12\"",
+              "skill": "4+",
+              "strength": "9"
+            }
+          ]
+        },
+        {
+          "active": true,
+          "profiles": [
+            {
+              "active": true,
+              "ap": "0",
+              "attacks": "D6",
+              "damage": "1",
+              "keywords": ["Torrent", "Ignores Cover"],
+              "name": "Incendine igniter",
+              "range": "12\"",
+              "skill": "N/A",
+              "strength": "3"
+            }
+          ]
+        }
+      ],
+      "source": "40k-10e",
+      "stats": [
+        {
+          "active": true,
+          "ld": "7+",
+          "m": "6\"",
+          "name": "Servitor Underseer",
+          "oc": "1",
+          "showDamagedMarker": false,
+          "showName": true,
+          "sv": "4+",
+          "t": "4",
+          "w": "2"
+        },
+        {
+          "active": true,
+          "ld": "8+",
+          "m": "6\"",
+          "name": "Combat Servitor",
+          "oc": "1",
+          "showDamagedMarker": false,
+          "showName": true,
+          "sv": "4+",
+          "t": "4",
+          "w": "1"
+        }
+      ],
+      "transport": "",
+      "wargear": [
+        "Up to 3 Combat Servitor models can each have their 1 phosphor blaster replaced with 1 incendine igniter.",
+        "1 Combat Servitor model can have its 1 phosphor blaster replaced with 1 meltagun."
+      ],
+      "baseSize": "Servitor Underseer, Gun Servitors: 32mm\nCombat Servitors: 25mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1356,13 +1620,15 @@
           "cost": "140",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "70",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -1383,6 +1649,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Tech-Priest Manipulus",
         "Tech-Priest Dominus",
@@ -1461,10 +1729,11 @@
       "name": "Skorpius Disintegrator",
       "points": [
         {
-          "cost": "175",
+          "cost": "165",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1551,7 +1820,9 @@
       "transport": "",
       "wargear": [
         "This model’s belleros energy cannon can be replaced with 1 ferrumite cannon."
-      ]
+      ],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1635,7 +1906,8 @@
           "cost": "50",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1711,7 +1983,9 @@
       "transport": "",
       "wargear": [
         "This model’s radium jezzail can be replaced with 1 Skatros transuranic arquebus."
-      ]
+      ],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1773,7 +2047,7 @@
             {
               "active": true,
               "ap": "-2",
-              "attacks": "3",
+              "attacks": "4",
               "damage": "1",
               "keywords": [],
               "name": "Power weapon",
@@ -1788,7 +2062,7 @@
           "profiles": [
             {
               "active": true,
-              "ap": "0",
+              "ap": "-1",
               "attacks": "3",
               "damage": "1",
               "keywords": ["Sustained Hits 2"],
@@ -1803,16 +2077,18 @@
       "name": "Sicarian Infiltrators",
       "points": [
         {
-          "cost": "140",
+          "cost": "155",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "70",
+          "cost": "75",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1867,7 +2143,9 @@
       "transport": "",
       "wargear": [
         "Any number of models can each have their stubcarbine and power weapon replaced with 1 flechette blaster and 1 taser goad."
-      ]
+      ],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -1952,7 +2230,8 @@
           "cost": "150",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -1991,7 +2270,9 @@
       "transport": "This model has a transport capacity of 11 SKITARII INFANTRY or TECH-PRIEST INFANTRY models. It cannot transport JUMP PACK, KATAPHRON or SYDONIAN SKATROS models.",
       "wargear": [
         "This model’s command uplink can be replaced with 1 chaff launcher."
-      ]
+      ],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2090,7 +2371,8 @@
           "cost": "95",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2214,6 +2496,8 @@
         "The Skitarii Vanguard Alpha’s radium carbine can be replaced with 1 Mechanicus pistol.",
         "The Skitarii Vanguard Alpha can be equipped with 1 Alpha combat weapon."
       ],
+      "baseSize": "Skitarii Vanguards: 25mm\nTransuranic Arquebus: 60 x 35.5mm Oval Base",
+      "chapter": null,
       "leadBy": [
         "Tech-Priest Manipulus",
         "Tech-Priest Dominus",
@@ -2294,10 +2578,11 @@
       "name": "Tech-Priest Dominus",
       "points": [
         {
-          "cost": "70",
+          "cost": "65",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2397,6 +2682,8 @@
         "This model’s volkite blaster can be replaced with 1 eradication ray.",
         "This model’s macrostubber can be replaced with 1 phosphor serpenta."
       ],
+      "baseSize": "50mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CORPUSCARII ELECTRO-PRIESTS",
@@ -2496,16 +2783,18 @@
       "name": "Pteraxii Skystalkers",
       "points": [
         {
-          "cost": "140",
+          "cost": "150",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "70",
+          "cost": "75",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2558,7 +2847,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2644,13 +2935,15 @@
           "cost": "320",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "160",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2707,6 +3000,8 @@
         "Any number of models can each have their arc claw replaced with 1 hydraulic claw.",
         "Any number of models can each have their heavy arc rifle replaced with 1 torsion cannon."
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leadBy": [
         "Tech-Priest Manipulus",
         "Tech-Priest Dominus",
@@ -2768,8 +3063,8 @@
             {
               "active": true,
               "ap": "-2",
-              "attacks": "4",
-              "damage": "1",
+              "attacks": "3",
+              "damage": "2",
               "keywords": ["Precision", "Anti-infantry 3+"],
               "name": "Transonic razor and chordclaw",
               "range": "Melee",
@@ -2818,16 +3113,18 @@
       "name": "Sicarian Ruststalkers",
       "points": [
         {
-          "cost": "150",
+          "cost": "165",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "75",
+          "cost": "80",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [],
@@ -2850,7 +3147,9 @@
       "wargear": [
         "The Sicarian Ruststalker Princeps’ transonic razor and chordclaw can be replaced with 1 transonic blades and chordclaw.",
         "Any number of Sicarian Ruststalkers can each have their transonic razor and chordclaw replaced with 1 transonic blades."
-      ]
+      ],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -2927,7 +3226,8 @@
           "cost": "45",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -2965,6 +3265,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CORPUSCARII ELECTRO-PRIESTS",
@@ -3045,13 +3347,15 @@
           "cost": "130",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "65",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3089,6 +3393,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leadBy": [
         "Tech-Priest Manipulus",
         "Tech-Priest Dominus",
@@ -3165,13 +3471,15 @@
           "cost": "120",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "60",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3226,7 +3534,9 @@
       "transport": "",
       "wargear": [
         "1 Serberys Raider can be equipped with 1 enhanced data-tether"
-      ]
+      ],
+      "baseSize": "60 x 35.5mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3301,22 +3611,25 @@
       "name": "Sydonian Dragoons with Taser Lances",
       "points": [
         {
-          "cost": "210",
+          "cost": "195",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "140",
+          "cost": "130",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
-          "cost": "70",
+          "cost": "65",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3353,7 +3666,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "105 x 70mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3440,13 +3755,15 @@
           "cost": "110",
           "keyword": null,
           "models": "6",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "55",
           "keyword": null,
           "models": "3",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3533,7 +3850,9 @@
       "transport": "",
       "wargear": [
         "For every 3 models in this unit, 1 Serberys Sulphurhound’s twin phosphor pistols can be replaced with 1 phosphor blast carbine and 1 phosphor pistol."
-      ]
+      ],
+      "baseSize": "60 x 35.5mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3632,7 +3951,8 @@
           "cost": "55",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3670,6 +3990,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": [
           "CORPUSCARII ELECTRO-PRIESTS",
@@ -3750,7 +4072,8 @@
           "cost": "35",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3788,6 +4111,8 @@
       ],
       "transport": "",
       "wargear": ["None"],
+      "baseSize": "32mm",
+      "chapter": null,
       "leads": {
         "units": ["SKITARII RANGERS", "SKITARII VANGUARD"],
         "extra": ""
@@ -3869,7 +4194,8 @@
           "cost": "85",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -3906,7 +4232,9 @@
         }
       ],
       "transport": "This model has a transport capacity of 12 ADEPTUS MECHANICUS INFANTRY models. It cannot transport JUMP PACK, KATAPHRON or SYDONIAN SKATROS models.",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "Hull",
+      "chapter": null
     },
     {
       "abilities": {
@@ -3917,7 +4245,7 @@
           "showDamagedAbility": false,
           "showDescription": true
         },
-        "faction": [],
+        "faction": ["Doctrina Imperatives"],
         "invul": {
           "info": "",
           "showAtTop": true,
@@ -4014,13 +4342,15 @@
           "cost": "360",
           "keyword": null,
           "models": "4",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "180",
           "keyword": null,
           "models": "2",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4109,6 +4439,8 @@
         "Any number of models can each have their incendine combustor replaced with 1 heavy phosphor blaster.",
         "Any number of models can each have their twin Kastelan fist replaced with one of the following: ◦ 1 Kastelan phosphor blaster and 1 Kastelan fist ◦ 1 twin Kastelan phosphor blaster and 1 close combat weapon"
       ],
+      "baseSize": "60mm",
+      "chapter": null,
       "leadBy": ["Cybernetica Datasmith"]
     },
     {
@@ -4200,13 +4532,15 @@
           "cost": "160",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         },
         {
           "cost": "80",
           "keyword": null,
           "models": "5",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4259,7 +4593,9 @@
         }
       ],
       "transport": "",
-      "wargear": ["None"]
+      "wargear": ["None"],
+      "baseSize": "40mm",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4343,7 +4679,8 @@
           "cost": "160",
           "keyword": null,
           "models": "1",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4382,7 +4719,9 @@
       "transport": "",
       "wargear": [
         "This model’s command uplink can be replaced with 1 chaff launcher."
-      ]
+      ],
+      "baseSize": "170 x 109mm Oval Base",
+      "chapter": null
     },
     {
       "abilities": {
@@ -4404,7 +4743,7 @@
         "other": [
           {
             "name": "Objective Scouted",
-            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+            "description": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
             "showAbility": true,
             "showDescription": true
           }
@@ -4475,7 +4814,8 @@
           "cost": "85",
           "keyword": null,
           "models": "10",
-          "active": true
+          "active": true,
+          "detachment": null
         }
       ],
       "rangedWeapons": [
@@ -4599,6 +4939,8 @@
         "The Skitarii Ranger Alpha’s galvanic rifle can be replaced with 1 Mechanicus pistol.",
         "The Skitarii Ranger Alpha can be equipped with 1 Alpha combat weapon."
       ],
+      "baseSize": "Skitarii Rangers: 25mm\nTransuranic Arquebus: 60 x 35.5mm Oval Base",
+      "chapter": null,
       "leadBy": [
         "Tech-Priest Manipulus",
         "Tech-Priest Dominus",
@@ -5177,12 +5519,30 @@
     }
   ],
   "detachments": [
-    "Cohort Cybernetica",
-    "Explorator Maniple",
-    "Haloscreed Battle Clade",
-    "Rad-Zone Corps",
-    "Skitarii Hunter Cohort",
-    "Data-psalm Conclave"
+    {
+      "name": "Haloscreed Battle Clade",
+      "faction": "Adeptus Mechanicus"
+    },
+    {
+      "name": "Cohort Cybernetica",
+      "faction": "Adeptus Mechanicus"
+    },
+    {
+      "name": "Skitarii Hunter Cohort",
+      "faction": "Adeptus Mechanicus"
+    },
+    {
+      "name": "Data-psalm Conclave",
+      "faction": "Adeptus Mechanicus"
+    },
+    {
+      "name": "Explorator Maniple",
+      "faction": "Adeptus Mechanicus"
+    },
+    {
+      "name": "Rad-Zone Corps",
+      "faction": "Adeptus Mechanicus"
+    }
   ],
   "enhancements": [
     {
@@ -5193,7 +5553,10 @@
       "excludes": [],
       "description": "ADEPTUS MECHANICUS model only. From the second battle round onwards, when resolving the Fallout effect of the Rad-bombardment Detachment rule, if the bearer is on the battlefield, roll one D6 for each enemy unit within 6\" of your opponent’s deployment zone, in addition to those that are within your opponent’s deployment zone.",
       "faction_id": "AdM",
-      "detachment": "Rad-Zone Corps"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Malphonic Susurrus",
@@ -5203,7 +5566,10 @@
       "excludes": [],
       "description": "ADEPTUS MECHANICUS model only. While the bearer is leading a unit, models in that unit have the Stealth ability.",
       "faction_id": "AdM",
-      "detachment": "Rad-Zone Corps"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Peerless Eradicator",
@@ -5213,7 +5579,10 @@
       "excludes": [],
       "description": "ADEPTUS MECHANICUS model only. While the bearer is leading a unit, ranged weapons equipped by models in that unit have the [SUSTAINED HITS 1] ability.",
       "faction_id": "AdM",
-      "detachment": "Rad-Zone Corps"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Autoclavic Denunciation",
@@ -5223,7 +5592,10 @@
       "excludes": [],
       "description": "ADEPTUS MECHANICUS model only. Ranged weapons equipped by the bearer have the [ANTI-INFANTRY 2+] and [ANTI-MONSTER 4+] abilities.",
       "faction_id": "AdM",
-      "detachment": "Rad-Zone Corps"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Cantic Thrallnet",
@@ -5233,7 +5605,10 @@
       "excludes": [],
       "description": "SKITARII MARSHAL model only. At the start of the battle round, you can select one friendly SKITARII unit within 12\" of the bearer. Until the start of the next battle round, the Protector Imperative and the Conqueror Imperative are both active for that unit.",
       "faction_id": "AdM",
-      "detachment": "Skitarii Hunter Cohort"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Clandestine Infiltrator",
@@ -5243,7 +5618,10 @@
       "excludes": [],
       "description": "SKITARII model only. The bearer, and models in any unit they are leading, have the Infiltrators and Scouts 6\" abilities.",
       "faction_id": "AdM",
-      "detachment": "Skitarii Hunter Cohort"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Veiled Hunter",
@@ -5253,7 +5631,10 @@
       "excludes": [],
       "description": "SKITARII MARSHAL model only. After both players have deployed their armies, you can select up to three SKITARII INFANTRY units from your army and redeploy all of those units. When doing so, any of those units can be placed into Strategic Reserves, regardless of how many units are already in Strategic Reserves.",
       "faction_id": "AdM",
-      "detachment": "Skitarii Hunter Cohort"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Battle-sphere Uplink",
@@ -5263,7 +5644,10 @@
       "excludes": [],
       "description": "SKITARII model only. In your Shooting phase, after the bearer’s unit has shot, if it is not within Engagement Range of one or more enemy units, that unit can make a Normal move of up to 6\". If it does, until the end of the turn, that unit is not eligible to declare a charge.",
       "faction_id": "AdM",
-      "detachment": "Skitarii Hunter Cohort"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Mechanicus Locum",
@@ -5273,7 +5657,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. The bearer has a Leadership characteristic of 6+ and, once per battle, at the start of any phase, you can select one friendly CULT MECHANICUS unit that is Battle-shocked and within 12\" of the bearer. That unit is no longer Battle-shocked.",
       "faction_id": "AdM",
-      "detachment": "Data-psalm Conclave"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Mantle of the Gnosticarch",
@@ -5283,7 +5670,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. Each time an attack is allocated to the bearer, change the Damage characteristic of that attack to 1.",
       "faction_id": "AdM",
-      "detachment": "Data-psalm Conclave"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Data-blessed Autosermon",
@@ -5293,7 +5683,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. Once per battle, at the start of your Command phase, you can select the Benediction of the Omnissiah you did not select at the start of the first battle round. Until the start of your next Command phase, that Benediction of the Omnissiah is active for the bearer’s unit in addition to the one that is currently active for your army.",
       "faction_id": "AdM",
-      "detachment": "Data-psalm Conclave"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Temporcopia",
@@ -5303,7 +5696,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. The bearer’s unit has the Fights First ability.",
       "faction_id": "AdM",
-      "detachment": "Data-psalm Conclave"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Magos",
@@ -5313,7 +5709,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. At the end of your Command phase, if the bearer is within range of your Acquisition objective marker, roll one D6: on a 4+, you gain 1CP.",
       "faction_id": "AdM",
-      "detachment": "Explorator Maniple"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Genetor",
@@ -5323,7 +5722,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. While the bearer is leading a unit that is within range of your Acquisition objective marker, models in that unit have a 4+ invulnerable save.",
       "faction_id": "AdM",
-      "detachment": "Explorator Maniple"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Logis",
@@ -5333,7 +5735,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. While the bearer is leading a unit, each time a model in that unit makes an attack that targets a unit within range of your Acquisition objective marker, add 1 to the Hit roll.",
       "faction_id": "AdM",
-      "detachment": "Explorator Maniple"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Artisan",
@@ -5343,7 +5748,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. While the bearer is leading a unit that is within range of your Acquisition objective marker, once per phase, you can change the result of one Hit roll, one Wound roll or one saving throw made for that unit to an unmodified 6.",
       "faction_id": "AdM",
-      "detachment": "Explorator Maniple"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Necromechanic",
@@ -5353,7 +5761,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. Once per battle round, when a saving throw made for a friendly LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE model within 12\" of the bearer is failed, the bearer can use this Enhancement. If they do, change the Damage characteristic of that attack to 0.",
       "faction_id": "AdM",
-      "detachment": "Cohort Cybernetica"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Lord of Machines",
@@ -5363,7 +5774,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. Once per turn, at the start of your opponent’s Shooting phase, select one enemy VEHICLE unit within 12\" of and visible to the bearer. That unit must take a Leadership test: if that test is passed, until the end of the phase, each time a model in that unit makes an attack, subtract 1 from the Hit roll; if that test is failed, that unit is not eligible to shoot this phase.",
       "faction_id": "AdM",
-      "detachment": "Cohort Cybernetica"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Emotionless Clarity",
@@ -5373,7 +5787,10 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. Once per turn, when a friendly LEGIO CYBERNETICA or ADEPTUS MECHANICUS VEHICLE model with the Deadly Demise ability that is within 12\" of the bearer is destroyed, the bearer can use this Enhancement. If it does, do not roll to determine whether any mortal wounds are inflicted as a result of that model’s Deadly Demise ability. Instead, mortal wounds are automatically inflicted.",
       "faction_id": "AdM",
-      "detachment": "Cohort Cybernetica"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Arch-negator",
@@ -5383,17 +5800,23 @@
       "excludes": [],
       "description": "TECH-PRIEST model only. Ranged weapons equipped by the bearer have the [ANTI-VEHICLE 4+] ability.",
       "faction_id": "AdM",
-      "detachment": "Cohort Cybernetica"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Transoracular Dyad Wafers",
       "id": "daab17ff-d650-5aa9-9e92-06a7f4e9cb9e",
-      "cost": "30",
+      "cost": "15",
       "keywords": ["Cybernetica Datasmith"],
       "excludes": [],
-      "description": "CYBERNETICA DATASMITH model only. When the bearer is attached to a KASTELAN ROBOTS unit, until the end of the battle, models in that unit have the Doctrina Imperatives ability and gain the HALO OVERRIDE keyword. This unit cannot be selected when selecting units as part of the Noospheric Transference Detachment rule.",
+      "description": "CYBERNETICA DATASMITH model only. When the bearer is attached to a KASTELAN ROBOTS unit, until the end of the battle, models in that unit gain the HALO OVERRIDE keyword. That unit cannot be selected when selecting units as part of the Noospheric Transference Detachment rule.",
       "faction_id": "AdM",
-      "detachment": "Haloscreed Battle Clade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Cognitive Reinforcement",
@@ -5403,7 +5826,10 @@
       "excludes": ["Cybernetica Datasmith"],
       "description": "ADEPTUS MECHANICUS model only (excluding CYBERNETICA DATASMITH models). The Conqueror Imperative and Protector Imperative are both active for the bearer’s unit.",
       "faction_id": "AdM",
-      "detachment": "Haloscreed Battle Clade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Sanctified Ordnance",
@@ -5413,7 +5839,10 @@
       "excludes": [],
       "description": "ADEPTUS MECHANICUS model only. Add 6\" to the range characteristic of ranged weapons equipped by models in the bearer’s unit and, each time a Hazardous test is taken for that unit, you can re‑roll the result.",
       "faction_id": "AdM",
-      "detachment": "Haloscreed Battle Clade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Inloaded Lethality",
@@ -5423,14 +5852,289 @@
       "excludes": [],
       "description": "TECH‑PRIEST DOMINUS or TECH‑PRIEST MANIPULUS model only. Add 3 to the Attacks characteristic of the bearer’s melee weapons and add 1 to the Damage characteristic of the bearer’s melee weapons.",
       "faction_id": "AdM",
-      "detachment": "Haloscreed Battle Clade"
+      "source": "40k-10e",
+      "cardType": "enhancement",
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     }
   ],
   "id": "AdM",
   "is_subfaction": false,
   "link": "https://game-datacards.eu",
   "name": "Adeptus Mechanicus",
-  "parent_id": "",
+  "parent_id": null,
+  "parent_name": null,
+  "rules": {
+    "army": [
+      {
+        "name": "Doctrina Imperatives",
+        "rules": [
+          {
+            "text": "At the start of the battle round, you can select one of the Doctrina Imperatives below. Until the end of the battle round, that Doctrina Imperative is active for your army, and all units from your army that have the Doctrina Imperatives ability gain the relevant abilities shown below.",
+            "order": 1,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "PROTECTOR IMPERATIVE",
+            "order": 2,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "■ Ranged weapons equipped by models in this unit have the **[HEAVY]** ability.\n■ Improve the Ballistic Skill characteristic of ranged weapons equipped by models in this unit by 1.\n■ Each time a melee attack targets this unit, if this unit has the **BATTLELINE** keyword and/or it is within 6\" of one or more friendly **ADEPTUS MECHANICUS BATTLELINE** units, subtract 1 from the Hit roll.",
+            "order": 3,
+            "title": null,
+            "type": "text"
+          },
+          {
+            "text": "CONQUEROR IMPERATIVE",
+            "order": 4,
+            "title": null,
+            "type": "header"
+          },
+          {
+            "text": "■ Ranged weapons equipped by models in this unit have the **[ASSAULT]** ability.\n■ Improve the Weapon Skill characteristic of melee weapons equipped by models in this unit by 1.\n■ Each time a model in this unit makes an attack, if this unit has the **BATTLELINE** keyword and/or it is within 6\" of one or more friendly **ADEPTUS MECHANICUS BATTLELINE** units, improve the Armour Penetration characteristic of that attack by 1.",
+            "order": 5,
+            "title": null,
+            "type": "text"
+          }
+        ],
+        "source": "40k-10e",
+        "cardType": "armyRule"
+      }
+    ],
+    "detachment": [
+      {
+        "detachment": "Haloscreed Battle Clade",
+        "faction": "Adeptus Mechanicus",
+        "rules": [
+          {
+            "name": "Noospheric Transference",
+            "rules": [
+              {
+                "text": "In your Command phase, select one or more **ADEPTUS MECHANICUS** units from your army (including units that are embarked within **TRANSPORTS**). The maximum number of units you can select depends on the battle size, as follows:",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "INCURSION: 1 UNIT\nSTRIKE FORCE: 2 UNITS\nONSLAUGHT: 3 UNITS",
+                "order": 2,
+                "title": null,
+                "type": "textBold"
+              },
+              {
+                "text": "Until the start of your next Command phase, those units gain the **HALO OVERRIDE** keyword. Then, select one of the Override abilities below. Until the start of your next Command phase, units from your army with the **HALO OVERRIDE** keyword have the selected Override ability:",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Electromotive Energisation",
+                "order": 4,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Add 2\" to the Move characteristic of models in this unit.",
+                "order": 5,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Microactuator Bracing",
+                "order": 6,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Add 1 to the Toughness characteristic of models in this unit.",
+                "order": 7,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Predation Protocols",
+                "order": 8,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "This unit is eligible to declare a charge in a turn in which it Advanced.",
+                "order": 9,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "Muted Servomotors",
+                "order": 10,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Models in this unit have the Stealth ability.",
+                "order": 11,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Cohort Cybernetica",
+        "faction": "Adeptus Mechanicus",
+        "rules": [
+          {
+            "name": "Cyber-psalm Programming",
+            "rules": [
+              {
+                "text": "Add 2\" to the Move characteristic of models in **LEGIO CYBERNETICA** units from your army. In addition, unless that unit is Battle‐shocked, add 1 to the Objective Control characteristic of models in that unit.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Skitarii Hunter Cohort",
+        "faction": "Adeptus Mechanicus",
+        "rules": [
+          {
+            "name": "Stealth Optimisation",
+            "rules": [
+              {
+                "text": "**SKITARII INFANTRY**, **SKITARII MOUNTED** and **IRONSTRIDER BALLISTARII** units from your army have the Stealth ability, and each time a ranged attack targets a **SICARIAN** unit from your army, unless the attacking model is within 12\", the target has the Benefit of Cover against that attack.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Data-psalm Conclave",
+        "faction": "Adeptus Mechanicus",
+        "rules": [
+          {
+            "name": "Benedictions of the Omnissiah",
+            "rules": [
+              {
+                "text": "At the start of the first battle round, select one of the following Benedictions of the Omnissiah to be active for **Cult Mechanicus** units from your army until the end of the battle:",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "PANEGYRIC PROCESSION",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Each time a **CULT MECHANICUS** model from your army makes a ranged attack that targets a unit within half range, improve the Armour Penetration characteristic of that attack by 1.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "CITATION IN SAVAGERY",
+                "order": 4,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "Each time a **CULT MECHANICUS** unit from your army is selected to fight, if that unit made a Charge move this turn, until the end of the phase, add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in that unit.",
+                "order": 5,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Explorator Maniple",
+        "faction": "Adeptus Mechanicus",
+        "rules": [
+          {
+            "name": "Acquisition at any Cost",
+            "rules": [
+              {
+                "text": "At the start of your Command phase, select one objective marker. Until the start of your next Command phase, that objective marker is your Acquisition objective marker. Each time an **ADEPTUS MECHANICUS** model from your army makes an attack, if that model’s unit is within range of your Acquisition objective marker, or if the target of that attack is within range of your Acquisition objective marker, re-roll a Wound roll of 1.",
+                "order": 1,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      },
+      {
+        "detachment": "Rad-Zone Corps",
+        "faction": "Adeptus Mechanicus",
+        "rules": [
+          {
+            "name": "Rad-Bombardment",
+            "rules": [
+              {
+                "text": "-",
+                "order": 1,
+                "title": null,
+                "type": "image"
+              },
+              {
+                "text": "BOMBARDMENT",
+                "order": 2,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "At the start of the first battle round, for each enemy unit within your opponent’s deployment zone, your opponent must decide whether that unit will take cover or stand firm. You then roll one D6 for each of those enemy units and apply the relevant result below:\n\n■ **Unit Standing Firm:** On a 3+, that unit suffers D3 mortal wounds.\n■ **Unit Taking Cover:** Until the end of the battle round, that unit is Battle-shocked and, on a 5+, that unit suffers D3 mortal wounds.",
+                "order": 3,
+                "title": null,
+                "type": "text"
+              },
+              {
+                "text": "-",
+                "order": 4,
+                "title": null,
+                "type": "image"
+              },
+              {
+                "text": "FALLOUT",
+                "order": 5,
+                "title": null,
+                "type": "header"
+              },
+              {
+                "text": "At the start of your Command phase during the second, third, fourth and fifth battle rounds, roll one D6 for each enemy unit within your opponent’s deployment zone. On a 3+, that unit suffers 1 mortal wound and must take a Battle-shock test.",
+                "order": 6,
+                "title": null,
+                "type": "text"
+              }
+            ],
+            "source": "40k-10e",
+            "cardType": "detachmentRule"
+          }
+        ]
+      }
+    ]
+  },
   "stratagems": [
     {
       "name": "Eradication Protocols",
@@ -5445,7 +6149,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AdM",
       "fluff": "Fresh imperatives flow down from on high. The orders are simple: eliminate the foe.",
-      "detachment": "Haloscreed Battle Clade"
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Targeting Override",
@@ -5460,7 +6165,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AdM",
       "fluff": "Experienced Tech‑Priests rapidly analyse the foe’s weaknesses and feed the resultant data to their soldiers, who exploit these flaws to destroy their targets.",
-      "detachment": "Haloscreed Battle Clade"
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Guided Retreat",
@@ -5475,7 +6181,8 @@
       "phase": ["movement"],
       "faction_id": "AdM",
       "fluff": "From their distant strategium pulpit, the Tech‑Priest commander’s guiding hand descends, seizing control of allied minds, steering their troops carefully away from harm whilst maintaining a hail of killing fire.",
-      "detachment": "Haloscreed Battle Clade"
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Motive Imperative",
@@ -5490,7 +6197,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "Intensifying the locomotive protocols of a war engine - while not dishonouring the machine spirit - is a millennia-proven method to hasten the foe’s demise.",
-      "detachment": "Cohort Cybernetica"
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Auto-divinatory Targeting",
@@ -5505,7 +6213,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "Encoded with the schemata of the enemy’s fortified battle lines and auto-codified vectors of attack, the Cohort’s war engines are perfectly aligned to deliver the Machine God’s wrath.",
-      "detachment": "Cohort Cybernetica"
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Benevolence of the Omnissiah",
@@ -5520,7 +6229,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "A protective blessing chanted in pentakairic Novabyte moves machine spirits to defy the most esoteric of assaults.",
-      "detachment": "Cohort Cybernetica"
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Incantation of the Iron Soul",
@@ -5535,7 +6245,8 @@
       "phase": ["any"],
       "faction_id": "AdM",
       "fluff": "Raising their voices in binharic praise, the Machine God’s disciples bolster their spirits - as well as those that inhabit their augmentations - with iron surely.",
-      "detachment": "Data-psalm Conclave"
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Chant of the Remorseless Fist",
@@ -5550,7 +6261,8 @@
       "phase": ["fight"],
       "faction_id": "AdM",
       "fluff": "In spitting out a staccato chant to the Motive Force, the faithful warriors of the Cult Mechanicus are filled with merciless surety as well as intent.",
-      "detachment": "Data-psalm Conclave"
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Luminescent Blessing",
@@ -5565,7 +6277,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "As the cohorts of the Omnissiah recite their dazzling consecration, energy is redirected to infuse masterwork bionics and even the lambent glow of protective fields ignites in a halo of divine defence.",
-      "detachment": "Data-psalm Conclave"
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Priority Reclamation",
@@ -5580,7 +6293,8 @@
       "phase": ["fight"],
       "faction_id": "AdM",
       "fluff": "Retrieval of the most sacred and ancient fragments of technology is embedded in loops of alpha-logic.",
-      "detachment": "Explorator Maniple"
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Aggressor Imperative",
@@ -5595,7 +6309,8 @@
       "phase": ["movement"],
       "faction_id": "AdM",
       "fluff": "The Skitarii feel the press of an invisible hand upon their minds as the Machine God drives them forward. Servos are pushed to their structural limits, propelling the faithful on an unstoppable crusade.",
-      "detachment": "Rad-Zone Corps"
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Pre-calibrated Purge Solution",
@@ -5610,7 +6325,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "Employing targeting data collated by a swarm of servo-skulls released over the enemy’s battle lines, the Machine God’s faithful purge the foe stumbling amidst rad-scourged positions.",
-      "detachment": "Rad-Zone Corps"
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Auto-oracular Retrieval",
@@ -5625,7 +6341,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "With a surge of targeting data from the war engine as its hatches slam open, the warriors inside pour out with weapons already trained unerringly on the foe.",
-      "detachment": "Explorator Maniple"
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Baleful Halo",
@@ -5640,7 +6357,8 @@
       "phase": ["fight"],
       "faction_id": "AdM",
       "fluff": "By briefly unshielding the most corrosive or irradiated components of their being, the warriors of a Raz-Zone Corps can exhale an isotopic fog, sapping the strength of those not injured to its effects.",
-      "detachment": "Rad-Zone Corps"
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Bulwark Imperative",
@@ -5655,7 +6373,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "With a pulse of force-loaded wisdom, microactuators lock into bracing positions, reserve power cells are brought online and the Omnissiah’s holy crusaders are bestowed with a sensation of sacred invulnerability.",
-      "detachment": "Rad-Zone Corps"
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Machine Spirit Resurgent",
@@ -5670,7 +6389,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "To invigorate the failing machine spirit of a damaged vehicle is a sacred task, greatly aided by certain data-hymns transmitted in the correct sequence.",
-      "detachment": "Cohort Cybernetica"
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Machine Superiority",
@@ -5685,7 +6405,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "Let the unenlightened be cast down! Let all feel the fire of the Motive Force, and may the sacred engines crunch over their weak bones without impediment!",
-      "detachment": "Cohort Cybernetica"
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Cached Acquisition",
@@ -5694,13 +6415,14 @@
       "turn": "either",
       "target": "One ADEPTUS MECHANICUS unit from your army that was just destroyed while it was within range of an objective marker you controlled. You can use this Stratagem on that unit even though it was just destroyed.",
       "when": "Any phase.",
-      "effect": "That objective marker remains under your control, even if you have no models within range of it, until your opponent controls it at the start or end of any turn.",
+      "effect": "That objective marker remains under your control until your opponent’s Level of Control over that objective marker is greater than yours at the end of a phase.",
       "restrictions": "",
       "type": "Epic Deed",
       "phase": ["any"],
       "faction_id": "AdM",
       "fluff": "Death is irrelevant compared to the hallowed duty of securing the Omnissiah’s knowledge for future retrieval.",
-      "detachment": "Explorator Maniple"
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Neural Overload",
@@ -5715,7 +6437,8 @@
       "phase": ["movement"],
       "faction_id": "AdM",
       "fluff": "By projecting their consciousness into the minds of tech thralls, a Tech‑Priest may significantly enhance their warriors’ lethality. However, doing so risks overloading their combat units’ more limited neural networks. Such hazards are seen as an opportunity to give one’s life in the name of the Omnissiah.",
-      "detachment": "Haloscreed Battle Clade"
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Aggressive Impulse",
@@ -5730,7 +6453,8 @@
       "phase": ["movement"],
       "faction_id": "AdM",
       "fluff": "Urgent imperatives flood into the crew thralls of Skitarius transport units, urging them to deploy their cargo of cybernetic soldiers into the heart of the fight.",
-      "detachment": "Haloscreed Battle Clade"
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Analytical Divination",
@@ -5745,7 +6469,8 @@
       "phase": ["movement"],
       "faction_id": "AdM",
       "fluff": "Tech‑Priest commanders process an overwhelming influx of data screeds, analysing this information to read the flow of battle and coordinate the movements of their thralls.",
-      "detachment": "Haloscreed Battle Clade"
+      "detachment": "Haloscreed Battle Clade",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Transcendent Cogitation",
@@ -5760,7 +6485,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "Enhanced static chants can briefly raise a war engine’s machine spirits to exultant heights of cogitation and multi-tactical capacity.",
-      "detachment": "Cohort Cybernetica"
+      "detachment": "Cohort Cybernetica",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Isolate and Destroy",
@@ -5775,7 +6501,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "The swiftest hunters seek to engage foes with the equations of war in their favour, isolating their quarry and dispatching it with ruthless efficiency.",
-      "detachment": "Skitarii Hunter Cohort"
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Shroud Protocols",
@@ -5790,7 +6517,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "When Skitarii Hunter Cohorts march to war, they do so beneath a shrouding squall of cyber-static and filament-heavy banks of sacred incense.",
-      "detachment": "Skitarii Hunter Cohort"
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Programmed Withdrawal",
@@ -5805,7 +6533,8 @@
       "phase": ["fight"],
       "faction_id": "AdM",
       "fluff": "Taking direct control of their cybernetic soldiers’ manoeuvres, the cohort’s commander sees their withdrawal carried out with such precision that they can be pressed back into service from the most efficacious of attack vectors.",
-      "detachment": "Skitarii Hunter Cohort"
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Bionic Endurance",
@@ -5820,7 +6549,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AdM",
       "fluff": "Between their multi-layered bionics and their fanatical faith in the indomitability of these machine-blessings, the most augmented of Skitarii are nigh-impossible to lay low.",
-      "detachment": "Skitarii Hunter Cohort"
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Expedited Purge Protocol",
@@ -5835,7 +6565,8 @@
       "phase": ["charge"],
       "faction_id": "AdM",
       "fluff": "Binharic imperatives flash through neural architecture, driving augmetic muscle-bundles and auto-actuators into overdrive to propel the Skitarii more swiftly into the fray.",
-      "detachment": "Skitarii Hunter Cohort"
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Verse of Vengeance",
@@ -5850,7 +6581,8 @@
       "phase": ["fight"],
       "faction_id": "AdM",
       "fluff": "Rousing code in binharic duometer incites fury for the lost fragments of technological lore. In the grip of vengeance, the devoted extend their remaining functions for one last act of retribution.",
-      "detachment": "Data-psalm Conclave"
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Tribute of Emphatic Veneration",
@@ -5865,7 +6597,8 @@
       "phase": ["movement"],
       "faction_id": "AdM",
       "fluff": "A cacophonous chorale pours from the emitters and augmented throats of the Cult Mechanicus’ faithful, venerating the Omnissiah in deafening and disconcerting frequencies of praise.",
-      "detachment": "Data-psalm Conclave"
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Litany of the Electromancer",
@@ -5880,7 +6613,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "Summoning the spark of the Machine God’s divinity that burns within them, the Omnissiah’s faithful manifest blazing auras of energy that lay low the unbeliever.",
-      "detachment": "Data-psalm Conclave"
+      "detachment": "Data-psalm Conclave",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Reactive Safeguard",
@@ -5895,7 +6629,8 @@
       "phase": ["charge"],
       "faction_id": "AdM",
       "fluff": "Holy data must be hoarded at all costs, and thickly armoured war engines offer swift and secure vaults.",
-      "detachment": "Explorator Maniple"
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Extinction Order",
@@ -5910,7 +6645,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "As Tech-Priests order the purge of an area of the battlefield, hazardous bombardments are redoubled in the hopes of turning it into a wasteland.",
-      "detachment": "Rad-Zone Corps"
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Binharic Offence",
@@ -5925,7 +6661,8 @@
       "phase": ["fight", "shooting"],
       "faction_id": "AdM",
       "fluff": "Employing directed binharic entanglement to coordinate their motions, paired squads of Skitarii attack with eerie and lethal synchronicity.",
-      "detachment": "Skitarii Hunter Cohort"
+      "detachment": "Skitarii Hunter Cohort",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Infoslave Skull",
@@ -5940,7 +6677,8 @@
       "phase": ["command"],
       "faction_id": "AdM",
       "fluff": "Mono-task infoslave skulls range ahead to assess potential sites that must be investigated.",
-      "detachment": "Explorator Maniple"
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Incense Exhausts",
@@ -5955,7 +6693,8 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "The machine spirits of sanctified war engines can be entreated to release clouds of incense laced with radioactive particles, veiling the faithful from the foe.",
-      "detachment": "Explorator Maniple"
+      "detachment": "Explorator Maniple",
+      "detachment_faction": "Adeptus Mechanicus"
     },
     {
       "name": "Lethal Dosage",
@@ -5970,8 +6709,9 @@
       "phase": ["shooting"],
       "faction_id": "AdM",
       "fluff": "Tri-fold sanctified power cells, fuel canisters and solid slugs have spent a decade in the most irradiated forge temple to certify their lethality.",
-      "detachment": "Rad-Zone Corps"
+      "detachment": "Rad-Zone Corps",
+      "detachment_faction": "Adeptus Mechanicus"
     }
   ],
-  "updated": "2025-02-05T13:53:46.609Z"
+  "updated": "2026-03-09T13:14:10.178Z"
 }
