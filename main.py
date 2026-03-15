@@ -77,7 +77,7 @@ async def on_ready():
 
     for s in bot.guilds:
         for x in s.channels:
-            if x.name == "bot":
+            if x.name == "🦾bot":
                 with open("message.txt", mode="r") as messagefile:
                     await bot.get_channel(x.id).send(messagefile.readline())
 
