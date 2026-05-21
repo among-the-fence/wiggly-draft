@@ -70,11 +70,14 @@ class Warhammer:
         #         counts = counts + Counter(words)
         # print("\',\'".join([x[0] for x in counts.most_common(100)]))
         for f in os.listdir(dataroot + JSON_DATA_PREFIX):
-            with open(dataroot + JSON_DATA_PREFIX + f, "r") as file:
-                wf = WHFaction(json.load(file), xml_units)
-                self.factions[wf.normalized_name] = wf
-                if wf.name:
-                    self.faction_names.append(wf.name)
+            try:
+                with open(dataroot + JSON_DATA_PREFIX + f, "r", encoding="utf-8") as file:
+                    wf = WHFaction(json.load(file), xml_units)
+                    self.factions[wf.normalized_name] = wf
+                    if wf.name:
+                        self.faction_names.append(wf.name)
+            except Exception as e:
+                print(f"Failed to load faction data from {f}: {e}")
         self.compiled_faction_names = []
         self.compiled_faction_names.extend(self.faction_names)
         for k,v in faction_nickname_map.items():
