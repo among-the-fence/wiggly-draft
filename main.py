@@ -11,7 +11,7 @@ from typing import List
 
 import discord
 import openai
-from PIL import Image
+from PIL import Image, ImageDraw
 from discord import option, Color
 from dotenv import load_dotenv
 
@@ -24,7 +24,7 @@ from services.warhammer.views.UnitView import UnitView
 from services.warhammer.wh_data import get_wh_data
 from services.bapbap.BapbapHeroList import BapbapHeroList
 from services.bapbap.BapbapPoll import BapbapPoll
-from services.wiggle.HeroList import HeroList
+from services.wiggle.HeroList import Hero, HeroList
 from services.wiggle.Pick import Pick
 from services.wiggle.WigglePoll import WigglePoll
 from util.utils import send_in_chunks
@@ -152,6 +152,42 @@ def collage(hero_picks: List[Pick]):
     W, H = out.size
     out.paste(versus, (int((W - w) / 2), int((H - h) / 2)), versus)
     out.save("processed/Collage.jpg")
+
+
+def bapbap_image_with_name(image_path, username, heroname):
+    portrait = Image.open(image_path)
+    out = Image.new('RGB', (portrait.width, portrait.height), color=(47, 49, 54))
+    out.paste(portrait, (0, 0))
+    width, height = out.size
+    padding = 5
+    draw = ImageDraw.Draw(out)
+    font, name_chunks, top_box_height = Hero.scale_font(width - 10, username, 25)
+    draw.text((padding, padding), name_chunks[0], fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
+    font, hero_chunks, box_height = Hero.scale_font(width - 10, heroname, 20, height - top_box_height)
+    start_y = height - (box_height * 1.3 * min(len(hero_chunks), 6))
+    for t in hero_chunks:
+        draw.text((padding, start_y), t, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+        start_y += box_height * 1.3
+    return out
+
+
+def bapbap_collage(assignments):
+    items = list(assignments.items())
+    n = len(items)
+    cols = 2
+    rows = math.ceil(n / cols)
+    cards = [bapbap_image_with_name(f"services/bapbap/images/{hero}.png", user.display_name, hero)
+             for user, hero in items]
+    single_width = max(c.width for c in cards)
+    single_height = max(c.height for c in cards)
+    out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54))
+    for i, card in enumerate(cards):
+        col = i % cols
+        row = i // cols
+        out.paste(card, (col * single_width, row * single_height))
+    if not (os.path.exists("processed") and os.path.isdir("processed")):
+        os.mkdir("processed")
+    out.save("processed/BapbapCollage.jpg")
 
 
 class MyView(discord.ui.View):
@@ -348,12 +384,17 @@ class BapbapView(discord.ui.View):
             await interaction.followup.send("Something went wrong assigning heroes.", ephemeral=True)
             return
 
+        bapbap_collage(assignments)
+
         result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
         for user, hero in assignments.items():
             result_embed.add_field(name=user.display_name, value=hero, inline=True)
+        result_embed.set_image(url="attachment://bapbap.jpg")
 
         bapbap_poll.end()
-        await self.message.edit(embed=result_embed, view=self)
+        await self.message.edit(embed=result_embed, view=self,
+                                file=discord.File("processed/BapbapCollage.jpg", filename="bapbap.jpg"))
+        shutil.rmtree("processed/")
 
     @discord.ui.button(label="Cancel", row=0, style=discord.ButtonStyle.danger)
     async def cancel_button(self, button, interaction):
@@ -400,7 +441,8 @@ async def bapbap(ctx):
     if not bapbap_poll.active:
         bapbap_poll.start(ctx.user)
         view = BapbapView(timeout=get_env_attribute('timeout'))
-        await ctx.respond(embed=bapbap_poll.build_embed(), view=view)
+        await ctx.respond(embed=bapbap_poll.build_embed(), view=view,
+                          file=discord.File("services/bapbap/images/Logo.webp", filename="logo.webp"))
     else:
         await ctx.respond("A BAPBAP session is already active.", ephemeral=True)
 
