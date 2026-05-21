@@ -335,11 +335,18 @@ class BapbapView(discord.ui.View):
             await interaction.response.send_message("Need at least 2 players!", ephemeral=True)
             return
 
+        await interaction.response.defer()
+
         self.timeout = None
         for child in self.children:
             child.disabled = True
 
-        assignments = bapbap_hero_list.assign(bapbap_poll.users, bapbap_poll.bans)
+        try:
+            assignments = bapbap_hero_list.assign(bapbap_poll.users, bapbap_poll.bans)
+        except Exception as e:
+            print(f"[bapbap] assign() failed: {e}")
+            await interaction.followup.send("Something went wrong assigning heroes.", ephemeral=True)
+            return
 
         result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
         for user, hero in assignments.items():
@@ -347,7 +354,6 @@ class BapbapView(discord.ui.View):
 
         bapbap_poll.end()
         await self.message.edit(embed=result_embed, view=self)
-        await interaction.response.defer()
 
     @discord.ui.button(label="Cancel", row=0, style=discord.ButtonStyle.danger)
     async def cancel_button(self, button, interaction):
