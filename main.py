@@ -268,11 +268,13 @@ class BanSelectionView(discord.ui.View):
         self.user = user
         self.selected_bans = []
 
+        existing_bans = set(poll.get_bans(user.id))
+        self.selected_bans = list(existing_bans)
         self.select = discord.ui.Select(
-            placeholder="Choose heroes to ban (optional, up to 5)...",
+            placeholder="Choose up to 2 heroes to ban...",
             min_values=0,
-            max_values=min(5, len(hero_list.heroes)),
-            options=[discord.SelectOption(label=h) for h in hero_list.heroes],
+            max_values=min(2, len(hero_list.heroes)),
+            options=[discord.SelectOption(label=h, default=(h in existing_bans)) for h in hero_list.heroes],
         )
         self.select.callback = self.handle_select
         self.add_item(self.select)

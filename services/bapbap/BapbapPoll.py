@@ -34,7 +34,6 @@ class BapbapPoll:
     def user_reacted(self, user):
         if user in self.users:
             self.users.remove(user)
-            self.bans.pop(user.id, None)
         else:
             self.users.append(user)
 
