@@ -1,8 +1,8 @@
 name: Redeploy Portainer Stack
 
 on:
- push:
- workflow_dispatch:
+  push:
+  workflow_dispatch:
 
 jobs:
   push_to_registry:
@@ -12,6 +12,8 @@ jobs:
       packages: write
       contents: read
       attestations: write
+    outputs:
+      digest: ${{ steps.push.outputs.digest }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -38,23 +40,45 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-  # redeploy-container:
-  #   name: Redeploy Portainer Stack
-  #   runs-on: ubuntu-latest
-  #   needs: push_to_registry
-  #   steps:
-  #     - name: Update Stack via AccessToken
-  #       uses: manicmade/portainer-git-stack-redeploy-action@v1.5.3
-  #       with:
-  #         portainerUrl: 'https://portainer.mattyflix.com'
-  #         accessToken: ${{ secrets.PORTAINER_KEY }}
-  #         stackName: 'irobot'
-  portainer_webhook:
-    name: Update portainer with webhook
+  portainer_redeploy:
+    name: Redeploy Portainer stack with pinned digest
     runs-on: ubuntu-latest
     needs: push_to_registry
     steps:
-      - name: Update Service via Webhook
-        uses: newarifrh/portainer-service-webhook@v1
-        with:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
+      - name: Pin image digest and redeploy stack
+        env:
+          PORTAINER_KEY: ${{ secrets.PORTAINER_KEY }}
+          IMAGE_DIGEST: ${{ needs.push_to_registry.outputs.digest }}
+        run: |
+          set -euo pipefail
+
+          # Locate the 'irobot' stack in Portainer
+          STACK_INFO=$(curl -sf -H "X-API-Key: $PORTAINER_KEY" \
+            https://portainer.mattyflix.com/api/stacks)
+          STACK_ID=$(echo "$STACK_INFO" | jq -r '.[] | select(.Name=="irobot") | .Id')
+          ENDPOINT_ID=$(echo "$STACK_INFO" | jq -r '.[] | select(.Name=="irobot") | .EndpointId')
+          echo "Stack ID: $STACK_ID  |  Endpoint ID: $ENDPOINT_ID"
+
+          # Fetch the compose file currently stored in Portainer
+          STACK_FILE=$(curl -sf -H "X-API-Key: $PORTAINER_KEY" \
+            "https://portainer.mattyflix.com/api/stacks/${STACK_ID}/file" \
+            | jq -r '.StackFileContent')
+
+          # Rewrite the image line to pin the exact digest just pushed,
+          # keeping the human-readable tag as well (tag@digest form)
+          PINNED_FILE=$(echo "$STACK_FILE" | \
+            sed "s|poddo/wiggly-draft:[^\"]*|poddo/wiggly-draft:development@${IMAGE_DIGEST}|g")
+          echo "Deploying: poddo/wiggly-draft:development@${IMAGE_DIGEST}"
+
+          # Build the JSON payload via jq to handle any special characters safely
+          PAYLOAD=$(jq -n \
+            --arg file "$PINNED_FILE" \
+            '{stackFileContent: $file, prune: false, pullImage: true}')
+
+          curl -sf -X PUT \
+            -H "X-API-Key: $PORTAINER_KEY" \
+            -H "Content-Type: application/json" \
+            "https://portainer.mattyflix.com/api/stacks/${STACK_ID}?endpointId=${ENDPOINT_ID}" \
+            -d "$PAYLOAD"
+
+          echo "Stack redeployed successfully."
