@@ -54,6 +54,7 @@ class BapbapPoll:
             description=f"Sign up below!\n\n{self.display_user_str()}",
             color=self.embed_color(),
         )
+        embed.set_thumbnail(url="attachment://logo.webp")
         embed.set_footer(text=f"{len(self.users)} player(s) signed up • Host can press Let's Go! when ready")
         return embed
 
