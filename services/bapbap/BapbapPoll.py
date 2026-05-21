@@ -21,7 +21,6 @@ class BapbapPoll:
         self.active = False
 
     def start(self, init_user):
-        self.users.append(init_user)
         self.owner = init_user
         self.active = True
 
