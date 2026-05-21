@@ -317,7 +317,9 @@ class BanSelectionView(discord.ui.View):
 
     async def handle_select(self, interaction):
         self.selected_bans = interaction.data.get("values", [])
-        await interaction.response.defer()
+        for opt in self.select.options:
+            opt.default = opt.value in self.selected_bans
+        await interaction.response.edit_message(view=self)
 
     @discord.ui.button(label="Save Bans", row=1, style=discord.ButtonStyle.primary)
     async def save_button(self, button, interaction):
