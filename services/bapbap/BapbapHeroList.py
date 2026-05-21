@@ -44,7 +44,7 @@ class BapbapHeroList:
             user_bans = set(bans.get(user.id, []))
             preferred = [h for h in available if h not in user_bans]
             chosen = random.choice(preferred) if preferred else random.choice(available)
-            assignments[user] = self._get_display_name(chosen)
+            assignments[user] = (chosen, self._get_display_name(chosen))
             available.remove(chosen)
 
         return assignments

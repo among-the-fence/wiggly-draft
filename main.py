@@ -176,8 +176,8 @@ def bapbap_collage(assignments):
     n = len(items)
     cols = 2
     rows = math.ceil(n / cols)
-    cards = [bapbap_image_with_name(f"services/bapbap/images/{hero}.png", user.display_name, hero)
-             for user, hero in items]
+    cards = [bapbap_image_with_name(f"services/bapbap/images/{real_hero}.png", user.display_name, display_name)
+             for user, (real_hero, display_name) in items]
     single_width = max(c.width for c in cards)
     single_height = max(c.height for c in cards)
     out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54))
@@ -387,8 +387,8 @@ class BapbapView(discord.ui.View):
         bapbap_collage(assignments)
 
         result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
-        for user, hero in assignments.items():
-            result_embed.add_field(name=user.display_name, value=hero, inline=True)
+        for user, (real_hero, display_name) in assignments.items():
+            result_embed.add_field(name=user.display_name, value=display_name, inline=True)
         result_embed.set_image(url="attachment://bapbap.jpg")
 
         bapbap_poll.end()
