@@ -317,7 +317,7 @@ class BapbapView(discord.ui.View):
             bapbap_poll.user_reacted(user)
             ban_view = BanSelectionView(bapbap_poll, bapbap_hero_list, user)
             await interaction.response.send_message(
-                "Pick up to 5 heroes to ban from your pool (optional):",
+                "Pick up to 2 heroes to ban from your pool (optional):",
                 view=ban_view,
                 ephemeral=True,
             )
