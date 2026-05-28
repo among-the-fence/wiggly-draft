@@ -302,7 +302,7 @@ class BanSelectionView(discord.ui.View):
         super().__init__(timeout=None)
         self.poll = poll
         self.user = user
-        self.message = message
+        self.main_message = message
         self.selected_bans = []
 
         existing_bans = set(poll.get_bans(user.id))
@@ -329,7 +329,7 @@ class BanSelectionView(discord.ui.View):
             child.disabled = True
         msg = f"Ban saved: {self.selected_bans[0]}" if self.selected_bans else "No ban set. Good luck!"
         await interaction.response.edit_message(content=msg, view=self)
-        await self.message.edit(embed=self.poll.build_embed())
+        await self.main_message.edit(embed=self.poll.build_embed())
         self.stop()
 
 
