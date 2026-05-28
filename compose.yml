@@ -3,5 +3,7 @@ services:
     image: "poddo/wiggly-draft:development"
     env_file:
       - stack.env
+    environment:
+      - PYTHONUNBUFFERED=1
     container_name: IRO-bot
     restart: unless-stopped
