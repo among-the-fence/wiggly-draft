@@ -298,18 +298,19 @@ class MyView(discord.ui.View):
 
 
 class BanSelectionView(discord.ui.View):
-    def __init__(self, poll, hero_list, user):
+    def __init__(self, poll, hero_list, user, message):
         super().__init__(timeout=None)
         self.poll = poll
         self.user = user
+        self.message = message
         self.selected_bans = []
 
         existing_bans = set(poll.get_bans(user.id))
         self.selected_bans = list(existing_bans)
         self.select = discord.ui.Select(
-            placeholder="Choose up to 2 heroes to ban...",
+            placeholder="Choose 1 hero to ban...",
             min_values=0,
-            max_values=min(2, len(hero_list.heroes)),
+            max_values=min(1, len(hero_list.heroes)),
             options=[discord.SelectOption(label=h, default=(h in existing_bans)) for h in hero_list.heroes],
         )
         self.select.callback = self.handle_select
@@ -321,13 +322,14 @@ class BanSelectionView(discord.ui.View):
             opt.default = opt.value in self.selected_bans
         await interaction.response.edit_message(view=self)
 
-    @discord.ui.button(label="Save Bans", row=1, style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Save Ban", row=1, style=discord.ButtonStyle.primary)
     async def save_button(self, button, interaction):
         self.poll.set_bans(self.user.id, self.selected_bans)
         for child in self.children:
             child.disabled = True
-        msg = f"Bans saved: {', '.join(self.selected_bans)}" if self.selected_bans else "No bans set. Good luck!"
+        msg = f"Ban saved: {self.selected_bans[0]}" if self.selected_bans else "No ban set. Good luck!"
         await interaction.response.edit_message(content=msg, view=self)
+        await self.message.edit(embed=self.poll.build_embed())
         self.stop()
 
 
@@ -342,6 +344,33 @@ class BapbapView(discord.ui.View):
             view=self,
         )
 
+    async def _run_game(self):
+        global bapbap_poll, bapbap_hero_list
+        self.timeout = None
+        for child in self.children:
+            child.disabled = True
+        try:
+            assignments = bapbap_hero_list.assign(bapbap_poll.users, bapbap_poll.bans)
+        except Exception as e:
+            print(f"[bapbap] assign() failed: {e}")
+            await self.message.edit(
+                embed=discord.Embed(title="Something went wrong assigning heroes.", color=0xC00000),
+                view=self,
+            )
+            return
+        bapbap_collage(assignments)
+        result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
+        for user, (real_hero, display_name) in assignments.items():
+            result_embed.add_field(name=user.display_name, value=display_name, inline=True)
+        result_embed.set_image(url="attachment://bapbap.jpg")
+        bapbap_poll.end()
+        await self.message.edit(
+            embed=result_embed,
+            view=self,
+            file=discord.File("processed/BapbapCollage.jpg", filename="bapbap.jpg"),
+        )
+        shutil.rmtree("processed/")
+
     @discord.ui.button(label="Sign Up", row=0, style=discord.ButtonStyle.success)
     async def signup_button(self, button, interaction):
         global bapbap_poll, bapbap_hero_list
@@ -351,19 +380,29 @@ class BapbapView(discord.ui.View):
             bapbap_poll.user_reacted(user)
             await self.message.edit(embed=bapbap_poll.build_embed(), view=self)
             await interaction.response.defer()
-        else:
-            bapbap_poll.user_reacted(user)
-            ban_view = BanSelectionView(bapbap_poll, bapbap_hero_list, user)
+            return
+
+        bapbap_poll.user_reacted(user)
+        autostart = bapbap_poll.autostart_ready()
+
+        if bapbap_poll.bans_enabled and not autostart:
+            ban_view = BanSelectionView(bapbap_poll, bapbap_hero_list, user, self.message)
             await interaction.response.send_message(
-                "Pick up to 2 heroes to ban from your pool (optional):",
+                "Pick a hero to ban from your pool (optional):",
                 view=ban_view,
                 ephemeral=True,
             )
-            await self.message.edit(embed=bapbap_poll.build_embed(), view=self)
+        else:
+            await interaction.response.defer()
+
+        await self.message.edit(embed=bapbap_poll.build_embed(), view=self)
+
+        if autostart:
+            await self._run_game()
 
     @discord.ui.button(label="Let's Go!", row=0, style=discord.ButtonStyle.primary)
     async def confirm_button(self, button, interaction):
-        global bapbap_poll, bapbap_hero_list
+        global bapbap_poll
 
         if interaction.user != bapbap_poll.owner:
             await interaction.response.send_message("Only the host can start the roll.", ephemeral=True)
@@ -374,29 +413,7 @@ class BapbapView(discord.ui.View):
             return
 
         await interaction.response.defer()
-
-        self.timeout = None
-        for child in self.children:
-            child.disabled = True
-
-        try:
-            assignments = bapbap_hero_list.assign(bapbap_poll.users, bapbap_poll.bans)
-        except Exception as e:
-            print(f"[bapbap] assign() failed: {e}")
-            await interaction.followup.send("Something went wrong assigning heroes.", ephemeral=True)
-            return
-
-        bapbap_collage(assignments)
-
-        result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
-        for user, (real_hero, display_name) in assignments.items():
-            result_embed.add_field(name=user.display_name, value=display_name, inline=True)
-        result_embed.set_image(url="attachment://bapbap.jpg")
-
-        bapbap_poll.end()
-        await self.message.edit(embed=result_embed, view=self,
-                                file=discord.File("processed/BapbapCollage.jpg", filename="bapbap.jpg"))
-        shutil.rmtree("processed/")
+        await self._run_game()
 
     @discord.ui.button(label="Cancel", row=0, style=discord.ButtonStyle.danger)
     async def cancel_button(self, button, interaction):
@@ -438,10 +455,12 @@ async def wiggle(ctx):
 
 
 @bot.slash_command(name="bapbap", description="Random heroes for BAPBAP!")
-async def bapbap(ctx):
+@option("player_count", description="Auto-start when this many players sign up", required=False)
+@option("bans", description="Allow players to ban a hero (default: on)", required=False)
+async def bapbap(ctx, player_count: int = None, bans: bool = True):
     global bapbap_poll
     if not bapbap_poll.active:
-        bapbap_poll.start(ctx.user)
+        bapbap_poll.start(ctx.user, player_count=player_count, bans_enabled=bans)
         view = BapbapView(timeout=get_env_attribute('timeout'))
         await ctx.respond(embed=bapbap_poll.build_embed(), view=view,
                           file=discord.File("services/bapbap/images/Logo.webp", filename="logo.webp"))
