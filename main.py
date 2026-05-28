@@ -468,6 +468,13 @@ async def bapbap(ctx, player_count: int = None, bans: bool = True):
         await ctx.respond("A BAPBAP session is already active.", ephemeral=True)
 
 
+@bot.slash_command(name="bap", description="Get a random BAPBAP hero!")
+async def bap(ctx):
+    hero = random.choice(bapbap_hero_list.heroes)
+    display = bapbap_hero_list._get_display_name(hero)
+    await ctx.respond(f"{ctx.user.mention} got **{display}**!")
+
+
 @bot.slash_command(name="again", description="Another round!")
 async def again(ctx):
     global wiggle_poll
