@@ -2,6 +2,8 @@ name: Redeploy Portainer Stack
 
 on:
   push:
+    branches:
+      - development
   workflow_dispatch:
 
 jobs:
