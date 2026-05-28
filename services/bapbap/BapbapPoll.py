@@ -19,20 +19,27 @@ class BapbapPoll:
         self.bans = {}
         self.owner = None
         self.active = False
+        self.bans_enabled = True
+        self.player_count = None
 
-    def start(self, init_user):
+    def start(self, init_user, player_count=None, bans_enabled=True):
         self.owner = init_user
         self.active = True
+        self.player_count = player_count
+        self.bans_enabled = bans_enabled
 
     def end(self):
         self.users = []
         self.bans = {}
         self.owner = None
         self.active = False
+        self.bans_enabled = True
+        self.player_count = None
 
     def user_reacted(self, user):
         if user in self.users:
             self.users.remove(user)
+            self.bans.pop(user.id, None)
         else:
             self.users.append(user)
 
@@ -45,8 +52,20 @@ class BapbapPoll:
     def ready(self):
         return len(self.users) >= 2
 
+    def autostart_ready(self):
+        return self.player_count is not None and len(self.users) >= self.player_count
+
     def display_user_str(self):
-        return "\n".join([x.mention for x in self.users]) if self.users else "_nobody yet_"
+        if not self.users:
+            return "_nobody yet_"
+        lines = []
+        for user in self.users:
+            if self.bans_enabled:
+                icon = "✅" if user.id in self.bans else "⚠️"
+                lines.append(f"{icon} {user.mention}")
+            else:
+                lines.append(user.mention)
+        return "\n".join(lines)
 
     def build_embed(self):
         embed = discord.Embed(
@@ -55,7 +74,13 @@ class BapbapPoll:
             color=self.embed_color(),
         )
         embed.set_thumbnail(url="attachment://logo.webp")
-        embed.set_footer(text=f"{len(self.users)} player(s) signed up • Host can press Let's Go! when ready")
+        footer_parts = [f"{len(self.users)} player(s) signed up"]
+        if self.player_count:
+            footer_parts.append(f"auto-starts at {self.player_count}")
+        if not self.bans_enabled:
+            footer_parts.append("bans off")
+        footer_parts.append("Host can press Let's Go! when ready")
+        embed.set_footer(text=" • ".join(footer_parts))
         return embed
 
     def embed_color(self):
