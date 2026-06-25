@@ -31,10 +31,13 @@ class UnitView(discord.ui.View):
         self.disable_all_items()
         now = time.time()
         print(f"Button Timeout: {self.created} {self.updated} {now} {now-self.updated} {now-self.created}", )
-        if self.message:
-            await self.message.edit(view=self)
-        else:
-            await self.parent.edit(view=self)
+        try:
+            if self.message:
+                await self.message.edit(view=self)
+            else:
+                await self.parent.edit(view=self)
+        except discord.HTTPException:
+            pass
 
     def get_unit(self):
         return None, self.unit
