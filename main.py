@@ -460,10 +460,14 @@ async def wiggle(ctx):
 async def bapbap(ctx, player_count: int = None, bans: bool = True):
     global bapbap_poll
     if not bapbap_poll.active:
+        await ctx.defer()
         bapbap_poll.start(ctx.user, player_count=player_count, bans_enabled=bans)
         view = BapbapView(timeout=get_env_attribute('timeout'))
-        await ctx.respond(embed=bapbap_poll.build_embed(), view=view,
-                          file=discord.File("services/bapbap/images/Logo.webp", filename="logo.webp"))
+        try:
+            await ctx.followup.send(embed=bapbap_poll.build_embed(), view=view,
+                                    file=discord.File("services/bapbap/images/Logo.webp", filename="logo.webp"))
+        except Exception:
+            bapbap_poll.end()
     else:
         await ctx.respond("A BAPBAP session is already active.", ephemeral=True)
 
