@@ -21,12 +21,17 @@ class BapbapPoll:
         self.active = False
         self.bans_enabled = True
         self.player_count = None
+        self.team_size = None
+        self.previous_users = []
+        self.previous_bans = {}
+        self.previous_team_size = None
 
-    def start(self, init_user, player_count=None, bans_enabled=True):
+    def start(self, init_user, player_count=None, bans_enabled=True, team_size=None):
         self.owner = init_user
         self.active = True
         self.player_count = player_count
         self.bans_enabled = bans_enabled
+        self.team_size = team_size
 
     def end(self):
         self.users = []
@@ -35,6 +40,12 @@ class BapbapPoll:
         self.active = False
         self.bans_enabled = True
         self.player_count = None
+        self.team_size = None
+
+    def snapshot_success(self):
+        self.previous_users = list(self.users)
+        self.previous_bans = dict(self.bans)
+        self.previous_team_size = self.team_size
 
     def user_reacted(self, user):
         if user in self.users:
@@ -77,6 +88,8 @@ class BapbapPoll:
         footer_parts = [f"{len(self.users)} player(s) signed up"]
         if self.player_count:
             footer_parts.append(f"auto-starts at {self.player_count}")
+        if self.team_size:
+            footer_parts.append(f"teams of {self.team_size}")
         if not self.bans_enabled:
             footer_parts.append("bans off")
         footer_parts.append("Host can press Let's Go! when ready")
