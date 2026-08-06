@@ -154,37 +154,79 @@ def collage(hero_picks: List[Pick]):
     out.save("processed/Collage.jpg")
 
 
+BAPBAP_CARD_SCALE = 2
+
+
 def bapbap_image_with_name(image_path, username, heroname):
+    scale = BAPBAP_CARD_SCALE
     portrait = Image.open(image_path)
+    portrait = portrait.resize((portrait.width * scale, portrait.height * scale), Image.LANCZOS)
     out = Image.new('RGB', (portrait.width, portrait.height), color=(47, 49, 54))
     out.paste(portrait, (0, 0))
     width, height = out.size
-    padding = 5
+    padding = 5 * scale
     draw = ImageDraw.Draw(out)
-    font, name_chunks, top_box_height = Hero.scale_font(width - 10, username, 25)
-    draw.text((padding, padding), name_chunks[0], fill=(255, 255, 255), font=font, stroke_width=4, stroke_fill=(0, 0, 0))
-    font, hero_chunks, box_height = Hero.scale_font(width - 10, heroname, 20, height - top_box_height)
+    font, name_chunks, top_box_height = Hero.scale_font(width - 10 * scale, username, 25 * scale)
+    draw.text((padding, padding), name_chunks[0], fill=(255, 255, 255), font=font, stroke_width=4 * scale, stroke_fill=(0, 0, 0))
+    font, hero_chunks, box_height = Hero.scale_font(width - 10 * scale, heroname, 20 * scale, height - top_box_height)
     start_y = height - (box_height * 1.3 * min(len(hero_chunks), 6))
     for t in hero_chunks:
-        draw.text((padding, start_y), t, fill=(255, 255, 255), font=font, stroke_width=3, stroke_fill=(0, 0, 0))
+        draw.text((padding, start_y), t, fill=(255, 255, 255), font=font, stroke_width=3 * scale, stroke_fill=(0, 0, 0))
         start_y += box_height * 1.3
     return out
 
 
-def bapbap_collage(assignments):
-    items = list(assignments.items())
-    n = len(items)
-    cols = 2
-    rows = math.ceil(n / cols)
-    cards = [bapbap_image_with_name(f"services/bapbap/images/{real_hero}.png", user.display_name, display_name)
-             for user, (real_hero, display_name) in items]
-    single_width = max(c.width for c in cards)
-    single_height = max(c.height for c in cards)
-    out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54))
-    for i, card in enumerate(cards):
-        col = i % cols
-        row = i // cols
-        out.paste(card, (col * single_width, row * single_height))
+def bapbap_split_teams(users, team_size):
+    if not team_size:
+        return None
+    shuffled = list(users)
+    random.shuffle(shuffled)
+    return [shuffled[i:i + team_size] for i in range(0, len(shuffled), team_size)]
+
+
+def bapbap_result_embed(assignments, teams):
+    result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
+    if teams:
+        for idx, team in enumerate(teams, 1):
+            value = "\n".join(f"{u.mention} ({assignments[u][0]})" for u in team)
+            result_embed.add_field(name=f"Team {idx}", value=value, inline=True)
+    else:
+        for user, (real_hero, display_name) in assignments.items():
+            result_embed.add_field(name=user.display_name, value=real_hero, inline=True)
+    result_embed.set_image(url="attachment://bapbap.jpg")
+    return result_embed
+
+
+def bapbap_collage(assignments, teams=None):
+    scale = BAPBAP_CARD_SCALE
+    cards = {user: bapbap_image_with_name(f"services/bapbap/images/{real_hero}.png", user.display_name, display_name)
+             for user, (real_hero, display_name) in assignments.items()}
+    single_width = max(c.width for c in cards.values())
+    single_height = max(c.height for c in cards.values())
+    if teams:
+        cols = max(len(team) for team in teams)
+        header_height = 35 * scale
+        out = Image.new('RGB', (single_width * cols, (header_height + single_height) * len(teams)), color=(47, 49, 54))
+        draw = ImageDraw.Draw(out)
+        y = 0
+        for idx, team in enumerate(teams, 1):
+            label = f"Team {idx}"
+            font, chunks, box_height = Hero.scale_font(out.width - 10 * scale, label, 25 * scale)
+            draw.text((5 * scale, y + (header_height - box_height) // 2), chunks[0],
+                      fill=(255, 255, 255), font=font, stroke_width=2 * scale, stroke_fill=(0, 0, 0))
+            y += header_height
+            for i, user in enumerate(team):
+                out.paste(cards[user], (i * single_width, y))
+            y += single_height
+    else:
+        n = len(cards)
+        cols = min(3, n)
+        rows = math.ceil(n / cols)
+        out = Image.new('RGB', (single_width * cols, single_height * rows), color=(47, 49, 54))
+        for i, card in enumerate(cards.values()):
+            col = i % cols
+            row = i // cols
+            out.paste(card, (col * single_width, row * single_height))
     if not (os.path.exists("processed") and os.path.isdir("processed")):
         os.mkdir("processed")
     out.save("processed/BapbapCollage.jpg")
@@ -346,6 +388,9 @@ class BapbapView(discord.ui.View):
 
     async def _run_game(self):
         global bapbap_poll, bapbap_hero_list
+        if bapbap_poll.team_size and len(bapbap_poll.users) % bapbap_poll.team_size != 0:
+            await self.message.edit(embed=bapbap_poll.build_embed(), view=self)
+            return
         self.timeout = None
         for child in self.children:
             child.disabled = True
@@ -358,11 +403,10 @@ class BapbapView(discord.ui.View):
                 view=self,
             )
             return
-        bapbap_collage(assignments)
-        result_embed = discord.Embed(title="BAPBAP — Heroes Assigned!", color=0x9900FF)
-        for user, (real_hero, display_name) in assignments.items():
-            result_embed.add_field(name=user.display_name, value=display_name, inline=True)
-        result_embed.set_image(url="attachment://bapbap.jpg")
+        teams = bapbap_split_teams(bapbap_poll.users, bapbap_poll.team_size)
+        bapbap_collage(assignments, teams)
+        result_embed = bapbap_result_embed(assignments, teams)
+        bapbap_poll.snapshot_success()
         bapbap_poll.end()
         await self.message.edit(
             embed=result_embed,
@@ -412,6 +456,16 @@ class BapbapView(discord.ui.View):
             await interaction.response.send_message("Need at least 2 players!", ephemeral=True)
             return
 
+        if bapbap_poll.team_size:
+            n = len(bapbap_poll.users)
+            if n < bapbap_poll.team_size * 2 or n % bapbap_poll.team_size != 0:
+                await interaction.response.send_message(
+                    f"Teams of {bapbap_poll.team_size} need a player count divisible by "
+                    f"{bapbap_poll.team_size} (currently {n}). Waiting for more players!",
+                    ephemeral=True,
+                )
+                return
+
         await interaction.response.defer()
         await self._run_game()
 
@@ -457,11 +511,15 @@ async def wiggle(ctx):
 @bot.slash_command(name="bapbap", description="Random heroes for BAPBAP!")
 @option("player_count", description="Auto-start when this many players sign up", required=False)
 @option("bans", description="Allow players to ban a hero (default: on)", required=False)
-async def bapbap(ctx, player_count: int = None, bans: bool = True):
+@option("team_size", description="Players per team (omit for FFA)", required=False, choices=[2, 3, 4])
+async def bapbap(ctx, player_count: int = None, bans: bool = True, team_size: int = None):
     global bapbap_poll
+    if team_size and player_count and (player_count % team_size != 0 or player_count < team_size * 2):
+        await ctx.respond(f"player_count {player_count} doesn't split into teams of {team_size}.", ephemeral=True)
+        return
     if not bapbap_poll.active:
         await ctx.defer()
-        bapbap_poll.start(ctx.user, player_count=player_count, bans_enabled=bans)
+        bapbap_poll.start(ctx.user, player_count=player_count, bans_enabled=bans, team_size=team_size)
         view = BapbapView(timeout=get_env_attribute('timeout'))
         try:
             await ctx.followup.send(embed=bapbap_poll.build_embed(), view=view,
@@ -504,6 +562,29 @@ async def again(ctx):
         await ctx.response.send_message(embed=display_embed, file=discord.File("processed/Collage.jpg", filename="image.jpg"))
         wiggle_poll.end()
         shutil.rmtree("processed/")
+
+
+@bot.slash_command(name="bapagain", description="Reroll heroes for the last BAPBAP crew!")
+async def bapagain(ctx):
+    global bapbap_poll, bapbap_hero_list
+    if bapbap_poll.active:
+        await ctx.respond("A BAPBAP session is already active.", ephemeral=True)
+        return
+    if not bapbap_poll.previous_users:
+        await ctx.respond("Can't run it back if there was no prior BAPBAP!", ephemeral=True)
+        return
+    await ctx.defer()
+    try:
+        assignments = bapbap_hero_list.assign(bapbap_poll.previous_users, bapbap_poll.previous_bans)
+    except Exception as e:
+        print(f"[bapbap] assign() failed: {e}")
+        await ctx.followup.send(embed=discord.Embed(title="Something went wrong assigning heroes.", color=0xC00000))
+        return
+    teams = bapbap_split_teams(bapbap_poll.previous_users, bapbap_poll.previous_team_size)
+    bapbap_collage(assignments, teams)
+    await ctx.followup.send(embed=bapbap_result_embed(assignments, teams),
+                            file=discord.File("processed/BapbapCollage.jpg", filename="bapbap.jpg"))
+    shutil.rmtree("processed/")
 
 
 @bot.slash_command(name="debug", description="Info")
